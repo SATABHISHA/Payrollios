@@ -1,0 +1,6 @@
+framework module Pods_WrkplanPayroll_WrkplanPayrollUITests {
+  umbrella header "Pods-WrkplanPayroll-WrkplanPayrollUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

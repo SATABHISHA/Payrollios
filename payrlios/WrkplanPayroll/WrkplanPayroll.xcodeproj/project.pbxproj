@@ -1,0 +1,1148 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */; };
+		172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172246F52567B250006EDF5B /* EmployeeInformation.storyboard */; };
+		1722940D256E800C0008D808 /* Leave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1722940C256E800C0008D808 /* Leave.storyboard */; };
+		17229413256E807B0008D808 /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17229412256E807B0008D808 /* LeaveViewController.swift */; };
+		172D28C22575012900C6E2A6 /* HolidayDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172D28C12575012900C6E2A6 /* HolidayDetails.storyboard */; };
+		172D28C7257501DA00C6E2A6 /* HolidayDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D28C6257501DA00C6E2A6 /* HolidayDetailsViewController.swift */; };
+		172D28CC25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D28CB25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift */; };
+		172D28D1257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D28D0257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift */; };
+		172FBE232570345A00422A2D /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172FBE222570345A00422A2D /* FileDownloader.swift */; };
+		173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F1A25626FB9007AE8F6 /* AppDelegate.swift */; };
+		173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F1C25626FB9007AE8F6 /* SceneDelegate.swift */; };
+		173C0F1F25626FB9007AE8F6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F1E25626FB9007AE8F6 /* LoginViewController.swift */; };
+		173C0F2225626FB9007AE8F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173C0F2025626FB9007AE8F6 /* Main.storyboard */; };
+		173C0F2525626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F2325626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld */; };
+		173C0F2725626FBE007AE8F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173C0F2625626FBE007AE8F6 /* Assets.xcassets */; };
+		173C0F2A25626FBE007AE8F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173C0F2825626FBE007AE8F6 /* LaunchScreen.storyboard */; };
+		173C0F3525626FBF007AE8F6 /* WrkplanPayrollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F3425626FBF007AE8F6 /* WrkplanPayrollTests.swift */; };
+		173C0F4025626FBF007AE8F6 /* WrkplanPayrollUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F3F25626FBF007AE8F6 /* WrkplanPayrollUITests.swift */; };
+		1745964A256F8CBB00DD6932 /* EmployeeFacilitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17459649256F8CBB00DD6932 /* EmployeeFacilitiesViewController.swift */; };
+		17459653256F8CDE00DD6932 /* EmployeeFacilities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17459652256F8CDE00DD6932 /* EmployeeFacilities.storyboard */; };
+		17459658256FA53100DD6932 /* EmployeeFacilitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17459657256FA53100DD6932 /* EmployeeFacilitiesTableViewCell.swift */; };
+		1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A8CF2577B69F005DE336 /* HolidayDetailsCalendarViewController.swift */; };
+		1745A8D62577B993005DE336 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 1745A8D52577B993005DE336 /* FSCalendar */; };
+		17513FEB257E172F0090EFD5 /* SubordinateLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17513FEA257E172F0090EFD5 /* SubordinateLog.storyboard */; };
+		17513FF0257E175C0090EFD5 /* SubordinateLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17513FEF257E175C0090EFD5 /* SubordinateLogViewController.swift */; };
+		17513FF5257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17513FF4257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift */; };
+		17513FFA257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17513FF9257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard */; };
+		17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17513FFE257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift */; };
+		176224F12570CE79005F6C5B /* CompanyDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */; };
+		176224F72570CEB9005F6C5B /* CompanyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176224F62570CEB9005F6C5B /* CompanyDocumentsViewController.swift */; };
+		176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176224FE2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift */; };
+		1762250725711849005F6C5B /* InsuranceDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1762250625711849005F6C5B /* InsuranceDetail.storyboard */; };
+		1762250C2571197E005F6C5B /* InsuranceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762250B2571197E005F6C5B /* InsuranceDetailViewController.swift */; };
+		1762251125713EA1005F6C5B /* InsuranceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762251025713EA1005F6C5B /* InsuranceDetailTableViewCell.swift */; };
+		17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17627D99257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift */; };
+		17723CBB2563A688002754DB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17723CBA2563A688002754DB /* Home.storyboard */; };
+		17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17723CCB2563BCE1002754DB /* HomeViewController.swift */; };
+		178A107C2566799300569712 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A107B2566799300569712 /* Connectivity.swift */; };
+		178A1086256679B900569712 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A1085256679B900569712 /* AppConfig.swift */; };
+		178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A108B25667A7A00569712 /* UserSingletonModel.swift */; };
+		17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */; };
+		17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */; };
+		17B05E6E2579151700CBC3C9 /* CustomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E6D2579151600CBC3C9 /* CustomBorder.swift */; };
+		17D94E47256FC4FF001A28E3 /* EmployeeDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */; };
+		17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */; };
+		17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */; };
+		17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E5777F257A148D00F10376 /* MyAttendance.storyboard */; };
+		17E57788257A342100F10376 /* MyAttendanceLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */; };
+		17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */; };
+		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
+		BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
+		F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		173C0F3125626FBF007AE8F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 173C0F0F25626FB9007AE8F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 173C0F1625626FB9007AE8F6;
+			remoteInfo = WrkplanPayroll;
+		};
+		173C0F3C25626FBF007AE8F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 173C0F0F25626FB9007AE8F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 173C0F1625626FB9007AE8F6;
+			remoteInfo = WrkplanPayroll;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; sourceTree = "<group>"; };
+		172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInformationViewController.swift; sourceTree = "<group>"; };
+		172246F52567B250006EDF5B /* EmployeeInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeInformation.storyboard; sourceTree = "<group>"; };
+		1722940C256E800C0008D808 /* Leave.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Leave.storyboard; sourceTree = "<group>"; };
+		17229412256E807B0008D808 /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
+		172D28C12575012900C6E2A6 /* HolidayDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HolidayDetails.storyboard; sourceTree = "<group>"; };
+		172D28C6257501DA00C6E2A6 /* HolidayDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailsViewController.swift; sourceTree = "<group>"; };
+		172D28CB25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailsCustomTabBarViewController.swift; sourceTree = "<group>"; };
+		172D28D0257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		172FBE222570345A00422A2D /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
+		173C0F1725626FB9007AE8F6 /* WrkplanPayroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WrkplanPayroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		173C0F1A25626FB9007AE8F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		173C0F1C25626FB9007AE8F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		173C0F1E25626FB9007AE8F6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		173C0F2125626FB9007AE8F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		173C0F2425626FB9007AE8F6 /* WrkplanPayroll.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WrkplanPayroll.xcdatamodel; sourceTree = "<group>"; };
+		173C0F2625626FBE007AE8F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		173C0F2925626FBE007AE8F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		173C0F2B25626FBE007AE8F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		173C0F3025626FBF007AE8F6 /* WrkplanPayrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrkplanPayrollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		173C0F3425626FBF007AE8F6 /* WrkplanPayrollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrkplanPayrollTests.swift; sourceTree = "<group>"; };
+		173C0F3625626FBF007AE8F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		173C0F3B25626FBF007AE8F6 /* WrkplanPayrollUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WrkplanPayrollUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		173C0F3F25626FBF007AE8F6 /* WrkplanPayrollUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrkplanPayrollUITests.swift; sourceTree = "<group>"; };
+		173C0F4125626FBF007AE8F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17459649256F8CBB00DD6932 /* EmployeeFacilitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeFacilitiesViewController.swift; sourceTree = "<group>"; };
+		17459652256F8CDE00DD6932 /* EmployeeFacilities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeFacilities.storyboard; sourceTree = "<group>"; };
+		17459657256FA53100DD6932 /* EmployeeFacilitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeFacilitiesTableViewCell.swift; sourceTree = "<group>"; };
+		1745A8CF2577B69F005DE336 /* HolidayDetailsCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDetailsCalendarViewController.swift; sourceTree = "<group>"; };
+		17513FEA257E172F0090EFD5 /* SubordinateLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateLog.storyboard; sourceTree = "<group>"; };
+		17513FEF257E175C0090EFD5 /* SubordinateLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLogViewController.swift; sourceTree = "<group>"; };
+		17513FF4257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLogTableViewCell.swift; sourceTree = "<group>"; };
+		17513FF9257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateMyAttendanceLog.storyboard; sourceTree = "<group>"; };
+		17513FFE257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateMyAttendanceLogViewController.swift; sourceTree = "<group>"; };
+		176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompanyDocuments.storyboard; sourceTree = "<group>"; };
+		176224F62570CEB9005F6C5B /* CompanyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDocumentsViewController.swift; sourceTree = "<group>"; };
+		176224FE2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDocumentsTableViewCell.swift; sourceTree = "<group>"; };
+		1762250625711849005F6C5B /* InsuranceDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InsuranceDetail.storyboard; sourceTree = "<group>"; };
+		1762250B2571197E005F6C5B /* InsuranceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceDetailViewController.swift; sourceTree = "<group>"; };
+		1762251025713EA1005F6C5B /* InsuranceDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceDetailTableViewCell.swift; sourceTree = "<group>"; };
+		17627D99257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceTableViewCell.swift; sourceTree = "<group>"; };
+		17723CBA2563A688002754DB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		17723CCB2563BCE1002754DB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		178A107B2566799300569712 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connectivity.swift; path = "../../../../git/timesheet-us/ios/newtimesheetapp/newtimesheetapp/Config/Connectivity.swift"; sourceTree = "<group>"; };
+		178A1085256679B900569712 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		178A108B25667A7A00569712 /* UserSingletonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingletonModel.swift; sourceTree = "<group>"; };
+		17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
+		17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceViewController.swift; sourceTree = "<group>"; };
+		17B05E6D2579151600CBC3C9 /* CustomBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorder.swift; sourceTree = "<group>"; };
+		17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeDocuments.storyboard; sourceTree = "<group>"; };
+		17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsViewController.swift; sourceTree = "<group>"; };
+		17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsTableViewCell.swift; sourceTree = "<group>"; };
+		17E5777F257A148D00F10376 /* MyAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyAttendance.storyboard; sourceTree = "<group>"; };
+		17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogViewController.swift; sourceTree = "<group>"; };
+		17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogTableViewCell.swift; sourceTree = "<group>"; };
+		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
+		4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8BEAE02B5909149437B1CFEB /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8E0DAEEA997D097B53FA350 /* Pods-WrkplanPayrollTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.release.xcconfig"; sourceTree = "<group>"; };
+		B1C2338ADEEB8558CF5957C9 /* Pods-WrkplanPayroll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.release.xcconfig"; sourceTree = "<group>"; };
+		C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayroll_WrkplanPayrollUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		173C0F1425626FB9007AE8F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */,
+				1745A8D62577B993005DE336 /* FSCalendar in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C0F2D25626FBF007AE8F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C0F3825626FBF007AE8F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13B7D9826D355203E0B44D74 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */,
+				B1C2338ADEEB8558CF5957C9 /* Pods-WrkplanPayroll.release.xcconfig */,
+				8BEAE02B5909149437B1CFEB /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */,
+				0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */,
+				7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */,
+				A8E0DAEEA997D097B53FA350 /* Pods-WrkplanPayrollTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		172246DF2567A1C0006EDF5B /* EmployeeInformation */ = {
+			isa = PBXGroup;
+			children = (
+				172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */,
+			);
+			path = EmployeeInformation;
+			sourceTree = "<group>";
+		};
+		172246F42567B231006EDF5B /* EmployeeInformation */ = {
+			isa = PBXGroup;
+			children = (
+				172246F52567B250006EDF5B /* EmployeeInformation.storyboard */,
+			);
+			path = EmployeeInformation;
+			sourceTree = "<group>";
+		};
+		1722940B256E7FEB0008D808 /* Leave */ = {
+			isa = PBXGroup;
+			children = (
+				1722940C256E800C0008D808 /* Leave.storyboard */,
+			);
+			path = Leave;
+			sourceTree = "<group>";
+		};
+		17229411256E80610008D808 /* Leave */ = {
+			isa = PBXGroup;
+			children = (
+				17229412256E807B0008D808 /* LeaveViewController.swift */,
+			);
+			path = Leave;
+			sourceTree = "<group>";
+		};
+		172D28BF257500D500C6E2A6 /* HolidayDetails */ = {
+			isa = PBXGroup;
+			children = (
+				172D28C12575012900C6E2A6 /* HolidayDetails.storyboard */,
+			);
+			path = HolidayDetails;
+			sourceTree = "<group>";
+		};
+		172D28C0257500F400C6E2A6 /* HolidayDetails */ = {
+			isa = PBXGroup;
+			children = (
+				172D28C6257501DA00C6E2A6 /* HolidayDetailsViewController.swift */,
+				172D28CB25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift */,
+				172D28D0257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift */,
+				1745A8CF2577B69F005DE336 /* HolidayDetailsCalendarViewController.swift */,
+			);
+			path = HolidayDetails;
+			sourceTree = "<group>";
+		};
+		173C0F0E25626FB9007AE8F6 = {
+			isa = PBXGroup;
+			children = (
+				173C0F1925626FB9007AE8F6 /* WrkplanPayroll */,
+				173C0F3325626FBF007AE8F6 /* WrkplanPayrollTests */,
+				173C0F3E25626FBF007AE8F6 /* WrkplanPayrollUITests */,
+				173C0F1825626FB9007AE8F6 /* Products */,
+				13B7D9826D355203E0B44D74 /* Pods */,
+				33AC7048929A23A2D82489A1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		173C0F1825626FB9007AE8F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				173C0F1725626FB9007AE8F6 /* WrkplanPayroll.app */,
+				173C0F3025626FBF007AE8F6 /* WrkplanPayrollTests.xctest */,
+				173C0F3B25626FBF007AE8F6 /* WrkplanPayrollUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		173C0F1925626FB9007AE8F6 /* WrkplanPayroll */ = {
+			isa = PBXGroup;
+			children = (
+				178A108A25667A5700569712 /* UserModelClass */,
+				173C0F5A25627AAA007AE8F6 /* Config */,
+				173C0F55256272B2007AE8F6 /* View */,
+				173C0F5325627183007AE8F6 /* Controller */,
+				173C0F1A25626FB9007AE8F6 /* AppDelegate.swift */,
+				173C0F1C25626FB9007AE8F6 /* SceneDelegate.swift */,
+				173C0F2625626FBE007AE8F6 /* Assets.xcassets */,
+				173C0F2825626FBE007AE8F6 /* LaunchScreen.storyboard */,
+				173C0F2B25626FBE007AE8F6 /* Info.plist */,
+				173C0F2325626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld */,
+			);
+			path = WrkplanPayroll;
+			sourceTree = "<group>";
+		};
+		173C0F3325626FBF007AE8F6 /* WrkplanPayrollTests */ = {
+			isa = PBXGroup;
+			children = (
+				173C0F3425626FBF007AE8F6 /* WrkplanPayrollTests.swift */,
+				173C0F3625626FBF007AE8F6 /* Info.plist */,
+			);
+			path = WrkplanPayrollTests;
+			sourceTree = "<group>";
+		};
+		173C0F3E25626FBF007AE8F6 /* WrkplanPayrollUITests */ = {
+			isa = PBXGroup;
+			children = (
+				173C0F3F25626FBF007AE8F6 /* WrkplanPayrollUITests.swift */,
+				173C0F4125626FBF007AE8F6 /* Info.plist */,
+			);
+			path = WrkplanPayrollUITests;
+			sourceTree = "<group>";
+		};
+		173C0F5325627183007AE8F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				17B05E4A2578C58B00CBC3C9 /* Timesheet */,
+				172D28C0257500F400C6E2A6 /* HolidayDetails */,
+				1762250425711820005F6C5B /* InsuranceDetail */,
+				176224F52570CE96005F6C5B /* CompanyDocuments */,
+				17D94E4B256FC775001A28E3 /* EmployeeDocuments */,
+				17459648256F8C9E00DD6932 /* EmployeeFacilities */,
+				17229411256E80610008D808 /* Leave */,
+				172246DF2567A1C0006EDF5B /* EmployeeInformation */,
+				17723CBF2563B1E0002754DB /* Home */,
+				173C0F54256271A2007AE8F6 /* Login */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		173C0F54256271A2007AE8F6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				173C0F1E25626FB9007AE8F6 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		173C0F55256272B2007AE8F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17B05E492578C57E00CBC3C9 /* Timesheet */,
+				172D28BF257500D500C6E2A6 /* HolidayDetails */,
+				1762250525711832005F6C5B /* InsuranceDetail */,
+				176224EF2570CE58005F6C5B /* CompanyDocuments */,
+				17D94E45256FC4D3001A28E3 /* EmployeeDocuments */,
+				17459651256F8CC300DD6932 /* EmployeeFacilities */,
+				1722940B256E7FEB0008D808 /* Leave */,
+				172246F42567B231006EDF5B /* EmployeeInformation */,
+				17723CB92563A641002754DB /* Home */,
+				173C0F56256272C3007AE8F6 /* Login */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		173C0F56256272C3007AE8F6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				173C0F2025626FB9007AE8F6 /* Main.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		173C0F5A25627AAA007AE8F6 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				178A1085256679B900569712 /* AppConfig.swift */,
+				178A107B2566799300569712 /* Connectivity.swift */,
+				172FBE222570345A00422A2D /* FileDownloader.swift */,
+				17B05E6D2579151600CBC3C9 /* CustomBorder.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		17459648256F8C9E00DD6932 /* EmployeeFacilities */ = {
+			isa = PBXGroup;
+			children = (
+				17459649256F8CBB00DD6932 /* EmployeeFacilitiesViewController.swift */,
+				17459657256FA53100DD6932 /* EmployeeFacilitiesTableViewCell.swift */,
+			);
+			path = EmployeeFacilities;
+			sourceTree = "<group>";
+		};
+		17459651256F8CC300DD6932 /* EmployeeFacilities */ = {
+			isa = PBXGroup;
+			children = (
+				17459652256F8CDE00DD6932 /* EmployeeFacilities.storyboard */,
+			);
+			path = EmployeeFacilities;
+			sourceTree = "<group>";
+		};
+		176224EF2570CE58005F6C5B /* CompanyDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */,
+			);
+			path = CompanyDocuments;
+			sourceTree = "<group>";
+		};
+		176224F52570CE96005F6C5B /* CompanyDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				176224F62570CEB9005F6C5B /* CompanyDocumentsViewController.swift */,
+				176224FE2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift */,
+			);
+			path = CompanyDocuments;
+			sourceTree = "<group>";
+		};
+		1762250425711820005F6C5B /* InsuranceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1762250B2571197E005F6C5B /* InsuranceDetailViewController.swift */,
+				1762251025713EA1005F6C5B /* InsuranceDetailTableViewCell.swift */,
+			);
+			path = InsuranceDetail;
+			sourceTree = "<group>";
+		};
+		1762250525711832005F6C5B /* InsuranceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1762250625711849005F6C5B /* InsuranceDetail.storyboard */,
+			);
+			path = InsuranceDetail;
+			sourceTree = "<group>";
+		};
+		17723CB92563A641002754DB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				17723CBA2563A688002754DB /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		17723CBF2563B1E0002754DB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				17723CCB2563BCE1002754DB /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		178A108A25667A5700569712 /* UserModelClass */ = {
+			isa = PBXGroup;
+			children = (
+				178A108B25667A7A00569712 /* UserSingletonModel.swift */,
+			);
+			path = UserModelClass;
+			sourceTree = "<group>";
+		};
+		17B05E492578C57E00CBC3C9 /* Timesheet */ = {
+			isa = PBXGroup;
+			children = (
+				17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */,
+				17E5777F257A148D00F10376 /* MyAttendance.storyboard */,
+				17513FEA257E172F0090EFD5 /* SubordinateLog.storyboard */,
+				17513FF9257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard */,
+			);
+			path = Timesheet;
+			sourceTree = "<group>";
+		};
+		17B05E4A2578C58B00CBC3C9 /* Timesheet */ = {
+			isa = PBXGroup;
+			children = (
+				17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */,
+				17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */,
+				17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */,
+				17513FEF257E175C0090EFD5 /* SubordinateLogViewController.swift */,
+				17513FF4257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift */,
+				17513FFE257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift */,
+				17627D99257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift */,
+			);
+			path = Timesheet;
+			sourceTree = "<group>";
+		};
+		17D94E45256FC4D3001A28E3 /* EmployeeDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */,
+			);
+			path = EmployeeDocuments;
+			sourceTree = "<group>";
+		};
+		17D94E4B256FC775001A28E3 /* EmployeeDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */,
+				17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */,
+			);
+			path = EmployeeDocuments;
+			sourceTree = "<group>";
+		};
+		33AC7048929A23A2D82489A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */,
+				CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */,
+				4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		173C0F1625626FB9007AE8F6 /* WrkplanPayroll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173C0F4425626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayroll" */;
+			buildPhases = (
+				D54D8EAF42830137FFAEAE4F /* [CP] Check Pods Manifest.lock */,
+				173C0F1325626FB9007AE8F6 /* Sources */,
+				173C0F1425626FB9007AE8F6 /* Frameworks */,
+				173C0F1525626FB9007AE8F6 /* Resources */,
+				657A8CD731797658709DB5FC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WrkplanPayroll;
+			packageProductDependencies = (
+				1745A8D52577B993005DE336 /* FSCalendar */,
+			);
+			productName = WrkplanPayroll;
+			productReference = 173C0F1725626FB9007AE8F6 /* WrkplanPayroll.app */;
+			productType = "com.apple.product-type.application";
+		};
+		173C0F2F25626FBF007AE8F6 /* WrkplanPayrollTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173C0F4725626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayrollTests" */;
+			buildPhases = (
+				DEC4860BA7C1C2DF729D0AB9 /* [CP] Check Pods Manifest.lock */,
+				173C0F2C25626FBF007AE8F6 /* Sources */,
+				173C0F2D25626FBF007AE8F6 /* Frameworks */,
+				173C0F2E25626FBF007AE8F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				173C0F3225626FBF007AE8F6 /* PBXTargetDependency */,
+			);
+			name = WrkplanPayrollTests;
+			productName = WrkplanPayrollTests;
+			productReference = 173C0F3025626FBF007AE8F6 /* WrkplanPayrollTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		173C0F3A25626FBF007AE8F6 /* WrkplanPayrollUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173C0F4A25626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayrollUITests" */;
+			buildPhases = (
+				6391CF0F57A3A92A75F80325 /* [CP] Check Pods Manifest.lock */,
+				173C0F3725626FBF007AE8F6 /* Sources */,
+				173C0F3825626FBF007AE8F6 /* Frameworks */,
+				173C0F3925626FBF007AE8F6 /* Resources */,
+				998F0219B0AA0E548DE81922 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				173C0F3D25626FBF007AE8F6 /* PBXTargetDependency */,
+			);
+			name = WrkplanPayrollUITests;
+			productName = WrkplanPayrollUITests;
+			productReference = 173C0F3B25626FBF007AE8F6 /* WrkplanPayrollUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		173C0F0F25626FB9007AE8F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					173C0F1625626FB9007AE8F6 = {
+						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1220;
+					};
+					173C0F2F25626FBF007AE8F6 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 173C0F1625626FB9007AE8F6;
+					};
+					173C0F3A25626FBF007AE8F6 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 173C0F1625626FB9007AE8F6;
+					};
+				};
+			};
+			buildConfigurationList = 173C0F1225626FB9007AE8F6 /* Build configuration list for PBXProject "WrkplanPayroll" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 173C0F0E25626FB9007AE8F6;
+			packageReferences = (
+				1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
+			productRefGroup = 173C0F1825626FB9007AE8F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				173C0F1625626FB9007AE8F6 /* WrkplanPayroll */,
+				173C0F2F25626FBF007AE8F6 /* WrkplanPayrollTests */,
+				173C0F3A25626FBF007AE8F6 /* WrkplanPayrollUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		173C0F1525626FB9007AE8F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				172D28C22575012900C6E2A6 /* HolidayDetails.storyboard in Resources */,
+				173C0F2A25626FBE007AE8F6 /* LaunchScreen.storyboard in Resources */,
+				17459653256F8CDE00DD6932 /* EmployeeFacilities.storyboard in Resources */,
+				17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */,
+				1762250725711849005F6C5B /* InsuranceDetail.storyboard in Resources */,
+				17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */,
+				172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */,
+				1722940D256E800C0008D808 /* Leave.storyboard in Resources */,
+				17513FEB257E172F0090EFD5 /* SubordinateLog.storyboard in Resources */,
+				173C0F2725626FBE007AE8F6 /* Assets.xcassets in Resources */,
+				17D94E47256FC4FF001A28E3 /* EmployeeDocuments.storyboard in Resources */,
+				176224F12570CE79005F6C5B /* CompanyDocuments.storyboard in Resources */,
+				17513FFA257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard in Resources */,
+				173C0F2225626FB9007AE8F6 /* Main.storyboard in Resources */,
+				17723CBB2563A688002754DB /* Home.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C0F2E25626FBF007AE8F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C0F3925626FBF007AE8F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6391CF0F57A3A92A75F80325 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WrkplanPayroll-WrkplanPayrollUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		657A8CD731797658709DB5FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		998F0219B0AA0E548DE81922 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D54D8EAF42830137FFAEAE4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WrkplanPayroll-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEC4860BA7C1C2DF729D0AB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WrkplanPayrollTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		173C0F1325626FB9007AE8F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */,
+				172D28C7257501DA00C6E2A6 /* HolidayDetailsViewController.swift in Sources */,
+				173C0F1F25626FB9007AE8F6 /* LoginViewController.swift in Sources */,
+				17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */,
+				173C0F2525626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld in Sources */,
+				17E57788257A342100F10376 /* MyAttendanceLogViewController.swift in Sources */,
+				17459658256FA53100DD6932 /* EmployeeFacilitiesTableViewCell.swift in Sources */,
+				17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */,
+				172D28D1257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift in Sources */,
+				178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */,
+				1762250C2571197E005F6C5B /* InsuranceDetailViewController.swift in Sources */,
+				172D28CC25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift in Sources */,
+				17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */,
+				17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */,
+				17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */,
+				178A107C2566799300569712 /* Connectivity.swift in Sources */,
+				17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */,
+				172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */,
+				1762251125713EA1005F6C5B /* InsuranceDetailTableViewCell.swift in Sources */,
+				17513FF5257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift in Sources */,
+				172FBE232570345A00422A2D /* FileDownloader.swift in Sources */,
+				17B05E6E2579151700CBC3C9 /* CustomBorder.swift in Sources */,
+				17229413256E807B0008D808 /* LeaveViewController.swift in Sources */,
+				178A1086256679B900569712 /* AppConfig.swift in Sources */,
+				1745964A256F8CBB00DD6932 /* EmployeeFacilitiesViewController.swift in Sources */,
+				173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */,
+				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,
+				173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */,
+				1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */,
+				17513FF0257E175C0090EFD5 /* SubordinateLogViewController.swift in Sources */,
+				176224F72570CEB9005F6C5B /* CompanyDocumentsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C0F2C25626FBF007AE8F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173C0F3525626FBF007AE8F6 /* WrkplanPayrollTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173C0F3725626FBF007AE8F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173C0F4025626FBF007AE8F6 /* WrkplanPayrollUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		173C0F3225626FBF007AE8F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 173C0F1625626FB9007AE8F6 /* WrkplanPayroll */;
+			targetProxy = 173C0F3125626FBF007AE8F6 /* PBXContainerItemProxy */;
+		};
+		173C0F3D25626FBF007AE8F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 173C0F1625626FB9007AE8F6 /* WrkplanPayroll */;
+			targetProxy = 173C0F3C25626FBF007AE8F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		173C0F2025626FB9007AE8F6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				173C0F2125626FB9007AE8F6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		173C0F2825626FBE007AE8F6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				173C0F2925626FBE007AE8F6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		173C0F4225626FBF007AE8F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		173C0F4325626FBF007AE8F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		173C0F4525626FBF007AE8F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M2U5RK3QT;
+				INFOPLIST_FILE = WrkplanPayroll/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		173C0F4625626FBF007AE8F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1C2338ADEEB8558CF5957C9 /* Pods-WrkplanPayroll.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M2U5RK3QT;
+				INFOPLIST_FILE = WrkplanPayroll/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		173C0F4825626FBF007AE8F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M2U5RK3QT;
+				INFOPLIST_FILE = WrkplanPayrollTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll.WrkplanPayrollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WrkplanPayroll.app/WrkplanPayroll";
+			};
+			name = Debug;
+		};
+		173C0F4925626FBF007AE8F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8E0DAEEA997D097B53FA350 /* Pods-WrkplanPayrollTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M2U5RK3QT;
+				INFOPLIST_FILE = WrkplanPayrollTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll.WrkplanPayrollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WrkplanPayroll.app/WrkplanPayroll";
+			};
+			name = Release;
+		};
+		173C0F4B25626FBF007AE8F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BEAE02B5909149437B1CFEB /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M2U5RK3QT;
+				INFOPLIST_FILE = WrkplanPayrollUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll.WrkplanPayrollUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WrkplanPayroll;
+			};
+			name = Debug;
+		};
+		173C0F4C25626FBF007AE8F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9M2U5RK3QT;
+				INFOPLIST_FILE = WrkplanPayrollUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll.WrkplanPayrollUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WrkplanPayroll;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		173C0F1225626FB9007AE8F6 /* Build configuration list for PBXProject "WrkplanPayroll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C0F4225626FBF007AE8F6 /* Debug */,
+				173C0F4325626FBF007AE8F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173C0F4425626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayroll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C0F4525626FBF007AE8F6 /* Debug */,
+				173C0F4625626FBF007AE8F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173C0F4725626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayrollTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C0F4825626FBF007AE8F6 /* Debug */,
+				173C0F4925626FBF007AE8F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173C0F4A25626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayrollUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173C0F4B25626FBF007AE8F6 /* Debug */,
+				173C0F4C25626FBF007AE8F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1745A8D52577B993005DE336 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		173C0F2325626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				173C0F2425626FB9007AE8F6 /* WrkplanPayroll.xcdatamodel */,
+			);
+			currentVersion = 173C0F2425626FB9007AE8F6 /* WrkplanPayroll.xcdatamodel */;
+			path = WrkplanPayroll.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 173C0F0F25626FB9007AE8F6 /* Project object */;
+}
