@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,8 +19,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cc3-mi-9J4" userLabel="customnavigationbar">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Attendance Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-f2-Oza">
-                                        <rect key="frame" x="22" y="21" width="148" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Monthly Attendance Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-f2-Oza">
+                                        <rect key="frame" x="22" y="21" width="233" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -30,7 +30,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="6c3-O5-7wH"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="home_menu"/>
                                         <connections>
                                             <action selector="btn_home:" destination="GLy-Pd-gp6" eventType="touchUpInside" id="iiA-ra-d7l"/>
                                         </connections>
@@ -45,7 +44,7 @@
                                     <constraint firstItem="bNZ-Lk-15Q" firstAttribute="top" secondItem="Cc3-mi-9J4" secondAttribute="top" constant="16" id="RqH-lB-XAx"/>
                                     <constraint firstAttribute="trailing" secondItem="bNZ-Lk-15Q" secondAttribute="trailing" constant="35" id="T0w-Rx-ak8"/>
                                     <constraint firstItem="Kms-f2-Oza" firstAttribute="top" secondItem="Cc3-mi-9J4" secondAttribute="top" constant="21" id="UU6-bo-So6"/>
-                                    <constraint firstItem="bNZ-Lk-15Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kms-f2-Oza" secondAttribute="trailing" constant="92" id="UnO-tL-EjQ"/>
+                                    <constraint firstItem="bNZ-Lk-15Q" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Kms-f2-Oza" secondAttribute="trailing" constant="92" id="UnO-tL-EjQ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="jug-jw-fc9">
@@ -251,7 +250,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home_menu" width="32" height="32"/>
         <image name="leftarrowprev" width="32" height="32"/>
         <image name="rightarrownext" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">

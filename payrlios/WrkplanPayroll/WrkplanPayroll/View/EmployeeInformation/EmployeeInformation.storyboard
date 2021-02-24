@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -217,7 +217,7 @@
                         <outlet property="label_supervisor1" destination="b66-zc-aCP" id="03H-34-GTp"/>
                         <outlet property="label_supervisor2" destination="8kP-2o-z33" id="5DC-7r-414"/>
                         <outlet property="label_uan_no" destination="5lt-3j-M6N" id="vWk-ji-tST"/>
-                        <segue destination="poc-8H-HeN" kind="showDetail" identifier="home" id="0K9-YU-gSk"/>
+                        <segue destination="poc-8H-HeN" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="0K9-YU-gSk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0u-mL-0kB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

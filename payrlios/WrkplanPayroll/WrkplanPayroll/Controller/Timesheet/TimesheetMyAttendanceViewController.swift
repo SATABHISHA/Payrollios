@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Toast_Swift
 
 class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -55,9 +56,60 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     }
     @IBAction func btn_in(_ sender: Any) {
         self.save_in_out_data(in_out: "IN", work_frm_home_flag: 1, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded")
+        load_data_check_od_duty()
     }
     @IBAction func btn_out(_ sender: Any) {
+        if((work_from_home_flag == 1) && self.tv_wrk_frm_home.text!.isEmpty){
+
+            var style = ToastStyle()
+            
+            // this is just one of many style options
+            style.messageColor = .white
+            
+            self.view.makeToast("Cannot save without work from home details", duration: 3.0, position: .bottom, style: style)
+
+                      }else{
+                        self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance OUT time recorded")
+                        load_data_check_od_duty()
+                        
+                        self.tv_wrkfrmhome_constraint_height.constant = 0
+                        self.btnCheckBox.isHidden = true
+                      }
     }
+    
+    //-----------dismiss keyboard on touching anywhere in the screen code starts-----------
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    private func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //-----------dismiss keyboard code ends-----------
+    
+    //============keyboard will show/hide, code starts==========
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 100
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    //============keyboard will show/hide, code ends===========
+    
     //---MyAttendanceLog OnClick
     @objc func DesignablebtnMyAttendanceLog(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "myattendance", sender: nil)

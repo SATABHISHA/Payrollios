@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="uXg-4I-ozg"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="home_menu"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -504,14 +503,22 @@
                         <outlet property="label_premium" destination="2HI-XI-8CH" id="5w8-54-QkT"/>
                         <outlet property="label_provider_name" destination="thE-fL-cc6" id="8Ml-66-1ci"/>
                         <outlet property="tableviewInsurance" destination="A7c-Bf-UtI" id="zAU-x4-z4K"/>
+                        <segue destination="ilj-ky-yem" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="nww-ac-L02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8a-2e-cUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="75.815217391304358"/>
         </scene>
+        <!--home-->
+        <scene sceneID="zuC-ew-i0d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="home" id="ilj-ky-yem" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iFZ-eX-UJE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tw3-O3-BWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="87"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="home_menu" width="32" height="32"/>
-    </resources>
 </document>

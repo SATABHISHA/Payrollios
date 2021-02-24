@@ -19,8 +19,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx2-kf-ptg" userLabel="ViewCustomNavBar">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Attendance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxB-Ac-lGB">
-                                        <rect key="frame" x="21.999999999999993" y="21" width="115.33333333333331" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subordinate Monthly Attendance Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxB-Ac-lGB">
+                                        <rect key="frame" x="22" y="21" width="283" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -30,7 +30,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="dR9-bH-G89"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="home_menu"/>
                                         <connections>
                                             <action selector="btn_home:" destination="AU7-XS-h9x" eventType="touchUpInside" id="ES2-H3-6vP"/>
                                         </connections>
@@ -40,7 +39,7 @@
                                 <constraints>
                                     <constraint firstItem="cxB-Ac-lGB" firstAttribute="top" secondItem="Mx2-kf-ptg" secondAttribute="top" constant="21" id="9NM-Zz-FlF"/>
                                     <constraint firstAttribute="height" constant="70" id="Cyx-fg-zwz"/>
-                                    <constraint firstItem="4Kt-Hf-1gx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cxB-Ac-lGB" secondAttribute="trailing" constant="92" id="R6v-98-RmY"/>
+                                    <constraint firstItem="4Kt-Hf-1gx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cxB-Ac-lGB" secondAttribute="trailing" constant="92" id="R6v-98-RmY"/>
                                     <constraint firstAttribute="bottom" secondItem="cxB-Ac-lGB" secondAttribute="bottom" constant="21" id="RxB-82-R42"/>
                                     <constraint firstAttribute="bottom" secondItem="4Kt-Hf-1gx" secondAttribute="bottom" constant="16" id="UFH-HW-88b"/>
                                     <constraint firstItem="4Kt-Hf-1gx" firstAttribute="top" secondItem="Mx2-kf-ptg" secondAttribute="top" constant="16" id="XhB-38-H7z"/>
@@ -276,6 +275,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btn_next" destination="vUb-7M-TRl" id="gue-fZ-Jo6"/>
+                        <outlet property="btn_prev" destination="DmE-7K-Xjf" id="TT9-1F-phd"/>
                         <outlet property="label_date" destination="ekX-eD-tdz" id="aBH-H7-9yr"/>
                         <outlet property="tableviewSubordinateMyAttendanceLog" destination="fYn-v0-YtM" id="kYb-zK-YMO"/>
                     </connections>
@@ -286,7 +287,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home_menu" width="32" height="32"/>
         <image name="leftarrowprev" width="32" height="32"/>
         <image name="rightarrownext" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">

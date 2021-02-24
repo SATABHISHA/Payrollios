@@ -35,6 +35,7 @@
 		17513FF5257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17513FF4257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift */; };
 		17513FFA257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17513FF9257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard */; };
 		17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17513FFE257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift */; };
+		1754589925E634B500985387 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754589825E634B500985387 /* Connectivity.swift */; };
 		176224F12570CE79005F6C5B /* CompanyDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */; };
 		176224F72570CEB9005F6C5B /* CompanyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176224F62570CEB9005F6C5B /* CompanyDocumentsViewController.swift */; };
 		176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176224FE2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift */; };
@@ -44,7 +45,6 @@
 		17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17627D99257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift */; };
 		17723CBB2563A688002754DB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17723CBA2563A688002754DB /* Home.storyboard */; };
 		17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17723CCB2563BCE1002754DB /* HomeViewController.swift */; };
-		178A107C2566799300569712 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A107B2566799300569712 /* Connectivity.swift */; };
 		178A1086256679B900569712 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A1085256679B900569712 /* AppConfig.swift */; };
 		178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A108B25667A7A00569712 /* UserSingletonModel.swift */; };
 		17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */; };
@@ -113,6 +113,7 @@
 		17513FF4257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLogTableViewCell.swift; sourceTree = "<group>"; };
 		17513FF9257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateMyAttendanceLog.storyboard; sourceTree = "<group>"; };
 		17513FFE257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateMyAttendanceLogViewController.swift; sourceTree = "<group>"; };
+		1754589825E634B500985387 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompanyDocuments.storyboard; sourceTree = "<group>"; };
 		176224F62570CEB9005F6C5B /* CompanyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDocumentsViewController.swift; sourceTree = "<group>"; };
 		176224FE2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDocumentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,7 +123,6 @@
 		17627D99257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceTableViewCell.swift; sourceTree = "<group>"; };
 		17723CBA2563A688002754DB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		17723CCB2563BCE1002754DB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		178A107B2566799300569712 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connectivity.swift; path = "../../../../git/timesheet-us/ios/newtimesheetapp/newtimesheetapp/Config/Connectivity.swift"; sourceTree = "<group>"; };
 		178A1085256679B900569712 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		178A108B25667A7A00569712 /* UserSingletonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingletonModel.swift; sourceTree = "<group>"; };
 		17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
@@ -347,8 +347,8 @@
 		173C0F5A25627AAA007AE8F6 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				1754589825E634B500985387 /* Connectivity.swift */,
 				178A1085256679B900569712 /* AppConfig.swift */,
-				178A107B2566799300569712 /* Connectivity.swift */,
 				172FBE222570345A00422A2D /* FileDownloader.swift */,
 				17B05E6D2579151600CBC3C9 /* CustomBorder.swift */,
 			);
@@ -739,6 +739,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1754589925E634B500985387 /* Connectivity.swift in Sources */,
 				176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */,
 				172D28C7257501DA00C6E2A6 /* HolidayDetailsViewController.swift in Sources */,
 				173C0F1F25626FB9007AE8F6 /* LoginViewController.swift in Sources */,
@@ -754,7 +755,6 @@
 				17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */,
 				17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */,
 				17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */,
-				178A107C2566799300569712 /* Connectivity.swift in Sources */,
 				17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */,
 				172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */,
 				1762251125713EA1005F6C5B /* InsuranceDetailTableViewCell.swift in Sources */,

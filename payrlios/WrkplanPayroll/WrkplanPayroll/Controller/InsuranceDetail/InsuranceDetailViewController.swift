@@ -87,6 +87,7 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
             }
             break
         case btnClose:
+            self.performSegue(withIdentifier: "home", sender: self)
             break
         case btnNext:
             count = count + 1

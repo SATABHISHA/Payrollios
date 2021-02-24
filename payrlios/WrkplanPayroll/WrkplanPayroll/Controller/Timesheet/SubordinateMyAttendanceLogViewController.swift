@@ -14,6 +14,8 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     
     @IBOutlet weak var tableviewSubordinateMyAttendanceLog: UITableView!
     @IBOutlet weak var label_date: UILabel!
+    @IBOutlet weak var btn_next: UIButton!
+    @IBOutlet weak var btn_prev: UIButton!
     
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
@@ -30,6 +32,17 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
         self.tableviewSubordinateMyAttendanceLog.dataSource = self
 
         // Do any additional setup after loading the view.
+        month_number = Calendar.current.component(.month, from: Date())
+        year = Calendar.current.component(.year, from: Date())
+        
+        btn_next.isHidden = true
+        btn_prev.isHidden = true
+        label_date.isHidden = true
+        
+        
+        print("Month_number-=>",month_number!)
+        print("Year-=>",year!)
+
         getEmpName()
         print("name-=>",name)
     }
@@ -49,6 +62,15 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
           sender.setTitle(item, for: .normal) //9
             print("name-=>",SubordinateLogViewController.subordinate_details[index].slno!)
 //            self!.loadData(year: item)
+            
+            //--adeded on 24th feb, starts
+            self!.btn_next.isHidden = false
+            self!.btn_prev.isHidden = false
+            self!.label_date.isHidden = false
+            
+            self!.loadData(month_number: self!.month_number!, year: self!.year!)
+            
+            //--adeded on 24th feb, ends
         }
           }
     
@@ -81,6 +103,18 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     
 
     @IBAction func btn_next(_ sender: Any) {
+        var temp_month_no: Int = month_number!
+        var temp_year: Int = year!
+        if temp_month_no >= 12 {
+            temp_month_no = 1
+            temp_year = temp_year+1
+        }else{
+            temp_month_no = temp_month_no + 1
+            temp_year = year!
+        }
+        month_number = temp_month_no
+        year = temp_year
+        loadData(month_number: month_number!, year: year!)
     }
     @IBAction func btn_home(_ sender: Any) {
     }
@@ -96,7 +130,8 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
         
         let dateFormatterGet = DateFormatter()
 //        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
-        dateFormatterGet.dateFormat = "dd-MM-yyyy hh:mm:ss" //--for test version
+//        dateFormatterGet.dateFormat = "dd-MM-yyyy hh:mm:ss" //--for test version
+        dateFormatterGet.dateFormat = "dd-MMM-yyyy" //--format changed in ios on 24th feb
         
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "dd-MMM-yyyy"

@@ -54,6 +54,18 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     
 
     @IBAction func btn_next(_ sender: Any) {
+        var temp_month_no: Int = month_number!
+        var temp_year: Int = year!
+        if temp_month_no >= 12 {
+            temp_month_no = 1
+            temp_year = temp_year+1
+        }else{
+            temp_month_no = temp_month_no + 1
+            temp_year = year!
+        }
+        month_number = temp_month_no
+        year = temp_year
+        loadData(month_number: month_number!, year: year!)
     }
     @IBAction func btn_home(_ sender: Any) {
     }
@@ -69,8 +81,9 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         
         let dateFormatterGet = DateFormatter()
 //        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
-        dateFormatterGet.dateFormat = "dd-MM-yyyy hh:mm:ss" //--for test version
+//        dateFormatterGet.dateFormat = "dd-MM-yyyy hh:mm:ss" //--for test version
         
+        dateFormatterGet.dateFormat = "dd-MMM-yyyy" //--format changed in ios on 24th feb
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "dd-MMM-yyyy"
         
