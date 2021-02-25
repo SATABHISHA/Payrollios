@@ -33,6 +33,9 @@ class LeaveViewController: UIViewController {
         
     }
     
+    @IBAction func btn_home(_ sender: Any) {
+        self.performSegue(withIdentifier: "home", sender: self)
+    }
     @IBAction func btn_dropdown_year(_ sender: UIButton) {
 //        dropDown.dataSource = ["Tomato soup", "Mini burgers", "Onion rings", "Baked potato", "Salad"]//4
         dropDown.dataSource = year

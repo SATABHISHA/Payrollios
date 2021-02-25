@@ -22,6 +22,8 @@ class HolidayDetailsCalendarViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         loadData()
+        label_date.text = ""
+        label_holiday_name.text = ""
         //------calender code starts--------
         calendar.headerHeight = 45.0
         calendar.weekdayHeight = 35.0
@@ -56,6 +58,9 @@ class HolidayDetailsCalendarViewController: UIViewController {
     }()
     //===========Calender code ends============
 
+    @IBAction func btn_home(_ sender: Any) {
+        self.performSegue(withIdentifier: "home", sender: self)
+    }
     //--------function to show holiday details using Alamofire and Json Swifty------------
        func loadData(){
            loaderStart()

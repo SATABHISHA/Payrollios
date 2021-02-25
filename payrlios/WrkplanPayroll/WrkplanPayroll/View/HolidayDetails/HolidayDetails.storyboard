@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="861" y="55"/>
         </scene>
-        <!--Item 2-->
+        <!--Holiday Details Calendar View Controller-->
         <scene sceneID="DOy-xx-Lb0">
             <objects>
                 <viewController id="G1G-iH-soZ" customClass="HolidayDetailsCalendarViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
@@ -92,6 +92,10 @@
                                             <constraint firstAttribute="width" constant="32" id="0W0-Oy-kJY"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="home_menu"/>
+                                        <connections>
+                                            <action selector="btn_home:" destination="G1G-iH-soZ" eventType="touchUpInside" id="5vR-Q3-azH"/>
+                                            <segue destination="CBM-N5-XdO" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="g8w-EA-cfi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,7 +149,7 @@
                             <constraint firstItem="CLc-q5-Mky" firstAttribute="top" secondItem="bDy-9M-xyP" secondAttribute="bottom" constant="8" symbolic="YES" id="taT-Pm-BO5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="TNO-bP-Pvn"/>
+                    <tabBarItem key="tabBarItem" title="" image="calendar" id="TNO-bP-Pvn"/>
                     <connections>
                         <outlet property="calendar" destination="726-BN-ftX" id="WC7-o1-ICG"/>
                         <outlet property="label_date" destination="bDy-9M-xyP" id="klg-W8-cIi"/>
@@ -156,7 +160,17 @@
             </objects>
             <point key="canvasLocation" x="-62.318840579710148" y="598.36956521739137"/>
         </scene>
-        <!--Item 1-->
+        <!--home-->
+        <scene sceneID="kuf-6H-Wzl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="home" id="CBM-N5-XdO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="A2c-On-Yrj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GlN-Mt-00R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="445"/>
+        </scene>
+        <!--Holiday Details View Controller-->
         <scene sceneID="UsC-LV-HOe">
             <objects>
                 <viewController id="FKb-2n-7Rq" customClass="HolidayDetailsViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
@@ -179,6 +193,10 @@
                                             <constraint firstAttribute="width" constant="32" id="eCu-tZ-vM1"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="home_menu"/>
+                                        <connections>
+                                            <action selector="btn_home:" destination="FKb-2n-7Rq" eventType="touchUpInside" id="RYt-bO-eSu"/>
+                                            <segue destination="Ew0-1S-wVc" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="oGR-f4-fVk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -298,7 +316,7 @@
                             <constraint firstItem="C0S-Vp-Md0" firstAttribute="leading" secondItem="5X8-u8-zYu" secondAttribute="leading" constant="8" id="pdu-62-F4H"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Tol-gp-ole"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.bullet.rectangle" catalog="system" id="Tol-gp-ole"/>
                     <connections>
                         <outlet property="tableviewHolidayDetail" destination="C0S-Vp-Md0" id="v81-s3-3en"/>
                     </connections>
@@ -306,6 +324,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRj-io-v01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62.318840579710148" y="-106.79347826086958"/>
+        </scene>
+        <!--home-->
+        <scene sceneID="2Pg-s1-eY8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="home" id="Ew0-1S-wVc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Zry-ZB-HvZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gw1-2o-sWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="380" y="-302"/>
         </scene>
         <!--Holiday Details Custom Tab Bar View Controller-->
         <scene sceneID="scj-Z6-COy">
@@ -327,7 +355,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" width="25" height="35"/>
         <image name="home_menu" width="32" height="32"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

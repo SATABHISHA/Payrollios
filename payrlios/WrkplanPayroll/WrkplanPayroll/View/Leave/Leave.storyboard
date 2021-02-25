@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -187,6 +187,10 @@
                                             <constraint firstAttribute="width" constant="32" id="EcA-oc-sNt"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="home_menu"/>
+                                        <connections>
+                                            <action selector="btn_home:" destination="U7x-cd-m0F" eventType="touchUpInside" id="YeA-r4-qCt"/>
+                                            <segue destination="pCH-wT-nMc" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="AM6-Bg-zTw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -226,6 +230,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLG-3L-uAF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-142.02898550724638" y="86.413043478260875"/>
+        </scene>
+        <!--home-->
+        <scene sceneID="9l5-Ja-h50">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="home" id="pCH-wT-nMc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="spn-sP-gaD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ons-d6-8UF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408" y="-67"/>
         </scene>
     </scenes>
     <resources>

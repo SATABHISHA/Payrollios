@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -258,12 +258,19 @@
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="od_duty_request_disabled" translatesAutoresizingMaskIntoConstraints="NO" id="Vd4-HH-yZJ">
+                                                                <rect key="frame" x="29" y="24" width="129" height="120"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="BPE-8N-Qtn" secondAttribute="trailing" id="ELj-cM-kFy"/>
+                                                            <constraint firstItem="Vd4-HH-yZJ" firstAttribute="top" secondItem="2IT-Dr-NqG" secondAttribute="top" constant="24" id="Obu-Yp-0XQ"/>
                                                             <constraint firstAttribute="bottom" secondItem="BPE-8N-Qtn" secondAttribute="bottom" id="Ojr-jb-O8R"/>
+                                                            <constraint firstItem="BPE-8N-Qtn" firstAttribute="top" secondItem="Vd4-HH-yZJ" secondAttribute="bottom" constant="33" id="S1k-Ks-qTq"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Vd4-HH-yZJ" secondAttribute="trailing" constant="35" id="XPO-w8-3Ru"/>
                                                             <constraint firstItem="BPE-8N-Qtn" firstAttribute="leading" secondItem="2IT-Dr-NqG" secondAttribute="leading" id="blh-Rf-r89"/>
+                                                            <constraint firstItem="Vd4-HH-yZJ" firstAttribute="leading" secondItem="2IT-Dr-NqG" secondAttribute="leading" constant="29" id="pGQ-TD-Glo"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -287,12 +294,19 @@
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="od_duty_disabled" translatesAutoresizingMaskIntoConstraints="NO" id="UlF-KZ-eyX">
+                                                                <rect key="frame" x="32" y="24" width="129" height="120"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.9881489873" green="0.98829060790000001" blue="0.9881181121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
+                                                            <constraint firstItem="qOE-1k-TzH" firstAttribute="top" secondItem="UlF-KZ-eyX" secondAttribute="bottom" constant="33" id="BVd-9x-CVa"/>
                                                             <constraint firstAttribute="trailing" secondItem="qOE-1k-TzH" secondAttribute="trailing" id="DBJ-8a-X31"/>
+                                                            <constraint firstItem="UlF-KZ-eyX" firstAttribute="leading" secondItem="5AG-Kx-GkQ" secondAttribute="leading" constant="32" id="Fw2-ht-feD"/>
                                                             <constraint firstAttribute="bottom" secondItem="qOE-1k-TzH" secondAttribute="bottom" id="WQj-So-gwy"/>
                                                             <constraint firstItem="qOE-1k-TzH" firstAttribute="leading" secondItem="5AG-Kx-GkQ" secondAttribute="leading" id="hqx-qY-01h"/>
+                                                            <constraint firstAttribute="trailing" secondItem="UlF-KZ-eyX" secondAttribute="trailing" constant="32" id="z97-ks-MPc"/>
+                                                            <constraint firstItem="UlF-KZ-eyX" firstAttribute="top" secondItem="5AG-Kx-GkQ" secondAttribute="top" constant="24" id="zmD-6d-nhT"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B7-vs-0hS">
@@ -533,6 +547,8 @@
         <image name="insurance" width="512" height="512"/>
         <image name="leave" width="512" height="512"/>
         <image name="menuicon" width="32" height="32"/>
+        <image name="od_duty_disabled" width="200" height="200"/>
+        <image name="od_duty_request_disabled" width="512" height="512"/>
         <image name="organizationdocs" width="512" height="512"/>
         <image name="timesheet" width="194" height="194"/>
         <systemColor name="systemBackgroundColor">

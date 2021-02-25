@@ -25,6 +25,9 @@ class HolidayDetailsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
 
+    @IBAction func btn_home(_ sender: Any) {
+        self.performSegue(withIdentifier: "home", sender: self)
+    }
     /*
     // MARK: - Navigation
 
