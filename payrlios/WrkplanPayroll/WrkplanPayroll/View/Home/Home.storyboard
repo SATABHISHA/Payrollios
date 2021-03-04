@@ -34,7 +34,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="lfw-9X-tc2"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -62,7 +62,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="S1k-8x-s8f"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -98,7 +98,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="Une-Ah-Tw4"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -126,7 +126,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="aqD-ho-bT3"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -162,7 +162,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="NvT-px-XxL"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -190,7 +190,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="VPk-Rb-IUb"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -226,7 +226,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="qto-nf-qxH"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -254,7 +254,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="u8q-DA-rYp"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -262,7 +262,7 @@
                                                                 <rect key="frame" x="29" y="24" width="129" height="120"/>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="BPE-8N-Qtn" secondAttribute="trailing" id="ELj-cM-kFy"/>
                                                             <constraint firstItem="Vd4-HH-yZJ" firstAttribute="top" secondItem="2IT-Dr-NqG" secondAttribute="top" constant="24" id="Obu-Yp-0XQ"/>
@@ -290,7 +290,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="D4g-rv-fiI"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -318,7 +318,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="dia-ZQ-D2j"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -326,7 +326,7 @@
                                                                 <rect key="frame" x="32" y="24" width="129" height="120"/>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="RKH-dv-UeR" firstAttribute="leading" secondItem="0B7-vs-0hS" secondAttribute="leading" id="LTO-Rl-LFR"/>
                                                             <constraint firstAttribute="trailing" secondItem="WO2-31-ocP" secondAttribute="trailing" constant="32" id="VQd-rs-r0c"/>
@@ -343,7 +343,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.76477831600000001" green="0.76428920030000003" blue="0.75743055339999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="8Ih-yf-aaS" secondAttribute="bottom" constant="20" id="1SA-Id-gbc"/>
                                             <constraint firstItem="9wE-y9-IaL" firstAttribute="leading" secondItem="KEL-6a-67U" secondAttribute="leading" constant="10" id="5Az-md-TW5"/>
@@ -364,6 +364,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="KEL-6a-67U" firstAttribute="leading" secondItem="9dN-SJ-4Ug" secondAttribute="leading" id="Cma-7j-EJx"/>
                                     <constraint firstItem="KEL-6a-67U" firstAttribute="bottom" secondItem="9dN-SJ-4Ug" secondAttribute="bottom" id="Ryb-aj-Qmy"/>
@@ -404,7 +405,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r9f-f5-jIQ"/>
-                        <color key="backgroundColor" red="0.57249712939999997" green="0.57258230450000003" blue="0.57247859239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9dN-SJ-4Ug" firstAttribute="leading" secondItem="r9f-f5-jIQ" secondAttribute="leading" id="8E3-Qy-688"/>
                             <constraint firstItem="bRV-1p-Q0c" firstAttribute="trailing" secondItem="r9f-f5-jIQ" secondAttribute="trailing" id="ANW-Kc-Rtu"/>
@@ -444,8 +445,22 @@
                         <outlet property="InsuranceView" destination="USB-BF-wc8" id="Klj-xn-6Lv"/>
                         <outlet property="LeaveImg" destination="58B-4c-MWU" id="SWO-Yx-npR"/>
                         <outlet property="LeaveView" destination="MMm-yW-uoD" id="glK-BT-VzE"/>
+                        <outlet property="ODdutyImage" destination="5AG-Kx-GkQ" id="lYC-7U-AA3"/>
+                        <outlet property="ODdutyRequestImg" destination="Vd4-HH-yZJ" id="AQV-5T-c3r"/>
+                        <outlet property="ODdutyRequestView" destination="2IT-Dr-NqG" id="zyg-OL-Eh3"/>
+                        <outlet property="ODdutyView" destination="5AG-Kx-GkQ" id="7cW-bD-zUa"/>
                         <outlet property="TimesheetImg" destination="WO2-31-ocP" id="hvR-AE-nrb"/>
                         <outlet property="TimesheetView" destination="0B7-vs-0hS" id="lEe-33-5UB"/>
+                        <outlet property="labelCompanyDoc" destination="Dym-Zm-sBs" id="bJQ-yv-bj3"/>
+                        <outlet property="labelEmployeeDoc" destination="3Yc-PD-xv4" id="g2B-VF-9hP"/>
+                        <outlet property="labelEmployeeFacilities" destination="gnO-Xu-h5U" id="cZe-tv-2YY"/>
+                        <outlet property="labelEmployeeInformation" destination="eZj-PX-RGX" id="jnS-ls-egh"/>
+                        <outlet property="labelHoliday" destination="eAd-sK-I4I" id="AvR-jq-Iuk"/>
+                        <outlet property="labelInsurance" destination="h3Y-NY-mGz" id="zpI-MU-Qgs"/>
+                        <outlet property="labelLeave" destination="C0p-h6-SZG" id="Dvc-7H-vTV"/>
+                        <outlet property="labelODduty" destination="qOE-1k-TzH" id="xaS-Dy-1OA"/>
+                        <outlet property="labelODdutyRequest" destination="BPE-8N-Qtn" id="weZ-Ks-ZV9"/>
+                        <outlet property="labelTimesheet" destination="RKH-dv-UeR" id="WwQ-2t-vXW"/>
                         <segue destination="j8u-8A-fcW" kind="showDetail" identifier="empinfo" id="HhT-pP-mZM"/>
                         <segue destination="4dh-oF-ika" kind="show" identifier="leave" id="fgG-qp-QDD"/>
                         <segue destination="wa1-Ex-9kb" kind="show" identifier="facilities" id="eU6-AL-clc"/>
@@ -454,6 +469,7 @@
                         <segue destination="87T-8I-qD5" kind="show" identifier="insurance" id="AEp-Tx-6RV"/>
                         <segue destination="Awq-b9-MKB" kind="show" identifier="holiday" id="oU8-uS-t5p"/>
                         <segue destination="LwH-bW-3Eb" kind="presentation" identifier="timesheet" modalPresentationStyle="fullScreen" id="dZl-wD-OA4"/>
+                        <segue destination="imh-AW-1OU" kind="modal" identifier="outdoordutylist" modalPresentationStyle="fullScreen" id="I2b-gp-rkS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zs-af-U3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -538,6 +554,16 @@
             </objects>
             <point key="canvasLocation" x="3369" y="273"/>
         </scene>
+        <!--outdoordutylist-->
+        <scene sceneID="gOR-pI-DxJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="outdoordutylist" storyboardName="OutdoorDutyList" referencedIdentifier="outdoordutylist" id="imh-AW-1OU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RJj-7r-rOR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WUm-yB-p1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3251" y="350"/>
+        </scene>
     </scenes>
     <resources>
         <image name="eminfo" width="512" height="512"/>
@@ -551,9 +577,6 @@
         <image name="od_duty_request_disabled" width="512" height="512"/>
         <image name="organizationdocs" width="512" height="512"/>
         <image name="timesheet" width="194" height="194"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702411125EFD33800F6D285 /* KGRadioButton.swift */; };
 		172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */; };
 		172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172246F52567B250006EDF5B /* EmployeeInformation.storyboard */; };
 		1722940D256E800C0008D808 /* Leave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1722940C256E800C0008D808 /* Leave.storyboard */; };
@@ -48,6 +49,8 @@
 		1785DEAF25E7877F0088AEBA /* OutdoorDutyList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */; };
 		178A1086256679B900569712 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A1085256679B900569712 /* AppConfig.swift */; };
 		178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A108B25667A7A00569712 /* UserSingletonModel.swift */; };
+		178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */; };
+		178F85D325EE71EF007ABD62 /* OutdoorDutyRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */; };
 		17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */; };
 		17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */; };
 		17B05E6E2579151700CBC3C9 /* CustomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E6D2579151600CBC3C9 /* CustomBorder.swift */; };
@@ -57,6 +60,8 @@
 		17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E5777F257A148D00F10376 /* MyAttendance.storyboard */; };
 		17E57788257A342100F10376 /* MyAttendanceLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */; };
 		17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */; };
+		17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */; };
+		17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */; };
 		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
 		BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
 		F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */; };
@@ -81,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1702411125EFD33800F6D285 /* KGRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGRadioButton.swift; sourceTree = "<group>"; };
 		172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInformationViewController.swift; sourceTree = "<group>"; };
 		172246F52567B250006EDF5B /* EmployeeInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeInformation.storyboard; sourceTree = "<group>"; };
 		1722940C256E800C0008D808 /* Leave.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Leave.storyboard; sourceTree = "<group>"; };
@@ -127,6 +133,8 @@
 		1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyList.storyboard; sourceTree = "<group>"; };
 		178A1085256679B900569712 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		178A108B25667A7A00569712 /* UserSingletonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingletonModel.swift; sourceTree = "<group>"; };
+		178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyRequestViewController.swift; sourceTree = "<group>"; };
+		178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyRequest.storyboard; sourceTree = "<group>"; };
 		17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
 		17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceViewController.swift; sourceTree = "<group>"; };
 		17B05E6D2579151600CBC3C9 /* CustomBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorder.swift; sourceTree = "<group>"; };
@@ -136,6 +144,8 @@
 		17E5777F257A148D00F10376 /* MyAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyAttendance.storyboard; sourceTree = "<group>"; };
 		17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogViewController.swift; sourceTree = "<group>"; };
 		17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogTableViewCell.swift; sourceTree = "<group>"; };
+		17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListViewController.swift; sourceTree = "<group>"; };
+		17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListTableViewCell.swift; sourceTree = "<group>"; };
 		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
 		4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -430,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */,
+				178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */,
 			);
 			path = OutdoorDuty;
 			sourceTree = "<group>";
@@ -437,6 +448,10 @@
 		1785DEAD25E7873D0088AEBA /* OutdoorDuty */ = {
 			isa = PBXGroup;
 			children = (
+				17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */,
+				17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */,
+				178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */,
+				1702411125EFD33800F6D285 /* KGRadioButton.swift */,
 			);
 			path = OutdoorDuty;
 			sourceTree = "<group>";
@@ -630,6 +645,7 @@
 				176224F12570CE79005F6C5B /* CompanyDocuments.storyboard in Resources */,
 				17513FFA257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard in Resources */,
 				173C0F2225626FB9007AE8F6 /* Main.storyboard in Resources */,
+				178F85D325EE71EF007ABD62 /* OutdoorDutyRequest.storyboard in Resources */,
 				17723CBB2563A688002754DB /* Home.storyboard in Resources */,
 				1785DEAF25E7877F0088AEBA /* OutdoorDutyList.storyboard in Resources */,
 			);
@@ -762,6 +778,8 @@
 				1754589925E634B500985387 /* Connectivity.swift in Sources */,
 				176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */,
 				172D28C7257501DA00C6E2A6 /* HolidayDetailsViewController.swift in Sources */,
+				17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */,
+				1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */,
 				173C0F1F25626FB9007AE8F6 /* LoginViewController.swift in Sources */,
 				17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */,
 				173C0F2525626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld in Sources */,
@@ -787,7 +805,9 @@
 				173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */,
 				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,
 				173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */,
+				178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */,
 				1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */,
+				17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */,
 				17513FF0257E175C0090EFD5 /* SubordinateLogViewController.swift in Sources */,
 				176224F72570CEB9005F6C5B /* CompanyDocumentsViewController.swift in Sources */,
 			);
