@@ -13,7 +13,7 @@ pod 'ReachabilitySwift'
 pod 'Toast-Swift', '~> 5.0.0'
 pod 'FSCalendar'
 pod 'DropDown'
-pod 'iOSDropDown'
+#pod 'iOSDropDown'
 
   target 'WrkplanPayrollTests' do
     inherit! :search_paths
