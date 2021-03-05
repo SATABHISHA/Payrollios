@@ -244,11 +244,6 @@
             <point key="canvasLocation" x="764" y="-69"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="ejb-6J-fB2">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <image name="backarrow" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
