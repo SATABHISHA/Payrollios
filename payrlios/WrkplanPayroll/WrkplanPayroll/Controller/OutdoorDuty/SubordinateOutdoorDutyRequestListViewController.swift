@@ -62,6 +62,16 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
         /*cell.label_timeout.text = dict["time_out"] as? String
         cell.label_status.text = dict["attendance_status"] as? String
         cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)*/
+        
+        if dict["od_status"] as? String == "Approved"{
+            cell.label_od_status.textColor = UIColor(hexFromString: "1e9547")
+        }else if dict["od_status"] as? String == "Canceled"{
+            cell.label_od_status.textColor = UIColor(hexFromString: "ed1c24")
+        }else if dict["od_status"] as? String == "Return"{
+            cell.label_od_status.textColor = UIColor(hexFromString: "2196ed")
+        }else if dict["od_status"] as? String == "Submit"{
+            cell.label_od_status.textColor = UIColor(hexFromString: "fe52ce")
+        }
         return cell
         
     }

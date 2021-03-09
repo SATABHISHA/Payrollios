@@ -27,6 +27,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     @IBOutlet weak var custom_btn_label_save: UILabel!
     @IBOutlet weak var custom_btn_label_cancel: UILabel!
     @IBOutlet weak var label_days_count: UILabel!
+    @IBOutlet weak var btn_select_type: UIButton!
     
     var from_date: Bool = false
     var to_date: Bool = false
@@ -53,8 +54,9 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         txt_requisition_no.isUserInteractionEnabled = false
         txt_employee_name.isUserInteractionEnabled = false
         txt_view_remarks.isUserInteractionEnabled = false
+        txt_request_status.isUserInteractionEnabled = false
         
-        btn_submit.isSelected = true
+//        btn_submit.isSelected = true
        
         
         type.append("Work From Home")
@@ -73,7 +75,14 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         
         print("random-=>", Int.random(in: 0 ... 999999))
         
-        populate_value()
+        if OutDoorDutyListViewController.new_create_yn == true{
+            populate_value()
+            btn_submit.isSelected = true
+        }else if OutDoorDutyListViewController.new_create_yn == false{
+            txt_employee_name.text = "\(swiftyJsonvar1["employee"]["employee_fname"].stringValue) \(swiftyJsonvar1["employee"]["employee_lname"].stringValue)"
+            loadData()
+        }
+//        populate_value()
         print("od_rqst_is-=>",OutDoorDutyListViewController.supervisor_od_request_id!)
         print("jsonData-=>",swiftyJsonvar1)
     }
@@ -261,29 +270,81 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
    
 
     
-    //--------function to load data using Alamofire and Json Swifty------------
+    
+    //--------function to show details using Alamofire and Json Swifty------------
     func loadData(){
-//           loaderStart1()
+           loaderStart()
         
-        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/1/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
-        print("odDutylisturl-=>",url)
+        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(OutDoorDutyListViewController.supervisor_od_request_id!)/1/"
+        print("SubordinateOutDoorDutylisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
-//               self.loaderEnd1()
+               self.loaderEnd()
                if((responseData.value) != nil){
                    let swiftyJsonVar=JSON(responseData.value!)
-                   print("Log description: \(swiftyJsonVar)")
+                   print("Log details sup: \(swiftyJsonVar)")
                 
                 
+                if swiftyJsonVar["fields"]["od_status"].stringValue == "Save"{
+                    self.od_request_id = swiftyJsonVar["fields"]["od_request_id"].intValue
+                    
+                    self.txt_view_remarks.isUserInteractionEnabled = false
+                    self.btn_select_type.isUserInteractionEnabled = false
+                    self.btn_select_type.setTitle("Work From Home", for: .normal)
+                    
+                    self.custom_btn_label_save.isUserInteractionEnabled = true
+//                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    
+                    self.btn_save.isSelected = true
+                } else if swiftyJsonVar["fields"]["od_status"].stringValue == "Return"{
+                    self.od_request_id = swiftyJsonVar["fields"]["od_request_id"].intValue
+                    
+                    self.txt_view_remarks.isUserInteractionEnabled = false
+                    self.btn_select_type.isUserInteractionEnabled = false
+                    self.btn_select_type.setTitle("Work From Home", for: .normal)
+                    
+                    self.custom_btn_label_save.isUserInteractionEnabled = true
+//                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    
+                    self.btn_submit.isSelected = true
+                    
+                } else{
+                    self.od_request_id = swiftyJsonVar["fields"]["od_request_id"].intValue
+                    
+                    self.txt_view_reason.isUserInteractionEnabled = false
+                    self.txt_view_remarks.isUserInteractionEnabled = false
+                    self.btn_select_type.isUserInteractionEnabled = false
+                    self.btn_select_type.setTitle("Work From Home", for: .normal)
+                    
+                    self.custom_btn_label_save.isUserInteractionEnabled = false
+                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    
+                    self.btn_submit.isSelected = true
+                    self.btn_submit.isUserInteractionEnabled = false
+                    self.btn_save.isUserInteractionEnabled = false
+                    
+                    self.img_from_date.isHidden = true
+                    self.img_from_date.isUserInteractionEnabled = false
+                    
+                    self.img_to_date.isHidden = true
+                    self.img_to_date.isUserInteractionEnabled = false
+                }
                 
-//                   if let resData = swiftyJsonVar["request_list"].arrayObject{
-//                       self.arrRes = resData as! [[String:AnyObject]]
-//                   }
-                   
+                self.txt_requisition_no.text = swiftyJsonVar["fields"]["od_request_no"].stringValue
+                self.txt_from_date.text = swiftyJsonVar["fields"]["from_date"].stringValue
+                self.txt_to_date.text = swiftyJsonVar["fields"]["to_date"].stringValue
+                self.label_days_count.text = swiftyJsonVar["fields"]["total_days"].stringValue
+                self.txt_view_reason.text = swiftyJsonVar["fields"]["description"].stringValue
+                self.txt_view_remarks.text = swiftyJsonVar["fields"]["supervisor_remark"].stringValue
+                self.txt_request_status.text = swiftyJsonVar["fields"]["od_status"].stringValue
+                
+                print("odrqsttest-=>",self.od_request_id)
+                
+                
                }
                
            }
-       }
-       //--------function to load data using Alamofire and Json Swifty code ends------------
+    }
+       //--------function to log details using Alamofire and Json Swifty code ends------------
     
     //-----function to save data, code starts---
     func SaveData(){
@@ -363,6 +424,54 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     
     //-----function to save data, code ends---
    
+    
+    // ====================== Blur Effect Defiend START ================= \\
+        var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+        var blurEffectView: UIVisualEffectView!
+        var loader: UIVisualEffectView!
+        func loaderStart() {
+            // ====================== Blur Effect START ================= \\
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            loader = UIVisualEffectView(effect: blurEffect)
+            loader.frame = view.bounds
+            loader.alpha = 2
+            view.addSubview(loader)
+            
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+            let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+            activityIndicator.transform = transform
+            loadingIndicator.center = self.view.center;
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.white
+            loadingIndicator.startAnimating();
+            loader.contentView.addSubview(loadingIndicator)
+            
+            // screen roted and size resize automatic
+            loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+            
+            // ====================== Blur Effect END ================= \\
+        }
+        
+        func loaderEnd() {
+            self.loader.removeFromSuperview();
+        }
+        // ====================== Blur Effect Defiend END ================= \\
+        
+        // ====================== Blur Effect START ================= \\
+        func blurEffect() {
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = view.bounds
+            blurEffectView.alpha = 0.9
+            view.addSubview(blurEffectView)
+            // screen roted and size resize automatic
+            blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+          
+        }
+        func canelBlurEffect() {
+            self.blurEffectView.removeFromSuperview();
+        }
+        // ====================== Blur Effect END ================= \\
 
 }
 

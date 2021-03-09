@@ -319,11 +319,12 @@
                                                         <color key="textColor" red="0.47058823529999999" green="0.50196078430000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uls-zM-kpD">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uls-zM-kpD">
                                                         <rect key="frame" x="154" y="0.0" width="240" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="240" id="2PI-Ds-RhW"/>
                                                         </constraints>
+                                                        <color key="textColor" red="0.47058823529999999" green="0.50196078430000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <userDefinedRuntimeAttributes>
@@ -595,6 +596,7 @@
                     </view>
                     <connections>
                         <outlet property="btn_save" destination="APK-34-6np" id="UXy-nE-W5z"/>
+                        <outlet property="btn_select_type" destination="JG1-kz-Fve" id="Qh7-wc-nEH"/>
                         <outlet property="btn_submit" destination="mRT-5u-OIQ" id="Lv1-Le-RYW"/>
                         <outlet property="custom_btn_label_cancel" destination="kyZ-aK-tNT" id="vsn-Qx-JQ3"/>
                         <outlet property="custom_btn_label_save" destination="gYO-Sq-PoR" id="WJh-Kt-9f6"/>
