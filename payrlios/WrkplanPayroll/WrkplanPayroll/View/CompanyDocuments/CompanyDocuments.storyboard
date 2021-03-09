@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,11 +24,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaW-EF-Lkf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaW-EF-Lkf">
                                         <rect key="frame" x="347" y="16" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="5ep-hH-qDY"/>
                                         </constraints>
+                                        <state key="normal" image="home_menu"/>
                                         <connections>
                                             <action selector="btn_home:" destination="6eS-Kf-XWf" eventType="touchUpInside" id="vR9-FW-LAE"/>
                                         </connections>
@@ -49,7 +49,8 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-AM-7h4">
                                 <rect key="frame" x="14" y="74" width="386" height="642"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="73" id="53e-4h-DsG" userLabel="cell" customClass="CompanyDocumentsTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
@@ -103,6 +104,7 @@
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="5jB-Xq-Zu0" firstAttribute="top" secondItem="vR4-w7-MWD" secondAttribute="top" constant="12" id="1B0-jf-GWz"/>
                                                         <constraint firstItem="5jB-Xq-Zu0" firstAttribute="leading" secondItem="y6d-ZM-1dh" secondAttribute="trailing" constant="14" id="1F5-KB-3nQ"/>
@@ -123,6 +125,7 @@
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="vR4-w7-MWD" secondAttribute="trailing" id="4Og-HN-86i"/>
                                                 <constraint firstItem="vR4-w7-MWD" firstAttribute="top" secondItem="N0L-fZ-kcq" secondAttribute="top" id="Sr2-oD-HZ4"/>
@@ -131,6 +134,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="label_date" destination="RCD-QZ-KQY" id="Vqw-gV-Y6N"/>
                                             <outlet property="label_name" destination="5jB-Xq-Zu0" id="PgE-Yj-wp3"/>
@@ -146,25 +150,34 @@
                             <constraint firstItem="sgS-7Y-0KW" firstAttribute="bottom" secondItem="XcL-AM-7h4" secondAttribute="bottom" constant="20" id="4Dc-sy-ysi"/>
                             <constraint firstItem="XcL-AM-7h4" firstAttribute="leading" secondItem="sgS-7Y-0KW" secondAttribute="leading" constant="14" id="IGH-5P-Ce8"/>
                             <constraint firstItem="3NZ-A3-A0m" firstAttribute="trailing" secondItem="sgS-7Y-0KW" secondAttribute="trailing" id="aP6-Os-5cq"/>
-                            <constraint firstItem="3NZ-A3-A0m" firstAttribute="top" secondItem="t9V-cy-X4a" secondAttribute="top" id="eJu-8D-1D8"/>
+                            <constraint firstItem="3NZ-A3-A0m" firstAttribute="top" secondItem="sgS-7Y-0KW" secondAttribute="top" id="eJu-8D-1D8"/>
                             <constraint firstItem="3NZ-A3-A0m" firstAttribute="leading" secondItem="sgS-7Y-0KW" secondAttribute="leading" id="heQ-K6-9Ms"/>
                             <constraint firstItem="sgS-7Y-0KW" firstAttribute="trailing" secondItem="XcL-AM-7h4" secondAttribute="trailing" constant="14" id="rDr-lY-AEv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableviewCompanyDocuments" destination="XcL-AM-7h4" id="yfm-mL-dek"/>
+                        <segue destination="tpm-6o-sAB" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="i2f-N7-1nh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsK-sh-Fkf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-68.115942028985515" y="71.739130434782609"/>
         </scene>
+        <!--home-->
+        <scene sceneID="MSK-D5-FU7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="tpm-6o-sAB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QP9-ew-ceR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vkP-pA-Xqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="13"/>
+        </scene>
     </scenes>
     <resources>
         <image name="document" width="512" height="512"/>
         <image name="download" width="150" height="150"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="home_menu" width="32" height="32"/>
     </resources>
 </document>

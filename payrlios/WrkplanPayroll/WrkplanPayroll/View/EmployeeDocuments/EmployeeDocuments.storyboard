@@ -25,11 +25,15 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjm-hS-QNh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjm-hS-QNh">
                                         <rect key="frame" x="347" y="16" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="kVh-dF-aCe"/>
                                         </constraints>
+                                        <state key="normal" image="home_menu"/>
+                                        <connections>
+                                            <action selector="btn_home:" destination="wXQ-Zr-RfO" eventType="touchUpInside" id="xIM-HQ-vVy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,7 +72,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-hI-NdH">
                                                             <rect key="frame" x="61" y="12" width="275" height="40"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6R-3f-le9">
@@ -136,16 +140,28 @@
                     </view>
                     <connections>
                         <outlet property="tableviewEmployeeDocuments" destination="sYb-9X-adA" id="Wie-VL-1ol"/>
+                        <segue destination="Td0-CS-2pc" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="m0v-WP-lW6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9F-1f-pWi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="69.293478260869577"/>
         </scene>
+        <!--home-->
+        <scene sceneID="hRm-go-qbS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="Td0-CS-2pc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="T0v-8l-34d"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldr-mA-cT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714" y="-11"/>
+        </scene>
     </scenes>
     <resources>
         <image name="document" width="512" height="512"/>
         <image name="download" width="150" height="150"/>
+        <image name="home_menu" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

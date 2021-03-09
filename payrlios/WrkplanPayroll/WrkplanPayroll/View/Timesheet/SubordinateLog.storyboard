@@ -8,6 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--timesheet-->
+        <scene sceneID="VNG-hO-veX">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="timesheet" storyboardName="Timesheet" referencedIdentifier="timesheet" id="hyb-sh-Fho" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="E2V-TG-Dzw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Moq-Ff-1Q6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="312" y="-154"/>
+        </scene>
         <!--submyattendance-->
         <scene sceneID="Dmz-33-b66">
             <objects>
@@ -29,29 +39,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXB-Oc-KOV" userLabel="ViewCustomNavBar">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subordinate Attendance Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVP-41-uoZ">
-                                        <rect key="frame" x="22" y="21" width="217" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subordinate Attendance Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.45000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="XVP-41-uoZ">
+                                        <rect key="frame" x="50" y="21" width="354" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4p-YR-fDJ">
-                                        <rect key="frame" x="347" y="16" width="32" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcQ-4p-0dz">
+                                        <rect key="frame" x="0.0" y="7.6666666666666643" width="50" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="eDY-xq-ysZ"/>
+                                            <constraint firstAttribute="width" constant="50" id="91A-bU-PzP"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="btn_back:" destination="wIm-e1-PJb" eventType="touchUpInside" id="3Rg-WH-24F"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="M4p-YR-fDJ" secondAttribute="bottom" constant="16" id="CKJ-9F-fXC"/>
+                                    <constraint firstItem="GcQ-4p-0dz" firstAttribute="leading" secondItem="oXB-Oc-KOV" secondAttribute="leading" id="2Ou-PJ-b9M"/>
+                                    <constraint firstAttribute="trailing" secondItem="XVP-41-uoZ" secondAttribute="trailing" constant="10" id="BrE-Ph-QZM"/>
+                                    <constraint firstItem="XVP-41-uoZ" firstAttribute="leading" secondItem="GcQ-4p-0dz" secondAttribute="trailing" id="EUx-Bd-Fja"/>
                                     <constraint firstAttribute="bottom" secondItem="XVP-41-uoZ" secondAttribute="bottom" constant="21" id="JgO-CY-c8C"/>
-                                    <constraint firstItem="M4p-YR-fDJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XVP-41-uoZ" secondAttribute="trailing" constant="92" id="LmX-Of-a8L"/>
                                     <constraint firstAttribute="height" constant="70" id="VMW-o6-c2j"/>
-                                    <constraint firstItem="M4p-YR-fDJ" firstAttribute="top" secondItem="oXB-Oc-KOV" secondAttribute="top" constant="16" id="X77-qv-vly"/>
-                                    <constraint firstAttribute="trailing" secondItem="M4p-YR-fDJ" secondAttribute="trailing" constant="35" id="fBu-jw-QpP"/>
-                                    <constraint firstItem="XVP-41-uoZ" firstAttribute="leading" secondItem="oXB-Oc-KOV" secondAttribute="leading" constant="22" id="fgM-zr-ntX"/>
+                                    <constraint firstAttribute="bottom" secondItem="GcQ-4p-0dz" secondAttribute="bottom" constant="7.5" id="cfZ-D2-rtn"/>
                                     <constraint firstItem="XVP-41-uoZ" firstAttribute="top" secondItem="oXB-Oc-KOV" secondAttribute="top" constant="21" id="qIw-Dg-Fk8"/>
+                                    <constraint firstItem="GcQ-4p-0dz" firstAttribute="top" secondItem="oXB-Oc-KOV" secondAttribute="top" constant="7.5" id="u0X-iz-Io4"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjy-JN-pNi">
@@ -224,6 +238,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="b5Y-hE-BEd" secondAttribute="bottom" constant="1" id="ODO-MT-ZE4"/>
                                                 <constraint firstItem="b5Y-hE-BEd" firstAttribute="top" secondItem="0CJ-n6-JVF" secondAttribute="top" id="VJH-Wu-Q8F"/>
@@ -255,7 +270,7 @@
                             <constraint firstItem="QEo-PJ-gOQ" firstAttribute="top" secondItem="9mV-Rh-B7v" secondAttribute="bottom" constant="5" id="WUH-83-QqT"/>
                             <constraint firstItem="zC8-8o-krX" firstAttribute="bottom" secondItem="zQI-na-i4c" secondAttribute="bottom" id="WtP-aF-pZH"/>
                             <constraint firstItem="zQI-na-i4c" firstAttribute="trailing" secondItem="fAd-iZ-tas" secondAttribute="trailing" constant="20" id="XP5-t1-BKi"/>
-                            <constraint firstItem="oXB-Oc-KOV" firstAttribute="top" secondItem="kDf-nR-KHL" secondAttribute="top" id="Ydb-aU-u8m"/>
+                            <constraint firstItem="oXB-Oc-KOV" firstAttribute="top" secondItem="zQI-na-i4c" secondAttribute="top" id="Ydb-aU-u8m"/>
                             <constraint firstItem="oXB-Oc-KOV" firstAttribute="trailing" secondItem="zQI-na-i4c" secondAttribute="trailing" id="cfV-RF-08Q"/>
                             <constraint firstItem="qjy-JN-pNi" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="eUR-0D-c6v"/>
                             <constraint firstItem="9mV-Rh-B7v" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="kdw-j9-TAo"/>
@@ -273,7 +288,8 @@
                         <outlet property="designablebtn_subordinate_monthly_attendance_log" destination="zC8-8o-krX" id="VHN-Bj-E5n"/>
                         <outlet property="label_date" destination="hvQ-iL-qdF" id="k4O-Qu-lA9"/>
                         <outlet property="tableviewSubordinateLog" destination="fAd-iZ-tas" id="5dS-TD-N6D"/>
-                        <segue destination="NrF-4t-6de" kind="show" identifier="submyattendance" id="6DD-si-Vai"/>
+                        <segue destination="NrF-4t-6de" kind="modal" identifier="submyattendance" modalPresentationStyle="fullScreen" id="6DD-si-Vai"/>
+                        <segue destination="hyb-sh-Fho" kind="modal" identifier="timesheet" modalPresentationStyle="fullScreen" id="BAQ-MR-NtJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRF-be-2ir" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -287,6 +303,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="backarrow" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

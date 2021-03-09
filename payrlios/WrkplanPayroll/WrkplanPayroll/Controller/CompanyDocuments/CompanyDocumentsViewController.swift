@@ -21,11 +21,13 @@ class CompanyDocumentsViewController: UIViewController, UITableViewDelegate, UIT
         self.tableviewCompanyDocuments.dataSource = self
         self.tableviewCompanyDocuments.delegate = self
 
+        tableviewCompanyDocuments.backgroundColor = UIColor(hexFromString: "ffffff")
         // Do any additional setup after loading the view.
         loadData()
     }
     
     @IBAction func btn_home(_ sender: Any) {
+        self.performSegue(withIdentifier: "home", sender: self)
     }
     
     /*

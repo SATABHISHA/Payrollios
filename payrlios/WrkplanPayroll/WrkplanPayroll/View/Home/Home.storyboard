@@ -258,7 +258,7 @@
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="od_duty_request_disabled" translatesAutoresizingMaskIntoConstraints="NO" id="Vd4-HH-yZJ">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="od_request" translatesAutoresizingMaskIntoConstraints="NO" id="Vd4-HH-yZJ">
                                                                 <rect key="frame" x="29" y="24" width="129" height="120"/>
                                                             </imageView>
                                                         </subviews>
@@ -413,7 +413,7 @@
                             <constraint firstItem="bRV-1p-Q0c" firstAttribute="leading" secondItem="r9f-f5-jIQ" secondAttribute="leading" id="dSo-P8-RuD"/>
                             <constraint firstItem="9dN-SJ-4Ug" firstAttribute="bottom" secondItem="r9f-f5-jIQ" secondAttribute="bottom" constant="12" id="lat-nm-jUp"/>
                             <constraint firstItem="9dN-SJ-4Ug" firstAttribute="trailing" secondItem="r9f-f5-jIQ" secondAttribute="trailing" id="rok-UK-BHH"/>
-                            <constraint firstItem="bRV-1p-Q0c" firstAttribute="top" secondItem="BvO-h3-Y2s" secondAttribute="top" id="yo8-Gq-r7v"/>
+                            <constraint firstItem="bRV-1p-Q0c" firstAttribute="top" secondItem="r9f-f5-jIQ" secondAttribute="top" id="yo8-Gq-r7v"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -461,13 +461,13 @@
                         <outlet property="labelODduty" destination="qOE-1k-TzH" id="xaS-Dy-1OA"/>
                         <outlet property="labelODdutyRequest" destination="BPE-8N-Qtn" id="weZ-Ks-ZV9"/>
                         <outlet property="labelTimesheet" destination="RKH-dv-UeR" id="WwQ-2t-vXW"/>
-                        <segue destination="j8u-8A-fcW" kind="showDetail" identifier="empinfo" id="HhT-pP-mZM"/>
-                        <segue destination="4dh-oF-ika" kind="show" identifier="leave" id="fgG-qp-QDD"/>
-                        <segue destination="wa1-Ex-9kb" kind="show" identifier="facilities" id="eU6-AL-clc"/>
-                        <segue destination="2RU-3z-4rh" kind="show" identifier="empdoc" id="f8l-WP-K6z"/>
-                        <segue destination="Uc6-PH-cc1" kind="show" identifier="companydoc" id="Rq5-G8-lJQ"/>
-                        <segue destination="87T-8I-qD5" kind="show" identifier="insurance" id="AEp-Tx-6RV"/>
-                        <segue destination="Awq-b9-MKB" kind="show" identifier="holiday" id="oU8-uS-t5p"/>
+                        <segue destination="j8u-8A-fcW" kind="modal" identifier="empinfo" modalPresentationStyle="fullScreen" id="HhT-pP-mZM"/>
+                        <segue destination="4dh-oF-ika" kind="modal" identifier="leave" modalPresentationStyle="fullScreen" id="fgG-qp-QDD"/>
+                        <segue destination="wa1-Ex-9kb" kind="modal" identifier="facilities" modalPresentationStyle="fullScreen" id="eU6-AL-clc"/>
+                        <segue destination="2RU-3z-4rh" kind="modal" identifier="empdoc" modalPresentationStyle="fullScreen" id="f8l-WP-K6z"/>
+                        <segue destination="Uc6-PH-cc1" kind="modal" identifier="companydoc" modalPresentationStyle="fullScreen" id="Rq5-G8-lJQ"/>
+                        <segue destination="87T-8I-qD5" kind="modal" identifier="insurance" modalPresentationStyle="fullScreen" id="AEp-Tx-6RV"/>
+                        <segue destination="Awq-b9-MKB" kind="modal" identifier="holiday" modalPresentationStyle="fullScreen" id="oU8-uS-t5p"/>
                         <segue destination="LwH-bW-3Eb" kind="presentation" identifier="timesheet" modalPresentationStyle="fullScreen" id="dZl-wD-OA4"/>
                         <segue destination="imh-AW-1OU" kind="modal" identifier="outdoordutylist" modalPresentationStyle="fullScreen" id="I2b-gp-rkS"/>
                     </connections>
@@ -542,7 +542,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QUN-Vs-o1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3231" y="183"/>
+            <point key="canvasLocation" x="3312" y="218"/>
         </scene>
         <!--holiday-->
         <scene sceneID="Q7M-ER-ra2">
@@ -574,7 +574,7 @@
         <image name="leave" width="512" height="512"/>
         <image name="menuicon" width="32" height="32"/>
         <image name="od_duty_disabled" width="200" height="200"/>
-        <image name="od_duty_request_disabled" width="512" height="512"/>
+        <image name="od_request" width="512" height="512"/>
         <image name="organizationdocs" width="512" height="512"/>
         <image name="timesheet" width="194" height="194"/>
         <systemColor name="systemGray2Color">

@@ -112,7 +112,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="726-BN-ftX" customClass="FSCalendar">
                                 <rect key="frame" x="10" y="76" width="394" height="321"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDy-9M-xyP">
                                 <rect key="frame" x="20" y="454" width="374" height="50"/>
@@ -131,7 +131,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7cN-W3-6m1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7cN-W3-6m1" firstAttribute="bottom" secondItem="726-BN-ftX" secondAttribute="bottom" constant="290" id="5Ij-Ji-PRI"/>
                             <constraint firstItem="726-BN-ftX" firstAttribute="leading" secondItem="7cN-W3-6m1" secondAttribute="leading" constant="10" id="7L7-n0-HSG"/>
@@ -305,7 +305,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5X8-u8-zYu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eUj-X8-iS0" firstAttribute="leading" secondItem="5X8-u8-zYu" secondAttribute="leading" id="2QO-rB-ZMy"/>
                             <constraint firstItem="eUj-X8-iS0" firstAttribute="top" secondItem="5X8-u8-zYu" secondAttribute="top" id="Mco-sO-p1r"/>

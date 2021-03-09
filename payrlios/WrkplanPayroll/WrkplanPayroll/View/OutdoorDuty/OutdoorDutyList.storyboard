@@ -210,7 +210,7 @@
                         <viewLayoutGuide key="safeArea" id="NCf-G8-CEk"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="cmJ-RM-8Fd" firstAttribute="top" secondItem="G6N-qC-LmU" secondAttribute="top" id="FXl-aD-dTk"/>
+                            <constraint firstItem="cmJ-RM-8Fd" firstAttribute="top" secondItem="NCf-G8-CEk" secondAttribute="top" id="FXl-aD-dTk"/>
                             <constraint firstItem="ejb-6J-fB2" firstAttribute="top" secondItem="EM3-sA-HzV" secondAttribute="bottom" constant="20" id="KdE-jp-Cy7"/>
                             <constraint firstItem="EM3-sA-HzV" firstAttribute="leading" secondItem="NCf-G8-CEk" secondAttribute="leading" id="SO7-wm-aI4"/>
                             <constraint firstItem="ejb-6J-fB2" firstAttribute="leading" secondItem="NCf-G8-CEk" secondAttribute="leading" id="hbm-U6-iiW"/>

@@ -44,6 +44,9 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
+    @IBAction func btn_back(_ sender: Any) {
+        self.performSegue(withIdentifier: "timesheet", sender: nil)
+    }
     //---SubordinateMonthlyAttendanceLog OnClick
     @objc func DesignablebtnSubordinateMonthlyAttendanceLog(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "submyattendance", sender: nil)

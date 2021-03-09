@@ -24,10 +24,15 @@ class EmployeeDocumentsViewController: UIViewController, UITableViewDataSource, 
         self.tableviewEmployeeDocuments.delegate = self
         self.tableviewEmployeeDocuments.dataSource = self
         
+        tableviewEmployeeDocuments.backgroundColor = UIColor(hexFromString: "ffffff")
+        
         self.loadData()
     }
     
 
+    @IBAction func btn_home(_ sender: Any) {
+        self.performSegue(withIdentifier: "home", sender: nil)
+    }
     func downloadTableViewCelldidTap(_ sender: EmployeeDocumentsTableViewCell) {
         guard let tappedIndexPath = tableviewEmployeeDocuments.indexPath(for: sender) else {return}
                 let rowData = arrRes[tappedIndexPath.row]

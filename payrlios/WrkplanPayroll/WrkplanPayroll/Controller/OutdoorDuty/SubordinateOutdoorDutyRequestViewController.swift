@@ -79,6 +79,7 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
     //---Cancel
     @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
 //        self.performSegue(withIdentifier: "empinfo", sender: nil)
+        self.performSegue(withIdentifier: "subordinateoutdoordutylist", sender: nil)
         print("Cancel")
     }
     

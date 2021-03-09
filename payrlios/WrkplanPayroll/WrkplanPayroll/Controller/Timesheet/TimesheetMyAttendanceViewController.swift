@@ -34,6 +34,8 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         self.tableviewMyAttendence.dataSource = self
         self.tableviewMyAttendence.delegate = self
         
+        tableviewMyAttendence.backgroundColor = UIColor(hexFromString: "ffffff")
+        
         // Do any additional setup after loading the view.
         btnCheckBox.setImage(UIImage(named:"check_box_empty"), for: .normal)
         btnCheckBox.setImage(UIImage(named:"check_box"), for: .selected)

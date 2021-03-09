@@ -30,6 +30,8 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
         
         self.tableviewSubordinateMyAttendanceLog.delegate = self
         self.tableviewSubordinateMyAttendanceLog.dataSource = self
+        
+        tableviewSubordinateMyAttendanceLog.backgroundColor = UIColor(hexFromString: "ffffff")
 
         // Do any additional setup after loading the view.
         month_number = Calendar.current.component(.month, from: Date())
@@ -45,6 +47,10 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
 
         getEmpName()
         print("name-=>",name)
+    }
+    
+    @IBAction func btn_back(_ sender: Any) {
+        self.performSegue(withIdentifier: "subordinatelog", sender: nil)
     }
     func getEmpName(){
         for i in 0..<SubordinateLogViewController.subordinate_details.count{

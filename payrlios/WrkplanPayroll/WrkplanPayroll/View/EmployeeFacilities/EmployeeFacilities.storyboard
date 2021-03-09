@@ -65,7 +65,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROVIDENT FUND EMPLOYEE " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRM-D8-uyy">
                                                             <rect key="frame" x="8" y="7.9999999999999982" width="360" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkh-AK-YOT">
@@ -94,7 +94,8 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="gkh-AK-YOT" firstAttribute="leading" secondItem="yCq-e9-zPp" secondAttribute="leading" constant="226" id="13j-aU-T2v"/>
                                                         <constraint firstAttribute="trailing" secondItem="TRM-D8-uyy" secondAttribute="trailing" constant="22" id="5u3-81-FnB"/>
@@ -111,6 +112,8 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="yCq-e9-zPp" secondAttribute="bottom" constant="1" id="H5d-BN-1zK"/>
                                                 <constraint firstAttribute="trailing" secondItem="yCq-e9-zPp" secondAttribute="trailing" id="YQT-0l-3yj"/>
@@ -131,7 +134,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tch-Rx-fZC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Tch-Rx-fZC" firstAttribute="trailing" secondItem="FFU-pt-wLh" secondAttribute="trailing" constant="12" id="7Ps-U3-Ctt"/>
                             <constraint firstItem="RyF-1d-jJX" firstAttribute="leading" secondItem="Tch-Rx-fZC" secondAttribute="leading" id="Chk-fG-RLc"/>

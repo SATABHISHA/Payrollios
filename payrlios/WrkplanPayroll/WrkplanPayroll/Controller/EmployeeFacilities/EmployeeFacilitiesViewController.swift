@@ -21,6 +21,8 @@ class EmployeeFacilitiesViewController: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
         self.tableViewEmployeeFacilities.delegate = self
         self.tableViewEmployeeFacilities.dataSource = self
+        
+        tableViewEmployeeFacilities.backgroundColor = UIColor(hexFromString: "ffffff")
 
         // Do any additional setup after loading the view.
         loadData()

@@ -20,6 +20,8 @@ class HolidayDetailsViewController: UIViewController, UITableViewDataSource, UIT
 
         self.tableviewHolidayDetail.dataSource = self
         self.tableviewHolidayDetail.delegate = self
+        
+        tableviewHolidayDetail.backgroundColor = UIColor(hexFromString: "ffffff")
         // Do any additional setup after loading the view.
         loadData()
     }

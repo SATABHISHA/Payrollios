@@ -43,6 +43,10 @@ class LoginViewController: UIViewController {
             corpId.text = sharedpreferences.object(forKey: "CorpIDForLogin") as? String
         }
         
+        corpId.attributedPlaceholder = NSAttributedString(string: "Corporate ID", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        userName.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        password.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        
         //============keyboard will show/hide, code starts==========
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)

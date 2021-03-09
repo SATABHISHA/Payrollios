@@ -34,7 +34,10 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         loadData(month_number: month_number!, year: year!)
     }
     
-
+    @IBAction func btn_back(_ sender: Any) {
+        self.performSegue(withIdentifier: "timesheet", sender: nil)
+    }
+    
     @IBAction func btn_prev(_ sender: Any) {
         var temp_month_no: Int = month_number!
         var temp_year: Int = year!
