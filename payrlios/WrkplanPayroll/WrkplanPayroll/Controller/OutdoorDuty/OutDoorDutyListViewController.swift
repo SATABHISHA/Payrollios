@@ -9,8 +9,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, OutDoorDutyListTableViewCellDelegate {
+   
     
     @IBOutlet weak var label_custom_btn_subordinate_duty_rqst_list: DesignableButton!
     @IBOutlet weak var TableViewOutdoorList: UITableView!
@@ -28,6 +28,7 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
         
         self.TableViewOutdoorList.delegate = self
         self.TableViewOutdoorList.dataSource = self
+        
         
         //EmployeeInformation
         let tapGestureRecognizer_view_new_od_duty_request = UITapGestureRecognizer(target: self, action: #selector(view_new_od_duty_request(tapGestureRecognizer:)))
@@ -57,12 +58,18 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
         self.performSegue(withIdentifier: "home", sender: self)
     }
     //----------tableview code starts------------
+//    var rowIndex: Int! // --for instant delete delaring the variable
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrRes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OutDoorDutyListTableViewCell
+//        rowIndex = indexPath.row
+        
+        cell.delegate = self
+        
         let dict = arrRes[indexPath.row]
         
         let dateFormatterGet = DateFormatter()
@@ -89,6 +96,12 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
         /*cell.label_timeout.text = dict["time_out"] as? String
         cell.label_status.text = dict["attendance_status"] as? String
         cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)*/
+        if dict["od_status"] as? String == "Save"{
+            cell.custom_img_btn_delete.isHidden = false
+        }else{
+            cell.custom_img_btn_delete.isHidden = true
+        }
+        
         if dict["od_status"] as? String == "Approved"{
             cell.label_od_status.textColor = UIColor(hexFromString: "1e9547")
         }else if dict["od_status"] as? String == "Canceled"{
@@ -120,6 +133,25 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
             self.performSegue(withIdentifier: "outdoordutyrequest", sender: self)
         }
         //---------onClick tableview code ends----------
+    
+    func OutDoorDutyListTableViewCellAddOrRemoveDidTapAddOrView(_ sender: OutDoorDutyListTableViewCell) {
+        guard let tappedIndexPath = TableViewOutdoorList.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
+        
+        let od_request_id = rowData["od_request_id"]?.stringValue
+        
+        delete_data(od_request_id: od_request_id!)
+        
+        self.arrRes.remove(at: tappedIndexPath.row)
+           TableViewOutdoorList.reloadData()
+        
+        self.delete_data(od_request_id: od_request_id!)
+        
+        self.arrRes.remove(at: tappedIndexPath.row)
+        self.TableViewOutdoorList.reloadData()
+        
+        
+    }
     //----------tableview code ends------------
     
 
@@ -158,6 +190,32 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
            }
        }
        //--------function to show log details using Alamofire and Json Swifty code ends------------
+    
+    
+    //---function to delete, code starts-----
+    func delete_data(od_request_id: String){
+        loaderStart()
+        let url = "\(BASE_URL)od/request/delete/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(od_request_id)/"
+        print("deleteapi-=>",url)
+           AF.request(url).responseJSON{ (responseData) -> Void in
+               self.loaderEnd()
+               if((responseData.value) != nil){
+                   let swiftyJsonVar=JSON(responseData.value!)
+                   print("Response description: \(swiftyJsonVar)")
+                
+                
+                
+                   if let resData = swiftyJsonVar["request_list"].arrayObject{
+                       self.arrRes = resData as! [[String:AnyObject]]
+                    
+                   }
+                  
+               }
+               
+           }
+        
+    }
+    //---function to delete, code ends-----
     
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()

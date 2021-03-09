@@ -125,7 +125,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNy-Uv-RhM">
-                                                            <rect key="frame" x="334" y="0.0" width="80" height="65"/>
+                                                            <rect key="frame" x="289" y="0.0" width="80" height="65"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X21-9t-147">
                                                                     <rect key="frame" x="3" y="11" width="74" height="30"/>
@@ -154,20 +154,29 @@
                                                                 <constraint firstItem="X21-9t-147" firstAttribute="top" secondItem="LNy-Uv-RhM" secondAttribute="top" constant="11" id="wlM-T2-9Ai"/>
                                                             </constraints>
                                                         </view>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete_record_od_request" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-AT-7Rh">
+                                                            <rect key="frame" x="369" y="12.666666666666664" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="4GK-ar-Rkk"/>
+                                                                <constraint firstAttribute="width" constant="40" id="v8o-VA-3Uo"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="top" secondItem="UBE-rV-9hf" secondAttribute="top" constant="5" id="0G4-la-wLd"/>
                                                         <constraint firstItem="LNy-Uv-RhM" firstAttribute="top" secondItem="UBE-rV-9hf" secondAttribute="top" id="3Xd-hr-MiW"/>
                                                         <constraint firstItem="LNy-Uv-RhM" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Xmx-lw-D0a" secondAttribute="trailing" constant="258" id="8uE-bO-Pzy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SP4-AT-7Rh" secondAttribute="trailing" constant="5" id="Fkf-ym-5Ar"/>
+                                                        <constraint firstItem="SP4-AT-7Rh" firstAttribute="centerY" secondItem="UBE-rV-9hf" secondAttribute="centerY" id="GdV-ui-rYI"/>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="HsT-jX-Vwj"/>
-                                                        <constraint firstAttribute="trailing" secondItem="LNy-Uv-RhM" secondAttribute="trailing" id="M6G-cG-o0X"/>
                                                         <constraint firstAttribute="bottom" secondItem="LNy-Uv-RhM" secondAttribute="bottom" id="Mcu-P3-lKH"/>
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="top" secondItem="jGI-hv-w3h" secondAttribute="bottom" constant="21" id="PPp-y2-LiE"/>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="top" secondItem="UBE-rV-9hf" secondAttribute="top" constant="5" id="PxU-yN-RPp"/>
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="cts-pr-pA7"/>
                                                         <constraint firstItem="Xmx-lw-D0a" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="dPg-XK-1gd"/>
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="gGZ-kR-eZ6"/>
+                                                        <constraint firstItem="SP4-AT-7Rh" firstAttribute="leading" secondItem="LNy-Uv-RhM" secondAttribute="trailing" id="hrf-Pz-a4m"/>
                                                         <constraint firstItem="Xmx-lw-D0a" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="qgb-80-4uN"/>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="qix-Gv-Da8"/>
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="top" secondItem="Xmx-lw-D0a" secondAttribute="bottom" id="rWP-nZ-9ho"/>
@@ -187,6 +196,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="custom_img_btn_delete" destination="SP4-AT-7Rh" id="xF9-5r-UBd"/>
                                             <outlet property="label_day_count" destination="X21-9t-147" id="aeg-ZH-HEJ"/>
                                             <outlet property="label_od_date" destination="Xmx-lw-D0a" id="FIv-lK-iXd"/>
                                             <outlet property="label_od_no" destination="jGI-hv-w3h" id="Pw2-ql-XFK"/>
@@ -263,5 +273,6 @@
     </designables>
     <resources>
         <image name="backarrow" width="200" height="200"/>
+        <image name="delete_record_od_request" width="256" height="256"/>
     </resources>
 </document>

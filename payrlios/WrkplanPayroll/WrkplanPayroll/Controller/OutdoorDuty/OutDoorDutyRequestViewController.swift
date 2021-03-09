@@ -83,7 +83,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             loadData()
         }
 //        populate_value()
-        print("od_rqst_is-=>",OutDoorDutyListViewController.supervisor_od_request_id!)
+//        print("od_rqst_is-=>",OutDoorDutyListViewController.supervisor_od_request_id!)
         print("jsonData-=>",swiftyJsonvar1)
     }
     
@@ -107,8 +107,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     
     //---Cancel
     @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
-//        self.performSegue(withIdentifier: "empinfo", sender: nil)
-        print("Cancel")
+        self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
     }
     
     //-----------dismiss keyboard on touching anywhere in the screen code starts-----------
