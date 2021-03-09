@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -116,13 +115,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-06-21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmx-lw-D0a">
                                                             <rect key="frame" x="5" y="21" width="71" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-29-5kJ">
                                                             <rect key="frame" x="4.9999999999999964" y="42" width="58.666666666666657" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNy-Uv-RhM">
@@ -131,17 +130,18 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X21-9t-147">
                                                                     <rect key="frame" x="3" y="11" width="74" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day(s)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKX-bX-jiI">
                                                                     <rect key="frame" x="15" y="41" width="50" height="16"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="FVc-T6-tk1"/>
                                                                 <constraint firstItem="ZKX-bX-jiI" firstAttribute="leading" secondItem="LNy-Uv-RhM" secondAttribute="leading" constant="15" id="UG5-z8-13o"/>
@@ -155,7 +155,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="top" secondItem="UBE-rV-9hf" secondAttribute="top" constant="5" id="0G4-la-wLd"/>
                                                         <constraint firstItem="LNy-Uv-RhM" firstAttribute="top" secondItem="UBE-rV-9hf" secondAttribute="top" id="3Xd-hr-MiW"/>
@@ -214,14 +214,26 @@
                     </view>
                     <connections>
                         <outlet property="TableViewOutdoorList" destination="EM3-sA-HzV" id="ohU-Rq-xsc"/>
+                        <outlet property="label_custom_btn_subordinate_duty_rqst_list" destination="ejb-6J-fB2" id="Jbv-Sg-uys"/>
                         <outlet property="view_new_od_duty_request" destination="mqD-XD-Qnu" id="UA3-7h-q3S"/>
                         <segue destination="eBP-ro-AzL" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="ien-bZ-2rw"/>
                         <segue destination="dOD-kf-6DO" kind="modal" identifier="outdoordutyrequest" modalPresentationStyle="fullScreen" id="dzd-dO-VLL"/>
+                        <segue destination="B3V-iF-0uk" kind="modal" identifier="subordinateodrqstlist" modalPresentationStyle="fullScreen" id="Eab-Ds-oAg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgD-UE-nOF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="150.72463768115944" y="-40.760869565217398"/>
+        </scene>
+        <!--subordinateoutdoordutylist-->
+        <scene sceneID="2iI-f7-EZo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinateoutdoordutylist" storyboardName="SubordinateOutdoorDutyRequestList" referencedIdentifier="subordinateoutdoordutylist" id="B3V-iF-0uk" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MyB-rD-3K6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XlA-nB-1GX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-309"/>
         </scene>
         <!--outdoordutyrequest-->
         <scene sceneID="N20-az-j4W">
@@ -244,10 +256,12 @@
             <point key="canvasLocation" x="764" y="-69"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ejb-6J-fB2">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backarrow" width="200" height="200"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -1,68 +1,40 @@
 //
-//  OutDoorDutyListViewController.swift
+//  SubordinateOutdoorDutyRequestListViewController.swift
 //  WrkplanPayroll
 //
-//  Created by SATABHISHA ROY on 01/03/21.
+//  Created by SATABHISHA ROY on 08/03/21.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
 
-class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
-    
-    @IBOutlet weak var label_custom_btn_subordinate_duty_rqst_list: DesignableButton!
-    @IBOutlet weak var TableViewOutdoorList: UITableView!
     var arrRes = [[String:AnyObject]]()
-    
-    @IBOutlet weak var view_new_od_duty_request: UIButton!
-    
+    @IBOutlet weak var tableviewSubordinateDutyRequestList: UITableView!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
-    
-    static var new_create_yn: Bool = false
-    static var supervisor_od_request_id: String!
+    public static var od_request_id: String!, supervisor_employee_id: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableviewSubordinateDutyRequestList.delegate = self
+        self.tableviewSubordinateDutyRequestList.dataSource = self
         
-        self.TableViewOutdoorList.delegate = self
-        self.TableViewOutdoorList.dataSource = self
-        
-        //EmployeeInformation
-        let tapGestureRecognizer_view_new_od_duty_request = UITapGestureRecognizer(target: self, action: #selector(view_new_od_duty_request(tapGestureRecognizer:)))
-        view_new_od_duty_request.isUserInteractionEnabled = true
-        view_new_od_duty_request.addGestureRecognizer(tapGestureRecognizer_view_new_od_duty_request)
-        
-        //Subordinate
-        let tapGestureRecognizer_subordinate_duty_rqst_list = UITapGestureRecognizer(target: self, action: #selector(subordinate_duty_rqst_list(tapGestureRecognizer:)))
-        label_custom_btn_subordinate_duty_rqst_list.isUserInteractionEnabled = true
-        label_custom_btn_subordinate_duty_rqst_list.addGestureRecognizer(tapGestureRecognizer_subordinate_duty_rqst_list)
 
-        // Do any additional setup after loading the view.
         loadData()
     }
-    //OdDutyRequest
-    @objc func view_new_od_duty_request(tapGestureRecognizer: UITapGestureRecognizer){
-        OutDoorDutyListViewController.new_create_yn = true
-        self.performSegue(withIdentifier: "outdoordutyrequest", sender: nil)
-    }
-    
-    //Subordinate
-    @objc func subordinate_duty_rqst_list(tapGestureRecognizer: UITapGestureRecognizer){
-        self.performSegue(withIdentifier: "subordinateodrqstlist", sender: nil)
-    }
-    
     @IBAction func btn_back(_ sender: Any) {
-        self.performSegue(withIdentifier: "home", sender: self)
+        self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
     }
+    
     //----------tableview code starts------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrRes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OutDoorDutyListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SubordinateOutdoorDutyRequestListTableViewCell
         let dict = arrRes[indexPath.row]
         
         let dateFormatterGet = DateFormatter()
@@ -77,7 +49,7 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
 //                labelDate.text = eventData[i].date
 //        cell.label_date.text = dateFormatterPrint.string(from: date!)
         
-        cell.label_od_no.text = dict["od_request_no"] as? String
+        cell.label_od_duty_no.text = dict["od_request_no"] as? String
         if (dict["total_days"]?.doubleValue)! > 0 {
             cell.label_od_date.text = "\(String(describing: dict["from_date"] as! String)) to \(String(describing: dict["to_date"] as! String))"
         }else{
@@ -86,38 +58,36 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
         
         cell.label_day_count.text = String(describing:dict["total_days"] as! Int)
         cell.label_od_status.text = dict["od_status"] as? String
+        cell.label_subordinate_name.text = dict["employee_name"] as? String
         /*cell.label_timeout.text = dict["time_out"] as? String
         cell.label_status.text = dict["attendance_status"] as? String
         cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)*/
         return cell
         
     }
-    
+    //----------tableview code ends------------
     //---------onClick tableview code starts----------
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
-            OutDoorDutyListViewController.new_create_yn = false
             var row=arrRes[indexPath.row]
             print(row)
             print("tap is working")
            
-            OutDoorDutyListViewController.supervisor_od_request_id = row["od_request_id"]?.stringValue
-            
+            SubordinateOutdoorDutyRequestListViewController.od_request_id = row["od_request_id"]?.stringValue
+            SubordinateOutdoorDutyRequestListViewController.supervisor_employee_id = row["employee_id"]?.stringValue
            
 //            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
 //            print("test-=>",row["od_request_id"]?.stringValue)
-            self.performSegue(withIdentifier: "outdoordutyrequest", sender: self)
+            self.performSegue(withIdentifier: "subordinateoutdoordutyrequest", sender: self)
         }
         //---------onClick tableview code ends----------
-    //----------tableview code ends------------
-    
-
-    //--------function to show log details using Alamofire and Json Swifty------------
+  
+    //--------function to show details using Alamofire and Json Swifty------------
     func loadData(){
            loaderStart()
         
-        let url = "\(BASE_URL)od/request/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/1/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
-        print("odDutylisturl-=>",url)
+        let url = "\(BASE_URL)od/request/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/2/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
+        print("SubordinateOutDoorDutylisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
                if((responseData.value) != nil){
@@ -130,24 +100,23 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
                        self.arrRes = resData as! [[String:AnyObject]]
                    }
                    if self.arrRes.count>0 {
-                    self.TableViewOutdoorList.reloadData()
+                    self.tableviewSubordinateDutyRequestList.reloadData()
                    }else{
-                       self.TableViewOutdoorList.reloadData()
+                       self.tableviewSubordinateDutyRequestList.reloadData()
                        //                    Toast(text: "No data", duration: Delay.short).show()
-                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewOutdoorList.bounds.size.width, height: self.TableViewOutdoorList.bounds.size.height))
+                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableviewSubordinateDutyRequestList.bounds.size.width, height: self.tableviewSubordinateDutyRequestList.bounds.size.height))
                        noDataLabel.text          = "No Log(s) available"
                        noDataLabel.textColor     = UIColor.black
                        noDataLabel.textAlignment = .center
-                       self.TableViewOutdoorList.backgroundView  = noDataLabel
-                       self.TableViewOutdoorList.separatorStyle  = .none
+                       self.tableviewSubordinateDutyRequestList.backgroundView  = noDataLabel
+                       self.tableviewSubordinateDutyRequestList.separatorStyle  = .none
                        
                    }
                }
                
            }
        }
-       //--------function to show log details using Alamofire and Json Swifty code ends------------
-    
+       //--------function to log details using Alamofire and Json Swifty code ends------------
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
         var blurEffectView: UIVisualEffectView!

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702411125EFD33800F6D285 /* KGRadioButton.swift */; };
+		1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789225F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift */; };
+		1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789725F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift */; };
+		1705789D25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789C25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift */; };
 		172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */; };
 		172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172246F52567B250006EDF5B /* EmployeeInformation.storyboard */; };
 		1722940D256E800C0008D808 /* Leave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1722940C256E800C0008D808 /* Leave.storyboard */; };
@@ -45,7 +48,6 @@
 		1762251125713EA1005F6C5B /* InsuranceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762251025713EA1005F6C5B /* InsuranceDetailTableViewCell.swift */; };
 		17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17627D99257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift */; };
 		176E663325F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176E663225F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard */; };
-		176E663825F0FDA00079FC2E /* SubordinateOutDoorDutyRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176E663725F0FDA00079FC2E /* SubordinateOutDoorDutyRequestViewController.swift */; };
 		17723CBB2563A688002754DB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17723CBA2563A688002754DB /* Home.storyboard */; };
 		17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17723CCB2563BCE1002754DB /* HomeViewController.swift */; };
 		1785DEAF25E7877F0088AEBA /* OutdoorDutyList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */; };
@@ -53,6 +55,7 @@
 		178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A108B25667A7A00569712 /* UserSingletonModel.swift */; };
 		178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */; };
 		178F85D325EE71EF007ABD62 /* OutdoorDutyRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */; };
+		17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */; };
 		17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */; };
 		17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */; };
 		17B05E6E2579151700CBC3C9 /* CustomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E6D2579151600CBC3C9 /* CustomBorder.swift */; };
@@ -89,6 +92,9 @@
 /* Begin PBXFileReference section */
 		0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1702411125EFD33800F6D285 /* KGRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGRadioButton.swift; sourceTree = "<group>"; };
+		1705789225F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestListViewController.swift; sourceTree = "<group>"; };
+		1705789725F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestListTableViewCell.swift; sourceTree = "<group>"; };
+		1705789C25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestViewController.swift; sourceTree = "<group>"; };
 		172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInformationViewController.swift; sourceTree = "<group>"; };
 		172246F52567B250006EDF5B /* EmployeeInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeInformation.storyboard; sourceTree = "<group>"; };
 		1722940C256E800C0008D808 /* Leave.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Leave.storyboard; sourceTree = "<group>"; };
@@ -131,7 +137,6 @@
 		1762251025713EA1005F6C5B /* InsuranceDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceDetailTableViewCell.swift; sourceTree = "<group>"; };
 		17627D99257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceTableViewCell.swift; sourceTree = "<group>"; };
 		176E663225F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOutdoorDutyRequest.storyboard; sourceTree = "<group>"; };
-		176E663725F0FDA00079FC2E /* SubordinateOutDoorDutyRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutDoorDutyRequestViewController.swift; sourceTree = "<group>"; };
 		17723CBA2563A688002754DB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		17723CCB2563BCE1002754DB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyList.storyboard; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 		178A108B25667A7A00569712 /* UserSingletonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingletonModel.swift; sourceTree = "<group>"; };
 		178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyRequestViewController.swift; sourceTree = "<group>"; };
 		178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyRequest.storyboard; sourceTree = "<group>"; };
+		17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOutdoorDutyRequestList.storyboard; sourceTree = "<group>"; };
 		17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
 		17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceViewController.swift; sourceTree = "<group>"; };
 		17B05E6D2579151600CBC3C9 /* CustomBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorder.swift; sourceTree = "<group>"; };
@@ -446,6 +452,7 @@
 				1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */,
 				178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */,
 				176E663225F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard */,
+				17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */,
 			);
 			path = OutdoorDuty;
 			sourceTree = "<group>";
@@ -457,7 +464,9 @@
 				17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */,
 				178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */,
 				1702411125EFD33800F6D285 /* KGRadioButton.swift */,
-				176E663725F0FDA00079FC2E /* SubordinateOutDoorDutyRequestViewController.swift */,
+				1705789225F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift */,
+				1705789725F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift */,
+				1705789C25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift */,
 			);
 			path = OutdoorDuty;
 			sourceTree = "<group>";
@@ -639,6 +648,7 @@
 			files = (
 				172D28C22575012900C6E2A6 /* HolidayDetails.storyboard in Resources */,
 				173C0F2A25626FBE007AE8F6 /* LaunchScreen.storyboard in Resources */,
+				17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */,
 				17459653256F8CDE00DD6932 /* EmployeeFacilities.storyboard in Resources */,
 				17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */,
 				1762250725711849005F6C5B /* InsuranceDetail.storyboard in Resources */,
@@ -796,6 +806,7 @@
 				172D28D1257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift in Sources */,
 				178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */,
 				1762250C2571197E005F6C5B /* InsuranceDetailViewController.swift in Sources */,
+				1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */,
 				172D28CC25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift in Sources */,
 				17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */,
 				17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */,
@@ -808,9 +819,10 @@
 				17B05E6E2579151700CBC3C9 /* CustomBorder.swift in Sources */,
 				17229413256E807B0008D808 /* LeaveViewController.swift in Sources */,
 				178A1086256679B900569712 /* AppConfig.swift in Sources */,
-				176E663825F0FDA00079FC2E /* SubordinateOutDoorDutyRequestViewController.swift in Sources */,
 				1745964A256F8CBB00DD6932 /* EmployeeFacilitiesViewController.swift in Sources */,
+				1705789D25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift in Sources */,
 				173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */,
+				1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */,
 				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,
 				173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */,
 				178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */,

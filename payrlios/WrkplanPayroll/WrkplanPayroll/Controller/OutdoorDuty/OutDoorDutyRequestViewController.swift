@@ -74,6 +74,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         print("random-=>", Int.random(in: 0 ... 999999))
         
         populate_value()
+        print("od_rqst_is-=>",OutDoorDutyListViewController.supervisor_od_request_id!)
         print("jsonData-=>",swiftyJsonvar1)
     }
     
