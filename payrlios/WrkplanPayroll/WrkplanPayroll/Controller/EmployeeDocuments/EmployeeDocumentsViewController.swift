@@ -19,6 +19,8 @@ class EmployeeDocumentsViewController: UIViewController, UITableViewDataSource, 
     var arrRes = [[String:AnyObject]]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ChangeStatusBarColor() //---to change background statusbar color
 
         // Do any additional setup after loading the view.
         self.tableviewEmployeeDocuments.delegate = self

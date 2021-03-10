@@ -54,6 +54,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ChangeStatusBarColor() //---to change background statusbar color
+       
         
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
@@ -183,6 +185,7 @@ class HomeViewController: UIViewController {
         ODdutyRequestImg.isUserInteractionEnabled = true
         ODdutyRequestImg.addGestureRecognizer(tapGestureRecognizerODdutyRequestImg)
     }
+   
     
     //---EmployeeInformation
     @objc func EmployeeInformationView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -306,5 +309,34 @@ extension CALayer {
         }
         border.backgroundColor = color.cgColor;
         self.addSublayer(border)
+    }
+};
+
+extension UIViewController{
+    func ChangeStatusBarColor(){
+        if #available(iOS 13.0, *) {
+            let app = UIApplication.shared
+//            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            let statusBarHeight: CGFloat = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+            
+            let statusbarView = UIView()
+            statusbarView.backgroundColor = UIColor(hexFromString: "2E5771")
+            view.addSubview(statusbarView)
+          
+            statusbarView.translatesAutoresizingMaskIntoConstraints = false
+            statusbarView.heightAnchor
+                .constraint(equalToConstant: statusBarHeight).isActive = true
+            statusbarView.widthAnchor
+                .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
+            statusbarView.topAnchor
+                .constraint(equalTo: view.topAnchor).isActive = true
+            statusbarView.centerXAnchor
+                .constraint(equalTo: view.centerXAnchor).isActive = true
+          
+        } else {
+            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+            statusBar?.backgroundColor = UIColor(hexFromString: "2E5771")
+        }
     }
 }

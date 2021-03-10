@@ -25,6 +25,8 @@ class LeaveViewController: UIViewController {
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ChangeStatusBarColor() //---to change background statusbar color
 
         // Do any additional setup after loading the view.
         

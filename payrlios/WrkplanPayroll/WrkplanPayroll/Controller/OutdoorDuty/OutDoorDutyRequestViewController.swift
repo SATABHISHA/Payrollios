@@ -42,6 +42,9 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         txt_from_date.delegate = self
         txt_to_date.delegate = self
         

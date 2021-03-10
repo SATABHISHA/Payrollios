@@ -19,6 +19,8 @@ class EmployeeFacilitiesViewController: UIViewController, UITableViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.tableViewEmployeeFacilities.delegate = self
         self.tableViewEmployeeFacilities.dataSource = self
         

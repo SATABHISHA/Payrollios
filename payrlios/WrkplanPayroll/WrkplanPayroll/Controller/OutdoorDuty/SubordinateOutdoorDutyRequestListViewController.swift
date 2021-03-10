@@ -18,6 +18,9 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.tableviewSubordinateDutyRequestList.delegate = self
         self.tableviewSubordinateDutyRequestList.dataSource = self
         

@@ -35,6 +35,8 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         // Do any additional setup after loading the view.
         txt_od_rqst_no.isUserInteractionEnabled = false
         txt_emp_name.isUserInteractionEnabled = false

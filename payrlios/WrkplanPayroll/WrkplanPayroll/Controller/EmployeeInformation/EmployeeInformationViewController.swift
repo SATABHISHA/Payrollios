@@ -21,6 +21,8 @@ class EmployeeInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         // Do any additional setup after loading the view.
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)

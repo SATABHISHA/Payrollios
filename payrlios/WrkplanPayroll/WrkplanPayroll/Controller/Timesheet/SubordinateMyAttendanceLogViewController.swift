@@ -27,6 +27,7 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     var name = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChangeStatusBarColor() //---to change background statusbar color
         
         self.tableviewSubordinateMyAttendanceLog.delegate = self
         self.tableviewSubordinateMyAttendanceLog.dataSource = self

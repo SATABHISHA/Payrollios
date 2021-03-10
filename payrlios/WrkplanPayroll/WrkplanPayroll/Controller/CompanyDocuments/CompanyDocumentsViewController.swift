@@ -18,6 +18,8 @@ class CompanyDocumentsViewController: UIViewController, UITableViewDelegate, UIT
     var arrRes = [[String:AnyObject]]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.tableviewCompanyDocuments.dataSource = self
         self.tableviewCompanyDocuments.delegate = self
 

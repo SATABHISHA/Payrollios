@@ -30,6 +30,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     var work_from_home_detail: String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChangeStatusBarColor() //---to change background statusbar color
         
         self.tableviewMyAttendence.dataSource = self
         self.tableviewMyAttendence.delegate = self

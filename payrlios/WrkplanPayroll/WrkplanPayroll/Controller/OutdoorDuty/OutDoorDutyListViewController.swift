@@ -25,6 +25,7 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChangeStatusBarColor() //---to change backgrounf statusbar color
         
         self.TableViewOutdoorList.delegate = self
         self.TableViewOutdoorList.dataSource = self

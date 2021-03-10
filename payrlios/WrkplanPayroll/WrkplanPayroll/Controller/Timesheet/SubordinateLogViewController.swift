@@ -26,6 +26,8 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.tableviewSubordinateLog.delegate = self
         self.tableviewSubordinateLog.dataSource = self
         // Do any additional setup after loading the view.

@@ -22,6 +22,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.tableviewMyAttendanceLog.delegate = self
         self.tableviewMyAttendanceLog.dataSource = self
 

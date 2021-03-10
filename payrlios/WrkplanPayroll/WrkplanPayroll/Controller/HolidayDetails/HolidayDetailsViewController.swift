@@ -17,7 +17,8 @@ class HolidayDetailsViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableviewHolidayDetail: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.tableviewHolidayDetail.dataSource = self
         self.tableviewHolidayDetail.delegate = self
         

@@ -30,6 +30,8 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
     var data_count:Int!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.tableviewInsurance.delegate = self
         self.tableviewInsurance.dataSource = self
 
