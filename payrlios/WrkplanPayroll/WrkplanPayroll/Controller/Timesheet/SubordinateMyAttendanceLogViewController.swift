@@ -76,6 +76,7 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
             self!.label_date.isHidden = false
             
             self!.loadData(month_number: self!.month_number!, year: self!.year!)
+            sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
             
             //--adeded on 24th feb, ends
         }

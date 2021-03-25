@@ -38,12 +38,12 @@ class EmployeeDocumentsViewController: UIViewController, UITableViewDataSource, 
     func downloadTableViewCelldidTap(_ sender: EmployeeDocumentsTableViewCell) {
         guard let tappedIndexPath = tableviewEmployeeDocuments.indexPath(for: sender) else {return}
                 let rowData = arrRes[tappedIndexPath.row]
-        let url1 = rowData["file_path"] as? String
+     /*   let url1 = rowData["file_path"] as? String
 //        let url1 = "http://www.filedownloader.com/mydemofile.pdf"
         let url = URL(string: url1!)
         FileDownloader.loadFileAsync(url: url!) { (path, error) in
             print("PDF File downloaded to : \(path!)")
-        }
+        }*/
       
     }
     

@@ -58,8 +58,8 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         load_data_check_od_duty()
     }
     @IBAction func btn_in(_ sender: Any) {
-        self.save_in_out_data(in_out: "IN", work_frm_home_flag: 1, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded")
-        load_data_check_od_duty()
+        self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded") //--previously work from home flag was 1, but it gives some problem
+//        load_data_check_od_duty()
     }
     @IBAction func btn_out(_ sender: Any) {
         if((work_from_home_flag == 1) && self.tv_wrk_frm_home.text!.isEmpty){
@@ -73,7 +73,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
 
                       }else{
                         self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance OUT time recorded")
-                        load_data_check_od_duty()
+//                        load_data_check_od_duty()
                         
                         self.tv_wrkfrmhome_constraint_height.constant = 0
                         self.btnCheckBox.isHidden = true
@@ -218,6 +218,9 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
                 if((response.value) != nil){
                     let swiftyJsonVar=JSON(response.value!)
                     print("Save description: \(swiftyJsonVar)")
+                    if swiftyJsonVar["status"].stringValue == "true"{
+                        self.load_data_check_od_duty()
+                    }
                 }
                 
                 break
@@ -316,12 +319,12 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
                     }else{
                         self.tableviewMyAttendence.reloadData()
                         //                    Toast(text: "No data", duration: Delay.short).show()
-                        let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableviewMyAttendence.bounds.size.width, height: self.tableviewMyAttendence.bounds.size.height))
+                     /*   let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableviewMyAttendence.bounds.size.width, height: self.tableviewMyAttendence.bounds.size.height))
                         noDataLabel.text          = "No Log(s) available"
                         noDataLabel.textColor     = UIColor.black
                         noDataLabel.textAlignment = .center
                         self.tableviewMyAttendence.backgroundView  = noDataLabel
-                        self.tableviewMyAttendence.separatorStyle  = .none
+                        self.tableviewMyAttendence.separatorStyle  = .none */
                         
                     }
                 }

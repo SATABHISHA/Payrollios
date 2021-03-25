@@ -59,12 +59,12 @@ class CompanyDocumentsViewController: UIViewController, UITableViewDelegate, UIT
     func downloadCompanyDocumentdidTapTableviewcell(_ sender: CompanyDocumentsTableViewCell) {
         guard let tappedIndexPath = tableviewCompanyDocuments.indexPath(for: sender) else {return}
                 let rowData = arrRes[tappedIndexPath.row]
-        let url1 = rowData["file_name"] as? String
+     /*   let url1 = rowData["file_name"] as? String
 //        let url1 = "http://www.filedownloader.com/mydemofile.pdf"
         let url = URL(string: url1!)
         FileDownloader.loadFileAsync(url: url!) { (path, error) in
             print("PDF File downloaded to : \(path!)")
-        }
+        } */
     }
 
     

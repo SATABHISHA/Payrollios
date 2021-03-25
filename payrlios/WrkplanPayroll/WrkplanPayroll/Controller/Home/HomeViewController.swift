@@ -262,7 +262,7 @@ class HomeViewController: UIViewController {
     
     //---OutDoorDutyRequest
     @objc func ODdutyRequestView(tapGestureRecognizer: UITapGestureRecognizer){
-        self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+        self.performSegue(withIdentifier: "outdoordutylist", sender: nil) //--23rd march temp
     }
     
     @objc func ODdutyRequestImg(tapGestureRecognizer: UITapGestureRecognizer){

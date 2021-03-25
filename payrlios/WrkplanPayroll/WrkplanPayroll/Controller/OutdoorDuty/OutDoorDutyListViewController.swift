@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Toast_Swift
 
 class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, OutDoorDutyListTableViewCellDelegate {
    
@@ -195,21 +196,30 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
     
     //---function to delete, code starts-----
     func delete_data(od_request_id: String){
-        loaderStart()
+//        loaderStart()
         let url = "\(BASE_URL)od/request/delete/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(od_request_id)/"
         print("deleteapi-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
-               self.loaderEnd()
+//               self.loaderEnd()
                if((responseData.value) != nil){
                    let swiftyJsonVar=JSON(responseData.value!)
                    print("Response description: \(swiftyJsonVar)")
                 
                 
                 
-                   if let resData = swiftyJsonVar["request_list"].arrayObject{
-                       self.arrRes = resData as! [[String:AnyObject]]
+//                   if let resData = swiftyJsonVar["request_list"].arrayObject{
+//                       self.arrRes = resData as! [[String:AnyObject]]
+//
+//                   }
+                if swiftyJsonVar["response"]["status"] == "true"{
+                    var style = ToastStyle()
                     
-                   }
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    
+                    // present the toast with the new style
+                    self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                }
                   
                }
                

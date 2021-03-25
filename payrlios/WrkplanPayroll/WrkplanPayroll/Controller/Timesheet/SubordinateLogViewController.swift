@@ -101,6 +101,9 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         }else if dict["status"] as! String == "Present" {
             cell.label_status.isHidden = false
             cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+        }else if dict["status"] as! String == "Present(WFH)"{
+            cell.label_status.isHidden = false
+            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
         }else{
             cell.label_status.isHidden = true
         }
