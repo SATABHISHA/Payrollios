@@ -48,8 +48,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var labelODdutyRequest: UILabel!
     
     @IBOutlet weak var ODdutyView: UIView!
-    @IBOutlet weak var ODdutyImage: UIView!
+    @IBOutlet weak var ODdutyImage: UIImageView!
     @IBOutlet weak var labelODduty: UILabel!
+    
+    @IBOutlet weak var info_img: UIView!
+    let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -184,6 +187,17 @@ class HomeViewController: UIViewController {
         let tapGestureRecognizerODdutyRequestImg = UITapGestureRecognizer(target: self, action: #selector(ODdutyRequestImg(tapGestureRecognizer:)))
         ODdutyRequestImg.isUserInteractionEnabled = true
         ODdutyRequestImg.addGestureRecognizer(tapGestureRecognizerODdutyRequestImg)
+        
+        //OutdoorDutyLog
+        let tapGestureRecognizerODdutyView = UITapGestureRecognizer(target: self, action: #selector(ODdutyLogView(tapGestureRecognizer:)))
+        ODdutyView.isUserInteractionEnabled = true
+        ODdutyView.addGestureRecognizer(tapGestureRecognizerODdutyView)
+        
+        let tapGestureRecognizerODdutyImg = UITapGestureRecognizer(target: self, action: #selector(ODdutyLogViewImg(tapGestureRecognizer:)))
+        ODdutyImage.isUserInteractionEnabled = true
+        ODdutyImage.addGestureRecognizer(tapGestureRecognizerODdutyImg)
+        
+        check_od_duty_log_status()
     }
    
     
@@ -268,6 +282,15 @@ class HomeViewController: UIViewController {
     @objc func ODdutyRequestImg(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
     }
+    
+    //---OutDoorDutyLog
+    @objc func ODdutyLogView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "odloglist", sender: nil) //--23rd march temp
+    }
+    
+    @objc func ODdutyLogViewImg(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "odloglist", sender: nil)
+    }
     /*
     // MARK: - Navigation
 
@@ -277,6 +300,43 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code starts-----
+    func check_od_duty_log_status(){
+//           loaderStart()
+        
+        let url = "\(BASE_URL)od/request/check-exist/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
+        print("odDutylisturl-=>",url)
+           AF.request(url).responseJSON{ (responseData) -> Void in
+//               self.loaderEnd()
+               if((responseData.value) != nil){
+                   let swiftyJsonVar=JSON(responseData.value!)
+                   print("Log description: \(swiftyJsonVar)")
+                
+                
+                
+                   if let resData = swiftyJsonVar["request_list"].arrayObject{
+//                       self.arrRes = resData as! [[String:AnyObject]]
+                   }
+                if swiftyJsonVar["status"] == "true"{
+                    self.info_img.isHidden = false
+                    if swiftyJsonVar["next_action"] == "START"{
+                        self.info_img.isHidden = false
+                    }else if swiftyJsonVar["next_action"] == "PAUSE"{
+                        self.info_img.isHidden = false
+                    }else if swiftyJsonVar["next_action"] == "STOP"{
+                        self.info_img.isHidden = false
+                    }else if swiftyJsonVar["next_action"] == "NA"{
+                        self.info_img.isHidden = true
+                    }
+                }else if swiftyJsonVar["status"] == "false"{
+                    self.info_img.isHidden = true
+                }
+                 
+               }
+               
+           }
+       }
+    //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code ends-----
 
 }
 

@@ -297,12 +297,21 @@
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="od_duty_disabled" translatesAutoresizingMaskIntoConstraints="NO" id="UlF-KZ-eyX">
                                                                 <rect key="frame" x="32" y="24" width="129" height="120"/>
                                                             </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="hSJ-2Y-Fzb">
+                                                                <rect key="frame" x="145" y="8" width="40" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="aPA-6a-PkE"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="vmp-5j-bkU"/>
+                                                                </constraints>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.9881489873" green="0.98829060790000001" blue="0.9881181121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="hSJ-2Y-Fzb" secondAttribute="trailing" constant="8" id="8rd-8c-Og5"/>
                                                             <constraint firstItem="qOE-1k-TzH" firstAttribute="top" secondItem="UlF-KZ-eyX" secondAttribute="bottom" constant="33" id="BVd-9x-CVa"/>
                                                             <constraint firstAttribute="trailing" secondItem="qOE-1k-TzH" secondAttribute="trailing" id="DBJ-8a-X31"/>
                                                             <constraint firstItem="UlF-KZ-eyX" firstAttribute="leading" secondItem="5AG-Kx-GkQ" secondAttribute="leading" constant="32" id="Fw2-ht-feD"/>
+                                                            <constraint firstItem="hSJ-2Y-Fzb" firstAttribute="top" secondItem="5AG-Kx-GkQ" secondAttribute="top" constant="8" id="RMY-s9-ifo"/>
                                                             <constraint firstAttribute="bottom" secondItem="qOE-1k-TzH" secondAttribute="bottom" id="WQj-So-gwy"/>
                                                             <constraint firstItem="qOE-1k-TzH" firstAttribute="leading" secondItem="5AG-Kx-GkQ" secondAttribute="leading" id="hqx-qY-01h"/>
                                                             <constraint firstAttribute="trailing" secondItem="UlF-KZ-eyX" secondAttribute="trailing" constant="32" id="z97-ks-MPc"/>
@@ -445,12 +454,13 @@
                         <outlet property="InsuranceView" destination="USB-BF-wc8" id="Klj-xn-6Lv"/>
                         <outlet property="LeaveImg" destination="58B-4c-MWU" id="SWO-Yx-npR"/>
                         <outlet property="LeaveView" destination="MMm-yW-uoD" id="glK-BT-VzE"/>
-                        <outlet property="ODdutyImage" destination="5AG-Kx-GkQ" id="lYC-7U-AA3"/>
+                        <outlet property="ODdutyImage" destination="UlF-KZ-eyX" id="0vp-4w-tHC"/>
                         <outlet property="ODdutyRequestImg" destination="Vd4-HH-yZJ" id="AQV-5T-c3r"/>
                         <outlet property="ODdutyRequestView" destination="2IT-Dr-NqG" id="zyg-OL-Eh3"/>
                         <outlet property="ODdutyView" destination="5AG-Kx-GkQ" id="7cW-bD-zUa"/>
                         <outlet property="TimesheetImg" destination="WO2-31-ocP" id="hvR-AE-nrb"/>
                         <outlet property="TimesheetView" destination="0B7-vs-0hS" id="lEe-33-5UB"/>
+                        <outlet property="info_img" destination="hSJ-2Y-Fzb" id="b0x-I5-ros"/>
                         <outlet property="labelCompanyDoc" destination="Dym-Zm-sBs" id="bJQ-yv-bj3"/>
                         <outlet property="labelEmployeeDoc" destination="3Yc-PD-xv4" id="g2B-VF-9hP"/>
                         <outlet property="labelEmployeeFacilities" destination="gnO-Xu-h5U" id="cZe-tv-2YY"/>
@@ -470,11 +480,22 @@
                         <segue destination="Awq-b9-MKB" kind="modal" identifier="holiday" modalPresentationStyle="fullScreen" id="oU8-uS-t5p"/>
                         <segue destination="LwH-bW-3Eb" kind="presentation" identifier="timesheet" modalPresentationStyle="fullScreen" id="dZl-wD-OA4"/>
                         <segue destination="imh-AW-1OU" kind="modal" identifier="outdoordutylist" modalPresentationStyle="fullScreen" id="I2b-gp-rkS"/>
+                        <segue destination="6qp-2R-KNi" kind="modal" identifier="odloglist" modalPresentationStyle="fullScreen" id="mEg-jv-D6u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zs-af-U3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2789.8550724637685" y="39.945652173913047"/>
+        </scene>
+        <!--odloglist-->
+        <scene sceneID="IHV-ro-EwA">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="odloglist" storyboardName="OutdoorDutyLogList" referencedIdentifier="odloglist" id="6qp-2R-KNi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xpV-xY-xUG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Raz-Fl-14l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3297" y="-396"/>
         </scene>
         <!--insurance-->
         <scene sceneID="4U1-VN-GXF">
@@ -570,6 +591,7 @@
         <image name="employeedocs" width="512" height="512"/>
         <image name="facilities" width="512" height="512"/>
         <image name="holiday" width="512" height="512"/>
+        <image name="info" width="300" height="300"/>
         <image name="insurance" width="512" height="512"/>
         <image name="leave" width="512" height="512"/>
         <image name="menuicon" width="32" height="32"/>

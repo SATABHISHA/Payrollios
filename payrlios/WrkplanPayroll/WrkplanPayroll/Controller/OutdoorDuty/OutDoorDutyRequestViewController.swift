@@ -351,6 +351,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     //-----function to save data, code starts---
     func SaveData(){
         let url = "\(BASE_URL)od/request/save"
+        print("save_url-=>",url)
         var od_status:String?
         if btn_save.isSelected == true{
             od_status = "Save"
@@ -371,6 +372,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             "approved_by_id": 0,
             "approved_date": ""
         ]
+        
+        print("SentData-=>",sentData)
                 
                 AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
                     response in
