@@ -10,10 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Toast_Swift
+import CoreLocation
 
 
  
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController{
 
     @IBOutlet weak var corpId: UITextField!
     @IBOutlet weak var userName: UITextField!
@@ -262,6 +263,7 @@ class LoginViewController: UIViewController {
         self.blurEffectView.removeFromSuperview();
     }
     // ====================== Blur Effect function calling code ends =================
+    
 
 }
 extension UITextField {
