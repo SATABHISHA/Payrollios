@@ -15,6 +15,7 @@ class UserSingletonModel: NSObject {
     //------variables for user(login)-------
     var user_id:Int?
     var user_type:String?
+    var user_name: String?
     
     //------variables for company(login)-------
     var email:String?

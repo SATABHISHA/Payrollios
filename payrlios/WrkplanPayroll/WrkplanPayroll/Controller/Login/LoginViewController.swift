@@ -20,6 +20,9 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var btnCheckBox: UIButton!
+    
+    static var entry_user: String = "" //--added on 1st April
+    
     var checkBtnYN = 0
     //---Declaring shared preferences----
     let sharedpreferences=UserDefaults.standard
@@ -70,6 +73,7 @@ class LoginViewController: UIViewController{
             UserSingletonModel.sharedInstance.employeeJson = try? JSON(data: jsonData!)
             UserSingletonModel.sharedInstance.user_id = sharedpreferences.object(forKey: "UserId") as? Int
             UserSingletonModel.sharedInstance.user_type = sharedpreferences.object(forKey: "UserType") as? String
+            LoginViewController.entry_user = sharedpreferences.object(forKey: "UserName") as! String
             // self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "home", sender: nil)
             
@@ -157,6 +161,7 @@ class LoginViewController: UIViewController{
                     if self.checkBtnYN == 1{
                         self.sharedpreferences.set(UserSingletonModel.sharedInstance.user_id, forKey: "UserId")
                         self.sharedpreferences.set(UserSingletonModel.sharedInstance.user_type, forKey: "UserType")
+                        self.sharedpreferences.setValue(self.userName.text!, forKey: "UserName") //--added on 1st april
                         self.sharedpreferences.setValue(swiftyJsonVar.rawString(), forKey: "EmployeeJson")
                         self.sharedpreferences.synchronize()
                     }
@@ -168,6 +173,7 @@ class LoginViewController: UIViewController{
                         self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
                         self.loaderEnd()
                         self.performSegue(withIdentifier: "home", sender: nil)
+                        LoginViewController.entry_user = self.userName.text! //--added on 1st April
                     }else{
                         var style = ToastStyle()
                         
