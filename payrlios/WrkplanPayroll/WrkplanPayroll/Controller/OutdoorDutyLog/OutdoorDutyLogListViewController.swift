@@ -55,6 +55,8 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor()
+        
         self.tableviewOdDutyLog.delegate = self
         self.tableviewOdDutyLog.dataSource = self
         
@@ -100,8 +102,35 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
             print("Start")
             SaveData(log_action: "START", message: "Outdoor Duty Started")
         }else if OutdoorDutyLogListViewController.od_status == "PAUSE"{
-            SaveData(log_action: "STOP", message: "Outdoor Duty Stopped")
-            print("Stop")
+            // Create new Alert
+            let dialogMessage = UIAlertController(title: "Alert", message: "Do you really want to stop today's outdoor duty? Once stopped cannot be started again. Proceed?", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+//                                print("Ok button tapped")
+                
+//                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                self.SaveData(log_action: "STOP", message: "Outdoor Duty Stopped")
+                dialogMessage.dismiss(animated: true, completion: nil)
+                
+             
+             })
+            let cancel = UIAlertAction(title: "No", style: .destructive, handler: { (action) -> Void in
+                //                                print("Ok button tapped")
+                                
+                //                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                                
+                             
+                             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            dialogMessage.addAction(cancel)
+
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+//            SaveData(log_action: "STOP", message: "Outdoor Duty Stopped")
+//            print("Stop")
         }
         
     }
@@ -238,7 +267,7 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
                     {
                         print("reverse geodcode fail: \(error!.localizedDescription)")
                     }
-                    let pm = placemarks! as [CLPlacemark]
+                    let pm = (placemarks ?? []) as [CLPlacemark]
 
                     if pm.count > 0 {
                         let pm = placemarks![0]

@@ -18,6 +18,7 @@ class OdDutyLogEmpTaskTableViewCell: UITableViewCell {
     @IBOutlet weak var labelTaskDescription: UILabel!
     @IBOutlet weak var imgviewDeleteRecord: UIImageView!
     @IBOutlet weak var imgViewEditRecord: UIImageView!
+    @IBOutlet weak var imgViewEditRecordTrailingConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

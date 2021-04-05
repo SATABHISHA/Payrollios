@@ -28,6 +28,8 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ChangeStatusBarColor()
+        
         self.tableViewSubordinateOdDutyLogList.delegate = self
         self.tableViewSubordinateOdDutyLogList.dataSource = self
 

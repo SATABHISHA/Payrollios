@@ -294,7 +294,7 @@
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="od_duty_disabled" translatesAutoresizingMaskIntoConstraints="NO" id="UlF-KZ-eyX">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="od_duty" translatesAutoresizingMaskIntoConstraints="NO" id="UlF-KZ-eyX">
                                                                 <rect key="frame" x="32" y="24" width="129" height="120"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="hSJ-2Y-Fzb">
@@ -595,7 +595,7 @@
         <image name="insurance" width="512" height="512"/>
         <image name="leave" width="512" height="512"/>
         <image name="menuicon" width="32" height="32"/>
-        <image name="od_duty_disabled" width="200" height="200"/>
+        <image name="od_duty" width="200" height="200"/>
         <image name="od_request" width="512" height="512"/>
         <image name="organizationdocs" width="512" height="512"/>
         <image name="timesheet" width="194" height="194"/>

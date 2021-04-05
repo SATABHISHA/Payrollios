@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Toast_Swift
 
 
 struct SubordinateTaskDetails{
@@ -40,15 +41,22 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
     
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     var arrRes = [[String:AnyObject]]()
+    static var od_duty_task_head_id: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ChangeStatusBarColor()
         
         self.tableViewEmpTask.dataSource = self
         self.tableViewEmpTask.delegate = self
 
         // Do any additional setup after loading the view.
         
-        
+        //============keyboard will show/hide, code starts==========
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //============keyboard will show/hide, code ends===========
         
         
         //Back
@@ -74,7 +82,22 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
         loadData()
     }
     
-
+    //============keyboard will show/hide, code starts==========
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 100
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    //============keyboard will show/hide, code ends===========
+    
     //Back
      @objc func Back(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "subodlog", sender: nil)
@@ -83,22 +106,86 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
     
     //Cancel
      @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
-       
-         
+       approve_return_cancel(task_status: "Cancelled")
      }
     
     //Cancel
      @objc func Return(tapGestureRecognizer: UITapGestureRecognizer){
-       
-         
+       approve_return_cancel(task_status: "Returned")
      }
     
     //Approve
      @objc func Approve(tapGestureRecognizer: UITapGestureRecognizer){
-       
-         
+      approve_return_cancel(task_status: "Approved")
      }
-    
+    //Submit
+    //------function to save/submit, starts------
+    func approve_return_cancel(task_status: String){
+        let url = "\(BASE_URL)od/task/approval"
+        print("save_url-=>",url)
+        
+        let sentData: [String: Any] = [
+            "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
+            "od_duty_task_head_id": SubordinateOdDutyLogEmployeeTaskViewController.od_duty_task_head_id!,
+            "task_status": task_status,
+            "supervisor_remark": TxtViewRemarks.text!,
+            "action_taken_by_id": swiftyJsonvar1["employee"]["employee_id"].intValue,
+            "update_user": LoginViewController.entry_user
+        ]
+        
+        print("SentData-=>",sentData)
+                
+                AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+                    response in
+                    switch response.result{
+                        
+                    case .success:
+//                        self.loaderEnd()
+                        let swiftyJsonVar = JSON(response.value!)
+                    
+                        if swiftyJsonVar["status"].stringValue == "true"{
+                            // Create new Alert
+                            let dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
+                            
+                            // Create OK button with action handler
+                            let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
+//                                print("Ok button tapped")
+                                
+//                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                                
+                                self.loadData()
+                                
+                             })
+                            
+                            //Add OK button to a dialog message
+                            dialogMessage.addAction(ok)
+
+                            // Present Alert to
+                            self.present(dialogMessage, animated: true, completion: nil)
+                        }else{
+                            var style = ToastStyle()
+                            
+                            // this is just one of many style options
+                            style.messageColor = .white
+                            
+                            // present the toast with the new style
+                            self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                            
+                            print("Error-=>",swiftyJsonVar["message"].stringValue)
+                            
+                           
+                        }
+
+                        break
+                        
+                    case .failure(let error):
+//                        self.loaderEnd()
+                        print("Error: ", error)
+                    }
+                }
+        
+    }
+    //------function to save/submit, ends------
     
     //----------tableview code starts------------
     
@@ -141,8 +228,8 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
                    let swiftyJsonVar=JSON(responseData.value!)
                    print("Log Emp description: \(swiftyJsonVar)")
                    
-                OdDutyLogEmployeeTaskViewController.od_duty_task_head_id = swiftyJsonVar["od_duty_task_head_id"].intValue
-                OdDutyLogEmployeeTaskViewController.task_status = swiftyJsonVar["task_status"].stringValue
+                SubordinateOdDutyLogEmployeeTaskViewController.od_duty_task_head_id = swiftyJsonVar["od_duty_task_head_id"].intValue
+//                OdDutyLogEmployeeTaskViewController.task_status = swiftyJsonVar["task_status"].stringValue
                 self.NavName.text = swiftyJsonVar["employee_name"].stringValue
                 self.NavTaskDate.text = "Task Details of \(swiftyJsonVar["task_date"].stringValue)"
                 self.LabelSupervisorName.text = "By \(swiftyJsonVar["action_taken_by_name"].stringValue)"
@@ -173,6 +260,9 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
                     self.CustomBtnApprove.isUserInteractionEnabled = false
                     self.CustomBtnApprove.alpha = 0.6
                     
+                    self.ViewLine.isHidden = true
+                    self.tableViewEmpTask.isHidden = true
+                    
                     
                     
                 }else if swiftyJsonVar["task_status"] == "Submitted" {
@@ -195,6 +285,8 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
                     self.CustomBtnApprove.isUserInteractionEnabled = false
                     self.CustomBtnApprove.alpha = 0.6
                     
+                    self.TxtViewRemarks.isUserInteractionEnabled = false
+                    
                 } else if swiftyJsonVar["task_status"] == "Returned" {
                     self.LabelStatus.text = swiftyJsonVar["task_status"].stringValue
 //                    self.LabelSupervisorName.text =
@@ -207,6 +299,7 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
                     self.CustomBtnApprove.isUserInteractionEnabled = false
                     self.CustomBtnApprove.alpha = 0.6
                     
+                    self.TxtViewRemarks.isUserInteractionEnabled = false
                 } else if swiftyJsonVar["task_status"] == "Cancelled" {
                     self.LabelStatus.text = swiftyJsonVar["task_status"].stringValue
 //                    self.LabelSupervisorName.text =
@@ -218,6 +311,9 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
                     
                     self.CustomBtnApprove.isUserInteractionEnabled = false
                     self.CustomBtnApprove.alpha = 0.6
+                    
+                    self.TxtViewRemarks.isUserInteractionEnabled = false
+                    
                 } else if swiftyJsonVar["task_status"] == "" {
                     let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableViewEmpTask.bounds.size.width, height: self.tableViewEmpTask.bounds.size.height))
                     noDataLabel.text          = "No OD task detail exists for this day"
@@ -240,6 +336,8 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
                     
                     self.CustomBtnApprove.isUserInteractionEnabled = false
                     self.CustomBtnApprove.alpha = 0.6
+                    
+                    self.ViewLine.isHidden = true
                 }
                 if swiftyJsonVar["task_status"] != ""{
                     for (key,value) in  swiftyJsonVar["tasks"]{

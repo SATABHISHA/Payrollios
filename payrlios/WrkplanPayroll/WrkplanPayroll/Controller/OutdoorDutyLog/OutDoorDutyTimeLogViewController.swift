@@ -21,6 +21,7 @@ class OutDoorDutyTimeLogViewController: UIViewController , UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor()
         // Do any additional setup after loading the view.
         self.tableViewTimeLog.delegate = self
         self.tableViewTimeLog.dataSource = self
@@ -59,9 +60,11 @@ class OutDoorDutyTimeLogViewController: UIViewController , UITableViewDelegate, 
         
         cell.LabelLatitude.text = dict["latitude"] as? String
         cell.LabelLongitude.text = dict["longitude"] as? String
+        cell.LabelAddress.numberOfLines = 0
         cell.LabelAddress.text = dict["location_address"] as? String
         cell.LabelTime.text = resultString
         cell.LabelStartStop.text = dict["log_action"] as? String
+        
         
        
         return cell

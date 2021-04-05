@@ -148,6 +148,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imgViewEditRecord" destination="LEu-oJ-dJ5" id="XPm-Uj-URI"/>
+                                            <outlet property="imgViewEditRecordTrailingConstraint" destination="NNg-v4-Zpf" id="Eez-wq-jed"/>
                                             <outlet property="imgviewDeleteRecord" destination="N10-vV-R5K" id="idC-Lg-UeP"/>
                                             <outlet property="labelTaskDescription" destination="uuQ-3R-ea1" id="IEj-uf-4so"/>
                                             <outlet property="labelTaskName" destination="k2y-JN-uRI" id="HIX-Jh-nwL"/>

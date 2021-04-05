@@ -47,6 +47,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         
         txt_from_date.delegate = self
         txt_to_date.delegate = self
+        txt_to_date.isUserInteractionEnabled = false
         
         txt_view_reason.delegate = self
         
@@ -68,7 +69,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         
         //-----Save
         let tapGestureRecognizerSave = UITapGestureRecognizer(target: self, action: #selector(Save(tapGestureRecognizer:)))
-        custom_btn_label_save.isUserInteractionEnabled = true
+        custom_btn_label_save.isUserInteractionEnabled = false
+        custom_btn_label_save.alpha = 0.6
         custom_btn_label_save.addGestureRecognizer(tapGestureRecognizerSave)
         
         //-----Cancel
@@ -176,11 +178,28 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             from_date = true
             to_date = false
             showDatePicker(txtfield: txt_from_date)
+            txt_to_date.isUserInteractionEnabled = true
             break
         case self.txt_to_date:
-            to_date = true
-            from_date = false
+            
+            if txt_from_date.text == "" {
+                to_date = false
+                
+                
+                var style = ToastStyle()
+                
+                // this is just one of many style options
+                style.messageColor = .white
+                
+                
+                // present the toast with the new style
+                self.view.makeToast("Please select From Date", duration: 3.0, position: .bottom, style: style)
+            }else{
+                to_date = true
+                from_date = false
+                
             showDatePicker(txtfield: txt_to_date)
+            }
             break
         default:
             break
@@ -220,6 +239,16 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             txt_to_date.text = formatter.string(from: datePicker.date)
             print("test-=>",daysBetween(start: txt_from_date.text!, end: txt_to_date.text!))
             label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            
+            if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
+                custom_btn_label_save.isEnabled = false
+                custom_btn_label_save.isUserInteractionEnabled = false
+                custom_btn_label_save.alpha = 0.6
+            }else{
+                custom_btn_label_save.isEnabled = true
+                custom_btn_label_save.isUserInteractionEnabled = true
+                custom_btn_label_save.alpha = 1.0
+            }
 //            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
         }
        self.view.endEditing(true)

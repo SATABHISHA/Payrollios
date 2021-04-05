@@ -55,6 +55,7 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor()
 //        tvSupervisorRemarkHeight.constant = 0
         if tableChildData.count > 0 {
             tableChildData.removeAll()
@@ -80,6 +81,11 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
          customViewBtnSubmit.isUserInteractionEnabled = true
         customViewBtnSubmit.addGestureRecognizer(tapGestureRecognizerSubmit)
         
+        //Back
+        let tapGestureRecognizerBack = UITapGestureRecognizer(target: self, action: #selector(CustomBack(tapGestureRecognizer:)))
+         customViewBtnBack.isUserInteractionEnabled = true
+        customViewBtnBack.addGestureRecognizer(tapGestureRecognizerBack)
+        
         loadData()
     }
     
@@ -88,6 +94,12 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
        save_submit(task_status: "Saved")
          
      }
+    //Back
+     @objc func CustomBack(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "odloglist", sender: nil)
+         
+     }
+    
     @objc func Submit(tapGestureRecognizer: UITapGestureRecognizer){
       save_submit(task_status: "Submitted")
         
@@ -145,8 +157,13 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
 //                                print("Ok button tapped")
                                 
 //                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                                if self.tableChildData.count > 0 {
+                                    self.tableChildData.removeAll()
+                                    self.collectUpdatedDetailsData.removeAll()
+                                    self.loadData()
+                                }
                                 
-                                self.loadData()
+//                                self.tableViewEmpTask.reloadData()
                                 
                              })
                             
@@ -184,7 +201,10 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     //--------function to load data using Alamofire and Json Swifty------------
     func loadData(){
            loaderStart()
-        
+//        if tableChildData.count > 0 {
+//            tableChildData.removeAll()
+//        }
+       
         //---code to format date, starts----
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "dd-MMM-yyyy"
@@ -353,12 +373,69 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
        }
        //--------function to load data using Alamofire and Json Swifty code ends------------
     @IBAction func btnNewTask(_ sender: Any) {
-        openFormNewTaskPopup()
+        //---code to format given date, starts----
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "dd-MMM-yyyy"
+        let showDate = inputFormatter.date(from: OutdoorDutyLogListViewController.Log_task_date!)
+        inputFormatter.dateFormat = "dd/MM/yyyy"
+        let resultStringGivenDate = inputFormatter.string(from: showDate!)
+        //---code to format given date, ends---
+        
+        //----code to format current date, starts--
+        let todaysDate = NSDate()
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+        var CurrentDate = dateFormatter.string(from: todaysDate as Date)
+        //----code to format current date, ends--
+        
+        let dayDiff = daysBetween(start: resultStringGivenDate, end: CurrentDate)
+        if dayDiff > 0{
+            print("test Date Expired")
+            let dialogMessage = UIAlertController(title: "", message: "You cannot add task for a expired OD Duty", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
+//                                print("Ok button tapped")
+                
+//                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                
+               
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else{
+            openFormNewTaskPopup()
+        }
+        
     }
     
     @IBAction func btnBack(_ sender: Any) {
         self.performSegue(withIdentifier: "odloglist", sender: nil)
     }
+    
+    //--code to get day count starts
+    func daysBetween(start: String, end: String) -> Int {
+        let formatter = DateFormatter()
+        let calendar = Calendar.current
+        // specify the format,
+        formatter.dateFormat = "dd/MM/yyyy"
+        // specify the start date
+        let startDate = formatter.date(from: start)
+        // specify the end date
+        let endDate = formatter.date(from: end)
+        print(startDate!)
+        print(endDate!)
+        let diff = calendar.dateComponents([.day], from: startDate!, to: endDate!).day ?? 0
+        
+        return diff
+//        print("test-=>",diff)
+       
+        }
+    //--code to get day count ends
     //---New Task
    /* @objc func NewTaskView(tapGestureRecognizer: UITapGestureRecognizer){
       
@@ -384,6 +461,22 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         cell.labelTaskName.text = dict.task_name
         cell.labelTaskDescription.text = dict.task_description
        
+        if  OdDutyLogEmployeeTaskViewController.task_status == "Returned"{
+            cell.imgviewDeleteRecord.isHidden = true
+            cell.imgViewEditRecordTrailingConstraint.constant = -40
+        }
+        if  OdDutyLogEmployeeTaskViewController.task_status == "Submitted"{
+            cell.imgviewDeleteRecord.isHidden = true
+            cell.imgViewEditRecord.isHidden = true
+        }
+        if  OdDutyLogEmployeeTaskViewController.task_status == "Cancelled"{
+            cell.imgviewDeleteRecord.isHidden = true
+            cell.imgViewEditRecord.isHidden = true
+        }
+        if  OdDutyLogEmployeeTaskViewController.task_status == "Approved"{
+            cell.imgviewDeleteRecord.isHidden = true
+            cell.imgViewEditRecord.isHidden = true
+        }
        
         
         return cell
@@ -521,6 +614,11 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         tableChildData.remove(at: OdDutyLogEmployeeTaskViewController.indexPath+1)
         
         cancelFormModifyTasktPopup()
+        
+        if OdDutyLogEmployeeTaskViewController.task_status == "Returned"{
+            self.customViewBtnSave.isUserInteractionEnabled = false
+            self.customViewBtnSave.alpha = 0.6
+        }
         tableViewEmpTask.reloadData()
         
     }
