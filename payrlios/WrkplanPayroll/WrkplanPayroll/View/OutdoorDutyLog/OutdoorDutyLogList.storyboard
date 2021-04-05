@@ -31,6 +31,9 @@
                                             <constraint firstAttribute="width" constant="50" id="xDq-rc-jSJ"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="btnBack:" destination="ePu-ZF-Pu1" eventType="touchUpInside" id="fRl-G8-ZfU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="DEs-vx-T5h"/>
@@ -271,7 +274,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jIF-1m-ns5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cfQ-j9-lUb" firstAttribute="top" secondItem="DWV-SF-5be" secondAttribute="bottom" constant="10" id="0XM-Pg-0dw"/>
                             <constraint firstItem="SbS-h3-ghe" firstAttribute="top" secondItem="dZZ-k2-ehE" secondAttribute="bottom" constant="5" id="0q1-3z-6HN"/>
@@ -315,11 +318,31 @@
                         <outlet property="view_start_stop_top_constraint" destination="FvL-t3-gzs" id="kkr-O2-EYI"/>
                         <segue destination="bxo-m5-dkm" kind="modal" identifier="odlogtask" modalPresentationStyle="fullScreen" id="F69-rp-Xk5"/>
                         <segue destination="5Za-FF-B4C" kind="show" identifier="subodlog" id="b6F-60-0hX"/>
+                        <segue destination="Auv-CA-kOf" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="MjP-8X-Zda"/>
+                        <segue destination="Jn8-AJ-BPB" kind="modal" identifier="odDutyTimeLog" modalPresentationStyle="fullScreen" id="Hei-XH-DeE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SF-xn-b2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="-103.53260869565219"/>
+        </scene>
+        <!--odDutyTimeLog-->
+        <scene sceneID="Ghn-ln-Bf7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="odDutyTimeLog" storyboardName="OutdoorDutyTimeLog" referencedIdentifier="odDutyTimeLog" id="Jn8-AJ-BPB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJJ-xZ-9qu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610" y="-432"/>
+        </scene>
+        <!--home-->
+        <scene sceneID="KgV-Qt-Jqg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="Auv-CA-kOf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bvy-B8-LKp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLV-kc-s3o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="-339"/>
         </scene>
         <!--odlogtask-->
         <scene sceneID="ZFi-xe-k4h">

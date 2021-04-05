@@ -12,8 +12,16 @@ import SwiftyJSON
 class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SubordinateOdDutyLogListTableViewCellDelegate {
     
     
+    
+    
 
     @IBOutlet weak var tableViewSubordinateOdDutyLogList: UITableView!
+    
+    static var Log_employee_id: Int!
+    static var Log_task_employee_name: String!
+    static var Log_task_date: String!
+    static var log_task_status: Int! //-----added by Satabhisha(log_task_status is used to identify supervisor and subordinate for task detail section)
+    static var od_request_id: Int!
     
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     var arrRes = [[String:AnyObject]]()
@@ -29,11 +37,33 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
     }
     
     @IBAction func btnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "odloglist", sender: nil)
     }
     
    //------tableview code starts-----
     func SubordinateOdDutyLogListTableViewCellDidTapView(_ sender: SubordinateOdDutyLogListTableViewCell) {
+        print("tapped")
+        guard let tappedIndexPath = tableViewSubordinateOdDutyLogList.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
         
+        SubordinateOdDutyLogListViewController.Log_employee_id = rowData["employee_id"] as? Int
+        SubordinateOdDutyLogListViewController.Log_task_employee_name = rowData["employee_name"] as? String
+        SubordinateOdDutyLogListViewController.Log_task_date = rowData["od_duty_log_date"] as? String
+        SubordinateOdDutyLogListViewController.od_request_id = rowData["od_request_id"] as? Int
+        SubordinateOdDutyLogListViewController.log_task_status = 0
+        self.performSegue(withIdentifier: "subordinateodlogtask", sender: nil)
+    }
+    
+    func SubordinateOdDutyLogListTableViewCellDidTapViewTimeLog(_ sender: SubordinateOdDutyLogListTableViewCell) {
+        guard let tappedIndexPath = tableViewSubordinateOdDutyLogList.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
+        
+        SubordinateOdDutyLogListViewController.Log_employee_id = rowData["employee_id"] as? Int
+        SubordinateOdDutyLogListViewController.Log_task_employee_name = rowData["employee_name"] as? String
+        SubordinateOdDutyLogListViewController.Log_task_date = rowData["od_duty_log_date"] as? String
+        SubordinateOdDutyLogListViewController.od_request_id = rowData["od_request_id"] as? Int
+        SubordinateOdDutyLogListViewController.log_task_status = 0
+        self.performSegue(withIdentifier: "odDutyTimeLog", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

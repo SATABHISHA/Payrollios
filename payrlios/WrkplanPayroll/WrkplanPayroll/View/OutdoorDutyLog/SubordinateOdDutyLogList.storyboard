@@ -160,7 +160,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bme-yq-McE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4qf-vr-JT7" firstAttribute="trailing" secondItem="bme-yq-McE" secondAttribute="trailing" id="6Cy-hy-7h1"/>
                             <constraint firstItem="bme-yq-McE" firstAttribute="trailing" secondItem="QwD-dS-c35" secondAttribute="trailing" constant="20" id="6LL-7Y-kmn"/>
@@ -173,11 +173,44 @@
                     </view>
                     <connections>
                         <outlet property="tableViewSubordinateOdDutyLogList" destination="QwD-dS-c35" id="8gQ-6T-oD6"/>
+                        <segue destination="x16-BZ-UnD" kind="modal" identifier="subordinateodlogtask" modalPresentationStyle="fullScreen" id="D2P-qe-7pS"/>
+                        <segue destination="npg-T6-C89" kind="modal" identifier="odloglist" modalPresentationStyle="fullScreen" id="57o-Tq-GZY"/>
+                        <segue destination="wys-65-nBh" kind="modal" identifier="odDutyTimeLog" modalPresentationStyle="fullScreen" id="r7I-2f-3Hf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hk5-cx-Czs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7" y="90"/>
+        </scene>
+        <!--odDutyTimeLog-->
+        <scene sceneID="B4z-pF-jWU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="odDutyTimeLog" storyboardName="SubordinateOdDutyTimeLog" referencedIdentifier="odDutyTimeLog" id="wys-65-nBh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qcJ-08-PP9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dhI-3K-8Ok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="498" y="-209"/>
+        </scene>
+        <!--odloglist-->
+        <scene sceneID="j8B-GY-X2Z">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="odloglist" storyboardName="OutdoorDutyLogList" referencedIdentifier="odloglist" id="npg-T6-C89" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GSx-is-zKf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVa-rr-e81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="475" y="-140"/>
+        </scene>
+        <!--subordinateodlogtask-->
+        <scene sceneID="WZl-aY-BbH">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinateodlogtask" storyboardName="SubordinateOdDutyLogEmployeeTask" referencedIdentifier="subordinateodlogtask" id="x16-BZ-UnD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="khp-cJ-Y5V"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DI0-ZK-g9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="525" y="-79"/>
         </scene>
     </scenes>
     <resources>

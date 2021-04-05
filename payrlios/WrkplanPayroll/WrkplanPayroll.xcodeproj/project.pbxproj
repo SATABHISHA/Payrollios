@@ -42,6 +42,8 @@
 		17513FFA257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17513FF9257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard */; };
 		17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17513FFE257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift */; };
 		1754589925E634B500985387 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754589825E634B500985387 /* Connectivity.swift */; };
+		1754BAC3261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1754BAC2261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard */; };
+		1754BAC8261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754BAC7261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift */; };
 		175C6ACD2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175C6ACC2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard */; };
 		175C6AD22615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C6AD12615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift */; };
 		176224F12570CE79005F6C5B /* CompanyDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */; };
@@ -54,13 +56,19 @@
 		176E663325F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176E663225F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard */; };
 		17723CBB2563A688002754DB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17723CBA2563A688002754DB /* Home.storyboard */; };
 		17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17723CCB2563BCE1002754DB /* HomeViewController.swift */; };
+		17739206261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17739205261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard */; };
+		1773920B261B130900105BBC /* SubordinateOdDutyTimeLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1773920A261B130900105BBC /* SubordinateOdDutyTimeLogViewController.swift */; };
 		177597A7261332C600EAD8B4 /* OutdoorDutyLogList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 177597A6261332C600EAD8B4 /* OutdoorDutyLogList.storyboard */; };
 		177597AD2613569300EAD8B4 /* OutdoorDutyLogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177597AC2613569300EAD8B4 /* OutdoorDutyLogListViewController.swift */; };
+		177F8F67261AEB550027F658 /* OutdoorDutyTimeLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F8F66261AEB550027F658 /* OutdoorDutyTimeLogTableViewCell.swift */; };
 		1785DEAF25E7877F0088AEBA /* OutdoorDutyList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */; };
 		178A1086256679B900569712 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A1085256679B900569712 /* AppConfig.swift */; };
 		178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A108B25667A7A00569712 /* UserSingletonModel.swift */; };
 		178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */; };
 		178F85D325EE71EF007ABD62 /* OutdoorDutyRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */; };
+		17914B6E261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17914B6D261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard */; };
+		17914B7B26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17914B7A26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift */; };
+		17914B8026177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17914B7F26177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift */; };
 		1791C080261765E300EE734A /* SubordinateOdDutyLogList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1791C07F261765E300EE734A /* SubordinateOdDutyLogList.storyboard */; };
 		1791C08526176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */; };
 		1791C08A26176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */; };
@@ -140,6 +148,8 @@
 		17513FF9257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateMyAttendanceLog.storyboard; sourceTree = "<group>"; };
 		17513FFE257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateMyAttendanceLogViewController.swift; sourceTree = "<group>"; };
 		1754589825E634B500985387 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		1754BAC2261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyTimeLog.storyboard; sourceTree = "<group>"; };
+		1754BAC7261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyTimeLogViewController.swift; sourceTree = "<group>"; };
 		175C6ACC2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyLogEmployeeTask.storyboard; sourceTree = "<group>"; };
 		175C6AD12615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdDutyLogEmployeeTaskViewController.swift; sourceTree = "<group>"; };
 		176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompanyDocuments.storyboard; sourceTree = "<group>"; };
@@ -152,13 +162,19 @@
 		176E663225F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOutdoorDutyRequest.storyboard; sourceTree = "<group>"; };
 		17723CBA2563A688002754DB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		17723CCB2563BCE1002754DB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		17739205261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOdDutyTimeLog.storyboard; sourceTree = "<group>"; };
+		1773920A261B130900105BBC /* SubordinateOdDutyTimeLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyTimeLogViewController.swift; sourceTree = "<group>"; };
 		177597A6261332C600EAD8B4 /* OutdoorDutyLogList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyLogList.storyboard; sourceTree = "<group>"; };
 		177597AC2613569300EAD8B4 /* OutdoorDutyLogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorDutyLogListViewController.swift; sourceTree = "<group>"; };
+		177F8F66261AEB550027F658 /* OutdoorDutyTimeLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorDutyTimeLogTableViewCell.swift; sourceTree = "<group>"; };
 		1785DEAE25E7877F0088AEBA /* OutdoorDutyList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyList.storyboard; sourceTree = "<group>"; };
 		178A1085256679B900569712 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		178A108B25667A7A00569712 /* UserSingletonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingletonModel.swift; sourceTree = "<group>"; };
 		178F85CD25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyRequestViewController.swift; sourceTree = "<group>"; };
 		178F85D225EE71EF007ABD62 /* OutdoorDutyRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyRequest.storyboard; sourceTree = "<group>"; };
+		17914B6D261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOdDutyLogEmployeeTask.storyboard; sourceTree = "<group>"; };
+		17914B7A26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogEmployeeTaskViewController.swift; sourceTree = "<group>"; };
+		17914B7F26177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDtyLogEmployeeTaskTableViewCell.swift; sourceTree = "<group>"; };
 		1791C07F261765E300EE734A /* SubordinateOdDutyLogList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOdDutyLogList.storyboard; sourceTree = "<group>"; };
 		1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListViewController.swift; sourceTree = "<group>"; };
 		1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListTableViewCell.swift; sourceTree = "<group>"; };
@@ -472,6 +488,9 @@
 				177597A6261332C600EAD8B4 /* OutdoorDutyLogList.storyboard */,
 				175C6ACC2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard */,
 				1791C07F261765E300EE734A /* SubordinateOdDutyLogList.storyboard */,
+				17914B6D261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard */,
+				1754BAC2261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard */,
+				17739205261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard */,
 			);
 			path = OutdoorDutyLog;
 			sourceTree = "<group>";
@@ -485,6 +504,11 @@
 				1748A8682616CE3E00D51D13 /* OdDutyLogEmpTaskTableViewCell.swift */,
 				1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */,
 				1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */,
+				17914B7A26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift */,
+				17914B7F26177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift */,
+				1754BAC7261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift */,
+				177F8F66261AEB550027F658 /* OutdoorDutyTimeLogTableViewCell.swift */,
+				1773920A261B130900105BBC /* SubordinateOdDutyTimeLogViewController.swift */,
 			);
 			path = OutdoorDutyLog;
 			sourceTree = "<group>";
@@ -696,10 +720,13 @@
 				17459653256F8CDE00DD6932 /* EmployeeFacilities.storyboard in Resources */,
 				17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */,
 				1762250725711849005F6C5B /* InsuranceDetail.storyboard in Resources */,
+				1754BAC3261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard in Resources */,
 				17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */,
+				17739206261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard in Resources */,
 				172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */,
 				177597A7261332C600EAD8B4 /* OutdoorDutyLogList.storyboard in Resources */,
 				1722940D256E800C0008D808 /* Leave.storyboard in Resources */,
+				17914B6E261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard in Resources */,
 				17513FEB257E172F0090EFD5 /* SubordinateLog.storyboard in Resources */,
 				173C0F2725626FBE007AE8F6 /* Assets.xcassets in Resources */,
 				176E663325F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard in Resources */,
@@ -844,6 +871,7 @@
 				17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */,
 				1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */,
 				173C0F1F25626FB9007AE8F6 /* LoginViewController.swift in Sources */,
+				177F8F67261AEB550027F658 /* OutdoorDutyTimeLogTableViewCell.swift in Sources */,
 				17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */,
 				173C0F2525626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld in Sources */,
 				17E57788257A342100F10376 /* MyAttendanceLogViewController.swift in Sources */,
@@ -854,6 +882,7 @@
 				178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */,
 				1762250C2571197E005F6C5B /* InsuranceDetailViewController.swift in Sources */,
 				1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */,
+				17914B7B26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift in Sources */,
 				175C6AD22615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift in Sources */,
 				172D28CC25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift in Sources */,
 				1748A8692616CE3E00D51D13 /* OdDutyLogEmpTaskTableViewCell.swift in Sources */,
@@ -876,11 +905,14 @@
 				1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */,
 				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,
 				173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */,
+				17914B8026177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift in Sources */,
+				1754BAC8261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift in Sources */,
 				178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */,
 				1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */,
 				17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */,
 				17513FF0257E175C0090EFD5 /* SubordinateLogViewController.swift in Sources */,
 				177597AD2613569300EAD8B4 /* OutdoorDutyLogListViewController.swift in Sources */,
+				1773920B261B130900105BBC /* SubordinateOdDutyTimeLogViewController.swift in Sources */,
 				176224F72570CEB9005F6C5B /* CompanyDocumentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

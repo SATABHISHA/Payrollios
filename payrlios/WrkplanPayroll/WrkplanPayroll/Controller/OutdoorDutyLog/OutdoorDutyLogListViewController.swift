@@ -12,6 +12,7 @@ import SwiftyJSON
 import Toast_Swift
 
 class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDelegate,  UITableViewDelegate, UITableViewDataSource, OdDutyLogListTableViewCellDelegate  {
+    
 
     @IBOutlet weak var view_start_stop: UIView!
     @IBOutlet weak var view_start_stop_top_constraint: NSLayoutConstraint!
@@ -80,6 +81,10 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
         CustomLabelSubordinateOdDutyLog.addGestureRecognizer(tapGestureRecognizerSubordinateOdDutyLogView)
     }
     
+    @IBAction func btnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "home", sender: nil)
+    }
+    
     //Subordinate
     //---Start/Stop
     @objc func SubordinateOdDutyLogView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -94,7 +99,7 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
         if OutdoorDutyLogListViewController.od_status == "START"{
             print("Start")
             SaveData(log_action: "START", message: "Outdoor Duty Started")
-        }else if OutdoorDutyLogListViewController.od_status == "STOP"{
+        }else if OutdoorDutyLogListViewController.od_status == "PAUSE"{
             SaveData(log_action: "STOP", message: "Outdoor Duty Stopped")
             print("Stop")
         }
@@ -157,6 +162,22 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
         self.performSegue(withIdentifier: "odlogtask", sender: nil)
         determineMyCurrentLocation(status: "Stop")
         
+    }
+    
+    //---for tiem log
+    func OdDutyLogListTableViewCellDidTapViewTimeLog(_ sender: OdDutyLogListTableViewCell) {
+        guard let tappedIndexPath = tableviewOdDutyLog.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
+        
+        OutdoorDutyLogListViewController.Log_employee_id = rowData["employee_id"] as? Int
+        OutdoorDutyLogListViewController.Log_task_employee_name = rowData["employee_name"] as? String
+        OutdoorDutyLogListViewController.Log_task_date = rowData["od_duty_log_date"] as? String
+        OutdoorDutyLogListViewController.od_request_id = rowData["od_request_id"] as? Int
+        OutdoorDutyLogListViewController.log_task_status = 0
+        
+        
+        self.performSegue(withIdentifier: "odDutyTimeLog", sender: nil)
+        determineMyCurrentLocation(status: "Stop")
     }
     //----------tableview code ends------------
     
