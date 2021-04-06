@@ -62,6 +62,9 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         }
         self.tableViewEmpTask.dataSource = self
         self.tableViewEmpTask.delegate = self
+        self.tableViewEmpTask.backgroundColor = UIColor(hexFromString: "ffffff")
+        
+        tvSupervisorRemark.backgroundColor = UIColor(hexFromString: "ffffff")
         // Do any additional setup after loading the view.
 //        ScrollViewOdTask.backgroundColor = UIColor(hexFromString: "#ffffff")
         print(OutdoorDutyLogListViewController.Log_employee_id!)

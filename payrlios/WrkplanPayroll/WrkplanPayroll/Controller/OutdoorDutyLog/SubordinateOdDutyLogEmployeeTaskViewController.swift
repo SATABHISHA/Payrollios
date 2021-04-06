@@ -50,7 +50,9 @@ class SubordinateOdDutyLogEmployeeTaskViewController: UIViewController, UITableV
         
         self.tableViewEmpTask.dataSource = self
         self.tableViewEmpTask.delegate = self
+        self.tableViewEmpTask.backgroundColor = UIColor(hexFromString: "ffffff")
 
+        TxtViewRemarks.backgroundColor = UIColor(hexFromString: "ffffff")
         // Do any additional setup after loading the view.
         
         //============keyboard will show/hide, code starts==========

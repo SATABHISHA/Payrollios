@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -88,7 +87,7 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="idr-To-gVZ">
                                 <rect key="frame" x="20" y="177" width="374" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1ho-tY-laQ"/>
                                 </constraints>
@@ -373,6 +372,7 @@
                         <outlet property="btn_out" destination="E9C-qP-Xsm" id="VI4-OP-qD5"/>
                         <outlet property="designablebtn_myattendance_log" destination="zDX-6k-bnG" id="z21-fz-c6i"/>
                         <outlet property="designablebtn_subordinate_attendance_log" destination="TgU-4h-Uco" id="cSB-sr-eHt"/>
+                        <outlet property="label_date_today" destination="Xrq-Xn-esx" id="6mo-CQ-VuE"/>
                         <outlet property="label_wrk_from_home" destination="Y4S-V4-pkL" id="2ui-TL-c0t"/>
                         <outlet property="tableviewMyAttendence" destination="ffn-kx-egJ" id="WEM-9a-7Oh"/>
                         <outlet property="tv_wrk_frm_home" destination="idr-To-gVZ" id="9od-Ip-bAH"/>
@@ -425,8 +425,5 @@
     </designables>
     <resources>
         <image name="home_menu" width="32" height="32"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -32,6 +32,8 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
         
         self.tableViewSubordinateOdDutyLogList.delegate = self
         self.tableViewSubordinateOdDutyLogList.dataSource = self
+        
+        self.tableViewSubordinateOdDutyLogList.backgroundColor = UIColor(hexFromString: "ffffff")
 
         // Do any additional setup after loading the view.
         loadData()

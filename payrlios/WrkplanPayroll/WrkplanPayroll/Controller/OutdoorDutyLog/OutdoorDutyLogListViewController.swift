@@ -60,6 +60,8 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
         self.tableviewOdDutyLog.delegate = self
         self.tableviewOdDutyLog.dataSource = self
         
+        self.tableviewOdDutyLog.backgroundColor = UIColor(hexFromString: "ffffff")
+        
 //        determineMyCurrentLocation()
         determineMyCurrentLocation(status: "Start")
         // Do any additional setup after loading the view.

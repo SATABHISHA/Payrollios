@@ -28,8 +28,16 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
 
         ChangeStatusBarColor() //---to change background statusbar color
         
+        //-----code to get current date and show date in the label, starts-----
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
+        label_date.text = formatter.string(from: date)
+        //-----code to get current date and show date in the label, starts-----
+        
         self.tableviewSubordinateLog.delegate = self
         self.tableviewSubordinateLog.dataSource = self
+        tableviewSubordinateLog.backgroundColor = UIColor(hexFromString: "ffffff")
         // Do any additional setup after loading the view.
         loadData()
         

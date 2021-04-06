@@ -27,6 +27,7 @@ class SubordinateOdDutyTimeLogViewController: UIViewController, UITableViewDeleg
         // Do any additional setup after loading the view.
         self.tableViewTimeLog.delegate = self
         self.tableViewTimeLog.dataSource = self
+        self.tableViewTimeLog.backgroundColor = UIColor(hexFromString: "ffffff")
         
         loadData()
     }

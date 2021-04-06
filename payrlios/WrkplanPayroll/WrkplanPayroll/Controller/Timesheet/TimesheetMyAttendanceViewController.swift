@@ -28,6 +28,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     var timesheet_id: Int!
     var work_from_home_flag: Int!
     var work_from_home_detail: String!
+    @IBOutlet weak var label_date_today: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
@@ -36,14 +37,25 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         self.tableviewMyAttendence.delegate = self
         
         tableviewMyAttendence.backgroundColor = UIColor(hexFromString: "ffffff")
+        tv_wrk_frm_home.backgroundColor = UIColor(hexFromString: "ffffff")
+        
         
         // Do any additional setup after loading the view.
+        
+        //-----code to get current date and show date in the label, starts-----
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
+        label_date_today.text = formatter.string(from: date)
+        //-----code to get current date and show date in the label, starts-----
+        
         btnCheckBox.setImage(UIImage(named:"check_box_empty"), for: .normal)
         btnCheckBox.setImage(UIImage(named:"check_box"), for: .selected)
         
         tv_wrkfrmhome_constraint_height.constant = 0
         self.tv_wrk_frm_home.layer.borderColor = UIColor.lightGray.cgColor
         self.tv_wrk_frm_home.layer.borderWidth = 1
+        
         
         //MyAttendanceLog OnClick
         let tapGestureRecognizerMyAttendanceLogDesignablebtn = UITapGestureRecognizer(target: self, action: #selector(DesignablebtnMyAttendanceLog(tapGestureRecognizer:)))

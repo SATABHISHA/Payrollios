@@ -26,6 +26,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         
         self.tableviewMyAttendanceLog.delegate = self
         self.tableviewMyAttendanceLog.dataSource = self
+        tableviewMyAttendanceLog.backgroundColor = UIColor(hexFromString: "ffffff")
 
         month_number = Calendar.current.component(.month, from: Date())
         year = Calendar.current.component(.year, from: Date())
