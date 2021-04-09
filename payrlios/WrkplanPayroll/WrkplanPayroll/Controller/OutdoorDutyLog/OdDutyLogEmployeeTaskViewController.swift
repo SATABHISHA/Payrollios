@@ -580,6 +580,9 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         viewNewTask.alpha = 0
         viewNewTask.sizeToFit()
         
+        txtViewTaskName.backgroundColor = UIColor(hexFromString: "ffffff")
+        txtViewDescription.backgroundColor = UIColor(hexFromString: "ffffff")
+        
 
       /*  stackViewButtonborder.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
         view_custom_btn_punchout.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)*/
@@ -640,6 +643,8 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         viewModifyTask.alpha = 0
         viewModifyTask.sizeToFit()
         
+        txtViewModifyTaskName.backgroundColor = UIColor(hexFromString: "ffffff")
+        txtViewModifyDescription.backgroundColor = UIColor(hexFromString: "ffffff")
 
       /*  stackViewButtonborder.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
         view_custom_btn_punchout.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)*/

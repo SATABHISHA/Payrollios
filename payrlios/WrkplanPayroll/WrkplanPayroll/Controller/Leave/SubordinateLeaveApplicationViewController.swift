@@ -50,6 +50,18 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         cell.LabelLeaveType.text = dict["leave_name"] as? String
         cell.LabelLeaveStatus.text = dict["leave_status"] as? String
         
+        if dict["leave_status"]as? String == "Canceled" {
+            cell.LabelLeaveStatus.textColor = UIColor(hexFromString: "ed1c24")
+        }else if dict["leave_status"]as? String == "Return" {
+            cell.LabelLeaveStatus.textColor = UIColor(hexFromString: "b04d0b")
+        }else if dict["leave_status"]as? String == "Save" {
+            cell.LabelLeaveStatus.textColor = UIColor(hexFromString: "2196ed")
+        }else if dict["leave_status"]as? String == "Submit" {
+            cell.LabelLeaveStatus.textColor = UIColor(hexFromString: "fe52ce")
+        }else if dict["leave_status"] as? String == "Approved" {
+            cell.LabelLeaveStatus.textColor = UIColor(hexFromString: "1e9547")
+        }
+        
         return cell
     }
     

@@ -56,6 +56,18 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
         cell.LabelLeaveType.text = dict["leave_name"] as? String
         cell.LabelStatus.text = dict["leave_status"] as? String
         
+        if dict["leave_status"]as? String == "Canceled" {
+            cell.LabelStatus.textColor = UIColor(hexFromString: "ed1c24")
+        }else if dict["leave_status"]as? String == "Return" {
+            cell.LabelStatus.textColor = UIColor(hexFromString: "b04d0b")
+        }else if dict["leave_status"]as? String == "Save" {
+            cell.LabelStatus.textColor = UIColor(hexFromString: "2196ed")
+        }else if dict["leave_status"]as? String == "Submit" {
+            cell.LabelStatus.textColor = UIColor(hexFromString: "fe52ce")
+        }else if dict["leave_status"]as? String == "Approved" {
+            cell.LabelStatus.textColor = UIColor(hexFromString: "1e9547")
+        }
+        
         return cell
     }
     //--------tableview code ends------
