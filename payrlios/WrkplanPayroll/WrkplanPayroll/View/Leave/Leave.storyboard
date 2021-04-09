@@ -205,6 +205,62 @@
                                     <constraint firstItem="8uS-s7-HPH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B6d-FM-WEl" secondAttribute="trailing" constant="92" id="qvh-Yb-CZq"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vhZ-6a-54i">
+                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLx-eP-uy1" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="206.66666666666666" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Leave Application" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPz-yK-SzZ">
+                                                <rect key="frame" x="8" y="8" width="186" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="designable_btn_leave_appltn:" destination="U7x-cd-m0F" eventType="touchUpInside" id="c9P-ha-Ld6"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JI-fZ-CTn" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">
+                                        <rect key="frame" x="207.66666666666663" y="0.0" width="206.33333333333337" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subordinate Leave Approval" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScG-Qd-m54">
+                                                <rect key="frame" x="26" y="8" width="153" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="designable_btn_subordinate_leave_appltn:" destination="U7x-cd-m0F" eventType="valueChanged" id="dd2-pm-IuA"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="dEu-Rq-37m"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="449-Jd-mfA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -212,24 +268,40 @@
                             <constraint firstItem="SSv-dv-uex" firstAttribute="top" secondItem="ilG-nG-tfE" secondAttribute="bottom" constant="56" id="C5Z-Hx-S8d"/>
                             <constraint firstItem="449-Jd-mfA" firstAttribute="trailing" secondItem="SSv-dv-uex" secondAttribute="trailing" constant="30" id="G6j-Yi-IgY"/>
                             <constraint firstItem="ilG-nG-tfE" firstAttribute="top" secondItem="449-Jd-mfA" secondAttribute="top" id="IOf-ZN-drM"/>
+                            <constraint firstItem="449-Jd-mfA" firstAttribute="trailing" secondItem="vhZ-6a-54i" secondAttribute="trailing" id="M1q-Rh-MqZ"/>
                             <constraint firstItem="ilG-nG-tfE" firstAttribute="leading" secondItem="449-Jd-mfA" secondAttribute="leading" id="Zgw-FL-DXP"/>
                             <constraint firstItem="ilG-nG-tfE" firstAttribute="trailing" secondItem="449-Jd-mfA" secondAttribute="trailing" id="fPv-gj-b9p"/>
+                            <constraint firstItem="vhZ-6a-54i" firstAttribute="bottom" secondItem="449-Jd-mfA" secondAttribute="bottom" id="niW-x0-TiS"/>
+                            <constraint firstItem="vhZ-6a-54i" firstAttribute="leading" secondItem="449-Jd-mfA" secondAttribute="leading" id="nxq-YR-Wgi"/>
                             <constraint firstItem="SSv-dv-uex" firstAttribute="leading" secondItem="449-Jd-mfA" secondAttribute="leading" constant="30" id="rkr-L7-9k3"/>
                             <constraint firstItem="449-Jd-mfA" firstAttribute="bottom" secondItem="SSv-dv-uex" secondAttribute="bottom" constant="185" id="sWW-Jr-bRT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="designable_btn_leave_appltn" destination="yLx-eP-uy1" id="Za4-Vd-wp4"/>
+                        <outlet property="designable_btn_subordinate_leave_appltn" destination="1JI-fZ-CTn" id="lxT-cT-6Rv"/>
                         <outlet property="label_casual_leave" destination="zYb-cf-UTu" id="hFa-Pi-xzX"/>
                         <outlet property="label_comp_off" destination="7S3-CL-ca8" id="LMv-Xz-6Wt"/>
                         <outlet property="label_earned_leave" destination="c0O-kw-IFU" id="u7q-ug-rrI"/>
                         <outlet property="label_maternal_leave" destination="lAY-7p-eiY" id="KVh-NG-Qx0"/>
                         <outlet property="label_paternal_leave" destination="gH8-M6-AJ5" id="lsK-F7-dhV"/>
                         <outlet property="label_sick_leave" destination="fVZ-zX-wHQ" id="xYs-yj-1Hr"/>
+                        <segue destination="v4n-4j-a9l" kind="modal" identifier="myleaveappltn" modalPresentationStyle="fullScreen" id="R0k-7U-MNO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLG-3L-uAF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-142.02898550724638" y="86.413043478260875"/>
+        </scene>
+        <!--myleaveappltn-->
+        <scene sceneID="ZsQ-X6-b19">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="myleaveappltn" storyboardName="MyLeaveApplication" referencedIdentifier="myleaveappltn" id="v4n-4j-a9l" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="79A-Zo-oUp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u8T-B5-yJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="-137"/>
         </scene>
         <!--home-->
         <scene sceneID="9l5-Ja-h50">
@@ -242,6 +314,14 @@
             <point key="canvasLocation" x="408" y="-67"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="1JI-fZ-CTn">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="yLx-eP-uy1">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="home_menu" width="32" height="32"/>
         <systemColor name="labelColor">

@@ -21,6 +21,8 @@ class LeaveViewController: UIViewController {
     @IBOutlet weak var label_comp_off: UILabel!
     @IBOutlet weak var label_maternal_leave: UILabel!
     @IBOutlet weak var label_paternal_leave: UILabel!
+    @IBOutlet weak var designable_btn_leave_appltn: DesignableButton!
+    @IBOutlet weak var designable_btn_subordinate_leave_appltn: DesignableButton!
     
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     override func viewDidLoad() {
@@ -33,6 +35,11 @@ class LeaveViewController: UIViewController {
 //        print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
         self.get_Year_details()
         
+    }
+    @IBAction func designable_btn_leave_appltn(_ sender: Any) {
+        self.performSegue(withIdentifier: "myleaveappltn", sender: self)
+    }
+    @IBAction func designable_btn_subordinate_leave_appltn(_ sender: Any) {
     }
     
     @IBAction func btn_home(_ sender: Any) {

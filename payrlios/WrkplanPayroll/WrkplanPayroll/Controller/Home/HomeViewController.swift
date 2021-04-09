@@ -62,6 +62,7 @@ class HomeViewController: UIViewController {
         
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
+//        print("test-=>",swiftyJsonvar1.stringValue)
         // Do any additional setup after loading the view.
         
         //----------view and label border code styarts--------
