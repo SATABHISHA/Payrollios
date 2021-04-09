@@ -179,7 +179,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.84662974964488635" green="0.84662974964488635" blue="0.84662974964488635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="LabelApplicationCode" destination="yEx-Of-eqQ" id="8EC-5u-2IM"/>
+                                            <outlet property="LabelApplicationCode" destination="0va-sT-hep" id="AVW-Jv-9Qd"/>
                                             <outlet property="LabelDate" destination="uDk-Sf-q7R" id="mQK-lE-wM2"/>
                                             <outlet property="LabelDayCount" destination="Mg7-BW-sZ1" id="I1f-FU-13R"/>
                                             <outlet property="LabelLeaveType" destination="yEx-Of-eqQ" id="iif-Ok-BcQ"/>

@@ -15,12 +15,19 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     static var new_create_yn: Bool = false
+    
+    static var leave_status: String!, employee_name: String!, supervisor_remark: String!, leave_name: String!, description: String!, to_date: String!, from_date: String!, final_approved_by: String!, appliction_code: String!, approved_by: String!, approved_date: String!
+    
+    static var supervisor1_id: Int!, total_days: Int!, approved_level: Int!, supervisor2_id: Int!, appliction_id: Int!, approved_by_id: Int!, employee_id: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.TableViewLeaveApplication.delegate = self
         self.TableViewLeaveApplication.dataSource = self
+        TableViewLeaveApplication.backgroundColor = UIColor(hexFromString: "ffffff")
+        
         loadData()
     }
     
@@ -86,6 +93,43 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
                
            }
        }
+    //---------onClick tableview code starts----------
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+//            OutDoorDutyListViewController.new_create_yn = false
+            let row=arrRes[indexPath.row]
+            print(row)
+            print("tap is working")
+            
+            MyLeaveApplicationViewController.leave_status = row["leave_status"] as? String
+            MyLeaveApplicationViewController.employee_name = row["employee_name"] as? String
+            MyLeaveApplicationViewController.supervisor_remark = row["supervisor_remark"] as? String
+            MyLeaveApplicationViewController.leave_name = row["leave_name"] as? String
+            MyLeaveApplicationViewController.description = row["description"] as? String
+            MyLeaveApplicationViewController.total_days = row["total_days"] as? Int
+            MyLeaveApplicationViewController.to_date = row["to_date"] as? String
+            MyLeaveApplicationViewController.supervisor1_id = row["supervisor1_id"] as? Int
+            MyLeaveApplicationViewController.from_date = row["from_date"] as? String
+            MyLeaveApplicationViewController.final_approved_by = row["final_approved_by"] as? String
+            MyLeaveApplicationViewController.appliction_code = row["appliction_code"] as? String
+            MyLeaveApplicationViewController.approved_by = row["approved_by"] as? String
+            MyLeaveApplicationViewController.approved_level = row["approved_level"] as? Int
+            MyLeaveApplicationViewController.supervisor2_id = row["supervisor2_id"] as? Int
+            MyLeaveApplicationViewController.appliction_id = row["appliction_id"] as? Int
+            MyLeaveApplicationViewController.approved_date = row["approved_date"] as? String
+            MyLeaveApplicationViewController.approved_by_id = row["approved_by_id"] as? Int
+            MyLeaveApplicationViewController.employee_id = row["employee_id"] as? Int
+           
+//            print("empname-=>",row["employee_name"] as? String)
+//            OutDoorDutyListViewController.supervisor_od_request_id = row["od_request_id"]?.stringValue
+//            SubordinateOutdoorDutyRequestListViewController.supervisor_employee_id = row["employee_id"]?.stringValue
+           
+//            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
+//            print("test-=>",row["od_request_id"]?.stringValue)
+            MyLeaveApplicationViewController.new_create_yn = false
+            self.performSegue(withIdentifier: "myleaverqst", sender: self)
+        }
+        //---------onClick tableview code ends----------
        //--------function to show leave details using Alamofire and Json Swifty code ends------------
     
     // ====================== Blur Effect Defiend START ================= \\

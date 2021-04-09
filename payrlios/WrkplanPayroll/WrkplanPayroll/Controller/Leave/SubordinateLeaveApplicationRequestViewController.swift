@@ -56,6 +56,10 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
         txt_to_date.isUserInteractionEnabled = false
         txt_view_final_supervisor_remarks.isUserInteractionEnabled = false
         
+        txt_view_details.backgroundColor = UIColor(hexFromString: "ffffff")
+        txt_view_supervisor_remarks.backgroundColor = UIColor(hexFromString: "ffffff")
+        txt_view_final_supervisor_remarks.backgroundColor = UIColor(hexFromString: "ffffff")
+        
         //---appending data for dropdown, starts
         type.append("Approved")
         type.append("Canceled")

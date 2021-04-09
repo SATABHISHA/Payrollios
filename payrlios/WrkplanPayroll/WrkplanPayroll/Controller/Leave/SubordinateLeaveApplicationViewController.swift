@@ -24,6 +24,7 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         // Do any additional setup after loading the view.
         self.TableViewSubordinateLeave.delegate = self
         self.TableViewSubordinateLeave.dataSource = self
+        TableViewSubordinateLeave.backgroundColor = UIColor(hexFromString: "ffffff")
         loadData()
     }
     

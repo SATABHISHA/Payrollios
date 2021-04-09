@@ -47,7 +47,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     var od_request_id:Int = 0
-    static var leave_id: Int!
+//    static var leave_id: Int!
+    static var supervisor1_id: Int!, supervisor2_id: Int!, leave_id: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         txt_to_date.delegate = self
         txt_from_date.isUserInteractionEnabled = false
         txt_to_date.isUserInteractionEnabled = false
+        txt_from_date.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        txt_to_date.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         
         txt_employee_name.setLeftPaddingPoints(5)
         
@@ -71,14 +74,19 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         txt_final_supervisor_remark_name.isUserInteractionEnabled = false
         txt_final_supervisor_remark_name.isEditable = false
         txt_request_status.isUserInteractionEnabled = false
+        
+        txt_view_details.backgroundColor = UIColor(hexFromString: "ffffff")
+        txt_view_supervisor_remark.backgroundColor = UIColor(hexFromString: "ffffff")
+        txt_final_supervisor_remark_name.backgroundColor = UIColor(hexFromString: "ffffff")
+        
         loadLeaveData()
+        
         
         if MyLeaveApplicationViewController.new_create_yn == true{
 //            populate_value()
             btn_submit.isSelected = true
         }else if MyLeaveApplicationViewController.new_create_yn == false{
-//            txt_employee_name.text = "\(swiftyJsonvar1["employee"]["employee_fname"].stringValue) \(swiftyJsonvar1["employee"]["employee_lname"].stringValue)"
-//            loadData()
+            loadData()
         }
         
         //-----Save
@@ -87,6 +95,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         custom_btn_label_save.alpha = 0.6
         custom_btn_label_save.addGestureRecognizer(tapGestureRecognizerSave)
     }
+    
     
     //---Save
     @objc func Save(tapGestureRecognizer: UITapGestureRecognizer){
@@ -251,7 +260,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     
     //--------function to load leave type using Alamofire and Json Swifty------------
     func loadLeaveData(){
-           loaderStart()
+//           loaderStart()
         if !leaveTypeDetails.isEmpty{
             leaveTypeDetails.removeAll(keepingCapacity: true)
         }
@@ -262,7 +271,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         let url = "\(BASE_URL)leave/type/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)"
 //        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
            AF.request(url).responseJSON{ (responseData) -> Void in
-               self.loaderEnd()
+//               self.loaderEnd()
                if((responseData.value) != nil){
                    let swiftyJsonVar=JSON(responseData.value!)
                    print("Log description: \(swiftyJsonVar)")
@@ -282,7 +291,99 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
            }
        }
        //--------function to load leave type using Alamofire and Json Swifty code ends------------
-    
+    //--------function to show leave application request details using Alamofire and Json Swifty------------
+    func loadData(){
+           loaderStart()
+        
+        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(MyLeaveApplicationViewController.appliction_id!)/1/"
+        print("MyLeaveAppltnRqsturl-=>",url)
+           AF.request(url).responseJSON{ (responseData) -> Void in
+               self.loaderEnd()
+               if((responseData.value) != nil){
+                   let swiftyJsonVar=JSON(responseData.value!)
+                   print("Leave Application Log details: \(swiftyJsonVar)")
+                
+                self.txt_employee_name.text = swiftyJsonVar["fields"]["employee_name"].stringValue
+                self.txt_from_date.text = swiftyJsonVar["fields"]["from_date"].stringValue
+                self.txt_to_date.text = swiftyJsonVar["fields"]["to_date"].stringValue
+                self.label_days_count.text = swiftyJsonVar["fields"]["total_days"].stringValue
+                self.txt_view_details.text = swiftyJsonVar["fields"]["description"].stringValue
+                self.txt_request_status.text = swiftyJsonVar["fields"]["leave_status"].stringValue
+                MyLeaveRequestViewController.supervisor1_id = swiftyJsonVar["fields"]["supervisor1_id"].intValue
+                self.label_supervisor_remark_name.text = swiftyJsonVar["fields"]["supervisor1_name"].stringValue
+                MyLeaveRequestViewController.supervisor2_id = swiftyJsonVar["fields"]["supervisor2_id"].intValue
+                self.label_final_supervisor_remark_name.text = swiftyJsonVar["fields"]["supervisor2_name"].stringValue
+                self.txt_view_supervisor_remark.text = swiftyJsonVar["fields"]["supervisor_remark"].stringValue
+                MyLeaveRequestViewController.leave_id = swiftyJsonVar["fields"]["leave_id"].intValue
+                
+               
+                
+                
+                if swiftyJsonVar["fields"]["leave_status"].stringValue == "Save"{
+//                    self.od_request_id = swiftyJsonVar["fields"]["od_request_id"].intValue
+                    
+//                    self.txt_view_remarks.isUserInteractionEnabled = false
+                    self.btn_select_type.isUserInteractionEnabled = true
+                    self.custom_btn_label_save.alpha = 1.0
+                    self.btn_select_type.setTitle(MyLeaveApplicationViewController.leave_name!, for: .normal)
+                    
+                    self.custom_btn_label_save.isUserInteractionEnabled = true
+//                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    
+                    self.btn_save.isSelected = true
+                    
+                    self.img_from_date.isHidden = false
+                    self.img_from_date.isUserInteractionEnabled = true
+                    
+                    self.img_to_date.isHidden = false
+                    self.img_to_date.isUserInteractionEnabled = true
+                    
+                    self.txt_from_date.isUserInteractionEnabled = true
+                    self.txt_to_date.isUserInteractionEnabled = true
+                    
+                } else if swiftyJsonVar["fields"]["leave_status"].stringValue == "Return"{
+//                    self.od_request_id = swiftyJsonVar["fields"]["od_request_id"].intValue
+                    
+//                    self.txt_view_remarks.isUserInteractionEnabled = false
+                    self.btn_select_type.isUserInteractionEnabled = true
+                    self.custom_btn_label_save.alpha = 1.0
+                    self.btn_select_type.setTitle(MyLeaveApplicationViewController.leave_name!, for: .normal)
+                    
+                    self.custom_btn_label_save.isUserInteractionEnabled = true
+//                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    
+                    self.btn_submit.isSelected = true
+                    
+                    self.txt_from_date.isUserInteractionEnabled = true
+                    self.txt_to_date.isUserInteractionEnabled = true
+                    
+                } else{
+//                    self.od_request_id = swiftyJsonVar["fields"]["od_request_id"].intValue
+                    
+//                    self.txt_view_reason.isUserInteractionEnabled = false
+//                    self.txt_view_remarks.isUserInteractionEnabled = false
+                    self.btn_select_type.isUserInteractionEnabled = false
+                    self.btn_select_type.setTitle(MyLeaveApplicationViewController.leave_name!, for: .normal)
+                    
+                    self.custom_btn_label_save.isUserInteractionEnabled = false
+                    self.custom_btn_label_save.alpha = 0.6
+                    
+                    self.btn_submit.isSelected = true
+                    self.btn_submit.isUserInteractionEnabled = false
+                    self.btn_save.isUserInteractionEnabled = false
+                    
+                    self.img_from_date.isHidden = true
+                    self.img_from_date.isUserInteractionEnabled = false
+                    
+                    self.img_to_date.isHidden = true
+                    self.img_to_date.isUserInteractionEnabled = false
+                }
+                
+               }
+               
+           }
+       }
+       //--------function to show leave application request details using Alamofire and Json Swifty code ends------------
     //-----function to save data, code starts---
     func SaveData(){
         let url = "\(BASE_URL)leave/application/save"
