@@ -264,6 +264,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cE0-Rb-sPq">
                                                 <rect key="frame" x="10" y="244" width="394" height="79"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="79" id="CKb-sr-NIC"/>
                                                 </constraints>
@@ -353,6 +354,9 @@
                                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btn_select_type:" destination="hAF-wo-lnQ" eventType="touchUpInside" id="dl2-Er-fNG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -581,10 +585,37 @@
                             <constraint firstItem="EpV-fB-7qg" firstAttribute="leading" secondItem="QK6-Kg-Rmq" secondAttribute="leading" id="uGf-XG-SUw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn_select_status" destination="nT9-rV-7kW" id="2UV-r5-3FQ"/>
+                        <outlet property="custom_label_btn_cancel" destination="dzT-rc-P0g" id="iI9-bw-F7k"/>
+                        <outlet property="custom_label_btn_save" destination="4XT-Jt-eX9" id="Nsm-Dg-JEI"/>
+                        <outlet property="label_application_type" destination="B8B-ci-wAv" id="9rl-hr-gbU"/>
+                        <outlet property="label_day_count" destination="CpP-Uu-sky" id="YAc-Dc-7N2"/>
+                        <outlet property="label_final_supervisor_remarks_name" destination="efy-QW-4Y4" id="fPn-N5-rXP"/>
+                        <outlet property="label_supervisor_remarks_name" destination="mF8-PV-h2J" id="w9C-Rq-gmY"/>
+                        <outlet property="txt_employee_name" destination="aPC-wi-khX" id="2go-rx-rYf"/>
+                        <outlet property="txt_from_date" destination="wV4-Hp-Dnc" id="e7i-JT-ZdI"/>
+                        <outlet property="txt_leave_type" destination="HOT-8R-OFy" id="Uf7-e9-2Ac"/>
+                        <outlet property="txt_to_date" destination="la0-QS-LBs" id="1sB-EK-71U"/>
+                        <outlet property="txt_view_details" destination="cE0-Rb-sPq" id="xgt-ua-k2D"/>
+                        <outlet property="txt_view_final_supervisor_remarks" destination="KgW-P6-X1C" id="ydG-xT-FTM"/>
+                        <outlet property="txt_view_supervisor_remarks" destination="W4V-1e-jro" id="a8A-qQ-qGq"/>
+                        <segue destination="TNu-GC-pmU" kind="modal" identifier="subleaveappltn" modalPresentationStyle="fullScreen" id="CvG-ax-3e4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EId-1S-vwj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="402.89855072463769" y="65.625"/>
+        </scene>
+        <!--subleaveappltn-->
+        <scene sceneID="F5y-lf-lga">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subleaveappltn" storyboardName="SubordinateLeaveApplication" referencedIdentifier="subleaveappltn" id="TNu-GC-pmU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HGl-yc-slh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gwD-pX-BhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="-109"/>
         </scene>
     </scenes>
     <resources>

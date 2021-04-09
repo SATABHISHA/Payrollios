@@ -197,11 +197,22 @@
                     <connections>
                         <outlet property="TableViewSubordinateLeave" destination="tMI-Ri-NnT" id="lBQ-Ff-CVR"/>
                         <segue destination="oL4-pI-Xtf" kind="modal" identifier="subleaverqst" modalPresentationStyle="fullScreen" id="WVy-1I-cCR"/>
+                        <segue destination="qM0-Jb-wCj" kind="modal" identifier="leave" modalPresentationStyle="fullScreen" id="4ip-H7-oO1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qC4-Yi-yAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="866.66666666666674" y="70.982142857142847"/>
+        </scene>
+        <!--leave-->
+        <scene sceneID="Iwe-Zd-lQx">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="leave" storyboardName="Leave" referencedIdentifier="leave" id="qM0-Jb-wCj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="spi-nu-8ya"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2B8-93-3od" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1392" y="-164"/>
         </scene>
         <!--subleaverqst-->
         <scene sceneID="OaV-d8-Ca4">

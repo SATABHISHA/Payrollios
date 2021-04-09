@@ -14,6 +14,9 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
     @IBOutlet weak var TableViewSubordinateLeave: UITableView!
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
+    static var leave_status: String!, employee_name: String!, supervisor_remark: String!, leave_name: String!, description: String!, to_date: String!, from_date: String!, final_approved_by: String!, appliction_code: String!, approved_by: String!, approved_date: String!
+    
+    static var supervisor1_id: Int!, total_days: Int!, approved_level: Int!, supervisor2_id: Int!, appliction_id: Int!, approved_by_id: Int!, employee_id: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,7 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
     }
     
     @IBAction func BtnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "leave", sender: self)
         print("tapped")
     }
     
@@ -52,10 +56,30 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
 //            OutDoorDutyListViewController.new_create_yn = false
-            var row=arrRes[indexPath.row]
+            let row=arrRes[indexPath.row]
             print(row)
             print("tap is working")
+            
+            SubordinateLeaveApplicationViewController.leave_status = row["leave_status"] as? String
+            SubordinateLeaveApplicationViewController.employee_name = row["employee_name"] as? String
+            SubordinateLeaveApplicationViewController.supervisor_remark = row["supervisor_remark"] as? String
+            SubordinateLeaveApplicationViewController.leave_name = row["leave_name"] as? String
+            SubordinateLeaveApplicationViewController.description = row["description"] as? String
+            SubordinateLeaveApplicationViewController.total_days = row["total_days"] as? Int
+            SubordinateLeaveApplicationViewController.to_date = row["to_date"] as? String
+            SubordinateLeaveApplicationViewController.supervisor1_id = row["supervisor1_id"] as? Int
+            SubordinateLeaveApplicationViewController.from_date = row["from_date"] as? String
+            SubordinateLeaveApplicationViewController.final_approved_by = row["final_approved_by"] as? String
+            SubordinateLeaveApplicationViewController.appliction_code = row["appliction_code"] as? String
+            SubordinateLeaveApplicationViewController.approved_by = row["approved_by"] as? String
+            SubordinateLeaveApplicationViewController.approved_level = row["approved_level"] as? Int
+            SubordinateLeaveApplicationViewController.supervisor2_id = row["supervisor2_id"] as? Int
+            SubordinateLeaveApplicationViewController.appliction_id = row["appliction_id"] as? Int
+            SubordinateLeaveApplicationViewController.approved_date = row["approved_date"] as? String
+            SubordinateLeaveApplicationViewController.approved_by_id = row["approved_by_id"] as? Int
+            SubordinateLeaveApplicationViewController.employee_id = row["employee_id"] as? Int
            
+//            print("empname-=>",row["employee_name"] as? String)
 //            OutDoorDutyListViewController.supervisor_od_request_id = row["od_request_id"]?.stringValue
 //            SubordinateOutdoorDutyRequestListViewController.supervisor_employee_id = row["employee_id"]?.stringValue
            
