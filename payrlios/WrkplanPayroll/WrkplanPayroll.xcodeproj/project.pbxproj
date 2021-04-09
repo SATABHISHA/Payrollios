@@ -11,6 +11,8 @@
 		1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789225F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift */; };
 		1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789725F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift */; };
 		1705789D25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789C25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift */; };
+		170DE5922620653100C9FEF1 /* SubordinateLeaveRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170DE5912620653100C9FEF1 /* SubordinateLeaveRequest.storyboard */; };
+		170DE597262069BB00C9FEF1 /* SubordinateLeaveApplicationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170DE596262069BB00C9FEF1 /* SubordinateLeaveApplicationRequestViewController.swift */; };
 		172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */; };
 		172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172246F52567B250006EDF5B /* EmployeeInformation.storyboard */; };
 		1722940D256E800C0008D808 /* Leave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1722940C256E800C0008D808 /* Leave.storyboard */; };
@@ -77,6 +79,9 @@
 		1791C08526176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */; };
 		1791C08A26176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */; };
 		17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */; };
+		17AF13932620335D00B3F5EE /* SubordinateLeaveApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17AF13922620335D00B3F5EE /* SubordinateLeaveApplication.storyboard */; };
+		17AF13982620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AF13972620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift */; };
+		17AF139D262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AF139C262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift */; };
 		17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */; };
 		17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */; };
 		17B05E6E2579151700CBC3C9 /* CustomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E6D2579151600CBC3C9 /* CustomBorder.swift */; };
@@ -117,6 +122,8 @@
 		1705789225F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestListViewController.swift; sourceTree = "<group>"; };
 		1705789725F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestListTableViewCell.swift; sourceTree = "<group>"; };
 		1705789C25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestViewController.swift; sourceTree = "<group>"; };
+		170DE5912620653100C9FEF1 /* SubordinateLeaveRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateLeaveRequest.storyboard; sourceTree = "<group>"; };
+		170DE596262069BB00C9FEF1 /* SubordinateLeaveApplicationRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLeaveApplicationRequestViewController.swift; sourceTree = "<group>"; };
 		172246EC2567B226006EDF5B /* EmployeeInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeInformationViewController.swift; sourceTree = "<group>"; };
 		172246F52567B250006EDF5B /* EmployeeInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeInformation.storyboard; sourceTree = "<group>"; };
 		1722940C256E800C0008D808 /* Leave.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Leave.storyboard; sourceTree = "<group>"; };
@@ -188,6 +195,9 @@
 		1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListViewController.swift; sourceTree = "<group>"; };
 		1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListTableViewCell.swift; sourceTree = "<group>"; };
 		17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOutdoorDutyRequestList.storyboard; sourceTree = "<group>"; };
+		17AF13922620335D00B3F5EE /* SubordinateLeaveApplication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateLeaveApplication.storyboard; sourceTree = "<group>"; };
+		17AF13972620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLeaveApplicationViewController.swift; sourceTree = "<group>"; };
+		17AF139C262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLeaveApplicationTableViewCell.swift; sourceTree = "<group>"; };
 		17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
 		17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceViewController.swift; sourceTree = "<group>"; };
 		17B05E6D2579151600CBC3C9 /* CustomBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorder.swift; sourceTree = "<group>"; };
@@ -274,6 +284,8 @@
 				1722940C256E800C0008D808 /* Leave.storyboard */,
 				177E1C93261D98B600C4CF84 /* MyLeaveApplication.storyboard */,
 				17261857261F3C5E008595E5 /* MyLeaveApplicationRequest.storyboard */,
+				17AF13922620335D00B3F5EE /* SubordinateLeaveApplication.storyboard */,
+				170DE5912620653100C9FEF1 /* SubordinateLeaveRequest.storyboard */,
 			);
 			path = Leave;
 			sourceTree = "<group>";
@@ -285,6 +297,9 @@
 				177E1C98261D9D4A00C4CF84 /* MyLeaveApplicationViewController.swift */,
 				177E1C9D261D9EDE00C4CF84 /* MyLeaveApplicationTableViewCell.swift */,
 				17EB8543261EE6F90074E8D6 /* MyLeaveRequestViewController.swift */,
+				17AF13972620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift */,
+				17AF139C262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift */,
+				170DE596262069BB00C9FEF1 /* SubordinateLeaveApplicationRequestViewController.swift */,
 			);
 			path = Leave;
 			sourceTree = "<group>";
@@ -730,10 +745,12 @@
 			files = (
 				172D28C22575012900C6E2A6 /* HolidayDetails.storyboard in Resources */,
 				173C0F2A25626FBE007AE8F6 /* LaunchScreen.storyboard in Resources */,
+				170DE5922620653100C9FEF1 /* SubordinateLeaveRequest.storyboard in Resources */,
 				17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */,
 				1791C080261765E300EE734A /* SubordinateOdDutyLogList.storyboard in Resources */,
 				17459653256F8CDE00DD6932 /* EmployeeFacilities.storyboard in Resources */,
 				17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */,
+				17AF13932620335D00B3F5EE /* SubordinateLeaveApplication.storyboard in Resources */,
 				1762250725711849005F6C5B /* InsuranceDetail.storyboard in Resources */,
 				1754BAC3261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard in Resources */,
 				17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */,
@@ -901,6 +918,8 @@
 				1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */,
 				177E1C99261D9D4A00C4CF84 /* MyLeaveApplicationViewController.swift in Sources */,
 				17914B7B26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift in Sources */,
+				170DE597262069BB00C9FEF1 /* SubordinateLeaveApplicationRequestViewController.swift in Sources */,
+				17AF139D262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift in Sources */,
 				175C6AD22615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift in Sources */,
 				172D28CC25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift in Sources */,
 				1748A8692616CE3E00D51D13 /* OdDutyLogEmpTaskTableViewCell.swift in Sources */,
@@ -932,6 +951,7 @@
 				177E1C9E261D9EDE00C4CF84 /* MyLeaveApplicationTableViewCell.swift in Sources */,
 				17EB8544261EE6F90074E8D6 /* MyLeaveRequestViewController.swift in Sources */,
 				177597AD2613569300EAD8B4 /* OutdoorDutyLogListViewController.swift in Sources */,
+				17AF13982620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift in Sources */,
 				1773920B261B130900105BBC /* SubordinateOdDutyTimeLogViewController.swift in Sources */,
 				176224F72570CEB9005F6C5B /* CompanyDocumentsViewController.swift in Sources */,
 			);

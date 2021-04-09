@@ -253,7 +253,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="designable_btn_subordinate_leave_appltn:" destination="U7x-cd-m0F" eventType="valueChanged" id="dd2-pm-IuA"/>
+                                            <action selector="designable_btn_subordinate_leave_appltn:" destination="U7x-cd-m0F" eventType="touchUpInside" id="cHv-mc-2k0"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -287,11 +287,22 @@
                         <outlet property="label_paternal_leave" destination="gH8-M6-AJ5" id="lsK-F7-dhV"/>
                         <outlet property="label_sick_leave" destination="fVZ-zX-wHQ" id="xYs-yj-1Hr"/>
                         <segue destination="v4n-4j-a9l" kind="modal" identifier="myleaveappltn" modalPresentationStyle="fullScreen" id="R0k-7U-MNO"/>
+                        <segue destination="A79-HH-fLz" kind="modal" identifier="subleaveappltn" modalPresentationStyle="fullScreen" id="RAZ-cu-02z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLG-3L-uAF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-142.02898550724638" y="86.413043478260875"/>
+        </scene>
+        <!--subleaveappltn-->
+        <scene sceneID="S9P-R3-N6W">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subleaveappltn" storyboardName="SubordinateLeaveApplication" referencedIdentifier="subleaveappltn" id="A79-HH-fLz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="D3w-1L-30a"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWj-HX-nC8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="-197"/>
         </scene>
         <!--myleaveappltn-->
         <scene sceneID="ZsQ-X6-b19">

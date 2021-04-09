@@ -39,9 +39,11 @@ class LeaveViewController: UIViewController {
     @IBAction func designable_btn_leave_appltn(_ sender: Any) {
         self.performSegue(withIdentifier: "myleaveappltn", sender: self)
     }
-    @IBAction func designable_btn_subordinate_leave_appltn(_ sender: Any) {
-    }
+ 
     
+    @IBAction func designable_btn_subordinate_leave_appltn(_ sender: Any) {
+        self.performSegue(withIdentifier: "subleaveappltn", sender: self)
+    }
     @IBAction func btn_home(_ sender: Any) {
         self.performSegue(withIdentifier: "home", sender: self)
     }

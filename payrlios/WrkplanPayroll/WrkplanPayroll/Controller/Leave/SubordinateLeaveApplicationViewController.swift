@@ -1,37 +1,31 @@
 //
-//  MyLeaveApplicationViewController.swift
+//  SubordinateLeaveApplicationViewController.swift
 //  WrkplanPayroll
 //
-//  Created by SATABHISHA ROY on 07/04/21.
+//  Created by SATABHISHA ROY on 09/04/21.
 //
 
 import UIKit
-import Alamofire
 import SwiftyJSON
+import Alamofire
 
-class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet weak var TableViewLeaveApplication: UITableView!
+class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet weak var TableViewSubordinateLeave: UITableView!
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
-    static var new_create_yn: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.TableViewLeaveApplication.delegate = self
-        self.TableViewLeaveApplication.dataSource = self
+        self.TableViewSubordinateLeave.delegate = self
+        self.TableViewSubordinateLeave.dataSource = self
         loadData()
     }
     
-
-    @IBAction func BtnNew(_ sender: Any) {
-        MyLeaveApplicationViewController.new_create_yn = true
-        self.performSegue(withIdentifier: "myleaverqst", sender: self)
-    }
-    
     @IBAction func BtnBack(_ sender: Any) {
-        self.performSegue(withIdentifier: "leave", sender: self)
+        print("tapped")
     }
     
     //--------tableview code starts------
@@ -40,23 +34,43 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MyLeaveApplicationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SubordinateLeaveApplicationTableViewCell
         
         let dict = arrRes[indexPath.row]
+        
+        cell.LabelName.text = dict["employee_name"] as? String
         cell.LabelApplicationCode.text = dict["appliction_code"] as? String
         cell.LabelDate.text = "\(String(describing: dict["from_date"] as! String)) to \(String(describing: dict["to_date"] as! String))"
         cell.LabelDayCount.text = String(dict["total_days"] as! Int)
         cell.LabelLeaveType.text = dict["leave_name"] as? String
-        cell.LabelStatus.text = dict["leave_status"] as? String
+        cell.LabelLeaveStatus.text = dict["leave_status"] as? String
         
         return cell
     }
+    
+    //---------onClick tableview code starts----------
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+//            OutDoorDutyListViewController.new_create_yn = false
+            var row=arrRes[indexPath.row]
+            print(row)
+            print("tap is working")
+           
+//            OutDoorDutyListViewController.supervisor_od_request_id = row["od_request_id"]?.stringValue
+//            SubordinateOutdoorDutyRequestListViewController.supervisor_employee_id = row["employee_id"]?.stringValue
+           
+//            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
+//            print("test-=>",row["od_request_id"]?.stringValue)
+            self.performSegue(withIdentifier: "subleaverqst", sender: self)
+        }
+        //---------onClick tableview code ends----------
     //--------tableview code ends------
+    
     //--------function to show leave details using Alamofire and Json Swifty------------
     func loadData(){
            loaderStart()
         
-        let url = "\(BASE_URL)leave/application/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/1/\(swiftyJsonvar1["user"]["user_id"].stringValue)/"
+        let url = "\(BASE_URL)leave/application/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/2/\(swiftyJsonvar1["user"]["user_id"].stringValue)/"
         print("odDutylisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
@@ -70,16 +84,16 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
                        self.arrRes = resData as! [[String:AnyObject]]
                    }
                    if self.arrRes.count>0 {
-                    self.TableViewLeaveApplication.reloadData()
+                    self.TableViewSubordinateLeave.reloadData()
                    }else{
-                       self.TableViewLeaveApplication.reloadData()
+                       self.TableViewSubordinateLeave.reloadData()
                        //                    Toast(text: "No data", duration: Delay.short).show()
-                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewLeaveApplication.bounds.size.width, height: self.TableViewLeaveApplication.bounds.size.height))
+                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewSubordinateLeave.bounds.size.width, height: self.TableViewSubordinateLeave.bounds.size.height))
                        noDataLabel.text          = "No Log(s) available"
                        noDataLabel.textColor     = UIColor.black
                        noDataLabel.textAlignment = .center
-                       self.TableViewLeaveApplication.backgroundView  = noDataLabel
-                       self.TableViewLeaveApplication.separatorStyle  = .none
+                       self.TableViewSubordinateLeave.backgroundView  = noDataLabel
+                       self.TableViewSubordinateLeave.separatorStyle  = .none
                        
                    }
                }
@@ -135,4 +149,5 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
             self.blurEffectView.removeFromSuperview();
         }
         // ====================== Blur Effect END ================= \\
+
 }
