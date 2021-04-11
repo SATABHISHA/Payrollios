@@ -104,7 +104,25 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
      }
     
     @objc func Submit(tapGestureRecognizer: UITapGestureRecognizer){
-      save_submit(task_status: "Submitted")
+        if (OutdoorDutyLogListViewController.od_status == "STOP" ||
+                OutdoorDutyLogListViewController.od_status == "NA"){
+            save_submit(task_status: "Submitted")
+        }else{
+            // Alert dialog, code starts
+            let dialogMessage = UIAlertController(title: "Alert", message: "You cannot submit today's task(s) until OD Duty is stopped.", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
+                dialogMessage.dismiss(animated: true, completion: nil)
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+            // Alert dialog, code ends
+        }
         
     }
     
@@ -580,6 +598,8 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         viewNewTask.alpha = 0
         viewNewTask.sizeToFit()
         
+        txtViewTaskName.text = ""
+        txtViewDescription.text = ""
         txtViewTaskName.backgroundColor = UIColor(hexFromString: "ffffff")
         txtViewDescription.backgroundColor = UIColor(hexFromString: "ffffff")
         
