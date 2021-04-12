@@ -9,8 +9,15 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class HomeViewController: UIViewController {
+struct NavigationMenuData{
+    var imageData:UIImage!
+    var menuItm:String!
+}
 
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var ScrollViewContainer: UIView!
+    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var EmployeeInformationView: UIView!
     @IBOutlet weak var labelEmployeeInformation: UILabel!
     @IBOutlet weak var EmployeeInformationImg: UIImageView!
@@ -54,11 +61,29 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var info_img: UIView!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
+    //---------variables for navigation drawer starts-------
+    @IBOutlet weak var navigationDrawer: UIView!
+    @IBOutlet weak var navigationEmployeeName: UILabel!
+    @IBOutlet weak var navigationCompanyName: UILabel!
+    @IBOutlet weak var tableViewNavigation: UITableView!
+    @IBOutlet weak var navigationDrawerTrailingConstant: NSLayoutConstraint!
+    @IBOutlet weak var navigationDrawerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navigationDrawerHeight: NSLayoutConstraint!
+    
+    var menuIsMenuShow = false
+    var navigationDrawerData = [NavigationMenuData]()
+    
+    
+    //---------variables for navigation drawer ends-------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ChangeStatusBarColor() //---to change background statusbar color
        
+        tableViewNavigation.dataSource = self
+        tableViewNavigation.delegate = self
+        tableViewNavigation.backgroundColor = UIColor.white
         
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
@@ -107,6 +132,59 @@ class HomeViewController: UIViewController {
         labelODduty.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelTimesheet.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         //----------view and label border code styarts--------
+        
+        
+        //-----------code for navigation drawer starts-----------
+//        self.navBar.accessibilityFrame = CGRect(x: 0, y: 0, width: Int(view.frame.size.width), height: Int(view.frame.size.height))
+        navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
+//        navigationDrawerLeadingConstraint.constant = 0
+        navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
+        print("navigationframe-=>",navigationDrawerLeadingConstraint.constant)
+        //-----------code for navigation drawer ends-----------
+        
+        //-----------Navigation Drawer code starts-----------
+//        navigationLabelEmpName.text = UserSingletonModel.sharedInstance.EmpName
+//        navigationLabelCompNAme.text = UserSingletonModel.sharedInstance.CompanyName
+        var k = NavigationMenuData()
+        k.imageData = UIImage(named: "eminfo.png")
+        k.menuItm = "Employee Information"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "leave.png")
+        k.menuItm = "Leave"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "facilities.png")
+        k.menuItm = "Employee Facilities"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "employeedocs.png")
+        k.menuItm = "Employee Documents"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "organizationdocs.png")
+        k.menuItm = "Company Documents"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "insurance.png")
+        k.menuItm = "Insurance Detail"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "holiday.png")
+        k.menuItm = "Holiday Detail"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "od_request")
+        k.menuItm = "Outdoor Duty Request"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "od_duty")
+        k.menuItm = "Outdoor Duty"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "timesheet")
+        k.menuItm = "Timesheet"
+        navigationDrawerData.append(k)
+        
+        k.imageData = UIImage(named: "password.png")
+        k.menuItm = "Change Password"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "power.png")
+        k.menuItm = "Logout"
+        navigationDrawerData.append(k)
+//        menuShow()
+        //-----------Navigation Drawer code ends-----------
         
         //EmployeeInformation
         let tapGestureRecognizerEmployeeInformationView = UITapGestureRecognizer(target: self, action: #selector(EmployeeInformationView(tapGestureRecognizer:)))
@@ -292,6 +370,82 @@ class HomeViewController: UIViewController {
     @objc func ODdutyLogViewImg(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "odloglist", sender: nil)
     }
+    
+    
+    //--------tableview code starts--------
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        navigationDrawerData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableViewNavigation.dequeueReusableCell(withIdentifier: "cell") as! HomeNavigationControllerTableViewCell
+        tableView.separatorColor = UIColor.white
+        
+        var dict = navigationDrawerData[indexPath.row]
+        /*  if dict.menuItm! != "View Leave Balance"{
+         //            cell.viewScaleLine.isHidden = false
+         cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0)
+         
+         }else{
+         
+         }*/
+        if dict.menuItm! == "Timesheet"{
+            let bottomBorder = CALayer()
+            
+            bottomBorder.frame = CGRect(x: 0.0, y: 43.0, width: cell.contentView.frame.size.width, height: 1.0)
+            bottomBorder.backgroundColor = UIColor(hexFromString: "#c2c2c2").cgColor
+            cell.contentView.layer.addSublayer(bottomBorder)
+        }else{
+            let bottomBorder = CALayer()
+            
+            bottomBorder.frame = CGRect(x: 0.0, y: 43.0, width: cell.contentView.frame.size.width, height: 1.0)
+            bottomBorder.backgroundColor = UIColor(hexFromString: "#ffffff").cgColor
+            cell.contentView.layer.addSublayer(bottomBorder)
+        }
+        cell.imageViewMenu.image = dict.imageData
+        cell.labelMenuItem.text = dict.menuItm
+        return cell
+    }
+    //--------tableview code ends--------
+    
+    //-----------function for navigation drawer code, starts-----------
+    func menuShow(){
+        if menuIsMenuShow{
+            self.canelBlurEffect()
+            //            self.view.removeFromSuperview()
+            self.navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
+            self.navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
+            UIView.animate(withDuration: 0.3, animations: {
+                self.ScrollView.layoutIfNeeded()
+            })
+        }else{
+            blurEffect()
+            self.ScrollView.addSubview(navigationDrawer)
+//            let screenSize: CGRect = UIScreen.main.bounds
+//            self.navigationDrawerHeight.constant = screenSize.height
+//            navigationDrawerLeadingConstraint.constant = 0
+            self.navigationDrawerLeadingConstraint.constant = 0
+            self.navigationDrawerTrailingConstant.constant = 60
+            UIView.animate(withDuration: 0.3, animations: {self.ScrollView.layoutIfNeeded()})
+        }
+        menuIsMenuShow = !menuIsMenuShow
+    }
+    //-------menuClose function is for other sections(except menu bnutton), code starts------
+    func menuClose(){
+        self.canelBlurEffect()
+        //            self.view.removeFromSuperview()
+        navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
+        navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
+        UIView.animate(withDuration: 0.3, animations: {
+            self.ScrollView.layoutIfNeeded()
+        })
+    }
+    //-------menuClose function is for other sections(except menu bnutton), code ends------
+    
+    @IBAction func menuBth(_ sender: Any) {
+        menuShow()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -338,6 +492,54 @@ class HomeViewController: UIViewController {
            }
        }
     //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code ends-----
+    
+    // ====================== Blur Effect Defiend START ================= \\
+        var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+        var blurEffectView: UIVisualEffectView!
+        var loader: UIVisualEffectView!
+        func loaderStart() {
+            // ====================== Blur Effect START ================= \\
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            loader = UIVisualEffectView(effect: blurEffect)
+            loader.frame = view.bounds
+            loader.alpha = 2
+            view.addSubview(loader)
+            
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+            let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+            activityIndicator.transform = transform
+            loadingIndicator.center = self.view.center;
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.white
+            loadingIndicator.startAnimating();
+            loader.contentView.addSubview(loadingIndicator)
+            
+            // screen roted and size resize automatic
+            loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+            
+            // ====================== Blur Effect END ================= \\
+        }
+        
+        func loaderEnd() {
+            self.loader.removeFromSuperview();
+        }
+        // ====================== Blur Effect Defiend END ================= \\
+        
+        // ====================== Blur Effect START ================= \\
+        func blurEffect() {
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = ScrollView.bounds
+            blurEffectView.alpha = 0.9
+            ScrollView.addSubview(blurEffectView)
+            // screen roted and size resize automatic
+            blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+          
+        }
+        func canelBlurEffect() {
+            self.blurEffectView.removeFromSuperview();
+        }
+        // ====================== Blur Effect END ================= \\
 
 }
 
