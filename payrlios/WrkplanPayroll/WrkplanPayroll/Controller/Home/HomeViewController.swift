@@ -138,7 +138,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        self.navBar.accessibilityFrame = CGRect(x: 0, y: 0, width: Int(view.frame.size.width), height: Int(view.frame.size.height))
         navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
 //        navigationDrawerLeadingConstraint.constant = 0
-        navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
+        navigationDrawerTrailingConstant.constant = view.frame.size.width
         print("navigationframe-=>",navigationDrawerLeadingConstraint.constant)
         //-----------code for navigation drawer ends-----------
         
@@ -414,19 +414,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.canelBlurEffect()
             //            self.view.removeFromSuperview()
             self.navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
-            self.navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
+            self.navigationDrawerTrailingConstant.constant = view.frame.size.width
             UIView.animate(withDuration: 0.3, animations: {
-                self.ScrollView.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             })
         }else{
             blurEffect()
-            self.ScrollView.addSubview(navigationDrawer)
+            self.view.addSubview(navigationDrawer)
 //            let screenSize: CGRect = UIScreen.main.bounds
 //            self.navigationDrawerHeight.constant = screenSize.height
 //            navigationDrawerLeadingConstraint.constant = 0
             self.navigationDrawerLeadingConstraint.constant = 0
             self.navigationDrawerTrailingConstant.constant = 60
-            UIView.animate(withDuration: 0.3, animations: {self.ScrollView.layoutIfNeeded()})
+            UIView.animate(withDuration: 0.3, animations: {self.view.layoutIfNeeded()})
         }
         menuIsMenuShow = !menuIsMenuShow
     }
@@ -437,7 +437,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
         navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
         UIView.animate(withDuration: 0.3, animations: {
-            self.ScrollView.layoutIfNeeded()
+            self.view.layoutIfNeeded()
         })
     }
     //-------menuClose function is for other sections(except menu bnutton), code ends------
