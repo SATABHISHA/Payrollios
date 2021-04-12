@@ -180,7 +180,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.imageData = UIImage(named: "password.png")
         k.menuItm = "Change Password"
         navigationDrawerData.append(k)
-        k.imageData = UIImage(named: "power.png")
+        k.imageData = UIImage(named: "logout.png")
         k.menuItm = "Logout"
         navigationDrawerData.append(k)
 //        menuShow()
@@ -382,13 +382,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.separatorColor = UIColor.white
         
         var dict = navigationDrawerData[indexPath.row]
-        /*  if dict.menuItm! != "View Leave Balance"{
-         //            cell.viewScaleLine.isHidden = false
-         cell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0)
-         
-         }else{
-         
-         }*/
         if dict.menuItm! == "Timesheet"{
             let bottomBorder = CALayer()
             
@@ -405,6 +398,48 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.imageViewMenu.image = dict.imageData
         cell.labelMenuItem.text = dict.menuItm
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == tableViewNavigation{
+            var row = navigationDrawerData[indexPath.row]
+            if row.menuItm == "Employee Information"{
+                menuClose()
+                self.performSegue(withIdentifier: "empinfo", sender: nil)
+            }else if row.menuItm == "Leave"{
+                menuClose()
+                self.performSegue(withIdentifier: "leave", sender: nil)
+            }else if row.menuItm == "Employee Facilities"{
+                menuClose()
+                self.performSegue(withIdentifier: "empdoc", sender: nil)
+            }else if row.menuItm == "Company Documents"{
+                menuClose()
+                self.performSegue(withIdentifier: "companydoc", sender: nil)
+            }else if row.menuItm == "Insurance Detail"{
+                menuClose()
+                self.performSegue(withIdentifier: "insurance", sender: nil)
+            }else if row.menuItm == "Holiday Detail"{
+                menuClose()
+                self.performSegue(withIdentifier: "holiday", sender: self)
+            }
+            else if row.menuItm == "Outdoor Duty Request"{
+                menuClose()
+                self.performSegue(withIdentifier: "outdoordutylist", sender: self)
+            }
+            else if row.menuItm == "Outdoor Duty"{
+                menuClose()
+                self.performSegue(withIdentifier: "odloglist", sender: self)
+            }
+            else if row.menuItm == "Timesheet"{
+                menuClose()
+                self.performSegue(withIdentifier: "timesheet", sender: self)
+               
+            } else if row.menuItm == "Change Password"{
+                menuClose()
+//                openEmailChangePopup()
+            }else if row.menuItm == "Logout"{
+                menuClose()
+            }
+        }
     }
     //--------tableview code ends--------
     
