@@ -218,6 +218,24 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     }
     //------function to save/submit, ends------
     
+    //--function to check status, if data exists in array or not, code starts
+    func checkArrayDataIfExists(){
+        if self.tableChildData.count > 0{
+            self.tableViewEmpTask.reloadData()
+        }else{
+            self.tableViewEmpTask.reloadData()
+            //                    Toast(text: "No data", duration: Delay.short).show()
+            let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableViewEmpTask.bounds.size.width, height: self.tableViewEmpTask.bounds.size.height))
+            noDataLabel.text          = "No OD task detail exists for this day. Please add new task."
+            noDataLabel.textColor     = UIColor.black
+            noDataLabel.textAlignment = .center
+            self.tableViewEmpTask.backgroundView  = noDataLabel
+            self.tableViewEmpTask.separatorStyle  = .none
+        }
+       
+    }
+    //--function to check status, if data exists in array or not, code starts
+   
     
     //--------function to load data using Alamofire and Json Swifty------------
     func loadData(){
@@ -368,9 +386,40 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
                     if self.tableChildData.count > 0 {
                         self.tableViewEmpTask.reloadData()
                     }
+                    print("task count-=>",self.tableChildData.count)
+                }else{
+//                    self.checkArrayDataIfExists()
                 }
+               
+                
+                /*else{
+                    if self.tableChildData.isEmpty {
+                        self.tableViewEmpTask.reloadData()
+                        //                    Toast(text: "No data", duration: Delay.short).show()
+                        let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableViewEmpTask.bounds.size.width, height: self.tableViewEmpTask.bounds.size.height))
+                        noDataLabel.text          = "No OD task detail exists for this day. Please add new task."
+                        noDataLabel.textColor     = UIColor.black
+                        noDataLabel.textAlignment = .center
+                        self.tableViewEmpTask.backgroundView  = noDataLabel
+                        self.tableViewEmpTask.separatorStyle  = .none
+                    }
+                }*/
                 
                 
+                /*
+                 else{
+                     self.tableViewEmpTask.reloadData()
+                     //                    Toast(text: "No data", duration: Delay.short).show()
+                     let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableViewEmpTask.bounds.size.width, height: self.tableViewEmpTask.bounds.size.height))
+                     noDataLabel.text          = "No OD task detail exists for this day. Please add new task."
+                     noDataLabel.textColor     = UIColor.black
+                     noDataLabel.textAlignment = .center
+                     self.tableViewEmpTask.backgroundView  = noDataLabel
+                     self.tableViewEmpTask.separatorStyle  = .none
+                     
+                 }
+                 */
+                 
                                     
                  /*  if let resData = swiftyJsonVar["items"].arrayObject{
                        self.arrRes = resData as! [[String:AnyObject]]
@@ -582,6 +631,7 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         
         cancelFormNewTasktPopup()
         tableViewEmpTask.reloadData()
+//        self.checkArrayDataIfExists()
     }
     @IBAction func btnCancel(_ sender: Any) {
         cancelFormNewTasktPopup()
