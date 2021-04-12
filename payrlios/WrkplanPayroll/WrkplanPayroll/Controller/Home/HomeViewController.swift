@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Toast_Swift
 
 struct NavigationMenuData{
     var imageData:UIImage!
@@ -75,6 +76,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     //---------variables for navigation drawer ends-------
+    
+    //---Declaring shared preferences----
+    let sharedpreferences = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -435,9 +439,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                
             } else if row.menuItm == "Change Password"{
                 menuClose()
-//                openEmailChangePopup()
+                openPasswordChangePopup()
             }else if row.menuItm == "Logout"{
                 menuClose()
+                openLogoutFormPopup()
             }
         }
     }
@@ -459,6 +464,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            let screenSize: CGRect = UIScreen.main.bounds
 //            self.navigationDrawerHeight.constant = screenSize.height
 //            navigationDrawerLeadingConstraint.constant = 0
+            self.navigationEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
+            self.navigationCompanyName.text = swiftyJsonvar1["company"]["company_name"].stringValue
             self.navigationDrawerLeadingConstraint.constant = 0
             self.navigationDrawerTrailingConstant.constant = 60
             UIView.animate(withDuration: 0.3, animations: {self.view.layoutIfNeeded()})
@@ -481,15 +488,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuShow()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code starts-----
     func check_od_duty_log_status(){
 //           loaderStart()
@@ -528,6 +527,209 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
        }
     //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code ends-----
     
+    //=============FormDialog Change Password code starts===========
+    
+    @IBOutlet var viewFormDialogChangePassword: UIView!
+    
+    @IBOutlet weak var btnPasswordChangeSubmit: UIButton!
+    @IBOutlet weak var labelPasswordCheck: UILabel!
+    @IBOutlet weak var tvCurrentPassword: UITextField!
+    @IBOutlet weak var tvNewPassword: UITextField!
+    @IBAction func tvRetypeNewPassword(_ sender: Any) {
+        labelPasswordCheck.isHidden = false
+        if tvNewPassword.text! == ""{
+            labelPasswordCheck.text = "Please enter your new password first"
+            tvRetypeNewPassword.text = ""
+        }else if tvNewPassword.text! != ""{
+        if tvNewPassword.text! == tvRetypeNewPassword.text! {
+            labelPasswordCheck.text = "Correct Password"
+            btnPasswordChangeSubmit.alpha = 1
+            btnPasswordChangeSubmit.isEnabled = true
+            btnPasswordChangeSubmit.isUserInteractionEnabled = true
+        }else{
+            labelPasswordCheck.text = "Incorrect Password"
+            btnPasswordChangeSubmit.alpha = 0.3
+            btnPasswordChangeSubmit.isEnabled = false
+            btnPasswordChangeSubmit.isUserInteractionEnabled = false
+        }
+      }
+    }
+    @IBOutlet weak var tvRetypeNewPassword: UITextField!
+    @IBOutlet weak var tvPasswordHint: UITextField!
+    @IBAction func tvPasswordHint(_ sender: Any) {
+        if (tvCurrentPassword.text! != "" && tvRetypeNewPassword.text! != "" && tvPasswordHint.text! != ""){
+            btnPasswordChangeSubmit.alpha = 1
+            btnPasswordChangeSubmit.isEnabled = true
+            btnPasswordChangeSubmit.isUserInteractionEnabled = true
+        }else if(tvCurrentPassword.text! == "" || tvRetypeNewPassword.text! == "" || tvPasswordHint.text! == ""){
+            btnPasswordChangeSubmit.alpha = 0.3
+            btnPasswordChangeSubmit.isEnabled = false
+            btnPasswordChangeSubmit.isUserInteractionEnabled = false
+        }
+    }
+    
+    func openPasswordChangePopup(){
+        blurEffect()
+        self.view.addSubview(viewFormDialogChangePassword)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewFormDialogChangePassword.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewFormDialogChangePassword.center = self.view.center
+        viewFormDialogChangePassword.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewFormDialogChangePassword.alpha = 0
+        viewFormDialogChangePassword.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewFormDialogChangePassword.alpha = 1
+            self.viewFormDialogChangePassword.transform = CGAffineTransform.identity
+        }
+        labelPasswordCheck.isHidden = true
+        btnPasswordChangeSubmit.alpha = 0.3
+        btnPasswordChangeSubmit.isEnabled = false
+        btnPasswordChangeSubmit.isUserInteractionEnabled = false
+        tvCurrentPassword.resignFirstResponder()
+        tvNewPassword.resignFirstResponder()
+        tvRetypeNewPassword.resignFirstResponder()
+//        tvPasswordHint.resignFirstResponder()
+    }
+    
+    func cancelPasswordChangePopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewFormDialogChangePassword.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewFormDialogChangePassword.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewFormDialogChangePassword.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @IBAction func btnPasswordChangeSubmit(_ sender: Any) {
+        print("tapped")
+        ChangePassword()
+    }
+    @IBAction func btnPasswordChangeCancel(_ sender: Any) {
+        cancelPasswordChangePopup()
+    }
+    //=============FormDialog Change Password code ends===========
+    
+    //==============FormDialog Logout code starts================
+    @IBOutlet var viewFormLogoutPopup: UIView!
+    
+    func openLogoutFormPopup(){
+        blurEffect()
+        self.view.addSubview(viewFormLogoutPopup)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewFormLogoutPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewFormLogoutPopup.center = self.view.center
+        viewFormLogoutPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewFormLogoutPopup.alpha = 0
+        viewFormLogoutPopup.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewFormLogoutPopup.alpha = 1
+            self.viewFormLogoutPopup.transform = CGAffineTransform.identity
+        }
+    }
+    func cancelLogoutFormPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewFormLogoutPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewFormLogoutPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewFormLogoutPopup.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @IBAction func btnLogoutPopupYes(_ sender: Any) {
+        cancelLogoutFormPopup()
+        sharedpreferences.removeObject(forKey: "UserId")
+        sharedpreferences.synchronize()
+        
+        self.performSegue(withIdentifier: "login", sender: self)
+    }
+    
+    @IBAction func btnLogoutPopupNo(_ sender: Any) {
+        cancelLogoutFormPopup()
+    }
+    //==============FormDialog Logout code ends================
+    
+    //-----function to chnage password data, code starts---
+    func ChangePassword(){
+        let url = "\(BASE_URL)user/change-password"
+        print("savelog_url-=>",url)
+        let sentData: [String: Any] = [
+            "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
+            "employee_id": swiftyJsonvar1["employee"]["employee_id"].intValue,
+            "old_pwd": tvCurrentPassword.text!,
+            "new_pwd": tvNewPassword.text!
+        ]
+        
+        print("SentData-=>",sentData)
+                
+                AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+                    response in
+                    switch response.result{
+                        
+                    case .success:
+//                        self.loaderEnd()
+                        let swiftyJsonVar = JSON(response.value!)
+                        print("Return saved data: ", swiftyJsonVar)
+                    
+                        if swiftyJsonVar["status"].stringValue == "true"{
+                            // Create new Alert
+                            self.cancelPasswordChangePopup()
+                            self.sharedpreferences.removeObject(forKey: "UserID")
+                            self.sharedpreferences.synchronize()
+                            self.performSegue(withIdentifier: "login", sender: self)
+                            
+                            let dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
+                            
+                            // Create OK button with action handler
+                            let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
+                                
+                             })
+                            
+                            //Add OK button to a dialog message
+                            dialogMessage.addAction(ok)
+
+                            // Present Alert to
+                            self.present(dialogMessage, animated: true, completion: nil)
+                        }else{
+                            var style = ToastStyle()
+                            
+                            // this is just one of many style options
+                            style.messageColor = .white
+                            
+                            // present the toast with the new style
+                            self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                            
+                            print("Error-=>",swiftyJsonVar["message"].stringValue)
+                        }
+//                        if swiftyJsonVar["status"].stringValue == "success" {
+//                            let data = swiftyJsonVar["message"].stringValue
+//
+//
+//                        } else {
+//                            let message = swiftyJsonVar["message"].stringValue
+//
+////                            Toast(text: message, duration: Delay.short).show()
+//                            print("Return edit data: ", swiftyJsonVar)
+//                        }
+                        break
+                        
+                    case .failure(let error):
+//                        self.loaderEnd()
+                        print("Error: ", error)
+                    }
+                }
+    }
+    
+    //-----function to change password data, code ends---
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
         var blurEffectView: UIVisualEffectView!

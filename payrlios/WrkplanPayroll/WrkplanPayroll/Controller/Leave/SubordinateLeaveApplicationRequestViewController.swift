@@ -40,6 +40,8 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         // Do any additional setup after loading the view.
 //        txt_employee_name.text = SubordinateLeaveApplicationViewController.employee_name!
         txt_view_details.isUserInteractionEnabled = false
@@ -88,8 +90,7 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
     }
     //---Cancel
     @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
-//        self.performSegue(withIdentifier: "empinfo", sender: nil)
-//        self.performSegue(withIdentifier: "subordinateoutdoordutylist", sender: nil)
+        self.performSegue(withIdentifier: "subleaveappltn", sender: self)
         print("Cancel")
     }
     @IBAction func BtnBack(_ sender: Any) {

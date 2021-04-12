@@ -22,6 +22,8 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         self.TableViewSubordinateLeave.delegate = self
         self.TableViewSubordinateLeave.dataSource = self
         TableViewSubordinateLeave.backgroundColor = UIColor(hexFromString: "ffffff")

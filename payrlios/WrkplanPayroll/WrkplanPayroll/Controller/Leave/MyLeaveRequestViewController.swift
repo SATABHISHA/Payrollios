@@ -54,6 +54,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         txt_from_date.delegate = self
         txt_to_date.delegate = self
         txt_from_date.isUserInteractionEnabled = false
@@ -94,6 +96,12 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         custom_btn_label_save.isUserInteractionEnabled = false
         custom_btn_label_save.alpha = 0.6
         custom_btn_label_save.addGestureRecognizer(tapGestureRecognizerSave)
+        
+        //-----Cancel
+        let tapGestureRecognizerCancel = UITapGestureRecognizer(target: self, action: #selector(Cancel(tapGestureRecognizer:)))
+        custom_btn_label_cancel.isUserInteractionEnabled = true
+        custom_btn_label_cancel.alpha = 1.0
+        custom_btn_label_cancel.addGestureRecognizer(tapGestureRecognizerCancel)
         
         //----Leave Balance
         let tapGestureRecognizerLeaveBalance = UITapGestureRecognizer(target: self, action: #selector(LeaveBalance(tapGestureRecognizer:)))
@@ -238,6 +246,11 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
 //        self.performSegue(withIdentifier: "empinfo", sender: nil)
         print("Save")
         SaveData()
+    }
+    
+    //---Cancel
+    @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "myleave", sender: self)
     }
     
     //---Leave Balance

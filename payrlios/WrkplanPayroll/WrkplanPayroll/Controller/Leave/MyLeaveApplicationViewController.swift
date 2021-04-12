@@ -23,6 +23,8 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ChangeStatusBarColor() //---to change background statusbar color
+        
         // Do any additional setup after loading the view.
         self.TableViewLeaveApplication.delegate = self
         self.TableViewLeaveApplication.dataSource = self
