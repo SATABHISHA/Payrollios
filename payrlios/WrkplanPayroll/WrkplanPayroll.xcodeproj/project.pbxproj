@@ -25,6 +25,7 @@
 		172D28CC25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D28CB25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift */; };
 		172D28D1257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D28D0257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift */; };
 		172FBE232570345A00422A2D /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172FBE222570345A00422A2D /* FileDownloader.swift */; };
+		1734953F26270D95005B1FD0 /* Siren in Frameworks */ = {isa = PBXBuildFile; productRef = 1734953E26270D95005B1FD0 /* Siren */; };
 		173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F1A25626FB9007AE8F6 /* AppDelegate.swift */; };
 		173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F1C25626FB9007AE8F6 /* SceneDelegate.swift */; };
 		173C0F1F25626FB9007AE8F6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173C0F1E25626FB9007AE8F6 /* LoginViewController.swift */; };
@@ -227,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1734953F26270D95005B1FD0 /* Siren in Frameworks */,
 				F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */,
 				1745A8D62577B993005DE336 /* FSCalendar in Frameworks */,
 			);
@@ -651,6 +653,7 @@
 			name = WrkplanPayroll;
 			packageProductDependencies = (
 				1745A8D52577B993005DE336 /* FSCalendar */,
+				1734953E26270D95005B1FD0 /* Siren */,
 			);
 			productName = WrkplanPayroll;
 			productReference = 173C0F1725626FB9007AE8F6 /* WrkplanPayroll.app */;
@@ -729,6 +732,7 @@
 			mainGroup = 173C0F0E25626FB9007AE8F6;
 			packageReferences = (
 				1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */,
 			);
 			productRefGroup = 173C0F1825626FB9007AE8F6 /* Products */;
 			projectDirPath = "";
@@ -1305,6 +1309,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ArtSabintsev/Siren.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -1316,6 +1328,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1734953E26270D95005B1FD0 /* Siren */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */;
+			productName = Siren;
+		};
 		1745A8D52577B993005DE336 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */;

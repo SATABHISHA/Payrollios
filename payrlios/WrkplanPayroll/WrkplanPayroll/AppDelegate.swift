@@ -8,16 +8,22 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import Siren
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?  //---using for autoupdate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
        
+        //---using for autoupdate, code starts
+        window?.makeKeyAndVisible()
+        Siren.shared.wail()
+        //---using for autoupdate, code ends
+        
         return true
     }
 
