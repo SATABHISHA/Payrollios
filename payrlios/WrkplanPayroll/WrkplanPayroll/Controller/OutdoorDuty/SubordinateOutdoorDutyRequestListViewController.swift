@@ -9,12 +9,15 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
 
     var arrRes = [[String:AnyObject]]()
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableviewSubordinateDutyRequestList: UITableView!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     public static var od_request_id: String!, supervisor_employee_id: String!
+    //---added on 14th April
+    var filteredTableData = [[String: AnyObject]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,16 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
         
         self.tableviewSubordinateDutyRequestList.delegate = self
         self.tableviewSubordinateDutyRequestList.dataSource = self
+        self.searchBar.delegate = self
+
+        tableviewSubordinateDutyRequestList.backgroundColor = UIColor(hexFromString: "ffffff")
+        searchBar.searchTextField.backgroundColor = UIColor.white
+        searchBar.backgroundColor = UIColor.white
+//        searchBar.searchTextField.borderColor = UIColor.lightGray
+//        searchBar.searchTextField.borderWidth = 1
+//        searchBar.searchTextField.cornerRadius = 10
+        searchBar.layer.borderWidth = 10
+        searchBar.layer.borderColor = UIColor.white.cgColor
         
 
         loadData()
@@ -32,13 +45,29 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
     }
     
     //----------tableview code starts------------
+    //---added on 14th April, code starts
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredTableData = searchText.isEmpty ? arrRes : arrRes.filter({(object) -> Bool in
+            guard let employee_name = object["employee_name"] as? String else {return false}
+            return employee_name.lowercased().contains(searchText.lowercased())
+        })
+
+        self.tableviewSubordinateDutyRequestList.reloadData()
+    }
+
+    //---added on 14th April, code ends
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrRes.count
+        return filteredTableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SubordinateOutdoorDutyRequestListTableViewCell
-        let dict = arrRes[indexPath.row]
+        let dict = filteredTableData[indexPath.row]
         
         let dateFormatterGet = DateFormatter()
 //        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
@@ -82,7 +111,7 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
     //---------onClick tableview code starts----------
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
-            var row=arrRes[indexPath.row]
+            var row = filteredTableData[indexPath.row]
             print(row)
             print("tap is working")
            
@@ -111,6 +140,7 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
                 
                    if let resData = swiftyJsonVar["request_list"].arrayObject{
                        self.arrRes = resData as! [[String:AnyObject]]
+                       self.filteredTableData = resData as! [[String:AnyObject]]
                    }
                    if self.arrRes.count>0 {
                     self.tableviewSubordinateDutyRequestList.reloadData()

@@ -38,8 +38,8 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         searchBar.backgroundColor = UIColor.white
 //        searchBar.searchTextField.borderColor = UIColor.lightGray
 //        searchBar.searchTextField.borderWidth = 1
-        searchBar.searchTextField.cornerRadius = 10
-        searchBar.layer.borderWidth = 1
+//        searchBar.searchTextField.cornerRadius = 10
+        searchBar.layer.borderWidth = 10
         searchBar.layer.borderColor = UIColor.white.cgColor
 //        searchBar.searchTextField.layer.backgroundColor =  UIColor.white.cgColor
 //        let searchTextField = self.searchBar.searchTextField
@@ -66,25 +66,6 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
     @IBAction func BtnBack(_ sender: Any) {
         self.performSegue(withIdentifier: "leave", sender: self)
         print("tapped")
-    }
-    func updateSearchResults(for searchController: UISearchController) {
-        filteredTableData.removeAll(keepingCapacity: false)
-
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-//        let array = (arrRes[[]] as NSArray).filtered(using: searchPredicate)
-//        filteredTableData = array as! [[String:AnyObject]]
-        guard let searchText = searchController.searchBar.text else {return}
-        let filteredArray = arrRes.filter { (object) -> Bool in
-            guard let title = object["employee_name"] as? String else {return false}
-            return title.lowercased().contains(searchText.lowercased())
-//            return (object["employee_name"] as! NSArray).filtered(using: searchPredicate)
-            
-//            let name = (object["employee_name"] as? String).filtered(using: searchPredicate)
-        }
-//        let filteredArray1 = (arrRes["employee_name"] as? String).filtered(using: searchPredicate)
-
-        filteredTableData = filteredArray
-        self.TableViewSubordinateLeave.reloadData()
     }
     //--------tableview code starts------
     
