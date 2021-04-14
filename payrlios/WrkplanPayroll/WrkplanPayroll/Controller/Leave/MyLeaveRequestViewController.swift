@@ -43,6 +43,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     var leaveName = [String]()
     var leaveTypeDetails = [LeaveType]()
     let datePicker = UIDatePicker()
+    var year_details = [YearDetails]()
     
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
@@ -141,7 +142,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
               guard let _ = self else { return }
               sender.setTitle(item, for: .normal) //9
                 print("year-=>",item)
-                self!.loadPopupLeaveData(year: item)
+                self!.loadPopupLeaveData(year: self!.year_details[index].financial_year_code)
             }
     }
     func openLeaveBalancePopup(){
@@ -190,6 +191,9 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             if year.count > 0{
                 year.removeAll()
             }
+            if !year_details.isEmpty{
+                year_details.removeAll(keepingCapacity: true)
+            }
             let url = "\(BASE_URL)finyear/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)"
             AF.request(url).responseJSON{ (responseData) -> Void in
                 self.loaderEnd()
@@ -204,6 +208,12 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
                         
                     }
 
+                    for(key,value) in swiftyJsonVar["fin_years"]{
+                        var k = YearDetails()
+                        k.calender_year = value["calender_year"].stringValue
+                        k.financial_year_code = value["financial_year_code"].stringValue
+                        self.year_details.append(k)
+                    }
                     
                 }
                 

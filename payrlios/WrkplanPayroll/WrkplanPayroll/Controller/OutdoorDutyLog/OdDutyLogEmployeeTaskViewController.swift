@@ -52,6 +52,8 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     
     static var task_status: String!
     
+    static var row_position_to_delete: Int!, back_btn_save_unsave_check: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -99,7 +101,30 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
      }
     //Back
      @objc func CustomBack(tapGestureRecognizer: UITapGestureRecognizer){
-        self.performSegue(withIdentifier: "odloglist", sender: nil)
+//        self.performSegue(withIdentifier: "odloglist", sender: nil)
+        
+        if OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check == 0{
+            let dialogMessage = UIAlertController(title: "Alert!", message: "Unsaved data will be lost.\nDo you want to continue?", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                self.performSegue(withIdentifier: "odloglist", sender: nil)
+                
+             })
+            let cancel = UIAlertAction(title: "CANCEL", style: .destructive, handler: { (action) -> Void in
+//                self.performSegue(withIdentifier: "odloglist", sender: nil)
+                
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            dialogMessage.addAction(cancel)
+
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else{
+            self.performSegue(withIdentifier: "odloglist", sender: nil)
+        }
          
      }
     
@@ -170,6 +195,7 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
                         let swiftyJsonVar = JSON(response.value!)
                     
                         if swiftyJsonVar["status"].stringValue == "true"{
+                            OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 1
                             // Create new Alert
                             let dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
                             
@@ -194,6 +220,8 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
                             // Present Alert to
                             self.present(dialogMessage, animated: true, completion: nil)
                         }else{
+                            OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
+                            
                             var style = ToastStyle()
                             
                             // this is just one of many style options
@@ -484,7 +512,30 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     }
     
     @IBAction func btnBack(_ sender: Any) {
-        self.performSegue(withIdentifier: "odloglist", sender: nil)
+//        self.performSegue(withIdentifier: "odloglist", sender: nil)
+        
+        if OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check == 0{
+            let dialogMessage = UIAlertController(title: "Alert!", message: "Unsaved data will be lost.\nDo you want to continue?", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                self.performSegue(withIdentifier: "odloglist", sender: nil)
+                
+             })
+            let cancel = UIAlertAction(title: "CANCEL", style: .destructive, handler: { (action) -> Void in
+//                self.performSegue(withIdentifier: "odloglist", sender: nil)
+                
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            dialogMessage.addAction(cancel)
+
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else{
+            self.performSegue(withIdentifier: "odloglist", sender: nil)
+        }
     }
     
     //--code to get day count starts
@@ -513,7 +564,93 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
         
     }*/
     
+    //==============FormDialog Delete Confirmation code starts================
+    @IBOutlet var viewDeleteConfirmationPopup: UIView!
     
+    func openDeleteConfirmationPopup(){
+        blurEffect()
+        self.view.addSubview(viewDeleteConfirmationPopup)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewDeleteConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewDeleteConfirmationPopup.center = self.view.center
+        viewDeleteConfirmationPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewDeleteConfirmationPopup.alpha = 0
+        viewDeleteConfirmationPopup.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewDeleteConfirmationPopup.alpha = 1
+            self.viewDeleteConfirmationPopup.transform = CGAffineTransform.identity
+        }
+    }
+    func cancelDeleteConfirmationPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewDeleteConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewDeleteConfirmationPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewDeleteConfirmationPopup.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @IBAction func btnDeleteConfirmationPopupYes(_ sender: Any) {
+        cancelDeleteConfirmationPopup()
+//        sharedpreferences.removeObject(forKey: "UserId")
+//        sharedpreferences.synchronize()
+//
+//        self.performSegue(withIdentifier: "login", sender: self)
+//
+        let rowData = tableChildData[OdDutyLogEmployeeTaskViewController.row_position_to_delete]
+        
+        
+        if rowData.Task_delete_api_call == 1{
+            self.delete_api_call(position: OdDutyLogEmployeeTaskViewController.row_position_to_delete)
+        }else{
+            tableChildData.remove(at: OdDutyLogEmployeeTaskViewController.row_position_to_delete)
+            tableViewEmpTask.reloadData()
+        }
+    }
+    
+    @IBAction func btnLogoutPopupNo(_ sender: Any) {
+        cancelDeleteConfirmationPopup()
+    }
+    //==============FormDialog Delete Confirmation code ends================
+    //---delete api
+    func delete_api_call(position: Int){
+        let url = BASE_URL + "od/task/delete/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(tableChildData[position].od_duty_task_detail_id!)"
+        print("urlDelete-=>", url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+                   if((responseData.value ?? "") != nil){
+//                       self.dismiss(animated: true, completion: nil)  //----dismissing the loader
+                       let swiftyJsonVar=JSON(responseData.value!)
+                       print(swiftyJsonVar)
+                    if(swiftyJsonVar["response"]["status"].stringValue == "true"){
+//                        var style = ToastStyle()
+//
+//                        // this is just one of many style options
+//                        style.messageColor = .white
+//                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        self.tableChildData.remove(at: position)
+                        self.tableViewEmpTask.reloadData()
+//                        self.loaderEnd()
+//                        self.loadData()
+                    
+                    
+                    }else{
+                        var style = ToastStyle()
+                        
+                        // this is just one of many style options
+                        style.messageColor = .white
+                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+//                        self.loaderEnd()
+                    }
+                   }
+                   
+                  
+               }
+    }
     //----------tableview code starts------------
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -555,9 +692,17 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     
     func OdDutyLogEmpTaskTableViewCellDidTapDeleteTask(_ sender: OdDutyLogEmpTaskTableViewCell) {
         guard let tappedIndexPath = tableViewEmpTask.indexPath(for: sender) else {return}
-        let rowData = tableChildData[tappedIndexPath.row]
-        tableChildData.remove(at: tappedIndexPath.row)
-        tableViewEmpTask.reloadData()
+        OdDutyLogEmployeeTaskViewController.row_position_to_delete = tappedIndexPath.row
+        openDeleteConfirmationPopup()
+//        let rowData = tableChildData[tappedIndexPath.row]
+//
+//
+//        if rowData.Task_delete_api_call == 1{
+//            self.delete_api_call(position: tappedIndexPath.row)
+//        }else{
+//            tableChildData.remove(at: tappedIndexPath.row)
+//            tableViewEmpTask.reloadData()
+//        }
     }
     static var indexPath: Int!
     func OdDutyLogEmpTaskTableViewCellDidTapEditTask(_ sender: OdDutyLogEmpTaskTableViewCell) {
@@ -610,6 +755,8 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     @IBOutlet weak var txtViewTaskName: UITextView!
     @IBOutlet weak var txtViewDescription: UITextView!
     @IBAction func btnAddTask(_ sender: Any) {
+        OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
+        
         var data = TaskDetails()
         data.od_duty_task_head_id = OdDutyLogEmployeeTaskViewController.od_duty_task_head_id
         data.od_duty_task_detail_id = OdDutyLogEmployeeTaskViewController.od_duty_task_head_id
@@ -684,6 +831,8 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
     @IBOutlet weak var txtViewModifyTaskName: UITextView!
     @IBOutlet weak var txtViewModifyDescription: UITextView!
     @IBAction func btnModifyTask(_ sender: Any) {
+        OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
+        
         print("Indexpath test-=>",OdDutyLogEmployeeTaskViewController.indexPath)
         tableChildData[OdDutyLogEmployeeTaskViewController.indexPath].task_name = txtViewModifyTaskName.text
         tableChildData[OdDutyLogEmployeeTaskViewController.indexPath].task_description = txtViewModifyDescription.text

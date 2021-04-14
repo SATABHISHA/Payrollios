@@ -10,10 +10,18 @@ import DropDown
 import Alamofire
 import SwiftyJSON
 
+struct YearDetails {
+    var calender_year:String!
+    var financial_year_code:String!
+}
+
+
 class LeaveViewController: UIViewController {
     
     let dropDown = DropDown()
     var arres = [String:AnyObject]()
+    var year_details = [YearDetails]()
+    
     
     @IBOutlet weak var label_casual_leave: UILabel!
     @IBOutlet weak var label_earned_leave: UILabel!
@@ -57,7 +65,7 @@ class LeaveViewController: UIViewController {
               guard let _ = self else { return }
               sender.setTitle(item, for: .normal) //9
                 print("year-=>",item)
-                self!.loadData(year: item)
+                self!.loadData(year: self!.year_details[index].financial_year_code)
             }
           }
     
@@ -67,19 +75,32 @@ class LeaveViewController: UIViewController {
     var year = [String]()
         func get_Year_details(){
             loaderStart()
-            
+            if !year_details.isEmpty{
+                year_details.removeAll(keepingCapacity: true)
+            }
+            if !year.isEmpty {
+                year.removeAll(keepingCapacity: true)
+            }
             let url = "\(BASE_URL)finyear/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)"
+            print("yearyrl-=>",url)
             AF.request(url).responseJSON{ (responseData) -> Void in
                 self.loaderEnd()
                 if((responseData.value) != nil){
                     let swiftyJsonVar=JSON(responseData.value!)
-//                    print("Calendar description: \(swiftyJsonVar)")
+                    print("Calendar description: \(swiftyJsonVar)")
                     
                     for i in 0..<swiftyJsonVar["fin_years"].count{
 //                        self.year.append(swiftyJsonVar["fin_years"][i]["calender_year"].stringValue)
 //                        print("Calendar-=>",self.year)
                         self.year.append(swiftyJsonVar["fin_years"][i]["calender_year"].stringValue)
                         
+                        
+                    }
+                    for(key,value) in swiftyJsonVar["fin_years"]{
+                        var k = YearDetails()
+                        k.calender_year = value["calender_year"].stringValue
+                        k.financial_year_code = value["financial_year_code"].stringValue
+                        self.year_details.append(k)
                     }
 
                     
@@ -96,6 +117,7 @@ class LeaveViewController: UIViewController {
         print("url-=>",url)
         AF.request(url).responseJSON{ (responseData) -> Void in
                 self.loaderEnd()
+            print("responseData-=>",responseData)
             if((responseData.value) != nil){
                 let swiftyJsonVar=JSON(responseData.value!)
                     print("Year description: \(swiftyJsonVar)")

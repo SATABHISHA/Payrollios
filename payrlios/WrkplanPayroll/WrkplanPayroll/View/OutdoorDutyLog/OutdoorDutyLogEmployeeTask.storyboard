@@ -336,12 +336,65 @@
                         <outlet property="txtViewModifyDescription" destination="soW-ox-tae" id="5SU-ak-DRb"/>
                         <outlet property="txtViewModifyTaskName" destination="QBS-sq-OcR" id="WAC-GH-V5R"/>
                         <outlet property="txtViewTaskName" destination="yBP-23-5pr" id="adD-HM-PYT"/>
+                        <outlet property="viewDeleteConfirmationPopup" destination="s2C-XZ-eP0" id="elM-wd-ERA"/>
                         <outlet property="viewLine" destination="vml-Fh-lbe" id="xfc-qA-VTM"/>
                         <outlet property="viewModifyTask" destination="WKv-AI-ZfZ" id="RAl-bV-R3K"/>
                         <outlet property="viewNewTask" destination="jzy-UU-clm" id="f2l-dk-GMm"/>
                         <segue destination="nFT-MT-e8G" kind="modal" identifier="odloglist" modalPresentationStyle="fullScreen" id="93n-Rz-psp"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="s2C-XZ-eP0">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure, you want to delete task ?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.44999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="fUH-dm-61e">
+                            <rect key="frame" x="16" y="16" width="259" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.10980392160000001" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkZ-0k-8xS">
+                            <rect key="frame" x="237" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="1GR-eh-KWS"/>
+                                <constraint firstAttribute="width" constant="30" id="Vde-HY-dJB"/>
+                            </constraints>
+                            <state key="normal" title="YES">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnDeleteConfirmationPopupYes:" destination="buH-jA-gFz" eventType="touchUpInside" id="wBy-gZ-fyf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPE-8P-idI">
+                            <rect key="frame" x="177" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="M2v-tb-OyV"/>
+                                <constraint firstAttribute="width" constant="30" id="uKE-Yo-AiA"/>
+                            </constraints>
+                            <state key="normal" title="NO">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnLogoutPopupNo:" destination="buH-jA-gFz" eventType="touchUpInside" id="qth-Jw-8jR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="oDL-uG-K54"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="XkZ-0k-8xS" secondAttribute="bottom" constant="10" id="Kk4-3i-oAs"/>
+                        <constraint firstItem="XkZ-0k-8xS" firstAttribute="top" relation="lessThanOrEqual" secondItem="fUH-dm-61e" secondAttribute="bottom" constant="22" id="MJj-RV-4iJ"/>
+                        <constraint firstItem="fUH-dm-61e" firstAttribute="top" secondItem="s2C-XZ-eP0" secondAttribute="top" constant="16" id="T7f-o7-QSt"/>
+                        <constraint firstAttribute="trailing" secondItem="XkZ-0k-8xS" secondAttribute="trailing" constant="24" id="Tf5-bp-jBM"/>
+                        <constraint firstAttribute="trailing" secondItem="fUH-dm-61e" secondAttribute="trailing" constant="16" id="fJg-F8-9fL"/>
+                        <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="fUH-dm-61e" secondAttribute="bottom" constant="40" id="ngZ-LG-r1i"/>
+                        <constraint firstItem="XkZ-0k-8xS" firstAttribute="leading" secondItem="wPE-8P-idI" secondAttribute="trailing" constant="30" id="ora-fV-8IX"/>
+                        <constraint firstAttribute="bottom" secondItem="wPE-8P-idI" secondAttribute="bottom" constant="10" id="uO8-bM-UtC"/>
+                        <constraint firstItem="fUH-dm-61e" firstAttribute="leading" secondItem="s2C-XZ-eP0" secondAttribute="leading" constant="16" id="uvL-be-jAc"/>
+                        <constraint firstItem="wPE-8P-idI" firstAttribute="top" relation="lessThanOrEqual" secondItem="fUH-dm-61e" secondAttribute="bottom" constant="22" id="v4P-0v-BPR"/>
+                    </constraints>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mc9-BJ-5A9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="jzy-UU-clm">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="257"/>
