@@ -9,14 +9,19 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var TableViewSubordinateLeave: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     static var leave_status: String!, employee_name: String!, supervisor_remark: String!, leave_name: String!, description: String!, to_date: String!, from_date: String!, final_approved_by: String!, appliction_code: String!, approved_by: String!, approved_date: String!
     
     static var supervisor1_id: Int!, total_days: Int!, approved_level: Int!, supervisor2_id: Int!, appliction_id: Int!, approved_by_id: Int!, employee_id: Int!
+    
+    //---added on 13th April
+    var filteredTableData = [[String: AnyObject]]()
+//    var resultSearchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +31,35 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         
         self.TableViewSubordinateLeave.delegate = self
         self.TableViewSubordinateLeave.dataSource = self
+        self.searchBar.delegate = self
+
         TableViewSubordinateLeave.backgroundColor = UIColor(hexFromString: "ffffff")
+        searchBar.searchTextField.backgroundColor = UIColor.white
+        searchBar.backgroundColor = UIColor.white
+//        searchBar.searchTextField.borderColor = UIColor.lightGray
+//        searchBar.searchTextField.borderWidth = 1
+        searchBar.searchTextField.cornerRadius = 10
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.white.cgColor
+//        searchBar.searchTextField.layer.backgroundColor =  UIColor.white.cgColor
+//        let searchTextField = self.searchBar.searchTextField
+//                searchTextField.textColor = UIColor.black
+//                searchTextField.clearButtonMode = .never
+//        searchTextField.backgroundColor = UIColor.clear
+       
+        //---added on 13th April, code starts
+//        resultSearchController = ({
+//                let controller = UISearchController(searchResultsController: nil)
+//                controller.searchResultsUpdater = self
+//                controller.dimsBackgroundDuringPresentation = false
+//                controller.searchBar.sizeToFit()
+//
+//            TableViewSubordinateLeave.tableHeaderView = controller.searchBar
+//
+//                return controller
+//            })()
+        //---added on 13th April, code ends
+        
         loadData()
     }
     
@@ -34,17 +67,70 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         self.performSegue(withIdentifier: "leave", sender: self)
         print("tapped")
     }
-    
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredTableData.removeAll(keepingCapacity: false)
+
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+//        let array = (arrRes[[]] as NSArray).filtered(using: searchPredicate)
+//        filteredTableData = array as! [[String:AnyObject]]
+        guard let searchText = searchController.searchBar.text else {return}
+        let filteredArray = arrRes.filter { (object) -> Bool in
+            guard let title = object["employee_name"] as? String else {return false}
+            return title.lowercased().contains(searchText.lowercased())
+//            return (object["employee_name"] as! NSArray).filtered(using: searchPredicate)
+            
+//            let name = (object["employee_name"] as? String).filtered(using: searchPredicate)
+        }
+//        let filteredArray1 = (arrRes["employee_name"] as? String).filtered(using: searchPredicate)
+
+        filteredTableData = filteredArray
+        self.TableViewSubordinateLeave.reloadData()
+    }
     //--------tableview code starts------
+    
+    //---added on 13th April, code starts
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredTableData = searchText.isEmpty ? arrRes : arrRes.filter({(object) -> Bool in
+            guard let employee_name = object["employee_name"] as? String else {return false}
+            return employee_name.lowercased().contains(searchText.lowercased())
+        })
+
+        self.TableViewSubordinateLeave.reloadData()
+    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+    //---added on 13th April, code ends
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrRes.count
+        
+        //---added on 13th April, code starts
+//        if  (resultSearchController.isActive) {
+//              return filteredTableData.count
+//          } else {
+//              return arrRes.count
+//          }
+        //---added on 13th April, code ends
+        
+        return filteredTableData.count
+//        return arrRes.count //--commented on 13th April
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SubordinateLeaveApplicationTableViewCell
         
-        let dict = arrRes[indexPath.row]
-        
+//        var dict = [String: AnyObject]()
+//        if (resultSearchController.isActive) {
+//         dict = filteredTableData[indexPath.row]
+//        }else{
+//         dict = arrRes[indexPath.row]
+//        }
+        let dict = filteredTableData[indexPath.row]
         cell.LabelName.text = dict["employee_name"] as? String
         cell.LabelApplicationCode.text = dict["appliction_code"] as? String
         cell.LabelDate.text = "\(String(describing: dict["from_date"] as! String)) to \(String(describing: dict["to_date"] as! String))"
@@ -71,28 +157,32 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
 //            OutDoorDutyListViewController.new_create_yn = false
-            let row=arrRes[indexPath.row]
+            let row = filteredTableData[indexPath.row]
+               SubordinateLeaveApplicationViewController.leave_status = row["leave_status"] as? String
+               SubordinateLeaveApplicationViewController.employee_name = row["employee_name"] as? String
+               SubordinateLeaveApplicationViewController.supervisor_remark = row["supervisor_remark"] as? String
+               SubordinateLeaveApplicationViewController.leave_name = row["leave_name"] as? String
+               SubordinateLeaveApplicationViewController.description = row["description"] as? String
+               SubordinateLeaveApplicationViewController.total_days = row["total_days"] as? Int
+               SubordinateLeaveApplicationViewController.to_date = row["to_date"] as? String
+               SubordinateLeaveApplicationViewController.supervisor1_id = row["supervisor1_id"] as? Int
+               SubordinateLeaveApplicationViewController.from_date = row["from_date"] as? String
+               SubordinateLeaveApplicationViewController.final_approved_by = row["final_approved_by"] as? String
+               SubordinateLeaveApplicationViewController.appliction_code = row["appliction_code"] as? String
+               SubordinateLeaveApplicationViewController.approved_by = row["approved_by"] as? String
+               SubordinateLeaveApplicationViewController.approved_level = row["approved_level"] as? Int
+               SubordinateLeaveApplicationViewController.supervisor2_id = row["supervisor2_id"] as? Int
+               SubordinateLeaveApplicationViewController.appliction_id = row["appliction_id"] as? Int
+               SubordinateLeaveApplicationViewController.approved_date = row["approved_date"] as? String
+               SubordinateLeaveApplicationViewController.approved_by_id = row["approved_by_id"] as? Int
+               SubordinateLeaveApplicationViewController.employee_id = row["employee_id"] as? Int
+               self.performSegue(withIdentifier: "subleaverqst", sender: self)
+            
+//            let row=arrRes[indexPath.row]
             print(row)
             print("tap is working")
             
-            SubordinateLeaveApplicationViewController.leave_status = row["leave_status"] as? String
-            SubordinateLeaveApplicationViewController.employee_name = row["employee_name"] as? String
-            SubordinateLeaveApplicationViewController.supervisor_remark = row["supervisor_remark"] as? String
-            SubordinateLeaveApplicationViewController.leave_name = row["leave_name"] as? String
-            SubordinateLeaveApplicationViewController.description = row["description"] as? String
-            SubordinateLeaveApplicationViewController.total_days = row["total_days"] as? Int
-            SubordinateLeaveApplicationViewController.to_date = row["to_date"] as? String
-            SubordinateLeaveApplicationViewController.supervisor1_id = row["supervisor1_id"] as? Int
-            SubordinateLeaveApplicationViewController.from_date = row["from_date"] as? String
-            SubordinateLeaveApplicationViewController.final_approved_by = row["final_approved_by"] as? String
-            SubordinateLeaveApplicationViewController.appliction_code = row["appliction_code"] as? String
-            SubordinateLeaveApplicationViewController.approved_by = row["approved_by"] as? String
-            SubordinateLeaveApplicationViewController.approved_level = row["approved_level"] as? Int
-            SubordinateLeaveApplicationViewController.supervisor2_id = row["supervisor2_id"] as? Int
-            SubordinateLeaveApplicationViewController.appliction_id = row["appliction_id"] as? Int
-            SubordinateLeaveApplicationViewController.approved_date = row["approved_date"] as? String
-            SubordinateLeaveApplicationViewController.approved_by_id = row["approved_by_id"] as? Int
-            SubordinateLeaveApplicationViewController.employee_id = row["employee_id"] as? Int
+            
            
 //            print("empname-=>",row["employee_name"] as? String)
 //            OutDoorDutyListViewController.supervisor_od_request_id = row["od_request_id"]?.stringValue
@@ -100,7 +190,7 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
            
 //            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
 //            print("test-=>",row["od_request_id"]?.stringValue)
-            self.performSegue(withIdentifier: "subleaverqst", sender: self)
+//            self.performSegue(withIdentifier: "subleaverqst", sender: nil) //--commented on 13th april
         }
         //---------onClick tableview code ends----------
     //--------tableview code ends------
@@ -121,6 +211,7 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
                 
                    if let resData = swiftyJsonVar["application_list"].arrayObject{
                        self.arrRes = resData as! [[String:AnyObject]]
+                       self.filteredTableData = resData as! [[String:AnyObject]]
                    }
                    if self.arrRes.count>0 {
                     self.TableViewSubordinateLeave.reloadData()

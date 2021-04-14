@@ -49,20 +49,36 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tMI-Ri-NnT">
-                                <rect key="frame" x="10" y="128" width="394" height="714"/>
+                                <rect key="frame" x="10" y="118" width="394" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="scaleAspectFit" searchBarStyle="prominent" placeholder="Type employee name here" translucent="NO" id="7il-gd-lWl">
+                                    <rect key="frame" x="0.0" y="0.0" width="394" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="101" id="oMh-3f-oaJ" customClass="SubordinateLeaveApplicationTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="394" height="101"/>
+                                        <rect key="frame" x="0.0" y="72" width="394" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oMh-3f-oaJ" id="Sei-bf-23f">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36h-eo-P3J">
-                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
+                                                    <rect key="frame" x="0.0" y="1" width="394" height="99.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w9-Jz-d29">
                                                             <rect key="frame" x="0.0" y="10" width="80" height="80"/>
@@ -85,7 +101,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-1D-ea9">
-                                                            <rect key="frame" x="334" y="10" width="60" height="80"/>
+                                                            <rect key="frame" x="334" y="10" width="60" height="79.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="xTt-Jt-Gsv">
                                                                     <rect key="frame" x="0.0" y="11" width="60" height="26.5"/>
@@ -164,8 +180,8 @@
                                             <constraints>
                                                 <constraint firstItem="36h-eo-P3J" firstAttribute="leading" secondItem="Sei-bf-23f" secondAttribute="leading" id="JEL-9l-Yqx"/>
                                                 <constraint firstAttribute="trailing" secondItem="36h-eo-P3J" secondAttribute="trailing" id="PD3-zz-uEL"/>
-                                                <constraint firstItem="36h-eo-P3J" firstAttribute="top" secondItem="Sei-bf-23f" secondAttribute="top" id="ckk-ET-EXs"/>
-                                                <constraint firstAttribute="bottom" secondItem="36h-eo-P3J" secondAttribute="bottom" constant="1" id="jVm-gL-eem"/>
+                                                <constraint firstItem="36h-eo-P3J" firstAttribute="top" secondItem="Sei-bf-23f" secondAttribute="top" constant="1" id="ckk-ET-EXs"/>
+                                                <constraint firstAttribute="bottom" secondItem="36h-eo-P3J" secondAttribute="bottom" constant="0.29999999999999999" id="jVm-gL-eem"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.84662974960000004" green="0.84662974960000004" blue="0.84662974960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,11 +207,12 @@
                             <constraint firstItem="F1D-sW-EFh" firstAttribute="top" secondItem="T6H-P8-HMh" secondAttribute="top" id="CC3-NK-UdM"/>
                             <constraint firstItem="F1D-sW-EFh" firstAttribute="leading" secondItem="T6H-P8-HMh" secondAttribute="leading" id="UNe-56-XF7"/>
                             <constraint firstItem="T6H-P8-HMh" firstAttribute="bottom" secondItem="tMI-Ri-NnT" secondAttribute="bottom" constant="20" id="oIh-JB-kjX"/>
-                            <constraint firstItem="tMI-Ri-NnT" firstAttribute="top" secondItem="F1D-sW-EFh" secondAttribute="bottom" constant="20" id="vy7-b8-fwq"/>
+                            <constraint firstItem="tMI-Ri-NnT" firstAttribute="top" secondItem="F1D-sW-EFh" secondAttribute="bottom" constant="10" id="vy7-b8-fwq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="TableViewSubordinateLeave" destination="tMI-Ri-NnT" id="lBQ-Ff-CVR"/>
+                        <outlet property="searchBar" destination="7il-gd-lWl" id="aVl-jx-wYN"/>
                         <segue destination="oL4-pI-Xtf" kind="modal" identifier="subleaverqst" modalPresentationStyle="fullScreen" id="WVy-1I-cCR"/>
                         <segue destination="qM0-Jb-wCj" kind="modal" identifier="leave" modalPresentationStyle="fullScreen" id="4ip-H7-oO1"/>
                     </connections>
