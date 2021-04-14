@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SubordinateOdDutyLogListTableViewCellDelegate {
+class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SubordinateOdDutyLogListTableViewCellDelegate, UISearchBarDelegate {
     
     
     
@@ -17,6 +17,7 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
 
     @IBOutlet weak var tableViewSubordinateOdDutyLogList: UITableView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     static var Log_employee_id: Int!
     static var Log_task_employee_name: String!
     static var Log_task_date: String!
@@ -25,6 +26,9 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
     
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     var arrRes = [[String:AnyObject]]()
+    //---added on 14th April
+    var filteredTableData = [[String: AnyObject]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +36,16 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
         
         self.tableViewSubordinateOdDutyLogList.delegate = self
         self.tableViewSubordinateOdDutyLogList.dataSource = self
+        self.searchBar.delegate = self
+
+        tableViewSubordinateOdDutyLogList.backgroundColor = UIColor(hexFromString: "ffffff")
+        searchBar.searchTextField.backgroundColor = UIColor.white
+        searchBar.backgroundColor = UIColor.white
+//        searchBar.searchTextField.borderColor = UIColor.lightGray
+//        searchBar.searchTextField.borderWidth = 1
+//        searchBar.searchTextField.cornerRadius = 10
+        searchBar.layer.borderWidth = 10
+        searchBar.layer.borderColor = UIColor.white.cgColor
         
         self.tableViewSubordinateOdDutyLogList.backgroundColor = UIColor(hexFromString: "ffffff")
 
@@ -45,10 +59,28 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
     }
     
    //------tableview code starts-----
+    //---added on 14th April, code starts
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredTableData = searchText.isEmpty ? arrRes : arrRes.filter({(object) -> Bool in
+            guard let employee_name = object["employee_name"] as? String else {return false}
+            return employee_name.lowercased().contains(searchText.lowercased())
+        })
+
+        self.tableViewSubordinateOdDutyLogList.reloadData()
+    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+    //---added on 13th April, code ends
     func SubordinateOdDutyLogListTableViewCellDidTapView(_ sender: SubordinateOdDutyLogListTableViewCell) {
         print("tapped")
         guard let tappedIndexPath = tableViewSubordinateOdDutyLogList.indexPath(for: sender) else {return}
-        let rowData = arrRes[tappedIndexPath.row]
+        let rowData = filteredTableData[tappedIndexPath.row]
         
         SubordinateOdDutyLogListViewController.Log_employee_id = rowData["employee_id"] as? Int
         SubordinateOdDutyLogListViewController.Log_task_employee_name = rowData["employee_name"] as? String
@@ -60,7 +92,7 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
     
     func SubordinateOdDutyLogListTableViewCellDidTapViewTimeLog(_ sender: SubordinateOdDutyLogListTableViewCell) {
         guard let tappedIndexPath = tableViewSubordinateOdDutyLogList.indexPath(for: sender) else {return}
-        let rowData = arrRes[tappedIndexPath.row]
+        let rowData = filteredTableData[tappedIndexPath.row]
         
         SubordinateOdDutyLogListViewController.Log_employee_id = rowData["employee_id"] as? Int
         SubordinateOdDutyLogListViewController.Log_task_employee_name = rowData["employee_name"] as? String
@@ -71,7 +103,7 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrRes.count
+        return filteredTableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,7 +112,7 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
         
         cell.delegate = self
         
-        let dict = arrRes[indexPath.row]
+        let dict = filteredTableData[indexPath.row]
         
         let dateFormatterGet = DateFormatter()
 //        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
@@ -118,6 +150,7 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
                 
                    if let resData = swiftyJsonVar["items"].arrayObject{
                        self.arrRes = resData as! [[String:AnyObject]]
+                       self.filteredTableData = resData as! [[String:AnyObject]]
                    }
                    if self.arrRes.count>0 {
                     self.tableViewSubordinateOdDutyLogList.reloadData()
