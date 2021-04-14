@@ -41,6 +41,7 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
         tableViewSubordinateOdDutyLogList.backgroundColor = UIColor(hexFromString: "ffffff")
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.backgroundColor = UIColor.white
+        searchBar.searchTextField.textColor = UIColor.black
 //        searchBar.searchTextField.borderColor = UIColor.lightGray
 //        searchBar.searchTextField.borderWidth = 1
 //        searchBar.searchTextField.cornerRadius = 10
@@ -163,6 +164,7 @@ class SubordinateOdDutyLogListViewController: UIViewController, UITableViewDeleg
                        noDataLabel.textAlignment = .center
                        self.tableViewSubordinateOdDutyLogList.backgroundView  = noDataLabel
                        self.tableViewSubordinateOdDutyLogList.separatorStyle  = .none
+                       self.searchBar.isHidden = true
                        
                    }
                }

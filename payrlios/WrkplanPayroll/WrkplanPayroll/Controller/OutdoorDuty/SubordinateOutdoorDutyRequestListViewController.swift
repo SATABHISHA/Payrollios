@@ -31,6 +31,7 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
         tableviewSubordinateDutyRequestList.backgroundColor = UIColor(hexFromString: "ffffff")
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.backgroundColor = UIColor.white
+        searchBar.searchTextField.textColor = UIColor.black
 //        searchBar.searchTextField.borderColor = UIColor.lightGray
 //        searchBar.searchTextField.borderWidth = 1
 //        searchBar.searchTextField.cornerRadius = 10
@@ -153,6 +154,7 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
                        noDataLabel.textAlignment = .center
                        self.tableviewSubordinateDutyRequestList.backgroundView  = noDataLabel
                        self.tableviewSubordinateDutyRequestList.separatorStyle  = .none
+                       self.searchBar.isHidden = true
                        
                    }
                }

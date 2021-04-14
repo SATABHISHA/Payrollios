@@ -36,6 +36,7 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
         TableViewSubordinateLeave.backgroundColor = UIColor(hexFromString: "ffffff")
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.backgroundColor = UIColor.white
+        searchBar.searchTextField.textColor = UIColor.black
 //        searchBar.searchTextField.borderColor = UIColor.lightGray
 //        searchBar.searchTextField.borderWidth = 1
 //        searchBar.searchTextField.cornerRadius = 10
@@ -205,6 +206,7 @@ class SubordinateLeaveApplicationViewController: UIViewController, UITableViewDa
                        noDataLabel.textAlignment = .center
                        self.TableViewSubordinateLeave.backgroundView  = noDataLabel
                        self.TableViewSubordinateLeave.separatorStyle  = .none
+                       self.searchBar.isHidden = true
                        
                    }
                }
