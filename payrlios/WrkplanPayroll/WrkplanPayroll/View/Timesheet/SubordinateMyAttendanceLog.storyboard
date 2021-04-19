@@ -101,20 +101,20 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OtB-Z8-LpE" userLabel="borderView">
-                                                            <rect key="frame" x="0.0" y="41.333333333333336" width="374" height="0.6666666666666643"/>
+                                                            <rect key="frame" x="0.0" y="41.666666666666664" width="374" height="0.3333333333333357"/>
                                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="0.80000000000000004" id="hRF-5P-KaD"/>
+                                                                <constraint firstAttribute="height" constant="0.29999999999999999" id="hRF-5P-KaD"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31-Aug-2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999403953552" translatesAutoresizingMaskIntoConstraints="NO" id="EZ3-b2-7hv">
-                                                            <rect key="frame" x="0.0" y="5" width="99" height="31"/>
+                                                            <rect key="frame" x="0.0" y="4.9999999999999982" width="99" height="31.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.33725490200000002" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999403953552" translatesAutoresizingMaskIntoConstraints="NO" id="xv4-yH-amy">
-                                                            <rect key="frame" x="107" y="5" width="80" height="31"/>
+                                                            <rect key="frame" x="107" y="4.9999999999999982" width="80" height="31.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="4rN-yW-ioJ"/>
                                                             </constraints>
@@ -123,7 +123,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999403953552" translatesAutoresizingMaskIntoConstraints="NO" id="434-2q-kUP">
-                                                            <rect key="frame" x="195" y="5" width="76" height="31"/>
+                                                            <rect key="frame" x="195" y="4.9999999999999982" width="76" height="31.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="76" id="jLV-3I-EL5"/>
                                                             </constraints>
@@ -132,7 +132,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999403953552" translatesAutoresizingMaskIntoConstraints="NO" id="Lnh-an-ayl">
-                                                            <rect key="frame" x="304" y="5" width="70" height="31"/>
+                                                            <rect key="frame" x="304" y="4.9999999999999982" width="70" height="31.333333333333329"/>
                                                             <color key="backgroundColor" red="0.76078431369999999" green="0.76078431369999999" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="QGb-Fd-tRF"/>

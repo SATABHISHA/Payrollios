@@ -101,19 +101,32 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         cell.label_timeout.text = dict["time_out"] as? String
         cell.label_status.text = dict["status"] as? String
 //        cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)
-        
+        cell.label_status.layer.masksToBounds = true
         
         if dict["status"] as! String == "Absent"{
             cell.label_status.isHidden = false
+            cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
             cell.label_status.backgroundColor = UIColor(hexFromString: "#FF0000")
+            cell.label_status.cornerRadius = 5
         }else if dict["status"] as! String == "Present" {
             cell.label_status.isHidden = false
+            cell.label_status.textColor = UIColor(hexFromString: "#6E6E6E")
             cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            cell.label_status.cornerRadius = 5
         }else if dict["status"] as! String == "Present(WFH)"{
             cell.label_status.isHidden = false
+            cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
             cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            cell.label_status.cornerRadius = 5
+        }else if dict["status"] as! String == "WFH"{
+            cell.label_status.isHidden = false
+            cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
+            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            cell.label_status.cornerRadius = 5
         }else{
             cell.label_status.isHidden = true
+            cell.label_status.backgroundColor = UIColor(hexFromString: "#ffffff")
+            cell.label_status.cornerRadius = 5
         }
         return cell
     }

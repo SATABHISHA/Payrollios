@@ -141,10 +141,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="42"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2M-ZN-vWd" userLabel="borderView">
-                                                            <rect key="frame" x="0.0" y="41" width="335" height="1"/>
+                                                            <rect key="frame" x="0.0" y="41.5" width="335" height="0.5"/>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="0.80000000000000004" id="NsA-mv-DOi"/>
+                                                                <constraint firstAttribute="height" constant="0.29999999999999999" id="NsA-mv-DOi"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -153,13 +153,13 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31-Aug-2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="6vc-Hf-udj">
-                                                            <rect key="frame" x="0.0" y="5" width="81.5" height="31"/>
+                                                            <rect key="frame" x="0.0" y="5" width="81.5" height="31.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="39U-4H-IRp">
-                                                            <rect key="frame" x="89.5" y="5" width="80" height="31"/>
+                                                            <rect key="frame" x="89.5" y="5" width="80" height="31.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="7fJ-Z5-5MQ"/>
                                                             </constraints>
@@ -168,7 +168,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="7Kg-6F-4lV">
-                                                            <rect key="frame" x="177.5" y="5" width="76" height="31"/>
+                                                            <rect key="frame" x="177.5" y="5" width="76" height="31.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="76" id="8Sh-5q-KS3"/>
                                                             </constraints>
@@ -177,7 +177,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="okn-7H-Ysv">
-                                                            <rect key="frame" x="265" y="5" width="70" height="31"/>
+                                                            <rect key="frame" x="265" y="5" width="70" height="31.5"/>
                                                             <color key="backgroundColor" red="0.76078431372549016" green="0.76078431372549016" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="bQ0-Ga-24o"/>
