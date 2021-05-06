@@ -441,11 +441,11 @@
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="KEL-6a-67U" firstAttribute="leading" secondItem="9dN-SJ-4Ug" secondAttribute="leading" id="Cma-7j-EJx"/>
-                                    <constraint firstItem="KEL-6a-67U" firstAttribute="bottom" secondItem="9dN-SJ-4Ug" secondAttribute="bottom" constant="-1415" id="Ryb-aj-Qmy"/>
+                                    <constraint firstItem="KEL-6a-67U" firstAttribute="bottom" secondItem="9dN-SJ-4Ug" secondAttribute="bottom" constant="-1442" id="Ryb-aj-Qmy"/>
                                     <constraint firstItem="KEL-6a-67U" firstAttribute="top" secondItem="9dN-SJ-4Ug" secondAttribute="top" constant="10" id="a5I-Wx-haj"/>
                                     <constraint firstItem="KEL-6a-67U" firstAttribute="width" secondItem="9dN-SJ-4Ug" secondAttribute="width" multiplier="0.980676" constant="8" id="hQO-wh-Brq"/>
                                     <constraint firstItem="KEL-6a-67U" firstAttribute="trailing" secondItem="9dN-SJ-4Ug" secondAttribute="trailing" id="ofl-N3-RJf"/>
-                                    <constraint firstItem="KEL-6a-67U" firstAttribute="height" secondItem="9dN-SJ-4Ug" secondAttribute="height" multiplier="0.992424" priority="250" constant="-1414.120864" id="wVg-Nq-f21"/>
+                                    <constraint firstItem="KEL-6a-67U" firstAttribute="height" secondItem="9dN-SJ-4Ug" secondAttribute="height" multiplier="0.992424" priority="250" constant="-1430.241728" id="wVg-Nq-f21"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="u9Z-Il-Kjs">
@@ -620,7 +620,6 @@
                             <color key="tintColor" systemColor="systemGray2Color"/>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="414" height="736"/>
                     <connections>
                         <outlet property="CompanyDocImg" destination="eBy-6p-2ke" id="YZ0-ro-uDV"/>
                         <outlet property="CompanyDocView" destination="XBr-GN-1Fd" id="hPI-OS-UZX"/>
