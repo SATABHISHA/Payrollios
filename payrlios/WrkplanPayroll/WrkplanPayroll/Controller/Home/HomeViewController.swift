@@ -59,6 +59,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var ODdutyImage: UIImageView!
     @IBOutlet weak var labelODduty: UILabel!
     
+    @IBOutlet weak var ReportsView: UIView!
+    @IBOutlet weak var ReportsImage: UIImageView!
+    @IBOutlet weak var labelReports: UILabel!
+    
+    
     @IBOutlet weak var info_img: UIView!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
@@ -125,6 +130,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         TimesheetView.layer.borderWidth = 1
         TimesheetView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
         
+        ReportsView.layer.borderWidth = 1
+        ReportsView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
+        
         labelEmployeeInformation.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelLeave.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelEmployeeFacilities.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
@@ -135,6 +143,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         labelODdutyRequest.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelODduty.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelTimesheet.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
+        labelReports.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         //----------view and label border code styarts--------
         
         
