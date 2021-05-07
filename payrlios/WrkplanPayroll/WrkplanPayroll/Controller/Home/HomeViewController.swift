@@ -289,9 +289,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ODdutyImage.isUserInteractionEnabled = true
         ODdutyImage.addGestureRecognizer(tapGestureRecognizerODdutyImg)
         
+        //Reports
+        let tapGestureRecognizerReportsImg = UITapGestureRecognizer(target: self, action: #selector(ReportsImg(tapGestureRecognizer:)))
+        ReportsImage.isUserInteractionEnabled = true
+        ReportsImage.addGestureRecognizer(tapGestureRecognizerReportsImg)
+        
+        let tapGestureReportsView = UITapGestureRecognizer(target: self, action: #selector(ReportsView(tapGestureRecognizer:)))
+        ReportsView.isUserInteractionEnabled = true
+        ReportsView.addGestureRecognizer(tapGestureReportsView)
+        
         check_od_duty_log_status()
     }
    
+    //---Reports
+    @objc func ReportsImg(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "reports", sender: nil)
+    }
+    @objc func ReportsView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "reports", sender: nil)
+    }
     
     //---EmployeeInformation
     @objc func EmployeeInformationView(tapGestureRecognizer: UITapGestureRecognizer){

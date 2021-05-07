@@ -681,6 +681,7 @@
                         <segue destination="imh-AW-1OU" kind="modal" identifier="outdoordutylist" modalPresentationStyle="fullScreen" id="I2b-gp-rkS"/>
                         <segue destination="6qp-2R-KNi" kind="modal" identifier="odloglist" modalPresentationStyle="fullScreen" id="mEg-jv-D6u"/>
                         <segue destination="Li9-ty-Zhq" kind="modal" identifier="login" modalPresentationStyle="fullScreen" id="bKk-ce-5E0"/>
+                        <segue destination="xbE-8B-cCL" kind="modal" identifier="reports" modalPresentationStyle="fullScreen" id="MR4-tN-o8L"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="bbN-zT-K2i">
@@ -887,6 +888,16 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="2789.8550724637685" y="39.945652173913047"/>
+        </scene>
+        <!--Reports-->
+        <scene sceneID="9J9-9X-Bxn">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Reports" storyboardName="Reports" referencedIdentifier="Reports" id="xbE-8B-cCL" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gre-Dt-osP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edm-nK-qeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3193" y="-468"/>
         </scene>
         <!--odloglist-->
         <scene sceneID="IHV-ro-EwA">

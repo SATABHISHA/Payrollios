@@ -87,6 +87,9 @@
 		17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */; };
 		17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */; };
 		17B05E6E2579151700CBC3C9 /* CustomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B05E6D2579151600CBC3C9 /* CustomBorder.swift */; };
+		17BDC05426451820006EAFD0 /* Reports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BDC05326451820006EAFD0 /* Reports.storyboard */; };
+		17BDC05926451A2F006EAFD0 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */; };
+		17BDC05E264522F1006EAFD0 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */; };
 		17D94E47256FC4FF001A28E3 /* EmployeeDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */; };
 		17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */; };
 		17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */; };
@@ -204,6 +207,9 @@
 		17B05E4B2578C5A500CBC3C9 /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
 		17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetMyAttendanceViewController.swift; sourceTree = "<group>"; };
 		17B05E6D2579151600CBC3C9 /* CustomBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBorder.swift; sourceTree = "<group>"; };
+		17BDC05326451820006EAFD0 /* Reports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reports.storyboard; sourceTree = "<group>"; };
+		17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeDocuments.storyboard; sourceTree = "<group>"; };
 		17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsViewController.swift; sourceTree = "<group>"; };
 		17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -395,6 +401,7 @@
 		173C0F5325627183007AE8F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				17BDC05226451701006EAFD0 /* Reports */,
 				177597AB2613564F00EAD8B4 /* OutdoorDutyLog */,
 				1785DEAD25E7873D0088AEBA /* OutdoorDuty */,
 				17B05E4A2578C58B00CBC3C9 /* Timesheet */,
@@ -422,6 +429,7 @@
 		173C0F55256272B2007AE8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17BDC051264516F3006EAFD0 /* Reports */,
 				177597A52613327700EAD8B4 /* OutdoorDutyLog */,
 				1785DEAC25E77FBA0088AEBA /* OutdoorDuty */,
 				17B05E492578C57E00CBC3C9 /* Timesheet */,
@@ -614,6 +622,23 @@
 			path = Timesheet;
 			sourceTree = "<group>";
 		};
+		17BDC051264516F3006EAFD0 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				17BDC05326451820006EAFD0 /* Reports.storyboard */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
+		17BDC05226451701006EAFD0 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */,
+				17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
 		17D94E45256FC4D3001A28E3 /* EmployeeDocuments */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,6 +797,7 @@
 				17739206261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard in Resources */,
 				172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */,
 				177597A7261332C600EAD8B4 /* OutdoorDutyLogList.storyboard in Resources */,
+				17BDC05426451820006EAFD0 /* Reports.storyboard in Resources */,
 				1722940D256E800C0008D808 /* Leave.storyboard in Resources */,
 				17914B6E261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard in Resources */,
 				17513FEB257E172F0090EFD5 /* SubordinateLog.storyboard in Resources */,
@@ -933,6 +959,7 @@
 				1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */,
 				177E1C99261D9D4A00C4CF84 /* MyLeaveApplicationViewController.swift in Sources */,
 				17914B7B26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift in Sources */,
+				17BDC05E264522F1006EAFD0 /* ReportsTableViewCell.swift in Sources */,
 				170DE597262069BB00C9FEF1 /* SubordinateLeaveApplicationRequestViewController.swift in Sources */,
 				17AF139D262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift in Sources */,
 				175C6AD22615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift in Sources */,
@@ -957,6 +984,7 @@
 				173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */,
 				1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */,
 				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,
+				17BDC05926451A2F006EAFD0 /* ReportsViewController.swift in Sources */,
 				173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */,
 				17914B8026177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift in Sources */,
 				1754BAC8261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift in Sources */,

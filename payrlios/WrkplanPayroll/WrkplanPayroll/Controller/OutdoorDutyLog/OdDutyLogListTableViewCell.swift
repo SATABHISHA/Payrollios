@@ -24,6 +24,7 @@ class OdDutyLogListTableViewCell: UITableViewCell {
         label_view_task.isUserInteractionEnabled = true
         label_view_task.addGestureRecognizer(tapGestureRecognizerViewTask)
         
+        
         //--view time log
         let tapGestureRecognizerViewTimeLog = UITapGestureRecognizer(target: self, action: #selector(ViewTimeLog(tapGestureRecognizer:)))
         label_time_log.isUserInteractionEnabled = true
