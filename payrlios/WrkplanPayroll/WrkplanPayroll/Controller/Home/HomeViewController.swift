@@ -189,6 +189,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.imageData = UIImage(named: "timesheet")
         k.menuItm = "Timesheet"
         navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "reports")
+        k.menuItm = "Reports"
+        navigationDrawerData.append(k)
         
         k.imageData = UIImage(named: "password.png")
         k.menuItm = "Change Password"
@@ -411,7 +414,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.separatorColor = UIColor.white
         
         var dict = navigationDrawerData[indexPath.row]
-        if dict.menuItm! == "Timesheet"{
+        if dict.menuItm! == "Reports"{
             let bottomBorder = CALayer()
             
             bottomBorder.frame = CGRect(x: 0.0, y: 43.0, width: cell.contentView.frame.size.width, height: 1.0)
@@ -461,6 +464,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             else if row.menuItm == "Timesheet"{
                 menuClose()
                 self.performSegue(withIdentifier: "timesheet", sender: self)
+               
+            }else if row.menuItm == "Reports"{
+                menuClose()
+                self.performSegue(withIdentifier: "reports", sender: self)
                
             } else if row.menuItm == "Change Password"{
                 menuClose()

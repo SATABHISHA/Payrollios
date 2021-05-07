@@ -51,6 +51,9 @@
 		1754BAC8261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754BAC7261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift */; };
 		175C6ACD2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175C6ACC2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard */; };
 		175C6AD22615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175C6AD12615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift */; };
+		175E1AF8264563FD009275A7 /* ReportPdfViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175E1AF7264563FD009275A7 /* ReportPdfViewer.storyboard */; };
+		175E1AFD264564B1009275A7 /* ReportPdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E1AFC264564B1009275A7 /* ReportPdfViewController.swift */; };
+		175E1B02264578F3009275A7 /* HtmlString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E1B01264578F3009275A7 /* HtmlString.swift */; };
 		176224F12570CE79005F6C5B /* CompanyDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */; };
 		176224F72570CEB9005F6C5B /* CompanyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176224F62570CEB9005F6C5B /* CompanyDocumentsViewController.swift */; };
 		176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176224FE2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift */; };
@@ -171,6 +174,9 @@
 		1754BAC7261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyTimeLogViewController.swift; sourceTree = "<group>"; };
 		175C6ACC2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyLogEmployeeTask.storyboard; sourceTree = "<group>"; };
 		175C6AD12615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdDutyLogEmployeeTaskViewController.swift; sourceTree = "<group>"; };
+		175E1AF7264563FD009275A7 /* ReportPdfViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReportPdfViewer.storyboard; sourceTree = "<group>"; };
+		175E1AFC264564B1009275A7 /* ReportPdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPdfViewController.swift; sourceTree = "<group>"; };
+		175E1B01264578F3009275A7 /* HtmlString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlString.swift; sourceTree = "<group>"; };
 		176224F02570CE79005F6C5B /* CompanyDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompanyDocuments.storyboard; sourceTree = "<group>"; };
 		176224F62570CEB9005F6C5B /* CompanyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDocumentsViewController.swift; sourceTree = "<group>"; };
 		176224FE2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDocumentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -626,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				17BDC05326451820006EAFD0 /* Reports.storyboard */,
+				175E1AF7264563FD009275A7 /* ReportPdfViewer.storyboard */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -635,6 +642,8 @@
 			children = (
 				17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */,
 				17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */,
+				175E1AFC264564B1009275A7 /* ReportPdfViewController.swift */,
+				175E1B01264578F3009275A7 /* HtmlString.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -784,6 +793,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				172D28C22575012900C6E2A6 /* HolidayDetails.storyboard in Resources */,
+				175E1AF8264563FD009275A7 /* ReportPdfViewer.storyboard in Resources */,
 				173C0F2A25626FBE007AE8F6 /* LaunchScreen.storyboard in Resources */,
 				170DE5922620653100C9FEF1 /* SubordinateLeaveRequest.storyboard in Resources */,
 				17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */,
@@ -945,6 +955,7 @@
 				172D28C7257501DA00C6E2A6 /* HolidayDetailsViewController.swift in Sources */,
 				17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */,
 				1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */,
+				175E1AFD264564B1009275A7 /* ReportPdfViewController.swift in Sources */,
 				173C0F1F25626FB9007AE8F6 /* LoginViewController.swift in Sources */,
 				177F8F67261AEB550027F658 /* OutdoorDutyTimeLogTableViewCell.swift in Sources */,
 				17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */,
@@ -970,6 +981,7 @@
 				172501622614D7D800DB133C /* OdDutyLogListTableViewCell.swift in Sources */,
 				17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */,
 				17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */,
+				175E1B02264578F3009275A7 /* HtmlString.swift in Sources */,
 				172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */,
 				1762251125713EA1005F6C5B /* InsuranceDetailTableViewCell.swift in Sources */,
 				17513FF5257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift in Sources */,
