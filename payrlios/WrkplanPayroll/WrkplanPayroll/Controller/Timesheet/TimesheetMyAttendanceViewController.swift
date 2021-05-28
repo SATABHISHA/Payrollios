@@ -9,8 +9,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Toast_Swift
+import CoreLocation
 
-class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var label_wrk_from_home: UILabel!
     @IBOutlet weak var designablebtn_myattendance_log: DesignableButton!
@@ -28,10 +29,17 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     var timesheet_id: Int!
     var work_from_home_flag: Int!
     var work_from_home_detail: String!
+    
+    var locationManager:CLLocationManager!
+    static var currentlatitude:Double = 0.0
+    static var currentLongitude:Double = 0.0
+    static var currentAddress:String = ""
+    
     @IBOutlet weak var label_date_today: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
+        determineMyCurrentLocation(status: "Start") //---function to get lat/long, added on 28th May
         
         self.tableviewMyAttendence.dataSource = self
         self.tableviewMyAttendence.delegate = self
@@ -128,15 +136,18 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     //---MyAttendanceLog OnClick
     @objc func DesignablebtnMyAttendanceLog(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "myattendance", sender: nil)
+        determineMyCurrentLocation(status: "Stop")
     }
     
     //---SubordinateAttendanceLog OnClick
     @objc func DesignablebtnSubordinateAttendanceLog(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "subordinatelog", sender: nil)
+        determineMyCurrentLocation(status: "Stop")
     }
     
     @IBAction func btn_home(_ sender: Any) {
         self.performSegue(withIdentifier: "home", sender: nil)
+        determineMyCurrentLocation(status: "Stop")
         print("tapped")
     }
     
@@ -204,22 +215,35 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
             self.btn_out.alpha = CGFloat(0.6)
         }
         
-        let jsonObject: [String: Any] = [
+        //--commented on 28th May
+       /* let jsonObject: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
             "timesheet_id": self.timesheet_id!,
             "employee_id": swiftyJsonvar1["employee"]["employee_id"].stringValue,
             "in_out_action": message_in_out,
             "work_from_home_flag": work_frm_home_flag,
             "work_from_home_detail": tv_wrk_frm_home.text!
-        ]
+        ] */
         
+        //--added on 28th May, starts
+        let jsonObject: [String: Any] = [
+            "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
+            "employee_id": swiftyJsonvar1["employee"]["employee_id"].stringValue,
+            "work_from_home_flag": work_frm_home_flag,
+            "work_from_home_detail": tv_wrk_frm_home.text!,
+            "latitude":String(format: "%.6f", TimesheetMyAttendanceViewController.currentlatitude),
+            "longitude": String(format: "%.6f", TimesheetMyAttendanceViewController.currentLongitude)
+        ]
+        //--added on 28th May, ends
+        print("jsonlocation-=>",jsonObject)
         if let data=try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted),
            let str=String(data: data, encoding: .utf8){
             //                        print("Latest value-->",str)
             //                        employeeTimesheetReturnAPICall(stringCheck: "ReturnTimeSheet", jsonObjectData: str)
             
         }
-        let apiurl="\(BASE_URL)timesheet/save"
+//        let apiurl="\(BASE_URL)timesheet/save"
+        let apiurl="\(BASE_URL)timesheet/save-with-geo-location"
         AF.request(apiurl, method: .post, parameters: jsonObject,encoding: JSONEncoding.default, headers: nil).responseJSON{
             response in
             
@@ -345,6 +369,103 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         }
     }
     //===========Code for getting time_in and time_out, ends==========
+    
+    //-------Location, code starts(added on 28th May)
+    func determineMyCurrentLocation(status: String) {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            
+            if CLLocationManager.locationServicesEnabled() {
+                if status == "Start"{
+                locationManager.startUpdatingLocation()
+                } else if status == "Stop"{
+                    locationManager.stopUpdatingLocation()
+                }
+                //locationManager.startUpdatingHeading()
+            }
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            let userLocation:CLLocation = locations[0] as CLLocation
+            
+            // Call stopUpdatingLocation() to stop listening for location updates,
+            // other wise this function will be called every time when user location changes.
+            
+           // manager.stopUpdatingLocation()
+            
+            print("user latitude = \(userLocation.coordinate.latitude)")
+            print("user longitude = \(userLocation.coordinate.longitude)")
+            TimesheetMyAttendanceViewController.currentlatitude = userLocation.coordinate.latitude
+            TimesheetMyAttendanceViewController.currentLongitude = userLocation.coordinate.longitude
+            getAddressFromLatLon(pdblLatitude: userLocation.coordinate.latitude, withLongitude: userLocation.coordinate.longitude)
+//            print("user Address = \(userLocation.)")
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+        {
+            print("Error \(error)")
+        }
+    
+    func getAddressFromLatLon(pdblLatitude: Double, withLongitude pdblLongitude: Double) {
+            var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+            let lat: Double = Double("\(pdblLatitude)")!
+            //21.228124
+            let lon: Double = Double("\(pdblLongitude)")!
+            //72.833770
+            let ceo: CLGeocoder = CLGeocoder()
+            center.latitude = lat
+            center.longitude = lon
+
+            let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+
+
+            ceo.reverseGeocodeLocation(loc, completionHandler:
+                {(placemarks, error) in
+                    if (error != nil)
+                    {
+                        print("reverse geodcode fail: \(error!.localizedDescription)")
+                    }
+                    let pm = (placemarks ?? []) as [CLPlacemark]
+
+                    if pm.count > 0 {
+                        let pm = placemarks![0]
+                       /* print(pm.country)
+                        print(pm.locality)
+                        print(pm.subLocality)
+                        print(pm.thoroughfare)
+                        print(pm.postalCode)
+                        print(pm.subThoroughfare) */
+                        var addressString : String = ""
+                        if pm.subThoroughfare != nil {
+                            addressString = addressString + pm.subThoroughfare! + ", "
+                        }
+                        if pm.subLocality != nil {
+                            addressString = addressString + pm.subLocality! + ", "
+                        }
+                        if pm.thoroughfare != nil {
+                            addressString = addressString + pm.thoroughfare! + ", "
+                        }
+                        if pm.locality != nil {
+                            addressString = addressString + pm.locality! + ", "
+                        }
+                        if pm.country != nil {
+                            addressString = addressString + pm.country! + ", "
+                        }
+                        if pm.postalCode != nil {
+                            addressString = addressString + pm.postalCode! + " "
+                        }
+
+
+                        print("Address-=>",addressString)
+                        TimesheetMyAttendanceViewController.currentAddress = addressString
+                  }
+            })
+
+        }
+    //-------Location code ends(added on 28th May)
+    
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var blurEffectView: UIVisualEffectView!

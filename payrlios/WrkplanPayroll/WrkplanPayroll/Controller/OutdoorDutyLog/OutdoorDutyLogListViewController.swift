@@ -211,6 +211,7 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
         determineMyCurrentLocation(status: "Stop")
     }
     //----------tableview code ends------------
+ 
     
     //-------Location, code starts
     func determineMyCurrentLocation(status: String) {
