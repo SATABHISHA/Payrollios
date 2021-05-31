@@ -11,7 +11,7 @@ import SwiftyJSON
 import Toast_Swift
 import CoreLocation
 
-class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var label_wrk_from_home: UILabel!
     @IBOutlet weak var designablebtn_myattendance_log: DesignableButton!
@@ -36,6 +36,14 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     static var currentAddress:String = ""
     
     @IBOutlet weak var label_date_today: UILabel!
+    
+    //-----camera variables
+    let imagePicker = UIImagePickerController()
+    var base64String:String!
+    
+    //----added variables on 31st may for selfie
+    static var in_out: String!, work_frm_home_flag: Int!, work_from_home_detail: String!, message_in_out: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
@@ -75,10 +83,22 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         designablebtn_subordinate_attendance_log.isUserInteractionEnabled = true
         designablebtn_subordinate_attendance_log.addGestureRecognizer(tapGestureRecognizerSubordinateAttendanceLogDesignablebtn)
         
+        //---camera
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.cameraDevice = .front
+        imagePicker.allowsEditing = false
+        
         load_data_check_od_duty()
     }
     @IBAction func btn_in(_ sender: Any) {
-        self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded") //--previously work from home flag was 1, but it gives some problem
+        TimesheetMyAttendanceViewController.in_out = "IN"
+        TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
+        TimesheetMyAttendanceViewController.work_from_home_detail = self.tv_wrk_frm_home.text!
+        TimesheetMyAttendanceViewController.message_in_out = "Attendance IN time recorded"
+        
+//        self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded",imageBase64: "") //--previously work from home flag was 1, but it gives some problem //--commented on 31st may temp
+        openSelfieConfirmationPopup()
 //        load_data_check_od_duty()
     }
     @IBAction func btn_out(_ sender: Any) {
@@ -92,7 +112,13 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
             self.view.makeToast("Cannot save without work from home details", duration: 3.0, position: .bottom, style: style)
 
                       }else{
-                        self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance OUT time recorded")
+                        
+                        TimesheetMyAttendanceViewController.in_out = "OUT"
+                        TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
+                        TimesheetMyAttendanceViewController.work_from_home_detail = self.tv_wrk_frm_home.text!
+                        TimesheetMyAttendanceViewController.message_in_out = "Attendance OUT time recorded"
+//                        self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance OUT time recorded")  //---commented on 31st may temp
+                        openSelfieConfirmationPopup()
 //                        load_data_check_od_duty()
                         
                         self.tv_wrkfrmhome_constraint_height.constant = 0
@@ -204,7 +230,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     }
     //---------tableview code ends--------
     //========function to save data for IN/OUT, code starts=======
-    func save_in_out_data(in_out: String, work_frm_home_flag: Int, work_from_home_detail: String, message_in_out: String ){
+    func save_in_out_data(in_out: String, work_frm_home_flag: Int, work_from_home_detail: String, message_in_out: String, imageBase64: String){
         if message_in_out == "IN"{
             self.btn_in.isEnabled = false
             self.btn_in.alpha = CGFloat(0.6)
@@ -232,7 +258,8 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
             "work_from_home_flag": work_frm_home_flag,
             "work_from_home_detail": tv_wrk_frm_home.text!,
             "latitude":String(format: "%.6f", TimesheetMyAttendanceViewController.currentlatitude),
-            "longitude": String(format: "%.6f", TimesheetMyAttendanceViewController.currentLongitude)
+            "longitude": String(format: "%.6f", TimesheetMyAttendanceViewController.currentLongitude),
+            "imageBase64": imageBase64
         ]
         //--added on 28th May, ends
         print("jsonlocation-=>",jsonObject)
@@ -465,6 +492,82 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
 
         }
     //-------Location code ends(added on 28th May)
+    
+    //===============Selfie Confirmation Popup code starts(added on 31st may)===================
+    @IBOutlet weak var btnPopupYes: UIButton!
+    @IBOutlet weak var btnPopupNo: UIButton!
+    @IBAction func btnPopupYes(_ sender: Any) {
+        closeSelfieConfirmationPopup()
+//        self.performSegue(withIdentifier: "dashboard", sender: nil)
+//        self.DeleteImage(stringCheck: "DeleteFacesResult")
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnPopupNo(_ sender: Any) {
+        closeSelfieConfirmationPopup()
+        self.save_in_out_data(in_out: TimesheetMyAttendanceViewController.in_out, work_frm_home_flag: TimesheetMyAttendanceViewController.work_frm_home_flag, work_from_home_detail: TimesheetMyAttendanceViewController.work_from_home_detail, message_in_out: TimesheetMyAttendanceViewController.message_in_out, imageBase64: "")
+    }
+    
+    @IBOutlet weak var stackViewEnrollPopupButton: UIStackView!
+    @IBOutlet var viewSelfie: UIView!
+    func openSelfieConfirmationPopup(){
+        blurEffect()
+        self.view.addSubview(viewSelfie)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewSelfie.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewSelfie.center = self.view.center
+        viewSelfie.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewSelfie.alpha = 0
+        viewSelfie.sizeToFit()
+        
+        stackViewEnrollPopupButton.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+//        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
+        btnPopupYes.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewSelfie.alpha = 1
+            self.viewSelfie.transform = CGAffineTransform.identity
+        }
+        
+        
+        //        self.confidencelabel.text = confidence!
+        
+        
+    }
+    func closeSelfieConfirmationPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewSelfie.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewSelfie.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewSelfie.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    //===============Selfie Confirmation Popup code ends(added on 31st may)===================
+    
+    //------camera code, starts(added on 31st may)------
+    public static var image_to_base64:String?
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imagePicker.dismiss(animated: true, completion: nil)
+            //                   loaderStart()
+            
+            //            var imageData = UIImagePNGRepresentation(pickedImage)
+            var imageData = pickedImage.jpegData(compressionQuality: 0.2)
+            base64String = imageData?.base64EncodedString()
+            print("base64-=>",base64String!)
+            
+            self.save_in_out_data(in_out: TimesheetMyAttendanceViewController.in_out, work_frm_home_flag: TimesheetMyAttendanceViewController.work_frm_home_flag, work_from_home_detail: TimesheetMyAttendanceViewController.work_from_home_detail, message_in_out: TimesheetMyAttendanceViewController.message_in_out, imageBase64: base64String!)
+//            loaderStart() //--commented on 4t jan 21
+//            EnrollImage(stringCheck: "IndexFacesResult", base64ImageString: base64String!)
+        }
+        
+    }
+    //------camera code, ends(added on 31st may)------
     
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()

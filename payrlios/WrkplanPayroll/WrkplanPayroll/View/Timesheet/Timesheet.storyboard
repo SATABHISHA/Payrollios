@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -241,7 +241,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="z9G-i9-C4H" customClass="TimesheetMyAttendanceTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="40.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="374" height="40.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z9G-i9-C4H" id="RcC-on-sa2">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="40.666667938232422"/>
@@ -368,20 +368,113 @@
                     </view>
                     <connections>
                         <outlet property="btnCheckBox" destination="qbq-j3-uOC" id="LmV-As-ahG"/>
+                        <outlet property="btnPopupNo" destination="cBO-tk-9vh" id="9Nh-tn-jRy"/>
+                        <outlet property="btnPopupYes" destination="Xde-qb-O0Y" id="UUZ-ek-fxK"/>
                         <outlet property="btn_in" destination="J8X-gO-M3P" id="wGE-bi-2xx"/>
                         <outlet property="btn_out" destination="E9C-qP-Xsm" id="VI4-OP-qD5"/>
                         <outlet property="designablebtn_myattendance_log" destination="zDX-6k-bnG" id="z21-fz-c6i"/>
                         <outlet property="designablebtn_subordinate_attendance_log" destination="TgU-4h-Uco" id="cSB-sr-eHt"/>
                         <outlet property="label_date_today" destination="Xrq-Xn-esx" id="6mo-CQ-VuE"/>
                         <outlet property="label_wrk_from_home" destination="Y4S-V4-pkL" id="2ui-TL-c0t"/>
+                        <outlet property="stackViewEnrollPopupButton" destination="rlX-6K-8cl" id="dh8-Yz-WSj"/>
                         <outlet property="tableviewMyAttendence" destination="ffn-kx-egJ" id="WEM-9a-7Oh"/>
                         <outlet property="tv_wrk_frm_home" destination="idr-To-gVZ" id="9od-Ip-bAH"/>
                         <outlet property="tv_wrkfrmhome_constraint_height" destination="1ho-tY-laQ" id="MSd-SW-w3j"/>
+                        <outlet property="viewSelfie" destination="GhE-Wm-xfI" id="8cI-GN-SNy"/>
                         <segue destination="Vlo-Zd-14X" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="Rtz-Ng-H3E"/>
                         <segue destination="CNL-CF-wYH" kind="modal" identifier="myattendance" modalPresentationStyle="fullScreen" id="N3E-xM-c0u"/>
                         <segue destination="79c-aq-eTj" kind="modal" identifier="subordinatelog" modalPresentationStyle="fullScreen" id="1Iv-i5-cpA"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="GhE-Wm-xfI">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="158"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRI-Vo-18f">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="35"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selfie Alert!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp0-fv-Kic">
+                                    <rect key="frame" x="10" y="3" width="220" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.18039215689999999" green="0.34042370319999998" blue="0.44333958629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Gp0-fv-Kic" firstAttribute="leading" secondItem="dRI-Vo-18f" secondAttribute="leading" constant="10" id="IcE-ci-5i8"/>
+                                <constraint firstAttribute="bottom" secondItem="Gp0-fv-Kic" secondAttribute="bottom" constant="3" id="Lu0-o4-fMh"/>
+                                <constraint firstAttribute="trailing" secondItem="Gp0-fv-Kic" secondAttribute="trailing" constant="10" id="PlL-bh-GdR"/>
+                                <constraint firstItem="Gp0-fv-Kic" firstAttribute="top" secondItem="dRI-Vo-18f" secondAttribute="top" constant="3" id="jKa-6A-4NS"/>
+                                <constraint firstAttribute="height" constant="35" id="qpd-Ls-eNL"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rlX-6K-8cl">
+                            <rect key="frame" x="0.0" y="118" width="240" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBO-tk-9vh">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="No">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnPopupNo:" destination="Xz3-LP-scn" eventType="touchUpInside" id="uy6-rV-K29"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xde-qb-O0Y">
+                                    <rect key="frame" x="120" y="0.0" width="120" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Yes">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnPopupYes:" destination="Xz3-LP-scn" eventType="touchUpInside" id="La5-A8-4sS"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.86348362160000003" green="0.8550180959" blue="0.8550180959" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="TZc-oM-4Od"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Selfie?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBf-4F-z44">
+                            <rect key="frame" x="75" y="69" width="90" height="20.333333333333329"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Lhf-4C-SSe"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="dRI-Vo-18f" firstAttribute="leading" secondItem="Lhf-4C-SSe" secondAttribute="leading" id="0IQ-Yt-tCI"/>
+                        <constraint firstItem="dRI-Vo-18f" firstAttribute="top" secondItem="Lhf-4C-SSe" secondAttribute="top" id="5qE-xr-e5d"/>
+                        <constraint firstItem="GBf-4F-z44" firstAttribute="centerY" secondItem="Lhf-4C-SSe" secondAttribute="centerY" id="C66-Iz-MOn"/>
+                        <constraint firstItem="rlX-6K-8cl" firstAttribute="leading" secondItem="Lhf-4C-SSe" secondAttribute="leading" id="McU-ab-H3o"/>
+                        <constraint firstItem="GBf-4F-z44" firstAttribute="centerX" secondItem="Lhf-4C-SSe" secondAttribute="centerX" id="QQ2-TY-OJo"/>
+                        <constraint firstAttribute="bottom" secondItem="rlX-6K-8cl" secondAttribute="bottom" id="fhb-qv-Ear"/>
+                        <constraint firstItem="Lhf-4C-SSe" firstAttribute="trailing" secondItem="rlX-6K-8cl" secondAttribute="trailing" id="ozc-TF-FYN"/>
+                        <constraint firstItem="dRI-Vo-18f" firstAttribute="trailing" secondItem="Lhf-4C-SSe" secondAttribute="trailing" id="qo4-J0-thQ"/>
+                    </constraints>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGa-TN-q2F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="98.550724637681171" y="37.5"/>
