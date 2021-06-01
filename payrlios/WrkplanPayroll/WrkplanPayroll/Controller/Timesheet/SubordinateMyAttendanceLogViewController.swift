@@ -190,6 +190,7 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     func loadData(month_number:Int, year:Int){
            loaderStart()
         let url = "\(BASE_URL)timesheet/log/monthly/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(month_number)/\(year)"
+        print("SubMnLog-=>",url)
 //        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
