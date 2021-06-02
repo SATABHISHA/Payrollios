@@ -102,6 +102,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         cell.label_status.text = dict["status"] as? String
 //        cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)
         cell.label_status.layer.masksToBounds = true
+        cell.img_sub_log_arrow.isHidden = true
         
         if dict["status"] as! String == "Absent"{
             cell.label_status.isHidden = false
@@ -113,16 +114,31 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
             cell.label_status.textColor = UIColor(hexFromString: "#6E6E6E")
             cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
+            if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
+                cell.img_sub_log_arrow.isHidden = false
+            }else{
+                cell.img_sub_log_arrow.isHidden = true
+            }
         }else if dict["status"] as! String == "Present(WFH)"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
             cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
+            if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
+                cell.img_sub_log_arrow.isHidden = false
+            }else{
+                cell.img_sub_log_arrow.isHidden = true
+            }
         }else if dict["status"] as! String == "WFH"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
             cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
+            if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
+                cell.img_sub_log_arrow.isHidden = false
+            }else{
+                cell.img_sub_log_arrow.isHidden = true
+            }
         }else{
             cell.label_status.isHidden = true
             cell.label_status.backgroundColor = UIColor(hexFromString: "#ffffff")

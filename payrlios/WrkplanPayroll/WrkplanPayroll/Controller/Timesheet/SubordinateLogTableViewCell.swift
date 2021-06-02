@@ -14,6 +14,7 @@ class SubordinateLogTableViewCell: UITableViewCell {
     @IBOutlet weak var label_timeout: UILabel!
     @IBOutlet weak var label_status: UILabel!
     
+    @IBOutlet weak var img_sub_log_arrow: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
