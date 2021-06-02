@@ -164,7 +164,6 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
                    let swiftyJsonVar=JSON(responseData.value!)
                    print("Log description: \(swiftyJsonVar)")
                 
-                
                    if let resData = swiftyJsonVar["subordinate_logs"].arrayObject{
                        self.arrRes = resData as! [[String:AnyObject]]
                    }
