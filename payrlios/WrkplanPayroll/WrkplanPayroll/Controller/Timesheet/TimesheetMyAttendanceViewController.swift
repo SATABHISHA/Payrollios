@@ -98,7 +98,11 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         TimesheetMyAttendanceViewController.message_in_out = "Attendance IN time recorded"
         
 //        self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded",imageBase64: "") //--previously work from home flag was 1, but it gives some problem //--commented on 31st may temp
+        if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
         openSelfieConfirmationPopup()
+        }else{
+            self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded",imageBase64: "")
+        }
 //        load_data_check_od_duty()
     }
     @IBAction func btn_out(_ sender: Any) {
@@ -118,7 +122,11 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
                         TimesheetMyAttendanceViewController.work_from_home_detail = self.tv_wrk_frm_home.text!
                         TimesheetMyAttendanceViewController.message_in_out = "Attendance OUT time recorded"
 //                        self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance OUT time recorded")  //---commented on 31st may temp
+                        if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
                         openSelfieConfirmationPopup()
+                        }else{
+                            self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance OUT time recorded",imageBase64: "")
+                        }
 //                        load_data_check_od_duty()
                         
                         self.tv_wrkfrmhome_constraint_height.constant = 0
