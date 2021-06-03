@@ -395,6 +395,7 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
            }
        }
     //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code ends-----
+  
     
     //--------function to show log details using Alamofire and Json Swifty------------
     func loadData(){
