@@ -267,6 +267,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
             "work_from_home_detail": tv_wrk_frm_home.text!,
             "latitude":String(format: "%.6f", TimesheetMyAttendanceViewController.currentlatitude),
             "longitude": String(format: "%.6f", TimesheetMyAttendanceViewController.currentLongitude),
+            "address": TimesheetMyAttendanceViewController.currentAddress,
             "imageBase64": imageBase64
         ]
         //--added on 28th May, ends
