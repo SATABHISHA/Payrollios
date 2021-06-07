@@ -13,8 +13,8 @@ struct SubordinateDetails {
     var employee_name:String!
     var slno:Int!
 }
-class SubordinateLogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class SubordinateLogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SubordinateLogTableViewCellDelegate {
+    
     @IBOutlet weak var designablebtn_subordinate_monthly_attendance_log: DesignableButton!
     @IBOutlet weak var designablebtn_label_subordinate_monthly_attendance_log: UILabel!
     @IBOutlet weak var tableviewSubordinateLog: UITableView!
@@ -23,6 +23,10 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     static var subordinate_details = [SubordinateDetails]()
+    
+    //--variables for tableview-=>popup, added on 07-Jun-2021
+    static var Log_employee_id: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,6 +81,15 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
     
     
     //---------tableview code starts---------
+    func SubordinateLogTableViewCellDidTapView(_ sender: SubordinateLogTableViewCell) {
+        guard let tappedIndexPath = tableviewSubordinateLog.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
+        
+        SubordinateLogViewController.Log_employee_id = rowData["employee_id"] as? Int
+        loadPopupLocationData(Log_employee_id: SubordinateLogViewController.Log_employee_id!)
+//        OutdoorDutyLogListViewController.Log_task_employee_name = rowData["employee_name"] as? String
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrRes.count
     }
@@ -85,6 +98,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SubordinateLogTableViewCell
         
         let dict = arrRes[indexPath.row]
+        cell.delegate = self
         
       /*  let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
@@ -191,7 +205,126 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
            }
        }
        //--------function to show log details using Alamofire and Json Swifty code ends------------
+    //=====added on 07-Jun-2021, starts
+    //============================-Form Leave Balance dialog, code starts============================
+    @IBOutlet var viewLatLongDetailsPopup: UIView!
+   
+   
+    @IBOutlet weak var custom_btn_ok_leave_popup: UIView!
     
+    @IBOutlet weak var PopupEmpName: UILabel!
+    
+    @IBOutlet weak var PopupEmpCode: UILabel!
+    
+    @IBOutlet weak var PopupAttendanceDate: UILabel!
+    
+    @IBOutlet weak var PopupInTime: UILabel!
+    
+    @IBOutlet weak var PopupInLatitude: UILabel!
+    @IBOutlet weak var PopupInLongitude: UILabel!
+    @IBOutlet weak var PopupInAddress: UILabel!
+    
+    @IBOutlet weak var PopupInImageView: UIImageView!
+    
+    @IBOutlet weak var PopupOutLatitude: UILabel!
+    @IBOutlet weak var PopupOutLongitude: UILabel!
+   
+    @IBOutlet weak var PopupAddressOut: UILabel!
+    @IBOutlet weak var PopupOutImageView: UIImageView!
+   
+    @IBOutlet weak var PopupOutTime: UILabel!
+    
+    func OpenLatLongDetailsPopup(employee_name: String!,employee_code: String!, attendance_date: String!, in_time: String!, in_latitude: String!, in_longitude: String!, in_address: String!, out_time: String!, out_latitude: String!, out_longitude: String!, out_address: String!, in_image_base_64: String!, out_image_base_64: String!){
+        blurEffect()
+//        self.viewLatLongDetailsPopup.frame.size.width = 400
+        self.view.addSubview(viewLatLongDetailsPopup)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        viewLatLongDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewLatLongDetailsPopup.center = self.view.center
+        viewLatLongDetailsPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewLatLongDetailsPopup.alpha = 0
+        viewLatLongDetailsPopup.sizeToFit()
+        
+        
+        self.PopupEmpName.text = employee_name
+        self.PopupEmpCode.text = employee_code
+        self.PopupAttendanceDate.text = attendance_date
+        
+        self.PopupInTime.text = in_time
+        self.PopupInLatitude.text = in_latitude
+        self.PopupInLongitude.text = in_longitude
+        self.PopupInAddress.text = in_address
+        if let imageDataIn = Data(base64Encoded: in_image_base_64) {
+                        let image = UIImage(data: imageDataIn)
+                        self.PopupInImageView.image = image
+                    }
+//        self.PopupInImageView.
+        
+        self.PopupOutTime.text = out_time
+        self.PopupOutLatitude.text = out_latitude
+        self.PopupOutLongitude.text = out_longitude
+        self.PopupAddressOut.text = out_address
+        if let imageDataOut = Data(base64Encoded: in_image_base_64) {
+                        let image = UIImage(data: imageDataOut)
+                        self.PopupOutImageView.image = image
+                    }
+        
+
+        custom_btn_ok_leave_popup.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+      /*  stackViewButtonborder.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        view_custom_btn_punchout.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)*/
+        
+        
+        
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewLatLongDetailsPopup.alpha = 1
+            self.viewLatLongDetailsPopup.transform = CGAffineTransform.identity
+        }
+        
+    }
+    
+    func cancelLatLongDetailsPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewLatLongDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewLatLongDetailsPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewLatLongDetailsPopup.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    
+    
+    //--------function to load popup Lat/Long Details data using Alamofire and Json Swifty code starts----------
+    func loadPopupLocationData(Log_employee_id:Int!){
+//        loaderStart()
+        let url = "\(BASE_URL)timesheet/log/subordinate/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(Log_employee_id!)"
+        print("url-=>",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+//                self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                    print("Location details: \(swiftyJsonVar)")
+                self.OpenLatLongDetailsPopup(employee_name: swiftyJsonVar["employee_name"].stringValue, employee_code: swiftyJsonVar["employee_code"].stringValue, attendance_date: swiftyJsonVar["attendance_date"].stringValue, in_time: swiftyJsonVar["detail"]["in_time"].stringValue, in_latitude: swiftyJsonVar["detail"]["in_latitude"].stringValue, in_longitude: swiftyJsonVar["detail"]["in_longitude"].stringValue, in_address: swiftyJsonVar["detail"]["in_address"].stringValue, out_time: swiftyJsonVar["detail"]["out_time"].stringValue, out_latitude: swiftyJsonVar["detail"]["out_latitude"].stringValue, out_longitude: swiftyJsonVar["detail"]["out_longitude"].stringValue, out_address: swiftyJsonVar["detail"]["out_address"].stringValue,
+                                             in_image_base_64: swiftyJsonVar["detail"]["in_image_base_64"].stringValue, out_image_base_64: swiftyJsonVar["detail"]["out_image_base_64"].stringValue)
+                    
+                }
+
+                
+            }
+            
+        }
+    //---Leave PopupOk
+    @objc func LeavePopupOk(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelLatLongDetailsPopup()
+    }
+    //--------function to load popup Lat/Long Details data using Alamofire and Json Swifty code ends----------
+    //============================Form Leave Balance dialog, code ends============================
+    //======added on 07-Jun-2021, ends
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
         var blurEffectView: UIVisualEffectView!
