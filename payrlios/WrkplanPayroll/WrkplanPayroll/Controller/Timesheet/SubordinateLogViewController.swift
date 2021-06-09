@@ -55,6 +55,10 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         designablebtn_label_subordinate_monthly_attendance_log.isUserInteractionEnabled = true
         designablebtn_label_subordinate_monthly_attendance_log.addGestureRecognizer(tapGestureRecognizerLabelSubordinateMonthlyAttendanceLogDesignablebtn)
         
+        //LocationDetails OK Popup
+        let tapGestureRecognizerLocationDetailsOk = UITapGestureRecognizer(target: self, action: #selector(LocationDetailsPopupOk(tapGestureRecognizer:)))
+        custom_btn_ok_location_details_popup.isUserInteractionEnabled = true
+        custom_btn_ok_location_details_popup.addGestureRecognizer(tapGestureRecognizerLocationDetailsOk)
         
     }
     
@@ -206,11 +210,11 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
        }
        //--------function to show log details using Alamofire and Json Swifty code ends------------
     //=====added on 07-Jun-2021, starts
-    //============================-Form Leave Balance dialog, code starts============================
+    //============================-Form Location Details dialog, code starts============================
     @IBOutlet var viewLatLongDetailsPopup: UIView!
    
    
-    @IBOutlet weak var custom_btn_ok_leave_popup: UIView!
+    @IBOutlet weak var custom_btn_ok_location_details_popup: UIView!
     
     @IBOutlet weak var PopupEmpName: UILabel!
     
@@ -234,12 +238,24 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
    
     @IBOutlet weak var PopupOutTime: UILabel!
     
+    @IBOutlet weak var PopupTitleOutLatitude: UILabel!
+    @IBOutlet weak var PopupTitleOutLongitude: UILabel!
+    @IBOutlet weak var PopupViewOut: UIView!
+    @IBOutlet weak var PopupLabelOut: UILabel!
+    @IBOutlet weak var PopupLabelStatus: UILabel!
+    //---Location Details PopupOk
+    @objc func LocationDetailsPopupOk(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelLatLongDetailsPopup()
+    }
+    
     func OpenLatLongDetailsPopup(employee_name: String!,employee_code: String!, attendance_date: String!, in_time: String!, in_latitude: String!, in_longitude: String!, in_address: String!, out_time: String!, out_latitude: String!, out_longitude: String!, out_address: String!, in_image_base_64: String!, out_image_base_64: String!){
         blurEffect()
-//        self.viewLatLongDetailsPopup.frame.size.width = 400
+//        self.viewLatLongDetailsPopup.frame.size.width = UIScreen.main.bounds.size.width - 40
+//        self.view.frame.size.width = UIScreen.main.bounds.size.width - 40
         self.view.addSubview(viewLatLongDetailsPopup)
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
+        self.viewLatLongDetailsPopup.frame.size.width = screenWidth - 40
         viewLatLongDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
         viewLatLongDetailsPopup.center = self.view.center
         viewLatLongDetailsPopup.layer.cornerRadius = 10.0
@@ -251,6 +267,10 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         self.PopupEmpName.text = employee_name
         self.PopupEmpCode.text = employee_code
         self.PopupAttendanceDate.text = attendance_date
+        self.PopupLabelStatus.textColor = UIColor(hexFromString: "#FFFFFF")
+        self.PopupLabelStatus.backgroundColor = UIColor(hexFromString: "#00FF00")
+        self.PopupLabelStatus.layer.masksToBounds = true
+        self.PopupLabelStatus.cornerRadius = 5
         
         self.PopupInTime.text = in_time
         self.PopupInLatitude.text = in_latitude
@@ -261,18 +281,24 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
                         self.PopupInImageView.image = image
                     }
 //        self.PopupInImageView.
+        if out_latitude == "" {
+            PopupTitleOutLatitude.isHidden = true
+            PopupTitleOutLongitude.isHidden = true
+            PopupViewOut.isHidden = true
+            PopupLabelOut.isHidden = true
+        }
         
         self.PopupOutTime.text = out_time
         self.PopupOutLatitude.text = out_latitude
         self.PopupOutLongitude.text = out_longitude
         self.PopupAddressOut.text = out_address
-        if let imageDataOut = Data(base64Encoded: in_image_base_64) {
+        if let imageDataOut = Data(base64Encoded: out_image_base_64) {
                         let image = UIImage(data: imageDataOut)
                         self.PopupOutImageView.image = image
                     }
         
 
-        custom_btn_ok_leave_popup.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        custom_btn_ok_location_details_popup.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
       /*  stackViewButtonborder.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
         view_custom_btn_punchout.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)*/
         
@@ -292,7 +318,8 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
             self.viewLatLongDetailsPopup.alpha = 0
             self.blurEffectView.alpha = 0.3
         }) { (success) in
-            self.viewLatLongDetailsPopup.removeFromSuperview();
+            self.viewLatLongDetailsPopup.removeFromSuperview()
+            self.loadData()
             self.canelBlurEffect()
         }
     }
@@ -323,7 +350,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         cancelLatLongDetailsPopup()
     }
     //--------function to load popup Lat/Long Details data using Alamofire and Json Swifty code ends----------
-    //============================Form Leave Balance dialog, code ends============================
+    //============================Form Location Details dialog, code ends============================
     //======added on 07-Jun-2021, ends
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
