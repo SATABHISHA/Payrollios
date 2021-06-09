@@ -268,7 +268,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         self.PopupEmpCode.text = employee_code
         self.PopupAttendanceDate.text = attendance_date
         self.PopupLabelStatus.textColor = UIColor(hexFromString: "#FFFFFF")
-        self.PopupLabelStatus.backgroundColor = UIColor(hexFromString: "#00FF00")
+        self.PopupLabelStatus.backgroundColor = UIColor(hexFromString: "#9fdd55")
         self.PopupLabelStatus.layer.masksToBounds = true
         self.PopupLabelStatus.cornerRadius = 5
         
@@ -297,8 +297,8 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
                         self.PopupOutImageView.image = image
                     }
         
-
-        custom_btn_ok_location_details_popup.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        
+        custom_btn_ok_location_details_popup.addBorder(side: .top, color: UIColor(hexFromString: "B3B3B2"), width: 1)
       /*  stackViewButtonborder.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
         view_custom_btn_punchout.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)*/
         
