@@ -247,15 +247,21 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
     @objc func LocationDetailsPopupOk(tapGestureRecognizer: UITapGestureRecognizer){
         cancelLatLongDetailsPopup()
     }
-    
+    let screenSize = UIScreen.main.bounds
+    let screenWidth = UIScreen.main.bounds.width
     func OpenLatLongDetailsPopup(employee_name: String!,employee_code: String!, attendance_date: String!, in_time: String!, in_latitude: String!, in_longitude: String!, in_address: String!, out_time: String!, out_latitude: String!, out_longitude: String!, out_address: String!, in_image_base_64: String!, out_image_base_64: String!){
         blurEffect()
+        
+        print("screenwidthtesting-=>", screenWidth)
 //        self.viewLatLongDetailsPopup.frame.size.width = UIScreen.main.bounds.size.width - 40
-//        self.view.frame.size.width = UIScreen.main.bounds.size.width - 40
+        
+        print("viewTesting-=>", view.frame.size.width)
         self.view.addSubview(viewLatLongDetailsPopup)
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        self.viewLatLongDetailsPopup.frame.size.width = screenWidth - 40
+        
+        viewLatLongDetailsPopup.layer.masksToBounds = true
+        viewLatLongDetailsPopup.frame.size.width = screenWidth - 40
+//        self.viewLatLongDetailsPopup.frame.size.height = 451
+//        self.viewLatLongDetailsPopup.frame.size.width = 300
         viewLatLongDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
         viewLatLongDetailsPopup.center = self.view.center
         viewLatLongDetailsPopup.layer.cornerRadius = 10.0
@@ -319,7 +325,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
             self.blurEffectView.alpha = 0.3
         }) { (success) in
             self.viewLatLongDetailsPopup.removeFromSuperview()
-            self.loadData()
+//            self.loadData()
             self.canelBlurEffect()
         }
     }
