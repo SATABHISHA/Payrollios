@@ -86,6 +86,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //---------variables for navigation drawer ends-------
     
+    
     //---Declaring shared preferences----
     let sharedpreferences = UserDefaults.standard
     
