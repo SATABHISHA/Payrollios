@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -357,14 +357,14 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyC-C4-4AH">
                                                         <rect key="frame" x="0.0" y="0.0" width="193" height="222"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE5-Bh-g98">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE5-Bh-g98">
                                                                 <rect key="frame" x="0.0" y="177" width="193" height="45"/>
-                                                                <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="rEK-pp-Z0I"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                                <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.070588235294117646" green="0.24705882352941178" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reports" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-4e-4As">
@@ -385,14 +385,14 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Us-Cc-8PD">
                                                         <rect key="frame" x="201" y="0.0" width="193" height="222"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxD-pe-lXn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxD-pe-lXn">
                                                                 <rect key="frame" x="0.0" y="177" width="193" height="45"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="DGQ-fh-s3N"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" red="0.070588235294117646" green="0.24705882352941178" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -400,12 +400,19 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reports" translatesAutoresizingMaskIntoConstraints="NO" id="jiC-oR-6HH">
+                                                                <rect key="frame" x="32" y="24" width="129" height="120"/>
+                                                            </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="BxD-pe-lXn" firstAttribute="top" secondItem="jiC-oR-6HH" secondAttribute="bottom" constant="33" id="1OE-Ml-JsL"/>
                                                             <constraint firstAttribute="trailing" secondItem="BxD-pe-lXn" secondAttribute="trailing" id="36u-Q9-3UD"/>
                                                             <constraint firstAttribute="bottom" secondItem="BxD-pe-lXn" secondAttribute="bottom" id="4SC-tB-DkQ"/>
                                                             <constraint firstItem="BxD-pe-lXn" firstAttribute="leading" secondItem="4Us-Cc-8PD" secondAttribute="leading" id="CH2-oE-JXy"/>
+                                                            <constraint firstAttribute="trailing" secondItem="jiC-oR-6HH" secondAttribute="trailing" constant="32" id="Cyx-vU-J3r"/>
+                                                            <constraint firstItem="jiC-oR-6HH" firstAttribute="top" secondItem="4Us-Cc-8PD" secondAttribute="top" constant="24" id="bPV-HJ-gCK"/>
+                                                            <constraint firstItem="jiC-oR-6HH" firstAttribute="leading" secondItem="4Us-Cc-8PD" secondAttribute="leading" constant="32" id="l77-9y-VEW"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -463,7 +470,7 @@
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="50" id="q7k-MX-fAk" customClass="HomeNavigationControllerTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="354" height="50"/>
+                                                <rect key="frame" x="0.0" y="24.333333969116211" width="354" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q7k-MX-fAk" id="7tR-b3-7Gn">
                                                     <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -621,6 +628,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="AdvanceImage" destination="ntc-4e-4As" id="6S9-4T-2dK"/>
+                        <outlet property="AdvanceView" destination="hyC-C4-4AH" id="Zbf-fC-u8M"/>
                         <outlet property="CompanyDocImg" destination="eBy-6p-2ke" id="YZ0-ro-uDV"/>
                         <outlet property="CompanyDocView" destination="XBr-GN-1Fd" id="hPI-OS-UZX"/>
                         <outlet property="EmployeeDocImg" destination="fxb-KG-AAq" id="bpH-kd-UmK"/>
@@ -639,14 +648,15 @@
                         <outlet property="ODdutyRequestImg" destination="Vd4-HH-yZJ" id="AQV-5T-c3r"/>
                         <outlet property="ODdutyRequestView" destination="2IT-Dr-NqG" id="zyg-OL-Eh3"/>
                         <outlet property="ODdutyView" destination="5AG-Kx-GkQ" id="7cW-bD-zUa"/>
-                        <outlet property="ReportsImage" destination="ntc-4e-4As" id="6S9-4T-2dK"/>
-                        <outlet property="ReportsView" destination="hyC-C4-4AH" id="Zbf-fC-u8M"/>
+                        <outlet property="ReportsImage" destination="jiC-oR-6HH" id="eks-NZ-lWk"/>
+                        <outlet property="ReportsView" destination="4Us-Cc-8PD" id="8sE-P0-3jk"/>
                         <outlet property="ScrollView" destination="9dN-SJ-4Ug" id="DUY-AR-5rr"/>
                         <outlet property="ScrollViewContainer" destination="KEL-6a-67U" id="per-Gx-m1I"/>
                         <outlet property="TimesheetImg" destination="WO2-31-ocP" id="hvR-AE-nrb"/>
                         <outlet property="TimesheetView" destination="0B7-vs-0hS" id="lEe-33-5UB"/>
                         <outlet property="btnPasswordChangeSubmit" destination="HIN-ZZ-FG8" id="NSs-bT-o59"/>
                         <outlet property="info_img" destination="hSJ-2Y-Fzb" id="b0x-I5-ros"/>
+                        <outlet property="labelAdvance" destination="VE5-Bh-g98" id="sV9-7B-8UI"/>
                         <outlet property="labelCompanyDoc" destination="Dym-Zm-sBs" id="bJQ-yv-bj3"/>
                         <outlet property="labelEmployeeDoc" destination="3Yc-PD-xv4" id="g2B-VF-9hP"/>
                         <outlet property="labelEmployeeFacilities" destination="gnO-Xu-h5U" id="cZe-tv-2YY"/>
@@ -657,7 +667,7 @@
                         <outlet property="labelODduty" destination="qOE-1k-TzH" id="xaS-Dy-1OA"/>
                         <outlet property="labelODdutyRequest" destination="BPE-8N-Qtn" id="weZ-Ks-ZV9"/>
                         <outlet property="labelPasswordCheck" destination="Znr-fI-wV0" id="Je2-pV-vli"/>
-                        <outlet property="labelReports" destination="VE5-Bh-g98" id="sV9-7B-8UI"/>
+                        <outlet property="labelReports" destination="BxD-pe-lXn" id="qyW-TT-5PC"/>
                         <outlet property="labelTimesheet" destination="RKH-dv-UeR" id="WwQ-2t-vXW"/>
                         <outlet property="navigationCompanyName" destination="uLX-6U-sMA" id="7yy-Gw-jms"/>
                         <outlet property="navigationDrawer" destination="u9Z-Il-Kjs" id="4PD-O9-RFQ"/>
@@ -682,6 +692,7 @@
                         <segue destination="6qp-2R-KNi" kind="modal" identifier="odloglist" modalPresentationStyle="fullScreen" id="mEg-jv-D6u"/>
                         <segue destination="Li9-ty-Zhq" kind="modal" identifier="login" modalPresentationStyle="fullScreen" id="bKk-ce-5E0"/>
                         <segue destination="xbE-8B-cCL" kind="modal" identifier="reports" modalPresentationStyle="fullScreen" id="MR4-tN-o8L"/>
+                        <segue destination="5Et-tu-4sH" kind="modal" identifier="advancerequisition" modalPresentationStyle="fullScreen" id="rKQ-Yk-Y9Q"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="bbN-zT-K2i">
@@ -908,6 +919,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Raz-Fl-14l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3297" y="-396"/>
+        </scene>
+        <!--advance-->
+        <scene sceneID="2TE-il-gI3">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="advance" storyboardName="AdvanceRequisitionList" referencedIdentifier="advance" id="5Et-tu-4sH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eSd-Gg-VaQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qd5-Im-13P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3315" y="-304"/>
         </scene>
         <!--insurance-->
         <scene sceneID="4U1-VN-GXF">
