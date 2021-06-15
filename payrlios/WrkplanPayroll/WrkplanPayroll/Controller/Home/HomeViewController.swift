@@ -137,6 +137,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         AdvanceView.layer.borderWidth = 1
         AdvanceView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
         
+        ReportsView.layer.borderWidth = 1
+        ReportsView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
+        
         labelEmployeeInformation.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelLeave.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelEmployeeFacilities.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
@@ -148,6 +151,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         labelODduty.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelTimesheet.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelAdvance.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
+        labelReports.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         //----------view and label border code styarts--------
         
         
@@ -192,6 +196,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "timesheet")
         k.menuItm = "Timesheet"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "reports")
+        k.menuItm = "Advance"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "reports")
         k.menuItm = "Reports"
@@ -485,6 +492,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             else if row.menuItm == "Timesheet"{
                 menuClose()
                 self.performSegue(withIdentifier: "timesheet", sender: self)
+               
+            }else if row.menuItm == "Advance"{
+                menuClose()
+                self.performSegue(withIdentifier: "advancerequisition", sender: nil)
                
             }else if row.menuItm == "Reports"{
                 menuClose()
