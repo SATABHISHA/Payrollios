@@ -18,10 +18,13 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
+    static var requisition_no: String!, description: String!, requisition_status: String!, supervisor_remark: String!
+    static var requisition_amount: Double!, approved_requisition_amount: Double!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ChangeStatusBarColor() //---to change backgrounf statusbar color
+        ChangeStatusBarColor() //---to change background statusbar color
         
         self.TableViewRequisitionList.delegate = self
         self.TableViewRequisitionList.dataSource = self
@@ -32,8 +35,10 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     @IBAction func BtnOnClick(_ sender: UIButton) {
         switch sender {
         case BtnNew:
+            self.performSegue(withIdentifier: "advancerequisition", sender: nil)
             break
         case BtnBack:
+            self.performSegue(withIdentifier: "home", sender: nil)
             break
         default:
             break
@@ -96,20 +101,24 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     }
     
     //---------onClick tableview code starts----------
-      /*  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
-            OutDoorDutyListViewController.new_create_yn = false
-            var row=arrRes[indexPath.row]
+//            OutDoorDutyListViewController.new_create_yn = false
+            let row=arrRes[indexPath.row]
             print(row)
             print("tap is working")
            
-            OutDoorDutyListViewController.supervisor_od_request_id = row["od_request_id"]?.stringValue
-            SubordinateOutdoorDutyRequestListViewController.supervisor_employee_id = row["employee_id"]?.stringValue
+            AdvanceRequisitionListViewController.requisition_no = row["requisition_no"] as? String
+            AdvanceRequisitionListViewController.requisition_amount = row["requisition_amount"]?.doubleValue
+            AdvanceRequisitionListViewController.description = row["description"] as? String
+            AdvanceRequisitionListViewController.approved_requisition_amount = row["approved_requisition_amount"]?.doubleValue
+            AdvanceRequisitionListViewController.supervisor_remark = row["supervisor_remark"] as? String
+            AdvanceRequisitionListViewController.requisition_status = row["requisition_status"] as? String
            
 //            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
 //            print("test-=>",row["od_request_id"]?.stringValue)
-            self.performSegue(withIdentifier: "outdoordutyrequest", sender: self)
-        }*/
+            self.performSegue(withIdentifier: "advancerequisition", sender: self)
+        }
         //---------onClick tableview code ends----------
     
   /*  func OutDoorDutyListTableViewCellAddOrRemoveDidTapAddOrView(_ sender: OutDoorDutyListTableViewCell) {
