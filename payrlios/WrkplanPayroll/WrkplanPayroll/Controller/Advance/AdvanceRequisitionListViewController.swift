@@ -20,6 +20,7 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     
     static var requisition_no: String!, description: String!, requisition_status: String!, supervisor_remark: String!
     static var requisition_amount: Double!, approved_requisition_amount: Double!
+    static var new_create_yn: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,8 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     @IBAction func BtnOnClick(_ sender: UIButton) {
         switch sender {
         case BtnNew:
+            AdvanceRequisitionListViewController.new_create_yn = true
+            AdvanceRequisitionListViewController.requisition_status = ""
             self.performSegue(withIdentifier: "advancerequisition", sender: nil)
             break
         case BtnBack:
@@ -103,7 +106,7 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     //---------onClick tableview code starts----------
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
-//            OutDoorDutyListViewController.new_create_yn = false
+            AdvanceRequisitionListViewController.new_create_yn = false
             let row=arrRes[indexPath.row]
             print(row)
             print("tap is working")

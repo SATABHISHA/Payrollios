@@ -51,14 +51,14 @@
                                     <constraint firstItem="en8-nb-mGb" firstAttribute="leading" secondItem="rHh-dj-jkO" secondAttribute="trailing" id="vBC-gy-wwN"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qyi-o4-NUB">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qyi-o4-NUB">
                                 <rect key="frame" x="0.0" y="684" width="414" height="52"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBD-3Z-8QV">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAk-ip-cs3">
-                                                <rect key="frame" x="13.333333333333332" y="15.333333333333373" width="55.666666666666671" height="21.666666666666671"/>
+                                                <rect key="frame" x="13.666666666666668" y="15.333333333333373" width="55.666666666666657" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,10 +79,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTz-Zu-XhN">
-                                        <rect key="frame" x="83" y="0.0" width="82" height="52"/>
+                                        <rect key="frame" x="82.666666666666671" y="0.0" width="83.000000000000014" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrR-JK-J0z">
-                                                <rect key="frame" x="14.333333333333325" y="15.333333333333373" width="53.666666666666657" height="21.666666666666671"/>
+                                                <rect key="frame" x="14.666666666666654" y="15.333333333333373" width="53.666666666666657" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,10 +103,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0Q-jr-5WU">
-                                        <rect key="frame" x="166" y="0.0" width="82" height="52"/>
+                                        <rect key="frame" x="165.66666666666666" y="0.0" width="82.666666666666657" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nt-7h-58g">
-                                                <rect key="frame" x="7.3333333333333428" y="15.333333333333373" width="67.333333333333329" height="21.666666666666671"/>
+                                                <rect key="frame" x="7.6666666666666856" y="15.333333333333373" width="67.333333333333329" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -119,7 +119,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -127,10 +127,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6G-gB-aHc">
-                                        <rect key="frame" x="249" y="0.0" width="82" height="52"/>
+                                        <rect key="frame" x="248.33333333333337" y="0.0" width="83" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdB-uY-7pd">
-                                                <rect key="frame" x="12.666666666666686" y="15.333333333333373" width="57" height="21.666666666666671"/>
+                                                <rect key="frame" x="12.999999999999972" y="15.333333333333373" width="57" height="21.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -143,7 +143,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,7 +151,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47W-GY-DLl">
-                                        <rect key="frame" x="332" y="0.0" width="82" height="52"/>
+                                        <rect key="frame" x="331.33333333333331" y="0.0" width="82.666666666666686" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXr-RZ-87l">
                                                 <rect key="frame" x="21.666666666666686" y="15.333333333333373" width="39" height="21.666666666666671"/>
@@ -167,7 +167,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -533,6 +533,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="StackViewButtons" destination="Qyi-o4-NUB" id="v1u-u5-Sgd"/>
                         <outlet property="TxtApplicationStatus" destination="HqQ-i8-r8A" id="F3V-p0-WbX"/>
                         <outlet property="TxtApprovedAmount" destination="s6o-Ol-zT5" id="L9K-JP-P8S"/>
                         <outlet property="TxtCtc" destination="Jyg-hC-OIV" id="SaZ-w9-3ZD"/>
@@ -541,6 +542,11 @@
                         <outlet property="TxtReturnPeriod" destination="Ykf-RV-VOi" id="OUd-2d-vo8"/>
                         <outlet property="TxtViewApprovalRemark" destination="kAU-DU-hjo" id="VKL-cF-njk"/>
                         <outlet property="TxtViewNarration" destination="tUp-9b-m2O" id="OMD-wS-EMv"/>
+                        <outlet property="ViewButtonApprove" destination="Q0Q-jr-5WU" id="x1K-bk-qL7"/>
+                        <outlet property="ViewButtonCancel" destination="fBD-3Z-8QV" id="8mx-Cf-vSJ"/>
+                        <outlet property="ViewButtonReturn" destination="vTz-Zu-XhN" id="E5Z-mj-7Ve"/>
+                        <outlet property="ViewButtonSave" destination="47W-GY-DLl" id="9Eg-ul-zLi"/>
+                        <outlet property="ViewButtonSubmit" destination="E6G-gB-aHc" id="6GX-YC-piP"/>
                         <outlet property="btn_reason_select_type" destination="7PZ-fl-vMg" id="Vrh-Lc-9I4"/>
                         <segue destination="6ci-Ly-841" kind="modal" identifier="advancehome" modalPresentationStyle="fullScreen" id="P7M-e6-q7K"/>
                     </connections>
