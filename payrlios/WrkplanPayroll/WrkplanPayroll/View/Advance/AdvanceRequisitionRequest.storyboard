@@ -549,11 +549,22 @@
                         <outlet property="ViewButtonSubmit" destination="E6G-gB-aHc" id="6GX-YC-piP"/>
                         <outlet property="btn_reason_select_type" destination="7PZ-fl-vMg" id="Vrh-Lc-9I4"/>
                         <segue destination="6ci-Ly-841" kind="modal" identifier="advancehome" modalPresentationStyle="fullScreen" id="P7M-e6-q7K"/>
+                        <segue destination="eLh-vm-RLq" kind="modal" identifier="subordinate" modalPresentationStyle="fullScreen" id="MII-no-UXM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="30.978260869565219"/>
+        </scene>
+        <!--subordinateadvancelist-->
+        <scene sceneID="KBN-6s-SSr">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinateadvancelist" storyboardName="SubordinateAdvanceRequisitionList" referencedIdentifier="subordinateadvancelist" id="eLh-vm-RLq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="VmH-Ge-9sj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yqv-Fr-Hqd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="-226"/>
         </scene>
         <!--advance-->
         <scene sceneID="Lho-6O-UJF">

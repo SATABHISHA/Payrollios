@@ -88,7 +88,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.59999999999999998"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -228,9 +228,11 @@
                     <connections>
                         <outlet property="BtnBack" destination="ec5-jn-bgO" id="WTu-UD-tsh"/>
                         <outlet property="BtnNew" destination="9TP-a6-zEa" id="wh4-2n-YKV"/>
+                        <outlet property="LabelCustomButtonSubordinateAdvanceRequisitionList" destination="7py-HA-F5C" id="bYG-sl-q22"/>
                         <outlet property="TableViewRequisitionList" destination="uLB-Yg-wbE" id="gLM-Xn-XZj"/>
                         <segue destination="Wah-46-9Vy" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="q0j-BX-N8H"/>
                         <segue destination="YRf-Wr-Fu1" kind="modal" identifier="advancerequisition" modalPresentationStyle="fullScreen" id="kzt-6o-Opj"/>
+                        <segue destination="qW7-98-pJH" kind="modal" identifier="subordinateadvance" modalPresentationStyle="fullScreen" id="Xtw-wX-2hk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rK6-Mw-oko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,6 +258,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyD-1t-dq1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="654" y="-119"/>
+        </scene>
+        <!--subordinateadvancelist-->
+        <scene sceneID="L9X-l7-39X">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinateadvancelist" storyboardName="SubordinateAdvanceRequisitionList" referencedIdentifier="subordinateadvancelist" id="qW7-98-pJH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d6y-ZI-i9u"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7x5-20-hO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="9"/>
         </scene>
     </scenes>
     <resources>

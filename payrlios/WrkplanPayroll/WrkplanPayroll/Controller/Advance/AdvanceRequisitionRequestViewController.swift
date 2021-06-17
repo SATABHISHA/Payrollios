@@ -12,7 +12,7 @@ import Alamofire
 import Toast_Swift
 
 class AdvanceRequisitionRequestViewController: UIViewController {
-
+    
     @IBOutlet weak var btn_reason_select_type: UIButton!
     let dropDown = DropDown()
     var type = [String]()
@@ -66,12 +66,21 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         TxtApplicationStatus.setLeftPaddingPoints(2)
         
         if AdvanceRequisitionListViewController.new_create_yn == false{
-        TxtRequisitionNo.text = AdvanceRequisitionListViewController.requisition_no
-        TxtRequisitionAmount.text = String(AdvanceRequisitionListViewController.requisition_amount)
-        TxtViewNarration.text = AdvanceRequisitionListViewController.description
-        TxtApprovedAmount.text = String(AdvanceRequisitionListViewController.approved_requisition_amount)
-        TxtViewApprovalRemark.text = AdvanceRequisitionListViewController.supervisor_remark
-        TxtApplicationStatus.text = AdvanceRequisitionListViewController.requisition_status
+            TxtRequisitionNo.text = AdvanceRequisitionListViewController.requisition_no
+            TxtRequisitionAmount.text = String(AdvanceRequisitionListViewController.requisition_amount)
+            TxtViewNarration.text = AdvanceRequisitionListViewController.description
+            TxtApprovedAmount.text = String(AdvanceRequisitionListViewController.approved_requisition_amount)
+            TxtViewApprovalRemark.text = AdvanceRequisitionListViewController.supervisor_remark
+            
+            if AdvanceRequisitionListViewController.requisition_status == "Submit"{
+            TxtApplicationStatus.text = "Submitted"
+            } else if AdvanceRequisitionListViewController.requisition_status == "Return"{
+                TxtApplicationStatus.text = "Returned"
+            } else if AdvanceRequisitionListViewController.requisition_status == "Save" {
+                TxtApplicationStatus.text = "Saved"
+            } else{
+                TxtApplicationStatus.text = AdvanceRequisitionListViewController.requisition_status
+            }
         }
         
         //Cancel
@@ -113,6 +122,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     
     //---Cancel
     @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
+        if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
+            self.performSegue(withIdentifier: "advancehome", sender: nil)
+        }
+        if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
+            self.performSegue(withIdentifier: "subordinate", sender: nil)
+        }
     }
     //---Return
     @objc func ReturnView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -128,7 +143,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     }
     
     @IBAction func BtnBack(_ sender: Any) {
-        self.performSegue(withIdentifier: "advancehome", sender: nil)
+        if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
+            self.performSegue(withIdentifier: "advancehome", sender: nil)
+        }
+        if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
+            self.performSegue(withIdentifier: "subordinate", sender: nil)
+        }
     }
     
     @IBAction func BtnDropDownSelect(_ sender: UIButton) {
@@ -137,7 +157,7 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height+10) //6
         dropDown.show() //7
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
-          guard let _ = self else { return }
+            guard let _ = self else { return }
             if item.contains("i)"){
                 sender.setTitle(item.replacingOccurrences(of: "i) ", with: "", options: .literal, range: nil), for: .normal) //9
             }
@@ -150,12 +170,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
             if item.contains("iv)"){
                 sender.setTitle(item.replacingOccurrences(of: "iv) ", with: "", options: .literal, range: nil), for: .normal) //9
             }
-//          sender.setTitle(item, for: .normal) //9
+            //          sender.setTitle(item, for: .normal) //9
             sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
-    }
+        }
     }
     
-   
+    //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
         StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewButtonReturn.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
@@ -163,38 +183,61 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         ViewButtonSubmit.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewButtonSave.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         
-        if AdvanceRequisitionListViewController.requisition_status == ""{
-            ViewButtonCancel.isHidden = false
-            ViewButtonSave.isHidden = false
-            ViewButtonSubmit.isHidden = false
-            ViewButtonApprove.isHidden = true
-            ViewButtonReturn.isHidden = true
+        if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
+            if AdvanceRequisitionListViewController.requisition_status == ""{
+                ViewButtonCancel.isHidden = false
+                ViewButtonSave.isHidden = false
+                ViewButtonSubmit.isHidden = false
+                ViewButtonApprove.isHidden = true
+                ViewButtonReturn.isHidden = true
+            }
+            if AdvanceRequisitionListViewController.requisition_status == "Save"{
+                ViewButtonCancel.isHidden = false
+                ViewButtonSave.isHidden = false
+                ViewButtonSubmit.isHidden = false
+                ViewButtonApprove.isHidden = true
+                ViewButtonReturn.isHidden = true
+            }
+            if AdvanceRequisitionListViewController.requisition_status == "Submit" ||
+                AdvanceRequisitionListViewController.requisition_status == "Approved" ||
+                AdvanceRequisitionListViewController.requisition_status == "Payment done" ||
+                AdvanceRequisitionListViewController.requisition_status == "Canceled"{
+                
+                ViewButtonCancel.isHidden = false
+                ViewButtonSave.isHidden = true
+                ViewButtonSubmit.isHidden = true
+                ViewButtonApprove.isHidden = true
+                ViewButtonReturn.isHidden = true
+            }
+            if AdvanceRequisitionListViewController.requisition_status == "Return"{
+                ViewButtonCancel.isHidden = false
+                ViewButtonSave.isHidden = true
+                ViewButtonSubmit.isHidden = false
+                ViewButtonApprove.isHidden = true
+                ViewButtonReturn.isHidden = true
+            }
         }
-        if AdvanceRequisitionListViewController.requisition_status == "Save"{
-            ViewButtonCancel.isHidden = false
-            ViewButtonSave.isHidden = false
-            ViewButtonSubmit.isHidden = false
-            ViewButtonApprove.isHidden = true
-            ViewButtonReturn.isHidden = true
-        }
-        if AdvanceRequisitionListViewController.requisition_status == "Submit" ||
-            AdvanceRequisitionListViewController.requisition_status == "Approved" ||
-            AdvanceRequisitionListViewController.requisition_status == "Payment done" ||
-            AdvanceRequisitionListViewController.requisition_status == "Canceled"{
-            
-            ViewButtonCancel.isHidden = false
-            ViewButtonSave.isHidden = true
-            ViewButtonSubmit.isHidden = true
-            ViewButtonApprove.isHidden = true
-            ViewButtonReturn.isHidden = true
-        }
-        if AdvanceRequisitionListViewController.requisition_status == "Return"{
-            ViewButtonCancel.isHidden = false
-            ViewButtonSave.isHidden = true
-            ViewButtonSubmit.isHidden = false
-            ViewButtonApprove.isHidden = true
-            ViewButtonReturn.isHidden = true
+        if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
+            if AdvanceRequisitionListViewController.requisition_status == "Submit"{
+                ViewButtonCancel.isHidden = false
+                ViewButtonSave.isHidden = true
+                ViewButtonSubmit.isHidden = true
+                ViewButtonApprove.isHidden = false
+                ViewButtonReturn.isHidden = false
+            }
+            if AdvanceRequisitionListViewController.requisition_status == "Return" ||
+                AdvanceRequisitionListViewController.requisition_status == "Approved" ||
+                AdvanceRequisitionListViewController.requisition_status == "Payment done" ||
+                AdvanceRequisitionListViewController.requisition_status == "Canceled"{
+                
+                ViewButtonCancel.isHidden = false
+                ViewButtonSave.isHidden = true
+                ViewButtonSubmit.isHidden = true
+                ViewButtonApprove.isHidden = true
+                ViewButtonReturn.isHidden = true
+            }
         }
     }
-
+    //----function to load buttons acc to the logic, code ends
+    
 }

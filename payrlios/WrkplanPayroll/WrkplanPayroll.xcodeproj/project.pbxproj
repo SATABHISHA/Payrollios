@@ -105,6 +105,9 @@
 		17E57788257A342100F10376 /* MyAttendanceLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */; };
 		17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */; };
 		17EB8544261EE6F90074E8D6 /* MyLeaveRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB8543261EE6F90074E8D6 /* MyLeaveRequestViewController.swift */; };
+		17F5E99D267B629C0089C614 /* SubordinateAdvanceRequisitionList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F5E99C267B629C0089C614 /* SubordinateAdvanceRequisitionList.storyboard */; };
+		17F5E99F267B62D90089C614 /* SubordinateAdvanceRequisitionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F5E99E267B62D90089C614 /* SubordinateAdvanceRequisitionListViewController.swift */; };
+		17F5E9A1267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F5E9A0267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift */; };
 		17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */; };
 		17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */; };
 		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
@@ -233,6 +236,9 @@
 		17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogViewController.swift; sourceTree = "<group>"; };
 		17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogTableViewCell.swift; sourceTree = "<group>"; };
 		17EB8543261EE6F90074E8D6 /* MyLeaveRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLeaveRequestViewController.swift; sourceTree = "<group>"; };
+		17F5E99C267B629C0089C614 /* SubordinateAdvanceRequisitionList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateAdvanceRequisitionList.storyboard; sourceTree = "<group>"; };
+		17F5E99E267B62D90089C614 /* SubordinateAdvanceRequisitionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateAdvanceRequisitionListViewController.swift; sourceTree = "<group>"; };
+		17F5E9A0267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateAdvanceRequisitionListTableViewCell.swift; sourceTree = "<group>"; };
 		17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListViewController.swift; sourceTree = "<group>"; };
 		17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListTableViewCell.swift; sourceTree = "<group>"; };
 		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
@@ -620,6 +626,7 @@
 			children = (
 				178E61E026789F4B00BD0A4E /* AdvanceRequisitionList.storyboard */,
 				175A3DF9267A093D0074F9B7 /* AdvanceRequisitionRequest.storyboard */,
+				17F5E99C267B629C0089C614 /* SubordinateAdvanceRequisitionList.storyboard */,
 			);
 			path = Advance;
 			sourceTree = "<group>";
@@ -630,6 +637,8 @@
 				178E61E326789FAE00BD0A4E /* AdvanceRequisitionListViewController.swift */,
 				178E61E52678CA5E00BD0A4E /* AdvanceRequisitionListTableViewCell.swift */,
 				175A3DFB267A241C0074F9B7 /* AdvanceRequisitionRequestViewController.swift */,
+				17F5E99E267B62D90089C614 /* SubordinateAdvanceRequisitionListViewController.swift */,
+				17F5E9A0267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift */,
 			);
 			path = Advance;
 			sourceTree = "<group>";
@@ -838,6 +847,7 @@
 				1754BAC3261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard in Resources */,
 				17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */,
 				17739206261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard in Resources */,
+				17F5E99D267B629C0089C614 /* SubordinateAdvanceRequisitionList.storyboard in Resources */,
 				172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */,
 				177597A7261332C600EAD8B4 /* OutdoorDutyLogList.storyboard in Resources */,
 				17BDC05426451820006EAFD0 /* Reports.storyboard in Resources */,
@@ -1035,11 +1045,13 @@
 				17914B8026177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift in Sources */,
 				1754BAC8261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift in Sources */,
 				178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */,
+				17F5E9A1267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift in Sources */,
 				1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */,
 				17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */,
 				17513FF0257E175C0090EFD5 /* SubordinateLogViewController.swift in Sources */,
 				177E1C9E261D9EDE00C4CF84 /* MyLeaveApplicationTableViewCell.swift in Sources */,
 				175A3DFC267A241C0074F9B7 /* AdvanceRequisitionRequestViewController.swift in Sources */,
+				17F5E99F267B62D90089C614 /* SubordinateAdvanceRequisitionListViewController.swift in Sources */,
 				17EB8544261EE6F90074E8D6 /* MyLeaveRequestViewController.swift in Sources */,
 				177597AD2613569300EAD8B4 /* OutdoorDutyLogListViewController.swift in Sources */,
 				178E61E426789FAE00BD0A4E /* AdvanceRequisitionListViewController.swift in Sources */,

@@ -1,80 +1,82 @@
 //
-//  AdvanceRequisitionListViewController.swift
+//  SubordinateAdvanceRequisitionListViewController.swift
 //  WrkplanPayroll
 //
-//  Created by SATABHISHA ROY on 15/06/21.
+//  Created by SATABHISHA ROY on 17/06/21.
 //
 
 import UIKit
-import Alamofire
 import SwiftyJSON
+import Alamofire
 import Toast_Swift
 
-class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SubordinateAdvanceRequisitionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    @IBOutlet weak var BtnNew: UIButton!
-    @IBOutlet weak var BtnBack: UIButton!
-    @IBOutlet weak var TableViewRequisitionList: UITableView!
-    @IBOutlet weak var LabelCustomButtonSubordinateAdvanceRequisitionList: UILabel!
+    @IBOutlet weak var TableViewAdvanceRequisition: UITableView!
+    
+    @IBOutlet weak var SearchBarAdvanceRequisition: UISearchBar!
+    var filteredTableData = [[String: AnyObject]]()
+    
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
-    
-    static var requisition_no: String!, description: String!, requisition_status: String!, supervisor_remark: String!, EmployeeType: String!
-    static var requisition_amount: Double!, approved_requisition_amount: Double!
-    static var new_create_yn: Bool = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
-        self.TableViewRequisitionList.delegate = self
-        self.TableViewRequisitionList.dataSource = self
+        self.TableViewAdvanceRequisition.delegate = self
+        self.TableViewAdvanceRequisition.dataSource = self
+        self.SearchBarAdvanceRequisition.delegate = self
         
+        TableViewAdvanceRequisition.backgroundColor = UIColor(hexFromString: "ffffff")
+        SearchBarAdvanceRequisition.searchTextField.backgroundColor = UIColor.white
+        SearchBarAdvanceRequisition.backgroundColor = UIColor.white
+        SearchBarAdvanceRequisition.searchTextField.textColor = UIColor.black
+//        searchBar.searchTextField.borderColor = UIColor.lightGray
+//        searchBar.searchTextField.borderWidth = 1
+//        searchBar.searchTextField.cornerRadius = 10
+        SearchBarAdvanceRequisition.layer.borderWidth = 10
+        SearchBarAdvanceRequisition.layer.borderColor = UIColor.white.cgColor
         loadData()
         
         
-        //Subordinate
-        let tapGestureRecognizerSubordinateAdvanceRequisitionListView = UITapGestureRecognizer(target: self, action: #selector(SubordinateView(tapGestureRecognizer:)))
-        LabelCustomButtonSubordinateAdvanceRequisitionList.isUserInteractionEnabled = true
-        LabelCustomButtonSubordinateAdvanceRequisitionList.addGestureRecognizer(tapGestureRecognizerSubordinateAdvanceRequisitionListView)
     }
     
-    //---Subordinate
-    @objc func SubordinateView(tapGestureRecognizer: UITapGestureRecognizer){
-        self.performSegue(withIdentifier: "subordinateadvance", sender: nil)
-    }
     
-    @IBAction func BtnOnClick(_ sender: UIButton) {
-        switch sender {
-        case BtnNew:
-            AdvanceRequisitionListViewController.new_create_yn = true
-            AdvanceRequisitionListViewController.requisition_status = ""
-            AdvanceRequisitionListViewController.EmployeeType = "Employee"
-            self.performSegue(withIdentifier: "advancerequisition", sender: nil)
-            break
-        case BtnBack:
-            self.performSegue(withIdentifier: "home", sender: nil)
-            break
-        default:
-            break
-        }
+
+    @IBAction func BtnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "advancehome", sender: nil)
     }
     
     //----------tableview code starts------------
 //    var rowIndex: Int! // --for instant delete delaring the variable
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredTableData = searchText.isEmpty ? arrRes : arrRes.filter({(object) -> Bool in
+            guard let employee_name = object["employee_name"] as? String else {return false}
+            return employee_name.lowercased().contains(searchText.lowercased())
+        })
+
+        self.TableViewAdvanceRequisition.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrRes.count
+        return filteredTableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AdvanceRequisitionListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SubordinateAdvanceRequisitionListTableViewCell
 //        rowIndex = indexPath.row
         
 //        cell.delegate = self
         
-        let dict = arrRes[indexPath.row]
+        let dict = filteredTableData[indexPath.row]
         
         let dateFormatterGet = DateFormatter()
 //        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
@@ -88,29 +90,25 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
 //                labelDate.text = eventData[i].date
 //        cell.label_date.text = dateFormatterPrint.string(from: date!)
         
-        cell.label_od_no.text = dict["requisition_no"] as? String
-        cell.label_od_date.text = dict["requisition_date"] as? String
-        cell.label_amount.text = String(describing:dict["requisition_amount"] as! Double)
-        cell.label_od_status.text = dict["requisition_status"] as? String
-        /*cell.label_timeout.text = dict["time_out"] as? String
-        cell.label_status.text = dict["attendance_status"] as? String
-        cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)*/
-        if dict["requisition_status"] as? String == "Save"{
-            cell.custom_img_btn_delete.isHidden = false
-        }else{
-            cell.custom_img_btn_delete.isHidden = true
-        }
+        cell.LabelName.text = dict["employee_name"] as? String
+        cell.LabelRequisitionNo.text = dict["requisition_no"] as? String
+        cell.LabelDate.text = dict["requisition_date"] as? String
+        cell.LabelRequisitionAmount.text = String(describing:dict["requisition_amount"] as! Double)
+        cell.LabelStatus.text = dict["requisition_status"] as? String
+        
+        
+      
         
         if dict["requisition_status"] as? String == "Approved"{
-            cell.label_od_status.textColor = UIColor(hexFromString: "1e9547")
+            cell.LabelStatus.textColor = UIColor(hexFromString: "1e9547")
         }else if dict["requisition_status"] as? String == "Canceled"{
-            cell.label_od_status.textColor = UIColor(hexFromString: "ed1c24")
+            cell.LabelStatus.textColor = UIColor(hexFromString: "ed1c24")
         }else if dict["requisition_status"] as? String == "Return"{
-            cell.label_od_status.textColor = UIColor(hexFromString: "2196ed")
+            cell.LabelStatus.textColor = UIColor(hexFromString: "2196ed")
         }else if dict["requisition_status"] as? String == "Submit"{
-            cell.label_od_status.textColor = UIColor(hexFromString: "fe52ce")
+            cell.LabelStatus.textColor = UIColor(hexFromString: "fe52ce")
         }else if dict["requisition_status"] as? String == "Save"{
-            cell.label_od_status.textColor = UIColor(hexFromString: "2196ed")
+            cell.LabelStatus.textColor = UIColor(hexFromString: "2196ed")
         }
         return cell
         
@@ -120,7 +118,7 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
             AdvanceRequisitionListViewController.new_create_yn = false
-            let row=arrRes[indexPath.row]
+            let row = filteredTableData[indexPath.row]
             print(row)
             print("tap is working")
            
@@ -133,8 +131,8 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
            
 //            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
 //            print("test-=>",row["od_request_id"]?.stringValue)
-            AdvanceRequisitionListViewController.EmployeeType = "Employee"
-            self.performSegue(withIdentifier: "advancerequisition", sender: self)
+            AdvanceRequisitionListViewController.EmployeeType = "Supervisor"
+            self.performSegue(withIdentifier: "advancesubordinaterequest", sender: self)
         }
         //---------onClick tableview code ends----------
     
@@ -161,7 +159,7 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     func loadData(){
            loaderStart()
         
-        let url = "\(BASE_URL)advance-requisition/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/Employee/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
+        let url = "\(BASE_URL)advance-requisition/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/Supervisor/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
         print("AdvanceReqlisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
@@ -173,18 +171,20 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
                 
                    if let resData = swiftyJsonVar["requisition_list"].arrayObject{
                        self.arrRes = resData as! [[String:AnyObject]]
+                       self.filteredTableData = resData as! [[String:AnyObject]]
                    }
                    if self.arrRes.count>0 {
-                    self.TableViewRequisitionList.reloadData()
+                    self.TableViewAdvanceRequisition.reloadData()
                    }else{
-                       self.TableViewRequisitionList.reloadData()
+                       self.TableViewAdvanceRequisition.reloadData()
                        //                    Toast(text: "No data", duration: Delay.short).show()
-                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewRequisitionList.bounds.size.width, height: self.TableViewRequisitionList.bounds.size.height))
+                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewAdvanceRequisition.bounds.size.width, height: self.TableViewAdvanceRequisition.bounds.size.height))
                        noDataLabel.text          = "No Log(s) available"
                        noDataLabel.textColor     = UIColor.black
                        noDataLabel.textAlignment = .center
-                       self.TableViewRequisitionList.backgroundView  = noDataLabel
-                       self.TableViewRequisitionList.separatorStyle  = .none
+                       self.TableViewAdvanceRequisition.backgroundView  = noDataLabel
+                       self.TableViewAdvanceRequisition.separatorStyle  = .none
+                       self.SearchBarAdvanceRequisition.isHidden = true
                        
                    }
                }
@@ -240,5 +240,4 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
             self.blurEffectView.removeFromSuperview();
         }
         // ====================== Blur Effect END ================= \\
-
 }
