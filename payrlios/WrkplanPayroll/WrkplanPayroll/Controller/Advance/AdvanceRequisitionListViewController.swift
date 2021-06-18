@@ -23,6 +23,9 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     static var requisition_amount: Double!, approved_requisition_amount: Double!
     static var new_create_yn: Bool = false
     
+    static var approved_date: String!, approved_by_name: String!, requisition_date: String!, employee_name: String!, requisition_type: String!
+    static var requisition_id: Int!, supervisor1_id: Int!, supervisor2_id: Int!, employee_id: Int!, approved_by_id: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,6 +137,17 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
 //            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
 //            print("test-=>",row["od_request_id"]?.stringValue)
             AdvanceRequisitionListViewController.EmployeeType = "Employee"
+            
+            //--added on 18th June
+            AdvanceRequisitionListViewController.approved_date = row["approved_date"] as? String
+            AdvanceRequisitionListViewController.approved_by_name = row["approved_by_name"] as? String
+            AdvanceRequisitionListViewController.requisition_date = row["requisition_date"] as? String
+            AdvanceRequisitionListViewController.employee_name = row["employee_name"] as? String
+            AdvanceRequisitionListViewController.requisition_type = row["requisition_type"] as? String
+            AdvanceRequisitionListViewController.requisition_id = row["requisition_id"]?.intValue
+            AdvanceRequisitionListViewController.supervisor1_id = row["supervisor1_id"]?.intValue
+            AdvanceRequisitionListViewController.supervisor2_id = row["supervisor2_id"]?.intValue
+            AdvanceRequisitionListViewController.approved_by_id = row["approved_by_id"]?.intValue
             self.performSegue(withIdentifier: "advancerequisition", sender: self)
         }
         //---------onClick tableview code ends----------

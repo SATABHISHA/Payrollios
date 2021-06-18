@@ -32,6 +32,9 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     @IBOutlet weak var ViewButtonSubmit: UIView!
     @IBOutlet weak var ViewButtonSave: UIView!
     @IBOutlet weak var StackViewButtons: UIStackView!
+    
+    static var RequisitionReason: Int!
+    let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +68,7 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         TxtApprovedAmount.setRightPaddingPoints(2)
         TxtApplicationStatus.setLeftPaddingPoints(2)
         
+        TxtCtc.text = swiftyJsonvar1["employee"]["ctc"].stringValue
         if AdvanceRequisitionListViewController.new_create_yn == false{
             TxtRequisitionNo.text = AdvanceRequisitionListViewController.requisition_no
             TxtRequisitionAmount.text = String(AdvanceRequisitionListViewController.requisition_amount)
@@ -140,6 +144,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     }
     //---Save
     @objc func SaveView(tapGestureRecognizer: UITapGestureRecognizer){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let CurrentDate = formatter.string(from: date)
+        
+        SaveData(requisition_id: nil, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Saved", approved_requisition_amount: nil, approved_by_id: nil, approved_date: "", supervisor_remark: "", supervisor1_id: nil, supervisor2_id: nil )
     }
     
     @IBAction func BtnBack(_ sender: Any) {
@@ -171,6 +181,8 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 sender.setTitle(item.replacingOccurrences(of: "iv) ", with: "", options: .literal, range: nil), for: .normal) //9
             }
             //          sender.setTitle(item, for: .normal) //9
+            print("indexCheck-=>",index+1)
+            AdvanceRequisitionRequestViewController.RequisitionReason = index+1
             sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
         }
     }
@@ -190,6 +202,7 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 ViewButtonSubmit.isHidden = false
                 ViewButtonApprove.isHidden = true
                 ViewButtonReturn.isHidden = true
+                
             }
             if AdvanceRequisitionListViewController.requisition_status == "Save"{
                 ViewButtonCancel.isHidden = false
@@ -240,9 +253,81 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     }
     //----function to load buttons acc to the logic, code ends
     
+    //-----function to save data, code starts---
+    func SaveData(requisition_id: Int!, requisition_date: String!, employee_id: Int!, requisition_reason: Int!, requisition_amount: Double!, description: String!, ctc_amount: Double!, return_period_in_months: Int!, requisition_status: String!, approved_requisition_amount: Double!, approved_by_id: Int!, approved_date: String!, supervisor_remark: String!, supervisor1_id: Int!, supervisor2_id: Int!){
+        let url = "\(BASE_URL)advance-requisition/save"
+        print("save_url_advancereq-=>",url)
+//        swiftyJsonvar1["employee"]["employee_id"].stringValue
+        
+        let sentData: [String: Any] = [
+            "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
+            "requisition_id": requisition_id ?? NSNull.self,
+            "requisition_date": requisition_date!,
+            "employee_id": employee_id!,
+            "requisition_reason": requisition_reason!,
+            "requisition_amount": requisition_amount!,
+            "description": description!,
+            "ctc_amount": ctc_amount!,
+            "return_period_in_months": return_period_in_months!,
+            "requisition_status": requisition_status!,
+            "approved_requisition_amount": approved_requisition_amount ?? "",
+            "approved_by_id": approved_by_id ?? "",
+            "approved_date": approved_date!,
+            "supervisor_remark": supervisor_remark!,
+            "supervisor1_id": supervisor1_id ?? "",
+            "supervisor2_id": supervisor2_id ?? ""
+        ]
+        
+        print("SentData-=>",sentData)
+                
+               /* AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+                    response in
+                    switch response.result{
+                        
+                    case .success:
+    //                        self.loaderEnd()
+                        let swiftyJsonVar = JSON(response.value!)
+                        print("Return saved data: ", swiftyJsonVar)
+                    
+                        if swiftyJsonVar["status"].stringValue == "true"{
+                            // Create new Alert
+                            var dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
+                            
+                            // Create OK button with action handler
+                            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+    //                                print("Ok button tapped")
+                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                             })
+                            
+                            //Add OK button to a dialog message
+                            dialogMessage.addAction(ok)
+
+                            // Present Alert to
+                            self.present(dialogMessage, animated: true, completion: nil)
+                        }else{
+                            var style = ToastStyle()
+                            
+                            // this is just one of many style options
+                            style.messageColor = .white
+                            
+                            // present the toast with the new style
+                            self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        }
+   
+                        break
+                        
+                    case .failure(let error):
+    //                        self.loaderEnd()
+                        print("Error: ", error)
+                    }
+                } */
+    }
+
+    //-----function to save data, code ends---
    
     
 };
+
 
 //---code to set max limit option inside stoyboard at textfield section, starts-----
 private var __maxLengths = [UITextField: Int]()
@@ -266,3 +351,5 @@ extension UITextField {
     }
 }
 //---code to set max limit option inside stoyboard at textfield section, ends-----
+
+

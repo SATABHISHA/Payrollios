@@ -143,6 +143,7 @@ class LoginViewController: UIViewController{
     
     func login(){
         let url = BASE_URL + "login/\(corpId.text!)/\(userName.text!)/\(password.text!)"
+        print("url->",url)
         AF.request(url).responseJSON{ (responseData) -> Void in
                    if((responseData.value ?? "") != nil){
                        self.dismiss(animated: true, completion: nil)  //----dismissing the loader
