@@ -141,6 +141,22 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     }
     //---Submit
     @objc func SubmitView(tapGestureRecognizer: UITapGestureRecognizer){
+        if AdvanceRequisitionListViewController.new_create_yn == true{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let CurrentDate = formatter.string(from: date)
+        
+        SaveData(requisition_id: 0, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Submitted", approved_requisition_amount: 0, approved_by_id: 0, approved_date: "", supervisor_remark: "", supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
+        }
+        if AdvanceRequisitionListViewController.new_create_yn == false{
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let CurrentDate = formatter.string(from: date)
+            
+            SaveData(requisition_id: AdvanceRequisitionListViewController.requisition_id!, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Submitted", approved_requisition_amount: 0, approved_by_id: 0, approved_date: "", supervisor_remark: "", supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
+        }
     }
     //---Save
     @objc func SaveView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -149,7 +165,7 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         let CurrentDate = formatter.string(from: date)
         
-        SaveData(requisition_id: nil, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Saved", approved_requisition_amount: nil, approved_by_id: nil, approved_date: "", supervisor_remark: "", supervisor1_id: nil, supervisor2_id: nil )
+        SaveData(requisition_id: 0, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Saved", approved_requisition_amount: 0, approved_by_id: 0, approved_date: "", supervisor_remark: "", supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
     }
     
     @IBAction func BtnBack(_ sender: Any) {
@@ -203,6 +219,13 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 ViewButtonApprove.isHidden = true
                 ViewButtonReturn.isHidden = true
                 
+                TxtRequisitionAmount.isUserInteractionEnabled = true
+                TxtViewNarration.isUserInteractionEnabled = true
+                TxtReturnPeriod.isUserInteractionEnabled = true
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
+                
             }
             if AdvanceRequisitionListViewController.requisition_status == "Save"{
                 ViewButtonCancel.isHidden = false
@@ -210,6 +233,13 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 ViewButtonSubmit.isHidden = false
                 ViewButtonApprove.isHidden = true
                 ViewButtonReturn.isHidden = true
+                
+                TxtRequisitionAmount.isUserInteractionEnabled = true
+                TxtViewNarration.isUserInteractionEnabled = true
+                TxtReturnPeriod.isUserInteractionEnabled = true
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
             if AdvanceRequisitionListViewController.requisition_status == "Submit" ||
                 AdvanceRequisitionListViewController.requisition_status == "Approved" ||
@@ -221,6 +251,13 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 ViewButtonSubmit.isHidden = true
                 ViewButtonApprove.isHidden = true
                 ViewButtonReturn.isHidden = true
+                
+                TxtRequisitionAmount.isUserInteractionEnabled = false
+                TxtViewNarration.isUserInteractionEnabled = false
+                TxtReturnPeriod.isUserInteractionEnabled = false
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
             if AdvanceRequisitionListViewController.requisition_status == "Return"{
                 ViewButtonCancel.isHidden = false
@@ -228,6 +265,13 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 ViewButtonSubmit.isHidden = false
                 ViewButtonApprove.isHidden = true
                 ViewButtonReturn.isHidden = true
+                
+                TxtRequisitionAmount.isUserInteractionEnabled = true
+                TxtViewNarration.isUserInteractionEnabled = true
+                TxtReturnPeriod.isUserInteractionEnabled = true
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
         }
         if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
@@ -237,6 +281,13 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 ViewButtonSubmit.isHidden = true
                 ViewButtonApprove.isHidden = false
                 ViewButtonReturn.isHidden = false
+                
+                TxtRequisitionAmount.isUserInteractionEnabled = false
+                TxtViewNarration.isUserInteractionEnabled = false
+                TxtReturnPeriod.isUserInteractionEnabled = false
+                
+                TxtApprovedAmount.isUserInteractionEnabled = true
+                TxtViewApprovalRemark.isUserInteractionEnabled = true
             }
             if AdvanceRequisitionListViewController.requisition_status == "Return" ||
                 AdvanceRequisitionListViewController.requisition_status == "Approved" ||
@@ -248,6 +299,13 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                 ViewButtonSubmit.isHidden = true
                 ViewButtonApprove.isHidden = true
                 ViewButtonReturn.isHidden = true
+                
+                TxtRequisitionAmount.isUserInteractionEnabled = false
+                TxtViewNarration.isUserInteractionEnabled = false
+                TxtReturnPeriod.isUserInteractionEnabled = false
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
         }
     }
@@ -261,7 +319,7 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
-            "requisition_id": requisition_id ?? NSNull.self,
+            "requisition_id": requisition_id!,
             "requisition_date": requisition_date!,
             "employee_id": employee_id!,
             "requisition_reason": requisition_reason!,
@@ -270,17 +328,17 @@ class AdvanceRequisitionRequestViewController: UIViewController {
             "ctc_amount": ctc_amount!,
             "return_period_in_months": return_period_in_months!,
             "requisition_status": requisition_status!,
-            "approved_requisition_amount": approved_requisition_amount ?? "",
-            "approved_by_id": approved_by_id ?? "",
+            "approved_requisition_amount": approved_requisition_amount!,
+            "approved_by_id": approved_by_id!,
             "approved_date": approved_date!,
             "supervisor_remark": supervisor_remark!,
-            "supervisor1_id": supervisor1_id ?? "",
-            "supervisor2_id": supervisor2_id ?? ""
+            "supervisor1_id": supervisor1_id!,
+            "supervisor2_id": supervisor2_id!
         ]
         
         print("SentData-=>",sentData)
                 
-               /* AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+                AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
                     response in
                     switch response.result{
                         
@@ -296,7 +354,7 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                             // Create OK button with action handler
                             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
     //                                print("Ok button tapped")
-                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+//                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
                              })
                             
                             //Add OK button to a dialog message
@@ -320,7 +378,7 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     //                        self.loaderEnd()
                         print("Error: ", error)
                     }
-                } */
+                }
     }
 
     //-----function to save data, code ends---
