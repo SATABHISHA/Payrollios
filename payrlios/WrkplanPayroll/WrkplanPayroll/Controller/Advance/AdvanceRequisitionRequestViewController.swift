@@ -165,7 +165,23 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         let CurrentDate = formatter.string(from: date)
         
+//        SaveData(requisition_id: 0, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Saved", approved_requisition_amount: 0, approved_by_id: 0, approved_date: "", supervisor_remark: "", supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
+        if AdvanceRequisitionListViewController.new_create_yn == true{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let CurrentDate = formatter.string(from: date)
+        
         SaveData(requisition_id: 0, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Saved", approved_requisition_amount: 0, approved_by_id: 0, approved_date: "", supervisor_remark: "", supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
+        }
+        if AdvanceRequisitionListViewController.new_create_yn == false{
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let CurrentDate = formatter.string(from: date)
+            
+            SaveData(requisition_id: AdvanceRequisitionListViewController.requisition_id!, requisition_date: CurrentDate, employee_id: swiftyJsonvar1["employee"]["employee_id"].intValue, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Saved", approved_requisition_amount: 0, approved_by_id: 0, approved_date: "", supervisor_remark: "", supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
+        }
     }
     
     @IBAction func BtnBack(_ sender: Any) {
