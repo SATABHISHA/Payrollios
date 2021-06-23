@@ -128,6 +128,20 @@ class SubordinateAdvanceRequisitionListViewController: UIViewController, UITable
             AdvanceRequisitionListViewController.approved_requisition_amount = row["approved_requisition_amount"]?.doubleValue
             AdvanceRequisitionListViewController.supervisor_remark = row["supervisor_remark"] as? String
             AdvanceRequisitionListViewController.requisition_status = row["requisition_status"] as? String
+            AdvanceRequisitionListViewController.employee_id = row["employee_id"]?.intValue
+            AdvanceRequisitionListViewController.reason = row["reason"]?.intValue
+            AdvanceRequisitionListViewController.return_period_in_months = row["return_period_in_months"]?.intValue
+            
+            //--added on 23rd June
+            AdvanceRequisitionListViewController.approved_date = row["approved_date"] as? String
+            AdvanceRequisitionListViewController.approved_by_name = row["approved_by_name"] as? String
+            AdvanceRequisitionListViewController.requisition_date = row["requisition_date"] as? String
+            AdvanceRequisitionListViewController.employee_name = row["employee_name"] as? String
+            AdvanceRequisitionListViewController.requisition_type = row["requisition_type"] as? String
+            AdvanceRequisitionListViewController.requisition_id = row["requisition_id"]?.intValue
+            AdvanceRequisitionListViewController.supervisor1_id = row["supervisor1_id"]?.intValue
+            AdvanceRequisitionListViewController.supervisor2_id = row["supervisor2_id"]?.intValue
+            AdvanceRequisitionListViewController.approved_by_id = row["approved_by_id"]?.intValue
            
 //            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
 //            print("test-=>",row["od_request_id"]?.stringValue)

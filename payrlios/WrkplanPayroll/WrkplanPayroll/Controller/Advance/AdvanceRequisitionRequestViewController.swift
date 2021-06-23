@@ -70,11 +70,30 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         
         TxtCtc.text = swiftyJsonvar1["employee"]["ctc"].stringValue
         if AdvanceRequisitionListViewController.new_create_yn == false{
+            if AdvanceRequisitionListViewController.reason == 1 {
+                btn_reason_select_type.setTitle("Serious and / prolonged illness in the family ('Family' means self, wife and dependent children) of the employee.", for: .normal)
+                AdvanceRequisitionRequestViewController.RequisitionReason = 1
+            }
+            if AdvanceRequisitionListViewController.reason == 2 {
+                btn_reason_select_type.setTitle("His / her own marriage.", for: .normal)
+                AdvanceRequisitionRequestViewController.RequisitionReason = 2
+            }
+            if AdvanceRequisitionListViewController.reason == 3 {
+                btn_reason_select_type.setTitle("Son’s / Daughter’s or real Sister’s marriage.", for: .normal)
+                AdvanceRequisitionRequestViewController.RequisitionReason = 3
+            }
+            if AdvanceRequisitionListViewController.reason == 4 {
+                btn_reason_select_type.setTitle("Rehabilitation due to natural calamity, such as flood, fire, accident etc.", for: .normal)
+                AdvanceRequisitionRequestViewController.RequisitionReason = 4
+            }
+            
+           
             TxtRequisitionNo.text = AdvanceRequisitionListViewController.requisition_no
             TxtRequisitionAmount.text = String(AdvanceRequisitionListViewController.requisition_amount)
             TxtViewNarration.text = AdvanceRequisitionListViewController.description
             TxtApprovedAmount.text = String(AdvanceRequisitionListViewController.approved_requisition_amount)
             TxtViewApprovalRemark.text = AdvanceRequisitionListViewController.supervisor_remark
+            TxtReturnPeriod.text = String(AdvanceRequisitionListViewController.return_period_in_months)
             
             if AdvanceRequisitionListViewController.requisition_status == "Submit"{
             TxtApplicationStatus.text = "Submitted"
@@ -135,6 +154,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     }
     //---Return
     @objc func ReturnView(tapGestureRecognizer: UITapGestureRecognizer){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let CurrentDate = formatter.string(from: date)
+        
+        SaveData(requisition_id: AdvanceRequisitionListViewController.requisition_id!, requisition_date: AdvanceRequisitionListViewController.requisition_date!, employee_id: AdvanceRequisitionListViewController.employee_id!, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Returned", approved_requisition_amount: Double(TxtApprovedAmount.text!), approved_by_id: swiftyJsonvar1["employee"]["employee_id"].intValue, approved_date: CurrentDate, supervisor_remark: TxtViewApprovalRemark.text!, supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
     }
     //---Approve
     @objc func ApproveView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -228,6 +253,8 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         ViewButtonSave.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         
         if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
+            btn_reason_select_type.isUserInteractionEnabled = true
+            btn_reason_select_type.alpha = 1.0
             if AdvanceRequisitionListViewController.requisition_status == ""{
                 ViewButtonCancel.isHidden = false
                 ViewButtonSave.isHidden = false
@@ -291,6 +318,8 @@ class AdvanceRequisitionRequestViewController: UIViewController {
             }
         }
         if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
+            btn_reason_select_type.isUserInteractionEnabled = false
+            btn_reason_select_type.alpha = 0.6
             if AdvanceRequisitionListViewController.requisition_status == "Submit"{
                 ViewButtonCancel.isHidden = false
                 ViewButtonSave.isHidden = true

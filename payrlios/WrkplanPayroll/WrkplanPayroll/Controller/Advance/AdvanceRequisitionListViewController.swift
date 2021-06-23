@@ -24,7 +24,7 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     static var new_create_yn: Bool = false
     
     static var approved_date: String!, approved_by_name: String!, requisition_date: String!, employee_name: String!, requisition_type: String!
-    static var requisition_id: Int!, supervisor1_id: Int!, supervisor2_id: Int!, employee_id: Int!, approved_by_id: Int!
+    static var requisition_id: Int!, supervisor1_id: Int!, supervisor2_id: Int!, employee_id: Int!, approved_by_id: Int!, reason: Int!, return_period_in_months: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,6 +148,8 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
             AdvanceRequisitionListViewController.supervisor1_id = row["supervisor1_id"]?.intValue
             AdvanceRequisitionListViewController.supervisor2_id = row["supervisor2_id"]?.intValue
             AdvanceRequisitionListViewController.approved_by_id = row["approved_by_id"]?.intValue
+            AdvanceRequisitionListViewController.reason = row["reason"]?.intValue
+            AdvanceRequisitionListViewController.return_period_in_months = row["return_period_in_months"]?.intValue
             self.performSegue(withIdentifier: "advancerequisition", sender: self)
         }
         //---------onClick tableview code ends----------
