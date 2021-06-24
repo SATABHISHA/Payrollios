@@ -10,7 +10,8 @@ import Alamofire
 import SwiftyJSON
 import Toast_Swift
 
-class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AdvanceRequisitionListTableViewCellDelegate {
+    
 
     @IBOutlet weak var BtnNew: UIButton!
     @IBOutlet weak var BtnBack: UIButton!
@@ -66,6 +67,16 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
     
     //----------tableview code starts------------
 //    var rowIndex: Int! // --for instant delete delaring the variable
+    func AdvanceRequisitionListTableViewCellRemoveDidTapAddOrView(_ sender: AdvanceRequisitionListTableViewCell) {
+        guard let tappedIndexPath = TableViewRequisitionList.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
+        let body = "Do you really want to delete this record \(rowData["requisition_no"] as! String)?"
+        let  requisition_id = rowData["requisition_id"] as? Int
+        AdvanceRequisitionListViewController.requisition_id = rowData["requisition_id"] as? Int
+        print("Selected-=>",requisition_id!)
+        print("Selected")
+        openDeletePopup(body: body)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrRes.count
@@ -75,7 +86,7 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AdvanceRequisitionListTableViewCell
 //        rowIndex = indexPath.row
         
-//        cell.delegate = self
+        cell.delegate = self
         
         let dict = arrRes[indexPath.row]
         
@@ -209,6 +220,96 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
        }
        //--------function to show log details using Alamofire and Json Swifty code ends------------
     
+    
+    //===============FormDelete Popup code starts(added on 24th june)===================
+    
+    
+    @IBOutlet weak var btnPopupOk: UIButton!
+    @IBOutlet weak var btnPopupCancel: UIButton!
+    @IBAction func btnPopupOk(_ sender: Any) {
+        closeDeletePopup()
+        
+        deleteApi(requisition_id: AdvanceRequisitionListViewController.requisition_id!)
+    }
+    
+    @IBAction func btn_cancel(_ sender: Any) {
+        closeDeletePopup()
+    }
+    
+    @IBOutlet weak var stackViewPopupButton: UIStackView!
+    @IBOutlet var viewDetails: UIView!
+    @IBOutlet weak var LabelBody: UILabel!
+    func openDeletePopup(body: String?){
+        blurEffect()
+        self.view.addSubview(viewDetails)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewDetails.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewDetails.center = self.view.center
+        viewDetails.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewDetails.alpha = 0
+        viewDetails.sizeToFit()
+        
+        stackViewPopupButton.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+//        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
+        btnPopupOk.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewDetails.alpha = 1
+            self.viewDetails.transform = CGAffineTransform.identity
+        }
+        
+        self.LabelBody.text = body!
+        //        self.confidencelabel.text = confidence!
+        
+        
+    }
+    func closeDeletePopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewDetails.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewDetails.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewDetails.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    //===============FormDelete Popup code ends===================
+    
+    
+    //=========Code to delete using Alamofire and Swiftyjson, starts=========
+    func deleteApi(requisition_id: Int){
+        let url = BASE_URL + "advance-requisition/delete/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(requisition_id)"
+        print("url->",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+                   if((responseData.value ?? "") != nil){
+//                       self.dismiss(animated: true, completion: nil)  //----dismissing the loader
+                       let swiftyJsonVar=JSON(responseData.value!)
+                       print(swiftyJsonVar)
+                    if(swiftyJsonVar["response"]["status"].stringValue == "true"){
+                        
+                        var style = ToastStyle()
+                        
+                        // this is just one of many style options
+                        style.messageColor = .white
+                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        self.loaderEnd()
+                        self.loadData()
+                    }else{
+                        var style = ToastStyle()
+                        
+                        // this is just one of many style options
+                        style.messageColor = .white
+                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        self.loaderEnd()
+                    }
+                   }
+                   
+                  
+               }
+    }
+    //=========Code to delete using Alamofire and Swiftyjson, ends=========
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
         var blurEffectView: UIVisualEffectView!
