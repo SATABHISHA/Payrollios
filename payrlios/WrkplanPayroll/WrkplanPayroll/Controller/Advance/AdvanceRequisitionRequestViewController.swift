@@ -113,7 +113,8 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
             
             //-----code to formate date for requisition_status, ends
             
-            if AdvanceRequisitionListViewController.requisition_status == "Submit"{
+            //---commented on 25-06-2021
+          /*  if AdvanceRequisitionListViewController.requisition_status == "Submit"{
             TxtApplicationStatus.text = "Submitted"
             } else if AdvanceRequisitionListViewController.requisition_status == "Return"{
                 TxtApplicationStatus.text = "Returned"
@@ -121,9 +122,9 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtApplicationStatus.text = "Saved"
             } else{
                 TxtApplicationStatus.text = AdvanceRequisitionListViewController.requisition_status
-            }
+            } */
             
-           
+            TxtApplicationStatus.text = AdvanceRequisitionListViewController.requisition_status
             
         }
         

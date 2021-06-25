@@ -119,11 +119,11 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
             cell.label_od_status.textColor = UIColor(hexFromString: "1e9547")
         }else if dict["requisition_status"] as? String == "Canceled"{
             cell.label_od_status.textColor = UIColor(hexFromString: "ed1c24")
-        }else if dict["requisition_status"] as? String == "Return"{
+        }else if dict["requisition_status"] as? String == "Returned"{
             cell.label_od_status.textColor = UIColor(hexFromString: "2196ed")
-        }else if dict["requisition_status"] as? String == "Submit"{
+        }else if dict["requisition_status"] as? String == "Submitted"{
             cell.label_od_status.textColor = UIColor(hexFromString: "fe52ce")
-        }else if dict["requisition_status"] as? String == "Save"{
+        }else if dict["requisition_status"] as? String == "Saved"{
             cell.label_od_status.textColor = UIColor(hexFromString: "2196ed")
         }
         return cell

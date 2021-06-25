@@ -103,11 +103,11 @@ class SubordinateAdvanceRequisitionListViewController: UIViewController, UITable
             cell.LabelStatus.textColor = UIColor(hexFromString: "1e9547")
         }else if dict["requisition_status"] as? String == "Canceled"{
             cell.LabelStatus.textColor = UIColor(hexFromString: "ed1c24")
-        }else if dict["requisition_status"] as? String == "Return"{
+        }else if dict["requisition_status"] as? String == "Returned"{
             cell.LabelStatus.textColor = UIColor(hexFromString: "2196ed")
-        }else if dict["requisition_status"] as? String == "Submit"{
+        }else if dict["requisition_status"] as? String == "Submitted"{
             cell.LabelStatus.textColor = UIColor(hexFromString: "fe52ce")
-        }else if dict["requisition_status"] as? String == "Save"{
+        }else if dict["requisition_status"] as? String == "Saved"{
             cell.LabelStatus.textColor = UIColor(hexFromString: "2196ed")
         }
         return cell
