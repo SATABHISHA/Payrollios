@@ -367,7 +367,7 @@
                                                                 <color key="textColor" red="0.070588235294117646" green="0.24705882352941178" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reports" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-4e-4As">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="advance" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-4e-4As">
                                                                 <rect key="frame" x="32" y="24" width="129" height="120"/>
                                                             </imageView>
                                                         </subviews>
@@ -1030,6 +1030,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="advance" width="512" height="512"/>
         <image name="eminfo" width="512" height="512"/>
         <image name="employeedocs" width="512" height="512"/>
         <image name="facilities" width="512" height="512"/>

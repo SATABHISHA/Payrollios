@@ -198,7 +198,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.imageData = UIImage(named: "timesheet")
         k.menuItm = "Timesheet"
         navigationDrawerData.append(k)
-        k.imageData = UIImage(named: "reports")
+        k.imageData = UIImage(named: "advance")
         k.menuItm = "Advance"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "reports")
