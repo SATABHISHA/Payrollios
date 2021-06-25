@@ -11,8 +11,9 @@ import SwiftyJSON
 import Alamofire
 import Toast_Swift
 
-class AdvanceRequisitionRequestViewController: UIViewController {
+class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDelegate {
     
+    var ButtonReasonIsSelected: Bool!
     @IBOutlet weak var btn_reason_select_type: UIButton!
     let dropDown = DropDown()
     var type = [String]()
@@ -38,8 +39,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         ChangeStatusBarColor() //---to change background statusbar color
         
+        TxtRequisitionAmount.delegate = self
+        TxtReturnPeriod.delegate = self
+        TxtApprovedAmount.delegate = self
        
         //---code to customize dropdown button starts------
         let buttonWidth = btn_reason_select_type.frame.width
@@ -95,6 +100,19 @@ class AdvanceRequisitionRequestViewController: UIViewController {
             TxtViewApprovalRemark.text = AdvanceRequisitionListViewController.supervisor_remark
             TxtReturnPeriod.text = String(AdvanceRequisitionListViewController.return_period_in_months)
             
+            //-----code to formate date for requisition_status, starts
+            let dateFormatterGet = DateFormatter()
+            
+            dateFormatterGet.dateFormat = "dd-MMM-yyyy" //--format changed in ios on 24th feb
+            let dateFormatterPrintRequistionDate = DateFormatter()
+            dateFormatterPrintRequistionDate.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatterGet.date(from: (AdvanceRequisitionListViewController.requisition_date)!)
+            AdvanceRequisitionListViewController.requisition_date = dateFormatterPrintRequistionDate.string(from: date!)
+           
+            print("RequisitionDate-=>",AdvanceRequisitionListViewController.requisition_date!)
+            
+            //-----code to formate date for requisition_status, ends
+            
             if AdvanceRequisitionListViewController.requisition_status == "Submit"{
             TxtApplicationStatus.text = "Submitted"
             } else if AdvanceRequisitionListViewController.requisition_status == "Return"{
@@ -104,6 +122,9 @@ class AdvanceRequisitionRequestViewController: UIViewController {
             } else{
                 TxtApplicationStatus.text = AdvanceRequisitionListViewController.requisition_status
             }
+            
+           
+            
         }
         
         //Cancel
@@ -141,6 +162,18 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         ViewButtonReturn.isHidden = true
         
         LoadButtons() //---to load buttons according to conditions
+        
+        ViewButtonSubmit.isUserInteractionEnabled = false
+        ViewButtonSubmit.alpha = 0.6
+        
+        ViewButtonSave.isUserInteractionEnabled = false
+        ViewButtonSave.alpha = 0.6
+        
+        ButtonReasonIsSelected = false
+        btn_reason_select_type.alpha = 0.6
+        
+        TxtReturnPeriod.isUserInteractionEnabled = false
+        TxtReturnPeriod.alpha = 0.6
     }
     
     //---Cancel
@@ -163,6 +196,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     }
     //---Approve
     @objc func ApproveView(tapGestureRecognizer: UITapGestureRecognizer){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let CurrentDate = formatter.string(from: date)
+        
+        SaveData(requisition_id: AdvanceRequisitionListViewController.requisition_id!, requisition_date: AdvanceRequisitionListViewController.requisition_date!, employee_id: AdvanceRequisitionListViewController.employee_id!, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Approved", approved_requisition_amount: Double(TxtApprovedAmount.text!), approved_by_id: swiftyJsonvar1["employee"]["employee_id"].intValue, approved_date: CurrentDate, supervisor_remark: TxtViewApprovalRemark.text!, supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
     }
     //---Submit
     @objc func SubmitView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -219,6 +258,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
     }
     
     @IBAction func BtnDropDownSelect(_ sender: UIButton) {
+        ButtonReasonIsSelected = true
+        btn_reason_select_type.alpha = 1.0
+        
+        TxtReturnPeriod.isUserInteractionEnabled = true
+        TxtReturnPeriod.alpha = 1.0
+        
         dropDown.dataSource = type
         dropDown.anchorView = sender//5
         dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height+10) //6
@@ -244,6 +289,18 @@ class AdvanceRequisitionRequestViewController: UIViewController {
         }
     }
     
+    //-----textfield delegate, starts
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if TxtRequisitionAmount.text != "" && TxtReturnPeriod.text != "" && ButtonReasonIsSelected == true{
+            ViewButtonSubmit.isUserInteractionEnabled = true
+            ViewButtonSubmit.alpha = 1.0
+            
+            ViewButtonSave.isUserInteractionEnabled = true
+            ViewButtonSave.alpha = 1.0
+        }
+            return true;
+        }
+    //-----textfield delegate, ends
     //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
         StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
@@ -400,6 +457,12 @@ class AdvanceRequisitionRequestViewController: UIViewController {
                             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
     //                                print("Ok button tapped")
 //                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                                if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
+                                    self.performSegue(withIdentifier: "advancehome", sender: nil)
+                                }
+                                if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
+                                    self.performSegue(withIdentifier: "subordinate", sender: nil)
+                                }
                              })
                             
                             //Add OK button to a dialog message
