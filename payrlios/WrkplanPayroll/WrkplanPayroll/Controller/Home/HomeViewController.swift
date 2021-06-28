@@ -146,6 +146,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ReportsView.layer.borderWidth = 1
         ReportsView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
         
+        MediclaimView.layer.borderWidth = 1
+        MediclaimView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
+        
         labelEmployeeInformation.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelLeave.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelEmployeeFacilities.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
@@ -158,6 +161,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         labelTimesheet.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelAdvance.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelReports.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
+        LabelMediclaim.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         //----------view and label border code styarts--------
         
         
@@ -208,6 +212,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "reports")
         k.menuItm = "Reports"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "reports")
+        k.menuItm = "Mediclaim"
         navigationDrawerData.append(k)
         
         k.imageData = UIImage(named: "password.png")
@@ -448,7 +455,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.separatorColor = UIColor.white
         
         var dict = navigationDrawerData[indexPath.row]
-        if dict.menuItm! == "Reports"{
+        if dict.menuItm! == "Mediclaim"{
             let bottomBorder = CALayer()
             
             bottomBorder.frame = CGRect(x: 0.0, y: 43.0, width: cell.contentView.frame.size.width, height: 1.0)

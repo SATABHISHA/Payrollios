@@ -423,6 +423,7 @@
 		173C0F5325627183007AE8F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				17C1912D2689D98000E83C1F /* Mediclaim */,
 				178E61E226789F8500BD0A4E /* Advance */,
 				17BDC05226451701006EAFD0 /* Reports */,
 				177597AB2613564F00EAD8B4 /* OutdoorDutyLog */,
@@ -452,6 +453,7 @@
 		173C0F55256272B2007AE8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17C1912C2689D96300E83C1F /* Mediclaim */,
 				178E61DF26789EF500BD0A4E /* Advance */,
 				17BDC051264516F3006EAFD0 /* Reports */,
 				177597A52613327700EAD8B4 /* OutdoorDutyLog */,
@@ -686,6 +688,20 @@
 				175E1B01264578F3009275A7 /* HtmlString.swift */,
 			);
 			path = Reports;
+			sourceTree = "<group>";
+		};
+		17C1912C2689D96300E83C1F /* Mediclaim */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mediclaim;
+			sourceTree = "<group>";
+		};
+		17C1912D2689D98000E83C1F /* Mediclaim */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mediclaim;
 			sourceTree = "<group>";
 		};
 		17D94E45256FC4D3001A28E3 /* EmployeeDocuments */ = {
