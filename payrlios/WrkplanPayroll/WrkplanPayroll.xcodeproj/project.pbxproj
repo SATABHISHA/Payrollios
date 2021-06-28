@@ -98,6 +98,7 @@
 		17BDC05426451820006EAFD0 /* Reports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BDC05326451820006EAFD0 /* Reports.storyboard */; };
 		17BDC05926451A2F006EAFD0 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */; };
 		17BDC05E264522F1006EAFD0 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */; };
+		17C1912F2689F4FB00E83C1F /* MediclaimListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1912E2689F4FB00E83C1F /* MediclaimListViewController.swift */; };
 		17D94E47256FC4FF001A28E3 /* EmployeeDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */; };
 		17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */; };
 		17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */; };
@@ -229,6 +230,7 @@
 		17BDC05326451820006EAFD0 /* Reports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reports.storyboard; sourceTree = "<group>"; };
 		17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
 		17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
+		17C1912E2689F4FB00E83C1F /* MediclaimListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediclaimListViewController.swift; sourceTree = "<group>"; };
 		17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeDocuments.storyboard; sourceTree = "<group>"; };
 		17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsViewController.swift; sourceTree = "<group>"; };
 		17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 		17C1912D2689D98000E83C1F /* Mediclaim */ = {
 			isa = PBXGroup;
 			children = (
+				17C1912E2689F4FB00E83C1F /* MediclaimListViewController.swift */,
 			);
 			path = Mediclaim;
 			sourceTree = "<group>";
@@ -1023,6 +1026,7 @@
 				17459658256FA53100DD6932 /* EmployeeFacilitiesTableViewCell.swift in Sources */,
 				17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */,
 				172D28D1257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift in Sources */,
+				17C1912F2689F4FB00E83C1F /* MediclaimListViewController.swift in Sources */,
 				1791C08A26176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift in Sources */,
 				178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */,
 				1762250C2571197E005F6C5B /* InsuranceDetailViewController.swift in Sources */,
