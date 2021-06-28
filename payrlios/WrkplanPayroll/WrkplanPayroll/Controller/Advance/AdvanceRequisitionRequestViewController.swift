@@ -18,6 +18,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     let dropDown = DropDown()
     var type = [String]()
     
+    @IBOutlet weak var LabelNavBarTitle: UILabel!
     @IBOutlet weak var TxtApplicationStatus: UITextField!
     @IBOutlet weak var TxtViewApprovalRemark: UITextView!
     @IBOutlet weak var TxtApprovedAmount: UITextField!
@@ -27,6 +28,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     @IBOutlet weak var TxtCtc: UITextField!
     @IBOutlet weak var TxtRequisitionNo: UITextField!
     
+    @IBOutlet weak var TxtEmployeeName: UITextField!
     @IBOutlet weak var ViewButtonCancel: UIView!
     @IBOutlet weak var ViewButtonReturn: UIView!
     @IBOutlet weak var ViewButtonApprove: UIView!
@@ -64,17 +66,26 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
         
         
         TxtRequisitionNo.isUserInteractionEnabled = false
+        TxtEmployeeName.isUserInteractionEnabled = false
         TxtApplicationStatus.isUserInteractionEnabled = false
         TxtCtc.isUserInteractionEnabled = false
         
         
         TxtRequisitionNo.setLeftPaddingPoints(2)
+        TxtEmployeeName.setLeftPaddingPoints(2)
+        TxtReturnPeriod.setLeftPaddingPoints(2)
         TxtRequisitionAmount.setRightPaddingPoints(2)
         TxtApprovedAmount.setRightPaddingPoints(2)
         TxtApplicationStatus.setLeftPaddingPoints(2)
+        TxtCtc.setRightPaddingPoints(2)
         
         TxtCtc.text = swiftyJsonvar1["employee"]["ctc"].stringValue
         if AdvanceRequisitionListViewController.new_create_yn == false{
+            if AdvanceRequisitionListViewController.employee_name! == ""{
+                TxtEmployeeName.text = "NA"
+            }else{
+            TxtEmployeeName.text = AdvanceRequisitionListViewController.employee_name!
+            }
             if AdvanceRequisitionListViewController.reason == 1 {
                 btn_reason_select_type.setTitle("Serious and / prolonged illness in the family ('Family' means self, wife and dependent children) of the employee.", for: .normal)
                 AdvanceRequisitionRequestViewController.RequisitionReason = 1
@@ -126,6 +137,9 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
             
             TxtApplicationStatus.text = AdvanceRequisitionListViewController.requisition_status
             
+        }
+        if AdvanceRequisitionListViewController.new_create_yn == true{
+        TxtEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
         }
         
         //Cancel
@@ -311,6 +325,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
         ViewButtonSave.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         
         if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
+            LabelNavBarTitle.text = "My Advance Requisition"
             btn_reason_select_type.isUserInteractionEnabled = true
             btn_reason_select_type.alpha = 1.0
             if AdvanceRequisitionListViewController.requisition_status == ""{
@@ -328,7 +343,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtViewApprovalRemark.isUserInteractionEnabled = false
                 
             }
-            if AdvanceRequisitionListViewController.requisition_status == "Save"{
+            if AdvanceRequisitionListViewController.requisition_status == "Saved"{
                 ViewButtonCancel.isHidden = false
                 ViewButtonSave.isHidden = false
                 ViewButtonSubmit.isHidden = false
@@ -342,7 +357,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtApprovedAmount.isUserInteractionEnabled = false
                 TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
-            if AdvanceRequisitionListViewController.requisition_status == "Submit" ||
+            if AdvanceRequisitionListViewController.requisition_status == "Submitted" ||
                 AdvanceRequisitionListViewController.requisition_status == "Approved" ||
                 AdvanceRequisitionListViewController.requisition_status == "Payment done" ||
                 AdvanceRequisitionListViewController.requisition_status == "Canceled"{
@@ -360,7 +375,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtApprovedAmount.isUserInteractionEnabled = false
                 TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
-            if AdvanceRequisitionListViewController.requisition_status == "Return"{
+            if AdvanceRequisitionListViewController.requisition_status == "Returned"{
                 ViewButtonCancel.isHidden = false
                 ViewButtonSave.isHidden = true
                 ViewButtonSubmit.isHidden = false
@@ -376,9 +391,10 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
             }
         }
         if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
+            LabelNavBarTitle.text = "Subordinate Advance Requisition"
             btn_reason_select_type.isUserInteractionEnabled = false
             btn_reason_select_type.alpha = 0.6
-            if AdvanceRequisitionListViewController.requisition_status == "Submit"{
+            if AdvanceRequisitionListViewController.requisition_status == "Submitted"{
                 ViewButtonCancel.isHidden = false
                 ViewButtonSave.isHidden = true
                 ViewButtonSubmit.isHidden = true
@@ -392,7 +408,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtApprovedAmount.isUserInteractionEnabled = true
                 TxtViewApprovalRemark.isUserInteractionEnabled = true
             }
-            if AdvanceRequisitionListViewController.requisition_status == "Return" ||
+            if AdvanceRequisitionListViewController.requisition_status == "Returned" ||
                 AdvanceRequisitionListViewController.requisition_status == "Approved" ||
                 AdvanceRequisitionListViewController.requisition_status == "Payment done" ||
                 AdvanceRequisitionListViewController.requisition_status == "Canceled"{
