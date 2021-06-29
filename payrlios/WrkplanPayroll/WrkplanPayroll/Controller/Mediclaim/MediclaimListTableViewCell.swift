@@ -1,18 +1,17 @@
 //
-//  AdvanceRequisitionListTableViewCell.swift
+//  MediclaimListTableViewCell.swift
 //  WrkplanPayroll
 //
-//  Created by SATABHISHA ROY on 15/06/21.
+//  Created by SATABHISHA ROY on 29/06/21.
 //
 
 import UIKit
 
-protocol AdvanceRequisitionListTableViewCellDelegate : class {
-    func AdvanceRequisitionListTableViewCellRemoveDidTapAddOrView(_ sender: AdvanceRequisitionListTableViewCell)
+protocol MediclaimListTableViewCellDelegate : class {
+    func MediclaimListTableViewCellRemoveDidTapAddOrView(_ sender: MediclaimListTableViewCell)
 }
-class AdvanceRequisitionListTableViewCell: UITableViewCell {
+class MediclaimListTableViewCell: UITableViewCell {
 
-//    @IBOutlet weak var custom_img_btn_delete: UIImageView!
     @IBOutlet weak var view_parent: UIView!
     @IBOutlet weak var label_od_no: UILabel!
     @IBOutlet weak var label_od_date: UILabel!
@@ -22,6 +21,7 @@ class AdvanceRequisitionListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewCustomBtnRemoveTapped(tapGestureRecognizer:)))
         image_view_delete.isUserInteractionEnabled = true
         image_view_delete.addGestureRecognizer(tapGestureRecognizer)
@@ -32,13 +32,12 @@ class AdvanceRequisitionListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    weak var delegate: AdvanceRequisitionListTableViewCellDelegate?
+
+    weak var delegate: MediclaimListTableViewCellDelegate?
     @objc func ViewCustomBtnRemoveTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         //        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        delegate?.AdvanceRequisitionListTableViewCellRemoveDidTapAddOrView(self)
+        delegate?.MediclaimListTableViewCellRemoveDidTapAddOrView(self)
         
     }
-    
 }

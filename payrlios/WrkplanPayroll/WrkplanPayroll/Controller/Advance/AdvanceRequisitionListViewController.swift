@@ -109,10 +109,10 @@ class AdvanceRequisitionListViewController: UIViewController, UITableViewDelegat
         /*cell.label_timeout.text = dict["time_out"] as? String
         cell.label_status.text = dict["attendance_status"] as? String
         cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)*/
-        if dict["requisition_status"] as? String == "Save"{
-            cell.custom_img_btn_delete.isHidden = false
+        if dict["requisition_status"] as? String == "Saved"{
+            cell.image_view_delete.isHidden = false
         }else{
-            cell.custom_img_btn_delete.isHidden = true
+            cell.image_view_delete.isHidden = true
         }
         
         if dict["requisition_status"] as? String == "Approved"{

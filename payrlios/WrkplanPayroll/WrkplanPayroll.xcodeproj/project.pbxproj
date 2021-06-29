@@ -49,6 +49,8 @@
 		1754589925E634B500985387 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754589825E634B500985387 /* Connectivity.swift */; };
 		1754BAC3261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1754BAC2261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard */; };
 		1754BAC8261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1754BAC7261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift */; };
+		1759134B268AF64A00D24A78 /* MediclaimListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1759134A268AF64A00D24A78 /* MediclaimListTableViewCell.swift */; };
+		1759134D268AF6EF00D24A78 /* MediclaimList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1759134C268AF6EF00D24A78 /* MediclaimList.storyboard */; };
 		175A3DFA267A093D0074F9B7 /* AdvanceRequisitionRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175A3DF9267A093D0074F9B7 /* AdvanceRequisitionRequest.storyboard */; };
 		175A3DFC267A241C0074F9B7 /* AdvanceRequisitionRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A3DFB267A241C0074F9B7 /* AdvanceRequisitionRequestViewController.swift */; };
 		175C6ACD2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175C6ACC2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard */; };
@@ -181,6 +183,8 @@
 		1754589825E634B500985387 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		1754BAC2261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyTimeLog.storyboard; sourceTree = "<group>"; };
 		1754BAC7261AE90E0092D8EA /* OutDoorDutyTimeLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyTimeLogViewController.swift; sourceTree = "<group>"; };
+		1759134A268AF64A00D24A78 /* MediclaimListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediclaimListTableViewCell.swift; sourceTree = "<group>"; };
+		1759134C268AF6EF00D24A78 /* MediclaimList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MediclaimList.storyboard; sourceTree = "<group>"; };
 		175A3DF9267A093D0074F9B7 /* AdvanceRequisitionRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdvanceRequisitionRequest.storyboard; sourceTree = "<group>"; };
 		175A3DFB267A241C0074F9B7 /* AdvanceRequisitionRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvanceRequisitionRequestViewController.swift; sourceTree = "<group>"; };
 		175C6ACC2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OutdoorDutyLogEmployeeTask.storyboard; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 		17C1912C2689D96300E83C1F /* Mediclaim */ = {
 			isa = PBXGroup;
 			children = (
+				1759134C268AF6EF00D24A78 /* MediclaimList.storyboard */,
 			);
 			path = Mediclaim;
 			sourceTree = "<group>";
@@ -703,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				17C1912E2689F4FB00E83C1F /* MediclaimListViewController.swift */,
+				1759134A268AF64A00D24A78 /* MediclaimListTableViewCell.swift */,
 			);
 			path = Mediclaim;
 			sourceTree = "<group>";
@@ -872,6 +878,7 @@
 				17BDC05426451820006EAFD0 /* Reports.storyboard in Resources */,
 				1722940D256E800C0008D808 /* Leave.storyboard in Resources */,
 				17914B6E261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard in Resources */,
+				1759134D268AF6EF00D24A78 /* MediclaimList.storyboard in Resources */,
 				17513FEB257E172F0090EFD5 /* SubordinateLog.storyboard in Resources */,
 				173C0F2725626FBE007AE8F6 /* Assets.xcassets in Resources */,
 				176E663325F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard in Resources */,
@@ -1031,6 +1038,7 @@
 				178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */,
 				1762250C2571197E005F6C5B /* InsuranceDetailViewController.swift in Sources */,
 				178E61E62678CA5E00BD0A4E /* AdvanceRequisitionListTableViewCell.swift in Sources */,
+				1759134B268AF64A00D24A78 /* MediclaimListTableViewCell.swift in Sources */,
 				1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */,
 				177E1C99261D9D4A00C4CF84 /* MyLeaveApplicationViewController.swift in Sources */,
 				17914B7B26177B25000C63D4 /* SubordinateOdDutyLogEmployeeTaskViewController.swift in Sources */,

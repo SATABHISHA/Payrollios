@@ -202,7 +202,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="custom_img_btn_delete" destination="rqX-iW-Ip3" id="qKQ-gG-8VS"/>
                                             <outlet property="image_view_delete" destination="rqX-iW-Ip3" id="6pc-hH-7w2"/>
                                             <outlet property="label_amount" destination="UKR-Jh-bmD" id="6oQ-kG-yHs"/>
                                             <outlet property="label_od_date" destination="hQN-jh-Kfv" id="AVF-zN-Fdd"/>
