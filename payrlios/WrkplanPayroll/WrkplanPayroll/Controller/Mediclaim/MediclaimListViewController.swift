@@ -40,6 +40,7 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func BtnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "home", sender: nil)
     }
     
     //----------tableview code starts------------
@@ -81,7 +82,7 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.label_mediclaim_no.text = dict["mediclaim_no"] as? String
         cell.label_mediclaim_date.text = dict["mediclaim_date"] as? String
-        cell.label_amount.text = String(describing:dict["payment_amount"] as! Double)
+        cell.label_amount.text = String(describing:dict["mediclaim_amount"] as! Double)
         cell.label_mediclaim_status.text = dict["mediclaim_status"] as? String
         /*cell.label_timeout.text = dict["time_out"] as? String
         cell.label_status.text = dict["attendance_status"] as? String

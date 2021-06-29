@@ -206,7 +206,7 @@
                                             <outlet property="label_amount" destination="JVv-Jz-Wbt" id="Gsf-oz-J0T"/>
                                             <outlet property="label_mediclaim_date" destination="0Nx-lT-QbE" id="jYr-lo-fjE"/>
                                             <outlet property="label_mediclaim_no" destination="v2v-fo-rfM" id="LY5-Ij-lpy"/>
-                                            <outlet property="label_mediclaim_status" destination="0Nx-lT-QbE" id="8Wg-mc-qeP"/>
+                                            <outlet property="label_mediclaim_status" destination="Ase-xt-xKw" id="XBV-IE-YG1"/>
                                             <outlet property="view_parent" destination="niE-oV-ku7" id="Pwy-7o-OKX"/>
                                         </connections>
                                     </tableViewCell>
@@ -236,6 +236,7 @@
                         <outlet property="btnPopupOk" destination="XH8-Oq-XQb" id="9Yw-iO-ntb"/>
                         <outlet property="stackViewPopupButton" destination="afK-Qx-hym" id="S9K-i1-bNp"/>
                         <outlet property="viewDetails" destination="QlI-xd-aJc" id="wmY-BN-mkH"/>
+                        <segue destination="834-Y3-GvR" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="vaI-DM-EwS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3F-5F-r1Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -327,6 +328,14 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="674" y="27"/>
+        </scene>
+        <!--home-->
+        <scene sceneID="viU-xr-Kut">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="834-Y3-GvR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kia-Sz-D5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1158" y="-238"/>
         </scene>
     </scenes>
     <designables>
