@@ -334,9 +334,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         AdvanceView.isUserInteractionEnabled = true
         AdvanceView.addGestureRecognizer(tapGestureAdvanceView)
         
+        //Mediclaim
+        let tapGestureRecognizerMediclaimImg = UITapGestureRecognizer(target: self, action: #selector(MediclaimImg(tapGestureRecognizer:)))
+        MediclaimImage.isUserInteractionEnabled = true
+        MediclaimImage.addGestureRecognizer(tapGestureRecognizerMediclaimImg)
+        
+        let tapGestureMediclaimView = UITapGestureRecognizer(target: self, action: #selector(MediclaimView(tapGestureRecognizer:)))
+        MediclaimView.isUserInteractionEnabled = true
+        MediclaimView.addGestureRecognizer(tapGestureMediclaimView)
+        
         check_od_duty_log_status()
     }
-   
+    //---Mediclaim
+    @objc func MediclaimImg(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
+    }
+    @objc func MediclaimView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
+    }
+    
     //---Advance
     @objc func AdvanceImg(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "advancerequisition", sender: nil)
@@ -513,7 +529,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }else if row.menuItm == "Reports"{
                 menuClose()
                 self.performSegue(withIdentifier: "reports", sender: self)
-               
+            }else if row.menuItm == "Mediclaim"{
+                menuClose()
+                self.performSegue(withIdentifier: "mediclaimlist", sender: self)
             } else if row.menuItm == "Change Password"{
                 menuClose()
                 openPasswordChangePopup()

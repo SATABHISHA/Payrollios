@@ -13,9 +13,9 @@ protocol MediclaimListTableViewCellDelegate : class {
 class MediclaimListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var view_parent: UIView!
-    @IBOutlet weak var label_od_no: UILabel!
-    @IBOutlet weak var label_od_date: UILabel!
-    @IBOutlet weak var label_od_status: UILabel!
+    @IBOutlet weak var label_mediclaim_no: UILabel!
+    @IBOutlet weak var label_mediclaim_date: UILabel!
+    @IBOutlet weak var label_mediclaim_status: UILabel!
     @IBOutlet weak var label_amount: UILabel!
     @IBOutlet weak var image_view_delete: UIImageView!
     override func awakeFromNib() {

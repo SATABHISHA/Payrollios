@@ -6,32 +6,197 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import Toast_Swift
 
-class MediclaimListViewController: UIViewController {
+class MediclaimListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MediclaimListTableViewCellDelegate {
 
     @IBOutlet weak var TableViewMediclaimList: UITableView!
     @IBOutlet weak var LabelCustomBtnSubordinateMediclaim: UILabel!
+    var arrRes = [[String:AnyObject]]()
+    let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
+    
+    static var mediclaim_no: String!, description: String!, mediclaim_status: String!, supervisor_remark: String!, EmployeeType: String!
+    static var mediclaim_amount: Double!, approved_mediclaim_amount: Double!
+    static var new_create_yn: Bool = false
+    
+    static var approved_date: String!, approved_by_name: String!, mediclaim_date: String!, employee_name: String!, mediclaim_type: String!
+    static var mediclaim_id: Int!, supervisor1_id: Int!, supervisor2_id: Int!, employee_id: Int!, approved_by_id: Int!, reason: Int!, return_period_in_months: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ChangeStatusBarColor() //---to change background statusbar color
+        
+        self.TableViewMediclaimList.delegate = self
+        self.TableViewMediclaimList.dataSource = self
+        
+        loadData()
     }
+    
     
     @IBAction func BtnNewMediclaimRequest(_ sender: Any) {
     }
     
     @IBAction func BtnBack(_ sender: Any) {
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    //----------tableview code starts------------
+//    var rowIndex: Int! // --for instant delete delaring the variable
+    func MediclaimListTableViewCellRemoveDidTapAddOrView(_ sender: MediclaimListTableViewCell) {
+        guard let tappedIndexPath = TableViewMediclaimList.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
+        let body = "Do you really want to delete this record \(rowData["mediclaim_no"] as! String)?"
+        let  mediclaim_id = rowData["mediclaim_id"] as? Int
+        MediclaimListViewController.mediclaim_id = rowData["mediclaim_id"] as? Int
+        print("Selected-=>",mediclaim_id!)
+        print("Selected")
+        openDeletePopup(body: body)
     }
-    */
-    //===============FormDelete Popup code starts(added on 24th june)===================
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrRes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MediclaimListTableViewCell
+//        rowIndex = indexPath.row
+        
+        cell.delegate = self
+        
+        let dict = arrRes[indexPath.row]
+        
+        let dateFormatterGet = DateFormatter()
+//        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
+//        dateFormatterGet.dateFormat = "dd-MM-yyyy hh:mm:ss" //--for test version
+        
+        dateFormatterGet.dateFormat = "dd-MMM-yyyy" //--format changed in ios on 24th feb
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd-MMM-yyyy"
+        
+//        let date = dateFormatterGet.date(from: (dict["date"] as? String)!)
+//                labelDate.text = eventData[i].date
+//        cell.label_date.text = dateFormatterPrint.string(from: date!)
+        
+        cell.label_mediclaim_no.text = dict["mediclaim_no"] as? String
+        cell.label_mediclaim_date.text = dict["mediclaim_date"] as? String
+        cell.label_amount.text = String(describing:dict["payment_amount"] as! Double)
+        cell.label_mediclaim_status.text = dict["mediclaim_status"] as? String
+        /*cell.label_timeout.text = dict["time_out"] as? String
+        cell.label_status.text = dict["attendance_status"] as? String
+        cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)*/
+        if dict["mediclaim_status"] as? String == "Saved"{
+            cell.image_view_delete.isHidden = false
+        }else{
+            cell.image_view_delete.isHidden = true
+        }
+        
+        if dict["mediclaim_status"] as? String == "Approved"{
+            cell.label_mediclaim_status.textColor = UIColor(hexFromString: "1e9547")
+        }else if dict["mediclaim_status"] as? String == "Canceled"{
+            cell.label_mediclaim_status.textColor = UIColor(hexFromString: "ed1c24")
+        }else if dict["mediclaim_status"] as? String == "Returned"{
+            cell.label_mediclaim_status.textColor = UIColor(hexFromString: "2196ed")
+        }else if dict["mediclaim_status"] as? String == "Submitted"{
+            cell.label_mediclaim_status.textColor = UIColor(hexFromString: "fe52ce")
+        }else if dict["mediclaim_status"] as? String == "Saved"{
+            cell.label_mediclaim_status.textColor = UIColor(hexFromString: "2196ed")
+        }
+        return cell
+        
+    }
+    
+    //---------onClick tableview code starts----------
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            MediclaimListViewController.new_create_yn = false
+            let row=arrRes[indexPath.row]
+            print(row)
+            print("tap is working")
+           
+            MediclaimListViewController.mediclaim_no = row["mediclaim_no"] as? String
+            MediclaimListViewController.mediclaim_amount = row["payment_amount"]?.doubleValue
+            /*AdvanceRequisitionListViewController.description = row["description"] as? String
+            AdvanceRequisitionListViewController.approved_requisition_amount = row["approved_requisition_amount"]?.doubleValue
+            AdvanceRequisitionListViewController.supervisor_remark = row["supervisor_remark"] as? String
+            AdvanceRequisitionListViewController.requisition_status = row["requisition_status"] as? String*/
+           
+//            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
+//            print("test-=>",row["od_request_id"]?.stringValue)
+            MediclaimListViewController.EmployeeType = "Employee"
+            
+            //--added on 18th June
+            /*AdvanceRequisitionListViewController.approved_date = row["approved_date"] as? String
+            AdvanceRequisitionListViewController.approved_by_name = row["approved_by_name"] as? String
+            AdvanceRequisitionListViewController.requisition_date = row["requisition_date"] as? String*/
+            MediclaimListViewController.employee_name = row["employee_name"] as? String
+            /*AdvanceRequisitionListViewController.requisition_type = row["requisition_type"] as? String
+            AdvanceRequisitionListViewController.requisition_id = row["requisition_id"]?.intValue
+            AdvanceRequisitionListViewController.supervisor1_id = row["supervisor1_id"]?.intValue
+            AdvanceRequisitionListViewController.supervisor2_id = row["supervisor2_id"]?.intValue
+            AdvanceRequisitionListViewController.approved_by_id = row["approved_by_id"]?.intValue
+            AdvanceRequisitionListViewController.reason = row["reason"]?.intValue
+            AdvanceRequisitionListViewController.return_period_in_months = row["return_period_in_months"]?.intValue*/
+//            self.performSegue(withIdentifier: "advancerequisition", sender: self)
+        }
+        //---------onClick tableview code ends----------
+    
+  /*  func OutDoorDutyListTableViewCellAddOrRemoveDidTapAddOrView(_ sender: OutDoorDutyListTableViewCell) {
+        guard let tappedIndexPath = TableViewOutdoorList.indexPath(for: sender) else {return}
+        let rowData = arrRes[tappedIndexPath.row]
+        
+        let od_request_id = rowData["od_request_id"]?.stringValue
+        
+        delete_data(od_request_id: od_request_id!)
+        
+        self.arrRes.remove(at: tappedIndexPath.row)
+           TableViewOutdoorList.reloadData()
+        
+        self.delete_data(od_request_id: od_request_id!)
+        
+        self.arrRes.remove(at: tappedIndexPath.row)
+        self.TableViewOutdoorList.reloadData()
+        
+        
+    }*/
+    //----------tableview code ends------------
+    //--------function to show log details using Alamofire and Json Swifty------------
+    func loadData(){
+           loaderStart()
+        
+        let url = "\(BASE_URL)mediclaim/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/Employee/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
+        print("AdvanceReqlisturl-=>",url)
+           AF.request(url).responseJSON{ (responseData) -> Void in
+               self.loaderEnd()
+               if((responseData.value) != nil){
+                   let swiftyJsonVar=JSON(responseData.value!)
+                   print("Log description: \(swiftyJsonVar)")
+                
+                
+                
+                   if let resData = swiftyJsonVar["mediclaim_list"].arrayObject{
+                       self.arrRes = resData as! [[String:AnyObject]]
+                   }
+                   if self.arrRes.count>0 {
+                    self.TableViewMediclaimList.reloadData()
+                   }else{
+                       self.TableViewMediclaimList.reloadData()
+                       //                    Toast(text: "No data", duration: Delay.short).show()
+                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewMediclaimList.bounds.size.width, height: self.TableViewMediclaimList.bounds.size.height))
+                       noDataLabel.text          = "No Log(s) available"
+                       noDataLabel.textColor     = UIColor.black
+                       noDataLabel.textAlignment = .center
+                       self.TableViewMediclaimList.backgroundView  = noDataLabel
+                       self.TableViewMediclaimList.separatorStyle  = .none
+                       
+                   }
+               }
+               
+           }
+       }
+       //--------function to show log details using Alamofire and Json Swifty code ends------------
+    //===============FormDelete Popup code starts(added on 29th june)===================
     
     
     @IBOutlet weak var btnPopupOk: UIButton!

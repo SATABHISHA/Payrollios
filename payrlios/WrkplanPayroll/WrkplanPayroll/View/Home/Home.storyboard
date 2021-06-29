@@ -761,6 +761,7 @@
                         <segue destination="Li9-ty-Zhq" kind="modal" identifier="login" modalPresentationStyle="fullScreen" id="bKk-ce-5E0"/>
                         <segue destination="xbE-8B-cCL" kind="modal" identifier="reports" modalPresentationStyle="fullScreen" id="MR4-tN-o8L"/>
                         <segue destination="5Et-tu-4sH" kind="modal" identifier="advancerequisition" modalPresentationStyle="fullScreen" id="rKQ-Yk-Y9Q"/>
+                        <segue destination="Lri-vc-bYI" kind="modal" identifier="mediclaimlist" modalPresentationStyle="fullScreen" id="TCY-gw-GoO"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="bbN-zT-K2i">
@@ -987,6 +988,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Raz-Fl-14l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3297" y="-396"/>
+        </scene>
+        <!--mediclaim-->
+        <scene sceneID="WnP-fR-Gnf">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="mediclaim" storyboardName="MediclaimList" referencedIdentifier="mediclaim" id="Lri-vc-bYI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="596-5p-ljL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vw9-Vg-G6w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3296" y="-335"/>
         </scene>
         <!--advance-->
         <scene sceneID="2TE-il-gI3">

@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lN2-DV-euE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Advance Requisition" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jl-aE-XTq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Mediclaim" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jl-aE-XTq">
                                         <rect key="frame" x="50" y="2" width="254" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,7 +70,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JlL-dl-OyW" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="676" width="414" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subordinate Advance Requisition List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ux-TS-ofU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subordinate Mediclaim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ux-TS-ofU">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,9 +204,9 @@
                                         <connections>
                                             <outlet property="image_view_delete" destination="F0x-I3-pkZ" id="ddr-EW-pSb"/>
                                             <outlet property="label_amount" destination="JVv-Jz-Wbt" id="Gsf-oz-J0T"/>
-                                            <outlet property="label_od_date" destination="0Nx-lT-QbE" id="QNz-4q-nNJ"/>
-                                            <outlet property="label_od_no" destination="v2v-fo-rfM" id="SEf-M1-Vka"/>
-                                            <outlet property="label_od_status" destination="Ase-xt-xKw" id="3YJ-2o-jPx"/>
+                                            <outlet property="label_mediclaim_date" destination="0Nx-lT-QbE" id="jYr-lo-fjE"/>
+                                            <outlet property="label_mediclaim_no" destination="v2v-fo-rfM" id="LY5-Ij-lpy"/>
+                                            <outlet property="label_mediclaim_status" destination="0Nx-lT-QbE" id="8Wg-mc-qeP"/>
                                             <outlet property="view_parent" destination="niE-oV-ku7" id="Pwy-7o-OKX"/>
                                         </connections>
                                     </tableViewCell>
