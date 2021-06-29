@@ -32,9 +32,19 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
         self.TableViewMediclaimList.delegate = self
         self.TableViewMediclaimList.dataSource = self
         
-        loadData()
+        loadData() //---funtion to load data from api
+        
+        //Subordinate
+        let tapGestureRecognizerSubordinateMediclaimListView = UITapGestureRecognizer(target: self, action: #selector(MediclaimView(tapGestureRecognizer:)))
+        LabelCustomBtnSubordinateMediclaim.isUserInteractionEnabled = true
+        LabelCustomBtnSubordinateMediclaim.addGestureRecognizer(tapGestureRecognizerSubordinateMediclaimListView)
+        
     }
     
+    //---Subordinate
+    @objc func MediclaimView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "subordinatemediclaim", sender: nil)
+    }
     
     @IBAction func BtnNewMediclaimRequest(_ sender: Any) {
     }

@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lN2-DV-euE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Mediclaim" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jl-aE-XTq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Mediclaim List" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jl-aE-XTq">
                                         <rect key="frame" x="50" y="2" width="254" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,6 +237,7 @@
                         <outlet property="stackViewPopupButton" destination="afK-Qx-hym" id="S9K-i1-bNp"/>
                         <outlet property="viewDetails" destination="QlI-xd-aJc" id="wmY-BN-mkH"/>
                         <segue destination="834-Y3-GvR" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="vaI-DM-EwS"/>
+                        <segue destination="ZF6-CI-Cdx" kind="presentation" identifier="subordinatemediclaim" modalPresentationStyle="fullScreen" id="mhz-Hj-Gih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3F-5F-r1Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -336,6 +337,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kia-Sz-D5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1158" y="-238"/>
+        </scene>
+        <!--subordinatemediclaimlist-->
+        <scene sceneID="bcf-Y2-ScX">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinatemediclaimlist" storyboardName="SubordinateMediclaimList" referencedIdentifier="subordinatemediclaimlist" id="ZF6-CI-Cdx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tQS-Oz-bUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1200" y="-45"/>
         </scene>
     </scenes>
     <designables>
