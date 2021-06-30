@@ -533,8 +533,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CustomOkBtnAmountBalancePopup" destination="IJJ-1f-IfO" id="c78-m2-y8j"/>
+                        <outlet property="LabelAmountDisbursedBalance" destination="39a-Gh-fj1" id="zrX-lf-MsR"/>
+                        <outlet property="LabelAmountDisbursedPeriod" destination="74D-NC-3al" id="W8D-V7-qiD"/>
+                        <outlet property="LabelBalanceAvailable" destination="Koq-ru-y7e" id="Ybw-FP-uFt"/>
                         <outlet property="LabelCustomBtnCheckBalance" destination="K9H-K7-Rv4" id="cVd-CL-nsz"/>
                         <outlet property="LabelCustomBtnViewDocuments" destination="VBu-Gm-bHi" id="jR9-Qd-n3O"/>
+                        <outlet property="LabelLimitForTheYearBalance" destination="L1p-iw-GPS" id="F9J-li-o3j"/>
+                        <outlet property="LabelLimitForTheYearPeriod" destination="bcT-ar-d0l" id="skr-Hz-RO8"/>
+                        <outlet property="LabelPeriod" destination="uNj-VS-O2I" id="EW5-gv-USW"/>
+                        <outlet property="LabelUtilizedAmount" destination="1gp-rJ-aBa" id="6vq-BD-d0O"/>
                         <outlet property="StackViewButtons" destination="BwO-JL-ZLY" id="4lQ-Ud-ScH"/>
                         <outlet property="TxtApplicationStatus" destination="lS2-3W-wBi" id="gPR-jA-0kK"/>
                         <outlet property="TxtApprovedAmount" destination="oKY-57-7cv" id="Z69-bs-4bx"/>
@@ -544,6 +552,7 @@
                         <outlet property="TxtReason" destination="Wzf-M9-IJb" id="eOA-lL-xyt"/>
                         <outlet property="TxtSupportingDocuments" destination="948-qB-0L6" id="1be-ZE-hLl"/>
                         <outlet property="TxtViewApprovalRemark" destination="m88-8h-Wpu" id="fsk-rg-BgV"/>
+                        <outlet property="ViewAmountBalance" destination="eYc-D4-KrC" id="OP8-jL-9Wy"/>
                         <outlet property="ViewBtnApprove" destination="sA2-To-4qD" id="QHr-Ji-nG7"/>
                         <outlet property="ViewBtnCancel" destination="dBc-S0-ggu" id="a3A-Xr-Q9A"/>
                         <outlet property="ViewBtnReturn" destination="5z8-po-k6T" id="tg2-Li-80w"/>
@@ -551,8 +560,8 @@
                         <outlet property="ViewBtnSubmit" destination="u1T-XJ-tpK" id="Bjw-fl-n71"/>
                         <outlet property="ViewCustomBtnCheckBalance" destination="loC-g2-Zld" id="Gnn-s3-bug"/>
                         <outlet property="ViewCustomBtnViewDocuments" destination="GUV-y1-xJo" id="c2Y-eH-tH6"/>
-                        <segue destination="WzH-Gc-KSx" kind="presentation" identifier="mediclaimlist" id="RkQ-cA-Rif"/>
-                        <segue destination="hkA-fa-ToK" kind="presentation" identifier="supportingdoc" id="7yT-c7-CEt"/>
+                        <segue destination="WzH-Gc-KSx" kind="presentation" identifier="mediclaimlist" modalPresentationStyle="fullScreen" id="RkQ-cA-Rif"/>
+                        <segue destination="hkA-fa-ToK" kind="presentation" identifier="supportingdoc" modalPresentationStyle="fullScreen" id="7yT-c7-CEt"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="eYc-D4-KrC">
@@ -646,7 +655,7 @@
                                 <constraint firstAttribute="height" constant="35" id="dkh-vM-Jp8"/>
                             </constraints>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="xiQ-Qf-fLB">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="xiQ-Qf-fLB">
                             <rect key="frame" x="10" y="122.66666666666669" width="274" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limit for the year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGS-BB-kh8">
@@ -706,14 +715,14 @@
                                 <constraint firstAttribute="height" constant="35" id="C9c-nI-egC"/>
                             </constraints>
                         </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2020-2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcT-ar-d0l">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcT-ar-d0l">
                             <rect key="frame" x="10" y="115" width="67.666666666666671" height="15.666666666666657"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2021-2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74D-NC-3al">
-                            <rect key="frame" x="10" y="157.66666666666669" width="67.333333333333329" height="15.666666666666657"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021-2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74D-NC-3al">
+                            <rect key="frame" x="10" y="157.66666666666666" width="67.333333333333329" height="15.666666666666657"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -727,7 +736,7 @@
                         <constraint firstItem="ofQ-3a-2ko" firstAttribute="leading" secondItem="eYc-D4-KrC" secondAttribute="leading" id="0O7-h9-h3o"/>
                         <constraint firstItem="cC6-sp-R6n" firstAttribute="trailing" secondItem="BkC-8j-KR1" secondAttribute="trailing" constant="10" id="1IA-4r-fv6"/>
                         <constraint firstItem="cC6-sp-R6n" firstAttribute="trailing" secondItem="kuz-EL-fQE" secondAttribute="trailing" constant="10" id="3x4-Z3-0Ei"/>
-                        <constraint firstItem="IJJ-1f-IfO" firstAttribute="top" secondItem="kuz-EL-fQE" secondAttribute="bottom" constant="10.67" id="6Zt-09-KPO"/>
+                        <constraint firstItem="IJJ-1f-IfO" firstAttribute="top" relation="lessThanOrEqual" secondItem="kuz-EL-fQE" secondAttribute="bottom" constant="10.67" id="6Zt-09-KPO"/>
                         <constraint firstItem="Tuw-In-itI" firstAttribute="top" secondItem="74D-NC-3al" secondAttribute="bottom" constant="-8" id="7r5-2M-BmW"/>
                         <constraint firstItem="BkC-8j-KR1" firstAttribute="leading" secondItem="cC6-sp-R6n" secondAttribute="leading" constant="10" id="C6o-AC-C2b"/>
                         <constraint firstItem="cC6-sp-R6n" firstAttribute="bottom" secondItem="IJJ-1f-IfO" secondAttribute="bottom" id="DGW-pj-yan"/>

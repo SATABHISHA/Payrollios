@@ -28,7 +28,6 @@ class SubordinateMediclaimListViewController: UIViewController, UITableViewDeleg
         
         self.TableViewSubordinateMediclaim.delegate = self
         self.TableViewSubordinateMediclaim.dataSource = self
-        self.TableViewSubordinateMediclaim.delegate = self
         
         TableViewSubordinateMediclaim.backgroundColor = UIColor(hexFromString: "ffffff")
         SearchBarAdvanceRequisition.searchTextField.backgroundColor = UIColor.white

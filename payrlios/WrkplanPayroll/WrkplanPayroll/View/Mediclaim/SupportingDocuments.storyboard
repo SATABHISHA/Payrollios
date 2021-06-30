@@ -36,7 +36,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fmh-xS-EeV">
-                                <rect key="frame" x="20" y="124" width="374" height="540"/>
+                                <rect key="frame" x="20" y="133" width="374" height="531"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -57,8 +57,8 @@
                                                                 <constraint firstAttribute="width" constant="40" id="TyL-vn-Ml5"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8v-Ik-mNu">
-                                                            <rect key="frame" x="69" y="13.333333333333334" width="99.666666666666686" height="20.333333333333329"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abc.pdf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8v-Ik-mNu">
+                                                            <rect key="frame" x="69" y="13.333333333333334" width="60.666666666666657" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.32158560704703287" green="0.32158560704703287" blue="0.32158560704703287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -198,12 +198,12 @@
                         <constraints>
                             <constraint firstItem="KWo-PR-XLU" firstAttribute="trailing" secondItem="Y6Y-Rc-s1A" secondAttribute="trailing" id="3wx-Nm-p7M"/>
                             <constraint firstItem="WIw-sL-Fqb" firstAttribute="leading" secondItem="8tm-jz-gUQ" secondAttribute="leading" id="4iv-kR-szs"/>
-                            <constraint firstItem="fmh-xS-EeV" firstAttribute="top" secondItem="KWo-PR-XLU" secondAttribute="bottom" constant="60" id="5KN-WS-Dc8"/>
                             <constraint firstItem="Y6Y-Rc-s1A" firstAttribute="bottom" secondItem="WIw-sL-Fqb" secondAttribute="bottom" id="78Z-Hu-MPL"/>
                             <constraint firstItem="p53-0l-aVY" firstAttribute="top" secondItem="KWo-PR-XLU" secondAttribute="bottom" constant="24" id="C0t-Cc-Spn"/>
                             <constraint firstItem="fmh-xS-EeV" firstAttribute="leading" secondItem="Y6Y-Rc-s1A" secondAttribute="leading" constant="20" id="Kvo-6k-NTv"/>
                             <constraint firstItem="KWo-PR-XLU" firstAttribute="top" secondItem="Y6Y-Rc-s1A" secondAttribute="top" id="NSW-5c-cOj"/>
                             <constraint firstItem="KWo-PR-XLU" firstAttribute="leading" secondItem="Y6Y-Rc-s1A" secondAttribute="leading" id="cTg-NL-3RY"/>
+                            <constraint firstItem="fmh-xS-EeV" firstAttribute="top" secondItem="p53-0l-aVY" secondAttribute="bottom" constant="10" id="ccZ-8e-mxg"/>
                             <constraint firstItem="Y6Y-Rc-s1A" firstAttribute="trailing" secondItem="fmh-xS-EeV" secondAttribute="trailing" constant="20" id="ch4-Mx-PsI"/>
                             <constraint firstItem="Y6Y-Rc-s1A" firstAttribute="trailing" secondItem="p53-0l-aVY" secondAttribute="trailing" constant="20" id="tly-jL-XDD"/>
                             <constraint firstItem="WIw-sL-Fqb" firstAttribute="top" secondItem="fmh-xS-EeV" secondAttribute="bottom" constant="20" id="whe-R7-Pqd"/>
