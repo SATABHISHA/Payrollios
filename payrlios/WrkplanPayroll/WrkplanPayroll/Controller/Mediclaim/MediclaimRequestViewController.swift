@@ -34,16 +34,20 @@ class MediclaimRequestViewController: UIViewController {
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         LoadButtons()
-    }
-    /*
-    // MARK: - Navigation
+        
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        //ViewDocs
+        let tapGestureRecognizerDocView = UITapGestureRecognizer(target: self, action: #selector(DocView(tapGestureRecognizer:)))
+        ViewCustomBtnViewDocuments.isUserInteractionEnabled = true
+        ViewCustomBtnViewDocuments.addGestureRecognizer(tapGestureRecognizerDocView)
     }
-    */
+   
+    //---ViewDocs
+    @objc func DocView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "supportingdoc", sender: nil)
+        
+    }
     
     //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
@@ -57,4 +61,9 @@ class MediclaimRequestViewController: UIViewController {
        
     }
     //----function to load buttons acc to the logic, code ends
+    
+    @IBAction func BtnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
+    }
+    
 }

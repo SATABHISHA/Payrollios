@@ -9,6 +9,9 @@ import UIKit
 
 class SupportingDocumentsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var LabelPdfName: UILabel!
+    @IBOutlet weak var LabelSerialNo: UILabel!
+    @IBOutlet weak var LabelPdfSize: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +23,6 @@ class SupportingDocumentsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func BtnRemoveFile(_ sender: Any) {
+    }
 }
