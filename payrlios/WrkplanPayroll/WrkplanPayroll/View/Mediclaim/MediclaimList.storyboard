@@ -356,11 +356,6 @@
             <point key="canvasLocation" x="1200" y="-45"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="JlL-dl-OyW">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <image name="backarrow" width="200" height="200"/>
         <image name="delete_record_od_request" width="256" height="256"/>
