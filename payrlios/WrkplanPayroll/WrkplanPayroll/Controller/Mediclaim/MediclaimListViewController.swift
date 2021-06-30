@@ -47,6 +47,8 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func BtnNewMediclaimRequest(_ sender: Any) {
+        MediclaimListViewController.new_create_yn = true
+        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
     }
     
     @IBAction func BtnBack(_ sender: Any) {
@@ -150,6 +152,8 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
             AdvanceRequisitionListViewController.reason = row["reason"]?.intValue
             AdvanceRequisitionListViewController.return_period_in_months = row["return_period_in_months"]?.intValue*/
 //            self.performSegue(withIdentifier: "advancerequisition", sender: self)
+            MediclaimListViewController.new_create_yn = false
+            self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
         }
         //---------onClick tableview code ends----------
     

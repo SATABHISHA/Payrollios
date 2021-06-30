@@ -11,9 +11,9 @@
         <!--Mediclaim Request View Controller-->
         <scene sceneID="BLL-Yl-Wlj">
             <objects>
-                <viewController storyboardIdentifier="advancerequest" id="Ji1-fs-ayn" customClass="MediclaimRequestViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mediclaimrequest" id="Ji1-fs-ayn" customClass="MediclaimRequestViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnc-BY-ciA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0LA-rx-0Je">
@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BwO-JL-ZLY">
-                                <rect key="frame" x="0.0" y="798" width="414" height="52"/>
+                                <rect key="frame" x="0.0" y="684" width="414" height="52"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBc-S0-ggu">
                                         <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="52"/>
@@ -177,7 +177,7 @@
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqL-vM-EZA">
-                                <rect key="frame" x="0.0" y="64" width="414" height="714"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eha-Vb-agl">
                                         <rect key="frame" x="0.0" y="-8" width="414" height="722"/>
@@ -232,6 +232,14 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -426,6 +434,7 @@
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="948-qB-0L6">
                                                         <rect key="frame" x="0.0" y="0.0" width="309" height="40"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="ldK-qZ-Y8i"/>
                                                         </constraints>
@@ -518,10 +527,25 @@
                             <constraint firstItem="BwO-JL-ZLY" firstAttribute="bottom" secondItem="GG5-AS-K1R" secondAttribute="bottom" id="yjH-1Y-kby"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="850"/>
                     <connections>
-                        <outlet property="LabelNavBarTitle" destination="BQJ-ZC-boG" id="w17-f5-wbt"/>
-                        <outlet property="StackViewButtons" destination="BwO-JL-ZLY" id="pqx-2l-zeL"/>
+                        <outlet property="LabelCustomBtnCheckBalance" destination="K9H-K7-Rv4" id="cVd-CL-nsz"/>
+                        <outlet property="LabelCustomBtnViewDocuments" destination="VBu-Gm-bHi" id="jR9-Qd-n3O"/>
+                        <outlet property="StackViewButtons" destination="BwO-JL-ZLY" id="4lQ-Ud-ScH"/>
+                        <outlet property="TxtApplicationStatus" destination="lS2-3W-wBi" id="gPR-jA-0kK"/>
+                        <outlet property="TxtApprovedAmount" destination="oKY-57-7cv" id="Z69-bs-4bx"/>
+                        <outlet property="TxtEmployeeName" destination="cQR-uS-2DH" id="Rs4-v4-YCp"/>
+                        <outlet property="TxtMediclaimAmount" destination="17t-xz-pxg" id="DFY-x3-TeD"/>
+                        <outlet property="TxtMediclaimNo" destination="jRT-b8-6LC" id="mBn-dY-k4F"/>
+                        <outlet property="TxtReason" destination="Wzf-M9-IJb" id="eOA-lL-xyt"/>
+                        <outlet property="TxtSupportingDocuments" destination="948-qB-0L6" id="1be-ZE-hLl"/>
+                        <outlet property="TxtViewApprovalRemark" destination="m88-8h-Wpu" id="fsk-rg-BgV"/>
+                        <outlet property="ViewBtnApprove" destination="sA2-To-4qD" id="QHr-Ji-nG7"/>
+                        <outlet property="ViewBtnCancel" destination="dBc-S0-ggu" id="a3A-Xr-Q9A"/>
+                        <outlet property="ViewBtnReturn" destination="5z8-po-k6T" id="tg2-Li-80w"/>
+                        <outlet property="ViewBtnSave" destination="ZDL-TD-bUD" id="dBR-II-ld4"/>
+                        <outlet property="ViewBtnSubmit" destination="u1T-XJ-tpK" id="Bjw-fl-n71"/>
+                        <outlet property="ViewCustomBtnCheckBalance" destination="loC-g2-Zld" id="Gnn-s3-bug"/>
+                        <outlet property="ViewCustomBtnViewDocuments" destination="GUV-y1-xJo" id="c2Y-eH-tH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0O-Us-nI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
