@@ -211,6 +211,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ImageViewCustomBtnAddDoc" destination="p53-0l-aVY" id="EDw-cQ-obK"/>
                         <outlet property="ImgViewCustomBtnAddDocs" destination="8tm-jz-gUQ" id="F42-Ah-43u"/>
                         <outlet property="StackViewBtns" destination="WIw-sL-Fqb" id="MEY-fM-J6U"/>
                         <outlet property="TableViewSupportingDocuments" destination="fmh-xS-EeV" id="nO5-xv-L9W"/>
