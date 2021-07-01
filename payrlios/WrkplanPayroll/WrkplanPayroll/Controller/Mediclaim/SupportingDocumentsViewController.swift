@@ -9,6 +9,13 @@ import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
 
+struct DocumentDetails{
+//    var document_id: Int!
+    var document_name: String!
+    var document_size: String!
+    var document_base64: String!
+    
+}
 class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var TableViewSupportingDocuments: UITableView!
@@ -17,6 +24,9 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var ViewBtnCancel: UIView!
     @IBOutlet weak var ViewBtnDone: UIView!
     @IBOutlet weak var ImageViewCustomBtnAddDoc: UIImageView!
+    
+    var tableChildData = [DocumentDetails]()
+    var collectUpdatedDetailsData = [Any]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -73,12 +83,16 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return tableChildData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SupportingDocumentsTableViewCell
 
+        let dict = tableChildData[indexPath.row]
+        cell.LabelPdfName.text = dict.document_name
+        cell.LabelPdfSize.text = dict.document_size
+        cell.LabelSerialNo.text = String(indexPath.row + 1)
         return cell
         
     }
@@ -97,9 +111,28 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
             let filename = myURL.lastPathComponent
             print("filesize-=>",covertToFileString(with: UInt64(fileSize)))
             print("filename-=>",filename)
+            
+            //        code to convert into base64
+                    let fileData = try Data.init(contentsOf: myURL)
+                        let fileStream = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
+                        let decodeData = Data(base64Encoded: fileStream, options: .ignoreUnknownCharacters)
+            print("base64fileTesting-=>", fileStream)
+            
+            //--code to save data in array dictionary, starts
+            var data = DocumentDetails()
+            data.document_name = filename
+            data.document_size = covertToFileString(with: UInt64(fileSize))
+            data.document_base64 = fileStream
+            
+            
+            self.tableChildData.append(data)
+            
+            TableViewSupportingDocuments.reloadData()
         }catch {
             print("Error: \(error)")
         }
+        
+
         
     }
     func covertToFileString(with size: UInt64) -> String {
