@@ -51,14 +51,14 @@
                                                     <rect key="frame" x="0.0" y="0.66666666666666785" width="374" height="61.333333333333329"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dcmntsfile" translatesAutoresizingMaskIntoConstraints="NO" id="aZy-Yf-uoM">
-                                                            <rect key="frame" x="19" y="10.666666666666668" width="40" height="40"/>
+                                                            <rect key="frame" x="20" y="10.666666666666668" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="LM8-oZ-Qdp"/>
                                                                 <constraint firstAttribute="width" constant="40" id="TyL-vn-Ml5"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abc.pdf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8v-Ik-mNu">
-                                                            <rect key="frame" x="69" y="13.333333333333334" width="60.666666666666657" height="20.333333333333329"/>
+                                                            <rect key="frame" x="70" y="13.333333333333334" width="60.666666666666657" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.32158560704703287" green="0.32158560704703287" blue="0.32158560704703287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -82,13 +82,16 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqj-Nb-4jY">
-                                                            <rect key="frame" x="0.0" y="18.666666666666664" width="9" height="24"/>
+                                                            <rect key="frame" x="0.0" y="18.666666666666664" width="20" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="496-JW-5iz"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 KB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6i6-9T-t6k">
-                                                            <rect key="frame" x="69" y="33.666666666666671" width="36.333333333333343" height="14.333333333333336"/>
+                                                            <rect key="frame" x="70" y="33.666666666666671" width="36.333333333333343" height="14.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -102,7 +105,7 @@
                                                         <constraint firstItem="S8v-Ik-mNu" firstAttribute="centerY" secondItem="sdh-X6-nXT" secondAttribute="centerY" constant="-7.1666666666666643" id="ISA-3U-WGD"/>
                                                         <constraint firstItem="E71-Wy-xs7" firstAttribute="leading" secondItem="sdh-X6-nXT" secondAttribute="leading" id="Khm-Gl-Qzw"/>
                                                         <constraint firstAttribute="bottom" secondItem="E71-Wy-xs7" secondAttribute="bottom" id="L3M-Ye-1Bx"/>
-                                                        <constraint firstItem="aZy-Yf-uoM" firstAttribute="leading" secondItem="kqj-Nb-4jY" secondAttribute="trailing" constant="10" id="PzF-gm-0Ol"/>
+                                                        <constraint firstItem="aZy-Yf-uoM" firstAttribute="leading" secondItem="kqj-Nb-4jY" secondAttribute="trailing" id="PzF-gm-0Ol"/>
                                                         <constraint firstAttribute="trailing" secondItem="E71-Wy-xs7" secondAttribute="trailing" id="Wsi-4F-oYm"/>
                                                         <constraint firstItem="aZy-Yf-uoM" firstAttribute="centerY" secondItem="sdh-X6-nXT" secondAttribute="centerY" id="fox-MN-m2c"/>
                                                         <constraint firstAttribute="trailing" secondItem="1cS-sc-tZS" secondAttribute="trailing" id="if2-Ui-KKa"/>
@@ -219,11 +222,20 @@
                         <outlet property="ViewBtnCancel" destination="9in-Mk-6zG" id="Z8u-TX-jcc"/>
                         <outlet property="ViewBtnDone" destination="b1v-Ap-7Et" id="85C-TQ-yLM"/>
                         <segue destination="nDK-qn-Gdr" kind="presentation" identifier="mediclaimrequest" modalPresentationStyle="fullScreen" id="ghF-um-lT9"/>
+                        <segue destination="vpf-hf-xwv" kind="presentation" identifier="MediclaimPdf" modalPresentationStyle="fullScreen" id="K33-h0-L1Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdg-ol-Jw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="26.90217391304348"/>
+        </scene>
+        <!--MediclaimPdf-->
+        <scene sceneID="vnt-e2-Ctn">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MediclaimPdf" storyboardName="SupportingDocumentsPdfViewer" referencedIdentifier="MediclaimPdf" id="vpf-hf-xwv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pER-JQ-Wzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1393" y="-220"/>
         </scene>
         <!--mediclaimrequest-->
         <scene sceneID="K0I-Pa-jlT">

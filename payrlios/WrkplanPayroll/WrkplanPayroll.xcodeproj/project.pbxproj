@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1702411125EFD33800F6D285 /* KGRadioButton.swift */; };
+		170292B0268DF7240019D274 /* SupportingDocumentsPdfViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170292AF268DF7240019D274 /* SupportingDocumentsPdfViewer.storyboard */; };
+		170292B2268DF7DF0019D274 /* SupportingDocumentsPdfViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170292B1268DF7DF0019D274 /* SupportingDocumentsPdfViewerViewController.swift */; };
 		1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789225F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift */; };
 		1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789725F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift */; };
 		1705789D25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705789C25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift */; };
@@ -146,6 +148,8 @@
 /* Begin PBXFileReference section */
 		0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1702411125EFD33800F6D285 /* KGRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGRadioButton.swift; sourceTree = "<group>"; };
+		170292AF268DF7240019D274 /* SupportingDocumentsPdfViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SupportingDocumentsPdfViewer.storyboard; sourceTree = "<group>"; };
+		170292B1268DF7DF0019D274 /* SupportingDocumentsPdfViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingDocumentsPdfViewerViewController.swift; sourceTree = "<group>"; };
 		1705789225F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestListViewController.swift; sourceTree = "<group>"; };
 		1705789725F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestListTableViewCell.swift; sourceTree = "<group>"; };
 		1705789C25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOutdoorDutyRequestViewController.swift; sourceTree = "<group>"; };
@@ -711,6 +715,7 @@
 				175AD4B4268B3DCC00C4F072 /* SubordinateMediclaimList.storyboard */,
 				175C6AD8268C41A0004A987B /* MediclaimRequest.storyboard */,
 				175C6ADC268C8917004A987B /* SupportingDocuments.storyboard */,
+				170292AF268DF7240019D274 /* SupportingDocumentsPdfViewer.storyboard */,
 			);
 			path = Mediclaim;
 			sourceTree = "<group>";
@@ -725,6 +730,7 @@
 				175C6ADA268C42C1004A987B /* MediclaimRequestViewController.swift */,
 				175C6ADE268C897F004A987B /* SupportingDocumentsViewController.swift */,
 				175C6AE1268C94DD004A987B /* SupportingDocumentsTableViewCell.swift */,
+				170292B1268DF7DF0019D274 /* SupportingDocumentsPdfViewerViewController.swift */,
 			);
 			path = Mediclaim;
 			sourceTree = "<group>";
@@ -906,6 +912,7 @@
 				176224F12570CE79005F6C5B /* CompanyDocuments.storyboard in Resources */,
 				17513FFA257E4A640090EFD5 /* SubordinateMyAttendanceLog.storyboard in Resources */,
 				173C0F2225626FB9007AE8F6 /* Main.storyboard in Resources */,
+				170292B0268DF7240019D274 /* SupportingDocumentsPdfViewer.storyboard in Resources */,
 				178F85D325EE71EF007ABD62 /* OutdoorDutyRequest.storyboard in Resources */,
 				17723CBB2563A688002754DB /* Home.storyboard in Resources */,
 				1785DEAF25E7877F0088AEBA /* OutdoorDutyList.storyboard in Resources */,
@@ -1050,6 +1057,7 @@
 				173C0F2525626FB9007AE8F6 /* WrkplanPayroll.xcdatamodeld in Sources */,
 				17E57788257A342100F10376 /* MyAttendanceLogViewController.swift in Sources */,
 				17459658256FA53100DD6932 /* EmployeeFacilitiesTableViewCell.swift in Sources */,
+				170292B2268DF7DF0019D274 /* SupportingDocumentsPdfViewerViewController.swift in Sources */,
 				17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */,
 				172D28D1257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift in Sources */,
 				175C6ADF268C897F004A987B /* SupportingDocumentsViewController.swift in Sources */,

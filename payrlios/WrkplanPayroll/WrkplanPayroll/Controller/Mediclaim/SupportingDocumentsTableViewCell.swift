@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol SupportingDocumentsTableViewCellDelegate : class {
+    func SupportingDocumentsTableViewCellRemoveDidTapAddOrView(_ sender: SupportingDocumentsTableViewCell)
+}
 class SupportingDocumentsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var LabelPdfName: UILabel!
@@ -23,6 +26,8 @@ class SupportingDocumentsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    weak var delegate: SupportingDocumentsTableViewCellDelegate?
     @IBAction func BtnRemoveFile(_ sender: Any) {
+        delegate?.SupportingDocumentsTableViewCellRemoveDidTapAddOrView(self)
     }
 }

@@ -16,8 +16,8 @@ struct DocumentDetails{
     var document_base64: String!
     
 }
-class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate {
-
+class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, SupportingDocumentsTableViewCellDelegate {
+    
     @IBOutlet weak var TableViewSupportingDocuments: UITableView!
     @IBOutlet var ImgViewCustomBtnAddDocs: UIView!
     @IBOutlet weak var StackViewBtns: UIStackView!
@@ -25,8 +25,9 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var ViewBtnDone: UIView!
     @IBOutlet weak var ImageViewCustomBtnAddDoc: UIImageView!
     
-    var tableChildData = [DocumentDetails]()
+    static var tableChildData = [DocumentDetails]()
     var collectUpdatedDetailsData = [Any]()
+    static var DocumentBase64String: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,24 +80,43 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     }
     //----function to load buttons acc to the logic, code ends
     
+    
     //----------tableview code starts------------
 
+    func SupportingDocumentsTableViewCellRemoveDidTapAddOrView(_ sender: SupportingDocumentsTableViewCell) {
+        guard let tappedIndexPath = TableViewSupportingDocuments.indexPath(for: sender) else {return}
+        SupportingDocumentsViewController.tableChildData.remove(at: tappedIndexPath.row)
+        TableViewSupportingDocuments.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableChildData.count
+        return SupportingDocumentsViewController.tableChildData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SupportingDocumentsTableViewCell
 
-        let dict = tableChildData[indexPath.row]
+        cell.delegate = self
+        let dict = SupportingDocumentsViewController.tableChildData[indexPath.row]
         cell.LabelPdfName.text = dict.document_name
         cell.LabelPdfSize.text = dict.document_size
         cell.LabelSerialNo.text = String(indexPath.row + 1)
         return cell
         
     }
-    
+    //---------onClick tableview code starts----------
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            let row = SupportingDocumentsViewController.tableChildData[indexPath.row]
+            print(row)
+            print("tap is working")
+           
+            SupportingDocumentsViewController.DocumentBase64String = row.document_base64
+           
+            self.performSegue(withIdentifier: "MediclaimPdf", sender: nil)
+        }
+        //---------onClick tableview code ends----------
     //----------tableview code ends------------
 
     //------code to pick documents from phone, starts
@@ -125,7 +145,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
             data.document_base64 = fileStream
             
             
-            self.tableChildData.append(data)
+            SupportingDocumentsViewController.tableChildData.append(data)
             
             TableViewSupportingDocuments.reloadData()
         }catch {

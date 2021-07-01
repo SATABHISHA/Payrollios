@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Supporting Documents Pdf Viewer View Controller-->
+        <scene sceneID="V2t-nx-gIA">
+            <objects>
+                <viewController storyboardIdentifier="MediclaimPdf" id="U3A-nH-N8D" customClass="SupportingDocumentsPdfViewerViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2G0-3l-x7O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uC7-Qb-DdD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pdf Viewer" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubU-Kt-s75">
+                                        <rect key="frame" x="50.000000000000007" y="2" width="86.666666666666686" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgL-gK-ZAR">
+                                        <rect key="frame" x="0.0" y="7.6666666666666643" width="50" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="51i-Oe-BKJ"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="BtnBack:" destination="U3A-nH-N8D" eventType="touchUpInside" id="WOz-Ys-EnM"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="printer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4LY-zD-zDm">
+                                        <rect key="frame" x="364" y="12.333333333333336" width="40" height="39.666666666666671"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="V1G-EY-UER"/>
+                                            <constraint firstAttribute="height" constant="40" id="xvr-Vf-sKU"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="hjc-rH-7tu"/>
+                                <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4LY-zD-zDm" firstAttribute="centerY" secondItem="hjc-rH-7tu" secondAttribute="centerY" id="0lU-Vv-gjB"/>
+                                    <constraint firstAttribute="height" constant="64" id="FgD-sg-8sq">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                    </constraint>
+                                    <constraint firstItem="hjc-rH-7tu" firstAttribute="bottom" secondItem="XgL-gK-ZAR" secondAttribute="bottom" constant="7.5" id="GH2-88-I1g"/>
+                                    <constraint firstItem="XgL-gK-ZAR" firstAttribute="leading" secondItem="hjc-rH-7tu" secondAttribute="leading" id="KmM-uR-Gag"/>
+                                    <constraint firstAttribute="bottom" secondItem="ubU-Kt-s75" secondAttribute="bottom" constant="2" id="RHP-39-eWT"/>
+                                    <constraint firstItem="XgL-gK-ZAR" firstAttribute="top" secondItem="uC7-Qb-DdD" secondAttribute="top" constant="7.5" id="UCA-hG-MOR"/>
+                                    <constraint firstItem="hjc-rH-7tu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ubU-Kt-s75" secondAttribute="trailing" constant="20" id="Uey-4T-5g9"/>
+                                    <constraint firstItem="ubU-Kt-s75" firstAttribute="top" secondItem="uC7-Qb-DdD" secondAttribute="top" constant="2" id="hd5-hr-GAH"/>
+                                    <constraint firstItem="hjc-rH-7tu" firstAttribute="trailing" secondItem="4LY-zD-zDm" secondAttribute="trailing" constant="10" id="iuQ-G5-xJm"/>
+                                    <constraint firstItem="ubU-Kt-s75" firstAttribute="leading" secondItem="XgL-gK-ZAR" secondAttribute="trailing" id="zrO-jl-w69"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbG-Ou-0K9">
+                                <rect key="frame" x="5" y="74" width="404" height="652"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M53-9L-VVy"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uC7-Qb-DdD" firstAttribute="trailing" secondItem="M53-9L-VVy" secondAttribute="trailing" id="EIN-L0-29e"/>
+                            <constraint firstItem="fbG-Ou-0K9" firstAttribute="leading" secondItem="M53-9L-VVy" secondAttribute="leading" constant="5" id="KhI-9R-kMw"/>
+                            <constraint firstItem="M53-9L-VVy" firstAttribute="bottom" secondItem="fbG-Ou-0K9" secondAttribute="bottom" constant="10" id="fD3-E2-Bo1"/>
+                            <constraint firstItem="M53-9L-VVy" firstAttribute="trailing" secondItem="fbG-Ou-0K9" secondAttribute="trailing" constant="5" id="hVb-fd-qe2"/>
+                            <constraint firstItem="uC7-Qb-DdD" firstAttribute="leading" secondItem="M53-9L-VVy" secondAttribute="leading" id="nws-nE-KTN"/>
+                            <constraint firstItem="uC7-Qb-DdD" firstAttribute="top" secondItem="M53-9L-VVy" secondAttribute="top" id="x3z-e9-gdB"/>
+                            <constraint firstItem="fbG-Ou-0K9" firstAttribute="top" secondItem="uC7-Qb-DdD" secondAttribute="bottom" constant="10" id="zLs-pD-ZoF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ImagePrintPdf" destination="4LY-zD-zDm" id="291-do-3sR"/>
+                        <outlet property="webView" destination="fbG-Ou-0K9" id="kje-BU-kvq"/>
+                        <segue destination="yut-yb-YYV" kind="presentation" identifier="supportingdoc" modalPresentationStyle="fullScreen" id="I63-CY-WCL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rF-Co-YbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="27"/>
+        </scene>
+        <!--supportingdoc-->
+        <scene sceneID="GpM-Md-eoj">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="supportingdoc" storyboardName="SupportingDocuments" referencedIdentifier="supportingdoc" id="yut-yb-YYV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olU-tt-oXc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1190" y="-127"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backarrow" width="200" height="200"/>
+        <image name="printer" catalog="system" width="128" height="111"/>
+    </resources>
+</document>
