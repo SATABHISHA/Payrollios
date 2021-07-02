@@ -8,6 +8,8 @@
 import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
+import SwiftyJSON
+import Alamofire
 
 struct DocumentDetails{
     //    var document_id: Int!
@@ -18,6 +20,7 @@ struct DocumentDetails{
 }
 class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, SupportingDocumentsTableViewCellDelegate {
     
+    let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     @IBOutlet weak var TableViewSupportingDocuments: UITableView!
     @IBOutlet var ImgViewCustomBtnAddDocs: UIView!
     @IBOutlet weak var StackViewBtns: UIStackView!
@@ -311,7 +314,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
         cancelConfirmationPopup()
     }
     //==============FormDialog Cancel Confirmation code ends================
-    
+   
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var blurEffectView: UIVisualEffectView!

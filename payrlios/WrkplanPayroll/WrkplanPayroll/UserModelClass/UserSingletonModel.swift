@@ -42,4 +42,7 @@ class UserSingletonModel: NSObject {
     
     //------variables for employee(login)-------
     var employeeJson: JSON?
+    
+    //-----variables for supporting documents page(Mediclaim)
+//    var documents: JSON?
 }

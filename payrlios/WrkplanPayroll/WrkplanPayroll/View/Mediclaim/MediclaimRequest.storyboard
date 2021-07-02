@@ -435,7 +435,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l31-3b-bjw">
                                                 <rect key="frame" x="20" y="370" width="374" height="40"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="948-qB-0L6">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="948-qB-0L6">
                                                         <rect key="frame" x="0.0" y="0.0" width="309" height="40"/>
                                                         <color key="backgroundColor" red="0.78032308819999996" green="0.78043633700000004" blue="0.78029829260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
