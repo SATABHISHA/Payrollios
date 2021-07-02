@@ -221,10 +221,116 @@
                         <outlet property="TableViewSupportingDocuments" destination="fmh-xS-EeV" id="nO5-xv-L9W"/>
                         <outlet property="ViewBtnCancel" destination="9in-Mk-6zG" id="Z8u-TX-jcc"/>
                         <outlet property="ViewBtnDone" destination="b1v-Ap-7Et" id="85C-TQ-yLM"/>
+                        <outlet property="viewCancelConfirmationPopup" destination="Hrs-Wb-9C5" id="BFY-yk-TUt"/>
+                        <outlet property="viewDeleteConfirmationPopup" destination="Ezy-GY-ev6" id="xa6-ij-Gqv"/>
                         <segue destination="nDK-qn-Gdr" kind="presentation" identifier="mediclaimrequest" modalPresentationStyle="fullScreen" id="ghF-um-lT9"/>
                         <segue destination="vpf-hf-xwv" kind="presentation" identifier="MediclaimPdf" modalPresentationStyle="fullScreen" id="K33-h0-L1Y"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="Ezy-GY-ev6">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure, you want to delete task ?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.44999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="dBq-Cd-k4Z">
+                            <rect key="frame" x="16" y="16" width="259" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.10980392160000001" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2w-zi-kOf">
+                            <rect key="frame" x="237" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="IrE-Ou-brs"/>
+                                <constraint firstAttribute="width" constant="30" id="zR2-Jx-8cD"/>
+                            </constraints>
+                            <state key="normal" title="YES">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnDeleteConfirmationPopupYes:" destination="XwA-YH-vuC" eventType="touchUpInside" id="MDA-TB-Duo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikm-bz-3LH">
+                            <rect key="frame" x="177" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="Foo-Wm-5Os"/>
+                                <constraint firstAttribute="width" constant="30" id="r4Y-yy-Raf"/>
+                            </constraints>
+                            <state key="normal" title="NO">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnCancelPopup:" destination="XwA-YH-vuC" eventType="touchUpInside" id="Hgq-gO-ZET"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="t6n-cG-5Sa"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dBq-Cd-k4Z" firstAttribute="leading" secondItem="Ezy-GY-ev6" secondAttribute="leading" constant="16" id="7hP-gv-BFx"/>
+                        <constraint firstAttribute="bottom" secondItem="ikm-bz-3LH" secondAttribute="bottom" constant="10" id="8R9-bU-2kM"/>
+                        <constraint firstAttribute="trailing" secondItem="dBq-Cd-k4Z" secondAttribute="trailing" constant="16" id="Ao8-8o-o6f"/>
+                        <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="dBq-Cd-k4Z" secondAttribute="bottom" constant="40" id="Qlh-Ul-yT6"/>
+                        <constraint firstItem="D2w-zi-kOf" firstAttribute="leading" secondItem="ikm-bz-3LH" secondAttribute="trailing" constant="30" id="h0h-LT-g2Z"/>
+                        <constraint firstAttribute="trailing" secondItem="D2w-zi-kOf" secondAttribute="trailing" constant="24" id="nZP-pg-LXd"/>
+                        <constraint firstItem="dBq-Cd-k4Z" firstAttribute="top" secondItem="Ezy-GY-ev6" secondAttribute="top" constant="16" id="r9k-Ht-DPg"/>
+                        <constraint firstItem="D2w-zi-kOf" firstAttribute="top" relation="lessThanOrEqual" secondItem="dBq-Cd-k4Z" secondAttribute="bottom" constant="22" id="xFE-Ls-gjz"/>
+                        <constraint firstAttribute="bottom" secondItem="D2w-zi-kOf" secondAttribute="bottom" constant="10" id="yh5-il-xTW"/>
+                        <constraint firstItem="ikm-bz-3LH" firstAttribute="top" relation="lessThanOrEqual" secondItem="dBq-Cd-k4Z" secondAttribute="bottom" constant="22" id="zWE-qa-3hS"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="Hrs-Wb-9C5">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your unsaved data would be lost. Are you sure you want to cancel?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.44999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="Qmr-OH-vYO">
+                            <rect key="frame" x="16" y="16" width="259" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.10980392160000001" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxt-Ao-T5S">
+                            <rect key="frame" x="237" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="JQl-cF-Vhb"/>
+                                <constraint firstAttribute="width" constant="30" id="iAy-or-0uh"/>
+                            </constraints>
+                            <state key="normal" title="YES">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnCancelTaskConfirmationPopupYes:" destination="XwA-YH-vuC" eventType="touchUpInside" id="hVz-od-ksb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWi-xb-NDY">
+                            <rect key="frame" x="177" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="1Tr-5i-5CR"/>
+                                <constraint firstAttribute="height" constant="24" id="5QB-Ek-UlO"/>
+                            </constraints>
+                            <state key="normal" title="NO">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnCancelTaskConfirmationPopupNo:" destination="XwA-YH-vuC" eventType="touchUpInside" id="KAH-85-7LF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="TBN-gO-lL6"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="uWi-xb-NDY" secondAttribute="bottom" constant="10" id="Lz1-dQ-jO2"/>
+                        <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Qmr-OH-vYO" secondAttribute="bottom" constant="40" id="OqB-qH-OjE"/>
+                        <constraint firstItem="uxt-Ao-T5S" firstAttribute="top" relation="lessThanOrEqual" secondItem="Qmr-OH-vYO" secondAttribute="bottom" constant="22" id="THK-GU-2LO"/>
+                        <constraint firstItem="Qmr-OH-vYO" firstAttribute="leading" secondItem="Hrs-Wb-9C5" secondAttribute="leading" constant="16" id="UkG-3z-icL"/>
+                        <constraint firstItem="uxt-Ao-T5S" firstAttribute="leading" secondItem="uWi-xb-NDY" secondAttribute="trailing" constant="30" id="dPM-7H-vdQ"/>
+                        <constraint firstAttribute="bottom" secondItem="uxt-Ao-T5S" secondAttribute="bottom" constant="10" id="eq9-18-Udg"/>
+                        <constraint firstItem="uWi-xb-NDY" firstAttribute="top" relation="lessThanOrEqual" secondItem="Qmr-OH-vYO" secondAttribute="bottom" constant="22" id="kKf-mM-F7M"/>
+                        <constraint firstItem="Qmr-OH-vYO" firstAttribute="top" secondItem="Hrs-Wb-9C5" secondAttribute="top" constant="16" id="xYR-J1-bFS"/>
+                        <constraint firstAttribute="trailing" secondItem="uxt-Ao-T5S" secondAttribute="trailing" constant="24" id="yXN-Zy-P9j"/>
+                        <constraint firstAttribute="trailing" secondItem="Qmr-OH-vYO" secondAttribute="trailing" constant="16" id="yet-p5-Byd"/>
+                    </constraints>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdg-ol-Jw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="26.90217391304348"/>
