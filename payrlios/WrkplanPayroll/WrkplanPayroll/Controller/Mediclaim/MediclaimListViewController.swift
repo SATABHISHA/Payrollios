@@ -17,12 +17,12 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
-    static var mediclaim_no: String!, description: String!, mediclaim_status: String!, supervisor_remark: String!, EmployeeType: String!
-    static var mediclaim_amount: Double!, approved_mediclaim_amount: Double!
+    static var mediclaim_no: String!, mediclaim_status: String!, EmployeeType: String!
+    static var mediclaim_amount: Double!, approved_mediclaim_amount: Double!, payment_amount: Double!
     static var new_create_yn: Bool = false
     
-    static var approved_date: String!, approved_by_name: String!, mediclaim_date: String!, employee_name: String!, mediclaim_type: String!
-    static var mediclaim_id: Int!, supervisor1_id: Int!, supervisor2_id: Int!, employee_id: Int!, approved_by_id: Int!, reason: Int!, return_period_in_months: Int!
+    static var  mediclaim_date: String!, employee_name: String!, mediclaim_type: String!
+    static var mediclaim_id: Int!, employee_id: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
 
