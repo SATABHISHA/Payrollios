@@ -42,7 +42,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
         //        TableViewSupportingDocuments.searchTextField.textColor = UIColor.black
         
         LoadButtons()
-        
+        CheckTableDataExistsOrNot()
        
         //ViewDone
         let tapGestureRecognizerDoneView = UITapGestureRecognizer(target: self, action: #selector(DoneView(tapGestureRecognizer:)))
@@ -94,16 +94,17 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     //----function to check tabledata exists or not, code starts
     func CheckTableDataExistsOrNot(){
         if SupportingDocumentsViewController.tableChildData.count > 0 {
-            self.TableViewSupportingDocuments.isHidden = false
+            self.TableViewSupportingDocuments.backgroundView?.isHidden = true
              TableViewSupportingDocuments.reloadData()
          }else{
+            TableViewSupportingDocuments.reloadData()
             let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewSupportingDocuments.bounds.size.width, height: self.TableViewSupportingDocuments.bounds.size.height))
-            noDataLabel.text          = "No attachments available"
+            noDataLabel.text          = "No attachment(s) available"
             noDataLabel.textColor     = UIColor.black
             noDataLabel.textAlignment = .center
+            self.TableViewSupportingDocuments.backgroundView?.isHidden = false
             self.TableViewSupportingDocuments.backgroundView  = noDataLabel
             self.TableViewSupportingDocuments.separatorStyle  = .none
-            self.TableViewSupportingDocuments.isHidden = true
          }
     }
     //----function to check tabledata exists or not, code ends
@@ -165,7 +166,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
             let fileData = try Data.init(contentsOf: myURL)
             let fileStream = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
             let decodeData = Data(base64Encoded: fileStream, options: .ignoreUnknownCharacters)
-            print("base64fileTesting-=>", fileStream)
+//            print("base64fileTesting-=>", fileStream)
             
             //--code to save data in array dictionary, starts
             var data = DocumentDetails()
@@ -176,12 +177,14 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
             
             SupportingDocumentsViewController.tableChildData.append(data)
             
-            TableViewSupportingDocuments.reloadData()
+//            TableViewSupportingDocuments.reloadData()
            /* if SupportingDocumentsViewController.tableChildData.count > 0 {
                 TableViewSupportingDocuments.reloadData()
             }else{
             CheckTableDataExistsOrNot()
             }*/
+            CheckTableDataExistsOrNot()
+            
         }catch {
             print("Error: \(error)")
         }
@@ -257,8 +260,8 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
 //        CheckTableDataExistsOrNot() //--if data not exists then it would show message
         print("tablecounttesting-=>", SupportingDocumentsViewController.tableChildData.count)
         
-        TableViewSupportingDocuments.reloadData()
-//        CheckTableDataExistsOrNot()
+//        TableViewSupportingDocuments.reloadData()
+        CheckTableDataExistsOrNot()
     }
     
     @IBAction func btnCancelPopup(_ sender: Any) {
