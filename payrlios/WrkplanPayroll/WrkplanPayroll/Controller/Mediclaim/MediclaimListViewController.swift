@@ -129,6 +129,7 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
             print("tap is working")
            
             MediclaimListViewController.mediclaim_no = row["mediclaim_no"] as? String
+            MediclaimListViewController.mediclaim_status = row["mediclaim_status"] as? String
             MediclaimListViewController.mediclaim_id = row["mediclaim_id"]?.intValue
             MediclaimListViewController.mediclaim_amount = row["payment_amount"]?.doubleValue
             /*AdvanceRequisitionListViewController.description = row["description"] as? String

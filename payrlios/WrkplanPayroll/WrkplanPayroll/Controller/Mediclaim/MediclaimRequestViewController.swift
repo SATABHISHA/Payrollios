@@ -38,7 +38,7 @@ class MediclaimRequestViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
-        LoadButtons()
+        
         
         
         TxtMediclaimNo.isUserInteractionEnabled = false
@@ -73,8 +73,14 @@ class MediclaimRequestViewController: UIViewController {
         if MediclaimListViewController.new_create_yn == false{
             loadData(mediclaim_id: MediclaimListViewController.mediclaim_id!)
 //            loadData(mediclaim_id: 9)
+        } else if MediclaimListViewController.new_create_yn == true{
+            TxtSupportingDocuments.text = "0 Document(s)"
         }
+        
+        LoadButtons()
+        print("Status-=>",MediclaimListViewController.mediclaim_status!)
     }
+    
     
     //---ViewCheckBalance
     @objc func CheckBalanceView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -95,6 +101,104 @@ class MediclaimRequestViewController: UIViewController {
         ViewBtnSubmit.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewBtnSave.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewCustomBtnViewDocuments.addBorder(side: .left, color: UIColor(hexFromString: "000000"), width: 0.6)
+        
+        if MediclaimListViewController.EmployeeType == "Employee"{
+//            LabelNavBarTitle.text = "My Advance Requisition"
+//            btn_reason_select_type.isUserInteractionEnabled = true
+//            btn_reason_select_type.alpha = 1.0
+            if MediclaimListViewController.mediclaim_status! == ""{
+                ViewBtnCancel.isHidden = false
+                ViewBtnSave.isHidden = false
+                ViewBtnSubmit.isHidden = false
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                
+                
+                TxtMediclaimAmount.isUserInteractionEnabled = true
+                TxtReason.isUserInteractionEnabled = true
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
+                
+            }
+            if MediclaimListViewController.mediclaim_status! == "Saved"{
+                ViewBtnCancel.isHidden = false
+                ViewBtnSave.isHidden = false
+                ViewBtnSubmit.isHidden = false
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                
+                
+                TxtMediclaimAmount.isUserInteractionEnabled = true
+                TxtReason.isUserInteractionEnabled = true
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
+            }
+            if MediclaimListViewController.mediclaim_status! == "Submitted" ||
+                MediclaimListViewController.mediclaim_status! == "Approved" ||
+                MediclaimListViewController.mediclaim_status! == "Payment done" ||
+                MediclaimListViewController.mediclaim_status! == "Canceled"{
+                
+                ViewBtnCancel.isHidden = false
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = true
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                
+                TxtMediclaimAmount.isUserInteractionEnabled = false
+                TxtReason.isUserInteractionEnabled = false
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
+            }
+            if MediclaimListViewController.mediclaim_status! == "Returned"{
+                ViewBtnCancel.isHidden = false
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = false
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                
+                TxtMediclaimAmount.isUserInteractionEnabled = true
+                TxtReason.isUserInteractionEnabled = true
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
+            }
+        }
+        if MediclaimListViewController.mediclaim_status! == "Supervisor"{
+//            LabelNavBarTitle.text = "Subordinate Advance Requisition"
+//            btn_reason_select_type.isUserInteractionEnabled = false
+//            btn_reason_select_type.alpha = 0.6
+            if MediclaimListViewController.mediclaim_status! == "Submitted"{
+                ViewBtnCancel.isHidden = false
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = true
+                ViewBtnApprove.isHidden = false
+                ViewBtnReturn.isHidden = false
+                
+                
+                TxtMediclaimAmount.isUserInteractionEnabled = false
+                TxtReason.isUserInteractionEnabled = false
+                TxtApprovedAmount.isUserInteractionEnabled = true
+                TxtViewApprovalRemark.isUserInteractionEnabled = true
+            }
+            if MediclaimListViewController.mediclaim_status! == "Returned" ||
+                MediclaimListViewController.mediclaim_status! == "Approved" ||
+                MediclaimListViewController.mediclaim_status! == "Payment done" ||
+                MediclaimListViewController.mediclaim_status! == "Canceled"{
+                
+                ViewBtnCancel.isHidden = false
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = true
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                
+                
+                TxtMediclaimAmount.isUserInteractionEnabled = false
+                TxtReason.isUserInteractionEnabled = false
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.isUserInteractionEnabled = false
+            }
+        }
         
         
     }
@@ -224,6 +328,8 @@ class MediclaimRequestViewController: UIViewController {
                 
                 if SupportingDocumentsViewController.tableChildData.count > 0 {
                     self.TxtSupportingDocuments.text = "\(SupportingDocumentsViewController.tableChildData.count) Document(s)"
+                }else{
+                    self.TxtSupportingDocuments.text = "0 Document(s)"
                 }
                 
             }
