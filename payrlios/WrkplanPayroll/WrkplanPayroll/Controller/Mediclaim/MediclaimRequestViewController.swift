@@ -52,6 +52,7 @@ class MediclaimRequestViewController: UIViewController {
         TxtReason.setLeftPaddingPoints(5)
         TxtSupportingDocuments.setLeftPaddingPoints(5)
         TxtApprovedAmount.setRightPaddingPoints(5)
+        TxtApplicationStatus.setLeftPaddingPoints(5)
         TxtViewApprovalRemark.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         TxtApplicationStatus.setLeftPaddingPoints(2)
         
