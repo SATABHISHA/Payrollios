@@ -308,11 +308,6 @@
             <point key="canvasLocation" x="638" y="95"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="A54-1n-STB">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <image name="backarrow" width="200" height="200"/>
         <image name="delete_record_od_request" width="256" height="256"/>
