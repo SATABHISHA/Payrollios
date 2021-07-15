@@ -385,7 +385,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Us-Cc-8PD">
                                                         <rect key="frame" x="201" y="0.0" width="193" height="222"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxD-pe-lXn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mediclaim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxD-pe-lXn">
                                                                 <rect key="frame" x="0.0" y="177" width="193" height="45"/>
                                                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -426,7 +426,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ei-8I-j5w">
                                                         <rect key="frame" x="0.0" y="0.0" width="193" height="222"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mediclaim" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl9-Kr-N5w">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LTA Requisition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl9-Kr-N5w">
                                                                 <rect key="frame" x="0.0" y="177" width="193" height="45"/>
                                                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -454,9 +454,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RI2-g2-x1g">
                                                         <rect key="frame" x="201" y="0.0" width="193" height="222"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOC-fc-vsn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOC-fc-vsn">
                                                                 <rect key="frame" x="0.0" y="177" width="193" height="45"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="vLD-1W-7E9"/>
                                                                 </constraints>
@@ -469,10 +469,17 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reports" translatesAutoresizingMaskIntoConstraints="NO" id="bHz-g6-ZdR">
+                                                                <rect key="frame" x="32" y="24" width="129" height="120"/>
+                                                            </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="bHz-g6-ZdR" secondAttribute="trailing" constant="32" id="BH5-Fh-RvC"/>
+                                                            <constraint firstItem="iOC-fc-vsn" firstAttribute="top" secondItem="bHz-g6-ZdR" secondAttribute="bottom" constant="33" id="GVf-UQ-iWr"/>
+                                                            <constraint firstItem="bHz-g6-ZdR" firstAttribute="leading" secondItem="RI2-g2-x1g" secondAttribute="leading" constant="32" id="hHn-yD-Vgc"/>
                                                             <constraint firstItem="iOC-fc-vsn" firstAttribute="leading" secondItem="RI2-g2-x1g" secondAttribute="leading" id="iQ5-H8-PxV"/>
+                                                            <constraint firstItem="bHz-g6-ZdR" firstAttribute="top" secondItem="RI2-g2-x1g" secondAttribute="top" constant="24" id="lSv-A6-57l"/>
                                                             <constraint firstAttribute="bottom" secondItem="iOC-fc-vsn" secondAttribute="bottom" id="rRX-LB-L5p"/>
                                                             <constraint firstAttribute="trailing" secondItem="iOC-fc-vsn" secondAttribute="trailing" id="y6L-v5-R5d"/>
                                                         </constraints>
@@ -707,17 +714,20 @@
                         <outlet property="HolidayView" destination="egu-SH-tKL" id="kRI-Nd-etz"/>
                         <outlet property="InsuranceImg" destination="jy1-DP-nep" id="hGy-OG-jWb"/>
                         <outlet property="InsuranceView" destination="USB-BF-wc8" id="Klj-xn-6Lv"/>
-                        <outlet property="LabelMediclaim" destination="vl9-Kr-N5w" id="SW5-62-Cpc"/>
+                        <outlet property="LabelLta" destination="vl9-Kr-N5w" id="xx1-z7-RSH"/>
+                        <outlet property="LabelMediclaim" destination="BxD-pe-lXn" id="fA1-M1-Khm"/>
                         <outlet property="LeaveImg" destination="58B-4c-MWU" id="SWO-Yx-npR"/>
                         <outlet property="LeaveView" destination="MMm-yW-uoD" id="glK-BT-VzE"/>
-                        <outlet property="MediclaimImage" destination="sJJ-s5-P3e" id="y1Y-Kr-3TH"/>
-                        <outlet property="MediclaimView" destination="2ei-8I-j5w" id="riz-gf-Zq3"/>
+                        <outlet property="LtaImage" destination="sJJ-s5-P3e" id="xOP-Oj-vh5"/>
+                        <outlet property="LtaView" destination="2ei-8I-j5w" id="n8l-9n-Otu"/>
+                        <outlet property="MediclaimImage" destination="jiC-oR-6HH" id="TcL-PA-heE"/>
+                        <outlet property="MediclaimView" destination="4Us-Cc-8PD" id="a1d-8e-wuI"/>
                         <outlet property="ODdutyImage" destination="UlF-KZ-eyX" id="0vp-4w-tHC"/>
                         <outlet property="ODdutyRequestImg" destination="Vd4-HH-yZJ" id="AQV-5T-c3r"/>
                         <outlet property="ODdutyRequestView" destination="2IT-Dr-NqG" id="zyg-OL-Eh3"/>
                         <outlet property="ODdutyView" destination="5AG-Kx-GkQ" id="7cW-bD-zUa"/>
-                        <outlet property="ReportsImage" destination="jiC-oR-6HH" id="eks-NZ-lWk"/>
-                        <outlet property="ReportsView" destination="4Us-Cc-8PD" id="8sE-P0-3jk"/>
+                        <outlet property="ReportsImage" destination="bHz-g6-ZdR" id="W0n-A7-Zrh"/>
+                        <outlet property="ReportsView" destination="RI2-g2-x1g" id="jSN-Ut-2Ht"/>
                         <outlet property="ScrollView" destination="9dN-SJ-4Ug" id="DUY-AR-5rr"/>
                         <outlet property="ScrollViewContainer" destination="KEL-6a-67U" id="per-Gx-m1I"/>
                         <outlet property="TimesheetImg" destination="WO2-31-ocP" id="hvR-AE-nrb"/>
@@ -735,7 +745,7 @@
                         <outlet property="labelODduty" destination="qOE-1k-TzH" id="xaS-Dy-1OA"/>
                         <outlet property="labelODdutyRequest" destination="BPE-8N-Qtn" id="weZ-Ks-ZV9"/>
                         <outlet property="labelPasswordCheck" destination="Znr-fI-wV0" id="Je2-pV-vli"/>
-                        <outlet property="labelReports" destination="BxD-pe-lXn" id="qyW-TT-5PC"/>
+                        <outlet property="labelReports" destination="iOC-fc-vsn" id="EvZ-u4-daV"/>
                         <outlet property="labelTimesheet" destination="RKH-dv-UeR" id="WwQ-2t-vXW"/>
                         <outlet property="navigationCompanyName" destination="uLX-6U-sMA" id="7yy-Gw-jms"/>
                         <outlet property="navigationDrawer" destination="u9Z-Il-Kjs" id="4PD-O9-RFQ"/>
@@ -1106,6 +1116,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUm-yB-p1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3251" y="350"/>
+        </scene>
+        <!--lta-->
+        <scene sceneID="Hny-1f-agf">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="lta" storyboardName="Lta" referencedIdentifier="lta" id="BCT-ws-JAn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mVh-8Z-5HZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3208" y="430"/>
         </scene>
     </scenes>
     <resources>

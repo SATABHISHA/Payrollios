@@ -10,7 +10,7 @@
         <!--Lta List View Controller-->
         <scene sceneID="AOB-4o-Zp8">
             <objects>
-                <viewController storyboardIdentifier="mediclaim" id="PUI-ZG-FJB" customClass="LtaListViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lta" id="PUI-ZG-FJB" customClass="LtaListViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="Wfr-WM-yyi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,6 +308,11 @@
             <point key="canvasLocation" x="638" y="95"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="A54-1n-STB">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="backarrow" width="200" height="200"/>
         <image name="delete_record_od_request" width="256" height="256"/>

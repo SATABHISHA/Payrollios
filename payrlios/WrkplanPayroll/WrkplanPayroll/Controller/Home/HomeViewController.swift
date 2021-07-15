@@ -72,6 +72,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var MediclaimImage: UIImageView!
     @IBOutlet weak var LabelMediclaim: UILabel!
     
+    @IBOutlet weak var LtaView: UIView!
+    @IBOutlet weak var LtaImage: UIImageView!
+    @IBOutlet weak var LabelLta: UILabel!
     
     @IBOutlet weak var info_img: UIView!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
