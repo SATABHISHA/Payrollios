@@ -772,6 +772,7 @@
                         <segue destination="xbE-8B-cCL" kind="modal" identifier="reports" modalPresentationStyle="fullScreen" id="MR4-tN-o8L"/>
                         <segue destination="5Et-tu-4sH" kind="modal" identifier="advancerequisition" modalPresentationStyle="fullScreen" id="rKQ-Yk-Y9Q"/>
                         <segue destination="Lri-vc-bYI" kind="modal" identifier="mediclaimlist" modalPresentationStyle="fullScreen" id="TCY-gw-GoO"/>
+                        <segue destination="BCT-ws-JAn" kind="presentation" identifier="lta" modalPresentationStyle="fullScreen" id="2QE-Aq-rDZ"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="bbN-zT-K2i">

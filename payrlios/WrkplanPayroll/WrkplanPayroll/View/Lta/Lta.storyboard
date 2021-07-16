@@ -34,6 +34,9 @@
                                         <state key="normal" title="New">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="BtnNew:" destination="PUI-ZG-FJB" eventType="touchUpInside" id="OhW-rd-V21"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-Ei-p7S">
                                         <rect key="frame" x="0.0" y="7.6666666666666643" width="50" height="49"/>
@@ -41,6 +44,9 @@
                                             <constraint firstAttribute="width" constant="50" id="7BJ-F4-ajf"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="BtnBack:" destination="PUI-ZG-FJB" eventType="touchUpInside" id="FgW-cE-5uv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="qPX-ih-v7h"/>
@@ -197,7 +203,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="view_parent" destination="z3n-v2-MLP" id="IU7-dO-JF4"/>
+                                            <outlet property="ImgViewDelete" destination="rmY-EP-ZFa" id="Vre-YD-hq4"/>
+                                            <outlet property="LabelLtaAmount" destination="mZw-62-jmm" id="jdu-iK-EaK"/>
+                                            <outlet property="LabelLtaDate" destination="VHP-3u-brV" id="lPw-O3-0Zk"/>
+                                            <outlet property="LabelLtaRequisitionNo" destination="IYx-oD-W2g" id="ZqR-ob-tda"/>
+                                            <outlet property="LabelLtaStatus" destination="Y9m-uU-Q0S" id="cJr-Gt-fFF"/>
+                                            <outlet property="ViewParent" destination="z3n-v2-MLP" id="XIN-YK-vh1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -219,8 +230,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TableViewMediclaimList" destination="HRL-RZ-JM7" id="dVW-NJ-lSp"/>
-                        <outlet property="stackViewPopupButton" destination="Z9J-K6-8O8" id="GIe-L5-aSM"/>
+                        <outlet property="LabelBody" destination="xJ6-dY-P6H" id="ttw-Xq-CH3"/>
+                        <outlet property="LabelSubordinateLtaRequisition" destination="XeO-G3-2DV" id="0ye-c2-Zy1"/>
+                        <outlet property="TableViewLtaRequisitionList" destination="HRL-RZ-JM7" id="PgF-5S-VIc"/>
+                        <outlet property="btnPopupCancel" destination="RCZ-iX-tQx" id="jB2-F4-i8K"/>
+                        <outlet property="btnPopupOk" destination="2uv-GB-Axt" id="b3C-SZ-ZqU"/>
+                        <outlet property="stackViewPopupButton" destination="Z9J-K6-8O8" id="XS2-hv-We9"/>
+                        <outlet property="viewDetails" destination="OgQ-gK-CCD" id="8ou-HP-eKJ"/>
+                        <segue destination="J9X-DZ-Vsp" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="oK7-sb-SsS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Odl-tf-0Qm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -237,6 +254,9 @@
                                     <state key="normal" title="Yes">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btnPopupOk:" destination="PUI-ZG-FJB" eventType="touchUpInside" id="QFf-va-bdB"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCZ-iX-tQx">
                                     <rect key="frame" x="166" y="0.0" width="165" height="50"/>
@@ -244,6 +264,9 @@
                                     <state key="normal" title="No">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btn_cancel:" destination="PUI-ZG-FJB" eventType="touchUpInside" id="LBq-0l-lRH"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
@@ -306,6 +329,16 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="638" y="95"/>
+        </scene>
+        <!--home-->
+        <scene sceneID="w4u-UK-Mqs">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="J9X-DZ-Vsp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lSW-Dk-odR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AD-Xg-eXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="-99"/>
         </scene>
     </scenes>
     <designables>

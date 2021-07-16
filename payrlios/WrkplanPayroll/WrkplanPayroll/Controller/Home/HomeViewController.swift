@@ -165,6 +165,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         labelAdvance.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelReports.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         LabelMediclaim.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
+        LabelLta.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         //----------view and label border code styarts--------
         
         
@@ -346,8 +347,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         MediclaimView.isUserInteractionEnabled = true
         MediclaimView.addGestureRecognizer(tapGestureMediclaimView)
         
+        //Lta
+        let tapGestureRecognizerLtaImg = UITapGestureRecognizer(target: self, action: #selector(LtaImg(tapGestureRecognizer:)))
+        LtaImage.isUserInteractionEnabled = true
+        LtaImage.addGestureRecognizer(tapGestureRecognizerLtaImg)
+        
+        let tapGestureLtaView = UITapGestureRecognizer(target: self, action: #selector(LtaView(tapGestureRecognizer:)))
+        LtaView.isUserInteractionEnabled = true
+        LtaView.addGestureRecognizer(tapGestureLtaView)
+        
+        
+        
         check_od_duty_log_status()
     }
+    
+    //---Lta
+    @objc func LtaImg(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "lta", sender: nil)
+    }
+    @objc func LtaView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "lta", sender: nil)
+    }
+    
     //---Mediclaim
     @objc func MediclaimImg(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
