@@ -37,6 +37,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     @IBOutlet weak var ViewBtnApprove: UIView!
     @IBOutlet weak var ViewBtnSubmit: UIView!
     @IBOutlet weak var ViewBtnSave: UIView!
+    @IBOutlet weak var ViewBtnBack: UIView!
     @IBOutlet weak var StackViewButtons: UIStackView!
     
     var from_date: Bool = false
@@ -49,24 +50,94 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
+        //---code for date section, starts
         TxtFromDate.delegate = self
         TxtToDate.delegate = self
         TxtFromDate.isUserInteractionEnabled = true
         TxtToDate.isUserInteractionEnabled = false
         TxtFromDate.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         TxtToDate.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        //---code for date section, ends
+        
+        TxtLtaRequisitionNo.isUserInteractionEnabled = false
+        TxtEmpName.isUserInteractionEnabled = false
+        TxtFromYrLtaLimit.isUserInteractionEnabled = false
+        TxtToYearLtaLimit.isUserInteractionEnabled = false
+        TxtTotalLtaAmount.isUserInteractionEnabled = false
+        TxtRemainingLtaAmount.isUserInteractionEnabled = false
+        TxtRequisitionStatus.isUserInteractionEnabled = false
+        TxtSupportingDocuments.isUserInteractionEnabled = false
+        
+        TxtLtaRequisitionNo.setLeftPaddingPoints(5)
+        TxtEmpName.setLeftPaddingPoints(5)
+        TxtFromYrLtaLimit.setRightPaddingPoints(5)
+        TxtToYearLtaLimit.setRightPaddingPoints(5)
+        TxtLtaAmount.setRightPaddingPoints(5)
+        TxtFromYrLtaLimit.setRightPaddingPoints(5)
+        TxtTotalLtaAmount.setRightPaddingPoints(5)
+        TxtRemainingLtaAmount.setRightPaddingPoints(5)
+        TxtLtaAmount.setRightPaddingPoints(5)
+        TxtViewDetail.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        TxtFromDate.setLeftPaddingPoints(5)
+        TxtToDate.setLeftPaddingPoints(5)
+        TxtSupportingDocuments.setLeftPaddingPoints(5)
+        TxtRequisitionStatus.setLeftPaddingPoints(5)
+        TxtApprovedAmount.setRightPaddingPoints(5)
+        TxtViewSupervisorRemark.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        TxtViewFinalSupervisorRemark.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        
+        //-----code to add button border, starts------
+        StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        ViewBtnCancel.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        ViewBtnReturn.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        ViewBtnApprove.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        ViewBtnSubmit.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        ViewBtnSave.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        ViewSupportingDocuments.addBorder(side: .left, color: UIColor(hexFromString: "000000"), width: 0.6)
+        //-----code to add button border, ends------
+        
+        if LtaListViewController.new_create_yn == true {
+            ViewBtnSave.isHidden = false
+            ViewBtnSubmit.isHidden = false
+            ViewBtnCancel.isHidden = true
+            ViewBtnApprove.isHidden = true
+            ViewBtnReturn.isHidden = true
+            ImgFromDate.isHidden = false
+            ImgToDate.isHidden = false
+            
+            TxtLtaAmount.isUserInteractionEnabled = true
+            TxtViewDetail.isUserInteractionEnabled = true
+            TxtFromDate.isUserInteractionEnabled = true
+            TxtToDate.isUserInteractionEnabled = true
+            
+            TxtApprovedAmount.isUserInteractionEnabled = false
+            TxtViewSupervisorRemark.isUserInteractionEnabled = false
+            TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
+            
+            ViewSupportingDocuments.isUserInteractionEnabled = true
+            ViewSupportingDocuments.alpha = 1.0
+        } else if LtaListViewController.new_create_yn == false {
+            LoadButtons()
+        }
+        
+        
+        //ViewBack
+        let tapGestureRecognizerBackView = UITapGestureRecognizer(target: self, action: #selector(BackView(tapGestureRecognizer:)))
+        ViewBtnBack.isUserInteractionEnabled = true
+        ViewBtnBack.addGestureRecognizer(tapGestureRecognizerBackView)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //---ViewBack
+    @objc func BackView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+        
     }
-    */
+
+    @IBAction func BtnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+    }
+    
     
     //-----Code for calendarDate selection, starts-----
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -187,5 +258,168 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     //--code to get day count ends
     
     //-----Code for calendarDate selection, ends-----
+    
+    
+    //----function to load buttons acc to the logic, code starts
+    func LoadButtons(){
+        
+        if LtaListViewController.EmployeeType == "Employee"{
+//            LabelNavBarTitle.text = "My Advance Requisition"
+//            btn_reason_select_type.isUserInteractionEnabled = true
+//            btn_reason_select_type.alpha = 1.0
+            if LtaListViewController.lta_status! == ""{
+                
+                
+                
+                ViewBtnSave.isHidden = false
+                ViewBtnSubmit.isHidden = false
+                ViewBtnCancel.isHidden = true
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                ImgFromDate.isHidden = false
+                ImgToDate.isHidden = false
+                
+                TxtLtaAmount.isUserInteractionEnabled = true
+                TxtViewDetail.isUserInteractionEnabled = true
+                TxtFromDate.isUserInteractionEnabled = true
+                TxtToDate.isUserInteractionEnabled = true
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewSupervisorRemark.isUserInteractionEnabled = false
+                TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
+                
+                ViewSupportingDocuments.isUserInteractionEnabled = true
+                ViewSupportingDocuments.alpha = 1.0
+                
+                
+                
+            }
+            if LtaListViewController.lta_status! == "Saved"{
+                
+                ViewBtnSave.isHidden = false
+                ViewBtnSubmit.isHidden = false
+                ViewBtnCancel.isHidden = true
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                ImgFromDate.isHidden = false
+                ImgToDate.isHidden = false
+                
+                TxtLtaAmount.isUserInteractionEnabled = true
+                TxtViewDetail.isUserInteractionEnabled = true
+                TxtFromDate.isUserInteractionEnabled = true
+                TxtToDate.isUserInteractionEnabled = true
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewSupervisorRemark.isUserInteractionEnabled = false
+                TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
+                
+                ViewSupportingDocuments.isUserInteractionEnabled = true
+                ViewSupportingDocuments.alpha = 1.0
+            }
+            if LtaListViewController.lta_status! == "Submitted" ||
+                LtaListViewController.lta_status! == "Approved" ||
+                LtaListViewController.lta_status! == "Payment done" ||
+                LtaListViewController.lta_status! == "Canceled"{
+                
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = true
+                ViewBtnCancel.isHidden = true
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                ImgFromDate.isHidden = true
+                ImgToDate.isHidden = true
+                
+                TxtLtaAmount.isUserInteractionEnabled = false
+                TxtViewDetail.isUserInteractionEnabled = false
+                TxtFromDate.isUserInteractionEnabled = false
+                TxtToDate.isUserInteractionEnabled = false
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewSupervisorRemark.isUserInteractionEnabled = false
+                TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
+                
+                ViewSupportingDocuments.isUserInteractionEnabled = true
+                ViewSupportingDocuments.alpha = 1.0
+            }
+            if LtaListViewController.lta_status! == "Returned"{
+           
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = false
+                ViewBtnCancel.isHidden = true
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                ImgFromDate.isHidden = false
+                ImgToDate.isHidden = false
+                
+                TxtLtaAmount.isUserInteractionEnabled = true
+                TxtViewDetail.isUserInteractionEnabled = true
+                TxtFromDate.isUserInteractionEnabled = true
+                TxtToDate.isUserInteractionEnabled = true
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewSupervisorRemark.isUserInteractionEnabled = false
+                TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
+                
+                ViewSupportingDocuments.isUserInteractionEnabled = true
+                ViewSupportingDocuments.alpha = 1.0
+            }
+        }
+        if LtaListViewController.lta_status! == "Supervisor"{
+//            LabelNavBarTitle.text = "Subordinate Advance Requisition"
+//            btn_reason_select_type.isUserInteractionEnabled = false
+//            btn_reason_select_type.alpha = 0.6
+            if LtaListViewController.lta_status! == "Submitted"{
+            
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = true
+                ViewBtnCancel.isHidden = false
+                ViewBtnApprove.isHidden = false
+                ViewBtnReturn.isHidden = false
+                ImgFromDate.isHidden = true
+                ImgToDate.isHidden = true
+                
+                TxtLtaAmount.isUserInteractionEnabled = false
+                TxtViewDetail.isUserInteractionEnabled = false
+                TxtFromDate.isUserInteractionEnabled = false
+                TxtToDate.isUserInteractionEnabled = false
+                
+                TxtApprovedAmount.isUserInteractionEnabled = true
+                TxtViewSupervisorRemark.isUserInteractionEnabled = true
+                TxtViewFinalSupervisorRemark.isUserInteractionEnabled = true
+                
+                ViewSupportingDocuments.isUserInteractionEnabled = true
+                ViewSupportingDocuments.alpha = 1.0
+            }
+            if LtaListViewController.lta_status! == "Returned" ||
+                LtaListViewController.lta_status! == "Approved" ||
+                LtaListViewController.lta_status! == "Payment done" ||
+                LtaListViewController.lta_status! == "Canceled"{
+                
+              
+                ViewBtnSave.isHidden = true
+                ViewBtnSubmit.isHidden = true
+                ViewBtnCancel.isHidden = true
+                ViewBtnApprove.isHidden = true
+                ViewBtnReturn.isHidden = true
+                ImgFromDate.isHidden = true
+                ImgToDate.isHidden = true
+                
+                TxtLtaAmount.isUserInteractionEnabled = false
+                TxtViewDetail.isUserInteractionEnabled = false
+                TxtFromDate.isUserInteractionEnabled = false
+                TxtToDate.isUserInteractionEnabled = false
+                
+                TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtViewSupervisorRemark.isUserInteractionEnabled = false
+                TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
+                
+                ViewSupportingDocuments.isUserInteractionEnabled = true
+                ViewSupportingDocuments.alpha = 1.0
+            }
+        }
+        
+        
+    }
+    //----function to load buttons acc to the logic, code ends
 
 }

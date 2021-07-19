@@ -50,6 +50,7 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.performSegue(withIdentifier: "home", sender: nil)
     }
     @IBAction func BtnNew(_ sender: Any) {
+        LtaListViewController.new_create_yn = true
         self.performSegue(withIdentifier: "ltarequest", sender: nil)
     }
     
@@ -135,7 +136,7 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
             LtaListViewController.employee_name = row["employee_name"] as? String
            
             LtaListViewController.new_create_yn = false
-//            self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
+            self.performSegue(withIdentifier: "ltarequest", sender: nil)
         }
         //---------onClick tableview code ends----------
     //========tableview code ends========
