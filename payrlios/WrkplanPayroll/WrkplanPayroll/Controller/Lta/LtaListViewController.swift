@@ -50,6 +50,7 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.performSegue(withIdentifier: "home", sender: nil)
     }
     @IBAction func BtnNew(_ sender: Any) {
+        self.performSegue(withIdentifier: "ltarequest", sender: nil)
     }
     
     
