@@ -116,6 +116,9 @@
 		17BDC05926451A2F006EAFD0 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */; };
 		17BDC05E264522F1006EAFD0 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */; };
 		17C1912F2689F4FB00E83C1F /* MediclaimListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C1912E2689F4FB00E83C1F /* MediclaimListViewController.swift */; };
+		17C564C126A6B73C00D50B08 /* LtaSupportingDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C564C026A6B73C00D50B08 /* LtaSupportingDocumentsViewController.swift */; };
+		17C564C326A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C564C226A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift */; };
+		17C564C526A6B8FE00D50B08 /* LtaSupportingDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C564C426A6B8FE00D50B08 /* LtaSupportingDocuments.storyboard */; };
 		17D94E47256FC4FF001A28E3 /* EmployeeDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */; };
 		17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */; };
 		17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */; };
@@ -265,6 +268,9 @@
 		17BDC05826451A2F006EAFD0 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
 		17BDC05D264522F1006EAFD0 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		17C1912E2689F4FB00E83C1F /* MediclaimListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediclaimListViewController.swift; sourceTree = "<group>"; };
+		17C564C026A6B73C00D50B08 /* LtaSupportingDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LtaSupportingDocumentsViewController.swift; sourceTree = "<group>"; };
+		17C564C226A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LtaSupportingDocumentsTableViewCell.swift; sourceTree = "<group>"; };
+		17C564C426A6B8FE00D50B08 /* LtaSupportingDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LtaSupportingDocuments.storyboard; sourceTree = "<group>"; };
 		17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeDocuments.storyboard; sourceTree = "<group>"; };
 		17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsViewController.swift; sourceTree = "<group>"; };
 		17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -578,6 +584,8 @@
 				17640A4A269EC9C10058DE31 /* LtaListViewController.swift */,
 				17640A4F269ED4F10058DE31 /* LtaListTableViewCell.swift */,
 				17640A53269F05FB0058DE31 /* LtaRequestViewController.swift */,
+				17C564C026A6B73C00D50B08 /* LtaSupportingDocumentsViewController.swift */,
+				17C564C226A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift */,
 			);
 			path = Lta;
 			sourceTree = "<group>";
@@ -587,6 +595,7 @@
 			children = (
 				17640A4D269ECA040058DE31 /* Lta.storyboard */,
 				17640A51269EFE040058DE31 /* LtaRequest.storyboard */,
+				17C564C426A6B8FE00D50B08 /* LtaSupportingDocuments.storyboard */,
 			);
 			path = Lta;
 			sourceTree = "<group>";
@@ -926,6 +935,7 @@
 				17AF13932620335D00B3F5EE /* SubordinateLeaveApplication.storyboard in Resources */,
 				1762250725711849005F6C5B /* InsuranceDetail.storyboard in Resources */,
 				1754BAC3261AE8010092D8EA /* OutdoorDutyTimeLog.storyboard in Resources */,
+				17C564C526A6B8FE00D50B08 /* LtaSupportingDocuments.storyboard in Resources */,
 				17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */,
 				17739206261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard in Resources */,
 				17F5E99D267B629C0089C614 /* SubordinateAdvanceRequisitionList.storyboard in Resources */,
@@ -1079,7 +1089,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1754589925E634B500985387 /* Connectivity.swift in Sources */,
+				17C564C126A6B73C00D50B08 /* LtaSupportingDocumentsViewController.swift in Sources */,
 				176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */,
+				17C564C326A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift in Sources */,
 				172D28C7257501DA00C6E2A6 /* HolidayDetailsViewController.swift in Sources */,
 				17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */,
 				1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */,

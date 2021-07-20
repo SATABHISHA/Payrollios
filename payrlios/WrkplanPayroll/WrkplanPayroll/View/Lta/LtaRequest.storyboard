@@ -772,15 +772,15 @@
                                                         <rect key="frame" x="194.66666666666663" y="0.0" width="179.33333333333337" height="110"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZ0-Bh-EXm">
-                                                                <rect key="frame" x="83.000000000000028" y="10" width="13.333333333333329" height="24"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="83.333333333333343" y="10" width="12.333333333333329" height="24"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Av7-pB-Y59">
                                                                 <rect key="frame" x="64.666666666666657" y="39" width="50" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Minimum 5 Days)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHM-zD-MMR">
@@ -790,7 +790,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="Av7-pB-Y59" firstAttribute="centerX" secondItem="1yY-qv-zxm" secondAttribute="centerX" id="1OF-rS-UBP"/>
                                                             <constraint firstItem="wHM-zD-MMR" firstAttribute="centerX" secondItem="1yY-qv-zxm" secondAttribute="centerX" id="8i6-F3-Lul"/>
@@ -982,6 +982,7 @@
                         <outlet property="ViewBtnSubmit" destination="XGr-bg-agL" id="j4N-lF-F4K"/>
                         <outlet property="ViewSupportingDocuments" destination="SDh-Ec-WYy" id="vZh-mM-9oa"/>
                         <segue destination="MHx-Pl-jdB" kind="presentation" identifier="LtaEmployee" modalPresentationStyle="fullScreen" id="gG9-YA-yk9"/>
+                        <segue destination="4MF-CI-liD" kind="presentation" identifier="ltasupportingdoc" modalPresentationStyle="fullScreen" id="egn-HW-hGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v03-VU-rH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -995,6 +996,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lM-7V-HKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1351" y="-410"/>
+        </scene>
+        <!--ltasupportingdoc-->
+        <scene sceneID="rnN-HM-S6q">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ltasupportingdoc" storyboardName="LtaSupportingDocuments" referencedIdentifier="ltasupportingdoc" id="4MF-CI-liD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJl-pC-7T2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="-314"/>
         </scene>
     </scenes>
     <resources>

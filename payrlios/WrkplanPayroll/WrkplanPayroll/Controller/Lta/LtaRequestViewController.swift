@@ -116,6 +116,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             
             ViewSupportingDocuments.isUserInteractionEnabled = true
             ViewSupportingDocuments.alpha = 1.0
+            self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
         } else if LtaListViewController.new_create_yn == false {
             LoadButtons()
             loadData(application_id: LtaListViewController.lta_id!)
@@ -127,8 +128,17 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         ViewBtnBack.isUserInteractionEnabled = true
         ViewBtnBack.addGestureRecognizer(tapGestureRecognizerBackView)
         
+        //ViewDocs
+        let tapGestureRecognizerDocView = UITapGestureRecognizer(target: self, action: #selector(DocView(tapGestureRecognizer:)))
+        ViewSupportingDocuments.isUserInteractionEnabled = true
+        ViewSupportingDocuments.addGestureRecognizer(tapGestureRecognizerDocView)
+        
     }
-    
+    //---ViewDocs
+    @objc func DocView(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "ltasupportingdoc", sender: nil)
+        
+    }
     //---ViewBack
     @objc func BackView(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
@@ -436,12 +446,13 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 print("Doc description: \(swiftyJsonVar)")
                 
                 self.TxtLtaRequisitionNo.text = swiftyJsonVar["fields"]["lta_application_no"].stringValue
-                if LtaListViewController.new_create_yn == true{
+                /*if LtaListViewController.new_create_yn == true{
                     self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
                 }else{
                     self.TxtEmpName.text = LtaListViewController.employee_name!
-                }
-                              
+                }*/
+                            
+                self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
                 self.TxtFromYrLtaLimit.text = swiftyJsonVar["fields"]["year_from_limit"].stringValue
                 self.TxtToYearLtaLimit.text = swiftyJsonVar["fields"]["year_to_limit"].stringValue
                 self.TxtTotalLtaAmount.text = String(swiftyJsonVar["fields"]["lta_total_limit"].doubleValue)
