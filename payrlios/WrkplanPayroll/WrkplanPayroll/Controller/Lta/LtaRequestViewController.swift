@@ -118,6 +118,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             ViewSupportingDocuments.alpha = 1.0
         } else if LtaListViewController.new_create_yn == false {
             LoadButtons()
+            loadData(application_id: LtaListViewController.lta_id!)
         }
         
         
@@ -421,5 +422,107 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         
     }
     //----function to load buttons acc to the logic, code ends
+    
+    //--------function to load document details using Alamofire and Json Swifty(added on 2-Jul-2021------------
+    func loadData(application_id: Int!){
+        loaderStart()
+        
+        let url = "\(BASE_URL)lta/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(application_id!)"
+        print("MediclaimDocumentDetails-=>",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+            self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                print("Doc description: \(swiftyJsonVar)")
+                
+                self.TxtLtaRequisitionNo.text = swiftyJsonVar["fields"]["lta_application_no"].stringValue
+                if LtaListViewController.new_create_yn == true{
+                    self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
+                }else{
+                    self.TxtEmpName.text = LtaListViewController.employee_name!
+                }
+                              
+                self.TxtFromYrLtaLimit.text = swiftyJsonVar["fields"]["year_from_limit"].stringValue
+                self.TxtToYearLtaLimit.text = swiftyJsonVar["fields"]["year_to_limit"].stringValue
+                self.TxtTotalLtaAmount.text = String(swiftyJsonVar["fields"]["lta_total_limit"].doubleValue)
+                self.TxtRemainingLtaAmount.text = String(swiftyJsonVar["fields"]["lta_used_amount"].doubleValue)
+                self.TxtLtaAmount.text = String(swiftyJsonVar["fields"]["lta_amount"].doubleValue)
+                self.TxtViewDetail.text = swiftyJsonVar["fields"]["description"].stringValue
+                self.TxtFromDate.text = swiftyJsonVar["fields"]["date_from"].stringValue
+                self.TxtToDate.text = swiftyJsonVar["fields"]["date_to"].stringValue
+                self.TxtApprovedAmount.text = String(swiftyJsonVar["fields"]["approved_lta_amount"].doubleValue)
+                self.TxtViewSupervisorRemark.text = swiftyJsonVar["fields"]["supervisor_remark"].stringValue
+                self.TxtViewFinalSupervisorRemark.text = swiftyJsonVar["fields"]["final_supervisor_remark"].stringValue
+                self.TxtRequisitionStatus.text = swiftyJsonVar["fields"]["application_status"].stringValue
+                self.LabelDayCount.text = String(self.daysBetween(start: swiftyJsonVar["fields"]["date_from"].stringValue, end: swiftyJsonVar["fields"]["date_to"].stringValue)+1)
+                
+                if swiftyJsonVar["documents"] != ""{
+//                    UserSingletonModel.sharedInstance.documents = swiftyJsonVar
+                    for (key,value) in  swiftyJsonVar["documents"]{
+                        var data = DocumentDetails()
+                        data.document_name = value["file_name"].stringValue
+//                        SupportingDocumentsViewController.tableChildData.append(data)
+                    }
+                }
+                
+               /* if SupportingDocumentsViewController.tableChildData.count > 0 {
+                    self.TxtSupportingDocuments.text = "\(SupportingDocumentsViewController.tableChildData.count) Document(s)"
+                }else{
+                    self.TxtSupportingDocuments.text = "0 Document(s)"
+                }*/
+                
+            }
+            
+        }
+    }
+    //--------function to load document details using Alamofire and Json Swifty code ends------------
+    
+    // ====================== Blur Effect Defiend START ================= \\
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var blurEffectView: UIVisualEffectView!
+    var loader: UIVisualEffectView!
+    func loaderStart() {
+        // ====================== Blur Effect START ================= \\
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        loader = UIVisualEffectView(effect: blurEffect)
+        loader.frame = view.bounds
+        loader.alpha = 2
+        view.addSubview(loader)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+        activityIndicator.transform = transform
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.white
+        loadingIndicator.startAnimating();
+        loader.contentView.addSubview(loadingIndicator)
+        
+        // screen roted and size resize automatic
+        loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
+        // ====================== Blur Effect END ================= \\
+    }
+    
+    func loaderEnd() {
+        self.loader.removeFromSuperview();
+    }
+    // ====================== Blur Effect Defiend END ================= \\
+    
+    // ====================== Blur Effect START ================= \\
+    func blurEffect() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.alpha = 0.9
+        view.addSubview(blurEffectView)
+        // screen roted and size resize automatic
+        blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
+    }
+    func canelBlurEffect() {
+        self.blurEffectView.removeFromSuperview();
+    }
+    // ====================== Blur Effect END ================= \\
 
 }
