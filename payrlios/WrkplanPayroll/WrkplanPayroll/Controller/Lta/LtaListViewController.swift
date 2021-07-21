@@ -43,7 +43,7 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     //---Subordinate
     @objc func LtaView(tapGestureRecognizer: UITapGestureRecognizer){
-//        self.performSegue(withIdentifier: "subordinatemediclaim", sender: nil)
+        self.performSegue(withIdentifier: "subordinatelta", sender: nil)
     }
 
     @IBAction func BtnBack(_ sender: Any) {

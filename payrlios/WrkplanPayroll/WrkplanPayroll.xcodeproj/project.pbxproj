@@ -122,6 +122,9 @@
 		17D94E47256FC4FF001A28E3 /* EmployeeDocuments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */; };
 		17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */; };
 		17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */; };
+		17E36A8B26A86AF300719AB5 /* SubordinateLta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E36A8A26A86AF300719AB5 /* SubordinateLta.storyboard */; };
+		17E36A8D26A86BAA00719AB5 /* SubordinateLtaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E36A8C26A86BAA00719AB5 /* SubordinateLtaViewController.swift */; };
+		17E36A8F26A86BCF00719AB5 /* SubordinateLtaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E36A8E26A86BCF00719AB5 /* SubordinateLtaTableViewCell.swift */; };
 		17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E5777F257A148D00F10376 /* MyAttendance.storyboard */; };
 		17E57788257A342100F10376 /* MyAttendanceLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */; };
 		17E5778D257A344500F10376 /* MyAttendanceLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */; };
@@ -274,6 +277,9 @@
 		17D94E46256FC4FE001A28E3 /* EmployeeDocuments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeDocuments.storyboard; sourceTree = "<group>"; };
 		17D94E4C256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsViewController.swift; sourceTree = "<group>"; };
 		17D94E58256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDocumentsTableViewCell.swift; sourceTree = "<group>"; };
+		17E36A8A26A86AF300719AB5 /* SubordinateLta.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateLta.storyboard; sourceTree = "<group>"; };
+		17E36A8C26A86BAA00719AB5 /* SubordinateLtaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLtaViewController.swift; sourceTree = "<group>"; };
+		17E36A8E26A86BCF00719AB5 /* SubordinateLtaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLtaTableViewCell.swift; sourceTree = "<group>"; };
 		17E5777F257A148D00F10376 /* MyAttendance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyAttendance.storyboard; sourceTree = "<group>"; };
 		17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogViewController.swift; sourceTree = "<group>"; };
 		17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAttendanceLogTableViewCell.swift; sourceTree = "<group>"; };
@@ -586,6 +592,8 @@
 				17640A53269F05FB0058DE31 /* LtaRequestViewController.swift */,
 				17C564C026A6B73C00D50B08 /* LtaSupportingDocumentsViewController.swift */,
 				17C564C226A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift */,
+				17E36A8C26A86BAA00719AB5 /* SubordinateLtaViewController.swift */,
+				17E36A8E26A86BCF00719AB5 /* SubordinateLtaTableViewCell.swift */,
 			);
 			path = Lta;
 			sourceTree = "<group>";
@@ -596,6 +604,7 @@
 				17640A4D269ECA040058DE31 /* Lta.storyboard */,
 				17640A51269EFE040058DE31 /* LtaRequest.storyboard */,
 				17C564C426A6B8FE00D50B08 /* LtaSupportingDocuments.storyboard */,
+				17E36A8A26A86AF300719AB5 /* SubordinateLta.storyboard */,
 			);
 			path = Lta;
 			sourceTree = "<group>";
@@ -946,6 +955,7 @@
 				17914B6E261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard in Resources */,
 				1759134D268AF6EF00D24A78 /* MediclaimList.storyboard in Resources */,
 				17513FEB257E172F0090EFD5 /* SubordinateLog.storyboard in Resources */,
+				17E36A8B26A86AF300719AB5 /* SubordinateLta.storyboard in Resources */,
 				173C0F2725626FBE007AE8F6 /* Assets.xcassets in Resources */,
 				176E663325F0F57A0079FC2E /* SubordinateOutdoorDutyRequest.storyboard in Resources */,
 				177E1C94261D98B600C4CF84 /* MyLeaveApplication.storyboard in Resources */,
@@ -1120,6 +1130,7 @@
 				17AF139D262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift in Sources */,
 				175C6AD22615FB8200F688F0 /* OdDutyLogEmployeeTaskViewController.swift in Sources */,
 				172D28CC25750D4400C6E2A6 /* HolidayDetailsCustomTabBarViewController.swift in Sources */,
+				17E36A8F26A86BCF00719AB5 /* SubordinateLtaTableViewCell.swift in Sources */,
 				1748A8692616CE3E00D51D13 /* OdDutyLogEmpTaskTableViewCell.swift in Sources */,
 				17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */,
 				17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */,
@@ -1152,6 +1163,7 @@
 				178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */,
 				17F5E9A1267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift in Sources */,
 				1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */,
+				17E36A8D26A86BAA00719AB5 /* SubordinateLtaViewController.swift in Sources */,
 				17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */,
 				175C6ADB268C42C1004A987B /* MediclaimRequestViewController.swift in Sources */,
 				17513FF0257E175C0090EFD5 /* SubordinateLogViewController.swift in Sources */,

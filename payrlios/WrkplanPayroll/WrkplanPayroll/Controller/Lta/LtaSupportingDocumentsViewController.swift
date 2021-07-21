@@ -77,7 +77,8 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     }
     //---ViewDone
     @objc func DoneView(tapGestureRecognizer: UITapGestureRecognizer){
-//        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
+//        self.performSegue(withIdentifier: "ltarequest", sender: nil)
+        self.dismiss(animated: true, completion: nil)
         
     }
     //---ViewCancel
@@ -306,8 +307,8 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     
     @IBAction func btnCancelTaskConfirmationPopupYes(_ sender: Any) {
         cancelConfirmationPopup()
-        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
-        SupportingDocumentsViewController.tableChildData.removeAll()
+        self.performSegue(withIdentifier: "ltarequest", sender: nil)
+        LtaSupportingDocumentsViewController.tableChildData.removeAll()
     }
     
     @IBAction func btnCancelTaskConfirmationPopupNo(_ sender: Any) {

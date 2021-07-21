@@ -11,7 +11,7 @@ import Alamofire
 import Toast_Swift
 
 class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-
+    
     @IBOutlet weak var TxtLtaRequisitionNo: UITextField!
     @IBOutlet weak var TxtEmpName: UITextField!
     @IBOutlet weak var TxtFromYrLtaLimit: UITextField!
@@ -46,7 +46,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
@@ -133,7 +133,75 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         ViewSupportingDocuments.isUserInteractionEnabled = true
         ViewSupportingDocuments.addGestureRecognizer(tapGestureRecognizerDocView)
         
+        //ViewSave
+        let tapGestureRecognizerSaveView = UITapGestureRecognizer(target: self, action: #selector(SaveView(tapGestureRecognizer:)))
+        ViewBtnSave.isUserInteractionEnabled = true
+        ViewBtnSave.addGestureRecognizer(tapGestureRecognizerSaveView)
+        
+        //ViewSubmit
+        let tapGestureRecognizerSubmitView = UITapGestureRecognizer(target: self, action: #selector(SubmitView(tapGestureRecognizer:)))
+        ViewBtnSubmit.isUserInteractionEnabled = true
+        ViewBtnSubmit.addGestureRecognizer(tapGestureRecognizerSubmitView)
+        
+        //ViewApprove
+        let tapGestureRecognizerApproveView = UITapGestureRecognizer(target: self, action: #selector(ApproveView(tapGestureRecognizer:)))
+        ViewBtnApprove.isUserInteractionEnabled = true
+        ViewBtnApprove.addGestureRecognizer(tapGestureRecognizerApproveView)
+        
+        //ViewReturn
+        let tapGestureRecognizerReturnView = UITapGestureRecognizer(target: self, action: #selector(ReturnView(tapGestureRecognizer:)))
+        ViewBtnReturn.isUserInteractionEnabled = true
+        ViewBtnReturn.addGestureRecognizer(tapGestureRecognizerReturnView)
+        
+        //ViewCancel
+        let tapGestureRecognizerCancelView = UITapGestureRecognizer(target: self, action: #selector(CancelView(tapGestureRecognizer:)))
+        ViewBtnCancel.isUserInteractionEnabled = true
+        ViewBtnCancel.addGestureRecognizer(tapGestureRecognizerCancelView)
+        
     }
+    
+    //---ViewCancel
+    @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
+        makeJsonObjectAndSaveDataToServer(lta_application_id: LtaListViewController.lta_id!, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: TxtApprovedAmount.text!, description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: "Cancelled", approved_by_id: LtaListViewController.employee_id!)
+        
+    }
+    
+    //---ViewReturn
+    @objc func ReturnView(tapGestureRecognizer: UITapGestureRecognizer){
+        makeJsonObjectAndSaveDataToServer(lta_application_id: LtaListViewController.lta_id!, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: TxtApprovedAmount.text!, description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: "Returned", approved_by_id: LtaListViewController.employee_id!)
+        
+    }
+    
+    //---ViewApprove
+    @objc func ApproveView(tapGestureRecognizer: UITapGestureRecognizer){
+        makeJsonObjectAndSaveDataToServer(lta_application_id: LtaListViewController.lta_id!, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: TxtApprovedAmount.text!, description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: "Approved", approved_by_id: LtaListViewController.employee_id!)
+        
+    }
+    
+    //---ViewSubmit
+    @objc func SubmitView(tapGestureRecognizer: UITapGestureRecognizer){
+        //        self.performSegue(withIdentifier: "ltasupportingdoc", sender: nil)
+        if LtaListViewController.new_create_yn == true {
+            makeJsonObjectAndSaveDataToServer(lta_application_id: 0, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: "0.00", description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: "Submitted", approved_by_id: 0)
+        }
+        if LtaListViewController.new_create_yn == false {
+            makeJsonObjectAndSaveDataToServer(lta_application_id: LtaListViewController.lta_id!, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: TxtApprovedAmount.text!, description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: "Submitted", approved_by_id: 0)
+        }
+        
+    }
+    
+    //---ViewSave
+    @objc func SaveView(tapGestureRecognizer: UITapGestureRecognizer){
+        //        self.performSegue(withIdentifier: "ltasupportingdoc", sender: nil)
+        if LtaListViewController.new_create_yn == true {
+            makeJsonObjectAndSaveDataToServer(lta_application_id: 0, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: "0.00", description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: "Saved", approved_by_id: 0)
+        }
+        if LtaListViewController.new_create_yn == false {
+            makeJsonObjectAndSaveDataToServer(lta_application_id: LtaListViewController.lta_id!, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: TxtApprovedAmount.text!, description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: TxtRequisitionStatus.text!, approved_by_id: 0)
+        }
+        
+    }
+    
     //---ViewDocs
     @objc func DocView(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "ltasupportingdoc", sender: nil)
@@ -141,12 +209,34 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     //---ViewBack
     @objc func BackView(tapGestureRecognizer: UITapGestureRecognizer){
-        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+        
+        
+        
+        
+        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.tableChildData.removeAll()
+            collectUpdatedDetailsData.removeAll()
+        }
+        if LtaListViewController.EmployeeType == "Supervisor" {
+            self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+        }
+        if LtaListViewController.EmployeeType == "Employee" {
+            self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+        }
         
     }
-
+    
     @IBAction func BtnBack(_ sender: Any) {
-        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.tableChildData.removeAll()
+            collectUpdatedDetailsData.removeAll()
+        }
+        if LtaListViewController.EmployeeType == "Supervisor" {
+            self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+        }
+        if LtaListViewController.EmployeeType == "Employee" {
+            self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+        }
     }
     
     
@@ -178,7 +268,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 to_date = true
                 from_date = false
                 
-            showDatePicker(txtfield: TxtToDate)
+                showDatePicker(txtfield: TxtToDate)
             }
             break
         default:
@@ -186,32 +276,39 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+            self.TxtSupportingDocuments.text = "\(LtaSupportingDocumentsViewController.tableChildData.count) Document(s)"
+        }else{
+            self.TxtSupportingDocuments.text = "0 Document(s)"
+        }
+    }
     //-----Date picker code starts
     let datePicker = UIDatePicker()
     func showDatePicker(txtfield: UITextField){
         //Formate Date
         datePicker.datePickerMode = .date
-
-       //ToolBar
-       let toolbar = UIToolbar();
-       toolbar.sizeToFit()
-       let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-      let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
-
-     toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
-
-      txtfield.inputAccessoryView = toolbar
-      txtfield.inputView = datePicker
-
-     }
-
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        txtfield.inputAccessoryView = toolbar
+        txtfield.inputView = datePicker
+        
+    }
+    
     @objc func donedatePicker(){
-
-       let formatter = DateFormatter()
-       formatter.dateFormat = "dd-MMM-yyyy"
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
         if from_date == true {
-       TxtFromDate.text = formatter.string(from: datePicker.date)
+            TxtFromDate.text = formatter.string(from: datePicker.date)
         }
         if to_date == true{
             TxtToDate.text = formatter.string(from: datePicker.date)
@@ -219,31 +316,28 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             LabelDayCount.text = String(daysBetween(start: TxtFromDate.text!, end: TxtToDate.text!)+1)
             
             if (daysBetween(start: TxtFromDate.text!, end: TxtToDate.text!)+1) <= 0 {
-//                ViewBtnSave.isEnabled = false
+                //                ViewBtnSave.isEnabled = false
                 ViewBtnSave.isUserInteractionEnabled = false
                 ViewBtnSave.alpha = 0.6
                 
                 ViewBtnSubmit.isUserInteractionEnabled = false
                 ViewBtnSubmit.alpha = 0.6
             }else{
-//                custom_btn_label_save.isEnabled = true
+                //                custom_btn_label_save.isEnabled = true
                 ViewBtnSave.isUserInteractionEnabled = true
                 ViewBtnSave.alpha = 1.0
                 
                 ViewBtnSubmit.isUserInteractionEnabled = true
                 ViewBtnSubmit.alpha = 1.0
             }
-//            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
+            //            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
         }
-       self.view.endEditing(true)
-     }
-
-     @objc func cancelDatePicker(){
         self.view.endEditing(true)
-      }
-       
+    }
     
-   
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
     
     //-----Date picker code ends
     
@@ -263,21 +357,114 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         let diff = calendar.dateComponents([.day], from: startDate!, to: endDate!).day ?? 0
         
         return diff
-//        print("test-=>",diff)
-       
-        }
+        //        print("test-=>",diff)
+        
+    }
     //--code to get day count ends
     
     //-----Code for calendarDate selection, ends-----
     
-    
+    //=========function to make json object and save data, code starts======
+    var collectUpdatedDetailsData = [Any]()
+    func makeJsonObjectAndSaveDataToServer(lta_application_id: Int,  date_from: String, date_to: String, total_days: String,  lta_amount: String, approved_lta_amount: String, description: String, supervisor_remark: String,  lta_application_status: String, approved_by_id: Int){
+        var getData = [String:AnyObject]()
+        print("LtaCount-=>",LtaSupportingDocumentsViewController.tableChildData.count)
+        
+        if !collectUpdatedDetailsData.isEmpty{
+            self.collectUpdatedDetailsData.removeAll()
+        }
+        
+        for i in 0..<LtaSupportingDocumentsViewController.tableChildData.count{
+            getData.updateValue(LtaSupportingDocumentsViewController.tableChildData[i].document_name! as AnyObject, forKey: "file_name")
+            getData.updateValue(LtaSupportingDocumentsViewController.tableChildData[i].document_base64! as AnyObject, forKey: "file_base64")
+            
+            collectUpdatedDetailsData.append(getData)
+        }
+        let sentData: [String: Any] = [
+            "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
+            "lta_application_id": lta_application_id,
+            "employee_id": swiftyJsonvar1["employee"]["employee_id"].intValue,
+            "date_from": date_from,
+            "date_to": date_to,
+            "total_days": Int(total_days)!,
+            "lta_amount": Double(lta_amount)!,
+            "approved_lta_amount": Double(approved_lta_amount)!,
+            "description": description,
+            "supervisor_remark": supervisor_remark,
+            "lta_application_status": lta_application_status,
+            "approved_by_id": approved_by_id,
+            "documents": collectUpdatedDetailsData
+        ]
+        
+        print("SentData-=>",sentData)
+        let url = "\(BASE_URL)lta/save"
+        print("save_url-=>",url)
+        AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+            response in
+            switch response.result{
+            
+            case .success:
+                //                        self.loaderEnd()
+                let swiftyJsonVar = JSON(response.value!)
+                print("message-=>", swiftyJsonVar)
+                
+                if swiftyJsonVar["status"].stringValue == "true"{
+                    
+                    // Create new Alert
+                    let dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
+                    
+                    // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
+                        //                                print("Ok button tapped")
+                        
+                        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+                        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+                            LtaSupportingDocumentsViewController.tableChildData.removeAll()
+                            self.collectUpdatedDetailsData.removeAll()
+                            //                            self.loadData()
+                        }
+                        
+                        //                                self.tableViewEmpTask.reloadData()
+                        
+                    })
+                    
+                    //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                    
+                    // Present Alert to
+                    self.present(dialogMessage, animated: true, completion: nil)
+                }else{
+                    OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
+                    
+                    var style = ToastStyle()
+                    
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    
+                    // present the toast with the new style
+                    self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                    
+                    print("Error-=>",swiftyJsonVar["message"].stringValue)
+                    
+                    
+                }
+                
+                break
+                
+            case .failure(let error):
+                //                        self.loaderEnd()
+                print("Error: ", error)
+            }
+        }
+    }
+    //=========function to make json object and save data, code ends======
     //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
         
         if LtaListViewController.EmployeeType == "Employee"{
-//            LabelNavBarTitle.text = "My Advance Requisition"
-//            btn_reason_select_type.isUserInteractionEnabled = true
-//            btn_reason_select_type.alpha = 1.0
+            //            LabelNavBarTitle.text = "My Advance Requisition"
+            //            btn_reason_select_type.isUserInteractionEnabled = true
+            //            btn_reason_select_type.alpha = 1.0
             if LtaListViewController.lta_status! == ""{
                 
                 
@@ -353,7 +540,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 ViewSupportingDocuments.alpha = 1.0
             }
             if LtaListViewController.lta_status! == "Returned"{
-           
+                
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = false
                 ViewBtnCancel.isHidden = true
@@ -375,12 +562,12 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 ViewSupportingDocuments.alpha = 1.0
             }
         }
-        if LtaListViewController.lta_status! == "Supervisor"{
-//            LabelNavBarTitle.text = "Subordinate Advance Requisition"
-//            btn_reason_select_type.isUserInteractionEnabled = false
-//            btn_reason_select_type.alpha = 0.6
+        if LtaListViewController.EmployeeType! == "Supervisor"{
+            //            LabelNavBarTitle.text = "Subordinate Advance Requisition"
+            //            btn_reason_select_type.isUserInteractionEnabled = false
+            //            btn_reason_select_type.alpha = 0.6
             if LtaListViewController.lta_status! == "Submitted"{
-            
+                
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = true
                 ViewBtnCancel.isHidden = false
@@ -406,7 +593,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 LtaListViewController.lta_status! == "Payment done" ||
                 LtaListViewController.lta_status! == "Canceled"{
                 
-              
+                
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = true
                 ViewBtnCancel.isHidden = true
@@ -447,11 +634,11 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 
                 self.TxtLtaRequisitionNo.text = swiftyJsonVar["fields"]["lta_application_no"].stringValue
                 /*if LtaListViewController.new_create_yn == true{
-                    self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
-                }else{
-                    self.TxtEmpName.text = LtaListViewController.employee_name!
-                }*/
-                            
+                 self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
+                 }else{
+                 self.TxtEmpName.text = LtaListViewController.employee_name!
+                 }*/
+                
                 self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
                 self.TxtFromYrLtaLimit.text = swiftyJsonVar["fields"]["year_from_limit"].stringValue
                 self.TxtToYearLtaLimit.text = swiftyJsonVar["fields"]["year_to_limit"].stringValue
@@ -468,19 +655,20 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 self.LabelDayCount.text = String(self.daysBetween(start: swiftyJsonVar["fields"]["date_from"].stringValue, end: swiftyJsonVar["fields"]["date_to"].stringValue)+1)
                 
                 if swiftyJsonVar["documents"] != ""{
-//                    UserSingletonModel.sharedInstance.documents = swiftyJsonVar
+                    //                    UserSingletonModel.sharedInstance.documents = swiftyJsonVar
                     for (key,value) in  swiftyJsonVar["documents"]{
-                        var data = DocumentDetails()
+                        var data = LtaDocumentDetails()
                         data.document_name = value["file_name"].stringValue
-//                        SupportingDocumentsViewController.tableChildData.append(data)
+                        data.document_base64 = value["file_base64"].stringValue
+                        LtaSupportingDocumentsViewController.tableChildData.append(data)
                     }
                 }
                 
-               /* if SupportingDocumentsViewController.tableChildData.count > 0 {
-                    self.TxtSupportingDocuments.text = "\(SupportingDocumentsViewController.tableChildData.count) Document(s)"
+                if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+                    self.TxtSupportingDocuments.text = "\(LtaSupportingDocumentsViewController.tableChildData.count) Document(s)"
                 }else{
                     self.TxtSupportingDocuments.text = "0 Document(s)"
-                }*/
+                }
                 
             }
             
@@ -535,5 +723,5 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         self.blurEffectView.removeFromSuperview();
     }
     // ====================== Blur Effect END ================= \\
-
+    
 }

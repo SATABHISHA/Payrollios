@@ -118,7 +118,7 @@
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-06-21" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHP-3u-brV">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-06-21" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="VHP-3u-brV">
                                                             <rect key="frame" x="5" y="30.333333333333329" width="222.66666666666666" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
@@ -239,6 +239,7 @@
                         <outlet property="viewDetails" destination="OgQ-gK-CCD" id="8ou-HP-eKJ"/>
                         <segue destination="J9X-DZ-Vsp" kind="presentation" identifier="home" modalPresentationStyle="fullScreen" id="oK7-sb-SsS"/>
                         <segue destination="sKo-Pi-dJf" kind="presentation" identifier="ltarequest" modalPresentationStyle="fullScreen" id="pLt-8h-5hp"/>
+                        <segue destination="2fR-Mq-w1v" kind="presentation" identifier="subordinatelta" modalPresentationStyle="fullScreen" id="JI1-00-X0c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Odl-tf-0Qm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -348,6 +349,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AD-Xg-eXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1214" y="-99"/>
+        </scene>
+        <!--subordinatelta-->
+        <scene sceneID="hsp-nY-6ih">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinatelta" storyboardName="SubordinateLta" referencedIdentifier="subordinatelta" id="2fR-Mq-w1v" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Pxl-Ud-Zqc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wzv-4t-Wlc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1285" y="-1"/>
         </scene>
     </scenes>
     <designables>

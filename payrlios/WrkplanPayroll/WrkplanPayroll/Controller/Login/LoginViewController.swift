@@ -183,6 +183,13 @@ class LoginViewController: UIViewController{
                         self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
                         self.loaderEnd()
                     }
+                   }else{
+                    var style = ToastStyle()
+                    
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    self.view.makeToast("Sorry, couldn't connect. Please try after sometime", duration: 3.0, position: .bottom, style: style)
+                    self.loaderEnd()
                    }
                    
                   

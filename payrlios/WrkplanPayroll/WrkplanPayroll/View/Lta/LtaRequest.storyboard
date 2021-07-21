@@ -983,11 +983,22 @@
                         <outlet property="ViewSupportingDocuments" destination="SDh-Ec-WYy" id="vZh-mM-9oa"/>
                         <segue destination="MHx-Pl-jdB" kind="presentation" identifier="LtaEmployee" modalPresentationStyle="fullScreen" id="gG9-YA-yk9"/>
                         <segue destination="4MF-CI-liD" kind="presentation" identifier="ltasupportingdoc" modalPresentationStyle="fullScreen" id="egn-HW-hGM"/>
+                        <segue destination="vh7-lA-r4r" kind="presentation" identifier="subordinatelta" modalPresentationStyle="fullScreen" id="FGg-Ka-A17"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v03-VU-rH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="898.55072463768124" y="26.90217391304348"/>
+        </scene>
+        <!--subordinatelta-->
+        <scene sceneID="yLK-m4-VVN">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinatelta" storyboardName="SubordinateLta" referencedIdentifier="subordinatelta" id="vh7-lA-r4r" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RZN-CD-e2Q"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W3T-yX-m8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="-483"/>
         </scene>
         <!--lta-->
         <scene sceneID="6eV-YF-cPw">
