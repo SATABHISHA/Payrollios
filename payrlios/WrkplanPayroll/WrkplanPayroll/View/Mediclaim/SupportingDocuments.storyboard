@@ -19,20 +19,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWo-PR-XLU">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mediclaim Supporting Documents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCC-s8-03N">
-                                        <rect key="frame" x="20" y="21" width="374" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mediclaim Supporting Documents" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFU-jh-hNn">
+                                        <rect key="frame" x="50" y="2" width="344" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2r-j8-W7C">
+                                        <rect key="frame" x="0.0" y="7.6666666666666643" width="50" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="yoz-0i-8LA"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="BtnBack:" destination="XwA-YH-vuC" eventType="touchUpInside" id="gn3-Ls-Y8l"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="xCC-s8-03N" secondAttribute="trailing" constant="20" id="JmR-Me-lfX"/>
+                                    <constraint firstAttribute="trailing" secondItem="iFU-jh-hNn" secondAttribute="trailing" constant="20" id="631-oq-glV"/>
+                                    <constraint firstItem="iFU-jh-hNn" firstAttribute="leading" secondItem="f2r-j8-W7C" secondAttribute="trailing" id="BYN-R5-LQa"/>
+                                    <constraint firstAttribute="bottom" secondItem="iFU-jh-hNn" secondAttribute="bottom" constant="2" id="ITK-1R-TDJ"/>
                                     <constraint firstAttribute="height" constant="64" id="NGg-0i-Qie"/>
-                                    <constraint firstItem="xCC-s8-03N" firstAttribute="leading" secondItem="KWo-PR-XLU" secondAttribute="leading" constant="20" id="Um1-g7-KFp"/>
-                                    <constraint firstItem="xCC-s8-03N" firstAttribute="top" secondItem="KWo-PR-XLU" secondAttribute="top" constant="21" id="lhy-qi-2AI"/>
-                                    <constraint firstAttribute="bottom" secondItem="xCC-s8-03N" secondAttribute="bottom" constant="21" id="yZ8-bu-4CY"/>
+                                    <constraint firstAttribute="bottom" secondItem="f2r-j8-W7C" secondAttribute="bottom" constant="7.5" id="O9T-fW-437"/>
+                                    <constraint firstItem="f2r-j8-W7C" firstAttribute="top" secondItem="KWo-PR-XLU" secondAttribute="top" constant="7.5" id="aja-DK-Dqk"/>
+                                    <constraint firstItem="iFU-jh-hNn" firstAttribute="top" secondItem="KWo-PR-XLU" secondAttribute="top" constant="2" id="djr-eE-6nL"/>
+                                    <constraint firstItem="f2r-j8-W7C" firstAttribute="leading" secondItem="KWo-PR-XLU" secondAttribute="leading" id="uL3-O1-9n8"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fmh-xS-EeV">
@@ -357,6 +370,7 @@
     </scenes>
     <resources>
         <image name="adddcmnts" width="512" height="512"/>
+        <image name="backarrow" width="200" height="200"/>
         <image name="dcmntsfile" width="225" height="225"/>
         <image name="delete_record_od_request" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">

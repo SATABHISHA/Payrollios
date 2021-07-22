@@ -64,6 +64,9 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
         
     }
     
+    @IBAction func BtnBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     //---AddDocs
     @objc func AddDocView(tapGestureRecognizer: UITapGestureRecognizer){
         
@@ -307,8 +310,12 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     
     @IBAction func btnCancelTaskConfirmationPopupYes(_ sender: Any) {
         cancelConfirmationPopup()
+        if SupportingDocumentsViewController.tableChildData.count > 0 {
+            SupportingDocumentsViewController.tableChildData.removeAll()
+        }
         self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
-        SupportingDocumentsViewController.tableChildData.removeAll()
+        
+        
     }
     
     @IBAction func btnCancelTaskConfirmationPopupNo(_ sender: Any) {
