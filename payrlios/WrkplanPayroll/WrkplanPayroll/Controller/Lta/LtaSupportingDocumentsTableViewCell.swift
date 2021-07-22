@@ -14,6 +14,7 @@ class LtaSupportingDocumentsTableViewCell: UITableViewCell {
     @IBOutlet weak var LabelPdfName: UILabel!
     @IBOutlet weak var LabelSerialNo: UILabel!
     @IBOutlet weak var LabelPdfSize: UILabel!
+    @IBOutlet weak var BtnRemove: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

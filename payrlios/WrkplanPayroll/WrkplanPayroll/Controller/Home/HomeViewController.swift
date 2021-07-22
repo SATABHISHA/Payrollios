@@ -152,6 +152,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         MediclaimView.layer.borderWidth = 1
         MediclaimView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
         
+        LtaView.layer.borderWidth = 1
+        LtaView.layer.borderColor = UIColor(hexFromString: "D8D7D7").cgColor
+        
         labelEmployeeInformation.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelLeave.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)
         labelEmployeeFacilities.layer.addBorder(edge: UIRectEdge.top, color: UIColor(hexFromString: "D8D7D7"), thickness: 1.0)

@@ -19,7 +19,7 @@ struct LtaDocumentDetails{
     
 }
 class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, LtaSupportingDocumentsTableViewCellDelegate {
-
+    
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     @IBOutlet weak var TableViewSupportingDocuments: UITableView!
     @IBOutlet var ImgViewCustomBtnAddDocs: UIView!
@@ -34,7 +34,7 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
@@ -43,12 +43,12 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
         
         TableViewSupportingDocuments.backgroundColor = UIColor(hexFromString: "ffffff")
         //        TableViewSupportingDocuments.searchTextField.backgroundColor = UIColor.white
-//        TableViewSupportingDocuments.backgroundColor = UIColor.white
+        //        TableViewSupportingDocuments.backgroundColor = UIColor.white
         //        TableViewSupportingDocuments.searchTextField.textColor = UIColor.black
         
         LoadButtons()
         CheckTableDataExistsOrNot()
-       
+        
         //ViewDone
         let tapGestureRecognizerDoneView = UITapGestureRecognizer(target: self, action: #selector(DoneView(tapGestureRecognizer:)))
         ViewBtnDone.isUserInteractionEnabled = true
@@ -77,7 +77,7 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     }
     //---ViewDone
     @objc func DoneView(tapGestureRecognizer: UITapGestureRecognizer){
-//        self.performSegue(withIdentifier: "ltarequest", sender: nil)
+        //        self.performSegue(withIdentifier: "ltarequest", sender: nil)
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -104,8 +104,8 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     func CheckTableDataExistsOrNot(){
         if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
             self.TableViewSupportingDocuments.backgroundView?.isHidden = true
-             TableViewSupportingDocuments.reloadData()
-         }else{
+            TableViewSupportingDocuments.reloadData()
+        }else{
             TableViewSupportingDocuments.reloadData()
             let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewSupportingDocuments.bounds.size.width, height: self.TableViewSupportingDocuments.bounds.size.height))
             noDataLabel.text          = "No attachment(s) available"
@@ -114,7 +114,7 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
             self.TableViewSupportingDocuments.backgroundView?.isHidden = false
             self.TableViewSupportingDocuments.backgroundView  = noDataLabel
             self.TableViewSupportingDocuments.separatorStyle  = .none
-         }
+        }
     }
     //----function to check tabledata exists or not, code ends
     
@@ -140,6 +140,47 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
         cell.LabelPdfName.text = dict.document_name
         cell.LabelPdfSize.text = dict.document_size
         cell.LabelSerialNo.text = String(indexPath.row + 1)
+        
+        if LtaListViewController.EmployeeType == "Employee"{
+            if LtaListViewController.lta_status! == ""{
+                cell.BtnRemove.isHidden = false
+                ImageViewCustomBtnAddDoc.isHidden = false
+                StackViewBtns.isHidden = false
+            }
+            if LtaListViewController.lta_status! == "Saved"{
+                cell.BtnRemove.isHidden = false
+                ImageViewCustomBtnAddDoc.isHidden = false
+                StackViewBtns.isHidden = false
+            }
+            if LtaListViewController.lta_status! == "Submitted" ||
+                LtaListViewController.lta_status! == "Approved" ||
+                LtaListViewController.lta_status! == "Payment done" ||
+                LtaListViewController.lta_status! == "Cancelled"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+            if LtaListViewController.lta_status! == "Returned"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+        }
+        if LtaListViewController.EmployeeType == "Supervisor"{
+            if LtaListViewController.lta_status! == "Submitted"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+            if LtaListViewController.lta_status! == "Returned" ||
+                LtaListViewController.lta_status! == "Approved" ||
+                LtaListViewController.lta_status! == "Payment done" ||
+                LtaListViewController.lta_status! == "Cancelled"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+        }
         return cell
         
     }
@@ -176,7 +217,7 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
             let fileData = try Data.init(contentsOf: myURL)
             let fileStream = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
             let decodeData = Data(base64Encoded: fileStream, options: .ignoreUnknownCharacters)
-//            print("base64fileTesting-=>", fileStream)
+            //            print("base64fileTesting-=>", fileStream)
             
             //--code to save data in array dictionary, starts
             var data = LtaDocumentDetails()
@@ -187,12 +228,12 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
             
             LtaSupportingDocumentsViewController.tableChildData.append(data)
             
-//            TableViewSupportingDocuments.reloadData()
-           /* if SupportingDocumentsViewController.tableChildData.count > 0 {
-                TableViewSupportingDocuments.reloadData()
-            }else{
-            CheckTableDataExistsOrNot()
-            }*/
+            //            TableViewSupportingDocuments.reloadData()
+            /* if SupportingDocumentsViewController.tableChildData.count > 0 {
+             TableViewSupportingDocuments.reloadData()
+             }else{
+             CheckTableDataExistsOrNot()
+             }*/
             CheckTableDataExistsOrNot()
             
         }catch {
@@ -266,11 +307,11 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
         cancelDeleteConfirmationPopup()
         
         LtaSupportingDocumentsViewController.tableChildData.remove(at: LtaSupportingDocumentsViewController.row_position_to_delete)
-//        TableViewSupportingDocuments.reloadData()
-//        CheckTableDataExistsOrNot() //--if data not exists then it would show message
+        //        TableViewSupportingDocuments.reloadData()
+        //        CheckTableDataExistsOrNot() //--if data not exists then it would show message
         print("tablecounttesting-=>", LtaSupportingDocumentsViewController.tableChildData.count)
         
-//        TableViewSupportingDocuments.reloadData()
+        //        TableViewSupportingDocuments.reloadData()
         CheckTableDataExistsOrNot()
     }
     
@@ -314,17 +355,17 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     @IBAction func btnCancelTaskConfirmationPopupYes(_ sender: Any) {
         cancelConfirmationPopup()
         if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
-        LtaSupportingDocumentsViewController.tableChildData.removeAll()
+            LtaSupportingDocumentsViewController.tableChildData.removeAll()
         }
         self.performSegue(withIdentifier: "ltarequest", sender: nil)
-       
+        
     }
     
     @IBAction func btnCancelTaskConfirmationPopupNo(_ sender: Any) {
         cancelConfirmationPopup()
     }
     //==============FormDialog Cancel Confirmation code ends================
-   
+    
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var blurEffectView: UIVisualEffectView!
@@ -372,5 +413,5 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
         self.blurEffectView.removeFromSuperview();
     }
     // ====================== Blur Effect END ================= \\
-
+    
 }

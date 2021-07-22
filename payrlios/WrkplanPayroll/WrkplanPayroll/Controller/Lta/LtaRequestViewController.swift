@@ -591,7 +591,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             if LtaListViewController.lta_status! == "Returned" ||
                 LtaListViewController.lta_status! == "Approved" ||
                 LtaListViewController.lta_status! == "Payment done" ||
-                LtaListViewController.lta_status! == "Canceled"{
+                LtaListViewController.lta_status! == "Cancelled"{
                 
                 
                 ViewBtnSave.isHidden = true

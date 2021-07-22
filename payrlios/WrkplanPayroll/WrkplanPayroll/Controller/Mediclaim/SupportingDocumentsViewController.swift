@@ -138,6 +138,48 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
         cell.LabelPdfName.text = dict.document_name
         cell.LabelPdfSize.text = dict.document_size
         cell.LabelSerialNo.text = String(indexPath.row + 1)
+        
+        if MediclaimListViewController.EmployeeType == "Employee"{
+            if MediclaimListViewController.mediclaim_status! == ""{
+                cell.BtnRemove.isHidden = false
+                ImageViewCustomBtnAddDoc.isHidden = false
+                StackViewBtns.isHidden = false
+                
+            }
+            if MediclaimListViewController.mediclaim_status! == "Saved"{
+                cell.BtnRemove.isHidden = false
+                ImageViewCustomBtnAddDoc.isHidden = false
+                StackViewBtns.isHidden = false
+            }
+            if MediclaimListViewController.mediclaim_status! == "Submitted" ||
+                MediclaimListViewController.mediclaim_status! == "Approved" ||
+                MediclaimListViewController.mediclaim_status! == "Payment done" ||
+                MediclaimListViewController.mediclaim_status! == "Cancelled"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+            if MediclaimListViewController.mediclaim_status! == "Returned"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+        }
+        if MediclaimListViewController.EmployeeType == "Supervisor"{
+            if MediclaimListViewController.mediclaim_status! == "Submitted"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+            if MediclaimListViewController.mediclaim_status! == "Returned" ||
+                MediclaimListViewController.mediclaim_status! == "Approved" ||
+                MediclaimListViewController.mediclaim_status! == "Payment done" ||
+                MediclaimListViewController.mediclaim_status! == "Cancelled"{
+                cell.BtnRemove.isHidden = true
+                ImageViewCustomBtnAddDoc.isHidden = true
+                StackViewBtns.isHidden = true
+            }
+        }
         return cell
         
     }

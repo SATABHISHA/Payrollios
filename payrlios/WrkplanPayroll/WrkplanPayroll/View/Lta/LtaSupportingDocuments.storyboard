@@ -142,6 +142,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="BtnRemove" destination="RrL-Zs-SSN" id="UuR-mq-u6U"/>
                                             <outlet property="LabelPdfName" destination="0U3-Wd-6Qb" id="EkH-oG-22Y"/>
                                             <outlet property="LabelPdfSize" destination="hk9-FB-oSt" id="rwF-7d-t7W"/>
                                             <outlet property="LabelSerialNo" destination="9nq-Lv-dpU" id="0hL-bX-AMj"/>
