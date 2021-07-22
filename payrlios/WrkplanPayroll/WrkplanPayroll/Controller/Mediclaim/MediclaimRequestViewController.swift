@@ -86,8 +86,9 @@ class MediclaimRequestViewController: UIViewController {
             self.TxtEmployeeName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
             TxtSupportingDocuments.text = "0 Document(s)"
         } else if LtaListViewController.new_create_yn == false {
-            LoadButtons()
+            
             loadData(mediclaim_id: MediclaimListViewController.mediclaim_id!)
+//            LoadButtons()
         }
         
         //ViewDocs
@@ -279,8 +280,16 @@ class MediclaimRequestViewController: UIViewController {
                 TxtApprovedAmount.isUserInteractionEnabled = false
                 TxtViewApprovalRemark.isUserInteractionEnabled = false
                 
-                ViewCustomBtnViewDocuments.isUserInteractionEnabled = true
-                ViewCustomBtnViewDocuments.alpha = 1.0
+               
+                
+                if SupportingDocumentsViewController.tableChildData.isEmpty {
+                    ViewCustomBtnViewDocuments.isUserInteractionEnabled = false
+                    ViewCustomBtnViewDocuments.alpha = 0.2
+                                }
+                if SupportingDocumentsViewController.tableChildData.count > 0 {
+                    ViewCustomBtnViewDocuments.isUserInteractionEnabled = true
+                    ViewCustomBtnViewDocuments.alpha = 1.0
+                                }
             }
             if MediclaimListViewController.mediclaim_status! == "Returned"{
                 ViewBtnSave.isHidden = true
@@ -315,8 +324,14 @@ class MediclaimRequestViewController: UIViewController {
                 TxtApprovedAmount.isUserInteractionEnabled = true
                 TxtViewApprovalRemark.isUserInteractionEnabled = true
                 
-                ViewCustomBtnViewDocuments.isUserInteractionEnabled = true
-                ViewCustomBtnViewDocuments.alpha = 1.0
+                if SupportingDocumentsViewController.tableChildData.count <= 0 {
+                    ViewCustomBtnViewDocuments.isUserInteractionEnabled = false
+                    ViewCustomBtnViewDocuments.alpha = 0.2
+                                }
+                if SupportingDocumentsViewController.tableChildData.count > 0 {
+                    ViewCustomBtnViewDocuments.isUserInteractionEnabled = true
+                    ViewCustomBtnViewDocuments.alpha = 1.0
+                                }
             }
             if MediclaimListViewController.mediclaim_status! == "Returned" ||
                 MediclaimListViewController.mediclaim_status! == "Approved" ||
@@ -335,8 +350,14 @@ class MediclaimRequestViewController: UIViewController {
                 TxtApprovedAmount.isUserInteractionEnabled = false
                 TxtViewApprovalRemark.isUserInteractionEnabled = false
                 
-                ViewCustomBtnViewDocuments.isUserInteractionEnabled = true
-                ViewCustomBtnViewDocuments.alpha = 1.0
+                if SupportingDocumentsViewController.tableChildData.count <= 0 {
+                    ViewCustomBtnViewDocuments.isUserInteractionEnabled = false
+                    ViewCustomBtnViewDocuments.alpha = 0.2
+                                }
+                if SupportingDocumentsViewController.tableChildData.count > 0 {
+                    ViewCustomBtnViewDocuments.isUserInteractionEnabled = true
+                    ViewCustomBtnViewDocuments.alpha = 1.0
+                                }
             }
         }
         
@@ -591,8 +612,10 @@ class MediclaimRequestViewController: UIViewController {
                 
                 if SupportingDocumentsViewController.tableChildData.count > 0 {
                     self.TxtSupportingDocuments.text = "\(SupportingDocumentsViewController.tableChildData.count) Document(s)"
+                    self.LoadButtons()
                 }else{
                     self.TxtSupportingDocuments.text = "0 Document(s)"
+                    self.LoadButtons()
                 }
                 
             }
