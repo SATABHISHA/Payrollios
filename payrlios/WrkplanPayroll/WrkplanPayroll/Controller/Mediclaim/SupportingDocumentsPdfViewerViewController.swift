@@ -30,7 +30,8 @@ class SupportingDocumentsPdfViewerViewController: UIViewController {
     }
   
     @IBAction func BtnBack(_ sender: Any) {
-        self.performSegue(withIdentifier: "supportingdoc", sender: nil)
+//        self.performSegue(withIdentifier: "supportingdoc", sender: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     //---PrintPdf

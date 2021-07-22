@@ -434,8 +434,8 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                     // Present Alert to
                     self.present(dialogMessage, animated: true, completion: nil)
                 }else{
-                    OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
-                    
+//                    OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
+                    self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
                     var style = ToastStyle()
                     
                     // this is just one of many style options
@@ -517,7 +517,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             if LtaListViewController.lta_status! == "Submitted" ||
                 LtaListViewController.lta_status! == "Approved" ||
                 LtaListViewController.lta_status! == "Payment done" ||
-                LtaListViewController.lta_status! == "Canceled"{
+                LtaListViewController.lta_status! == "Cancelled"{
                 
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = true

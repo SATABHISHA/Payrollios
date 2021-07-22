@@ -76,7 +76,8 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     }
     //---ViewDone
     @objc func DoneView(tapGestureRecognizer: UITapGestureRecognizer){
-        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
+//        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
+        self.dismiss(animated: true, completion: nil)
         
     }
     //---ViewCancel

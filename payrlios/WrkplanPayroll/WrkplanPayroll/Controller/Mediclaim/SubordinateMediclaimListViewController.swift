@@ -124,7 +124,9 @@ class SubordinateMediclaimListViewController: UIViewController, UITableViewDeleg
             AdvanceRequisitionListViewController.approved_requisition_amount = row["approved_requisition_amount"]?.doubleValue
             AdvanceRequisitionListViewController.supervisor_remark = row["supervisor_remark"] as? String */
             MediclaimListViewController.mediclaim_status = row["mediclaim_status"] as? String
+            MediclaimListViewController.employee_name = row["employee_name"] as? String
             MediclaimListViewController.employee_id = row["employee_id"]?.intValue
+            MediclaimListViewController.mediclaim_id = row["mediclaim_id"]?.intValue
            /* AdvanceRequisitionListViewController.reason = row["reason"]?.intValue
             AdvanceRequisitionListViewController.return_period_in_months = row["return_period_in_months"]?.intValue
             
@@ -142,7 +144,7 @@ class SubordinateMediclaimListViewController: UIViewController, UITableViewDeleg
 //            print("test",SubordinateOutdoorDutyRequestListViewController.od_request_id!)
 //            print("test-=>",row["od_request_id"]?.stringValue)
             MediclaimListViewController.EmployeeType = "Supervisor"
-//            self.performSegue(withIdentifier: "advancesubordinaterequest", sender: self)
+            self.performSegue(withIdentifier: "mediclaimrequest", sender: self)
         }
         //---------onClick tableview code ends----------
     

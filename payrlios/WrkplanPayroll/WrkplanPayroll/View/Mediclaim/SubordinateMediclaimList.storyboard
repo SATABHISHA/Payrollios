@@ -186,11 +186,22 @@
                         <outlet property="SearchBarAdvanceRequisition" destination="i9o-TX-voE" id="cIs-ua-8a2"/>
                         <outlet property="TableViewSubordinateMediclaim" destination="gaD-f0-Qz6" id="6d0-Ta-lq1"/>
                         <segue destination="X6N-dc-5G2" kind="presentation" identifier="mediclaimhome" modalPresentationStyle="fullScreen" id="1zo-RJ-Iy1"/>
+                        <segue destination="J6Q-rL-62J" kind="presentation" identifier="mediclaimrequest" modalPresentationStyle="fullScreen" id="V3i-hT-VRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzQ-4v-tCR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1293" y="52"/>
+        </scene>
+        <!--mediclaimrequest-->
+        <scene sceneID="Q7X-4U-ivH">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="mediclaimrequest" storyboardName="MediclaimRequest" referencedIdentifier="mediclaimrequest" id="J6Q-rL-62J" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="uwp-Wd-PRO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cxn-Jy-zsm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="4"/>
         </scene>
         <!--mediclaim-->
         <scene sceneID="lqp-hb-Qdh">
