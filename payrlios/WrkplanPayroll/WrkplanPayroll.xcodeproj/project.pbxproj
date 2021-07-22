@@ -106,6 +106,8 @@
 		1791C08526176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */; };
 		1791C08A26176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */; };
 		17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */; };
+		179E370326A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E370226A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift */; };
+		179E370526A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E370426A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard */; };
 		17AF13932620335D00B3F5EE /* SubordinateLeaveApplication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17AF13922620335D00B3F5EE /* SubordinateLeaveApplication.storyboard */; };
 		17AF13982620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AF13972620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift */; };
 		17AF139D262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AF139C262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift */; };
@@ -261,6 +263,8 @@
 		1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListViewController.swift; sourceTree = "<group>"; };
 		1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListTableViewCell.swift; sourceTree = "<group>"; };
 		17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOutdoorDutyRequestList.storyboard; sourceTree = "<group>"; };
+		179E370226A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LtaSupportingDocumentsPdfViewerViewController.swift; sourceTree = "<group>"; };
+		179E370426A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LtaSupportingDocumentsPdfViewer.storyboard; sourceTree = "<group>"; };
 		17AF13922620335D00B3F5EE /* SubordinateLeaveApplication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateLeaveApplication.storyboard; sourceTree = "<group>"; };
 		17AF13972620339000B3F5EE /* SubordinateLeaveApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLeaveApplicationViewController.swift; sourceTree = "<group>"; };
 		17AF139C262033CA00B3F5EE /* SubordinateLeaveApplicationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateLeaveApplicationTableViewCell.swift; sourceTree = "<group>"; };
@@ -594,6 +598,7 @@
 				17C564C226A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift */,
 				17E36A8C26A86BAA00719AB5 /* SubordinateLtaViewController.swift */,
 				17E36A8E26A86BCF00719AB5 /* SubordinateLtaTableViewCell.swift */,
+				179E370226A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift */,
 			);
 			path = Lta;
 			sourceTree = "<group>";
@@ -605,6 +610,7 @@
 				17640A51269EFE040058DE31 /* LtaRequest.storyboard */,
 				17C564C426A6B8FE00D50B08 /* LtaSupportingDocuments.storyboard */,
 				17E36A8A26A86AF300719AB5 /* SubordinateLta.storyboard */,
+				179E370426A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard */,
 			);
 			path = Lta;
 			sourceTree = "<group>";
@@ -967,6 +973,7 @@
 				173C0F2225626FB9007AE8F6 /* Main.storyboard in Resources */,
 				170292B0268DF7240019D274 /* SupportingDocumentsPdfViewer.storyboard in Resources */,
 				178F85D325EE71EF007ABD62 /* OutdoorDutyRequest.storyboard in Resources */,
+				179E370526A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard in Resources */,
 				17723CBB2563A688002754DB /* Home.storyboard in Resources */,
 				1785DEAF25E7877F0088AEBA /* OutdoorDutyList.storyboard in Resources */,
 				175C6ACD2615F89C00F688F0 /* OutdoorDutyLogEmployeeTask.storyboard in Resources */,
@@ -1150,6 +1157,7 @@
 				1791C08526176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift in Sources */,
 				171239E5262423BD0024E96C /* HomeNavigationControllerTableViewCell.swift in Sources */,
 				1705789D25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift in Sources */,
+				179E370326A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift in Sources */,
 				173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */,
 				1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */,
 				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,

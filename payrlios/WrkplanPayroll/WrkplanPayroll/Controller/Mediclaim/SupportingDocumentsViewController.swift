@@ -30,7 +30,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     
     static var tableChildData = [DocumentDetails]()
     var collectUpdatedDetailsData = [Any]()
-    static var DocumentBase64String: String!, row_position_to_delete: Int!
+    static var DocumentBase64String: String!, row_position_to_delete: Int!, FileName: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -150,6 +150,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
         print("tap is working")
         
         SupportingDocumentsViewController.DocumentBase64String = row.document_base64
+        SupportingDocumentsViewController.FileName = row.document_name
         
         self.performSegue(withIdentifier: "MediclaimPdf", sender: nil)
     }

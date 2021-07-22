@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lta Supporting Documents Pdf Viewer View Controller-->
+        <scene sceneID="kJn-7W-udy">
+            <objects>
+                <viewController storyboardIdentifier="LtaPdfView" id="fkr-lx-5dk" customClass="LtaSupportingDocumentsPdfViewerViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LOU-T6-WhN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixS-yp-kg9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pdf Viewer" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9h4-VV-P9R">
+                                        <rect key="frame" x="50.000000000000007" y="2" width="86.666666666666686" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW3-If-VLd">
+                                        <rect key="frame" x="0.0" y="7.6666666666666643" width="50" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="y3s-7C-xtt"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="BtnBack:" destination="fkr-lx-5dk" eventType="touchUpInside" id="kHE-7q-O30"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="printer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vbe-k1-aFi">
+                                        <rect key="frame" x="364" y="12.333333333333336" width="40" height="39.666666666666671"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="cZ7-v5-hVL"/>
+                                            <constraint firstAttribute="height" constant="40" id="xo4-a2-suH"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="YcR-mo-neY"/>
+                                <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9h4-VV-P9R" secondAttribute="bottom" constant="2" id="0vs-RT-HVa"/>
+                                    <constraint firstItem="XW3-If-VLd" firstAttribute="top" secondItem="ixS-yp-kg9" secondAttribute="top" constant="7.5" id="AHp-13-uwT"/>
+                                    <constraint firstItem="YcR-mo-neY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9h4-VV-P9R" secondAttribute="trailing" constant="20" id="Ias-9Q-1Mb"/>
+                                    <constraint firstItem="Vbe-k1-aFi" firstAttribute="centerY" secondItem="YcR-mo-neY" secondAttribute="centerY" id="QsP-gl-MWK"/>
+                                    <constraint firstItem="9h4-VV-P9R" firstAttribute="leading" secondItem="XW3-If-VLd" secondAttribute="trailing" id="Wvo-DX-UrM"/>
+                                    <constraint firstItem="XW3-If-VLd" firstAttribute="leading" secondItem="YcR-mo-neY" secondAttribute="leading" id="d3A-yI-JjA"/>
+                                    <constraint firstItem="9h4-VV-P9R" firstAttribute="top" secondItem="ixS-yp-kg9" secondAttribute="top" constant="2" id="iPM-so-QhC"/>
+                                    <constraint firstItem="YcR-mo-neY" firstAttribute="trailing" secondItem="Vbe-k1-aFi" secondAttribute="trailing" constant="10" id="ide-kS-UhY"/>
+                                    <constraint firstAttribute="height" constant="64" id="rHt-gf-uvt">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                    </constraint>
+                                    <constraint firstItem="YcR-mo-neY" firstAttribute="bottom" secondItem="XW3-If-VLd" secondAttribute="bottom" constant="7.5" id="sw0-D9-9Oz"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pv5-Co-XR2">
+                                <rect key="frame" x="5" y="74" width="404" height="652"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hhi-kb-B0I"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ixS-yp-kg9" firstAttribute="leading" secondItem="hhi-kb-B0I" secondAttribute="leading" id="2n4-Ma-zia"/>
+                            <constraint firstItem="ixS-yp-kg9" firstAttribute="top" secondItem="hhi-kb-B0I" secondAttribute="top" id="Fam-s7-UBd"/>
+                            <constraint firstItem="hhi-kb-B0I" firstAttribute="bottom" secondItem="Pv5-Co-XR2" secondAttribute="bottom" constant="10" id="Sme-Fn-Bq7"/>
+                            <constraint firstItem="Pv5-Co-XR2" firstAttribute="leading" secondItem="hhi-kb-B0I" secondAttribute="leading" constant="5" id="h6t-8o-R4c"/>
+                            <constraint firstItem="ixS-yp-kg9" firstAttribute="trailing" secondItem="hhi-kb-B0I" secondAttribute="trailing" id="iaW-Q3-iJl"/>
+                            <constraint firstItem="Pv5-Co-XR2" firstAttribute="top" secondItem="ixS-yp-kg9" secondAttribute="bottom" constant="10" id="kxt-bk-8oe"/>
+                            <constraint firstItem="hhi-kb-B0I" firstAttribute="trailing" secondItem="Pv5-Co-XR2" secondAttribute="trailing" constant="5" id="sS1-eU-xbP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ImagePrintPdf" destination="Vbe-k1-aFi" id="RUG-62-iIj"/>
+                        <outlet property="webView" destination="Pv5-Co-XR2" id="3OW-xD-3Nl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3S8-36-Z6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="27"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backarrow" width="200" height="200"/>
+        <image name="printer" catalog="system" width="128" height="111"/>
+    </resources>
+</document>

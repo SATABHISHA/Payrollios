@@ -19,20 +19,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-zu-hcl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LTA Supporting Documents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm0-RN-1WC">
-                                        <rect key="frame" x="20" y="21" width="374" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LTA Supporting Documents" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZB9-dm-9ci">
+                                        <rect key="frame" x="50" y="2" width="344" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNx-KY-1ZA">
+                                        <rect key="frame" x="0.0" y="7.6666666666666643" width="50" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="lfF-Vy-SBf"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="BtnBack:" destination="YTY-dP-HWF" eventType="touchUpInside" id="Mkd-9d-Dsw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="sm0-RN-1WC" firstAttribute="leading" secondItem="lJM-zu-hcl" secondAttribute="leading" constant="20" id="6Z3-Sq-vh0"/>
-                                    <constraint firstAttribute="trailing" secondItem="sm0-RN-1WC" secondAttribute="trailing" constant="20" id="dT8-Tx-yeC"/>
-                                    <constraint firstAttribute="bottom" secondItem="sm0-RN-1WC" secondAttribute="bottom" constant="21" id="rE4-PZ-bM8"/>
-                                    <constraint firstItem="sm0-RN-1WC" firstAttribute="top" secondItem="lJM-zu-hcl" secondAttribute="top" constant="21" id="rQI-Ac-eSO"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZB9-dm-9ci" secondAttribute="trailing" constant="20" id="3dN-yJ-T06"/>
+                                    <constraint firstAttribute="bottom" secondItem="gNx-KY-1ZA" secondAttribute="bottom" constant="7.5" id="Qra-PP-eSb"/>
+                                    <constraint firstItem="gNx-KY-1ZA" firstAttribute="leading" secondItem="lJM-zu-hcl" secondAttribute="leading" id="VGX-wm-Aud"/>
+                                    <constraint firstItem="gNx-KY-1ZA" firstAttribute="top" secondItem="lJM-zu-hcl" secondAttribute="top" constant="7.5" id="hKv-Q7-0IH"/>
+                                    <constraint firstItem="ZB9-dm-9ci" firstAttribute="top" secondItem="lJM-zu-hcl" secondAttribute="top" constant="2" id="lTX-F7-hfY"/>
                                     <constraint firstAttribute="height" constant="64" id="ryR-vj-adW"/>
+                                    <constraint firstItem="ZB9-dm-9ci" firstAttribute="leading" secondItem="gNx-KY-1ZA" secondAttribute="trailing" id="sWM-c4-x1D"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZB9-dm-9ci" secondAttribute="bottom" constant="2" id="xX4-UF-gfn"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f42-Ac-WLr">
@@ -226,6 +239,7 @@
                         <outlet property="viewCancelConfirmationPopup" destination="qTK-wj-sjk" id="D2i-b0-yaJ"/>
                         <outlet property="viewDeleteConfirmationPopup" destination="MPt-pr-clt" id="Bip-Xe-T5S"/>
                         <segue destination="7ZG-5D-EKy" kind="presentation" identifier="ltarequest" modalPresentationStyle="fullScreen" id="bx8-cf-vul"/>
+                        <segue destination="tGD-tV-Dzg" kind="presentation" identifier="PdfView" modalPresentationStyle="fullScreen" id="rha-6g-klC"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="MPt-pr-clt">
@@ -336,6 +350,16 @@
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="26.90217391304348"/>
         </scene>
+        <!--LtaPdfView-->
+        <scene sceneID="xd9-S8-wxB">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LtaPdfView" storyboardName="LtaSupportingDocumentsPdfViewer" referencedIdentifier="LtaPdfView" id="tGD-tV-Dzg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JW8-HG-KsA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OM4-V3-0rd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1379" y="-220"/>
+        </scene>
         <!--ltarequest-->
         <scene sceneID="tGA-ah-7ao">
             <objects>
@@ -347,6 +371,7 @@
     </scenes>
     <resources>
         <image name="adddcmnts" width="512" height="512"/>
+        <image name="backarrow" width="200" height="200"/>
         <image name="dcmntsfile" width="225" height="225"/>
         <image name="delete_record_od_request" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">

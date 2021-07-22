@@ -30,7 +30,7 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     
     static var tableChildData = [LtaDocumentDetails]()
     var collectUpdatedDetailsData = [Any]()
-    static var DocumentBase64String: String!, row_position_to_delete: Int!
+    static var DocumentBase64String: String!, row_position_to_delete: Int!, FileName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +81,11 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
         self.dismiss(animated: true, completion: nil)
         
     }
+    
+    @IBAction func BtnBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //---ViewCancel
     @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
         openCancelConfirmationPopup()
@@ -147,8 +152,9 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
         print("tap is working")
         
         LtaSupportingDocumentsViewController.DocumentBase64String = row.document_base64
+        LtaSupportingDocumentsViewController.FileName = row.document_name
         
-//        self.performSegue(withIdentifier: "MediclaimPdf", sender: nil)
+        self.performSegue(withIdentifier: "PdfView", sender: nil)
     }
     //---------onClick tableview code ends----------
     //----------tableview code ends------------
@@ -307,8 +313,11 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     
     @IBAction func btnCancelTaskConfirmationPopupYes(_ sender: Any) {
         cancelConfirmationPopup()
-        self.performSegue(withIdentifier: "ltarequest", sender: nil)
+        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
         LtaSupportingDocumentsViewController.tableChildData.removeAll()
+        }
+        self.performSegue(withIdentifier: "ltarequest", sender: nil)
+       
     }
     
     @IBAction func btnCancelTaskConfirmationPopupNo(_ sender: Any) {
