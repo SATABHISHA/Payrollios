@@ -160,9 +160,9 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
                 StackViewBtns.isHidden = true
             }
             if MediclaimListViewController.mediclaim_status! == "Returned"{
-                cell.BtnRemove.isHidden = true
-                ImageViewCustomBtnAddDoc.isHidden = true
-                StackViewBtns.isHidden = true
+                cell.BtnRemove.isHidden = false
+                ImageViewCustomBtnAddDoc.isHidden = false
+                StackViewBtns.isHidden = false
             }
         }
         if MediclaimListViewController.EmployeeType == "Supervisor"{

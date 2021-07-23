@@ -417,14 +417,18 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                     let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
                         //                                print("Ok button tapped")
                         
-                        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+//                        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
                         if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
                             LtaSupportingDocumentsViewController.tableChildData.removeAll()
                             self.collectUpdatedDetailsData.removeAll()
                             //                            self.loadData()
                         }
-                        
-                        //                                self.tableViewEmpTask.reloadData()
+                        if LtaListViewController.EmployeeType == "Supervisor" {
+                            self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+                        }
+                        if LtaListViewController.EmployeeType == "Employee" {
+                            self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+                        }
                         
                     })
                     
@@ -435,7 +439,14 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                     self.present(dialogMessage, animated: true, completion: nil)
                 }else{
 //                    OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
-                    self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+//                    self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+                    if LtaListViewController.EmployeeType == "Supervisor" {
+                        self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+                    }
+                    if LtaListViewController.EmployeeType == "Employee" {
+                        self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+                    }
+                    
                     var style = ToastStyle()
                     
                     // this is just one of many style options

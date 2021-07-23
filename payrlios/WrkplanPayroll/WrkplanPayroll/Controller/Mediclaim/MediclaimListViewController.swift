@@ -222,7 +222,7 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func btnPopupOk(_ sender: Any) {
         closeDeletePopup()
         
-//        deleteApi(requisition_id: AdvanceRequisitionListViewController.requisition_id!)
+        deleteApi(mediclaim_id: MediclaimListViewController.mediclaim_id!)
     }
     
     @IBAction func btn_cancel(_ sender: Any) {
@@ -270,6 +270,38 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
     }
     //===============FormDelete Popup code ends===================
     
+    //=========Code to delete using Alamofire and Swiftyjson, starts=========
+    func deleteApi(mediclaim_id: Int){
+        let url = BASE_URL + "mediclaim/delete/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(mediclaim_id)"
+        print("url->",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+                   if((responseData.value ?? "") != nil){
+//                       self.dismiss(animated: true, completion: nil)  //----dismissing the loader
+                       let swiftyJsonVar=JSON(responseData.value!)
+                       print(swiftyJsonVar)
+                    if(swiftyJsonVar["response"]["status"].stringValue == "true"){
+                        
+                        var style = ToastStyle()
+                        
+                        // this is just one of many style options
+                        style.messageColor = .white
+                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        self.loaderEnd()
+                        self.loadData()
+                    }else{
+                        var style = ToastStyle()
+                        
+                        // this is just one of many style options
+                        style.messageColor = .white
+                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        self.loaderEnd()
+                    }
+                   }
+                   
+                  
+               }
+    }
+    //=========Code to delete using Alamofire and Swiftyjson, ends=========
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
         var blurEffectView: UIVisualEffectView!

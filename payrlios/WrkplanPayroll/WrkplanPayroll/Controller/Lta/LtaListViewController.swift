@@ -8,6 +8,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import Toast_Swift
 
 class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LtaListTableViewCellDelegate {
    
@@ -185,7 +186,7 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func btnPopupOk(_ sender: Any) {
         closeDeletePopup()
         
-//        deleteApi(requisition_id: AdvanceRequisitionListViewController.requisition_id!)
+        deleteApi(application_id: LtaListViewController.lta_id!)
     }
     
     @IBAction func btn_cancel(_ sender: Any) {
@@ -232,6 +233,39 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     //===============FormDelete Popup code ends===================
+    
+    //=========Code to delete using Alamofire and Swiftyjson, starts=========
+    func deleteApi(application_id: Int){
+        let url = BASE_URL + "lta/delete/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(application_id)"
+        print("url->",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+                   if((responseData.value ?? "") != nil){
+//                       self.dismiss(animated: true, completion: nil)  //----dismissing the loader
+                       let swiftyJsonVar=JSON(responseData.value!)
+                       print(swiftyJsonVar)
+                    if(swiftyJsonVar["response"]["status"].stringValue == "true"){
+                        
+                        var style = ToastStyle()
+                        
+                        // this is just one of many style options
+                        style.messageColor = .white
+                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        self.loaderEnd()
+                        self.loadData()
+                    }else{
+                        var style = ToastStyle()
+                        
+                        // this is just one of many style options
+                        style.messageColor = .white
+                        self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                        self.loaderEnd()
+                    }
+                   }
+                   
+                  
+               }
+    }
+    //=========Code to delete using Alamofire and Swiftyjson, ends=========
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
         var blurEffectView: UIVisualEffectView!
