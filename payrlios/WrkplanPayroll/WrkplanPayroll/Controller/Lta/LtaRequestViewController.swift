@@ -53,8 +53,13 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         //---code for date section, starts
         TxtFromDate.delegate = self
         TxtToDate.delegate = self
-        TxtFromDate.isUserInteractionEnabled = true
+        TxtLtaAmount.delegate = self
+        TxtApprovedAmount.delegate = self
+       /* TxtFromDate.isUserInteractionEnabled = false
+        TxtFromDate.alpha = 0.4
         TxtToDate.isUserInteractionEnabled = false
+        TxtToDate.alpha = 0.4*/
+        
         TxtFromDate.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         TxtToDate.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         //---code for date section, ends
@@ -96,31 +101,6 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         ViewSupportingDocuments.addBorder(side: .left, color: UIColor(hexFromString: "000000"), width: 0.6)
         //-----code to add button border, ends------
         
-        if LtaListViewController.new_create_yn == true {
-            ViewBtnSave.isHidden = false
-            ViewBtnSubmit.isHidden = false
-            ViewBtnCancel.isHidden = true
-            ViewBtnApprove.isHidden = true
-            ViewBtnReturn.isHidden = true
-            ImgFromDate.isHidden = false
-            ImgToDate.isHidden = false
-            
-            TxtLtaAmount.isUserInteractionEnabled = true
-            TxtViewDetail.isUserInteractionEnabled = true
-            TxtFromDate.isUserInteractionEnabled = true
-            TxtToDate.isUserInteractionEnabled = true
-            
-            TxtApprovedAmount.isUserInteractionEnabled = false
-            TxtViewSupervisorRemark.isUserInteractionEnabled = false
-            TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
-            
-            ViewSupportingDocuments.isUserInteractionEnabled = true
-            ViewSupportingDocuments.alpha = 1.0
-            self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
-        } else if LtaListViewController.new_create_yn == false {
-            LoadButtons()
-            loadData(application_id: LtaListViewController.lta_id!)
-        }
         
         
         //ViewBack
@@ -157,6 +137,51 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         let tapGestureRecognizerCancelView = UITapGestureRecognizer(target: self, action: #selector(CancelView(tapGestureRecognizer:)))
         ViewBtnCancel.isUserInteractionEnabled = true
         ViewBtnCancel.addGestureRecognizer(tapGestureRecognizerCancelView)
+        
+        if LtaListViewController.new_create_yn == true {
+            
+            ViewBtnSave.isUserInteractionEnabled = false
+            ViewBtnSave.alpha = 0.5
+            
+            ViewBtnSubmit.isUserInteractionEnabled = false
+            ViewBtnSubmit.alpha = 0.5
+            
+            TxtFromDate.isUserInteractionEnabled = false
+            TxtFromDate.alpha = 0.4
+            TxtToDate.isUserInteractionEnabled = false
+            TxtToDate.alpha = 0.4
+            
+            ViewBtnSave.isHidden = false
+            ViewBtnSubmit.isHidden = false
+            ViewBtnCancel.isHidden = true
+            ViewBtnApprove.isHidden = true
+            ViewBtnReturn.isHidden = true
+            ImgFromDate.isHidden = false
+            ImgToDate.isHidden = false
+            
+            TxtLtaAmount.isUserInteractionEnabled = true
+            TxtViewDetail.isUserInteractionEnabled = true
+//            TxtFromDate.isUserInteractionEnabled = true
+//            TxtToDate.isUserInteractionEnabled = true
+            
+            TxtApprovedAmount.isUserInteractionEnabled = false
+            TxtViewSupervisorRemark.isUserInteractionEnabled = false
+            TxtViewFinalSupervisorRemark.isUserInteractionEnabled = false
+            
+            ViewSupportingDocuments.isUserInteractionEnabled = true
+            ViewSupportingDocuments.alpha = 1.0
+            
+            self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
+        } else if LtaListViewController.new_create_yn == false {
+            LoadButtons()
+            loadData(application_id: LtaListViewController.lta_id!)
+        }
+        
+        //------making buttons disabled, code starts-----
+        
+        ViewBtnApprove.isUserInteractionEnabled = false
+        ViewBtnApprove.alpha = 0.5
+        //------making buttons disabled, code ends-----
         
     }
     
@@ -241,6 +266,60 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     
     //-----Code for calendarDate selection, starts-----
+   
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField{
+        case self.TxtLtaAmount:
+            if Double(TxtLtaAmount.text!) ?? 0 > 0 {
+                TxtFromDate.isUserInteractionEnabled = true
+                TxtFromDate.alpha = 1.0
+                
+                if TxtFromDate.text! != "" &&
+                    TxtToDate.text! != "" {
+                    ViewBtnSubmit.isUserInteractionEnabled = true
+                    ViewBtnSubmit.alpha = 1.0
+                    ViewBtnSave.isUserInteractionEnabled = true
+                    ViewBtnSave.alpha = 1.0
+                }
+            }else if Double(TxtLtaAmount.text!) ?? 0 == 0 {
+                TxtFromDate.isUserInteractionEnabled = false
+                TxtFromDate.alpha = 0.6
+                
+                ViewBtnSubmit.isUserInteractionEnabled = false
+                ViewBtnSubmit.alpha = 0.6
+                ViewBtnSave.isUserInteractionEnabled = false
+                ViewBtnSave.alpha = 0.6
+            }else{
+                TxtFromDate.isUserInteractionEnabled = false
+                TxtFromDate.alpha = 0.6
+                
+                ViewBtnSubmit.isUserInteractionEnabled = false
+                ViewBtnSubmit.alpha = 0.6
+                ViewBtnSave.isUserInteractionEnabled = false
+                ViewBtnSave.alpha = 0.6
+            }
+            break
+            
+        case self.TxtApprovedAmount:
+            if Double(TxtApprovedAmount.text!)! > 0 {
+                if Double(TxtApprovedAmount.text!)! > Double(TxtLtaAmount.text!)! {
+                    ViewBtnApprove.isUserInteractionEnabled = false
+                    ViewBtnApprove.alpha = 0.6
+                }else {
+                    ViewBtnApprove.isUserInteractionEnabled = true
+                    ViewBtnApprove.alpha = 1.0
+                }
+            }else{
+                ViewBtnApprove.isUserInteractionEnabled = false
+                ViewBtnApprove.alpha = 0.6
+            }
+            break
+        
+        default:
+            break
+        }
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField{
         case self.TxtFromDate:
@@ -248,6 +327,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             to_date = false
             showDatePicker(txtfield: TxtFromDate)
             TxtToDate.isUserInteractionEnabled = true
+            TxtToDate.alpha = 1.0
             print("from date tapped")
             break
         case self.TxtToDate:
@@ -275,7 +355,6 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             break
         }
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
             self.TxtSupportingDocuments.text = "\(LtaSupportingDocumentsViewController.tableChildData.count) Document(s)"
@@ -315,13 +394,15 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             print("test-=>",daysBetween(start: TxtFromDate.text!, end: TxtToDate.text!))
             LabelDayCount.text = String(daysBetween(start: TxtFromDate.text!, end: TxtToDate.text!)+1)
             
-            if (daysBetween(start: TxtFromDate.text!, end: TxtToDate.text!)+1) <= 0 {
+            if (daysBetween(start: TxtFromDate.text!, end: TxtToDate.text!)+1) < 5 {
                 //                ViewBtnSave.isEnabled = false
                 ViewBtnSave.isUserInteractionEnabled = false
                 ViewBtnSave.alpha = 0.6
                 
                 ViewBtnSubmit.isUserInteractionEnabled = false
                 ViewBtnSubmit.alpha = 0.6
+                
+                LabelWarningTitle.textColor = UIColor(hexFromString: "FF0000")
             }else{
                 //                custom_btn_label_save.isEnabled = true
                 ViewBtnSave.isUserInteractionEnabled = true
@@ -329,6 +410,8 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 
                 ViewBtnSubmit.isUserInteractionEnabled = true
                 ViewBtnSubmit.alpha = 1.0
+                
+                LabelWarningTitle.textColor = UIColor(hexFromString: "2C2C2C")
             }
             //            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
         }
@@ -504,6 +587,13 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 
             }
             if LtaListViewController.lta_status! == "Saved"{
+                //--added on 23rd july, starts
+                ViewBtnSubmit.isUserInteractionEnabled = true
+                ViewBtnSubmit.alpha = 1.0
+                ViewBtnSave.isUserInteractionEnabled = true
+                ViewBtnSave.alpha = 1.0
+                //--added on 23rd july, ends
+                
                 
                 ViewBtnSave.isHidden = false
                 ViewBtnSubmit.isHidden = false
@@ -530,6 +620,13 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 LtaListViewController.lta_status! == "Payment done" ||
                 LtaListViewController.lta_status! == "Cancelled"{
                 
+                //--added on 23rd july, starts
+                ViewBtnSubmit.isUserInteractionEnabled = true
+                ViewBtnSubmit.alpha = 1.0
+                ViewBtnSave.isUserInteractionEnabled = true
+                ViewBtnSave.alpha = 1.0
+                //--added on 23rd july, ends
+                
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = true
                 ViewBtnCancel.isHidden = true
@@ -551,6 +648,13 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 ViewSupportingDocuments.alpha = 1.0
             }
             if LtaListViewController.lta_status! == "Returned"{
+                
+                //--added on 23rd july, starts
+                ViewBtnSubmit.isUserInteractionEnabled = true
+                ViewBtnSubmit.alpha = 1.0
+                ViewBtnSave.isUserInteractionEnabled = true
+                ViewBtnSave.alpha = 1.0
+                //--added on 23rd july, ends
                 
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = false

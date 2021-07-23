@@ -52,6 +52,8 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     @IBAction func BtnNew(_ sender: Any) {
         LtaListViewController.new_create_yn = true
+        LtaListViewController.EmployeeType = "Employee"
+        LtaListViewController.lta_status = ""
         self.performSegue(withIdentifier: "ltarequest", sender: nil)
     }
     
