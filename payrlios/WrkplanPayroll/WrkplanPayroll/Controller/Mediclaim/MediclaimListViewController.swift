@@ -41,6 +41,7 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    
     //---Subordinate
     @objc func MediclaimView(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "subordinatemediclaim", sender: nil)
@@ -48,6 +49,8 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func BtnNewMediclaimRequest(_ sender: Any) {
         MediclaimListViewController.new_create_yn = true
+        MediclaimListViewController.EmployeeType = "Employee"
+        MediclaimListViewController.mediclaim_status = ""
         self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
     }
     

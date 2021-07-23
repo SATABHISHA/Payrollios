@@ -50,11 +50,12 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
+        TxtLtaAmount.delegate = self
+        TxtApprovedAmount.delegate = self
+        
         //---code for date section, starts
         TxtFromDate.delegate = self
         TxtToDate.delegate = self
-        TxtLtaAmount.delegate = self
-        TxtApprovedAmount.delegate = self
        /* TxtFromDate.isUserInteractionEnabled = false
         TxtFromDate.alpha = 0.4
         TxtToDate.isUserInteractionEnabled = false

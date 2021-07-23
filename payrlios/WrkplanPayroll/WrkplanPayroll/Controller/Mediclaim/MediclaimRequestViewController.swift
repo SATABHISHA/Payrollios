@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 import Toast_Swift
 
-class MediclaimRequestViewController: UIViewController {
+class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var TxtMediclaimNo: UITextField!
     @IBOutlet weak var TxtEmployeeName: UITextField!
@@ -40,7 +40,8 @@ class MediclaimRequestViewController: UIViewController {
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
-        
+        TxtMediclaimAmount.delegate = self
+        TxtApprovedAmount.delegate = self
         
         TxtMediclaimNo.isUserInteractionEnabled = false
         TxtEmployeeName.isUserInteractionEnabled = false
@@ -67,7 +68,13 @@ class MediclaimRequestViewController: UIViewController {
         ViewCustomBtnViewDocuments.addBorder(side: .left, color: UIColor(hexFromString: "000000"), width: 0.6)
         //-----code to add button border, ends------
         
-        if LtaListViewController.new_create_yn == true {
+        if MediclaimListViewController.new_create_yn == true {
+            ViewBtnSave.isUserInteractionEnabled = false
+            ViewBtnSave.alpha = 0.5
+            
+            ViewBtnSubmit.isUserInteractionEnabled = false
+            ViewBtnSubmit.alpha = 0.5
+            
             ViewBtnSave.isHidden = false
             ViewBtnSubmit.isHidden = false
             ViewBtnCancel.isHidden = true
@@ -85,11 +92,16 @@ class MediclaimRequestViewController: UIViewController {
             ViewCustomBtnViewDocuments.alpha = 1.0
             self.TxtEmployeeName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
             TxtSupportingDocuments.text = "0 Document(s)"
-        } else if LtaListViewController.new_create_yn == false {
+        } else if MediclaimListViewController.new_create_yn == false {
             
             loadData(mediclaim_id: MediclaimListViewController.mediclaim_id!)
 //            LoadButtons()
         }
+        //------making buttons disabled, code starts-----
+        
+        ViewBtnApprove.isUserInteractionEnabled = false
+        ViewBtnApprove.alpha = 0.5
+        //------making buttons disabled, code ends-----
         
         //ViewDocs
         let tapGestureRecognizerDocView = UITapGestureRecognizer(target: self, action: #selector(DocView(tapGestureRecognizer:)))
@@ -222,6 +234,49 @@ class MediclaimRequestViewController: UIViewController {
         }
         
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField{
+        case self.TxtMediclaimAmount:
+            if Double(TxtMediclaimAmount.text!) ?? 0 > 0 {
+                ViewBtnSubmit.isUserInteractionEnabled = true
+                ViewBtnSubmit.alpha = 1.0
+                ViewBtnSave.isUserInteractionEnabled = true
+                ViewBtnSave.alpha = 1.0
+                
+            }else if Double(TxtMediclaimAmount.text!) ?? 0 == 0 {
+                ViewBtnSubmit.isUserInteractionEnabled = false
+                ViewBtnSubmit.alpha = 0.6
+                ViewBtnSave.isUserInteractionEnabled = false
+                ViewBtnSave.alpha = 0.6
+                
+            }else{
+                ViewBtnSubmit.isUserInteractionEnabled = false
+                ViewBtnSubmit.alpha = 0.6
+                ViewBtnSave.isUserInteractionEnabled = false
+                ViewBtnSave.alpha = 0.6
+            }
+            break
+            
+        case self.TxtApprovedAmount:
+            if Double(TxtApprovedAmount.text!)! > 0 {
+                if Double(TxtApprovedAmount.text!)! > Double(TxtMediclaimAmount.text!)! {
+                    ViewBtnApprove.isUserInteractionEnabled = false
+                    ViewBtnApprove.alpha = 0.6
+                }else {
+                    ViewBtnApprove.isUserInteractionEnabled = true
+                    ViewBtnApprove.alpha = 1.0
+                }
+            }else{
+                ViewBtnApprove.isUserInteractionEnabled = false
+                ViewBtnApprove.alpha = 0.6
+            }
+            break
+        
+        default:
+            break
+        }
+    }
     //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
        
@@ -248,6 +303,13 @@ class MediclaimRequestViewController: UIViewController {
                 ViewCustomBtnViewDocuments.alpha = 1.0
             }
             if MediclaimListViewController.mediclaim_status! == "Saved"{
+                //--added on 23rd july, starts
+                ViewBtnSubmit.isUserInteractionEnabled = true
+                ViewBtnSubmit.alpha = 1.0
+                ViewBtnSave.isUserInteractionEnabled = true
+                ViewBtnSave.alpha = 1.0
+                //--added on 23rd july, ends
+                
                 ViewBtnSave.isHidden = false
                 ViewBtnSubmit.isHidden = false
                 ViewBtnCancel.isHidden = true
@@ -267,6 +329,13 @@ class MediclaimRequestViewController: UIViewController {
                 MediclaimListViewController.mediclaim_status! == "Approved" ||
                 MediclaimListViewController.mediclaim_status! == "Payment done" ||
                 MediclaimListViewController.mediclaim_status! == "Canceled"{
+                
+                //--added on 23rd july, starts
+                ViewBtnSubmit.isUserInteractionEnabled = true
+                ViewBtnSubmit.alpha = 1.0
+                ViewBtnSave.isUserInteractionEnabled = true
+                ViewBtnSave.alpha = 1.0
+                //--added on 23rd july, ends
                 
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = true
@@ -292,6 +361,13 @@ class MediclaimRequestViewController: UIViewController {
                                 }
             }
             if MediclaimListViewController.mediclaim_status! == "Returned"{
+                //--added on 23rd july, starts
+                ViewBtnSubmit.isUserInteractionEnabled = true
+                ViewBtnSubmit.alpha = 1.0
+                ViewBtnSave.isUserInteractionEnabled = true
+                ViewBtnSave.alpha = 1.0
+                //--added on 23rd july, ends
+                
                 ViewBtnSave.isHidden = true
                 ViewBtnSubmit.isHidden = false
                 ViewBtnCancel.isHidden = true
