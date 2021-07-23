@@ -50,6 +50,10 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
+        TxtViewDetail.backgroundColor = UIColor.white
+        TxtViewSupervisorRemark.backgroundColor = UIColor.white
+        TxtViewFinalSupervisorRemark.backgroundColor = UIColor.white
+        
         TxtLtaAmount.delegate = self
         TxtApprovedAmount.delegate = self
         
@@ -174,7 +178,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             
             self.TxtEmpName.text = self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue
         } else if LtaListViewController.new_create_yn == false {
-            LoadButtons()
+//            LoadButtons()
             loadData(application_id: LtaListViewController.lta_id!)
         }
         
@@ -703,6 +707,15 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 
                 ViewSupportingDocuments.isUserInteractionEnabled = true
                 ViewSupportingDocuments.alpha = 1.0
+                
+                if LtaSupportingDocumentsViewController.tableChildData.count <= 0 {
+                    ViewSupportingDocuments.isUserInteractionEnabled = false
+                    ViewSupportingDocuments.alpha = 0.2
+                                }
+                if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+                    ViewSupportingDocuments.isUserInteractionEnabled = true
+                    ViewSupportingDocuments.alpha = 1.0
+                                }
             }
             if LtaListViewController.lta_status! == "Returned" ||
                 LtaListViewController.lta_status! == "Approved" ||
@@ -729,6 +742,16 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 
                 ViewSupportingDocuments.isUserInteractionEnabled = true
                 ViewSupportingDocuments.alpha = 1.0
+                
+                if LtaSupportingDocumentsViewController.tableChildData.count <= 0 {
+                    ViewSupportingDocuments.isUserInteractionEnabled = false
+                    ViewSupportingDocuments.alpha = 0.2
+                                }
+                if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+                    ViewSupportingDocuments.isUserInteractionEnabled = true
+                    ViewSupportingDocuments.alpha = 1.0
+                                }
+                
             }
         }
         
@@ -782,8 +805,10 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 
                 if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
                     self.TxtSupportingDocuments.text = "\(LtaSupportingDocumentsViewController.tableChildData.count) Document(s)"
+                    self.LoadButtons()
                 }else{
                     self.TxtSupportingDocuments.text = "0 Document(s)"
+                    self.LoadButtons()
                 }
                 
             }

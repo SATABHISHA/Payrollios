@@ -217,11 +217,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.imageData = UIImage(named: "advance")
         k.menuItm = "Advance"
         navigationDrawerData.append(k)
-        k.imageData = UIImage(named: "reports")
-        k.menuItm = "Reports"
+        k.imageData = UIImage(named: "mediclaim")
+        k.menuItm = "Mediclaim"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "lta")
+        k.menuItm = "LTA"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "reports")
-        k.menuItm = "Mediclaim"
+        k.menuItm = "Reports"
         navigationDrawerData.append(k)
         
         k.imageData = UIImage(named: "password.png")
@@ -498,7 +501,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.separatorColor = UIColor.white
         
         var dict = navigationDrawerData[indexPath.row]
-        if dict.menuItm! == "Mediclaim"{
+        if dict.menuItm! == "Reports"{
             let bottomBorder = CALayer()
             
             bottomBorder.frame = CGRect(x: 0.0, y: 43.0, width: cell.contentView.frame.size.width, height: 1.0)
@@ -559,6 +562,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }else if row.menuItm == "Mediclaim"{
                 menuClose()
                 self.performSegue(withIdentifier: "mediclaimlist", sender: self)
+            }else if row.menuItm == "LTA"{
+                menuClose()
+                self.performSegue(withIdentifier: "lta", sender: self)
             } else if row.menuItm == "Change Password"{
                 menuClose()
                 openPasswordChangePopup()

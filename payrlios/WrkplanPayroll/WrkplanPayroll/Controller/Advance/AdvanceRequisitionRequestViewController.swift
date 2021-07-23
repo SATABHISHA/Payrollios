@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 import Toast_Swift
 
-class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDelegate {
+class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var ButtonReasonIsSelected: Bool!
     @IBOutlet weak var btn_reason_select_type: UIButton!
@@ -41,20 +41,24 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         ChangeStatusBarColor() //---to change background statusbar color
         
         TxtRequisitionAmount.delegate = self
         TxtReturnPeriod.delegate = self
         TxtApprovedAmount.delegate = self
+        
+        TxtViewNarration.backgroundColor = UIColor.white
+        TxtViewApprovalRemark.backgroundColor = UIColor.white
+        
        
         //---code to customize dropdown button starts------
         let buttonWidth = btn_reason_select_type.frame.width
-        let imageWidth = btn_reason_select_type.imageView!.frame.width
+//        let imageWidth = btn_reason_select_type.imageView!.frame.width
         
         btn_reason_select_type.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
-        btn_reason_select_type.titleEdgeInsets = UIEdgeInsets(top: 0, left: -28, bottom: 0, right: imageWidth)
-        btn_reason_select_type.imageEdgeInsets = UIEdgeInsets(top: 0, left: buttonWidth-70, bottom: 0, right: 0)
+//        btn_reason_select_type.titleEdgeInsets = UIEdgeInsets(top: 0, left: -28, bottom: 0, right: imageWidth)
+        btn_reason_select_type.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+//        btn_reason_select_type.imageEdgeInsets = UIEdgeInsets(top: 0, left: buttonWidth-70, bottom: 0, right: 0)
         //---code to customize dropdown button ends------
         
         //----code to append dropdown data, starts------
@@ -71,13 +75,13 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
         TxtCtc.isUserInteractionEnabled = false
         
         
-        TxtRequisitionNo.setLeftPaddingPoints(2)
-        TxtEmployeeName.setLeftPaddingPoints(2)
-        TxtReturnPeriod.setLeftPaddingPoints(2)
-        TxtRequisitionAmount.setRightPaddingPoints(2)
-        TxtApprovedAmount.setRightPaddingPoints(2)
-        TxtApplicationStatus.setLeftPaddingPoints(2)
-        TxtCtc.setRightPaddingPoints(2)
+        TxtRequisitionNo.setLeftPaddingPoints(5)
+        TxtEmployeeName.setLeftPaddingPoints(5)
+        TxtReturnPeriod.setLeftPaddingPoints(5)
+        TxtRequisitionAmount.setRightPaddingPoints(5)
+        TxtApprovedAmount.setRightPaddingPoints(5)
+        TxtApplicationStatus.setLeftPaddingPoints(5)
+        TxtCtc.setRightPaddingPoints(5)
         
         TxtCtc.text = swiftyJsonvar1["employee"]["ctc"].stringValue
         if AdvanceRequisitionListViewController.new_create_yn == false{

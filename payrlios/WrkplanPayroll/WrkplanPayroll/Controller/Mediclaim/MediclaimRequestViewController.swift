@@ -40,6 +40,8 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
+        TxtViewApprovalRemark.backgroundColor = UIColor.white
+        
         TxtMediclaimAmount.delegate = self
         TxtApprovedAmount.delegate = self
         
@@ -205,7 +207,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
     //---ViewApprove
     @objc func ApproveView(tapGestureRecognizer: UITapGestureRecognizer){
 
-        makeJsonObjectAndSaveDataToServer(mediclaim_id: MediclaimListViewController.mediclaim_id!, mediclaim_no: MediclaimListViewController.mediclaim_no!, mediclaim_amount: TxtMediclaimAmount.text!, approved_mediclaim_amount: TxtApprovedAmount.text!, description: TxtReason.text!, supervisor_remark: TxtViewApprovalRemark.text!, mediclaim_status: "Approved", approved_by_id: MediclaimListViewController.employee_id!, approved_by_name: self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue, payment_remark: "", payment_amount: "0")
+        makeJsonObjectAndSaveDataToServer(mediclaim_id: MediclaimListViewController.mediclaim_id!, mediclaim_no: MediclaimListViewController.mediclaim_no!, mediclaim_amount: TxtMediclaimAmount.text!, approved_mediclaim_amount: "0", description: TxtReason.text!, supervisor_remark: TxtViewApprovalRemark.text!, mediclaim_status: "Approved", approved_by_id: MediclaimListViewController.employee_id!, approved_by_name: self.swiftyJsonvar1["employee"]["full_employee_name"].stringValue, payment_remark: "", payment_amount: "0")
         
     }
     
@@ -214,7 +216,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         //        self.performSegue(withIdentifier: "ltasupportingdoc", sender: nil)
         if MediclaimListViewController.new_create_yn == true {
 
-            makeJsonObjectAndSaveDataToServer(mediclaim_id: 0, mediclaim_no: "", mediclaim_amount: TxtMediclaimAmount.text!, approved_mediclaim_amount: TxtApprovedAmount.text!, description: TxtReason.text!, supervisor_remark: TxtViewApprovalRemark.text!, mediclaim_status: "Submitted", approved_by_id: 0, approved_by_name: "", payment_remark: "", payment_amount: "0")
+            makeJsonObjectAndSaveDataToServer(mediclaim_id: 0, mediclaim_no: "", mediclaim_amount: TxtMediclaimAmount.text!, approved_mediclaim_amount: "0", description: TxtReason.text!, supervisor_remark: TxtViewApprovalRemark.text!, mediclaim_status: "Submitted", approved_by_id: 0, approved_by_name: "", payment_remark: "", payment_amount: "0")
         }
         if MediclaimListViewController.new_create_yn == false {
 
