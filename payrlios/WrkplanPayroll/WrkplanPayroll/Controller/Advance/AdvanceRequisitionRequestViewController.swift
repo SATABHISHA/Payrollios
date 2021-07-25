@@ -34,6 +34,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     @IBOutlet weak var ViewButtonApprove: UIView!
     @IBOutlet weak var ViewButtonSubmit: UIView!
     @IBOutlet weak var ViewButtonSave: UIView!
+    @IBOutlet weak var ViewButtonBack: UIView!
     @IBOutlet weak var StackViewButtons: UIStackView!
     
     static var RequisitionReason: Int!
@@ -146,6 +147,11 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
         TxtEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
         }
         
+        //Back
+        let tapGestureRecognizerBackView = UITapGestureRecognizer(target: self, action: #selector(BackView(tapGestureRecognizer:)))
+        ViewButtonBack.isUserInteractionEnabled = true
+        ViewButtonBack.addGestureRecognizer(tapGestureRecognizerBackView)
+        
         //Cancel
         let tapGestureRecognizerCancelView = UITapGestureRecognizer(target: self, action: #selector(CancelView(tapGestureRecognizer:)))
         ViewButtonCancel.isUserInteractionEnabled = true
@@ -195,14 +201,24 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
         TxtReturnPeriod.alpha = 0.6
     }
     
-    //---Cancel
-    @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
+    //---Back
+    @objc func BackView(tapGestureRecognizer: UITapGestureRecognizer){
         if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
             self.performSegue(withIdentifier: "advancehome", sender: nil)
         }
         if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
             self.performSegue(withIdentifier: "subordinate", sender: nil)
         }
+    }
+    
+    //---Cancel
+    @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let CurrentDate = formatter.string(from: date)
+        
+        SaveData(requisition_id: AdvanceRequisitionListViewController.requisition_id!, requisition_date: AdvanceRequisitionListViewController.requisition_date!, employee_id: AdvanceRequisitionListViewController.employee_id!, requisition_reason: AdvanceRequisitionRequestViewController.RequisitionReason, requisition_amount: Double(TxtRequisitionAmount.text!), description: TxtViewNarration.text!, ctc_amount: Double(TxtCtc.text!), return_period_in_months: Int(TxtReturnPeriod.text!), requisition_status: "Canceled", approved_requisition_amount: Double(TxtApprovedAmount.text!), approved_by_id: swiftyJsonvar1["employee"]["employee_id"].intValue, approved_date: CurrentDate, supervisor_remark: TxtViewApprovalRemark.text!, supervisor1_id: swiftyJsonvar1["employee"]["supervisor_1"].intValue, supervisor2_id: swiftyJsonvar1["employee"]["supervisor_2"].intValue )
     }
     //---Return
     @objc func ReturnView(tapGestureRecognizer: UITapGestureRecognizer){
@@ -323,6 +339,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
         StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        ViewButtonCancel.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewButtonReturn.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewButtonApprove.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewButtonSubmit.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
@@ -333,7 +350,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
             btn_reason_select_type.isUserInteractionEnabled = true
             btn_reason_select_type.alpha = 1.0
             if AdvanceRequisitionListViewController.requisition_status == ""{
-                ViewButtonCancel.isHidden = false
+                ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = false
                 ViewButtonSubmit.isHidden = false
                 ViewButtonApprove.isHidden = true
@@ -348,7 +365,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 
             }
             if AdvanceRequisitionListViewController.requisition_status == "Saved"{
-                ViewButtonCancel.isHidden = false
+                ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = false
                 ViewButtonSubmit.isHidden = false
                 ViewButtonApprove.isHidden = true
@@ -366,7 +383,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 AdvanceRequisitionListViewController.requisition_status == "Payment done" ||
                 AdvanceRequisitionListViewController.requisition_status == "Canceled"{
                 
-                ViewButtonCancel.isHidden = false
+                ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = true
                 ViewButtonSubmit.isHidden = true
                 ViewButtonApprove.isHidden = true
@@ -380,7 +397,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
             if AdvanceRequisitionListViewController.requisition_status == "Returned"{
-                ViewButtonCancel.isHidden = false
+                ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = true
                 ViewButtonSubmit.isHidden = false
                 ViewButtonApprove.isHidden = true
