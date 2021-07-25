@@ -188,7 +188,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
         
         LoadButtons() //---to load buttons according to conditions
         
-        ViewButtonSubmit.isUserInteractionEnabled = false
+        /*ViewButtonSubmit.isUserInteractionEnabled = false
         ViewButtonSubmit.alpha = 0.6
         
         ViewButtonSave.isUserInteractionEnabled = false
@@ -198,7 +198,7 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
         btn_reason_select_type.alpha = 0.6
         
         TxtReturnPeriod.isUserInteractionEnabled = false
-        TxtReturnPeriod.alpha = 0.6
+        TxtReturnPeriod.alpha = 0.6*/
     }
     
     //---Back
@@ -293,11 +293,11 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     }
     
     @IBAction func BtnDropDownSelect(_ sender: UIButton) {
-        ButtonReasonIsSelected = true
-        btn_reason_select_type.alpha = 1.0
+        /*ButtonReasonIsSelected = true
+        btn_reason_select_type.alpha = 1.0*/
         
-        TxtReturnPeriod.isUserInteractionEnabled = true
-        TxtReturnPeriod.alpha = 1.0
+        /*TxtReturnPeriod.isUserInteractionEnabled = true
+        TxtReturnPeriod.alpha = 1.0*/
         
         dropDown.dataSource = type
         dropDown.anchorView = sender//5
@@ -319,13 +319,26 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
             }
             //          sender.setTitle(item, for: .normal) //9
             print("indexCheck-=>",index+1)
+            if index >= 0 {
+                self!.TxtReturnPeriod.isUserInteractionEnabled = true
+                self!.TxtReturnPeriod.alpha = 1.0
+                
+                self!.ButtonReasonIsSelected = true
+                self!.btn_reason_select_type.alpha = 1.0
+            }else{
+                self!.TxtReturnPeriod.isUserInteractionEnabled = false
+                self!.TxtReturnPeriod.alpha = 0.6
+                
+                self!.ButtonReasonIsSelected = false
+                self!.btn_reason_select_type.alpha = 0.6
+            }
             AdvanceRequisitionRequestViewController.RequisitionReason = index+1
             sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
         }
     }
     
     //-----textfield delegate, starts
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    /*func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if TxtRequisitionAmount.text != "" && TxtReturnPeriod.text != "" && ButtonReasonIsSelected == true{
             ViewButtonSubmit.isUserInteractionEnabled = true
             ViewButtonSubmit.alpha = 1.0
@@ -334,7 +347,103 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
             ViewButtonSave.alpha = 1.0
         }
             return true;
+        }*/
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField{
+        case self.TxtRequisitionAmount:
+            if Double(TxtRequisitionAmount.text!) ?? 0 > 0 {
+                btn_reason_select_type.isUserInteractionEnabled = true
+                btn_reason_select_type.alpha = 1.0
+                if AdvanceRequisitionListViewController.requisition_status != ""{
+                    ViewButtonSubmit.isUserInteractionEnabled = true
+                    ViewButtonSubmit.alpha = 1.0
+                    ViewButtonSave.isUserInteractionEnabled = true
+                    ViewButtonSave.alpha = 1.0
+                }
+                if TxtRequisitionAmount.text != "" && TxtReturnPeriod.text != "" && ButtonReasonIsSelected == true{
+                    ViewButtonSubmit.isUserInteractionEnabled = true
+                    ViewButtonSubmit.alpha = 1.0
+                    
+                    ViewButtonSave.isUserInteractionEnabled = true
+                    ViewButtonSave.alpha = 1.0
+                }
+                
+            }else if Double(TxtRequisitionAmount.text!) ?? 0 == 0 {
+                ViewButtonSubmit.isUserInteractionEnabled = false
+                ViewButtonSubmit.alpha = 0.6
+                ViewButtonSave.isUserInteractionEnabled = false
+                ViewButtonSave.alpha = 0.6
+                
+            }else{
+                ViewButtonSubmit.isUserInteractionEnabled = false
+                ViewButtonSubmit.alpha = 0.6
+                ViewButtonSave.isUserInteractionEnabled = false
+                ViewButtonSave.alpha = 0.6
+            }
+            break
+         
+        case self.btn_reason_select_type:
+            /*TxtReturnPeriod.isUserInteractionEnabled = true
+            TxtReturnPeriod.alpha = 1.0*/
+            if AdvanceRequisitionListViewController.requisition_status != ""{
+                ViewButtonSubmit.isUserInteractionEnabled = true
+                ViewButtonSubmit.alpha = 1.0
+                ViewButtonSave.isUserInteractionEnabled = true
+                ViewButtonSave.alpha = 1.0
+            }
+            break
+        case self.TxtReturnPeriod:
+            if Double(TxtReturnPeriod.text!) ?? 0 > 0 {
+                ViewButtonSubmit.isUserInteractionEnabled = true
+                ViewButtonSubmit.alpha = 1.0
+                ViewButtonSave.isUserInteractionEnabled = true
+                ViewButtonSave.alpha = 1.0
+            }else if Double(TxtReturnPeriod.text!) ?? 0 == 0 {
+                ViewButtonSubmit.isUserInteractionEnabled = false
+                ViewButtonSubmit.alpha = 0.6
+                ViewButtonSave.isUserInteractionEnabled = false
+                ViewButtonSave.alpha = 0.6
+                
+            }else{
+                ViewButtonSubmit.isUserInteractionEnabled = false
+                ViewButtonSubmit.alpha = 0.6
+                ViewButtonSave.isUserInteractionEnabled = false
+                ViewButtonSave.alpha = 0.6
+            }
+            break
+        case self.TxtApprovedAmount:
+            if Double(TxtApprovedAmount.text!)! > 0 {
+                if Double(TxtApprovedAmount.text!)! > Double(TxtRequisitionAmount.text!)! {
+                    ViewButtonApprove.isUserInteractionEnabled = false
+                    ViewButtonApprove.alpha = 0.6
+                }else {
+                    ViewButtonApprove.isUserInteractionEnabled = true
+                    ViewButtonApprove.alpha = 1.0
+                }
+            }else{
+                ViewButtonApprove.isUserInteractionEnabled = false
+                ViewButtonApprove.alpha = 0.6
+            }
+            break
+      /*  case self.TxtApprovedAmount:
+            if Double(TxtApprovedAmount.text!)! > 0 {
+                if Double(TxtApprovedAmount.text!)! > Double(TxtMediclaimAmount.text!)! {
+                    ViewBtnApprove.isUserInteractionEnabled = false
+                    ViewBtnApprove.alpha = 0.6
+                }else {
+                    ViewBtnApprove.isUserInteractionEnabled = true
+                    ViewBtnApprove.alpha = 1.0
+                }
+            }else{
+                ViewBtnApprove.isUserInteractionEnabled = false
+                ViewBtnApprove.alpha = 0.6
+            }
+            break*/
+        
+        default:
+            break
         }
+    }
     //-----textfield delegate, ends
     //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
@@ -349,7 +458,18 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
             LabelNavBarTitle.text = "My Advance Requisition"
             btn_reason_select_type.isUserInteractionEnabled = true
             btn_reason_select_type.alpha = 1.0
+            
+            TxtApprovedAmount.isUserInteractionEnabled = false
+            TxtApprovedAmount.alpha = 0.6
+            TxtViewApprovalRemark.isUserInteractionEnabled = false
+            TxtViewApprovalRemark.alpha = 0.6
             if AdvanceRequisitionListViewController.requisition_status == ""{
+                ViewButtonSubmit.isUserInteractionEnabled = false
+                ViewButtonSubmit.alpha = 0.6
+                ViewButtonSave.isUserInteractionEnabled = false
+                ViewButtonSave.alpha = 0.6
+                
+                
                 ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = false
                 ViewButtonSubmit.isHidden = false
@@ -358,13 +478,21 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 
                 TxtRequisitionAmount.isUserInteractionEnabled = true
                 TxtViewNarration.isUserInteractionEnabled = true
-                TxtReturnPeriod.isUserInteractionEnabled = true
+                TxtReturnPeriod.isUserInteractionEnabled = false
+                TxtReturnPeriod.alpha = 0.6
+                btn_reason_select_type.isUserInteractionEnabled = false
+                btn_reason_select_type.alpha = 0.6
                 
-                TxtApprovedAmount.isUserInteractionEnabled = false
-                TxtViewApprovalRemark.isUserInteractionEnabled = false
+//                TxtApprovedAmount.isUserInteractionEnabled = false
+//                TxtViewApprovalRemark.isUserInteractionEnabled = false
                 
             }
             if AdvanceRequisitionListViewController.requisition_status == "Saved"{
+                ViewButtonSubmit.isUserInteractionEnabled = true
+                ViewButtonSubmit.alpha = 1.0
+                ViewButtonSave.isUserInteractionEnabled = true
+                ViewButtonSave.alpha = 1.0
+                
                 ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = false
                 ViewButtonSubmit.isHidden = false
@@ -374,9 +502,12 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtRequisitionAmount.isUserInteractionEnabled = true
                 TxtViewNarration.isUserInteractionEnabled = true
                 TxtReturnPeriod.isUserInteractionEnabled = true
+                TxtReturnPeriod.alpha = 1.0
+                btn_reason_select_type.isUserInteractionEnabled = true
+                btn_reason_select_type.alpha = 1.0
                 
-                TxtApprovedAmount.isUserInteractionEnabled = false
-                TxtViewApprovalRemark.isUserInteractionEnabled = false
+//                TxtApprovedAmount.isUserInteractionEnabled = false
+//                TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
             if AdvanceRequisitionListViewController.requisition_status == "Submitted" ||
                 AdvanceRequisitionListViewController.requisition_status == "Approved" ||
@@ -390,13 +521,25 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 ViewButtonReturn.isHidden = true
                 
                 TxtRequisitionAmount.isUserInteractionEnabled = false
+                TxtRequisitionAmount.alpha = 0.6
                 TxtViewNarration.isUserInteractionEnabled = false
+                TxtViewNarration.alpha = 0.6
                 TxtReturnPeriod.isUserInteractionEnabled = false
+                TxtReturnPeriod.alpha = 0.6
+                btn_reason_select_type.isUserInteractionEnabled = false
+                btn_reason_select_type.alpha = 0.6
                 
-                TxtApprovedAmount.isUserInteractionEnabled = false
-                TxtViewApprovalRemark.isUserInteractionEnabled = false
+                
+//                TxtApprovedAmount.isUserInteractionEnabled = false
+//                TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
             if AdvanceRequisitionListViewController.requisition_status == "Returned"{
+                
+                ViewButtonSubmit.isUserInteractionEnabled = true
+                ViewButtonSubmit.alpha = 1.0
+                ViewButtonSave.isUserInteractionEnabled = true
+                ViewButtonSave.alpha = 1.0
+                
                 ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = true
                 ViewButtonSubmit.isHidden = false
@@ -407,14 +550,22 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 TxtViewNarration.isUserInteractionEnabled = true
                 TxtReturnPeriod.isUserInteractionEnabled = true
                 
-                TxtApprovedAmount.isUserInteractionEnabled = false
-                TxtViewApprovalRemark.isUserInteractionEnabled = false
+//                TxtApprovedAmount.isUserInteractionEnabled = false
+//                TxtViewApprovalRemark.isUserInteractionEnabled = false
             }
         }
         if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
             LabelNavBarTitle.text = "Subordinate Advance Requisition"
             btn_reason_select_type.isUserInteractionEnabled = false
             btn_reason_select_type.alpha = 0.6
+            
+            TxtRequisitionAmount.isUserInteractionEnabled = false
+            TxtRequisitionAmount.alpha = 0.6
+            TxtViewNarration.isUserInteractionEnabled = false
+            TxtViewNarration.alpha = 0.6
+            TxtReturnPeriod.isUserInteractionEnabled = false
+            TxtReturnPeriod.alpha = 0.6
+            
             if AdvanceRequisitionListViewController.requisition_status == "Submitted"{
                 ViewButtonCancel.isHidden = false
                 ViewButtonSave.isHidden = true
@@ -422,30 +573,28 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
                 ViewButtonApprove.isHidden = false
                 ViewButtonReturn.isHidden = false
                 
-                TxtRequisitionAmount.isUserInteractionEnabled = false
-                TxtViewNarration.isUserInteractionEnabled = false
-                TxtReturnPeriod.isUserInteractionEnabled = false
+               
                 
                 TxtApprovedAmount.isUserInteractionEnabled = true
+                TxtApprovedAmount.alpha = 1.0
                 TxtViewApprovalRemark.isUserInteractionEnabled = true
+                TxtViewApprovalRemark.alpha = 1.0
             }
             if AdvanceRequisitionListViewController.requisition_status == "Returned" ||
                 AdvanceRequisitionListViewController.requisition_status == "Approved" ||
                 AdvanceRequisitionListViewController.requisition_status == "Payment done" ||
                 AdvanceRequisitionListViewController.requisition_status == "Canceled"{
                 
-                ViewButtonCancel.isHidden = false
+                ViewButtonCancel.isHidden = true
                 ViewButtonSave.isHidden = true
                 ViewButtonSubmit.isHidden = true
                 ViewButtonApprove.isHidden = true
                 ViewButtonReturn.isHidden = true
                 
-                TxtRequisitionAmount.isUserInteractionEnabled = false
-                TxtViewNarration.isUserInteractionEnabled = false
-                TxtReturnPeriod.isUserInteractionEnabled = false
-                
                 TxtApprovedAmount.isUserInteractionEnabled = false
+                TxtApprovedAmount.alpha = 0.6
                 TxtViewApprovalRemark.isUserInteractionEnabled = false
+                TxtViewApprovalRemark.alpha = 0.6
             }
         }
     }
