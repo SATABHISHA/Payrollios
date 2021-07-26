@@ -33,10 +33,16 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         loadReportsData()
         
         
-        //------LeavePopup Ok
-        let tapGestureRecognizerLeavePopupOk = UITapGestureRecognizer(target: self, action: #selector(LeavePopupOk(tapGestureRecognizer:)))
-        custom_btn_ok_leave_popup.isUserInteractionEnabled = true
-        custom_btn_ok_leave_popup.addGestureRecognizer(tapGestureRecognizerLeavePopupOk)
+        //------ReportPopup Ok
+        let tapGestureRecognizerReportPopupOk = UITapGestureRecognizer(target: self, action: #selector(ReportPopupOk(tapGestureRecognizer:)))
+        custom_btn_ok_reports_popup.isUserInteractionEnabled = false
+        custom_btn_ok_reports_popup.alpha = 0.6
+        custom_btn_ok_reports_popup.addGestureRecognizer(tapGestureRecognizerReportPopupOk)
+        
+        //------ReportPopup Close
+        let tapGestureRecognizerReportPopupClose = UITapGestureRecognizer(target: self, action: #selector(ReportPopupClose(tapGestureRecognizer:)))
+        img_view_report_close_popup.isUserInteractionEnabled = true
+        img_view_report_close_popup.addGestureRecognizer(tapGestureRecognizerReportPopupClose)
     }
     
     @IBAction func BtnBack(_ sender: Any) {
@@ -74,12 +80,13 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
     //------tableview code, ends-----
     
     
-    //============================-Form Leave Balance dialog, code starts============================
+    //============================-Form Report dialog, code starts============================
     @IBOutlet var viewReports: UIView!
     
    
     @IBOutlet weak var btn_select_year: UIButton!
-    @IBOutlet weak var custom_btn_ok_leave_popup: UIView!
+    @IBOutlet weak var custom_btn_ok_reports_popup: UIView!
+    @IBOutlet weak var img_view_report_close_popup: UIImageView!
     
     let dropDownSelectYear = DropDown()
     
@@ -95,6 +102,13 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 print("year-=>",item)
             ReportsViewController.year = self!.year_details[index].financial_year_code
 //                self!.loadPopupLeaveData(year: self!.year_details[index].financial_year_code)
+            if index > 0{
+                self?.custom_btn_ok_reports_popup.isUserInteractionEnabled = true
+                self?.custom_btn_ok_reports_popup.alpha = 1.0
+            }else if index == 0 {
+                self?.custom_btn_ok_reports_popup.isUserInteractionEnabled = false
+                self?.custom_btn_ok_reports_popup.alpha = 0.6
+            }
             }
     }
     func openReportsPopup(){
@@ -111,7 +125,7 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         viewReports.sizeToFit()
         
 
-        custom_btn_ok_leave_popup.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.5)
+        custom_btn_ok_reports_popup.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.5)
       /*  stackViewButtonborder.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
         view_custom_btn_punchout.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)*/
         
@@ -125,7 +139,7 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    func cancelLeaveBalancePopup(){
+    func cancelReportsPopup(){
         UIView.animate(withDuration: 0.3, animations: {
             self.viewReports.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.viewReports.alpha = 0
@@ -201,14 +215,18 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
         }
-    //---Leave PopupOk
-    @objc func LeavePopupOk(tapGestureRecognizer: UITapGestureRecognizer){
-        cancelLeaveBalancePopup()
+    //---Report PopupOk
+    @objc func ReportPopupOk(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelReportsPopup()
         loadHtmlStringData(year: ReportsViewController.year)
-        
+    }
+    
+    //---Report PopupClose
+    @objc func ReportPopupClose(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelReportsPopup()
     }
     //--------function to load popup leave data using Alamofire and Json Swifty code ends----------
-    //============================Form Leave Balance dialog, code ends============================
+    //============================Form Report dialog, code ends============================
     
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
