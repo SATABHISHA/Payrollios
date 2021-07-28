@@ -183,6 +183,10 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
             SupportingDocumentsViewController.tableChildData.removeAll()
             collectUpdatedDetailsData.removeAll()
         }
+        if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            SupportingDocumentsViewController.deletedTableChildData.removeAll()
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
         if MediclaimListViewController.EmployeeType == "Supervisor" {
             self.performSegue(withIdentifier: "subordinatemediclaimlist", sender: nil)
         }
@@ -550,6 +554,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
     
     //=========function to make json object and save data, code starts======
     var collectUpdatedDetailsData = [Any]()
+    var collectUpdatedDetailDeletedData = [Any]()
     func makeJsonObjectAndSaveDataToServer(mediclaim_id: Int, mediclaim_no: String, mediclaim_amount: String, approved_mediclaim_amount: String, description: String, supervisor_remark: String, mediclaim_status: String, approved_by_id: Int, approved_by_name: String, payment_remark: String, payment_amount: String){
         var getData = [String:AnyObject]()
         print("LtaCount-=>",SupportingDocumentsViewController.tableChildData.count)
@@ -563,6 +568,17 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
             getData.updateValue(SupportingDocumentsViewController.tableChildData[i].document_base64! as AnyObject, forKey: "file_base64")
             
             collectUpdatedDetailsData.append(getData)
+        }
+        var getDeletedData = [String:AnyObject]()
+        if !collectUpdatedDetailDeletedData.isEmpty{
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
+        for i in 0..<SupportingDocumentsViewController.deletedTableChildData.count{
+           
+            getDeletedData.updateValue(SupportingDocumentsViewController.deletedTableChildData[i].document_id! as AnyObject, forKey: "id")
+            getDeletedData.updateValue(SupportingDocumentsViewController.deletedTableChildData[i].document_name! as AnyObject, forKey: "file_name")
+            
+            collectUpdatedDetailDeletedData.append(getDeletedData)
         }
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
@@ -578,7 +594,8 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
             "approved_by_name": approved_by_name,
             "payment_remark": payment_remark,
             "payment_amount": Double(payment_amount)!,
-            "documents": collectUpdatedDetailsData
+            "documents": collectUpdatedDetailsData,
+            "deleted_documents": collectUpdatedDetailDeletedData
         ]
         
         print("SentData-=>",sentData)
@@ -608,7 +625,10 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
                             self.collectUpdatedDetailsData.removeAll()
                             //                            self.loadData()
                         }
-                    
+                        if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                            SupportingDocumentsViewController.deletedTableChildData.removeAll()
+                            self.collectUpdatedDetailDeletedData.removeAll()
+                        }
                         if MediclaimListViewController.EmployeeType == "Supervisor" {
                             self.performSegue(withIdentifier: "subordinatemediclaimlist", sender: nil)
                         }
@@ -681,9 +701,10 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
                 if swiftyJsonVar["documents"] != ""{
 //                    UserSingletonModel.sharedInstance.documents = swiftyJsonVar
                     for (key,value) in  swiftyJsonVar["documents"]{
-                        var data = DocumentDetails()
-                        data.document_name = value["file_name"].stringValue
-                        data.document_base64 = value["file_base64"].stringValue
+//                        var data = DocumentDetails()
+                        var data = DocumentDetails(document_id: value["mediclaim_id"].intValue, document_name: value["file_name"].stringValue, document_size: "", document_base64: value["file_base64"].stringValue, lta_file_from_api_yn: true)
+                       /* data.document_name = value["file_name"].stringValue
+                        data.document_base64 = value["file_base64"].stringValue*/
                         SupportingDocumentsViewController.tableChildData.append(data)
                     }
                 }

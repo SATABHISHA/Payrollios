@@ -12,10 +12,18 @@ import SwiftyJSON
 import Alamofire
 
 struct DocumentDetails{
-    //    var document_id: Int!
+    var document_id: Int!
     var document_name: String!
     var document_size: String!
     var document_base64: String!
+    var lta_file_from_api_yn: Bool
+    init(document_id: Int!, document_name: String!, document_size: String!, document_base64: String!, lta_file_from_api_yn: Bool) {
+        self.document_id = document_id
+        self.document_name = document_name
+        self.document_size = document_size
+        self.document_base64 = document_base64
+        self.lta_file_from_api_yn = lta_file_from_api_yn
+    }
     
 }
 class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, SupportingDocumentsTableViewCellDelegate {
@@ -29,6 +37,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var ImageViewCustomBtnAddDoc: UIImageView!
     
     static var tableChildData = [DocumentDetails]()
+    static var deletedTableChildData = [DocumentDetails]()
     var collectUpdatedDetailsData = [Any]()
     static var DocumentBase64String: String!, row_position_to_delete: Int!, FileName: String!
     override func viewDidLoad() {
@@ -85,7 +94,8 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     }
     //---ViewCancel
     @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
-        openCancelConfirmationPopup()
+//        openCancelConfirmationPopup() //-----commented on 28th july
+        self.dismiss(animated: true, completion: nil) //--added on 28th July
         
     }
     
@@ -157,7 +167,10 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
                 MediclaimListViewController.mediclaim_status! == "Cancelled"{
                 cell.BtnRemove.isHidden = true
                 ImageViewCustomBtnAddDoc.isHidden = true
-                StackViewBtns.isHidden = true
+                StackViewBtns.isHidden = false
+                
+                ViewBtnDone.isHidden = true
+                ViewBtnCancel.isHidden = false
             }
             if MediclaimListViewController.mediclaim_status! == "Returned"{
                 cell.BtnRemove.isHidden = false
@@ -169,7 +182,10 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
             if MediclaimListViewController.mediclaim_status! == "Submitted"{
                 cell.BtnRemove.isHidden = true
                 ImageViewCustomBtnAddDoc.isHidden = true
-                StackViewBtns.isHidden = true
+                StackViewBtns.isHidden = false
+                
+                ViewBtnDone.isHidden = true
+                ViewBtnCancel.isHidden = false
             }
             if MediclaimListViewController.mediclaim_status! == "Returned" ||
                 MediclaimListViewController.mediclaim_status! == "Approved" ||
@@ -177,7 +193,10 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
                 MediclaimListViewController.mediclaim_status! == "Cancelled"{
                 cell.BtnRemove.isHidden = true
                 ImageViewCustomBtnAddDoc.isHidden = true
-                StackViewBtns.isHidden = true
+                StackViewBtns.isHidden = false
+                
+                ViewBtnDone.isHidden = true
+                ViewBtnCancel.isHidden = false
             }
         }
         return cell
@@ -219,10 +238,11 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
 //            print("base64fileTesting-=>", fileStream)
             
             //--code to save data in array dictionary, starts
-            var data = DocumentDetails()
-            data.document_name = filename
+//            var data = DocumentDetails()
+            let data = DocumentDetails(document_id: 0, document_name: filename, document_size: covertToFileString(with: UInt64(fileSize)), document_base64: fileStream, lta_file_from_api_yn: false)
+          /*  data.document_name = filename
             data.document_size = covertToFileString(with: UInt64(fileSize))
-            data.document_base64 = fileStream
+            data.document_base64 = fileStream*/
             
             
             SupportingDocumentsViewController.tableChildData.append(data)
@@ -305,6 +325,11 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     @IBAction func btnDeleteConfirmationPopupYes(_ sender: Any) {
         cancelDeleteConfirmationPopup()
         
+        let position = SupportingDocumentsViewController.row_position_to_delete!
+         if SupportingDocumentsViewController.tableChildData[SupportingDocumentsViewController.row_position_to_delete].lta_file_from_api_yn == true {
+            let data = DocumentDetails(document_id: SupportingDocumentsViewController.tableChildData[position].document_id, document_name: SupportingDocumentsViewController.tableChildData[position].document_name, document_size: SupportingDocumentsViewController.tableChildData[position].document_size, document_base64: SupportingDocumentsViewController.tableChildData[position].document_base64, lta_file_from_api_yn: SupportingDocumentsViewController.tableChildData[position].lta_file_from_api_yn)
+            SupportingDocumentsViewController.deletedTableChildData.append(data)
+        }
         SupportingDocumentsViewController.tableChildData.remove(at: SupportingDocumentsViewController.row_position_to_delete)
 //        TableViewSupportingDocuments.reloadData()
 //        CheckTableDataExistsOrNot() //--if data not exists then it would show message
@@ -353,11 +378,12 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     
     @IBAction func btnCancelTaskConfirmationPopupYes(_ sender: Any) {
         cancelConfirmationPopup()
-        if SupportingDocumentsViewController.tableChildData.count > 0 {
+       /* if SupportingDocumentsViewController.tableChildData.count > 0 {
             SupportingDocumentsViewController.tableChildData.removeAll()
         }
-        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
+        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)*/
         
+        self.dismiss(animated: true, completion: nil) //--added on 28th July
         
     }
     

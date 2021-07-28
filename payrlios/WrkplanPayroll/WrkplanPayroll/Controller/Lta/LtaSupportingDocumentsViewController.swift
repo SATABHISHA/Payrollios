@@ -97,7 +97,8 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     
     //---ViewCancel
     @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
-        openCancelConfirmationPopup()
+//        openCancelConfirmationPopup() //-----commented on 28th july
+        self.dismiss(animated: true, completion: nil) //--added on 28th July
         
     }
     //----function to load buttons acc to the logic, code starts
@@ -167,7 +168,10 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
                 LtaListViewController.lta_status! == "Cancelled"{
                 cell.BtnRemove.isHidden = true
                 ImageViewCustomBtnAddDoc.isHidden = true
-                StackViewBtns.isHidden = true
+                StackViewBtns.isHidden = false
+                
+                ViewBtnDone.isHidden = true
+                ViewBtnCancel.isHidden = false
             }
             if LtaListViewController.lta_status! == "Returned"{
                 cell.BtnRemove.isHidden = false
@@ -179,7 +183,10 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
             if LtaListViewController.lta_status! == "Submitted"{
                 cell.BtnRemove.isHidden = true
                 ImageViewCustomBtnAddDoc.isHidden = true
-                StackViewBtns.isHidden = true
+                StackViewBtns.isHidden = false
+                
+                ViewBtnDone.isHidden = true
+                ViewBtnCancel.isHidden = false
             }
             if LtaListViewController.lta_status! == "Returned" ||
                 LtaListViewController.lta_status! == "Approved" ||
@@ -187,7 +194,10 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
                 LtaListViewController.lta_status! == "Cancelled"{
                 cell.BtnRemove.isHidden = true
                 ImageViewCustomBtnAddDoc.isHidden = true
-                StackViewBtns.isHidden = true
+                StackViewBtns.isHidden = false
+                
+                ViewBtnDone.isHidden = true
+                ViewBtnCancel.isHidden = false
             }
         }
         return cell
@@ -367,10 +377,12 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     
     @IBAction func btnCancelTaskConfirmationPopupYes(_ sender: Any) {
         cancelConfirmationPopup()
-        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+       /* if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
             LtaSupportingDocumentsViewController.tableChildData.removeAll()
         }
-        self.performSegue(withIdentifier: "ltarequest", sender: nil)
+        self.performSegue(withIdentifier: "ltarequest", sender: nil)*/
+        
+        self.dismiss(animated: true, completion: nil) //--added on 28th July
         
     }
     
