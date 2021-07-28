@@ -151,13 +151,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="251" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Financial Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZH-GR-ZWG">
-                                    <rect key="frame" x="10" y="3" width="186" height="29"/>
+                                    <rect key="frame" x="10" y="3" width="196" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-Ux-Wcn">
-                                    <rect key="frame" x="206" y="0.0" width="35" height="35"/>
+                                    <rect key="frame" x="216" y="0.0" width="35" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="Jxp-f9-QAv"/>
                                         <constraint firstAttribute="width" constant="35" id="oei-5H-kuB"/>
@@ -172,7 +172,7 @@
                                 <constraint firstItem="5ZH-GR-ZWG" firstAttribute="top" secondItem="nkV-3r-iB1" secondAttribute="top" constant="3" id="GEb-nY-EdP"/>
                                 <constraint firstAttribute="height" constant="35" id="J1z-jC-QaE"/>
                                 <constraint firstAttribute="bottom" secondItem="ap0-Ux-Wcn" secondAttribute="bottom" id="Koe-UW-jMX"/>
-                                <constraint firstAttribute="trailing" secondItem="ap0-Ux-Wcn" secondAttribute="trailing" constant="10" id="fGQ-8a-Q9b"/>
+                                <constraint firstAttribute="trailing" secondItem="ap0-Ux-Wcn" secondAttribute="trailing" id="fGQ-8a-Q9b"/>
                                 <constraint firstItem="ap0-Ux-Wcn" firstAttribute="leading" secondItem="5ZH-GR-ZWG" secondAttribute="trailing" constant="10" id="u1f-KU-djk"/>
                             </constraints>
                         </view>
@@ -262,7 +262,7 @@
     </scenes>
     <resources>
         <image name="backarrow" width="200" height="200"/>
-        <image name="cross" width="48" height="48"/>
+        <image name="cross" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

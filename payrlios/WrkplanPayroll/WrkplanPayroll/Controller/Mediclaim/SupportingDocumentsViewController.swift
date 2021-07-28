@@ -37,6 +37,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var ImageViewCustomBtnAddDoc: UIImageView!
     
     static var tableChildData = [DocumentDetails]()
+    var tableTemporaryChildData = [DocumentDetails]()
     static var deletedTableChildData = [DocumentDetails]()
     var collectUpdatedDetailsData = [Any]()
     static var DocumentBase64String: String!, row_position_to_delete: Int!, FileName: String!
@@ -54,6 +55,10 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
         //        TableViewSupportingDocuments.searchTextField.textColor = UIColor.black
         
         LoadButtons()
+        if tableTemporaryChildData.count > 0{
+            tableTemporaryChildData.removeAll()
+        }
+        tableTemporaryChildData = SupportingDocumentsViewController.tableChildData
         CheckTableDataExistsOrNot()
        
         //ViewDone
@@ -74,6 +79,9 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     }
     
     @IBAction func BtnBack(_ sender: Any) {
+        if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            SupportingDocumentsViewController.deletedTableChildData.removeAll()
+         }
         self.dismiss(animated: true, completion: nil)
     }
     //---AddDocs
@@ -89,12 +97,20 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     //---ViewDone
     @objc func DoneView(tapGestureRecognizer: UITapGestureRecognizer){
 //        self.performSegue(withIdentifier: "mediclaimrequest", sender: nil)
+        if SupportingDocumentsViewController.tableChildData.count > 0 {
+            SupportingDocumentsViewController.tableChildData.removeAll()
+            
+         }
+        SupportingDocumentsViewController.tableChildData = tableTemporaryChildData
         self.dismiss(animated: true, completion: nil)
         
     }
     //---ViewCancel
     @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
 //        openCancelConfirmationPopup() //-----commented on 28th july
+        if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            SupportingDocumentsViewController.deletedTableChildData.removeAll()
+         }
         self.dismiss(animated: true, completion: nil) //--added on 28th July
         
     }
@@ -110,7 +126,7 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     
     //----function to check tabledata exists or not, code starts
     func CheckTableDataExistsOrNot(){
-        if SupportingDocumentsViewController.tableChildData.count > 0 {
+        if tableTemporaryChildData.count > 0 {
             self.TableViewSupportingDocuments.backgroundView?.isHidden = true
              TableViewSupportingDocuments.reloadData()
          }else{
@@ -137,14 +153,16 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SupportingDocumentsViewController.tableChildData.count
+//        return SupportingDocumentsViewController.tableChildData.count
+        return tableTemporaryChildData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SupportingDocumentsTableViewCell
         
         cell.delegate = self
-        let dict = SupportingDocumentsViewController.tableChildData[indexPath.row]
+//        let dict = SupportingDocumentsViewController.tableChildData[indexPath.row]
+        let dict = tableTemporaryChildData[indexPath.row]
         cell.LabelPdfName.text = dict.document_name
         cell.LabelPdfSize.text = dict.document_size
         cell.LabelSerialNo.text = String(indexPath.row + 1)
@@ -205,8 +223,8 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
     //---------onClick tableview code starts(This onclick will work to show pdf view in webview)----------
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let row = SupportingDocumentsViewController.tableChildData[indexPath.row]
+//        let row = SupportingDocumentsViewController.tableChildData[indexPath.row]
+        let row = tableTemporaryChildData[indexPath.row]
         print(row)
         print("tap is working")
         
@@ -245,7 +263,8 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
             data.document_base64 = fileStream*/
             
             
-            SupportingDocumentsViewController.tableChildData.append(data)
+//            SupportingDocumentsViewController.tableChildData.append(data)
+            tableTemporaryChildData.append(data)
             
 //            TableViewSupportingDocuments.reloadData()
            /* if SupportingDocumentsViewController.tableChildData.count > 0 {
@@ -326,11 +345,11 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
         cancelDeleteConfirmationPopup()
         
         let position = SupportingDocumentsViewController.row_position_to_delete!
-         if SupportingDocumentsViewController.tableChildData[SupportingDocumentsViewController.row_position_to_delete].lta_file_from_api_yn == true {
-            let data = DocumentDetails(document_id: SupportingDocumentsViewController.tableChildData[position].document_id, document_name: SupportingDocumentsViewController.tableChildData[position].document_name, document_size: SupportingDocumentsViewController.tableChildData[position].document_size, document_base64: SupportingDocumentsViewController.tableChildData[position].document_base64, lta_file_from_api_yn: SupportingDocumentsViewController.tableChildData[position].lta_file_from_api_yn)
+         if tableTemporaryChildData[SupportingDocumentsViewController.row_position_to_delete].lta_file_from_api_yn == true {
+            let data = DocumentDetails(document_id: tableTemporaryChildData[position].document_id, document_name: tableTemporaryChildData[position].document_name, document_size: tableTemporaryChildData[position].document_size, document_base64: tableTemporaryChildData[position].document_base64, lta_file_from_api_yn: tableTemporaryChildData[position].lta_file_from_api_yn)
             SupportingDocumentsViewController.deletedTableChildData.append(data)
         }
-        SupportingDocumentsViewController.tableChildData.remove(at: SupportingDocumentsViewController.row_position_to_delete)
+        tableTemporaryChildData.remove(at: SupportingDocumentsViewController.row_position_to_delete)
 //        TableViewSupportingDocuments.reloadData()
 //        CheckTableDataExistsOrNot() //--if data not exists then it would show message
         print("tablecounttesting-=>", SupportingDocumentsViewController.tableChildData.count)
