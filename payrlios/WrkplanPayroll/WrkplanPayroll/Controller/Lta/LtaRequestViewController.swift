@@ -247,6 +247,10 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             LtaSupportingDocumentsViewController.tableChildData.removeAll()
             collectUpdatedDetailsData.removeAll()
         }
+        if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
         if LtaListViewController.EmployeeType == "Supervisor" {
             self.performSegue(withIdentifier: "subordinatelta", sender: nil)
         }
@@ -454,6 +458,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     
     //=========function to make json object and save data, code starts======
     var collectUpdatedDetailsData = [Any]()
+    var collectUpdatedDetailDeletedData = [Any]()
     func makeJsonObjectAndSaveDataToServer(lta_application_id: Int,  date_from: String, date_to: String, total_days: String,  lta_amount: String, approved_lta_amount: String, description: String, supervisor_remark: String,  lta_application_status: String, approved_by_id: Int){
         var getData = [String:AnyObject]()
         print("LtaCount-=>",LtaSupportingDocumentsViewController.tableChildData.count)
@@ -468,6 +473,18 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             
             collectUpdatedDetailsData.append(getData)
         }
+        
+        var getDeletedData = [String:AnyObject]()
+        if !collectUpdatedDetailDeletedData.isEmpty{
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
+        for i in 0..<LtaSupportingDocumentsViewController.deletedTableChildData.count{
+           
+            getDeletedData.updateValue(LtaSupportingDocumentsViewController.deletedTableChildData[i].document_id! as AnyObject, forKey: "id")
+            getDeletedData.updateValue(LtaSupportingDocumentsViewController.deletedTableChildData[i].document_name! as AnyObject, forKey: "file_name")
+            
+            collectUpdatedDetailDeletedData.append(getDeletedData)
+        }
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
             "lta_application_id": lta_application_id,
@@ -481,7 +498,8 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             "supervisor_remark": supervisor_remark,
             "lta_application_status": lta_application_status,
             "approved_by_id": approved_by_id,
-            "documents": collectUpdatedDetailsData
+            "documents": collectUpdatedDetailsData,
+            "deleted_documents": collectUpdatedDetailDeletedData
         ]
         
         print("SentData-=>",sentData)
@@ -510,6 +528,10 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                             LtaSupportingDocumentsViewController.tableChildData.removeAll()
                             self.collectUpdatedDetailsData.removeAll()
                             //                            self.loadData()
+                        }
+                        if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                            LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+                            self.collectUpdatedDetailDeletedData.removeAll()
                         }
                         if LtaListViewController.EmployeeType == "Supervisor" {
                             self.performSegue(withIdentifier: "subordinatelta", sender: nil)
@@ -796,9 +818,9 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 if swiftyJsonVar["documents"] != ""{
                     //                    UserSingletonModel.sharedInstance.documents = swiftyJsonVar
                     for (key,value) in  swiftyJsonVar["documents"]{
-                        var data = LtaDocumentDetails()
-                        data.document_name = value["file_name"].stringValue
-                        data.document_base64 = value["file_base64"].stringValue
+                        var data = LtaDocumentDetails(document_id: value["lta_application_id"].intValue, document_name: value["file_name"].stringValue, document_size: "", document_base64: value["file_base64"].stringValue, lta_file_from_api_yn: true)
+                       /* data.document_name = value["file_name"].stringValue
+                        data.document_base64 = value["file_base64"].stringValue*/
                         LtaSupportingDocumentsViewController.tableChildData.append(data)
                     }
                 }

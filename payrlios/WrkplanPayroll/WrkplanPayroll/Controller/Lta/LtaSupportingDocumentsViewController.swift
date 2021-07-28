@@ -12,10 +12,18 @@ import SwiftyJSON
 import Alamofire
 
 struct LtaDocumentDetails{
-    //    var document_id: Int!
+    var document_id: Int!
     var document_name: String!
     var document_size: String!
     var document_base64: String!
+    var lta_file_from_api_yn: Bool
+    init(document_id: Int!, document_name: String!, document_size: String!, document_base64: String!, lta_file_from_api_yn: Bool) {
+        self.document_id = document_id
+        self.document_name = document_name
+        self.document_size = document_size
+        self.document_base64 = document_base64
+        self.lta_file_from_api_yn = lta_file_from_api_yn
+    }
     
 }
 class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, LtaSupportingDocumentsTableViewCellDelegate {
@@ -29,6 +37,7 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     @IBOutlet weak var ImageViewCustomBtnAddDoc: UIImageView!
     
     static var tableChildData = [LtaDocumentDetails]()
+    static var deletedTableChildData = [LtaDocumentDetails]()
     var collectUpdatedDetailsData = [Any]()
     static var DocumentBase64String: String!, row_position_to_delete: Int!, FileName: String!
     
@@ -220,10 +229,10 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
             //            print("base64fileTesting-=>", fileStream)
             
             //--code to save data in array dictionary, starts
-            var data = LtaDocumentDetails()
-            data.document_name = filename
+            var data = LtaDocumentDetails(document_id: 0, document_name: filename, document_size: covertToFileString(with: UInt64(fileSize)), document_base64: fileStream, lta_file_from_api_yn: false)
+            /*data.document_name = filename
             data.document_size = covertToFileString(with: UInt64(fileSize))
-            data.document_base64 = fileStream
+            data.document_base64 = fileStream*/
             
             
             LtaSupportingDocumentsViewController.tableChildData.append(data)
@@ -305,7 +314,11 @@ class LtaSupportingDocumentsViewController: UIViewController, UITableViewDelegat
     
     @IBAction func btnDeleteConfirmationPopupYes(_ sender: Any) {
         cancelDeleteConfirmationPopup()
-        
+        let position = LtaSupportingDocumentsViewController.row_position_to_delete!
+         if LtaSupportingDocumentsViewController.tableChildData[LtaSupportingDocumentsViewController.row_position_to_delete].lta_file_from_api_yn == true {
+            let data = LtaDocumentDetails(document_id: LtaSupportingDocumentsViewController.tableChildData[position].document_id, document_name: LtaSupportingDocumentsViewController.tableChildData[position].document_name, document_size: LtaSupportingDocumentsViewController.tableChildData[position].document_size, document_base64: LtaSupportingDocumentsViewController.tableChildData[position].document_base64, lta_file_from_api_yn: LtaSupportingDocumentsViewController.tableChildData[position].lta_file_from_api_yn)
+            LtaSupportingDocumentsViewController.deletedTableChildData.append(data)
+        }
         LtaSupportingDocumentsViewController.tableChildData.remove(at: LtaSupportingDocumentsViewController.row_position_to_delete)
         //        TableViewSupportingDocuments.reloadData()
         //        CheckTableDataExistsOrNot() //--if data not exists then it would show message
