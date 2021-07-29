@@ -575,7 +575,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         }
         for i in 0..<SupportingDocumentsViewController.deletedTableChildData.count{
            
-            getDeletedData.updateValue(SupportingDocumentsViewController.deletedTableChildData[i].document_id! as AnyObject, forKey: "id")
+            getDeletedData.updateValue(SupportingDocumentsViewController.deletedTableChildData[i].document_id! as AnyObject, forKey: "mediclaim_id")
             getDeletedData.updateValue(SupportingDocumentsViewController.deletedTableChildData[i].document_name! as AnyObject, forKey: "file_name")
             
             collectUpdatedDetailDeletedData.append(getDeletedData)

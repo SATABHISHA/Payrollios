@@ -444,6 +444,9 @@
                                                                         <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="BtnDropDwonFromYear:" destination="YSP-TK-Ldf" eventType="touchUpInside" id="og8-yO-vLV"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -483,6 +486,9 @@
                                                                         <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="BtnDropDownToYear:" destination="YSP-TK-Ldf" eventType="touchUpInside" id="Xda-iC-mKb"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -953,6 +959,8 @@
                     </view>
                     <size key="freeformSize" width="414" height="1340"/>
                     <connections>
+                        <outlet property="BtnFromYearSelect" destination="XkC-lF-6Zm" id="257-qD-W1I"/>
+                        <outlet property="BtnToYearSelect" destination="AUv-JP-TEz" id="k6q-ON-Pew"/>
                         <outlet property="ImgFromDate" destination="UMi-Kb-gM3" id="Q95-hy-T30"/>
                         <outlet property="ImgToDate" destination="Ejt-ZA-geo" id="487-VH-AbM"/>
                         <outlet property="LabelDayCount" destination="zZ0-Bh-EXm" id="dXA-Sl-E8g"/>

@@ -9,6 +9,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import Toast_Swift
+import DropDown
 
 class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
@@ -39,16 +40,27 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     @IBOutlet weak var ViewBtnSave: UIView!
     @IBOutlet weak var ViewBtnBack: UIView!
     @IBOutlet weak var StackViewButtons: UIStackView!
+    @IBOutlet weak var BtnFromYearSelect: UIButton!
     
+    @IBOutlet weak var BtnToYearSelect: UIButton!
     var from_date: Bool = false
     var to_date: Bool = false
     
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
+    
+    let dropDown = DropDown()
+    var year_details = [YearDetails]()
+    
+    static var from_year: String!, to_year: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
+        
+        LtaRequestViewController.from_year = ""
+        LtaRequestViewController.to_year = ""
         
         TxtViewDetail.backgroundColor = UIColor.white
         TxtViewSupervisorRemark.backgroundColor = UIColor.white
@@ -67,6 +79,17 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         
         TxtFromDate.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         TxtToDate.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        
+        //---code to customize dropdown button starts------
+        let buttonWidth = BtnFromYearSelect.frame.width
+        
+        BtnFromYearSelect.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        BtnToYearSelect.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        BtnFromYearSelect.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        BtnToYearSelect.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        //---code to customize dropdown button ends------
+        
+        //----code to append dropdown data, starts------
         //---code for date section, ends
         
         TxtLtaRequisitionNo.isUserInteractionEnabled = false
@@ -188,8 +211,122 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         ViewBtnApprove.alpha = 0.5
         //------making buttons disabled, code ends-----
         
+        self.get_Year_details()
+        
     }
     
+    
+    @IBAction func BtnDropDwonFromYear(_ sender: UIButton) {
+        dropDown.dataSource = year
+            dropDown.anchorView = sender //5
+            dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+            dropDown.show() //7
+            dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
+              guard let _ = self else { return }
+              sender.setTitle(item, for: .normal) //9
+                print("fromyear-=>",item)
+                LtaRequestViewController.from_year = self!.year_details[index].calender_year
+                
+                if LtaRequestViewController.to_year != "" {
+                    if LtaListViewController.new_create_yn == true {
+                        LtaRequestViewController.to_year = self!.year_details[index].calender_year
+                        self!.loadRemainingLtaAmountData(employee_id: self!.swiftyJsonvar1["employee"]["employee_id"].intValue, year_from: LtaRequestViewController.from_year, year_to: LtaRequestViewController.to_year)
+                    }
+                    if LtaListViewController.new_create_yn == false {
+                        self!.loadRemainingLtaAmountData(employee_id: LtaListViewController.employee_id!, year_from: LtaRequestViewController.from_year, year_to: LtaRequestViewController.to_year)
+                    }
+                }
+                sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
+//                self!.loadData(year: self!.year_details[index].financial_year_code)
+            }
+    }
+    
+    @IBAction func BtnDropDownToYear(_ sender: UIButton) {
+        dropDown.dataSource = year
+            dropDown.anchorView = sender //5
+            dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+            dropDown.show() //7
+            dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
+              guard let _ = self else { return }
+              sender.setTitle(item, for: .normal) //9
+                print("toyear-=>",item)
+                
+                
+                LtaRequestViewController.to_year = self!.year_details[index].calender_year
+                
+                if LtaRequestViewController.from_year != "" {
+                    if LtaListViewController.new_create_yn == true {
+                        LtaRequestViewController.to_year = self!.year_details[index].calender_year
+                        self!.loadRemainingLtaAmountData(employee_id: self!.swiftyJsonvar1["employee"]["employee_id"].intValue, year_from: LtaRequestViewController.from_year, year_to: LtaRequestViewController.to_year)
+                    }
+                    if LtaListViewController.new_create_yn == false {
+                        self!.loadRemainingLtaAmountData(employee_id: LtaListViewController.employee_id!, year_from: LtaRequestViewController.from_year, year_to: LtaRequestViewController.to_year)
+                    }
+                }
+                sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
+//                self!.loadData(year: self!.year_details[index].financial_year_code)
+            }
+    }
+    
+    //--------function to get year using Alamofire and Json Swifty------------
+    var year = [String]()
+        func get_Year_details(){
+//            loaderStart()
+            if !year_details.isEmpty{
+                year_details.removeAll(keepingCapacity: true)
+            }
+            if !year.isEmpty {
+                year.removeAll(keepingCapacity: true)
+            }
+            let url = "\(BASE_URL)finyear/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)"
+            print("yearyrl-=>",url)
+            AF.request(url).responseJSON{ (responseData) -> Void in
+//                self.loaderEnd()
+                if((responseData.value) != nil){
+                    let swiftyJsonVar=JSON(responseData.value!)
+                    print("Calendar description: \(swiftyJsonVar)")
+                    
+                    for i in 0..<swiftyJsonVar["fin_years"].count{
+//                        self.year.append(swiftyJsonVar["fin_years"][i]["calender_year"].stringValue)
+//                        print("Calendar-=>",self.year)
+                        self.year.append(swiftyJsonVar["fin_years"][i]["calender_year"].stringValue)
+                        
+                        
+                    }
+                    for(key,value) in swiftyJsonVar["fin_years"]{
+                        var k = YearDetails()
+                        k.calender_year = value["calender_year"].stringValue
+                        k.financial_year_code = value["financial_year_code"].stringValue
+                        self.year_details.append(k)
+                    }
+
+                    
+                }
+                
+            }
+        }
+    
+        //--------function to get year using Alamofire and Json Swifty code ends------------
+    //--------function to loadData using Alamofire and Json Swifty code starts----------
+    func loadRemainingLtaAmountData(employee_id: Int!,year_from: String!, year_to: String!){
+        loaderStart()
+        let url = "\(BASE_URL)lta/balance/year-wise/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(employee_id!)/\(year_from!)/\(year_to!)"
+        print("url-=>",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+                self.loaderEnd()
+            print("responseData-=>",responseData)
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                    print("Year description: \(swiftyJsonVar)")
+                self.TxtRemainingLtaAmount.text = swiftyJsonVar["balance_amount"].stringValue
+                    
+                }
+
+                
+            }
+            
+        }
+    //--------function to loadData using Alamofire and Json Swifty code ends----------
     //---ViewCancel
     @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
         makeJsonObjectAndSaveDataToServer(lta_application_id: LtaListViewController.lta_id!, date_from: TxtFromDate.text!, date_to: TxtToDate.text!, total_days: LabelDayCount.text!, lta_amount: TxtLtaAmount.text!, approved_lta_amount: TxtApprovedAmount.text!, description: TxtViewDetail.text!, supervisor_remark: TxtViewSupervisorRemark.text!, lta_application_status: "Cancelled", approved_by_id: LtaListViewController.employee_id!)
@@ -480,7 +617,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
         for i in 0..<LtaSupportingDocumentsViewController.deletedTableChildData.count{
            
-            getDeletedData.updateValue(LtaSupportingDocumentsViewController.deletedTableChildData[i].document_id! as AnyObject, forKey: "id")
+            getDeletedData.updateValue(LtaSupportingDocumentsViewController.deletedTableChildData[i].document_id! as AnyObject, forKey: "lta_application_id")
             getDeletedData.updateValue(LtaSupportingDocumentsViewController.deletedTableChildData[i].document_name! as AnyObject, forKey: "file_name")
             
             collectUpdatedDetailDeletedData.append(getDeletedData)

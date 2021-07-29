@@ -132,6 +132,7 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
             LtaListViewController.lta_no = row["lta_application_no"] as? String
             LtaListViewController.lta_status = row["lta_application_status"] as? String
             LtaListViewController.lta_id = row["lta_application_id"]?.intValue
+            LtaListViewController.employee_id = row["employee_id"]?.intValue
 
             LtaListViewController.EmployeeType = "Employee"
             
