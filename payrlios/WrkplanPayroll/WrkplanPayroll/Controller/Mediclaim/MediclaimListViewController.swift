@@ -113,7 +113,7 @@ class MediclaimListViewController: UIViewController, UITableViewDelegate, UITabl
         }else if dict["mediclaim_status"] as? String == "Canceled"{
             cell.label_mediclaim_status.textColor = UIColor(hexFromString: "ed1c24")
         }else if dict["mediclaim_status"] as? String == "Returned"{
-            cell.label_mediclaim_status.textColor = UIColor(hexFromString: "2196ed")
+            cell.label_mediclaim_status.textColor = UIColor(hexFromString: "b04d0b")
         }else if dict["mediclaim_status"] as? String == "Submitted"{
             cell.label_mediclaim_status.textColor = UIColor(hexFromString: "fe52ce")
         }else if dict["mediclaim_status"] as? String == "Saved"{
