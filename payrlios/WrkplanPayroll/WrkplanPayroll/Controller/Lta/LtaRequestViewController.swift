@@ -687,6 +687,16 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 }else{
 //                    OdDutyLogEmployeeTaskViewController.back_btn_save_unsave_check = 0
 //                    self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+                    if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+                        LtaSupportingDocumentsViewController.tableChildData.removeAll()
+                        self.collectUpdatedDetailsData.removeAll()
+                        //                            self.loadData()
+                    }
+                    if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                        LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+                        self.collectUpdatedDetailDeletedData.removeAll()
+                    }
+                    
                     if LtaListViewController.EmployeeType == "Supervisor" {
                         self.performSegue(withIdentifier: "subordinatelta", sender: nil)
                     }

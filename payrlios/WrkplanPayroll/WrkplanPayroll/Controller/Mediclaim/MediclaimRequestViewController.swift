@@ -656,6 +656,15 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
                     self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
                     
                     print("Error-=>",swiftyJsonVar["message"].stringValue)
+                    if SupportingDocumentsViewController.tableChildData.count > 0 {
+                        SupportingDocumentsViewController.tableChildData.removeAll()
+                        self.collectUpdatedDetailsData.removeAll()
+                        //                            self.loadData()
+                    }
+                    if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                        SupportingDocumentsViewController.deletedTableChildData.removeAll()
+                        self.collectUpdatedDetailDeletedData.removeAll()
+                    }
                     
                     if MediclaimListViewController.EmployeeType == "Supervisor" {
                         self.performSegue(withIdentifier: "subordinatemediclaimlist", sender: nil)
