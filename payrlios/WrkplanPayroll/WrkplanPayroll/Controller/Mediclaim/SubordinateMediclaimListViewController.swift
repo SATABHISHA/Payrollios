@@ -28,6 +28,7 @@ class SubordinateMediclaimListViewController: UIViewController, UITableViewDeleg
         
         self.TableViewSubordinateMediclaim.delegate = self
         self.TableViewSubordinateMediclaim.dataSource = self
+        self.SearchBarAdvanceRequisition.delegate = self
         
         TableViewSubordinateMediclaim.backgroundColor = UIColor(hexFromString: "ffffff")
         SearchBarAdvanceRequisition.searchTextField.backgroundColor = UIColor.white
@@ -55,7 +56,7 @@ class SubordinateMediclaimListViewController: UIViewController, UITableViewDeleg
         // For each item, return true if the item should be included and false if the
         // item should NOT be included
         filteredTableData = searchText.isEmpty ? arrRes : arrRes.filter({(object) -> Bool in
-            guard let employee_name = object["mediclaim_list"] as? String else {return false}
+            guard let employee_name = object["employee_name"] as? String else {return false}
             return employee_name.lowercased().contains(searchText.lowercased())
         })
 

@@ -26,7 +26,7 @@ class SubordinateLtaViewController: UIViewController, UITableViewDelegate, UITab
         
         self.TableViewSubordinateLta.delegate = self
         self.TableViewSubordinateLta.dataSource = self
-        
+        self.SearchBarLtaRequisition.delegate = self
         
         TableViewSubordinateLta.backgroundColor = UIColor(hexFromString: "ffffff")
         SearchBarLtaRequisition.searchTextField.backgroundColor = UIColor.white
@@ -47,6 +47,7 @@ class SubordinateLtaViewController: UIViewController, UITableViewDelegate, UITab
     //----------tableview code starts------------
 //    var rowIndex: Int! // --for instant delete delaring the variable
     
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // When there is no text, filteredData is the same as the original data
         // When user has entered text into the search box
@@ -54,7 +55,7 @@ class SubordinateLtaViewController: UIViewController, UITableViewDelegate, UITab
         // For each item, return true if the item should be included and false if the
         // item should NOT be included
         filteredTableData = searchText.isEmpty ? arrRes : arrRes.filter({(object) -> Bool in
-            guard let employee_name = object["mediclaim_list"] as? String else {return false}
+            guard let employee_name = object["employee_name"] as? String else {return false}
             return employee_name.lowercased().contains(searchText.lowercased())
         })
 
