@@ -130,7 +130,7 @@ class SubordinateLtaViewController: UIViewController, UITableViewDelegate, UITab
     func loadData(){
            loaderStart()
         
-        let url = "\(BASE_URL)lta/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/Subordinate/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
+        let url = "\(BASE_URL)lta/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/Subordinate/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(swiftyJsonvar1["employee"]["branch_office_id"].intValue)/0/\(swiftyJsonvar1["user"]["fin_year_id"].intValue)"
         print("Ltalisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
@@ -155,7 +155,7 @@ class SubordinateLtaViewController: UIViewController, UITableViewDelegate, UITab
                        noDataLabel.textAlignment = .center
                        self.TableViewSubordinateLta.backgroundView  = noDataLabel
                        self.TableViewSubordinateLta.separatorStyle  = .none
-                       self.TableViewSubordinateLta.isHidden = true
+//                       self.TableViewSubordinateLta.isHidden = true
                        
                    }
                }

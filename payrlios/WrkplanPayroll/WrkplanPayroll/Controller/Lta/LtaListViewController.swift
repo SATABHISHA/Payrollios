@@ -149,7 +149,7 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
     func loadData(){
            loaderStart()
         
-        let url = "\(BASE_URL)lta/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/Employee/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
+        let url = "\(BASE_URL)lta/list/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/Employee/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(swiftyJsonvar1["employee"]["branch_office_id"].intValue)/0/\(swiftyJsonvar1["user"]["fin_year_id"].intValue)"
         print("AdvanceReqlisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()

@@ -20,9 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
        
         //---using for autoupdate, code starts
-        window?.makeKeyAndVisible()
-        Siren.shared.wail()
+//        window?.makeKeyAndVisible()
+//        Siren.shared.wail()
         //---using for autoupdate, code ends
+        
+        hyperCriticalRulesAppForceUpdate() //--aded on 2021-Aug-02
         
         return true
     }
@@ -109,5 +111,33 @@ var statusBarView: UIView? {
     return nil}
 }
 
+//---added on 2021-Aug-02 for app update, code starts
+private extension AppDelegate{
+    /// How to present an alert every time the app is foregrounded.
+       /// This will block the user from using the app until they update the app.
+       /// Setting `showAlertAfterCurrentVersionHasBeenReleasedForDays` to `0` IS NOT RECOMMENDED
+       /// as it will cause the user to go into an endless loop to the App Store if the JSON results
+       /// update faster than the App Store CDN.
+       ///
+       /// The `0` value is illustrated in this app as an example on how to change how quickly an alert is presented.
+       func hyperCriticalRulesAppForceUpdate() {
+           let siren = Siren.shared
+           siren.rulesManager = RulesManager(globalRules: .critical,
+                                             showAlertAfterCurrentVersionHasBeenReleasedForDays: 0)
+
+           siren.wail { results in
+               switch results {
+               case .success(let updateResults):
+                   print("AlertAction ", updateResults.alertAction)
+                   print("Localization ", updateResults.localization)
+                   print("Model ", updateResults.model)
+                   print("UpdateType ", updateResults.updateType)
+               case .failure(let error):
+                   print(error.localizedDescription)
+               }
+           }
+       }
+}
+//---added on 2021-Aug-02 for app update, code ends
 
 

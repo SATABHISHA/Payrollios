@@ -635,6 +635,11 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             "supervisor_remark": supervisor_remark,
             "lta_application_status": lta_application_status,
             "approved_by_id": approved_by_id,
+            "year_from": LtaRequestViewController.from_year ?? "",
+            "year_to": LtaRequestViewController.to_year ?? "",
+            "year_from_limit": Double(TxtFromYrLtaLimit.text!) ?? 0,
+            "year_to_limit": Double(TxtToYearLtaLimit.text!) ?? 0,
+            "lta_total_limit": Double(TxtTotalLtaAmount.text!) ?? 0,
             "documents": collectUpdatedDetailsData,
             "deleted_documents": collectUpdatedDetailDeletedData
         ]
