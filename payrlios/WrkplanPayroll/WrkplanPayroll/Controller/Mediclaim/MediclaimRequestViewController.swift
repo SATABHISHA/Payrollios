@@ -586,7 +586,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
             "mediclaim_no": mediclaim_no,
             "employee_id": swiftyJsonvar1["employee"]["employee_id"].intValue,
             "mediclaim_amount": Double(mediclaim_amount)!,
-            "approved_mediclaim_amount": Double(approved_mediclaim_amount)!,
+            "approved_mediclaim_amount": Double(approved_mediclaim_amount) ?? 0,
             "description": description,
             "supervisor_remark": supervisor_remark,
             "mediclaim_status": mediclaim_status,
