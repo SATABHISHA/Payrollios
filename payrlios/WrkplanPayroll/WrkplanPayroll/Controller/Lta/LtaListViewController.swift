@@ -168,8 +168,9 @@ class LtaListViewController: UIViewController, UITableViewDelegate, UITableViewD
                        self.TableViewLtaRequisitionList.reloadData()
                        //                    Toast(text: "No data", duration: Delay.short).show()
                        let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewLtaRequisitionList.bounds.size.width, height: self.TableViewLtaRequisitionList.bounds.size.height))
-                       noDataLabel.text          = "No Log(s) available"
-                       noDataLabel.textColor     = UIColor.black
+                       noDataLabel.text          = "No record found"
+                       noDataLabel.font = UIFont.systemFont(ofSize: 14)
+                       noDataLabel.textColor     = UIColor(hexFromString: "767575")
                        noDataLabel.textAlignment = .center
                        self.TableViewLtaRequisitionList.backgroundView  = noDataLabel
                        self.TableViewLtaRequisitionList.separatorStyle  = .none

@@ -104,8 +104,9 @@ class SubordinateOdDutyTimeLogViewController: UIViewController, UITableViewDeleg
                     self.tableViewTimeLog.reloadData()
                     //                    Toast(text: "No data", duration: Delay.short).show()
                     let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableViewTimeLog.bounds.size.width, height: self.tableViewTimeLog.bounds.size.height))
-                    noDataLabel.text          = "No Log(s) available"
-                    noDataLabel.textColor     = UIColor.black
+                    noDataLabel.text          = "No record found"
+                    noDataLabel.font = UIFont.systemFont(ofSize: 14)
+                    noDataLabel.textColor     = UIColor(hexFromString: "767575")
                     noDataLabel.textAlignment = .center
                     self.tableViewTimeLog.backgroundView  = noDataLabel
                     self.tableViewTimeLog.separatorStyle  = .none

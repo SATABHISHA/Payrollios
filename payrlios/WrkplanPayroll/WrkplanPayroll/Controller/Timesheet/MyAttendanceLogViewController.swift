@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableviewMyAttendanceLog: UITableView!
     @IBOutlet weak var label_date: UILabel!
     
@@ -27,7 +27,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.tableviewMyAttendanceLog.delegate = self
         self.tableviewMyAttendanceLog.dataSource = self
         tableviewMyAttendanceLog.backgroundColor = UIColor(hexFromString: "ffffff")
-
+        
         month_number = Calendar.current.component(.month, from: Date())
         year = Calendar.current.component(.year, from: Date())
         
@@ -58,7 +58,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         
     }
     
-
+    
     @IBAction func btn_next(_ sender: Any) {
         var temp_month_no: Int = month_number!
         var temp_year: Int = year!
@@ -86,15 +86,15 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         let dict = arrRes[indexPath.row]
         
         let dateFormatterGet = DateFormatter()
-//        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
-//        dateFormatterGet.dateFormat = "dd-MM-yyyy hh:mm:ss" //--for test version
+        //        dateFormatterGet.dateFormat = "MM/dd/yyyy hh:mm:ss a"
+        //        dateFormatterGet.dateFormat = "dd-MM-yyyy hh:mm:ss" //--for test version
         
         dateFormatterGet.dateFormat = "dd-MMM-yyyy" //--format changed in ios on 24th feb
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "dd-MMM-yyyy"
         
         let date = dateFormatterGet.date(from: (dict["date"] as? String)!)
-//                labelDate.text = eventData[i].date
+        //                labelDate.text = eventData[i].date
         cell.label_date.text = dateFormatterPrint.string(from: date!)
         
         cell.label_timein.text = dict["time_in"] as? String
@@ -106,22 +106,22 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         if dict["attendance_status"] as! String == "Absent"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
-//            cell.label_status.backgroundColor = UIColor(hexFromString: "#FF0000")
+            //            cell.label_status.backgroundColor = UIColor(hexFromString: "#FF0000")
             cell.label_status.cornerRadius = 5
         }else if dict["attendance_status"] as! String == "Present" {
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#6E6E6E")
-//            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            //            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
         }else if dict["attendance_status"] as! String == "Present(WFH)"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
-//            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            //            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
         }else if dict["attendance_status"] as! String == "WFH"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
-//            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            //            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
         }
         else{
@@ -136,85 +136,86 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     
     //--------function to show log details using Alamofire and Json Swifty------------
     func loadData(month_number:Int, year:Int){
-           loaderStart()
+        loaderStart()
         let url = "\(BASE_URL)timesheet/log/monthly/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(month_number)/\(year)"
-//        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
-           AF.request(url).responseJSON{ (responseData) -> Void in
-               self.loaderEnd()
-               if((responseData.value) != nil){
-                   let swiftyJsonVar=JSON(responseData.value!)
-                   print("Log description: \(swiftyJsonVar)")
+        //        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
+        AF.request(url).responseJSON{ (responseData) -> Void in
+            self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                print("Log description: \(swiftyJsonVar)")
                 
                 self.label_date.text = "\(swiftyJsonVar["month_name"].stringValue), \(swiftyJsonVar["year"].stringValue)"
                 
                 
-                   if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
-                       self.arrRes = resData as! [[String:AnyObject]]
-                   }
-                   if self.arrRes.count>0 {
+                if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
+                    self.arrRes = resData as! [[String:AnyObject]]
+                }
+                if self.arrRes.count>0 {
                     self.tableviewMyAttendanceLog.reloadData()
-                   }else{
-                       self.tableviewMyAttendanceLog.reloadData()
-                       //                    Toast(text: "No data", duration: Delay.short).show()
-                       let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableviewMyAttendanceLog.bounds.size.width, height: self.tableviewMyAttendanceLog.bounds.size.height))
-                       noDataLabel.text          = "No Log(s) available"
-                       noDataLabel.textColor     = UIColor.black
-                       noDataLabel.textAlignment = .center
-                       self.tableviewMyAttendanceLog.backgroundView  = noDataLabel
-                       self.tableviewMyAttendanceLog.separatorStyle  = .none
-                       
-                   }
-               }
-               
-           }
-       }
-       //--------function to show log details using Alamofire and Json Swifty code ends------------
+                }else{
+                    self.tableviewMyAttendanceLog.reloadData()
+                    //                    Toast(text: "No data", duration: Delay.short).show()
+                    let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableviewMyAttendanceLog.bounds.size.width, height: self.tableviewMyAttendanceLog.bounds.size.height))
+                    noDataLabel.text          = "No record found"
+                    noDataLabel.font = UIFont.systemFont(ofSize: 14)
+                    noDataLabel.textColor     = UIColor(hexFromString: "767575")
+                    noDataLabel.textAlignment = .center
+                    self.tableviewMyAttendanceLog.backgroundView  = noDataLabel
+                    self.tableviewMyAttendanceLog.separatorStyle  = .none
+                    
+                }
+            }
+            
+        }
+    }
+    //--------function to show log details using Alamofire and Json Swifty code ends------------
     
     // ====================== Blur Effect Defiend START ================= \\
-        var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-        var blurEffectView: UIVisualEffectView!
-        var loader: UIVisualEffectView!
-        func loaderStart() {
-            // ====================== Blur Effect START ================= \\
-            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            loader = UIVisualEffectView(effect: blurEffect)
-            loader.frame = view.bounds
-            loader.alpha = 2
-            view.addSubview(loader)
-            
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-            let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
-            activityIndicator.transform = transform
-            loadingIndicator.center = self.view.center;
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.white
-            loadingIndicator.startAnimating();
-            loader.contentView.addSubview(loadingIndicator)
-            
-            // screen roted and size resize automatic
-            loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
-            
-            // ====================== Blur Effect END ================= \\
-        }
-        
-        func loaderEnd() {
-            self.loader.removeFromSuperview();
-        }
-        // ====================== Blur Effect Defiend END ================= \\
-        
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var blurEffectView: UIVisualEffectView!
+    var loader: UIVisualEffectView!
+    func loaderStart() {
         // ====================== Blur Effect START ================= \\
-        func blurEffect() {
-            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = view.bounds
-            blurEffectView.alpha = 0.9
-            view.addSubview(blurEffectView)
-            // screen roted and size resize automatic
-            blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
-          
-        }
-        func canelBlurEffect() {
-            self.blurEffectView.removeFromSuperview();
-        }
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        loader = UIVisualEffectView(effect: blurEffect)
+        loader.frame = view.bounds
+        loader.alpha = 2
+        view.addSubview(loader)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+        activityIndicator.transform = transform
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.white
+        loadingIndicator.startAnimating();
+        loader.contentView.addSubview(loadingIndicator)
+        
+        // screen roted and size resize automatic
+        loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
         // ====================== Blur Effect END ================= \\
+    }
+    
+    func loaderEnd() {
+        self.loader.removeFromSuperview();
+    }
+    // ====================== Blur Effect Defiend END ================= \\
+    
+    // ====================== Blur Effect START ================= \\
+    func blurEffect() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.alpha = 0.9
+        view.addSubview(blurEffectView)
+        // screen roted and size resize automatic
+        blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
+    }
+    func canelBlurEffect() {
+        self.blurEffectView.removeFromSuperview();
+    }
+    // ====================== Blur Effect END ================= \\
 }

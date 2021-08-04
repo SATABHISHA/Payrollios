@@ -132,8 +132,9 @@ class SupportingDocumentsViewController: UIViewController, UITableViewDelegate, 
          }else{
             TableViewSupportingDocuments.reloadData()
             let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewSupportingDocuments.bounds.size.width, height: self.TableViewSupportingDocuments.bounds.size.height))
-            noDataLabel.text          = "No attachment(s) available"
-            noDataLabel.textColor     = UIColor.black
+            noDataLabel.text          = "No record found"
+            noDataLabel.font = UIFont.systemFont(ofSize: 14)
+            noDataLabel.textColor     = UIColor(hexFromString: "767575")
             noDataLabel.textAlignment = .center
             self.TableViewSupportingDocuments.backgroundView?.isHidden = false
             self.TableViewSupportingDocuments.backgroundView  = noDataLabel

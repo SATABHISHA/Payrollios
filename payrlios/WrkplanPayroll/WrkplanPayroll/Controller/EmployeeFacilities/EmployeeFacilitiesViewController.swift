@@ -52,8 +52,9 @@ class EmployeeFacilitiesViewController: UIViewController, UITableViewDelegate, U
                         self.tableViewEmployeeFacilities.reloadData()
                         //                    Toast(text: "No data", duration: Delay.short).show()
                         let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableViewEmployeeFacilities.bounds.size.width, height: self.tableViewEmployeeFacilities.bounds.size.height))
-                        noDataLabel.text          = "No data is available"
-                        noDataLabel.textColor     = UIColor.black
+                        noDataLabel.text          = "No record found"
+                        noDataLabel.font = UIFont.systemFont(ofSize: 14)
+                        noDataLabel.textColor     = UIColor(hexFromString: "767575")
                         noDataLabel.textAlignment = .center
                         self.tableViewEmployeeFacilities.backgroundView  = noDataLabel
                         self.tableViewEmployeeFacilities.separatorStyle  = .none
