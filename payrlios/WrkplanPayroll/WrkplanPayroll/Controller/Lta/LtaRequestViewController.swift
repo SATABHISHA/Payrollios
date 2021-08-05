@@ -376,11 +376,7 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     //---ViewBack
     @objc func BackView(tapGestureRecognizer: UITapGestureRecognizer){
-        
-        
-        
-        
-        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+       /* if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
             LtaSupportingDocumentsViewController.tableChildData.removeAll()
             collectUpdatedDetailsData.removeAll()
         }
@@ -393,12 +389,13 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
         if LtaListViewController.EmployeeType == "Employee" {
             self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
-        }
+        }*/
+        customiseBackWithAlertPopup()
         
     }
     
     @IBAction func BtnBack(_ sender: Any) {
-        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+       /* if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
             LtaSupportingDocumentsViewController.tableChildData.removeAll()
             collectUpdatedDetailsData.removeAll()
         }
@@ -407,7 +404,10 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
         if LtaListViewController.EmployeeType == "Employee" {
             self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
-        }
+        }*/
+        
+        customiseBackWithAlertPopup()
+        
     }
     
     
@@ -731,6 +731,76 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
     }
     //=========function to make json object and save data, code ends======
+    
+    //-----function to add alert logic on back button, code starts(added on 5-Aug-2021)-----
+    func customiseBackWithAlertPopup(){
+        if LtaListViewController.EmployeeType == "Employee"{
+            //            LabelNavBarTitle.text = "My Advance Requisition"
+            //            btn_reason_select_type.isUserInteractionEnabled = true
+            //            btn_reason_select_type.alpha = 1.0
+            if LtaListViewController.lta_status! == ""{
+                
+                openBackConfirmationPopup()
+            }
+            if LtaListViewController.lta_status! == "Saved"{
+               openBackConfirmationPopup()
+            }
+            if LtaListViewController.lta_status! == "Submitted" ||
+                LtaListViewController.lta_status! == "Approved" ||
+                LtaListViewController.lta_status! == "Payment done" ||
+                LtaListViewController.lta_status! == "Cancelled"{
+                
+                if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+                    LtaSupportingDocumentsViewController.tableChildData.removeAll()
+                    collectUpdatedDetailsData.removeAll()
+                }
+                if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                    LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+                    self.collectUpdatedDetailDeletedData.removeAll()
+                }
+                if LtaListViewController.EmployeeType == "Supervisor" {
+                    self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+                }
+                if LtaListViewController.EmployeeType == "Employee" {
+                    self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+                }
+            }
+            if LtaListViewController.lta_status! == "Returned"{
+                openBackConfirmationPopup()
+                
+            }
+        }
+        if LtaListViewController.EmployeeType! == "Supervisor"{
+            //            LabelNavBarTitle.text = "Subordinate Advance Requisition"
+            //            btn_reason_select_type.isUserInteractionEnabled = false
+            //            btn_reason_select_type.alpha = 0.6
+            if LtaListViewController.lta_status! == "Submitted"{
+                openBackConfirmationPopup()
+            }
+            if LtaListViewController.lta_status! == "Returned" ||
+                LtaListViewController.lta_status! == "Approved" ||
+                LtaListViewController.lta_status! == "Payment done" ||
+                LtaListViewController.lta_status! == "Cancelled"{
+                
+                if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+                    LtaSupportingDocumentsViewController.tableChildData.removeAll()
+                    collectUpdatedDetailsData.removeAll()
+                }
+                if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                    LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+                    self.collectUpdatedDetailDeletedData.removeAll()
+                }
+                if LtaListViewController.EmployeeType == "Supervisor" {
+                    self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+                }
+                if LtaListViewController.EmployeeType == "Employee" {
+                    self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+                }
+            }
+        }
+    }
+    //-----function to add alert logic on back button, code ends-----
+    
     //----function to load buttons acc to the logic, code starts
     func LoadButtons(){
         
@@ -991,6 +1061,60 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
     }
     //--------function to load document details using Alamofire and Json Swifty code ends------------
     
+    //==============FormDialog Back Confirmation code starts================
+    @IBOutlet var viewBackConfirmationPopup: UIView!
+    
+    func openBackConfirmationPopup(){
+        blurEffect()
+        self.view.addSubview(viewBackConfirmationPopup)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewBackConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewBackConfirmationPopup.center = self.view.center
+        viewBackConfirmationPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewBackConfirmationPopup.alpha = 0
+        viewBackConfirmationPopup.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewBackConfirmationPopup.alpha = 1
+            self.viewBackConfirmationPopup.transform = CGAffineTransform.identity
+        }
+    }
+    func cancelBackConfirmationPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewBackConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewBackConfirmationPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewBackConfirmationPopup.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @IBAction func btnCancelBackConfirmationPopupYes(_ sender: Any) {
+        cancelBackConfirmationPopup()
+        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.tableChildData.removeAll()
+            collectUpdatedDetailsData.removeAll()
+        }
+        if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
+        if LtaListViewController.EmployeeType == "Supervisor" {
+            self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+        }
+        if LtaListViewController.EmployeeType == "Employee" {
+            self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+        }
+        
+    }
+    
+    @IBAction func btnCancelBackConfirmationPopupNo(_ sender: Any) {
+        cancelBackConfirmationPopup()
+    }
+    //==============FormDialog Cancel Confirmation code ends================
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var blurEffectView: UIVisualEffectView!
