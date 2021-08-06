@@ -179,7 +179,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         
         
         
-        if SupportingDocumentsViewController.tableChildData.count > 0 {
+       /* if SupportingDocumentsViewController.tableChildData.count > 0 {
             SupportingDocumentsViewController.tableChildData.removeAll()
             collectUpdatedDetailsData.removeAll()
         }
@@ -192,7 +192,9 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         }
         if MediclaimListViewController.EmployeeType == "Employee" {
             self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
-        }
+        }*/
+        
+        customiseBackWithAlertPopup() //--added on 6th aug 21
         
     }
     
@@ -449,7 +451,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
     
     @IBAction func BtnBack(_ sender: Any) {
 //        self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
-        if SupportingDocumentsViewController.tableChildData.count > 0 {
+       /* if SupportingDocumentsViewController.tableChildData.count > 0 {
             SupportingDocumentsViewController.tableChildData.removeAll()
             collectUpdatedDetailsData.removeAll()
         }
@@ -458,7 +460,8 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         }
         if MediclaimListViewController.EmployeeType == "Employee" {
             self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
-        }
+        } */
+        customiseBackWithAlertPopup() //--added on 6th aug 21
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -468,7 +471,74 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
             self.TxtSupportingDocuments.text = "0 Document(s)"
         }
     }
-    
+    //-----function to add alert logic on back button, code starts(added on 6-Aug-2021)-----
+    func customiseBackWithAlertPopup(){
+        if MediclaimListViewController.EmployeeType == "Employee"{
+            //            LabelNavBarTitle.text = "My Advance Requisition"
+            //            btn_reason_select_type.isUserInteractionEnabled = true
+            //            btn_reason_select_type.alpha = 1.0
+            if MediclaimListViewController.mediclaim_status! == ""{
+                
+                openBackConfirmationPopup()
+            }
+            if MediclaimListViewController.mediclaim_status! == "Saved"{
+               openBackConfirmationPopup()
+            }
+            if MediclaimListViewController.mediclaim_status! == "Submitted" ||
+                MediclaimListViewController.mediclaim_status! == "Approved" ||
+                MediclaimListViewController.mediclaim_status! == "Payment done" ||
+                MediclaimListViewController.mediclaim_status! == "Canceled"{
+                
+                if SupportingDocumentsViewController.tableChildData.count > 0 {
+                    SupportingDocumentsViewController.tableChildData.removeAll()
+                    collectUpdatedDetailsData.removeAll()
+                }
+                if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                    SupportingDocumentsViewController.deletedTableChildData.removeAll()
+                    self.collectUpdatedDetailDeletedData.removeAll()
+                }
+                if MediclaimListViewController.EmployeeType == "Supervisor" {
+                    self.performSegue(withIdentifier: "subordinatemediclaimlist", sender: nil)
+                }
+                if MediclaimListViewController.EmployeeType == "Employee" {
+                    self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
+                }
+            }
+            if MediclaimListViewController.mediclaim_status! == "Returned"{
+                openBackConfirmationPopup()
+                
+            }
+        }
+        if MediclaimListViewController.EmployeeType! == "Supervisor"{
+            //            LabelNavBarTitle.text = "Subordinate Advance Requisition"
+            //            btn_reason_select_type.isUserInteractionEnabled = false
+            //            btn_reason_select_type.alpha = 0.6
+            if MediclaimListViewController.mediclaim_status! == "Submitted"{
+                openBackConfirmationPopup()
+            }
+            if MediclaimListViewController.mediclaim_status! == "Returned" ||
+                MediclaimListViewController.mediclaim_status! == "Approved" ||
+                MediclaimListViewController.mediclaim_status! == "Payment done" ||
+                MediclaimListViewController.mediclaim_status! == "Cancelled"{
+                
+                if SupportingDocumentsViewController.tableChildData.count > 0 {
+                    SupportingDocumentsViewController.tableChildData.removeAll()
+                    collectUpdatedDetailsData.removeAll()
+                }
+                if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+                    SupportingDocumentsViewController.deletedTableChildData.removeAll()
+                    self.collectUpdatedDetailDeletedData.removeAll()
+                }
+                if MediclaimListViewController.EmployeeType == "Supervisor" {
+                    self.performSegue(withIdentifier: "subordinatemediclaimlist", sender: nil)
+                }
+                if MediclaimListViewController.EmployeeType == "Employee" {
+                    self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
+                }
+            }
+        }
+    }
+    //-----function to add alert logic on back button, code ends-----
     //============================-Form Leave Balance dialog, code starts============================
     @IBOutlet weak var ViewPopupNavBar: UIView!
     @IBOutlet var ViewAmountBalance: UIView!
@@ -731,6 +801,61 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         }
     }
     //--------function to load document details using Alamofire and Json Swifty code ends------------
+    
+    //==============FormDialog Back Confirmation code starts================
+    @IBOutlet var viewBackConfirmationPopup: UIView!
+    
+    func openBackConfirmationPopup(){
+        blurEffect()
+        self.view.addSubview(viewBackConfirmationPopup)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewBackConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewBackConfirmationPopup.center = self.view.center
+        viewBackConfirmationPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewBackConfirmationPopup.alpha = 0
+        viewBackConfirmationPopup.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewBackConfirmationPopup.alpha = 1
+            self.viewBackConfirmationPopup.transform = CGAffineTransform.identity
+        }
+    }
+    func cancelBackConfirmationPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewBackConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewBackConfirmationPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewBackConfirmationPopup.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @IBAction func btnCancelBackConfirmationPopupYes(_ sender: Any) {
+        cancelBackConfirmationPopup()
+        if SupportingDocumentsViewController.tableChildData.count > 0 {
+            SupportingDocumentsViewController.tableChildData.removeAll()
+            collectUpdatedDetailsData.removeAll()
+        }
+        if SupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            SupportingDocumentsViewController.deletedTableChildData.removeAll()
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
+        if MediclaimListViewController.EmployeeType == "Supervisor" {
+            self.performSegue(withIdentifier: "subordinatemediclaimlist", sender: nil)
+        }
+        if MediclaimListViewController.EmployeeType == "Employee" {
+            self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
+        }
+        
+    }
+    
+    @IBAction func btnCancelBackConfirmationPopupNo(_ sender: Any) {
+        cancelBackConfirmationPopup()
+    }
+    //==============FormDialog Cancel Confirmation code ends================
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var blurEffectView: UIVisualEffectView!

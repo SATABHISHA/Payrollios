@@ -585,11 +585,64 @@
                         <outlet property="ViewBtnSubmit" destination="u1T-XJ-tpK" id="Bjw-fl-n71"/>
                         <outlet property="ViewCustomBtnCheckBalance" destination="loC-g2-Zld" id="Gnn-s3-bug"/>
                         <outlet property="ViewCustomBtnViewDocuments" destination="GUV-y1-xJo" id="c2Y-eH-tH6"/>
+                        <outlet property="viewBackConfirmationPopup" destination="MuJ-cp-Zee" id="cfb-cs-hQj"/>
                         <segue destination="WzH-Gc-KSx" kind="presentation" identifier="mediclaimlist" modalPresentationStyle="fullScreen" id="RkQ-cA-Rif"/>
                         <segue destination="hkA-fa-ToK" kind="presentation" identifier="supportingdoc" modalPresentationStyle="fullScreen" id="7yT-c7-CEt"/>
                         <segue destination="9W5-2o-Y9z" kind="presentation" identifier="subordinatemediclaimlist" modalPresentationStyle="fullScreen" id="HZo-Vw-mpT"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="MuJ-cp-Zee">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You may lost any unsaved data. Do you really want to go back?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.44999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="GB3-Ir-lOy">
+                            <rect key="frame" x="16" y="16" width="259" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.10980392160000001" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3z-7w-kQF">
+                            <rect key="frame" x="237" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="NSp-HJ-7wA"/>
+                                <constraint firstAttribute="width" constant="30" id="OmR-3w-kgC"/>
+                            </constraints>
+                            <state key="normal" title="YES">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnCancelBackConfirmationPopupYes:" destination="Ji1-fs-ayn" eventType="touchUpInside" id="dJb-sE-Ewu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vc-1G-yKw">
+                            <rect key="frame" x="177" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="0H5-cB-vOk"/>
+                                <constraint firstAttribute="height" constant="24" id="Cmu-Jd-uUE"/>
+                            </constraints>
+                            <state key="normal" title="NO">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnCancelBackConfirmationPopupNo:" destination="Ji1-fs-ayn" eventType="touchUpInside" id="hW7-ps-X67"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="fmz-nV-HOn"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="2vc-1G-yKw" secondAttribute="bottom" constant="10" id="3UF-X0-rba"/>
+                        <constraint firstAttribute="trailing" secondItem="GB3-Ir-lOy" secondAttribute="trailing" constant="16" id="RyY-2L-G7Z"/>
+                        <constraint firstAttribute="trailing" secondItem="G3z-7w-kQF" secondAttribute="trailing" constant="24" id="ctP-5T-q26"/>
+                        <constraint firstItem="GB3-Ir-lOy" firstAttribute="top" secondItem="MuJ-cp-Zee" secondAttribute="top" constant="16" id="gTJ-lr-607"/>
+                        <constraint firstItem="G3z-7w-kQF" firstAttribute="leading" secondItem="2vc-1G-yKw" secondAttribute="trailing" constant="30" id="hkJ-eR-K8l"/>
+                        <constraint firstItem="GB3-Ir-lOy" firstAttribute="leading" secondItem="MuJ-cp-Zee" secondAttribute="leading" constant="16" id="lnO-BE-u0b"/>
+                        <constraint firstItem="2vc-1G-yKw" firstAttribute="top" relation="lessThanOrEqual" secondItem="GB3-Ir-lOy" secondAttribute="bottom" constant="22" id="lp7-MN-nga"/>
+                        <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="GB3-Ir-lOy" secondAttribute="bottom" constant="40" id="sFb-ul-tgY"/>
+                        <constraint firstItem="G3z-7w-kQF" firstAttribute="top" relation="lessThanOrEqual" secondItem="GB3-Ir-lOy" secondAttribute="bottom" constant="22" id="wlC-X5-nWq"/>
+                        <constraint firstAttribute="bottom" secondItem="G3z-7w-kQF" secondAttribute="bottom" constant="10" id="yKW-KM-Ymk"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" id="eYc-D4-KrC">
                     <rect key="frame" x="0.0" y="0.0" width="294" height="281"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
