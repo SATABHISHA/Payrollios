@@ -190,7 +190,8 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
     //--------function to load popup leave data using Alamofire and Json Swifty code starts----------
     func loadHtmlStringData(year:String?){
 //        loaderStart()
-        let url = "\(BASE_URL)reports/pf-deduction/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(year!)"
+//        let url = "\(BASE_URL)reports/pf-deduction/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(year!)" //--commented on 18-Aug-2021
+        let url = "\(BASE_URL)reports/pf-deduction/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(year!)/\(swiftyJsonvar1["employee"]["branch_office_id"].intValue)/ALL"  //--added on 18-Aug-2021(added two parameters)
         print("url-=>",url)
         AF.request(url).responseJSON{ (responseData) -> Void in
 //                self.loaderEnd()
