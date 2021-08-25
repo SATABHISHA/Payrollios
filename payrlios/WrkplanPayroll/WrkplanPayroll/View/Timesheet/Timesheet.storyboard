@@ -128,11 +128,11 @@
                                     <constraint firstAttribute="height" constant="30" id="dAz-g2-AoO"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rpn-GP-9pd">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rpn-GP-9pd">
                                 <rect key="frame" x="0.0" y="676" width="414" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDX-6k-bnG" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="206.66666666666666" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Monthly Attendance Log" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRh-Xt-BqL">
                                                 <rect key="frame" x="8" y="8" width="186" height="46"/>
@@ -148,12 +148,12 @@
                                                 <color key="value" red="0.81568627450980391" green="0.81568627450980391" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgU-4h-Uco" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">
-                                        <rect key="frame" x="207.66666666666663" y="0.0" width="206.33333333333337" height="60"/>
+                                        <rect key="frame" x="207" y="0.0" width="207" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subordinate Attendance Log" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hF-tz-LqJ">
                                                 <rect key="frame" x="26" y="8" width="153" height="46"/>
@@ -169,7 +169,7 @@
                                                 <color key="value" red="0.81568627450980391" green="0.81568627450980391" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -367,6 +367,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="StackViewButtons" destination="Rpn-GP-9pd" id="nFp-hx-IQF"/>
                         <outlet property="btnCheckBox" destination="qbq-j3-uOC" id="LmV-As-ahG"/>
                         <outlet property="btnPopupNo" destination="cBO-tk-9vh" id="9Nh-tn-jRy"/>
                         <outlet property="btnPopupYes" destination="Xde-qb-O0Y" id="UUZ-ek-fxK"/>
