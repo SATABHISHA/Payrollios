@@ -23,6 +23,8 @@ class CompanyDocumentsViewController: UIViewController, UITableViewDelegate, UIT
         
         self.tableviewCompanyDocuments.dataSource = self
         self.tableviewCompanyDocuments.delegate = self
+       /* tableviewCompanyDocuments.rowHeight = UITableView.automaticDimension
+        tableviewCompanyDocuments.estimatedRowHeight = 100*/
         
         tableviewCompanyDocuments.backgroundColor = UIColor(hexFromString: "ffffff")
         // Do any additional setup after loading the view.

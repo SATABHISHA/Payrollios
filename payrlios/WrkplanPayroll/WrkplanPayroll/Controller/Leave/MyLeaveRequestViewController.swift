@@ -27,6 +27,9 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var txt_request_status: UITextField!
     @IBOutlet weak var custom_btn_label_save: UILabel!
     @IBOutlet weak var custom_btn_label_cancel: UILabel!
+    @IBOutlet weak var view_custom_btn_cancel: UIView!
+    @IBOutlet weak var view_custom_button_save: UIView!
+    @IBOutlet weak var StackViewButtons: UIStackView!
     @IBOutlet weak var label_days_count: UILabel!
     @IBOutlet weak var btn_select_type: UIButton!
     @IBOutlet weak var txt_view_details: UITextView!
@@ -84,6 +87,10 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         
         loadLeaveData()
         
+        //-----code to add button border, starts------
+        StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        view_custom_button_save.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        //-----code to add button border, ends------
         
         if MyLeaveApplicationViewController.new_create_yn == true{
 //            populate_value()

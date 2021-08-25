@@ -31,6 +31,7 @@ class LeaveViewController: UIViewController {
     @IBOutlet weak var label_paternal_leave: UILabel!
     @IBOutlet weak var designable_btn_leave_appltn: DesignableButton!
     @IBOutlet weak var designable_btn_subordinate_leave_appltn: DesignableButton!
+    @IBOutlet weak var StackViewButtons: UIStackView!
     
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     override func viewDidLoad() {
@@ -39,6 +40,10 @@ class LeaveViewController: UIViewController {
         ChangeStatusBarColor() //---to change background statusbar color
 
         // Do any additional setup after loading the view.
+        //-----code to add button border, starts------
+        StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        designable_btn_subordinate_leave_appltn.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        //-----code to add button border, ends------
         
 //        print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
         self.get_Year_details()

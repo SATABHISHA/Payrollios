@@ -611,7 +611,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -638,7 +638,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -667,6 +667,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="StackViewButtons" destination="MIZ-V1-Bsh" id="Rxy-hS-BcP"/>
                         <outlet property="btn_save" destination="q2i-FI-sJ0" id="BA3-O3-FlX"/>
                         <outlet property="btn_select_type" destination="ehQ-Cm-Wmd" id="bB3-ZK-Yi2"/>
                         <outlet property="btn_select_year" destination="e7J-ak-XJF" id="MMi-gC-0gN"/>
@@ -695,6 +696,8 @@
                         <outlet property="txt_view_supervisor_remark" destination="tyG-2X-aF1" id="GNp-8b-yE9"/>
                         <outlet property="viewLeaveBalance" destination="OKW-uu-dN2" id="hS3-nw-tLh"/>
                         <outlet property="viewPopupNavBar" destination="bNK-Fw-r67" id="UrC-iP-DMw"/>
+                        <outlet property="view_custom_btn_cancel" destination="MbB-db-cYG" id="1V7-4S-Jbn"/>
+                        <outlet property="view_custom_button_save" destination="GtF-x1-xYV" id="35I-cp-PJc"/>
                         <segue destination="YyA-lm-EHl" kind="modal" identifier="myleave" modalPresentationStyle="fullScreen" id="NdR-zk-v2n"/>
                     </connections>
                 </viewController>
