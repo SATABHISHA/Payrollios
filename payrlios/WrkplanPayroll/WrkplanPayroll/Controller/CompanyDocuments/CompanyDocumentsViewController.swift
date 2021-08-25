@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Toast_Swift
 
 
 class CompanyDocumentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,downloadCompanyDocumentDelegate {
@@ -65,6 +66,28 @@ class CompanyDocumentsViewController: UIViewController, UITableViewDelegate, UIT
          FileDownloader.loadFileAsync(url: url!) { (path, error) in
          print("PDF File downloaded to : \(path!)")
          } */
+        let url1 = rowData["file_name"] as? String
+        print("url-=>",url1!)
+        if let url = URL(string: url1!){
+            FileDownloader.loadFileAsync(url: url) { (path, error) in
+             print("PDF File downloaded to : \(path!)")
+                var style = ToastStyle()
+                
+                // this is just one of many style options
+                style.messageColor = .white
+                
+                
+                // present the toast with the new style
+                self.view.makeToast("File downloaded successfully", duration: 3.0, position: .bottom, style: style)
+             }
+        }else{
+            print("Unable to download file")
+            var style = ToastStyle()
+            
+            // this is just one of many style options
+            style.messageColor = .white
+            self.view.makeToast("Internal server error", duration: 3.0, position: .bottom, style: style)
+        }
     }
     
     
