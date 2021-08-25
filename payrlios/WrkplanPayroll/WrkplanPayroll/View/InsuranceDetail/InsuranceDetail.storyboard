@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,11 +43,11 @@
                                     <constraint firstItem="Ndo-6h-j2i" firstAttribute="top" secondItem="2O1-qc-gRG" secondAttribute="top" constant="16" id="v6H-dN-Qj2"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-pT-58c">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-pT-58c">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttr-GF-ux8">
-                                        <rect key="frame" x="0.0" y="0.0" width="136" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
                                         <color key="backgroundColor" red="0.70980392160000005" green="0.69803921570000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="PREVIOUS">
                                             <color key="titleColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSm-Nm-WIJ">
-                                        <rect key="frame" x="139" y="0.0" width="136" height="50"/>
+                                        <rect key="frame" x="138" y="0.0" width="138" height="50"/>
                                         <color key="backgroundColor" red="0.70980392160000005" green="0.69803921570000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="CLOSE">
                                             <color key="titleColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -67,7 +67,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWI-ec-wVW">
-                                        <rect key="frame" x="278" y="0.0" width="136" height="50"/>
+                                        <rect key="frame" x="276" y="0.0" width="138" height="50"/>
                                         <color key="backgroundColor" red="0.70980392160000005" green="0.69803921570000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="NEXT">
                                             <color key="titleColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -397,7 +397,7 @@
                                                 <color key="sectionIndexTrackingBackgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="0.9836099385" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="43" id="oKU-kA-NfM" userLabel="cell" customClass="InsuranceDetailTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="384" height="43"/>
+                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="384" height="43"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oKU-kA-NfM" id="pB7-0M-Wog">
                                                             <rect key="frame" x="0.0" y="0.0" width="384" height="43"/>
@@ -493,6 +493,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="StackViewButtons" destination="XLs-pT-58c" id="gMT-o1-31x"/>
                         <outlet property="btnClose" destination="iSm-Nm-WIJ" id="EHV-YG-3St"/>
                         <outlet property="btnNext" destination="dWI-ec-wVW" id="VfN-1V-hUW"/>
                         <outlet property="btnPrevious" destination="Ttr-GF-ux8" id="5rJ-1v-lSY"/>

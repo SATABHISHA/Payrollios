@@ -21,6 +21,7 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var btnPrevious: UIButton!
     @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var StackViewButtons: UIStackView!
     
     var arrRes = [[String:AnyObject]]()
     
@@ -47,6 +48,12 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
         btnClose.isEnabled = true
         btnClose.alpha = CGFloat(1.0)
         btnClose.backgroundColor = UIColor(hexFromString: "#ffffff")
+        
+        //-----code to add button border, starts------
+        StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        btnClose.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        btnNext.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        //-----code to add button border, ends------
         
         loadData(i: 0)
     }
