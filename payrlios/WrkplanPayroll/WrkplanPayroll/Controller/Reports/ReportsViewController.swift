@@ -32,7 +32,6 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         loadReportsData()
         
-        
         //------ReportPopup Ok
         let tapGestureRecognizerReportPopupOk = UITapGestureRecognizer(target: self, action: #selector(ReportPopupOk(tapGestureRecognizer:)))
         custom_btn_ok_reports_popup.isUserInteractionEnabled = false
