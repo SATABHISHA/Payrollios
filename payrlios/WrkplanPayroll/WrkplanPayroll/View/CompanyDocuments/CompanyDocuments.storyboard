@@ -64,13 +64,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="386" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.45000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="5jB-Xq-Zu0">
-                                                            <rect key="frame" x="57" y="14" width="253" height="17"/>
+                                                            <rect key="frame" x="57" y="12" width="253" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.47058823529411764" green="0.50196078431372548" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-nov" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCD-QZ-KQY">
-                                                            <rect key="frame" x="57" y="31" width="253" height="17"/>
+                                                            <rect key="frame" x="57" y="29" width="253" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.70980392156862748" green="0.69803921568627447" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -97,20 +97,17 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="5jB-Xq-Zu0" firstAttribute="top" secondItem="vR4-w7-MWD" secondAttribute="top" constant="14" id="1B0-jf-GWz"/>
+                                                        <constraint firstItem="5jB-Xq-Zu0" firstAttribute="top" secondItem="vR4-w7-MWD" secondAttribute="top" constant="12" id="1B0-jf-GWz"/>
                                                         <constraint firstItem="5jB-Xq-Zu0" firstAttribute="leading" secondItem="y6d-ZM-1dh" secondAttribute="trailing" constant="14" id="1F5-KB-3nQ"/>
                                                         <constraint firstItem="y6d-ZM-1dh" firstAttribute="leading" secondItem="vR4-w7-MWD" secondAttribute="leading" constant="8" id="2z8-uZ-VnM"/>
                                                         <constraint firstItem="RCD-QZ-KQY" firstAttribute="top" secondItem="5jB-Xq-Zu0" secondAttribute="bottom" id="8pK-ol-9aB"/>
                                                         <constraint firstAttribute="trailing" secondItem="DbD-By-nEk" secondAttribute="trailing" constant="20" id="D6O-sL-A7p"/>
                                                         <constraint firstItem="RCD-QZ-KQY" firstAttribute="leading" secondItem="y6d-ZM-1dh" secondAttribute="trailing" constant="14" id="DnP-zd-qK1"/>
-                                                        <constraint firstItem="y6d-ZM-1dh" firstAttribute="top" secondItem="vR4-w7-MWD" secondAttribute="top" constant="18.670000000000002" id="I3J-XX-MFR"/>
-                                                        <constraint firstAttribute="height" constant="70" id="KJD-JU-9ge"/>
                                                         <constraint firstItem="DbD-By-nEk" firstAttribute="leading" secondItem="RCD-QZ-KQY" secondAttribute="trailing" constant="22" id="MRO-HM-UCw"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="y6d-ZM-1dh" secondAttribute="bottom" constant="18.329999999999998" id="gV2-fg-5NF"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DbD-By-nEk" secondAttribute="bottom" constant="18.329999999999998" id="hXl-Tg-Z5u"/>
+                                                        <constraint firstItem="y6d-ZM-1dh" firstAttribute="centerY" secondItem="vR4-w7-MWD" secondAttribute="centerY" id="Qxm-Yr-alb"/>
                                                         <constraint firstItem="DbD-By-nEk" firstAttribute="leading" secondItem="5jB-Xq-Zu0" secondAttribute="trailing" constant="22" id="qJM-I9-90N"/>
-                                                        <constraint firstItem="DbD-By-nEk" firstAttribute="top" secondItem="vR4-w7-MWD" secondAttribute="top" constant="18.670000000000002" id="xcl-9V-EmQ"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RCD-QZ-KQY" secondAttribute="bottom" constant="8" id="zHn-a1-CYc"/>
+                                                        <constraint firstItem="DbD-By-nEk" firstAttribute="centerY" secondItem="vR4-w7-MWD" secondAttribute="centerY" id="tI2-HA-Ts9"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RCD-QZ-KQY" secondAttribute="bottom" constant="10" id="zHn-a1-CYc"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
