@@ -42,6 +42,17 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let tapGestureRecognizerReportPopupClose = UITapGestureRecognizer(target: self, action: #selector(ReportPopupClose(tapGestureRecognizer:)))
         img_view_report_close_popup.isUserInteractionEnabled = true
         img_view_report_close_popup.addGestureRecognizer(tapGestureRecognizerReportPopupClose)
+        
+        //------SalarySlipPopup Ok
+        let tapGestureRecognizerSalarySlipPopupOk = UITapGestureRecognizer(target: self, action: #selector(SalarySlipPopupOk(tapGestureRecognizer:)))
+        custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = false
+        custom_btn_ok_salary_slip_popup.alpha = 0.6
+        custom_btn_ok_salary_slip_popup.addGestureRecognizer(tapGestureRecognizerSalarySlipPopupOk)
+        
+        //------SalarySlipPopup Close
+        let tapGestureRecognizerSalarySlipPopupClose = UITapGestureRecognizer(target: self, action: #selector(SalarySlipPopupClose(tapGestureRecognizer:)))
+        img_view_salary_slip_close_popup.isUserInteractionEnabled = true
+        img_view_salary_slip_close_popup.addGestureRecognizer(tapGestureRecognizerSalarySlipPopupClose)
     }
     
     @IBAction func BtnBack(_ sender: Any) {
@@ -50,7 +61,7 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func loadReportsData(){
-        let dict:[[String:Any]] = [["id":0,"title":"PF Deduction"]]
+        let dict:[[String:Any]] = [["id":0,"title":"PF Deduction"],["id":1,"title":"Salary Slip"]]
         self.arrRes = dict
     }
     
@@ -59,7 +70,12 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let tappedIndexPath = TanleViewReports.indexPath(for: sender) else {return}
         let rowData = arrRes[tappedIndexPath.row]
         
+        if rowData["id"] as! Int == 0 {
         openReportsPopup()
+        }
+        if rowData["id"] as! Int == 1 {
+            openSalarySlipPopup()
+        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         arrRes.count
@@ -227,6 +243,130 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     //--------function to load popup leave data using Alamofire and Json Swifty code ends----------
     //============================Form Report dialog, code ends============================
+    
+    //============================Form Salary Slip dialog, code starts============================
+    @IBOutlet var viewSalarySlip: UIView!
+    
+   
+    @IBOutlet weak var btn_select_salary_slip_year: UIButton!
+    @IBOutlet weak var btn_select_salary_slip_month: UIButton!
+    @IBOutlet weak var custom_btn_ok_salary_slip_popup: UIView!
+    @IBOutlet weak var img_view_salary_slip_close_popup: UIImageView!
+    
+    let dropDownSelectSalarySlipYear = DropDown()
+    
+   
+    @IBAction func btn_select_salary_slip_year(_ sender: UIButton) {
+        dropDownSelectSalarySlipYear.dataSource = year
+        dropDownSelectSalarySlipYear.anchorView = sender //5
+        dropDownSelectSalarySlipYear.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+        dropDownSelectSalarySlipYear.show() //7
+        dropDownSelectSalarySlipYear.selectionAction = { [weak self] (index: Int, item: String) in //8
+              guard let _ = self else { return }
+              sender.setTitle(item, for: .normal) //9
+                print("year-=>",item)
+            ReportsViewController.year = self!.year_details[index].financial_year_code
+//                self!.loadPopupLeaveData(year: self!.year_details[index].financial_year_code)
+            if index > 0{
+                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = true
+                self?.custom_btn_ok_salary_slip_popup.alpha = 1.0
+            }else if index == 0 {
+                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = false
+                self?.custom_btn_ok_salary_slip_popup.alpha = 0.6
+            }
+            }
+    }
+    
+    
+    let dropDownSalarySlipMonth = DropDown()
+    @IBAction func btn_select_salary_slip_month(_ sender: UIButton) {
+        dropDownSalarySlipMonth.dataSource = month
+        dropDownSalarySlipMonth.anchorView = sender //5
+        dropDownSalarySlipMonth.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+        dropDownSalarySlipMonth.show() //7
+        dropDownSalarySlipMonth.selectionAction = { [weak self] (index: Int, item: String) in //8
+              guard let _ = self else { return }
+              sender.setTitle(item, for: .normal) //9
+                print("month-=>",item)
+           /* ReportsViewController.year = self!.year_details[index].financial_year_code
+            if index > 0{
+                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = true
+                self?.custom_btn_ok_salary_slip_popup.alpha = 1.0
+            }else if index == 0 {
+                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = false
+                self?.custom_btn_ok_salary_slip_popup.alpha = 0.6
+            }*/
+            }
+    }
+    
+    var month = [String]()
+    func get_month_details(){
+        self.month.append("--Select Month--")
+        self.month.append("January")
+        self.month.append("February")
+        self.month.append("March")
+        self.month.append("April")
+        self.month.append("May")
+        self.month.append("June")
+        self.month.append("July")
+        self.month.append("August")
+        self.month.append("September")
+        self.month.append("October")
+        self.month.append("November")
+        self.month.append("December")
+    }
+    
+    func openSalarySlipPopup(){
+        self.get_Year_details()
+        self.get_month_details()
+        blurEffect()
+        self.view.addSubview(viewSalarySlip)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        viewSalarySlip.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewSalarySlip.center = self.view.center
+        viewSalarySlip.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewSalarySlip.alpha = 0
+        viewSalarySlip.sizeToFit()
+        
+
+        custom_btn_ok_salary_slip_popup.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.5)
+      /*  stackViewButtonborder.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        view_custom_btn_punchout.addBorder(side: .right, color: UIColor(hexFromString: "7F7F7F"), width: 1)*/
+        
+        
+        
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewSalarySlip.alpha = 1
+            self.viewSalarySlip.transform = CGAffineTransform.identity
+        }
+        
+    }
+    
+    func cancelSalarySlipPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewSalarySlip.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewSalarySlip.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewSalarySlip.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    //---Report PopupOk
+    @objc func SalarySlipPopupOk(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelSalarySlipPopup()
+        loadHtmlStringData(year: ReportsViewController.year)
+    }
+    
+    //---Report PopupClose
+    @objc func SalarySlipPopupClose(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelSalarySlipPopup()
+    }
+    //============================Form Salary Slip dialog, code ends============================
     
     // ====================== Blur Effect Defiend START ================= \\
         var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()

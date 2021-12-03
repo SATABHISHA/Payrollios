@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,7 +57,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="75" id="aw7-ZU-cX7" customClass="ReportsTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="374" height="75"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="374" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aw7-ZU-cX7" id="Dcc-kl-7lx">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
@@ -135,10 +136,15 @@
                     </view>
                     <connections>
                         <outlet property="TanleViewReports" destination="S7l-Fs-RAt" id="lCq-Cj-p5L"/>
+                        <outlet property="btn_select_salary_slip_month" destination="iQW-MH-Yba" id="VVr-U6-PUE"/>
+                        <outlet property="btn_select_salary_slip_year" destination="pFg-y3-3ql" id="zMt-V2-rbS"/>
                         <outlet property="btn_select_year" destination="cvW-8v-9Td" id="byP-V9-azc"/>
                         <outlet property="custom_btn_ok_reports_popup" destination="nyG-FO-8Yf" id="WzS-VG-0oR"/>
+                        <outlet property="custom_btn_ok_salary_slip_popup" destination="i24-NO-abd" id="r14-w6-Gee"/>
                         <outlet property="img_view_report_close_popup" destination="ap0-Ux-Wcn" id="cRH-d5-goW"/>
+                        <outlet property="img_view_salary_slip_close_popup" destination="8YR-h9-k3g" id="gKJ-xy-znT"/>
                         <outlet property="viewReports" destination="cPQ-a8-56z" id="eKp-XG-be4"/>
+                        <outlet property="viewSalarySlip" destination="dNe-c5-Nmz" id="u56-ru-UZ6"/>
                         <segue destination="83q-Vq-nQJ" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="MZe-Bp-cFv"/>
                         <segue destination="LGW-Vf-0ou" kind="modal" identifier="pdf" modalPresentationStyle="fullScreen" id="5d3-d4-a6G"/>
                     </connections>
@@ -233,6 +239,126 @@
                         <constraint firstItem="nkV-3r-iB1" firstAttribute="leading" secondItem="itw-bU-ffL" secondAttribute="leading" id="kZu-nf-Zcc"/>
                         <constraint firstItem="nyG-FO-8Yf" firstAttribute="leading" secondItem="itw-bU-ffL" secondAttribute="leading" id="rWa-g9-3Od"/>
                         <constraint firstItem="nkV-3r-iB1" firstAttribute="trailing" secondItem="itw-bU-ffL" secondAttribute="trailing" id="uxd-e7-q2M"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="dNe-c5-Nmz">
+                    <rect key="frame" x="0.0" y="0.0" width="251" height="136"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKi-y6-z4Q">
+                            <rect key="frame" x="0.0" y="0.0" width="251" height="35"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Year And Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-xg-RBm">
+                                    <rect key="frame" x="10" y="3" width="196" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross" translatesAutoresizingMaskIntoConstraints="NO" id="8YR-h9-k3g">
+                                    <rect key="frame" x="216" y="0.0" width="35" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="35" id="Qgy-yy-I2A"/>
+                                        <constraint firstAttribute="height" constant="35" id="d9s-eD-vws"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.18039215689999999" green="0.34042370319999998" blue="0.44333958629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="8YR-h9-k3g" firstAttribute="leading" secondItem="HVJ-xg-RBm" secondAttribute="trailing" constant="10" id="6RU-Nb-QA9"/>
+                                <constraint firstAttribute="height" constant="35" id="YJZ-ey-VUM"/>
+                                <constraint firstAttribute="bottom" secondItem="HVJ-xg-RBm" secondAttribute="bottom" constant="3" id="e42-6Y-W5z"/>
+                                <constraint firstItem="HVJ-xg-RBm" firstAttribute="leading" secondItem="HKi-y6-z4Q" secondAttribute="leading" constant="10" id="hM5-Qf-tUm"/>
+                                <constraint firstAttribute="trailing" secondItem="8YR-h9-k3g" secondAttribute="trailing" id="hlW-L9-xIj"/>
+                                <constraint firstAttribute="bottom" secondItem="8YR-h9-k3g" secondAttribute="bottom" id="rGT-5F-uBH"/>
+                                <constraint firstItem="HVJ-xg-RBm" firstAttribute="top" secondItem="HKi-y6-z4Q" secondAttribute="top" constant="3" id="rbx-Ye-rFY"/>
+                                <constraint firstItem="8YR-h9-k3g" firstAttribute="top" secondItem="HKi-y6-z4Q" secondAttribute="top" id="t4O-7A-JyQ"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="wgY-Zq-z3j">
+                            <rect key="frame" x="10" y="53" width="231" height="28"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFg-y3-3ql">
+                                    <rect key="frame" x="0.0" y="0.0" width="114.66666666666667" height="28"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <state key="normal" title="--Select Year--">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btn_select_salary_slip_year:" destination="rdB-F6-Hyj" eventType="touchUpInside" id="Rq8-Bk-N4X"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQW-MH-Yba">
+                                    <rect key="frame" x="116.66666666666669" y="0.0" width="114.33333333333331" height="28"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <state key="normal" title="--Select Month--">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btn_select_salary_slip_month:" destination="rdB-F6-Hyj" eventType="touchUpInside" id="Srz-eT-CBR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i24-NO-abd">
+                            <rect key="frame" x="0.0" y="101" width="251" height="35"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6n-2x-Y0K">
+                                    <rect key="frame" x="0.0" y="0.0" width="251" height="35"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.15954174709999999" green="0.2234177198" blue="0.5390872377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.0"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.60102248729999996" green="0.60697320489999995" blue="0.60697320489999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="A6n-2x-Y0K" secondAttribute="bottom" id="52v-I7-Zhs"/>
+                                <constraint firstAttribute="trailing" secondItem="A6n-2x-Y0K" secondAttribute="trailing" id="IGk-W6-eZJ"/>
+                                <constraint firstItem="A6n-2x-Y0K" firstAttribute="top" secondItem="i24-NO-abd" secondAttribute="top" id="Mwy-sp-EgA"/>
+                                <constraint firstItem="A6n-2x-Y0K" firstAttribute="leading" secondItem="i24-NO-abd" secondAttribute="leading" id="mgP-Vw-mgr"/>
+                                <constraint firstAttribute="height" constant="35" id="ubK-MS-nbR"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="jT4-gG-Cjv"/>
+                    <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="jT4-gG-Cjv" firstAttribute="trailing" secondItem="i24-NO-abd" secondAttribute="trailing" id="3uV-2l-fg5"/>
+                        <constraint firstItem="HKi-y6-z4Q" firstAttribute="top" secondItem="jT4-gG-Cjv" secondAttribute="top" id="75b-Gn-kMT"/>
+                        <constraint firstItem="i24-NO-abd" firstAttribute="leading" secondItem="jT4-gG-Cjv" secondAttribute="leading" id="JFe-aD-euO"/>
+                        <constraint firstItem="HKi-y6-z4Q" firstAttribute="leading" secondItem="jT4-gG-Cjv" secondAttribute="leading" id="SNk-tY-VcQ"/>
+                        <constraint firstItem="wgY-Zq-z3j" firstAttribute="leading" secondItem="jT4-gG-Cjv" secondAttribute="leading" constant="10" id="Tkj-mp-cDb"/>
+                        <constraint firstItem="jT4-gG-Cjv" firstAttribute="trailing" secondItem="wgY-Zq-z3j" secondAttribute="trailing" constant="10" id="W82-BB-djA"/>
+                        <constraint firstItem="HKi-y6-z4Q" firstAttribute="trailing" secondItem="jT4-gG-Cjv" secondAttribute="trailing" id="bUr-pB-2rR"/>
+                        <constraint firstItem="wgY-Zq-z3j" firstAttribute="top" secondItem="HKi-y6-z4Q" secondAttribute="bottom" constant="18" id="dlu-pf-BHs"/>
+                        <constraint firstItem="i24-NO-abd" firstAttribute="top" secondItem="wgY-Zq-z3j" secondAttribute="bottom" constant="20" id="mq9-9u-cuy"/>
+                        <constraint firstItem="jT4-gG-Cjv" firstAttribute="bottom" secondItem="i24-NO-abd" secondAttribute="bottom" id="pBx-sX-Si7"/>
                     </constraints>
                 </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Y6-Cl-J3D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
