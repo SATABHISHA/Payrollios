@@ -19,7 +19,7 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
     let dropDown = DropDown()
     var year_details = [YearDetails]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
-    static var report_html: String!, year: String!
+    static var report_html: String!, year: String!, month_name: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -288,6 +288,7 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
               guard let _ = self else { return }
               sender.setTitle(item, for: .normal) //9
                 print("month-=>",item)
+            ReportsViewController.month_name = item
            /* ReportsViewController.year = self!.year_details[index].financial_year_code
             if index > 0{
                 self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = true
@@ -355,11 +356,40 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.canelBlurEffect()
         }
     }
-    
+    //--------function to load popup salary slip data using Alamofire and Json Swifty code starts(added on 13th Dec 2021)----------
+    func loadHtmlStringSalarySlipData(year:String?, month_name: String?){
+//        loaderStart()
+//        let url = "\(BASE_URL)reports/pf-deduction/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(year!)" //--commented on 18-Aug-2021
+        let url = "\(BASE_URL)reports/pay-slip/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(month_name!)/\(year!)/\(swiftyJsonvar1["employee"]["branch_office_id"].intValue)/ALL"  //--added on 18-Aug-2021(added two parameters)
+        print("url-=>",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+//                self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                    print("Year description: \(swiftyJsonVar)")
+                if(swiftyJsonVar["response"]["status"].stringValue == "true"){
+                    ReportsViewController.report_html = swiftyJsonVar["report_html"].stringValue
+                    self.performSegue(withIdentifier: "pdf", sender: nil)
+                }else{
+                    var style = ToastStyle()
+                    
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                    self.loaderEnd()
+                }
+                    
+                }
+
+                
+            }
+            
+        }
+    //--------function to load popup salary slip data using Alamofire and Json Swifty code ends(added on 13th Dec 2021)----------
     //---Report PopupOk
     @objc func SalarySlipPopupOk(tapGestureRecognizer: UITapGestureRecognizer){
         cancelSalarySlipPopup()
-        loadHtmlStringData(year: ReportsViewController.year)
+        loadHtmlStringSalarySlipData(year: ReportsViewController.year, month_name: ReportsViewController.month_name)
     }
     
     //---Report PopupClose
