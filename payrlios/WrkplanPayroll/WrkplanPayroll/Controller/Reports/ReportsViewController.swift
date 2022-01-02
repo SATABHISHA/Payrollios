@@ -302,6 +302,9 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var month = [String]()
     func get_month_details(){
+        if self.month.isEmpty == false {
+            self.month.removeAll()
+        }
         self.month.append("--Select Month--")
         self.month.append("January")
         self.month.append("February")
