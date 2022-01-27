@@ -152,6 +152,8 @@ class LoginViewController: UIViewController{
                     if(swiftyJsonVar["response"]["status"].stringValue == "true"){
                     print(swiftyJsonVar["company"]["address_line1"].stringValue)
                     UserSingletonModel.sharedInstance.employeeJson = swiftyJsonVar
+                        
+                        print("employeeJsontest-=>",swiftyJsonVar)
                     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
                     print("testing-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
                     
