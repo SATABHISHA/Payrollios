@@ -32,7 +32,7 @@ class EmployeeInformationViewController: UIViewController {
         label_esi_no.text = swiftyJsonvar1["employee"]["esi_no"].stringValue
         label_pf_no.text = swiftyJsonvar1["employee"]["pf_no"].stringValue
         label_uan_no.text = swiftyJsonvar1["employee"]["uan_no"].stringValue
-        label_supervisor1.text = swiftyJsonvar1["employee"]["supervisor_1"].stringValue
+        label_supervisor1.text = swiftyJsonvar1["employee"]["supervisor_1_name"].stringValue
         label_supervisor2.text = swiftyJsonvar1["employee"]["supervisor_2_name"].stringValue
     }
     
