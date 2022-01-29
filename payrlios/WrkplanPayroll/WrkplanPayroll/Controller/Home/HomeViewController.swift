@@ -466,6 +466,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //--Timesheet Details
     @objc func TimesheetView(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "timesheet", sender: nil)
+        print("tapped")
     }
     
     @objc func TimesheetImg(tapGestureRecognizer: UITapGestureRecognizer){
