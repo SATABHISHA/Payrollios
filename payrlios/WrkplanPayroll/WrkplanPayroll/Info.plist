@@ -36,7 +36,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Will you allow this app to always know your location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to track your current location for attendance</string>
+	<string>Turning on location services allow us to get your current location during Login and Logout</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
