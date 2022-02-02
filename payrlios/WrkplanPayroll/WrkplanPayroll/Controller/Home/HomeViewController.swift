@@ -218,7 +218,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.menuItm = "Advance"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "mediclaim")
-        k.menuItm = "Mediclaim"
+        k.menuItm = "Medical Reimb"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "lta")
         k.menuItm = "LTA"
