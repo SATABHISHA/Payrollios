@@ -159,7 +159,8 @@ class LoginViewController: UIViewController{
                     
                     UserSingletonModel.sharedInstance.user_id = swiftyJsonVar["user"]["user_id"].intValue
                     UserSingletonModel.sharedInstance.user_type = swiftyJsonVar["user"]["user_type"].stringValue
-                    
+                        self.sharedpreferences.set(self.corpId.text!, forKey: "CorpIDForLogin")
+                        self.sharedpreferences.synchronize()
                     //====================setting shared preference variables, code starts==============
                     if self.checkBtnYN == 1{
                         self.sharedpreferences.set(UserSingletonModel.sharedInstance.user_id, forKey: "UserId")
