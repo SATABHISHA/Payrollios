@@ -12,7 +12,7 @@ import Alamofire
 import Toast_Swift
 
 class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-
+    
     @IBOutlet weak var txt_employee_name: UITextField!
     @IBOutlet weak var txt_requisition_no: UITextField!
     @IBOutlet weak var img_from_date: UIImageView!
@@ -53,19 +53,19 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         
         txt_requisition_no.setLeftPaddingPoints(5)
         txt_employee_name.setLeftPaddingPoints(5)
-//        txt_view_reason.setLeftPaddingPoints(5)
+        //        txt_view_reason.setLeftPaddingPoints(5)
         
         txt_requisition_no.isUserInteractionEnabled = false
         txt_employee_name.isUserInteractionEnabled = false
         txt_view_remarks.isUserInteractionEnabled = false
         txt_request_status.isUserInteractionEnabled = false
         
-//        btn_submit.isSelected = true
-       
+        //        btn_submit.isSelected = true
+        
         
         type.append("Work From Home")
         
-//        showDatePicker()
+        //        showDatePicker()
         
         //-----Save
         let tapGestureRecognizerSave = UITapGestureRecognizer(target: self, action: #selector(Save(tapGestureRecognizer:)))
@@ -87,8 +87,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             txt_employee_name.text = "\(swiftyJsonvar1["employee"]["employee_fname"].stringValue) \(swiftyJsonvar1["employee"]["employee_lname"].stringValue)"
             loadData()
         }
-//        populate_value()
-//        print("od_rqst_is-=>",OutDoorDutyListViewController.supervisor_od_request_id!)
+        //        populate_value()
+        //        print("od_rqst_is-=>",OutDoorDutyListViewController.supervisor_od_request_id!)
         print("jsonData-=>",swiftyJsonvar1)
     }
     
@@ -105,9 +105,20 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     
     //---Save
     @objc func Save(tapGestureRecognizer: UITapGestureRecognizer){
-//        self.performSegue(withIdentifier: "empinfo", sender: nil)
+        //        self.performSegue(withIdentifier: "empinfo", sender: nil)
         print("Save")
-        SaveData()
+        if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
+            
+            var style = ToastStyle()
+            
+            // this is just one of many style options
+            style.messageColor = .white
+            
+            // present the toast with the new style
+            self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
+        }else{
+            SaveData()
+        }
     }
     
     //---Cancel
@@ -119,14 +130,14 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     /**
      * Called when 'return' key pressed. return NO to ignore.
      */
-
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-            if(text == "\n") {
-                textView.resignFirstResponder()
-                return false
-            }
-            return true
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
         }
+        return true
+    }
     
     private func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -177,7 +188,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         case self.txt_from_date:
             from_date = true
             to_date = false
-           
+            
             showDatePicker(txtfield: txt_from_date)
             txt_to_date.isUserInteractionEnabled = true
             break
@@ -199,7 +210,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                 to_date = true
                 from_date = false
                 
-            showDatePicker(txtfield: txt_to_date)
+                showDatePicker(txtfield: txt_to_date)
             }
             break
         default:
@@ -207,34 +218,41 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         }
     }
     
-   
+    
     //-----Date picker code starts
     func showDatePicker(txtfield: UITextField){
         //Formate Date
         datePicker.datePickerMode = .date
-
-       //ToolBar
-       let toolbar = UIToolbar();
-       toolbar.sizeToFit()
-       let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-      let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
-
-     toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
-
-      txtfield.inputAccessoryView = toolbar
-      txtfield.inputView = datePicker
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        txtfield.inputAccessoryView = toolbar
+        txtfield.inputView = datePicker
         
         
-
-     }
-
+        
+    }
+    
     @objc func donedatePicker(){
-
-       let formatter = DateFormatter()
-       formatter.dateFormat = "dd-MMM-yyyy"
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
         if from_date == true {
-       txt_from_date.text = formatter.string(from: datePicker.date)
+            txt_from_date.text = formatter.string(from: datePicker.date)
+            if txt_to_date.text == ""{
+                txt_to_date.text = formatter.string(from: datePicker.date) //added on 18th Feb
+            }
+            
+            custom_btn_label_save.isEnabled = true
+            custom_btn_label_save.isUserInteractionEnabled = true
+            custom_btn_label_save.alpha = 1.0
         }
         if to_date == true{
             txt_to_date.text = formatter.string(from: datePicker.date)
@@ -250,15 +268,15 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                 // present the toast with the new style
                 self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
                 
-                custom_btn_label_save.isEnabled = false
-                custom_btn_label_save.isUserInteractionEnabled = false
-                custom_btn_label_save.alpha = 0.6
+                /*custom_btn_label_save.isEnabled = false
+                 custom_btn_label_save.isUserInteractionEnabled = false
+                 custom_btn_label_save.alpha = 0.6*/
             }else{
-                custom_btn_label_save.isEnabled = true
-                custom_btn_label_save.isUserInteractionEnabled = true
-                custom_btn_label_save.alpha = 1.0
+                /* custom_btn_label_save.isEnabled = true
+                 custom_btn_label_save.isUserInteractionEnabled = true
+                 custom_btn_label_save.alpha = 1.0*/
             }
-//            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
+            //            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
         }
         //--added on 18th Feb, code starts
         if from_date == true && txt_to_date.text != ""{
@@ -275,26 +293,26 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                 // present the toast with the new style
                 self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
                 
-                custom_btn_label_save.isEnabled = false
-                custom_btn_label_save.isUserInteractionEnabled = false
-                custom_btn_label_save.alpha = 0.6
+                /* custom_btn_label_save.isEnabled = false
+                 custom_btn_label_save.isUserInteractionEnabled = false
+                 custom_btn_label_save.alpha = 0.6*/
             }else{
-                custom_btn_label_save.isEnabled = true
-                custom_btn_label_save.isUserInteractionEnabled = true
-                custom_btn_label_save.alpha = 1.0
+                /*  custom_btn_label_save.isEnabled = true
+                 custom_btn_label_save.isUserInteractionEnabled = true
+                 custom_btn_label_save.alpha = 1.0 */
             }
             
         }
         //--added on 18th Feb, code ends
-       self.view.endEditing(true)
-     }
-
-     @objc func cancelDatePicker(){
         self.view.endEditing(true)
-      }
-       
+    }
     
-   
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    
+    
     
     //-----Date picker code ends
     
@@ -313,9 +331,9 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         let diff = calendar.dateComponents([.day], from: startDate!, to: endDate!).day ?? 0
         
         return diff
-//        print("test-=>",diff)
-       
-        }
+        //        print("test-=>",diff)
+        
+    }
     //--code to get day count ends
     
     //---code for dropdown on button click, starts
@@ -325,29 +343,29 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
         dropDown.show() //7
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
-          guard let _ = self else { return }
-          sender.setTitle(item, for: .normal) //9
+            guard let _ = self else { return }
+            sender.setTitle(item, for: .normal) //9
             sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
-//            print("name-=>",SubordinateLogViewController.subordinate_details[index].slno!)
-
-    }
+            //            print("name-=>",SubordinateLogViewController.subordinate_details[index].slno!)
+            
+        }
     }
     //---code for dropdown on button click, ends
-   
-
+    
+    
     
     
     //--------function to show details using Alamofire and Json Swifty------------
     func loadData(){
-           loaderStart()
+        loaderStart()
         
         let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(OutDoorDutyListViewController.supervisor_od_request_id!)/1/"
         print("SubordinateOutDoorDutylisturl-=>",url)
-           AF.request(url).responseJSON{ (responseData) -> Void in
-               self.loaderEnd()
-               if((responseData.value) != nil){
-                   let swiftyJsonVar=JSON(responseData.value!)
-                   print("Log details sup: \(swiftyJsonVar)")
+        AF.request(url).responseJSON{ (responseData) -> Void in
+            self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                print("Log details sup: \(swiftyJsonVar)")
                 
                 
                 if swiftyJsonVar["fields"]["od_status"].stringValue == "Save"{
@@ -358,7 +376,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                     self.btn_select_type.setTitle("Work From Home", for: .normal)
                     
                     self.custom_btn_label_save.isUserInteractionEnabled = true
-//                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    //                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
                     
                     self.btn_save.isSelected = true
                 } else if swiftyJsonVar["fields"]["od_status"].stringValue == "Return"{
@@ -369,7 +387,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                     self.btn_select_type.setTitle("Work From Home", for: .normal)
                     
                     self.custom_btn_label_save.isUserInteractionEnabled = true
-//                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    //                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
                     
                     self.btn_submit.isSelected = true
                     
@@ -406,11 +424,11 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                 print("odrqsttest-=>",self.od_request_id)
                 
                 
-               }
-               
-           }
+            }
+            
+        }
     }
-       //--------function to log details using Alamofire and Json Swifty code ends------------
+    //--------function to log details using Alamofire and Json Swifty code ends------------
     
     //-----function to save data, code starts---
     func SaveData(){
@@ -438,109 +456,109 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         ]
         
         print("SentData-=>",sentData)
+        
+        AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+            response in
+            switch response.result{
                 
-                AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
-                    response in
-                    switch response.result{
-                        
-                    case .success:
-//                        self.loaderEnd()
-                        let swiftyJsonVar = JSON(response.value!)
-                        print("Return saved data: ", swiftyJsonVar)
+            case .success:
+                //                        self.loaderEnd()
+                let swiftyJsonVar = JSON(response.value!)
+                print("Return saved data: ", swiftyJsonVar)
+                
+                if swiftyJsonVar["status"].stringValue == "true"{
+                    // Create new Alert
+                    var dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
                     
-                        if swiftyJsonVar["status"].stringValue == "true"{
-                            // Create new Alert
-                            var dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
-                            
-                            // Create OK button with action handler
-                            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-//                                print("Ok button tapped")
-                                self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
-                             })
-                            
-                            //Add OK button to a dialog message
-                            dialogMessage.addAction(ok)
-
-                            // Present Alert to
-                            self.present(dialogMessage, animated: true, completion: nil)
-                        }else{
-                            var style = ToastStyle()
-                            
-                            // this is just one of many style options
-                            style.messageColor = .white
-                            
-                            // present the toast with the new style
-                            self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
-                        }
-//                        if swiftyJsonVar["status"].stringValue == "success" {
-//                            let data = swiftyJsonVar["message"].stringValue
-//
-//
-//                        } else {
-//                            let message = swiftyJsonVar["message"].stringValue
-//
-////                            Toast(text: message, duration: Delay.short).show()
-//                            print("Return edit data: ", swiftyJsonVar)
-//                        }
-                        break
-                        
-                    case .failure(let error):
-//                        self.loaderEnd()
-                        print("Error: ", error)
-                    }
+                    // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                        //                                print("Ok button tapped")
+                        self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+                    })
+                    
+                    //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                    
+                    // Present Alert to
+                    self.present(dialogMessage, animated: true, completion: nil)
+                }else{
+                    var style = ToastStyle()
+                    
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    
+                    // present the toast with the new style
+                    self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
                 }
+                //                        if swiftyJsonVar["status"].stringValue == "success" {
+                //                            let data = swiftyJsonVar["message"].stringValue
+                //
+                //
+                //                        } else {
+                //                            let message = swiftyJsonVar["message"].stringValue
+                //
+                ////                            Toast(text: message, duration: Delay.short).show()
+                //                            print("Return edit data: ", swiftyJsonVar)
+                //                        }
+                break
+                
+            case .failure(let error):
+                //                        self.loaderEnd()
+                print("Error: ", error)
+            }
+        }
     }
     
     //-----function to save data, code ends---
-   
+    
     
     // ====================== Blur Effect Defiend START ================= \\
-        var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-        var blurEffectView: UIVisualEffectView!
-        var loader: UIVisualEffectView!
-        func loaderStart() {
-            // ====================== Blur Effect START ================= \\
-            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            loader = UIVisualEffectView(effect: blurEffect)
-            loader.frame = view.bounds
-            loader.alpha = 2
-            view.addSubview(loader)
-            
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-            let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
-            activityIndicator.transform = transform
-            loadingIndicator.center = self.view.center;
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.white
-            loadingIndicator.startAnimating();
-            loader.contentView.addSubview(loadingIndicator)
-            
-            // screen roted and size resize automatic
-            loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
-            
-            // ====================== Blur Effect END ================= \\
-        }
-        
-        func loaderEnd() {
-            self.loader.removeFromSuperview();
-        }
-        // ====================== Blur Effect Defiend END ================= \\
-        
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var blurEffectView: UIVisualEffectView!
+    var loader: UIVisualEffectView!
+    func loaderStart() {
         // ====================== Blur Effect START ================= \\
-        func blurEffect() {
-            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = view.bounds
-            blurEffectView.alpha = 0.9
-            view.addSubview(blurEffectView)
-            // screen roted and size resize automatic
-            blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
-          
-        }
-        func canelBlurEffect() {
-            self.blurEffectView.removeFromSuperview();
-        }
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        loader = UIVisualEffectView(effect: blurEffect)
+        loader.frame = view.bounds
+        loader.alpha = 2
+        view.addSubview(loader)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+        activityIndicator.transform = transform
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.white
+        loadingIndicator.startAnimating();
+        loader.contentView.addSubview(loadingIndicator)
+        
+        // screen roted and size resize automatic
+        loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
         // ====================== Blur Effect END ================= \\
-
+    }
+    
+    func loaderEnd() {
+        self.loader.removeFromSuperview();
+    }
+    // ====================== Blur Effect Defiend END ================= \\
+    
+    // ====================== Blur Effect START ================= \\
+    func blurEffect() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.alpha = 0.9
+        view.addSubview(blurEffectView)
+        // screen roted and size resize automatic
+        blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
+    }
+    func canelBlurEffect() {
+        self.blurEffectView.removeFromSuperview();
+    }
+    // ====================== Blur Effect END ================= \\
+    
 }
 
