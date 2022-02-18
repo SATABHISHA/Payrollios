@@ -177,6 +177,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         case self.txt_from_date:
             from_date = true
             to_date = false
+           
             showDatePicker(txtfield: txt_from_date)
             txt_to_date.isUserInteractionEnabled = true
             break
@@ -251,6 +252,23 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             }
 //            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
         }
+        //--added on 18th Feb, code starts
+        if from_date == true && txt_to_date.text != ""{
+            txt_from_date.text = formatter.string(from: datePicker.date)
+            label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            
+            if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
+                custom_btn_label_save.isEnabled = false
+                custom_btn_label_save.isUserInteractionEnabled = false
+                custom_btn_label_save.alpha = 0.6
+            }else{
+                custom_btn_label_save.isEnabled = true
+                custom_btn_label_save.isUserInteractionEnabled = true
+                custom_btn_label_save.alpha = 1.0
+            }
+            
+        }
+        //--added on 18th Feb, code ends
        self.view.endEditing(true)
      }
 
