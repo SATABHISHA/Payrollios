@@ -142,11 +142,6 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
         
         let od_request_id = rowData["od_request_id"]?.stringValue
         
-        delete_data(od_request_id: od_request_id!)
-        
-        self.arrRes.remove(at: tappedIndexPath.row)
-        TableViewOutdoorList.reloadData()
-        
         self.delete_data(od_request_id: od_request_id!)
         
         self.arrRes.remove(at: tappedIndexPath.row)
