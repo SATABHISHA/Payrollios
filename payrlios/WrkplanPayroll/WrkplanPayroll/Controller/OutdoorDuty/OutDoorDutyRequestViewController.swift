@@ -242,6 +242,14 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
             
             if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
+                var style = ToastStyle()
+                
+                // this is just one of many style options
+                style.messageColor = .white
+                
+                // present the toast with the new style
+                self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
+                
                 custom_btn_label_save.isEnabled = false
                 custom_btn_label_save.isUserInteractionEnabled = false
                 custom_btn_label_save.alpha = 0.6
@@ -258,6 +266,15 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
             
             if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
+                
+                var style = ToastStyle()
+                
+                // this is just one of many style options
+                style.messageColor = .white
+                
+                // present the toast with the new style
+                self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
+                
                 custom_btn_label_save.isEnabled = false
                 custom_btn_label_save.isUserInteractionEnabled = false
                 custom_btn_label_save.alpha = 0.6
