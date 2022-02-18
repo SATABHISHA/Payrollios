@@ -262,7 +262,27 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     @objc func Save(tapGestureRecognizer: UITapGestureRecognizer){
 //        self.performSegue(withIdentifier: "empinfo", sender: nil)
         print("Save")
+        if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
+            
+            var style = ToastStyle()
+            
+            // this is just one of many style options
+            style.messageColor = .white
+            
+            // present the toast with the new style
+            self.view.makeToast("\"To Date\" should be greater than \"From Date\"", duration: 3.0, position: .bottom, style: style)
+        }else if txt_view_details.text == ""{
+            var style = ToastStyle()
+            
+            // this is just one of many style options
+            style.messageColor = .white
+            
+            // present the toast with the new style
+            self.view.makeToast("Please enter Details", duration: 3.0, position: .bottom, style: style)
+        }else{
+            
         SaveData()
+        }
     }
     
     //---Cancel
@@ -349,17 +369,57 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             print("test-=>",daysBetween(start: txt_from_date.text!, end: txt_to_date.text!))
             label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
             
+            custom_btn_label_save.isEnabled = true
+            custom_btn_label_save.isUserInteractionEnabled = true
+            custom_btn_label_save.alpha = 1.0
+            
             if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
-                custom_btn_label_save.isEnabled = false
+                var style = ToastStyle()
+                
+                // this is just one of many style options
+                style.messageColor = .white
+                
+                // present the toast with the new style
+                self.view.makeToast("\"To Date\" should be greater than \"From Date\"", duration: 3.0, position: .bottom, style: style)
+                
+                
+               /* custom_btn_label_save.isEnabled = false
                 custom_btn_label_save.isUserInteractionEnabled = false
-                custom_btn_label_save.alpha = 0.6
+                custom_btn_label_save.alpha = 0.6*/
             }else{
-                custom_btn_label_save.isEnabled = true
+                /*custom_btn_label_save.isEnabled = true
                 custom_btn_label_save.isUserInteractionEnabled = true
-                custom_btn_label_save.alpha = 1.0
+                custom_btn_label_save.alpha = 1.0*/
             }
 //            daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)
         }
+        
+        //--added on 18th Feb, code starts
+        if from_date == true && txt_to_date.text != ""{
+            txt_from_date.text = formatter.string(from: datePicker.date)
+            label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            
+            if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
+                
+                var style = ToastStyle()
+                
+                // this is just one of many style options
+                style.messageColor = .white
+                
+                // present the toast with the new style
+                self.view.makeToast("\"To Date\" should be greater than \"From Date\"", duration: 3.0, position: .bottom, style: style)
+                
+                /* custom_btn_label_save.isEnabled = false
+                 custom_btn_label_save.isUserInteractionEnabled = false
+                 custom_btn_label_save.alpha = 0.6*/
+            }else{
+                /*  custom_btn_label_save.isEnabled = true
+                 custom_btn_label_save.isUserInteractionEnabled = true
+                 custom_btn_label_save.alpha = 1.0 */
+            }
+            
+        }
+        //--added on 18th Feb, code ends
        self.view.endEditing(true)
      }
 

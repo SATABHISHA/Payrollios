@@ -115,7 +115,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             style.messageColor = .white
             
             // present the toast with the new style
-            self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
+            self.view.makeToast("\"To Date\" should be greater than \"From Date\"", duration: 3.0, position: .bottom, style: style)
         }else{
             SaveData()
         }
@@ -266,7 +266,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                 style.messageColor = .white
                 
                 // present the toast with the new style
-                self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
+                self.view.makeToast("\"To Date\" should be greater than \"From Date\"", duration: 3.0, position: .bottom, style: style)
                 
                 /*custom_btn_label_save.isEnabled = false
                  custom_btn_label_save.isUserInteractionEnabled = false
@@ -291,7 +291,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                 style.messageColor = .white
                 
                 // present the toast with the new style
-                self.view.makeToast("\("To Date") should be greater than \("From Date")", duration: 3.0, position: .bottom, style: style)
+                self.view.makeToast("\"To Date\" should be greater than \"From Date\"", duration: 3.0, position: .bottom, style: style)
                 
                 /* custom_btn_label_save.isEnabled = false
                  custom_btn_label_save.isUserInteractionEnabled = false
