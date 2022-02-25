@@ -25,6 +25,7 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     
     let dropDown = DropDown()
     var name = [String]()
+    static var slno: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
@@ -68,6 +69,7 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
             guard let _ = self else { return }
             sender.setTitle(item, for: .normal) //9
             print("name-=>",SubordinateLogViewController.subordinate_details[index].slno!)
+            SubordinateMyAttendanceLogViewController.slno = SubordinateLogViewController.subordinate_details[index].slno!
             //            self!.loadData(year: item)
             
             //--adeded on 24th feb, starts
@@ -189,8 +191,10 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     //--------function to show log details using Alamofire and Json Swifty------------
     func loadData(month_number:Int, year:Int){
         loaderStart()
-        let url = "\(BASE_URL)timesheet/log/monthly/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(month_number)/\(year)"
+//        let url = "\(BASE_URL)timesheet/log/monthly/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(month_number)/\(year)"
+        let url = "\(BASE_URL)timesheet/log/monthly/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(String(describing: SubordinateMyAttendanceLogViewController.slno!))/\(month_number)/\(year)"
         print("SubMnLog-=>",url)
+        
         //        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
         AF.request(url).responseJSON{ (responseData) -> Void in
             self.loaderEnd()
