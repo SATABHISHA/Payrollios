@@ -212,7 +212,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.menuItm = "Outdoor Duty"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "timesheet")
-        k.menuItm = "Timesheet"
+        k.menuItm = "Attendance"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "advance")
         k.menuItm = "Advance"
@@ -549,7 +549,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 menuClose()
                 self.performSegue(withIdentifier: "odloglist", sender: self)
             }
-            else if row.menuItm == "Timesheet"{
+            else if row.menuItm == "Attendance"{
                 menuClose()
                 self.performSegue(withIdentifier: "timesheet", sender: self)
                
