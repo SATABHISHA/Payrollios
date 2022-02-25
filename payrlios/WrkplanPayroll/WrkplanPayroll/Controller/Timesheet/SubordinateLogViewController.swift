@@ -125,12 +125,12 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         if dict["status"] as! String == "Absent"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
-            cell.label_status.backgroundColor = UIColor(hexFromString: "#FF0000")
+            cell.label_status.backgroundColor = UIColor(hexFromString: "#fb4e4e")
             cell.label_status.cornerRadius = 5
         }else if dict["status"] as! String == "Present" {
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#6E6E6E")
-            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            cell.label_status.backgroundColor = UIColor(hexFromString: "#9fdd55")
             cell.label_status.cornerRadius = 5
             if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
                 cell.img_sub_log_arrow.isHidden = false
@@ -140,7 +140,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         }else if dict["status"] as! String == "Present(WFH)"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
-            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            cell.label_status.backgroundColor = UIColor(hexFromString: "#9fdd55")
             cell.label_status.cornerRadius = 5
             if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
                 cell.img_sub_log_arrow.isHidden = false
@@ -150,7 +150,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         }else if dict["status"] as! String == "WFH"{
             cell.label_status.isHidden = false
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
-            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            cell.label_status.backgroundColor = UIColor(hexFromString: "#9fdd55")
             cell.label_status.cornerRadius = 5
             if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
                 cell.img_sub_log_arrow.isHidden = false
