@@ -188,7 +188,8 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
                 for(key,value) in swiftyJsonVar["subordinate_logs"]{
                     var k = SubordinateDetails()
                     k.employee_name = value["employee_name"].stringValue
-                    k.slno = value["slno"].intValue
+//                    k.slno = value["slno"].intValue
+                    k.slno = value["employee_id"].intValue
                     SubordinateLogViewController.subordinate_details.append(k)
                 }
                 if self.arrRes.count>0 {
