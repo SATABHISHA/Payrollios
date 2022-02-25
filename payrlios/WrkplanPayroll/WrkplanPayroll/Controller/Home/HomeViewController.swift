@@ -218,7 +218,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.menuItm = "Advance"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "mediclaim")
-        k.menuItm = "Medical Reimb"
+        k.menuItm = "Medical Reimbursement"
         navigationDrawerData.append(k)
         k.imageData = UIImage(named: "lta")
         k.menuItm = "LTA"
@@ -560,7 +560,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }else if row.menuItm == "Reports"{
                 menuClose()
                 self.performSegue(withIdentifier: "reports", sender: self)
-            }else if row.menuItm == "Mediclaim"{
+            }else if row.menuItm == "Medical Reimbursement"{
                 menuClose()
                 self.performSegue(withIdentifier: "mediclaimlist", sender: self)
             }else if row.menuItm == "LTA"{
