@@ -184,7 +184,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USB-BF-wc8">
                                                         <rect key="frame" x="201" y="0.0" width="193" height="222"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insurance Detail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-NY-mGz">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attendance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-NY-mGz">
                                                                 <rect key="frame" x="0.0" y="177" width="193" height="45"/>
                                                                 <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -194,7 +194,7 @@
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insurance" translatesAutoresizingMaskIntoConstraints="NO" id="jy1-DP-nep">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timesheet" translatesAutoresizingMaskIntoConstraints="NO" id="jy1-DP-nep">
                                                                 <rect key="frame" x="32" y="24" width="129" height="120"/>
                                                             </imageView>
                                                         </subviews>
@@ -321,7 +321,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B7-vs-0hS">
                                                         <rect key="frame" x="201" y="0.0" width="193" height="222"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attendance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKH-dv-UeR">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insurance Detail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKH-dv-UeR">
                                                                 <rect key="frame" x="0.0" y="177" width="193" height="45"/>
                                                                 <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -331,7 +331,7 @@
                                                                 <color key="textColor" red="0.069044977430000001" green="0.24559012059999999" blue="0.3685681522" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timesheet" translatesAutoresizingMaskIntoConstraints="NO" id="WO2-31-ocP">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insurance" translatesAutoresizingMaskIntoConstraints="NO" id="WO2-31-ocP">
                                                                 <rect key="frame" x="32" y="24" width="129" height="120"/>
                                                             </imageView>
                                                         </subviews>
@@ -712,8 +712,8 @@
                         <outlet property="EmployeeInformationView" destination="Tyv-sd-Vqk" id="sG0-sM-yhl"/>
                         <outlet property="HolidayImg" destination="75t-x1-pDe" id="DbY-IF-E1n"/>
                         <outlet property="HolidayView" destination="egu-SH-tKL" id="kRI-Nd-etz"/>
-                        <outlet property="InsuranceImg" destination="jy1-DP-nep" id="hGy-OG-jWb"/>
-                        <outlet property="InsuranceView" destination="USB-BF-wc8" id="Klj-xn-6Lv"/>
+                        <outlet property="InsuranceImg" destination="WO2-31-ocP" id="DFy-C6-aMU"/>
+                        <outlet property="InsuranceView" destination="0B7-vs-0hS" id="q99-rr-qFT"/>
                         <outlet property="LabelLta" destination="vl9-Kr-N5w" id="xx1-z7-RSH"/>
                         <outlet property="LabelMediclaim" destination="BxD-pe-lXn" id="fA1-M1-Khm"/>
                         <outlet property="LeaveImg" destination="58B-4c-MWU" id="SWO-Yx-npR"/>
@@ -730,8 +730,8 @@
                         <outlet property="ReportsView" destination="RI2-g2-x1g" id="jSN-Ut-2Ht"/>
                         <outlet property="ScrollView" destination="9dN-SJ-4Ug" id="DUY-AR-5rr"/>
                         <outlet property="ScrollViewContainer" destination="KEL-6a-67U" id="per-Gx-m1I"/>
-                        <outlet property="TimesheetImg" destination="WO2-31-ocP" id="hvR-AE-nrb"/>
-                        <outlet property="TimesheetView" destination="0B7-vs-0hS" id="lEe-33-5UB"/>
+                        <outlet property="TimesheetImg" destination="jy1-DP-nep" id="rgk-57-Qrd"/>
+                        <outlet property="TimesheetView" destination="USB-BF-wc8" id="fvb-90-Eok"/>
                         <outlet property="btnPasswordChangeSubmit" destination="HIN-ZZ-FG8" id="NSs-bT-o59"/>
                         <outlet property="info_img" destination="hSJ-2Y-Fzb" id="b0x-I5-ros"/>
                         <outlet property="labelAdvance" destination="VE5-Bh-g98" id="sV9-7B-8UI"/>
@@ -740,13 +740,13 @@
                         <outlet property="labelEmployeeFacilities" destination="gnO-Xu-h5U" id="cZe-tv-2YY"/>
                         <outlet property="labelEmployeeInformation" destination="eZj-PX-RGX" id="jnS-ls-egh"/>
                         <outlet property="labelHoliday" destination="eAd-sK-I4I" id="AvR-jq-Iuk"/>
-                        <outlet property="labelInsurance" destination="h3Y-NY-mGz" id="zpI-MU-Qgs"/>
+                        <outlet property="labelInsurance" destination="RKH-dv-UeR" id="cUN-HN-WyN"/>
                         <outlet property="labelLeave" destination="C0p-h6-SZG" id="Dvc-7H-vTV"/>
                         <outlet property="labelODduty" destination="qOE-1k-TzH" id="xaS-Dy-1OA"/>
                         <outlet property="labelODdutyRequest" destination="BPE-8N-Qtn" id="weZ-Ks-ZV9"/>
                         <outlet property="labelPasswordCheck" destination="Znr-fI-wV0" id="Je2-pV-vli"/>
                         <outlet property="labelReports" destination="iOC-fc-vsn" id="EvZ-u4-daV"/>
-                        <outlet property="labelTimesheet" destination="RKH-dv-UeR" id="WwQ-2t-vXW"/>
+                        <outlet property="labelTimesheet" destination="h3Y-NY-mGz" id="I10-I9-qQX"/>
                         <outlet property="navigationCompanyName" destination="uLX-6U-sMA" id="7yy-Gw-jms"/>
                         <outlet property="navigationDrawer" destination="u9Z-Il-Kjs" id="4PD-O9-RFQ"/>
                         <outlet property="navigationDrawerLeadingConstraint" destination="FSy-D0-Gqe" id="Jax-la-1zG"/>
