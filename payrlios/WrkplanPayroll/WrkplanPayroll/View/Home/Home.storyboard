@@ -656,13 +656,23 @@
                                             <action selector="menuBth:" destination="vAm-Sg-zUc" eventType="touchUpInside" id="io5-Pn-fhf"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="v2m-Ds-Z7Q">
+                                        <rect key="frame" x="350" y="16" width="38" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="EDr-fM-Spf"/>
+                                            <constraint firstAttribute="width" constant="38" id="qur-Q1-iRU"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1803921568627451" green="0.3411764705882353" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="2pz-sr-D2m"/>
                                     <constraint firstItem="xgz-Nm-HpD" firstAttribute="leading" secondItem="8xS-bV-TDx" secondAttribute="trailing" constant="25" id="3It-xh-o9X"/>
+                                    <constraint firstAttribute="bottom" secondItem="v2m-Ds-Z7Q" secondAttribute="bottom" constant="15" id="Gsf-pc-3M4"/>
+                                    <constraint firstItem="v2m-Ds-Z7Q" firstAttribute="top" secondItem="bRV-1p-Q0c" secondAttribute="top" constant="16" id="HC4-Gf-ZbV"/>
                                     <constraint firstAttribute="bottom" secondItem="xgz-Nm-HpD" secondAttribute="bottom" constant="20" symbolic="YES" id="I5V-V1-3y5"/>
                                     <constraint firstItem="8xS-bV-TDx" firstAttribute="leading" secondItem="bRV-1p-Q0c" secondAttribute="leading" constant="15" id="bXR-EL-A8q"/>
+                                    <constraint firstAttribute="trailing" secondItem="v2m-Ds-Z7Q" secondAttribute="trailing" constant="26" id="mVb-Rr-DgY"/>
                                     <constraint firstItem="8xS-bV-TDx" firstAttribute="top" secondItem="bRV-1p-Q0c" secondAttribute="top" constant="16" id="o0L-yF-GQq"/>
                                     <constraint firstAttribute="bottom" secondItem="8xS-bV-TDx" secondAttribute="bottom" constant="16" id="roV-Mc-Dlb"/>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="xgz-Nm-HpD" secondAttribute="trailing" constant="203" id="vYL-DF-GEV"/>
@@ -1129,6 +1139,7 @@
     </scenes>
     <resources>
         <image name="advance" width="512" height="512"/>
+        <image name="bell" width="128" height="119"/>
         <image name="eminfo" width="512" height="512"/>
         <image name="employeedocs" width="512" height="512"/>
         <image name="facilities" width="512" height="512"/>
