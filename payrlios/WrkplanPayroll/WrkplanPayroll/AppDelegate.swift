@@ -31,6 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: UISceneSession Lifecycle
 
+    //---added on 08-Mar-2022, code starts----
+    /*func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        print("Local notification received (tapped, or while app in foreground): \(notification)")
+    }*/
+    // Local notifications
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    //---added on 08-Mar-2022, code ends----
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.

@@ -109,6 +109,8 @@ class LoginViewController: UIViewController{
         password.resignFirstResponder()
         loaderStart()
         self.Validate()
+        
+       
     }
     
     func Validate(){

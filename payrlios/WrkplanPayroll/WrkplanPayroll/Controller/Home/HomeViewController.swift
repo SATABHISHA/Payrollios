@@ -9,14 +9,16 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Toast_Swift
+import UserNotifications
 
 struct NavigationMenuData{
     var imageData:UIImage!
     var menuItm:String!
 }
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UNUserNotificationCenterDelegate {
     
+    @IBOutlet weak var NotificationImageView: UIImageView!
     @IBOutlet weak var ScrollViewContainer: UIView!
     @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var EmployeeInformationView: UIView!
@@ -98,10 +100,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //---Declaring shared preferences----
     let sharedpreferences = UserDefaults.standard
     
+    let userNotificationCenter = UNUserNotificationCenter.current() //---added on 08-Mar-2022
+    let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound) //---added on 08-Mar-2022
+    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ChangeStatusBarColor() //---to change background statusbar color
+        
+        //---added on 08-Mar-2022, code starts----
+        // Assing self delegate on userNotificationCenter
+            self.userNotificationCenter.delegate = self
+
+            self.requestNotificationAuthorization()
+            self.sendNotification()
+        //---added on 08-Mar-2022, code ends----
        
         tableViewNavigation.dataSource = self
         tableViewNavigation.delegate = self
@@ -366,6 +380,56 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         check_od_duty_log_status()
     }
+    
+    //---added on 08-Mar-2022, code starts---
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
+        
+        self.userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
+            if let error = error {
+                print("Error: ", error)
+            }
+        }
+    }
+    
+    func sendNotification() {
+        // Create new notifcation content instance
+        let notificationContent = UNMutableNotificationContent()
+
+        // Add the content to the notification content
+        notificationContent.title = "Test"
+        notificationContent.body = "Test body"
+        notificationContent.badge = NSNumber(value: 3)
+
+        // Add an attachment to the notification content
+        if let url = Bundle.main.url(forResource: "dune",
+                                        withExtension: "png") {
+            if let attachment = try? UNNotificationAttachment(identifier: "dune",
+                                                                url: url,
+                                                                options: nil) {
+                notificationContent.attachments = [attachment]
+            }
+        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                        repeats: false)
+        let request = UNNotificationRequest(identifier: "testNotification",
+                                            content: notificationContent,
+                                            trigger: trigger)
+        userNotificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
+    }
+    //---added on 08-Mar-2022, code ends---
     
     //---Lta
     @objc func LtaImg(tapGestureRecognizer: UITapGestureRecognizer){
