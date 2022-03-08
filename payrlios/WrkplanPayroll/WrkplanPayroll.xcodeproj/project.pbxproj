@@ -136,6 +136,9 @@
 		17F5E9A1267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F5E9A0267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift */; };
 		17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */; };
 		17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */; };
+		197D6E0527D72E27005B8B78 /* NotificationHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */; };
+		197D6E0A27D72EF5005B8B78 /* NotificationHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0927D72EF5005B8B78 /* NotificationHomeViewController.swift */; };
+		197D6E0C27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */; };
 		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
 		BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
 		F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */; };
@@ -293,6 +296,9 @@
 		17F5E9A0267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateAdvanceRequisitionListTableViewCell.swift; sourceTree = "<group>"; };
 		17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListViewController.swift; sourceTree = "<group>"; };
 		17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListTableViewCell.swift; sourceTree = "<group>"; };
+		197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationHome.storyboard; sourceTree = "<group>"; };
+		197D6E0927D72EF5005B8B78 /* NotificationHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHomeViewController.swift; sourceTree = "<group>"; };
+		197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHlomeTableViewCell.swift; sourceTree = "<group>"; };
 		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
 		4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -467,6 +473,7 @@
 		173C0F5325627183007AE8F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				197D6E0627D72E8D005B8B78 /* Notifications */,
 				17640A49269EC9990058DE31 /* Lta */,
 				17C1912D2689D98000E83C1F /* Mediclaim */,
 				178E61E226789F8500BD0A4E /* Advance */,
@@ -498,6 +505,7 @@
 		173C0F55256272B2007AE8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				197D6E0327D72D11005B8B78 /* Notifications */,
 				17640A4C269EC9CF0058DE31 /* Lta */,
 				17C1912C2689D96300E83C1F /* Mediclaim */,
 				178E61DF26789EF500BD0A4E /* Advance */,
@@ -807,6 +815,23 @@
 			path = EmployeeDocuments;
 			sourceTree = "<group>";
 		};
+		197D6E0327D72D11005B8B78 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		197D6E0627D72E8D005B8B78 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				197D6E0927D72EF5005B8B78 /* NotificationHomeViewController.swift */,
+				197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		33AC7048929A23A2D82489A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -939,6 +964,7 @@
 				173C0F2A25626FBE007AE8F6 /* LaunchScreen.storyboard in Resources */,
 				170DE5922620653100C9FEF1 /* SubordinateLeaveRequest.storyboard in Resources */,
 				17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */,
+				197D6E0527D72E27005B8B78 /* NotificationHome.storyboard in Resources */,
 				1791C080261765E300EE734A /* SubordinateOdDutyLogList.storyboard in Resources */,
 				17640A4E269ECA040058DE31 /* Lta.storyboard in Resources */,
 				178E61E126789F4B00BD0A4E /* AdvanceRequisitionList.storyboard in Resources */,
@@ -1109,6 +1135,7 @@
 				17C564C126A6B73C00D50B08 /* LtaSupportingDocumentsViewController.swift in Sources */,
 				176224FF2570D77A005F6C5B /* CompanyDocumentsTableViewCell.swift in Sources */,
 				17C564C326A6B76500D50B08 /* LtaSupportingDocumentsTableViewCell.swift in Sources */,
+				197D6E0A27D72EF5005B8B78 /* NotificationHomeViewController.swift in Sources */,
 				172D28C7257501DA00C6E2A6 /* HolidayDetailsViewController.swift in Sources */,
 				17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */,
 				1702411225EFD33800F6D285 /* KGRadioButton.swift in Sources */,
@@ -1159,6 +1186,7 @@
 				1705789D25F655FA00F78865 /* SubordinateOutdoorDutyRequestViewController.swift in Sources */,
 				179E370326A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift in Sources */,
 				173C0F1B25626FB9007AE8F6 /* AppDelegate.swift in Sources */,
+				197D6E0C27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift in Sources */,
 				1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */,
 				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,
 				17BDC05926451A2F006EAFD0 /* ReportsViewController.swift in Sources */,
