@@ -760,7 +760,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                                   let fullbodyArr : [String] = body.components(separatedBy: "::")
                                                   
                                                   var message : String = fullbodyArr[4]
-                                                  print("Message-=>", message)
+                                                  var fullMessageArr: [String] = message.components(separatedBy: "=")
+                                                  var messageOutput : String = fullMessageArr[1]
+                                                  print("Message-=>", messageOutput)
                                                   
                                               }
                                           }
