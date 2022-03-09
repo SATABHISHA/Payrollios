@@ -11,6 +11,7 @@ import SwiftyJSON
 import Toast_Swift
 import UserNotifications
 import SQLite3
+import CoreData
 
 struct NavigationMenuData{
     var imageData:UIImage!
@@ -105,6 +106,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound) //---added on 08-Mar-2022
     
     var db: OpaquePointer? //---added on 09-Mar-2022
+    var arrResNotification = [[String:Any]]()
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,16 +114,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ChangeStatusBarColor() //---to change background statusbar color
         
         //---added on 09-Mar-2022, code starts---
-        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-                   .appendingPathComponent("WrkplanPayrollNotification.sqlite") //---added on 09-Mar-2022
+        LoadNotificationData()
         
-        if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
-                    print("error opening database")
-                }
-        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS WrkplanPayrollNotification (id INTEGER PRIMARY KEY AUTOINCREMENT, jsonResponse TEXT)", nil, nil, nil) != SQLITE_OK {
-                   let errmsg = String(cString: sqlite3_errmsg(db)!)
-                   print("error creating table: \(errmsg)")
-               }
         //---added on 09-Mar-2022, code ends----
         
         //---added on 08-Mar-2022, code starts----
@@ -696,6 +690,61 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuShow()
     }
     
+    
+    //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code starts----
+    func LoadNotificationData(){
+        let url = "\(BASE_URL)notification/custom/fetch/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/44/"
+        print("NotificationUrl-=>",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+//               self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                print("Log Notification description: \(swiftyJsonVar)")
+             
+             
+             
+                if let resData = swiftyJsonVar["notifications"].arrayObject{
+                       self.arrResNotification = resData as! [[String:AnyObject]]
+                }
+             if swiftyJsonVar["response"]["status"] == "true"{
+                print("Eureka")
+                 if self.arrResNotification.count > 0 {
+                    /* let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                                .appendingPathComponent("WrkplanPayrollNotification.sqlite") //---added on 09-Mar-2022
+                     
+                     if sqlite3_open(fileURL.path, &self.db) != SQLITE_OK {
+                                 print("error opening database")
+                             }
+                     if sqlite3_exec(self.db, "CREATE TABLE IF NOT EXISTS WrkplanPayrollNotification (id INTEGER PRIMARY KEY AUTOINCREMENT, JsonResponse TEXT, ReadYN TEXT)", nil, nil, nil) != SQLITE_OK {
+                         let errmsg = String(cString: sqlite3_errmsg(self.db)!)
+                                print("error creating table: \(errmsg)")
+                            }
+                     
+                     var stmt: OpaquePointer?
+                     let queryString = "INSERT INTO WrkplanPayrollNotification (\(swiftyJsonVar), Y) VALUES (?,?)"*/
+                     //Storing core data
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            let context = appDelegate.persistentContainer.viewContext
+                            let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
+                            UserNotification.setValue("\(swiftyJsonVar)", forKey: "jsondata")
+                            UserNotification.setValue("Y", forKey: "readyn")
+                            do{
+                                try context.save()
+                                print("SAVED")
+                            }catch{
+                                //PROCESS ERROR
+                            }
+                      
+                 }
+             }else if swiftyJsonVar["status"] == "false"{
+                 print("false")
+             }
+              
+            }
+            
+        }
+    }
+    //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code ends----
     
     //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code starts-----
     func check_od_duty_log_status(){

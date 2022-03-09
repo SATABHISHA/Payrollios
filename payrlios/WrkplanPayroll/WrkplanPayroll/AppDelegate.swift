@@ -62,7 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "WrkplanPayroll")
+//        let container = NSPersistentContainer(name: "WrkplanPayroll") //---commented on 09-March-2022
+        let container = NSPersistentContainer(name: "DataModel") //---added on 09-Mar-2022
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
