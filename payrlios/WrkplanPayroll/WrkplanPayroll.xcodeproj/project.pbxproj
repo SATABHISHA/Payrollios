@@ -139,6 +139,7 @@
 		197D6E0527D72E27005B8B78 /* NotificationHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */; };
 		197D6E0A27D72EF5005B8B78 /* NotificationHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0927D72EF5005B8B78 /* NotificationHomeViewController.swift */; };
 		197D6E0C27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */; };
+		198DA98F27D887230045D9AE /* SqliteDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198DA98E27D887230045D9AE /* SqliteDb.swift */; };
 		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
 		BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
 		F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */; };
@@ -299,6 +300,7 @@
 		197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationHome.storyboard; sourceTree = "<group>"; };
 		197D6E0927D72EF5005B8B78 /* NotificationHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHomeViewController.swift; sourceTree = "<group>"; };
 		197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHlomeTableViewCell.swift; sourceTree = "<group>"; };
+		198DA98E27D887230045D9AE /* SqliteDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDb.swift; sourceTree = "<group>"; };
 		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
 		4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				178A1085256679B900569712 /* AppConfig.swift */,
 				172FBE222570345A00422A2D /* FileDownloader.swift */,
 				17B05E6D2579151600CBC3C9 /* CustomBorder.swift */,
+				198DA98E27D887230045D9AE /* SqliteDb.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1172,6 +1175,7 @@
 				17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */,
 				17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */,
 				175E1B02264578F3009275A7 /* HtmlString.swift in Sources */,
+				198DA98F27D887230045D9AE /* SqliteDb.swift in Sources */,
 				172246ED2567B226006EDF5B /* EmployeeInformationViewController.swift in Sources */,
 				1762251125713EA1005F6C5B /* InsuranceDetailTableViewCell.swift in Sources */,
 				17513FF5257E2AC20090EFD5 /* SubordinateLogTableViewCell.swift in Sources */,

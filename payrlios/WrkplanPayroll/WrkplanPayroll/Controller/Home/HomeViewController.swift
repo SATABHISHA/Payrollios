@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 import Toast_Swift
 import UserNotifications
+import SQLite3
 
 struct NavigationMenuData{
     var imageData:UIImage!
@@ -103,11 +104,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let userNotificationCenter = UNUserNotificationCenter.current() //---added on 08-Mar-2022
     let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound) //---added on 08-Mar-2022
     
+    var db: OpaquePointer? //---added on 09-Mar-2022
      
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ChangeStatusBarColor() //---to change background statusbar color
+        
+        //---added on 09-Mar-2022, code starts---
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                   .appendingPathComponent("WrkplanPayrollNotification.sqlite") //---added on 09-Mar-2022
+        
+        if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
+                    print("error opening database")
+                }
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS WrkplanPayrollNotification (id INTEGER PRIMARY KEY AUTOINCREMENT, jsonResponse TEXT)", nil, nil, nil) != SQLITE_OK {
+                   let errmsg = String(cString: sqlite3_errmsg(db)!)
+                   print("error creating table: \(errmsg)")
+               }
+        //---added on 09-Mar-2022, code ends----
         
         //---added on 08-Mar-2022, code starts----
         // Assing self delegate on userNotificationCenter
