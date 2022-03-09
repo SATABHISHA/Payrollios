@@ -113,18 +113,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         ChangeStatusBarColor() //---to change background statusbar color
         
-        //---added on 09-Mar-2022, code starts---
-        LoadNotificationData()
         
-        //---added on 09-Mar-2022, code ends----
         
         //---added on 08-Mar-2022, code starts----
         // Assing self delegate on userNotificationCenter
         self.userNotificationCenter.delegate = self
         
         self.requestNotificationAuthorization()
-        self.sendNotification()
+//        self.sendNotification()
         //---added on 08-Mar-2022, code ends----
+        
+        //---added on 09-Mar-2022, code starts---
+        
+        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { (timer) in
+                // Do what you need to do repeatedly
+            self.LoadNotificationData()
+            }
+        
+        //---added on 09-Mar-2022, code ends----
         
         tableViewNavigation.dataSource = self
         tableViewNavigation.delegate = self
@@ -409,13 +415,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func sendNotification() {
+    func sendNotification(title: String, body: String) {
         // Create new notifcation content instance
         let notificationContent = UNMutableNotificationContent()
         
         // Add the content to the notification content
-        notificationContent.title = "Test"
-        notificationContent.body = "Test body"
+        notificationContent.title = title
+        notificationContent.body = body
         notificationContent.badge = NSNumber(value: 3)
         
         // Add an attachment to the notification content
@@ -694,7 +700,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code starts----
     func LoadNotificationData(){
-        let url = "\(BASE_URL)notification/custom/fetch/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/44/"
+        let url = "\(BASE_URL)notification/custom/fetch/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
         print("NotificationUrl-=>",url)
         AF.request(url).responseJSON{ (responseData) -> Void in
             //               self.loaderEnd()
@@ -710,19 +716,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if swiftyJsonVar["response"]["status"] == "true"{
                     print("Eureka")
                     if self.arrResNotification.count > 0 {
-                        /* let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-                         .appendingPathComponent("WrkplanPayrollNotification.sqlite") //---added on 09-Mar-2022
-                         
-                         if sqlite3_open(fileURL.path, &self.db) != SQLITE_OK {
-                         print("error opening database")
-                         }
-                         if sqlite3_exec(self.db, "CREATE TABLE IF NOT EXISTS WrkplanPayrollNotification (id INTEGER PRIMARY KEY AUTOINCREMENT, JsonResponse TEXT, ReadYN TEXT)", nil, nil, nil) != SQLITE_OK {
-                         let errmsg = String(cString: sqlite3_errmsg(self.db)!)
-                         print("error creating table: \(errmsg)")
-                         }
-                         
-                         var stmt: OpaquePointer?
-                         let queryString = "INSERT INTO WrkplanPayrollNotification (\(swiftyJsonVar), Y) VALUES (?,?)"*/
                         //Storing core data
                         //----code to insert data, starts---
                         self.resetAllRecords(in: "UserNotification")
@@ -753,9 +746,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                     }
                                           if let items = swiftyJsonVar["notifications"].array {
                                               for item in items {
-                                                  if let title = item["title"].string {
+                                                 /* if let title = item["title"].string {
                                                       print(title)
-                                                  }
+                                                  }*/
+                                                  var title: String = item["title"].stringValue
                                                   let body : String = item["body"].stringValue
                                                   let fullbodyArr : [String] = body.components(separatedBy: "::")
                                                   
@@ -764,8 +758,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                                   var messageOutput : String = fullMessageArr[1]
                                                   print("Message-=>", messageOutput)
                                                   
+                                                  self.sendNotification(title: title, body: messageOutput)
                                               }
                                           }
+                                    self.update(readyn: "N")
                                      }
                                      
                                 
@@ -773,7 +769,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             catch{
                                 //Process Error
                             }
-                            self.update(readyn: "N")
+//                            self.update(readyn: "N")
                             
                             
                         }catch{

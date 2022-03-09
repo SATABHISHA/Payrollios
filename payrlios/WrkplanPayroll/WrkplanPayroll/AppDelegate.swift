@@ -9,11 +9,18 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift
 import Siren
+import Alamofire
+import SwiftyJSON
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?  //---using for autoupdate
+    
+    var arrResNotification = [[String:Any]]()
+    
+    let userNotificationCenter = UNUserNotificationCenter.current() //---added on 10-Mar-2022
+    let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound) //---added on 10-Mar-2022
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,9 +33,225 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         hyperCriticalRulesAppForceUpdate() //--aded on 2021-Aug-02
         
+        application.setMinimumBackgroundFetchInterval(10) //---added on 10-Mar-2022
+        self.userNotificationCenter.delegate = self
+        
+        self.requestNotificationAuthorization()
         return true
     }
-
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
+        
+        self.userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
+            if let error = error {
+                print("Error: ", error)
+            }
+        }
+    }
+    func sendNotification(title: String, body: String) {
+        // Create new notifcation content instance
+        let notificationContent = UNMutableNotificationContent()
+        
+        // Add the content to the notification content
+        notificationContent.title = title
+        notificationContent.body = body
+        notificationContent.badge = NSNumber(value: 3)
+        
+        // Add an attachment to the notification content
+        if let url = Bundle.main.url(forResource: "dune",
+                                     withExtension: "png") {
+            if let attachment = try? UNNotificationAttachment(identifier: "dune",
+                                                              url: url,
+                                                              options: nil) {
+                notificationContent.attachments = [attachment]
+            }
+        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                        repeats: false)
+        let request = UNNotificationRequest(identifier: "testNotification",
+                                            content: notificationContent,
+                                            trigger: trigger)
+        userNotificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Notification Error: ", error)
+            }
+        }
+    }
+    //---added on 10-Mar-2022, code ends---
+    //---added on 10-Mar-2022, code starts---
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        LoadNotificationData()
+        
+    }
+    
+    //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code starts----
+    func LoadNotificationData(){
+        
+        do{
+         let swiftyJsonvar1 = try JSON(UserSingletonModel.sharedInstance.employeeJson!)
+        
+        let url = "\(BASE_URL)notification/custom/fetch/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
+        print("NotificationUrl-=>",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+            //               self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                print("Log Notification description: \(swiftyJsonVar)")
+                
+                
+                
+                if let resData = swiftyJsonVar["notifications"].arrayObject{
+                    self.arrResNotification = resData as! [[String:AnyObject]]
+                }
+                if swiftyJsonVar["response"]["status"] == "true"{
+                    print("Eureka")
+                    if self.arrResNotification.count > 0 {
+                        //Storing core data
+                        //----code to insert data, starts---
+                        self.resetAllRecords(in: "UserNotification")
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        let context = appDelegate.persistentContainer.viewContext
+                        let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
+                        UserNotification.setValue("\(swiftyJsonVar)", forKey: "jsondata")
+                        UserNotification.setValue("N", forKey: "readyn")
+                        do{
+                            try context.save()
+                            print("SAVED")
+                            
+                            //---code to fetch data, starts
+                            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
+                            request.returnsObjectsAsFaults = false
+                            do{
+                                let results = try context.fetch(request)
+                                if results.count > 0
+                                {
+                                    for result in results as! [NSManagedObject]
+                                    {
+                                        if let jsonData = result.value(forKey: "jsondata") as? String{
+                                            print("jsonNotificationData-=>", jsonData)
+                                            
+                                        }
+                                       
+                                        print("All results: ",result)
+                                    }
+                                          if let items = swiftyJsonVar["notifications"].array {
+                                              for item in items {
+                                                 /* if let title = item["title"].string {
+                                                      print(title)
+                                                  }*/
+                                                  var title: String = item["title"].stringValue
+                                                  let body : String = item["body"].stringValue
+                                                  let fullbodyArr : [String] = body.components(separatedBy: "::")
+                                                  
+                                                  var message : String = fullbodyArr[4]
+                                                  var fullMessageArr: [String] = message.components(separatedBy: "=")
+                                                  var messageOutput : String = fullMessageArr[1]
+                                                  print("Message-=>", messageOutput)
+                                                  
+                                                  self.sendNotification(title: title, body: messageOutput)
+                                              }
+                                          }
+                                    self.update(readyn: "N")
+                                     }
+                                     
+                                
+                            }
+                            catch{
+                                //Process Error
+                            }
+//                            self.update(readyn: "N")
+                            
+                            
+                        }catch{
+                            //PROCESS ERROR
+                        }
+                        //----code to insert data, ends---
+                    }
+                }else if swiftyJsonVar["status"] == "false"{
+                    print("false")
+                }
+                
+            }
+            
+        }
+        }catch{
+            print("Error")
+        }
+    }
+    func resetAllRecords(in entity : String) // entity = Your_Entity_Name
+    {
+        
+        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do
+        {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("Database cleaned")
+        }
+        catch
+        {
+            print ("There was an error")
+        }
+    }
+    func update(readyn:String){
+        
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+                    return
+                }
+        
+        let managedContext =
+        appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: "UserNotification")
+        
+        // 3
+        let predicate = NSPredicate(format: "%K == %@", "readyn", readyn)
+        fetchRequest.predicate = predicate
+        
+        //3
+        
+        do {
+            let  rs = try managedContext.fetch(fetchRequest)
+            
+            for result in rs as [NSManagedObject] {
+                
+                // update
+                do {
+                    var managedObject = rs[0]
+                    managedObject.setValue("Y", forKey: "readyn")
+                    
+                    try managedContext.save()
+                    print("update successfull")
+                    
+                    
+                } catch let error as NSError {
+                    print("Could not Update. \(error), \(error.userInfo)")
+                }
+                //end update
+                
+            }
+            
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code ends----
+    //---added on 10-Mar-2022, code ends---
     // MARK: UISceneSession Lifecycle
 
     //---added on 08-Mar-2022, code starts----
