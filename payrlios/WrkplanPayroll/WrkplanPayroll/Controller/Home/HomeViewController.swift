@@ -723,18 +723,94 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                      var stmt: OpaquePointer?
                      let queryString = "INSERT INTO WrkplanPayrollNotification (\(swiftyJsonVar), Y) VALUES (?,?)"*/
                      //Storing core data
+                        //----code to insert data, starts---
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             let context = appDelegate.persistentContainer.viewContext
                             let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
                             UserNotification.setValue("\(swiftyJsonVar)", forKey: "jsondata")
-                            UserNotification.setValue("Y", forKey: "readyn")
+                            UserNotification.setValue("N", forKey: "readyn")
                             do{
                                 try context.save()
                                 print("SAVED")
+                                
+                                //---code to fetch data, starts
+                                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
+                                request.returnsObjectsAsFaults = false
+                                do{
+                                            let results = try context.fetch(request)
+                                            if results.count > 0
+                                            {
+                                                for result in results as! [NSManagedObject]
+                                                {
+                                                    if let jsonData = result.value(forKey: "jsondata") as? String{
+                                                        print("jsonNotificationData-=>", jsonData)
+                                                    }
+//                                                    let swiftyJsonvar1 = JSON(jsonData)
+                                                    
+                                                    print("All results: ",result)
+                                                }
+                                                
+                                              /*  if let resNotificationData = swiftyJsonVar["notifications"].arrayObject{
+//                                                    self.arrResNotification = resData as! [[String:AnyObject]]
+                                                    for i in 0..< self.arrResNotification.count {
+                                                        
+                                                    }
+                                             }*/
+                                            }
+                                    
+                                    
+                                    
+                                            
+                                        }
+                                        catch{
+                                            //Process Error
+                                        }
+                                //---code to update data(not working), ends
+                               /* let managedContext = appDelegate.persistentContainer.viewContext
+                                let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "UserNotification")
+                                fetchRequest.predicate = NSPredicate(format: "readyn = %@", "N")
+                                do{
+                                    let test = try managedContext.fetch(fetchRequest)
+                                    let objectUpdate = test[0] as! NSManagedObject
+                                    objectUpdate.setValue("\(swiftyJsonVar)", forKey: "jsondata")
+                                    objectUpdate.setValue("Y", forKey: "readyn")
+                                    do{
+                                        try managedContext.save()
+                                        
+                                        
+                                    }catch{
+                                        print("Error in updating")
+                                    }
+                                } */
+                                //---code to update data, starts (temporary)
+                              /*  let request1 = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
+                                request1.returnsObjectsAsFaults = false
+                                
+                                do{
+                                            let results = try context.fetch(request1)
+                                            if results.count > 0
+                                            {
+                                                for result in results as! [NSManagedObject]
+                                                {
+                                                    if let jsonData = result.value(forKey: "jsondata") as? String{
+                                                        print("jsonNotificationUpdatedData-=>", jsonData)
+                                                    }
+                                                    print("All updated results: ",result)
+                                                }
+                                            }
+                                    
+                                    
+                                    
+                                            
+                                        }
+                                        catch{
+                                            //Process Error
+                                        }*/
+                                //---code to fetch data, ends(temporary)
                             }catch{
                                 //PROCESS ERROR
                             }
-                      
+                     //----code to insert data, ends---
                  }
              }else if swiftyJsonVar["status"] == "false"{
                  print("false")
