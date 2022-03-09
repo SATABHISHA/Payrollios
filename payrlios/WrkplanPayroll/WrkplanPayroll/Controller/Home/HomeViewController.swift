@@ -725,6 +725,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                      let queryString = "INSERT INTO WrkplanPayrollNotification (\(swiftyJsonVar), Y) VALUES (?,?)"*/
                      //Storing core data
                         //----code to insert data, starts---
+                     self.resetAllRecords(in: "UserNotification")
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             let context = appDelegate.persistentContainer.viewContext
                             let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
@@ -766,48 +767,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                         catch{
                                             //Process Error
                                         }
-                                //---code to update data(not working), ends
-                               /* let managedContext = appDelegate.persistentContainer.viewContext
-                                let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "UserNotification")
-                                fetchRequest.predicate = NSPredicate(format: "readyn = %@", "N")
-                                do{
-                                    let test = try managedContext.fetch(fetchRequest)
-                                    let objectUpdate = test[0] as! NSManagedObject
-                                    objectUpdate.setValue("\(swiftyJsonVar)", forKey: "jsondata")
-                                    objectUpdate.setValue("Y", forKey: "readyn")
-                                    do{
-                                        try managedContext.save()
-                                        
-                                        
-                                    }catch{
-                                        print("Error in updating")
-                                    }
-                                } */
-                                //---code to update data, starts (temporary)
-                              /*  let request1 = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
-                                request1.returnsObjectsAsFaults = false
+                                self.update(readyn: "N")
                                 
-                                do{
-                                            let results = try context.fetch(request1)
-                                            if results.count > 0
-                                            {
-                                                for result in results as! [NSManagedObject]
-                                                {
-                                                    if let jsonData = result.value(forKey: "jsondata") as? String{
-                                                        print("jsonNotificationUpdatedData-=>", jsonData)
-                                                    }
-                                                    print("All updated results: ",result)
-                                                }
-                                            }
-                                    
-                                    
-                                    
-                                            
-                                        }
-                                        catch{
-                                            //Process Error
-                                        }*/
-                                //---code to fetch data, ends(temporary)
+                               
                             }catch{
                                 //PROCESS ERROR
                             }
@@ -819,6 +781,69 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
               
             }
             
+        }
+    }
+    func resetAllRecords(in entity : String) // entity = Your_Entity_Name
+        {
+
+            let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            do
+            {
+                try context.execute(deleteRequest)
+                try context.save()
+                print("Database cleaned")
+            }
+            catch
+            {
+                print ("There was an error")
+            }
+        }
+    func update(readyn:String){
+
+        //1
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "UserNotification")
+
+        // 3
+        let predicate = NSPredicate(format: "%K == %@", "readyn", readyn)
+        fetchRequest.predicate = predicate
+
+        //3
+
+        do {
+            let  rs = try managedContext.fetch(fetchRequest)
+
+            for result in rs as [NSManagedObject] {
+
+                // update
+                do {
+                    var managedObject = rs[0]
+                    managedObject.setValue("Y", forKey: "readyn")
+
+                    try managedContext.save()
+                    print("update successfull")
+                    
+
+                } catch let error as NSError {
+                    print("Could not Update. \(error), \(error.userInfo)")
+                }
+                //end update
+
+            }
+
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code ends----
