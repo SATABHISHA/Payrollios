@@ -107,7 +107,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var db: OpaquePointer? //---added on 09-Mar-2022
     var arrResNotification = [[String:Any]]()
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -120,19 +120,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         //---added on 08-Mar-2022, code starts----
         // Assing self delegate on userNotificationCenter
-            self.userNotificationCenter.delegate = self
-
-            self.requestNotificationAuthorization()
-            self.sendNotification()
+        self.userNotificationCenter.delegate = self
+        
+        self.requestNotificationAuthorization()
+        self.sendNotification()
         //---added on 08-Mar-2022, code ends----
-       
+        
         tableViewNavigation.dataSource = self
         tableViewNavigation.delegate = self
         tableViewNavigation.backgroundColor = UIColor.white
         
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
-//        print("test-=>",swiftyJsonvar1.stringValue)
+        //        print("test-=>",swiftyJsonvar1.stringValue)
         // Do any additional setup after loading the view.
         
         //----------view and label border code styarts--------
@@ -196,16 +196,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         //-----------code for navigation drawer starts-----------
-//        self.navBar.accessibilityFrame = CGRect(x: 0, y: 0, width: Int(view.frame.size.width), height: Int(view.frame.size.height))
+        //        self.navBar.accessibilityFrame = CGRect(x: 0, y: 0, width: Int(view.frame.size.width), height: Int(view.frame.size.height))
         navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
-//        navigationDrawerLeadingConstraint.constant = 0
+        //        navigationDrawerLeadingConstraint.constant = 0
         navigationDrawerTrailingConstant.constant = view.frame.size.width
         print("navigationframe-=>",navigationDrawerLeadingConstraint.constant)
         //-----------code for navigation drawer ends-----------
         
         //-----------Navigation Drawer code starts-----------
-//        navigationLabelEmpName.text = UserSingletonModel.sharedInstance.EmpName
-//        navigationLabelCompNAme.text = UserSingletonModel.sharedInstance.CompanyName
+        //        navigationLabelEmpName.text = UserSingletonModel.sharedInstance.EmpName
+        //        navigationLabelCompNAme.text = UserSingletonModel.sharedInstance.CompanyName
         var k = NavigationMenuData()
         k.imageData = UIImage(named: "eminfo.png")
         k.menuItm = "Employee Information"
@@ -256,7 +256,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         k.imageData = UIImage(named: "logout.png")
         k.menuItm = "Logout"
         navigationDrawerData.append(k)
-//        menuShow()
+        //        menuShow()
         //-----------Navigation Drawer code ends-----------
         
         //EmployeeInformation
@@ -394,7 +394,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
@@ -412,18 +412,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func sendNotification() {
         // Create new notifcation content instance
         let notificationContent = UNMutableNotificationContent()
-
+        
         // Add the content to the notification content
         notificationContent.title = "Test"
         notificationContent.body = "Test body"
         notificationContent.badge = NSNumber(value: 3)
-
+        
         // Add an attachment to the notification content
         if let url = Bundle.main.url(forResource: "dune",
-                                        withExtension: "png") {
+                                     withExtension: "png") {
             if let attachment = try? UNNotificationAttachment(identifier: "dune",
-                                                                url: url,
-                                                                options: nil) {
+                                                              url: url,
+                                                              options: nil) {
                 notificationContent.attachments = [attachment]
             }
         }
@@ -481,7 +481,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.performSegue(withIdentifier: "empinfo", sender: nil)
     }
     
-
+    
     //---Leave
     @objc func LeaveView(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "leave", sender: nil)
@@ -626,11 +626,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             else if row.menuItm == "Attendance"{
                 menuClose()
                 self.performSegue(withIdentifier: "timesheet", sender: self)
-               
+                
             }else if row.menuItm == "Advance"{
                 menuClose()
                 self.performSegue(withIdentifier: "advancerequisition", sender: nil)
-               
+                
             }else if row.menuItm == "Reports"{
                 menuClose()
                 self.performSegue(withIdentifier: "reports", sender: self)
@@ -664,9 +664,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else{
             blurEffect()
             self.view.addSubview(navigationDrawer)
-//            let screenSize: CGRect = UIScreen.main.bounds
-//            self.navigationDrawerHeight.constant = screenSize.height
-//            navigationDrawerLeadingConstraint.constant = 0
+            //            let screenSize: CGRect = UIScreen.main.bounds
+            //            self.navigationDrawerHeight.constant = screenSize.height
+            //            navigationDrawerLeadingConstraint.constant = 0
             self.navigationEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
             self.navigationCompanyName.text = swiftyJsonvar1["company"]["company_name"].stringValue
             self.navigationDrawerLeadingConstraint.constant = 0
@@ -697,151 +697,155 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let url = "\(BASE_URL)notification/custom/fetch/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/44/"
         print("NotificationUrl-=>",url)
         AF.request(url).responseJSON{ (responseData) -> Void in
-//               self.loaderEnd()
+            //               self.loaderEnd()
             if((responseData.value) != nil){
                 let swiftyJsonVar=JSON(responseData.value!)
                 print("Log Notification description: \(swiftyJsonVar)")
-             
-             
-             
+                
+                
+                
                 if let resData = swiftyJsonVar["notifications"].arrayObject{
-                       self.arrResNotification = resData as! [[String:AnyObject]]
+                    self.arrResNotification = resData as! [[String:AnyObject]]
                 }
-             if swiftyJsonVar["response"]["status"] == "true"{
-                print("Eureka")
-                 if self.arrResNotification.count > 0 {
-                    /* let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-                                .appendingPathComponent("WrkplanPayrollNotification.sqlite") //---added on 09-Mar-2022
-                     
-                     if sqlite3_open(fileURL.path, &self.db) != SQLITE_OK {
-                                 print("error opening database")
-                             }
-                     if sqlite3_exec(self.db, "CREATE TABLE IF NOT EXISTS WrkplanPayrollNotification (id INTEGER PRIMARY KEY AUTOINCREMENT, JsonResponse TEXT, ReadYN TEXT)", nil, nil, nil) != SQLITE_OK {
+                if swiftyJsonVar["response"]["status"] == "true"{
+                    print("Eureka")
+                    if self.arrResNotification.count > 0 {
+                        /* let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                         .appendingPathComponent("WrkplanPayrollNotification.sqlite") //---added on 09-Mar-2022
+                         
+                         if sqlite3_open(fileURL.path, &self.db) != SQLITE_OK {
+                         print("error opening database")
+                         }
+                         if sqlite3_exec(self.db, "CREATE TABLE IF NOT EXISTS WrkplanPayrollNotification (id INTEGER PRIMARY KEY AUTOINCREMENT, JsonResponse TEXT, ReadYN TEXT)", nil, nil, nil) != SQLITE_OK {
                          let errmsg = String(cString: sqlite3_errmsg(self.db)!)
-                                print("error creating table: \(errmsg)")
-                            }
-                     
-                     var stmt: OpaquePointer?
-                     let queryString = "INSERT INTO WrkplanPayrollNotification (\(swiftyJsonVar), Y) VALUES (?,?)"*/
-                     //Storing core data
+                         print("error creating table: \(errmsg)")
+                         }
+                         
+                         var stmt: OpaquePointer?
+                         let queryString = "INSERT INTO WrkplanPayrollNotification (\(swiftyJsonVar), Y) VALUES (?,?)"*/
+                        //Storing core data
                         //----code to insert data, starts---
-                     self.resetAllRecords(in: "UserNotification")
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            let context = appDelegate.persistentContainer.viewContext
-                            let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
-                            UserNotification.setValue("\(swiftyJsonVar)", forKey: "jsondata")
-                            UserNotification.setValue("N", forKey: "readyn")
+                        self.resetAllRecords(in: "UserNotification")
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        let context = appDelegate.persistentContainer.viewContext
+                        let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
+                        UserNotification.setValue("\(swiftyJsonVar)", forKey: "jsondata")
+                        UserNotification.setValue("N", forKey: "readyn")
+                        do{
+                            try context.save()
+                            print("SAVED")
+                            
+                            //---code to fetch data, starts
+                            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
+                            request.returnsObjectsAsFaults = false
                             do{
-                                try context.save()
-                                print("SAVED")
-                                
-                                //---code to fetch data, starts
-                                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
-                                request.returnsObjectsAsFaults = false
-                                do{
-                                            let results = try context.fetch(request)
-                                            if results.count > 0
-                                            {
-                                                for result in results as! [NSManagedObject]
-                                                {
-                                                    if let jsonData = result.value(forKey: "jsondata") as? String{
-                                                        print("jsonNotificationData-=>", jsonData)
-                                                    }
-//                                                    let swiftyJsonvar1 = JSON(jsonData)
-                                                    
-                                                    print("All results: ",result)
-                                                }
-                                                
-                                              /*  if let resNotificationData = swiftyJsonVar["notifications"].arrayObject{
-//                                                    self.arrResNotification = resData as! [[String:AnyObject]]
-                                                    for i in 0..< self.arrResNotification.count {
-                                                        
-                                                    }
-                                             }*/
-                                            }
-                                    
-                                    
-                                    
+                                let results = try context.fetch(request)
+                                if results.count > 0
+                                {
+                                    for result in results as! [NSManagedObject]
+                                    {
+                                        if let jsonData = result.value(forKey: "jsondata") as? String{
+                                            print("jsonNotificationData-=>", jsonData)
                                             
                                         }
-                                        catch{
-                                            //Process Error
-                                        }
-                                self.update(readyn: "N")
+                                       
+                                        print("All results: ",result)
+                                    }
+                                          if let items = swiftyJsonVar["notifications"].array {
+                                              for item in items {
+                                                  if let title = item["title"].string {
+                                                      print(title)
+                                                  }
+                                                  let body : String = item["body"].stringValue
+                                                  let fullbodyArr : [String] = body.components(separatedBy: "::")
+                                                  
+                                                  var message : String = fullbodyArr[4]
+                                                  print("Message-=>", message)
+                                                  
+                                              }
+                                          }
+                                     }
+                                     
                                 
-                               
-                            }catch{
-                                //PROCESS ERROR
                             }
-                     //----code to insert data, ends---
-                 }
-             }else if swiftyJsonVar["status"] == "false"{
-                 print("false")
-             }
-              
+                            catch{
+                                //Process Error
+                            }
+                            self.update(readyn: "N")
+                            
+                            
+                        }catch{
+                            //PROCESS ERROR
+                        }
+                        //----code to insert data, ends---
+                    }
+                }else if swiftyJsonVar["status"] == "false"{
+                    print("false")
+                }
+                
             }
             
         }
     }
     func resetAllRecords(in entity : String) // entity = Your_Entity_Name
+    {
+        
+        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do
         {
-
-            let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
-            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-            do
-            {
-                try context.execute(deleteRequest)
-                try context.save()
-                print("Database cleaned")
-            }
-            catch
-            {
-                print ("There was an error")
-            }
+            try context.execute(deleteRequest)
+            try context.save()
+            print("Database cleaned")
         }
+        catch
+        {
+            print ("There was an error")
+        }
+    }
     func update(readyn:String){
-
+        
         //1
         guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-
+                UIApplication.shared.delegate as? AppDelegate else {
+                    return
+                }
+        
         let managedContext =
-            appDelegate.persistentContainer.viewContext
-
+        appDelegate.persistentContainer.viewContext
+        
         //2
         let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "UserNotification")
-
+        NSFetchRequest<NSManagedObject>(entityName: "UserNotification")
+        
         // 3
         let predicate = NSPredicate(format: "%K == %@", "readyn", readyn)
         fetchRequest.predicate = predicate
-
+        
         //3
-
+        
         do {
             let  rs = try managedContext.fetch(fetchRequest)
-
+            
             for result in rs as [NSManagedObject] {
-
+                
                 // update
                 do {
                     var managedObject = rs[0]
                     managedObject.setValue("Y", forKey: "readyn")
-
+                    
                     try managedContext.save()
                     print("update successfull")
                     
-
+                    
                 } catch let error as NSError {
                     print("Could not Update. \(error), \(error.userInfo)")
                 }
                 //end update
-
+                
             }
-
+            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -850,21 +854,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code starts-----
     func check_od_duty_log_status(){
-//           loaderStart()
+        //           loaderStart()
         
         let url = "\(BASE_URL)od/request/check-exist/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
         print("odDutylisturl-=>",url)
-           AF.request(url).responseJSON{ (responseData) -> Void in
-//               self.loaderEnd()
-               if((responseData.value) != nil){
-                   let swiftyJsonVar=JSON(responseData.value!)
-                   print("Log description: \(swiftyJsonVar)")
+        AF.request(url).responseJSON{ (responseData) -> Void in
+            //               self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                print("Log description: \(swiftyJsonVar)")
                 
                 
                 
-                   if let resData = swiftyJsonVar["request_list"].arrayObject{
-//                       self.arrRes = resData as! [[String:AnyObject]]
-                   }
+                if let resData = swiftyJsonVar["request_list"].arrayObject{
+                    //                       self.arrRes = resData as! [[String:AnyObject]]
+                }
                 if swiftyJsonVar["status"] == "true"{
                     self.info_img.isHidden = false
                     if swiftyJsonVar["next_action"] == "START"{
@@ -879,11 +883,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }else if swiftyJsonVar["status"] == "false"{
                     self.info_img.isHidden = true
                 }
-                 
-               }
-               
-           }
-       }
+                
+            }
+            
+        }
+    }
     //----function to get data to check od_duty_status from api using Alamofire and Swiftyjson to load data,code ends-----
     
     //=============FormDialog Change Password code starts===========
@@ -900,18 +904,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             labelPasswordCheck.text = "Please enter your new password first"
             tvRetypeNewPassword.text = ""
         }else if tvNewPassword.text! != ""{
-        if tvNewPassword.text! == tvRetypeNewPassword.text! {
-            labelPasswordCheck.text = "Correct Password"
-            btnPasswordChangeSubmit.alpha = 1
-            btnPasswordChangeSubmit.isEnabled = true
-            btnPasswordChangeSubmit.isUserInteractionEnabled = true
-        }else{
-            labelPasswordCheck.text = "Incorrect Password"
-            btnPasswordChangeSubmit.alpha = 0.3
-            btnPasswordChangeSubmit.isEnabled = false
-            btnPasswordChangeSubmit.isUserInteractionEnabled = false
+            if tvNewPassword.text! == tvRetypeNewPassword.text! {
+                labelPasswordCheck.text = "Correct Password"
+                btnPasswordChangeSubmit.alpha = 1
+                btnPasswordChangeSubmit.isEnabled = true
+                btnPasswordChangeSubmit.isUserInteractionEnabled = true
+            }else{
+                labelPasswordCheck.text = "Incorrect Password"
+                btnPasswordChangeSubmit.alpha = 0.3
+                btnPasswordChangeSubmit.isEnabled = false
+                btnPasswordChangeSubmit.isUserInteractionEnabled = false
+            }
         }
-      }
     }
     @IBOutlet weak var tvRetypeNewPassword: UITextField!
     @IBOutlet weak var tvPasswordHint: UITextField!
@@ -950,7 +954,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tvCurrentPassword.resignFirstResponder()
         tvNewPassword.resignFirstResponder()
         tvRetypeNewPassword.resignFirstResponder()
-//        tvPasswordHint.resignFirstResponder()
+        //        tvPasswordHint.resignFirstResponder()
     }
     
     func cancelPasswordChangePopup(){
@@ -1029,114 +1033,114 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ]
         
         print("SentData-=>",sentData)
+        
+        AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+            response in
+            switch response.result{
                 
-                AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
-                    response in
-                    switch response.result{
-                        
-                    case .success:
-//                        self.loaderEnd()
-                        let swiftyJsonVar = JSON(response.value!)
-                        print("Return saved data: ", swiftyJsonVar)
+            case .success:
+                //                        self.loaderEnd()
+                let swiftyJsonVar = JSON(response.value!)
+                print("Return saved data: ", swiftyJsonVar)
+                
+                if swiftyJsonVar["status"].stringValue == "true"{
+                    // Create new Alert
+                    self.cancelPasswordChangePopup()
+                    self.sharedpreferences.removeObject(forKey: "UserID")
+                    self.sharedpreferences.synchronize()
+                    self.performSegue(withIdentifier: "login", sender: self)
                     
-                        if swiftyJsonVar["status"].stringValue == "true"{
-                            // Create new Alert
-                            self.cancelPasswordChangePopup()
-                            self.sharedpreferences.removeObject(forKey: "UserID")
-                            self.sharedpreferences.synchronize()
-                            self.performSegue(withIdentifier: "login", sender: self)
-                            
-                            let dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
-                            
-                            // Create OK button with action handler
-                            let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
-                                
-                             })
-                            
-                            //Add OK button to a dialog message
-                            dialogMessage.addAction(ok)
-
-                            // Present Alert to
-                            self.present(dialogMessage, animated: true, completion: nil)
-                        }else{
-                            var style = ToastStyle()
-                            
-                            // this is just one of many style options
-                            style.messageColor = .white
-                            
-                            // present the toast with the new style
-                            self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
-                            
-                            print("Error-=>",swiftyJsonVar["message"].stringValue)
-                        }
-//                        if swiftyJsonVar["status"].stringValue == "success" {
-//                            let data = swiftyJsonVar["message"].stringValue
-//
-//
-//                        } else {
-//                            let message = swiftyJsonVar["message"].stringValue
-//
-////                            Toast(text: message, duration: Delay.short).show()
-//                            print("Return edit data: ", swiftyJsonVar)
-//                        }
-                        break
+                    let dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
+                    
+                    // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
                         
-                    case .failure(let error):
-//                        self.loaderEnd()
-                        print("Error: ", error)
-                    }
+                    })
+                    
+                    //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                    
+                    // Present Alert to
+                    self.present(dialogMessage, animated: true, completion: nil)
+                }else{
+                    var style = ToastStyle()
+                    
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    
+                    // present the toast with the new style
+                    self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                    
+                    print("Error-=>",swiftyJsonVar["message"].stringValue)
                 }
+                //                        if swiftyJsonVar["status"].stringValue == "success" {
+                //                            let data = swiftyJsonVar["message"].stringValue
+                //
+                //
+                //                        } else {
+                //                            let message = swiftyJsonVar["message"].stringValue
+                //
+                ////                            Toast(text: message, duration: Delay.short).show()
+                //                            print("Return edit data: ", swiftyJsonVar)
+                //                        }
+                break
+                
+            case .failure(let error):
+                //                        self.loaderEnd()
+                print("Error: ", error)
+            }
+        }
     }
     
     //-----function to change password data, code ends---
     // ====================== Blur Effect Defiend START ================= \\
-        var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-        var blurEffectView: UIVisualEffectView!
-        var loader: UIVisualEffectView!
-        func loaderStart() {
-            // ====================== Blur Effect START ================= \\
-            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            loader = UIVisualEffectView(effect: blurEffect)
-            loader.frame = view.bounds
-            loader.alpha = 2
-            view.addSubview(loader)
-            
-            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-            let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
-            activityIndicator.transform = transform
-            loadingIndicator.center = self.view.center;
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.style = UIActivityIndicatorView.Style.white
-            loadingIndicator.startAnimating();
-            loader.contentView.addSubview(loadingIndicator)
-            
-            // screen roted and size resize automatic
-            loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
-            
-            // ====================== Blur Effect END ================= \\
-        }
-        
-        func loaderEnd() {
-            self.loader.removeFromSuperview();
-        }
-        // ====================== Blur Effect Defiend END ================= \\
-        
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var blurEffectView: UIVisualEffectView!
+    var loader: UIVisualEffectView!
+    func loaderStart() {
         // ====================== Blur Effect START ================= \\
-        func blurEffect() {
-            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-            blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = ScrollView.bounds
-            blurEffectView.alpha = 0.9
-            ScrollView.addSubview(blurEffectView)
-            // screen roted and size resize automatic
-            blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
-          
-        }
-        func canelBlurEffect() {
-            self.blurEffectView.removeFromSuperview();
-        }
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        loader = UIVisualEffectView(effect: blurEffect)
+        loader.frame = view.bounds
+        loader.alpha = 2
+        view.addSubview(loader)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+        activityIndicator.transform = transform
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.white
+        loadingIndicator.startAnimating();
+        loader.contentView.addSubview(loadingIndicator)
+        
+        // screen roted and size resize automatic
+        loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
         // ====================== Blur Effect END ================= \\
-
+    }
+    
+    func loaderEnd() {
+        self.loader.removeFromSuperview();
+    }
+    // ====================== Blur Effect Defiend END ================= \\
+    
+    // ====================== Blur Effect START ================= \\
+    func blurEffect() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = ScrollView.bounds
+        blurEffectView.alpha = 0.9
+        ScrollView.addSubview(blurEffectView)
+        // screen roted and size resize automatic
+        blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+        
+    }
+    func canelBlurEffect() {
+        self.blurEffectView.removeFromSuperview();
+    }
+    // ====================== Blur Effect END ================= \\
+    
 }
 
 //-------------following extension is for own knowledge, code ends-------------
@@ -1175,14 +1179,14 @@ extension UIViewController{
     func ChangeStatusBarColor(){
         if #available(iOS 13.0, *) {
             let app = UIApplication.shared
-//            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+            //            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
             let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
             let statusBarHeight: CGFloat = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
             
             let statusbarView = UIView()
             statusbarView.backgroundColor = UIColor(hexFromString: "3982cb")
             view.addSubview(statusbarView)
-          
+            
             statusbarView.translatesAutoresizingMaskIntoConstraints = false
             statusbarView.heightAnchor
                 .constraint(equalToConstant: statusBarHeight).isActive = true
@@ -1192,10 +1196,10 @@ extension UIViewController{
                 .constraint(equalTo: view.topAnchor).isActive = true
             statusbarView.centerXAnchor
                 .constraint(equalTo: view.centerXAnchor).isActive = true
-          
+            
         } else {
             let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-//            statusBar?.backgroundColor = UIColor(hexFromString: "2E5771")
+            //            statusBar?.backgroundColor = UIColor(hexFromString: "2E5771")
             statusBar?.backgroundColor = UIColor(hexFromString: "3982cb")
         }
     }
