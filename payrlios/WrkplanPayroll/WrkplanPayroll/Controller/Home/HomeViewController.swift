@@ -391,6 +391,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         LtaView.isUserInteractionEnabled = true
         LtaView.addGestureRecognizer(tapGestureLtaView)
         
+        //NotificationView
+        let tapGestureRecognizerImgNotification = UITapGestureRecognizer(target: self, action: #selector(ImgNotification(tapGestureRecognizer:)))
+        NotificationImageView.isUserInteractionEnabled = true
+        NotificationImageView.addGestureRecognizer(tapGestureRecognizerImgNotification)
         
         
         check_od_duty_log_status()
@@ -446,6 +450,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     //---added on 08-Mar-2022, code ends---
     
+    //---Lta
+    @objc func ImgNotification(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "notification", sender: nil)
+    }
     //---Lta
     @objc func LtaImg(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "lta", sender: nil)

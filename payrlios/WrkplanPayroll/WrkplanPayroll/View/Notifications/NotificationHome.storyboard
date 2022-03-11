@@ -151,7 +151,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.84662974960000004" green="0.84662974960000004" blue="0.84662974960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="ViewContainer" destination="OTP-ZG-0pl" id="s3H-ug-05D"/>
+                                            <outlet property="LabelEventId" destination="UUZ-Dt-gc2" id="4Ul-28-JQu"/>
+                                            <outlet property="LabelTitle" destination="3Ix-SZ-Cai" id="AKq-Fw-mmn"/>
+                                            <outlet property="ViewContentChild" destination="OTP-ZG-0pl" id="vCe-aS-1uS"/>
+                                            <outlet property="ViewContentParent" destination="6gS-jN-TDV" id="zTV-y6-JfR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

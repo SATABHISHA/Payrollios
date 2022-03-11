@@ -784,6 +784,7 @@
                         <segue destination="5Et-tu-4sH" kind="modal" identifier="advancerequisition" modalPresentationStyle="fullScreen" id="rKQ-Yk-Y9Q"/>
                         <segue destination="Lri-vc-bYI" kind="modal" identifier="mediclaimlist" modalPresentationStyle="fullScreen" id="TCY-gw-GoO"/>
                         <segue destination="BCT-ws-JAn" kind="presentation" identifier="lta" modalPresentationStyle="fullScreen" id="2QE-Aq-rDZ"/>
+                        <segue destination="d0Y-zV-xCh" kind="presentation" identifier="notification" modalPresentationStyle="fullScreen" id="xqF-E7-JuM"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="bbN-zT-K2i">
@@ -1070,6 +1071,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCR-2e-EWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3299" y="-110"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="jzv-Sv-6bb">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Notification" storyboardName="NotificationHome" referencedIdentifier="Notification" id="d0Y-zV-xCh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="b8m-tc-4ye"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isu-Tc-gYY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3392" y="-67"/>
         </scene>
         <!--empinfo-->
         <scene sceneID="0zl-kY-f6s">
