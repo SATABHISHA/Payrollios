@@ -754,7 +754,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     if self.arrResNotification.count > 0 {
                         //Storing core data
                         //----code to insert data, starts---
-                        self.resetAllRecords(in: "UserNotification")
+//                        self.resetAllRecords(in: "UserNotification") //---commented on 11-Mar-2022
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         let context = appDelegate.persistentContainer.viewContext
                         let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
