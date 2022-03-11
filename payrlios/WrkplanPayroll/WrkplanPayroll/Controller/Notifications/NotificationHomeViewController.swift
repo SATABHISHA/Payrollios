@@ -46,28 +46,36 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
                 for result in results as! [NSManagedObject]
                 {
                     jsondata = result.value(forKey: "jsondata") as? String ?? ""
-                   /* if let jsonData = result.value(forKey: "jsondata") as? String{
+                    if (result.value(forKey: "jsondata") as? String) != nil{
 //                        print("jsonNotificationData1-=>", jsonData)
                         
-                        let swiftyJsonVar=JSON(jsonData)
+                        
+                        
+                        
+                        let data = Data(jsondata.utf8)
+                        let response = try JSON(data: data)
+                      
+                        let swiftyJsonVar=JSON(response)
                         if let resData = swiftyJsonVar["notifications"].arrayObject{
-                            NotificationHomeViewController.arrResNotification = resData as! [[String:AnyObject]]
+                            arrResNotification = resData as! [[String:AnyObject]]
                         }
                         print("jsonNotificationData1-=>", swiftyJsonVar)
+                       print("Count-=>",arrResNotification.count)
+                      
                         
-                        
-                    }*/
+                    }
                    
-                    print("All results1: ",result)
+//                    print("All results1: ",result.toJSON()!)
                     
                     
                 }
-                let swiftyJsonVar=JSON(jsondata)
+               
+                /*let swiftyJsonVar=JSON(jsondata)
                 if let resData = swiftyJsonVar["notifications"].arrayObject{
-                    arrResNotification = resData as! [[String:AnyObject]]
+                    self.arrResNotification = resData as! [[String:AnyObject]]
                 }
                 print("jsonNotificationData1-=>", swiftyJsonVar)
-                print("Count-=>",arrResNotification.count)
+                print("Count-=>",swiftyJsonVar["notifications"][0]["body"])*/
             }
         }catch{
             print("Error")
@@ -77,8 +85,8 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
 
     //========tableview code starts=======
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return arrResNotification.count
-        return 1
+        return arrResNotification.count
+//        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,11 +95,11 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         
 //        cell.delegate = self
         
-//        let dict = arrResNotification[indexPath.row]
+        let dict = arrResNotification[indexPath.row]
         
         
         
-//        cell.LabelTitle.text = dict["title"] as? String
+        cell.LabelTitle.text = dict["title"] as? String
         
         return cell
     }
@@ -130,4 +138,17 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         }*/
         //---------onClick tableview code ends----------
     //========tableview code ends========
+};
+extension NSManagedObject {
+  func toJSON() -> String? {
+    let keys = Array(self.entity.attributesByName.keys)
+    let dict = self.dictionaryWithValues(forKeys: keys)
+    do {
+        let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+        let reqJSONStr = String(data: jsonData, encoding: .utf8)
+        return reqJSONStr
+    }
+    catch{}
+    return nil
+  }
 }
