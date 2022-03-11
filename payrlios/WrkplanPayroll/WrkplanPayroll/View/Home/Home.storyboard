@@ -732,7 +732,7 @@
                         <outlet property="LtaView" destination="2ei-8I-j5w" id="n8l-9n-Otu"/>
                         <outlet property="MediclaimImage" destination="jiC-oR-6HH" id="TcL-PA-heE"/>
                         <outlet property="MediclaimView" destination="4Us-Cc-8PD" id="a1d-8e-wuI"/>
-                        <outlet property="NotificationImageView" destination="v2m-Ds-Z7Q" id="0D8-lK-qP8"/>
+                        <outlet property="NotificationImageView" destination="v2m-Ds-Z7Q" id="qRM-uI-0js"/>
                         <outlet property="ODdutyImage" destination="UlF-KZ-eyX" id="0vp-4w-tHC"/>
                         <outlet property="ODdutyRequestImg" destination="Vd4-HH-yZJ" id="AQV-5T-c3r"/>
                         <outlet property="ODdutyRequestView" destination="2IT-Dr-NqG" id="zyg-OL-Eh3"/>

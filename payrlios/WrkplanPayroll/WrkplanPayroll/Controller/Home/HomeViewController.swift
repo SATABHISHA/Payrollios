@@ -781,11 +781,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                                   let body : String = item["body"].stringValue
                                                   let fullbodyArr : [String] = body.components(separatedBy: "::")
                                                   
-                                                  var message : String = fullbodyArr[4]
+                                                  var message : String = fullbodyArr[5]
                                                   var fullMessageArr: [String] = message.components(separatedBy: "=")
                                                   var messageOutput : String = fullMessageArr[1]
                                                   
-                                                  var event_id: String = fullbodyArr[1]
+                                                  var event_id: String = fullbodyArr[0]
                                                   let fullbodyEventIdArray: [String] = event_id.components(separatedBy: "=")
                                                   var event_id_output : String = fullbodyEventIdArray[1]
                                                   print("Message-=>", messageOutput)
