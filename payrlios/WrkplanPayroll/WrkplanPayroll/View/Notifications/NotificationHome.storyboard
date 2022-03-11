@@ -84,10 +84,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7y-4i-3Jy">
-                                                            <rect key="frame" x="295" y="10" width="60" height="80"/>
+                                                            <rect key="frame" x="353" y="10" width="2" height="80"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submitted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="Eed-rF-V2A">
-                                                                    <rect key="frame" x="0.0" y="27" width="60" height="26.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="Eed-rF-V2A">
+                                                                    <rect key="frame" x="0.0" y="40" width="2" height="0.0"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -97,25 +97,25 @@
                                                             <constraints>
                                                                 <constraint firstItem="Eed-rF-V2A" firstAttribute="leading" secondItem="y7y-4i-3Jy" secondAttribute="leading" id="Nii-Db-TIj"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Eed-rF-V2A" secondAttribute="trailing" id="Rur-JW-aUd"/>
-                                                                <constraint firstAttribute="width" constant="60" id="ltI-5d-gxx"/>
+                                                                <constraint firstAttribute="width" constant="2" id="ltI-5d-gxx"/>
                                                                 <constraint firstItem="Eed-rF-V2A" firstAttribute="centerY" secondItem="y7y-4i-3Jy" secondAttribute="centerY" id="umv-hm-xYy"/>
                                                                 <constraint firstAttribute="height" constant="80" id="xAE-wc-zmg"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-SZ-Cai">
-                                                            <rect key="frame" x="85" y="10" width="190" height="19.5"/>
+                                                            <rect key="frame" x="85" y="10" width="248" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02-Feb-2020 To 03-Feb-2020 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gk-Gs-T64">
-                                                            <rect key="frame" x="85" y="33.5" width="190" height="14.5"/>
+                                                            <rect key="frame" x="85" y="33.5" width="248" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.67843137249999996" green="0.6705882353" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2F-aJ-hmB">
-                                                            <rect key="frame" x="85" y="52" width="190" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2F-aJ-hmB">
+                                                            <rect key="frame" x="85" y="52" width="248" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.1176470588" green="0.58431372550000005" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -152,6 +152,7 @@
                                         <color key="backgroundColor" red="0.84662974960000004" green="0.84662974960000004" blue="0.84662974960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="LabelEventId" destination="UUZ-Dt-gc2" id="4Ul-28-JQu"/>
+                                            <outlet property="LabelMessage" destination="3gk-Gs-T64" id="cjK-zg-r4Q"/>
                                             <outlet property="LabelTitle" destination="3Ix-SZ-Cai" id="AKq-Fw-mmn"/>
                                             <outlet property="ViewContentChild" destination="OTP-ZG-0pl" id="vCe-aS-1uS"/>
                                             <outlet property="ViewContentParent" destination="6gS-jN-TDV" id="zTV-y6-JfR"/>

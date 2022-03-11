@@ -101,6 +101,21 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         
         cell.LabelTitle.text = dict["title"] as? String
         
+        let body : String = dict["body"] as! String
+        let fullbodyArr : [String] = body.components(separatedBy: "::")
+        
+        var message : String = fullbodyArr[5]
+        var fullMessageArr: [String] = message.components(separatedBy: "=")
+        var messageOutput : String = fullMessageArr[1]
+        
+        cell.LabelMessage.text = messageOutput
+        
+        if dict["title"] as? String == "Leave Application"{
+            cell.LabelEventId.text = "LA"
+        }else if dict["title"] as? String == "OD Duty" {
+            cell.LabelEventId.text = "OD"
+        }
+        
         return cell
     }
     
