@@ -732,6 +732,7 @@
                         <outlet property="EmployeeInformationView" destination="Tyv-sd-Vqk" id="sG0-sM-yhl"/>
                         <outlet property="HolidayImg" destination="75t-x1-pDe" id="DbY-IF-E1n"/>
                         <outlet property="HolidayView" destination="egu-SH-tKL" id="kRI-Nd-etz"/>
+                        <outlet property="ImgLogoutMenuBar" destination="IQS-ti-Bs9" id="qla-wm-4Ww"/>
                         <outlet property="InsuranceImg" destination="WO2-31-ocP" id="DFy-C6-aMU"/>
                         <outlet property="InsuranceView" destination="0B7-vs-0hS" id="q99-rr-qFT"/>
                         <outlet property="LabelLta" destination="vl9-Kr-N5w" id="xx1-z7-RSH"/>
@@ -1000,7 +1001,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2789.8550724637685" y="39.945652173913047"/>
+            <point key="canvasLocation" x="2484" y="55"/>
         </scene>
         <!--Reports-->
         <scene sceneID="9J9-9X-Bxn">

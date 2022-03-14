@@ -20,6 +20,7 @@ struct NavigationMenuData{
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UNUserNotificationCenterDelegate {
     
+    @IBOutlet weak var ImgLogoutMenuBar: UIImageView!
     @IBOutlet weak var NotificationImageView: UIImageView!
     @IBOutlet weak var ScrollViewContainer: UIView!
     @IBOutlet weak var ScrollView: UIScrollView!
@@ -396,6 +397,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NotificationImageView.isUserInteractionEnabled = true
         NotificationImageView.addGestureRecognizer(tapGestureRecognizerImgNotification)
         
+        //LogoutMenuBar
+        let tapGestureRecognizerImgLogoutMenuBar = UITapGestureRecognizer(target: self, action: #selector(ImgLogoutMenu(tapGestureRecognizer:)))
+        ImgLogoutMenuBar.isUserInteractionEnabled = true
+        ImgLogoutMenuBar.addGestureRecognizer(tapGestureRecognizerImgLogoutMenuBar)
+        
         
         check_od_duty_log_status()
     }
@@ -450,6 +456,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     //---added on 08-Mar-2022, code ends---
     
+    //---MenuBarLogout
+    @objc func ImgLogoutMenu(tapGestureRecognizer: UITapGestureRecognizer){
+//        self.performSegue(withIdentifier: "notification", sender: nil)
+        openLogoutFormPopup()
+    }
     //---Lta
     @objc func ImgNotification(tapGestureRecognizer: UITapGestureRecognizer){
         self.performSegue(withIdentifier: "notification", sender: nil)
