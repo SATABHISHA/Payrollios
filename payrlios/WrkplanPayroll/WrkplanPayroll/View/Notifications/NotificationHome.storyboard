@@ -30,6 +30,9 @@
                                             <constraint firstAttribute="width" constant="50" id="plA-cZ-hcv"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="backarrow"/>
+                                        <connections>
+                                            <action selector="BtnBack:" destination="QUX-oS-5NE" eventType="touchUpInside" id="di5-gY-n8O"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="pqj-Hh-uL2"/>
@@ -175,11 +178,22 @@
                     </view>
                     <connections>
                         <outlet property="NotificationHomeTableView" destination="vg9-XX-Gsm" id="ZSh-Ij-vmY"/>
+                        <segue destination="cjt-TP-rbf" kind="presentation" identifier="dashboard" modalPresentationStyle="fullScreen" id="Ftz-ve-qKA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8q-nF-Raf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29.600000000000001" y="-15.742128935532236"/>
+            <point key="canvasLocation" x="-620" y="-170"/>
+        </scene>
+        <!--home-->
+        <scene sceneID="Ys4-fo-m6j">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="cjt-TP-rbf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TgD-lV-AM7"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gk-6m-rMZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="-314"/>
         </scene>
     </scenes>
     <resources>

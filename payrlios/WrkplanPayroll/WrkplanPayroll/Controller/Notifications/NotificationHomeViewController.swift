@@ -28,6 +28,9 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func BtnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "dashboard", sender: nil)
+    }
     func fetchCoreData(){
        /* if !arrResNotification.isEmpty {
             arrResNotification.removeAll()
