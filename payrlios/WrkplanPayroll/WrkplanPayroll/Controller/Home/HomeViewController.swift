@@ -459,7 +459,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //---MenuBarLogout
     @objc func ImgLogoutMenu(tapGestureRecognizer: UITapGestureRecognizer){
 //        self.performSegue(withIdentifier: "notification", sender: nil)
-        openLogoutFormPopup()
+        openLogoutFormPopup()  
     }
     //---Lta
     @objc func ImgNotification(tapGestureRecognizer: UITapGestureRecognizer){
