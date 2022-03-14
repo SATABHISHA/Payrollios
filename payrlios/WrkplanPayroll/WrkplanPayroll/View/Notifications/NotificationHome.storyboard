@@ -179,11 +179,20 @@
                     <connections>
                         <outlet property="NotificationHomeTableView" destination="vg9-XX-Gsm" id="ZSh-Ij-vmY"/>
                         <segue destination="cjt-TP-rbf" kind="presentation" identifier="dashboard" modalPresentationStyle="fullScreen" id="Ftz-ve-qKA"/>
+                        <segue destination="NIu-df-gJi" kind="presentation" identifier="subleaveappltn" id="BWW-lI-Jsc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8q-nF-Raf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-620" y="-170"/>
+            <point key="canvasLocation" x="-540" y="-314"/>
+        </scene>
+        <!--subleaveappltn-->
+        <scene sceneID="1Fn-2h-n6b">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subleaveappltn" storyboardName="SubordinateLeaveApplication" referencedIdentifier="subleaveappltn" id="NIu-df-gJi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gj7-0w-eJd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-67" y="-408"/>
         </scene>
         <!--home-->
         <scene sceneID="Ys4-fo-m6j">
@@ -193,7 +202,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Gk-6m-rMZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-159" y="-314"/>
+            <point key="canvasLocation" x="-45" y="-213"/>
         </scene>
     </scenes>
     <resources>

@@ -142,7 +142,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
             print("tap is working")
            
             if row["title"] as? String == "Leave Application"{
-//                self.performSegue(withIdentifier: "ltarequest", sender: nil)
+                self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
             }else if row["title"] as? String == "OD Duty" {
                 
             }
