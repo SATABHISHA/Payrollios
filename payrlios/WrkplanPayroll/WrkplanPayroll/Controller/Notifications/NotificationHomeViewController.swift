@@ -134,26 +134,20 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
     }*/
     
     //---------onClick tableview code starts----------
-       /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
-            LtaListViewController.new_create_yn = false
-            let row=arrRes[indexPath.row]
+            
+            let row = arrResNotification[indexPath.row]
             print(row)
             print("tap is working")
            
-            LtaListViewController.lta_no = row["lta_application_no"] as? String
-            LtaListViewController.lta_status = row["lta_application_status"] as? String
-            LtaListViewController.lta_id = row["lta_application_id"]?.intValue
-            LtaListViewController.employee_id = row["employee_id"]?.intValue
-
-            LtaListViewController.EmployeeType = "Employee"
+            if row["title"] as? String == "Leave Application"{
+//                self.performSegue(withIdentifier: "ltarequest", sender: nil)
+            }else if row["title"] as? String == "OD Duty" {
+                
+            }
             
-            
-            LtaListViewController.employee_name = row["employee_name"] as? String
-           
-            LtaListViewController.new_create_yn = false
-            self.performSegue(withIdentifier: "ltarequest", sender: nil)
-        }*/
+        }
         //---------onClick tableview code ends----------
     //========tableview code ends========
 };
