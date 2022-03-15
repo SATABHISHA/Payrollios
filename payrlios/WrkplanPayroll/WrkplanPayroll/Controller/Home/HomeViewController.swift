@@ -858,6 +858,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                                   self.CustomNotificationUpdate(notificationId: Int(event_id_output)!)
                                               }
                                           }
+                                    
                                     self.update(readyn: "N")
                                      }
                                    
