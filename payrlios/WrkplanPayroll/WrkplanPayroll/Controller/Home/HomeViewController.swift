@@ -770,11 +770,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         let context = appDelegate.persistentContainer.viewContext
                         let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
-                        UserNotification.setValue("\(swiftyJsonVar)", forKey: "jsondata")
-                        UserNotification.setValue("N", forKey: "readyn")
-                        do{
-                            try context.save()
-                            print("SAVED")
+                        for items in self.arrResNotification{
+                            UserNotification.setValue("\(self.swiftyJsonvar1["employee"]["employee_id"].stringValue)", forKey: "employeeid")
+                            UserNotification.setValue("\(items)", forKey: "jsondata")
+                            
+                            let body : String = items["body"] as! String
+                            let fullbodyNotificationArr : [String] = body.components(separatedBy: "::")
+                            var notificationId : String = fullbodyNotificationArr[0]
+                            
+                            UserNotification.setValue("\(notificationId)", forKey: "notificationid")
+                            UserNotification.setValue("N", forKey: "readyn")
+                            do{
+                               try context.save()
+                                print("Saved")
+                            }catch{
+                                print("Error in saving data")
+                            }
+                        }
+                       
                             
                             //---code to fetch data, starts
                             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
@@ -817,12 +830,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                           }
                                     self.update(readyn: "N")
                                      }
-                                     
-                                
-                            }
-                            catch{
-                                //Process Error
-                            }
+                                   
 //                            self.update(readyn: "N")
                             
                             
