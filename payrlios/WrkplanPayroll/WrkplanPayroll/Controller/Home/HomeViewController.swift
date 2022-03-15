@@ -774,11 +774,41 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             UserNotification.setValue("\(self.swiftyJsonvar1["employee"]["employee_id"].stringValue)", forKey: "employeeid")
                             UserNotification.setValue("\(items)", forKey: "jsondata")
                             
+                            var title: String = items["title"] as! String
+                            
                             let body : String = items["body"] as! String
                             let fullbodyNotificationArr : [String] = body.components(separatedBy: "::")
                             var notificationId : String = fullbodyNotificationArr[0]
+                            let fullbodyNotificationIdArray: [String] = notificationId.components(separatedBy: "=")
+                            var notification_id_output : String = fullbodyNotificationIdArray[1]
                             
-                            UserNotification.setValue("\(notificationId)", forKey: "notificationid")
+                            var event_name : String = fullbodyNotificationArr[1]
+                            let fullbodyEventNameArray: [String] = event_name.components(separatedBy: "=")
+                            var event_name_output : String = fullbodyEventNameArray[1]
+                            
+                            var event_id : String = fullbodyNotificationArr[2]
+                            let fullbodyEventIdArray: [String] = event_id.components(separatedBy: "=")
+                            var event_id_output : String = fullbodyEventNameArray[1]
+                            
+                            var event_owner : String = fullbodyNotificationArr[3]
+                            let fullbodyEventOwnerArray: [String] = event_owner.components(separatedBy: "=")
+                            var event_owner_output : String = fullbodyEventNameArray[1]
+                            
+                            var event_owner_id : String = fullbodyNotificationArr[4]
+                            let fullbodyEventOwnerIdArray: [String] = event_owner_id.components(separatedBy: "=")
+                            var event_owner_id_output : String = fullbodyEventNameArray[1]
+                            
+                            var message : String = fullbodyNotificationArr[5]
+                            let fullbodyMessageArray: [String] = message.components(separatedBy: "=")
+                            var message_output : String = fullbodyEventNameArray[1]
+                            
+                            UserNotification.setValue("\(event_id_output)", forKey: "event_id")
+                            UserNotification.setValue("\(event_name_output)", forKey: "event_name")
+                            UserNotification.setValue("\(event_owner_output)", forKey: "event_owner")
+                            UserNotification.setValue("\(event_owner_id_output)", forKey: "event_owner_id")
+                            UserNotification.setValue("\(message_output)", forKey: "message")
+                            UserNotification.setValue("\(title)", forKey: "title")
+                            UserNotification.setValue("\(notification_id_output)", forKey: "notificationid")
                             UserNotification.setValue("N", forKey: "readyn")
                             do{
                                try context.save()
