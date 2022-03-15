@@ -16,6 +16,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
     var arrResNotification = [[String:Any]]()
     var jsondata: String = ""
     var arrayNotificationJsonData = [String]()
+    var JsonDataNotificationString: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
@@ -50,7 +51,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
                 for result in results as! [NSManagedObject]
                 {
                     jsondata = result.value(forKey: "jsondata") as? String ?? ""
-//                    print("Testing-=>", jsondata)
+                    print("TestingArray-=>", jsondata)
                     
 //                    let data = Data(jsondata.utf8)
                     /*let response = try JSON(data: data)
@@ -68,6 +69,8 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
                     print("Testing-=>", b1finalString)
                     
 //                    arrResNotification = b1finalString as! [[String:AnyObject]]
+                    
+                    JsonDataNotificationString.append(b1finalString)
                     arrayNotificationJsonData.append(b1finalString)
                     
                     
@@ -101,13 +104,29 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
                 }
                 print("jsonNotificationData1-=>", swiftyJsonVar)
                 print("Count-=>",swiftyJsonVar["notifications"][0]["body"])*/
+                print("stringTest-=>",JsonDataNotificationString)
                 print("arrayTest-=>", arrayNotificationJsonData)
                 let aArray = arrayNotificationJsonData
 //                let a1finalArray = aArray.rep
                 
                 let jsonString = convertIntoJSONString(arrayObject: arrayNotificationJsonData)
                 print("jsonString-=>",jsonString!)
+                let convertedStr = jsonString!.replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
                 
+                let swiftyJsonVar=JSON(convertedStr)
+                print("JsonTesting-=>", swiftyJsonVar)
+                
+               
+//                arrResNotification = swiftyJsonVar as! [[String:AnyObject]]
+              /*  let swiftyJsonVar=JSON(jsonString!)
+                if let resData = swiftyJsonVar.array{
+                    arrResNotification = resData as! [[String:AnyObject]]
+                }
+                NotificationHomeTableView.reloadData()
+                print("count-=>", arrResNotification.count)*/
+                
+               
+            
                 
                 /*for i in arrayNotificationJsonData {
                     print("arrayTest-=>", i)
