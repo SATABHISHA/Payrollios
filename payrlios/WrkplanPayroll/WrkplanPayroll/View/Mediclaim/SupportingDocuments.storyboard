@@ -30,7 +30,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="yoz-0i-8LA"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <state key="normal" backgroundImage="backarrownew"/>
                                         <connections>
                                             <action selector="BtnBack:" destination="XwA-YH-vuC" eventType="touchUpInside" id="gn3-Ls-Y8l"/>
                                         </connections>
@@ -371,7 +371,7 @@
     </scenes>
     <resources>
         <image name="adddcmnts" width="512" height="512"/>
-        <image name="backarrow" width="200" height="200"/>
+        <image name="backarrownew" width="200" height="200"/>
         <image name="dcmntsfile" width="225" height="225"/>
         <image name="delete_record_od_request" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">

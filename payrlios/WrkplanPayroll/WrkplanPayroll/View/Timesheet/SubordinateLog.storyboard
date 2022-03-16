@@ -50,7 +50,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="91A-bU-PzP"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <state key="normal" backgroundImage="backarrownew"/>
                                         <connections>
                                             <action selector="btn_back:" destination="wIm-e1-PJb" eventType="touchUpInside" id="3Rg-WH-24F"/>
                                         </connections>
@@ -649,14 +649,9 @@
             <point key="canvasLocation" x="-149.27536231884059" y="30.978260869565219"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="zC8-8o-krX">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <image name="arrowrightsublog" width="64" height="64"/>
-        <image name="backarrow" width="200" height="200"/>
+        <image name="backarrownew" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

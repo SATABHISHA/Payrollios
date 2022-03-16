@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +43,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="udy-P5-XWc"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <state key="normal" backgroundImage="backarrownew"/>
                                         <connections>
                                             <action selector="btnBack:" destination="buH-jA-gFz" eventType="touchUpInside" id="3SU-Bs-Biy"/>
                                         </connections>
@@ -85,7 +85,7 @@
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="66" id="nib-A9-X8n" customClass="OdDutyLogEmpTaskTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="374" height="66"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="374" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nib-A9-X8n" id="ZMa-XU-Wqx">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="66"/>
@@ -691,7 +691,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backarrow" width="200" height="200"/>
+        <image name="backarrownew" width="200" height="200"/>
         <image name="delete_record" width="100" height="100"/>
         <image name="edit_record" width="100" height="100"/>
     </resources>

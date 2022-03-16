@@ -43,7 +43,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="7s6-jM-x9r"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <state key="normal" backgroundImage="backarrownew"/>
                                         <connections>
                                             <action selector="BtnBack:" destination="Kge-xp-cmX" eventType="touchUpInside" id="wq5-kb-3K9"/>
                                         </connections>
@@ -356,13 +356,8 @@
             <point key="canvasLocation" x="1200" y="-45"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="JlL-dl-OyW">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-    </designables>
     <resources>
-        <image name="backarrow" width="200" height="200"/>
+        <image name="backarrownew" width="200" height="200"/>
         <image name="delete_record_od_request" width="256" height="256"/>
     </resources>
 </document>

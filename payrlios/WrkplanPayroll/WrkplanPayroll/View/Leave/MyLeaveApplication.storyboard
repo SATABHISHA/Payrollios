@@ -43,7 +43,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="F7u-Uk-lph"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="backarrow"/>
+                                        <state key="normal" backgroundImage="backarrownew"/>
                                         <connections>
                                             <action selector="BtnBack:" destination="uhY-8C-YyT" eventType="touchUpInside" id="dBA-oL-3iX"/>
                                         </connections>
@@ -234,6 +234,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backarrow" width="200" height="200"/>
+        <image name="backarrownew" width="200" height="200"/>
     </resources>
 </document>
