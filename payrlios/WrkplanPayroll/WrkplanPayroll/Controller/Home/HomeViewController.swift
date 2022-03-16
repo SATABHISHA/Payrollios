@@ -116,8 +116,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         
+        
         //---added on 08-Mar-2022, code starts----
+        NotificationImageView.isHidden = true
+        if fetchNotificationCount(employeeId: swiftyJsonvar1["employee"]["employee_id"].stringValue) == true {
+            NotificationImageView.isHidden = false
+        }else if fetchNotificationCount(employeeId: swiftyJsonvar1["employee"]["employee_id"].stringValue) == false{
+            NotificationImageView.isHidden = true
+        }
         // Assing self delegate on userNotificationCenter
+        
         self.userNotificationCenter.delegate = self
         
         self.requestNotificationAuthorization()
@@ -676,6 +684,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     //--------tableview code ends--------
+    
+    //======function to fetch data for notification count, code starts======
+    func fetchNotificationCount(employeeId: String)-> Bool{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
+//            fetchRequest.predicate = NSPredicate(format: "companyOffice == %@ AND employNo == %@", companyOffice, employNo)
+        fetchRequest.predicate = NSPredicate(format: "employeeid == %@", employeeId)
+
+            let res = try! context.fetch(fetchRequest)
+        print("countHome-=>", res)
+            return !res.isEmpty
+    }
+    //======function to fetch data for notification count, code ends======
     
     //-----------function for navigation drawer code, starts-----------
     func menuShow(){
