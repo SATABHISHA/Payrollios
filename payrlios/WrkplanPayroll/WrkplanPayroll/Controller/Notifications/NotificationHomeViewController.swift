@@ -146,7 +146,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
             cell.LabelEventId.text = "OD"
         }
         
-        cell.LabelMessage.text = ""
+       
         print("Messaage-=>", dict1.message)
         
         
