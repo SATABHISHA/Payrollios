@@ -788,19 +788,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             
                             var event_id : String = fullbodyNotificationArr[2]
                             let fullbodyEventIdArray: [String] = event_id.components(separatedBy: "=")
-                            var event_id_output : String = fullbodyEventNameArray[1]
+                            var event_id_output : String = fullbodyEventIdArray[1]
                             
                             var event_owner : String = fullbodyNotificationArr[3]
                             let fullbodyEventOwnerArray: [String] = event_owner.components(separatedBy: "=")
-                            var event_owner_output : String = fullbodyEventNameArray[1]
+                            var event_owner_output : String = fullbodyEventOwnerArray[1]
                             
                             var event_owner_id : String = fullbodyNotificationArr[4]
                             let fullbodyEventOwnerIdArray: [String] = event_owner_id.components(separatedBy: "=")
-                            var event_owner_id_output : String = fullbodyEventNameArray[1]
+                            var event_owner_id_output : String = fullbodyEventOwnerIdArray[1]
                             
                             var message : String = fullbodyNotificationArr[5]
                             let fullbodyMessageArray: [String] = message.components(separatedBy: "=")
-                            var message_output : String = fullbodyEventNameArray[1]
+                            var message_output : String = fullbodyMessageArray[1]
                             
                             UserNotification.setValue("\(event_id_output)", forKey: "event_id")
                             UserNotification.setValue("\(event_name_output)", forKey: "event_name")

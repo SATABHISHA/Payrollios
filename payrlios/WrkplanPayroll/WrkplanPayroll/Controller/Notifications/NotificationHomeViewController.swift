@@ -29,8 +29,6 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var NotificationHomeTableView: UITableView!
     var arrResNotification = [[String:Any]]()
     var jsondata: String = ""
-    var arrayNotificationJsonData = [String]()
-    var JsonDataNotificationString: String = ""
     var tableNotificationData = [NotificationDetails]()
     
     override func viewDidLoad() {
@@ -40,6 +38,17 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         self.NotificationHomeTableView.delegate = self
         self.NotificationHomeTableView.dataSource = self
         
+        NotificationHomeTableView.backgroundColor = UIColor.white
+        
+        if UIScreen.main.bounds.size.width < 768 { //IPHONE
+            NotificationHomeTableView.rowHeight = 100;
+            NotificationHomeTableView.rowHeight = UITableView.automaticDimension
+            NotificationHomeTableView.estimatedRowHeight = 130
+        } else { //IPAD
+            NotificationHomeTableView.rowHeight = 127;
+            NotificationHomeTableView.rowHeight = UITableView.automaticDimension
+            NotificationHomeTableView.estimatedRowHeight = 150
+        }
         
         fetchCoreData()
 
@@ -69,84 +78,35 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
                     jsondata = result.value(forKey: "jsondata") as? String ?? ""
                     print("TestingArray-=>", jsondata)
                     
-//                    let data = Data(jsondata.utf8)
-                    /*let response = try JSON(data: data)
-                    let swiftyJsonVar=JSON(response)*/
+                    var data = NotificationDetails()
+                    data.employeeid = result.value(forKey: "employeeid") as? String ?? ""
+                    data.event_id = result.value(forKey: "event_id") as? String ?? ""
+                    data.event_name = result.value(forKey: "event_name") as? String ?? ""
+                    data.event_owner = result.value(forKey: "event_owner") as? String ?? ""
+                    data.event_owner_id = result.value(forKey: "event_owner_id") as? String ?? ""
+                    data.jsondata = result.value(forKey: "jsondata") as? String ?? ""
+                    data.message = result.value(forKey: "message") as? String ?? ""
+                    data.notificationid = result.value(forKey: "notificationid") as? String ?? ""
+                    data.readyn = result.value(forKey: "readyn") as? String ?? ""
+                    data.title = result.value(forKey: "title") as? String ?? ""
                     
-//                    print("jsonNotificationData1-=>", data)
-                    
-                    
-                    let aString = jsondata
-                    let a1String = aString.replacingOccurrences(of: "[", with: "{", options: .literal, range: nil)
-                    
-                    let bString = a1String
-                    let b1finalString = bString.replacingOccurrences(of: "]", with: "}", options: .literal, range: nil)
-                    
-                    print("Testing-=>", b1finalString)
-                    
-//                    arrResNotification = b1finalString as! [[String:AnyObject]]
-                    
-                    JsonDataNotificationString.append(b1finalString)
-                    arrayNotificationJsonData.append(b1finalString)
-                    
-                    
-                /*    if (result.value(forKey: "jsondata") as? String) != nil{
-//                        print("jsonNotificationData1-=>", jsonData)
-                        
-                        
-                        
-                        
-                        let data = Data(jsondata.utf8)
-                        let response = try JSON(data: data)
-                      
-                        let swiftyJsonVar=JSON(response)
-                        if let resData = swiftyJsonVar["notifications"].arrayObject{
-                            arrResNotification = resData as! [[String:AnyObject]]
-                        }
-                        print("jsonNotificationData1-=>", swiftyJsonVar)
-                       print("Count-=>",arrResNotification.count)
-                      
-                        
-                    } */
-                   
-//                    print("All results1: ",result.toJSON()!)
-                    
+                    tableNotificationData.append(data)
                     
                 }
-               
-                /*let swiftyJsonVar=JSON(jsondata)
-                if let resData = swiftyJsonVar["notifications"].arrayObject{
-                    self.arrResNotification = resData as! [[String:AnyObject]]
+                
+                
+                if tableNotificationData.count>0 {
+                    NotificationHomeTableView.reloadData()
+                }else{
+                    let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.NotificationHomeTableView.bounds.size.width, height: self.NotificationHomeTableView.bounds.size.height))
+                    noDataLabel.text          = "No Data to show"
+                    noDataLabel.textColor     = UIColor.black
+                    noDataLabel.textAlignment = .center
+                    self.NotificationHomeTableView.backgroundView  = noDataLabel
+                    self.NotificationHomeTableView.separatorStyle  = .none
                 }
-                print("jsonNotificationData1-=>", swiftyJsonVar)
-                print("Count-=>",swiftyJsonVar["notifications"][0]["body"])*/
-                print("stringTest-=>",JsonDataNotificationString)
-                print("arrayTest-=>", arrayNotificationJsonData)
-                let aArray = arrayNotificationJsonData
-//                let a1finalArray = aArray.rep
-                
-                let jsonString = convertIntoJSONString(arrayObject: arrayNotificationJsonData)
-                print("jsonString-=>",jsonString!)
-                let convertedStr = jsonString!.replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
-                
-                let swiftyJsonVar=JSON(convertedStr)
-                print("JsonTesting-=>", swiftyJsonVar)
-                
                
-//                arrResNotification = swiftyJsonVar as! [[String:AnyObject]]
-              /*  let swiftyJsonVar=JSON(jsonString!)
-                if let resData = swiftyJsonVar.array{
-                    arrResNotification = resData as! [[String:AnyObject]]
-                }
-                NotificationHomeTableView.reloadData()
-                print("count-=>", arrResNotification.count)*/
-                
                
-            
-                
-                /*for i in arrayNotificationJsonData {
-                    print("arrayTest-=>", i)
-                }*/
             }
         }catch{
             print("Error")
@@ -168,7 +128,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         }
     //========tableview code starts=======
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrResNotification.count
+        return tableNotificationData.count
 //        return 1
     }
     
@@ -177,27 +137,18 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
 //        rowIndex = indexPath.row
         
 //        cell.delegate = self
+        var dict1 = tableNotificationData[indexPath.row]
+        cell.LabelTitle.text = dict1.message
         
-        let dict = arrResNotification[indexPath.row]
-        
-        
-        
-        cell.LabelTitle.text = dict["title"] as? String
-        
-        let body : String = dict["body"] as! String
-        let fullbodyArr : [String] = body.components(separatedBy: "::")
-        
-        var message : String = fullbodyArr[5]
-        var fullMessageArr: [String] = message.components(separatedBy: "=")
-        var messageOutput : String = fullMessageArr[1]
-        
-        cell.LabelMessage.text = messageOutput
-        
-        if dict["title"] as? String == "Leave Application"{
+        if dict1.title == "Leave Application"{
             cell.LabelEventId.text = "LA"
-        }else if dict["title"] as? String == "OD Duty" {
+        }else if dict1.title == "OD Duty" {
             cell.LabelEventId.text = "OD"
         }
+        
+        cell.LabelMessage.text = ""
+        print("Messaage-=>", dict1.message)
+        
         
         return cell
     }
@@ -217,7 +168,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            let row = arrResNotification[indexPath.row]
+          /*  let row = arrResNotification[indexPath.row]
             print(row)
             print("tap is working")
            
@@ -225,7 +176,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
                 self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
             }else if row["title"] as? String == "OD Duty" {
                 
-            }
+            }*/
             
         }
         //---------onClick tableview code ends----------
