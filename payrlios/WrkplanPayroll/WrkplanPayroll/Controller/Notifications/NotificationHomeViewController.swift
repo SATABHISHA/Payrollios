@@ -168,15 +168,13 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             tableView.deselectRow(at: indexPath, animated: true)
             
-          /*  let row = arrResNotification[indexPath.row]
-            print(row)
-            print("tap is working")
+            let row = tableNotificationData[indexPath.row]
            
-            if row["title"] as? String == "Leave Application"{
+            if row.title == "Leave Application"{
                 self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
-            }else if row["title"] as? String == "OD Duty" {
+            }else if row.title == "OD Duty" {
                 
-            }*/
+            }
             
         }
         //---------onClick tableview code ends----------
