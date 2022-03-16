@@ -180,7 +180,56 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
             
         }
         //---------onClick tableview code ends----------
+    
+    //-----swipe delete code starts-----
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            var dict1 = tableNotificationData[indexPath.row]
+            print("notificationis-=>", dict1.notificationid!)
+            if deleteNotification(notificationid: dict1.notificationid!) == true {
+                NotificationHomeTableView.reloadData()
+                print("result-=>","success")
+            }
+            
+        }
+    }
+    //-----swipe delete code ends------
     //========tableview code ends========
+    
+    //=====function to delete row from coredata, starts=======
+    func deleteNotification(notificationid: String) -> Bool
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        //---code to fetch data, starts
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
+        fetchRequest.predicate = NSPredicate(format: "notificationid = %@", "\(notificationid)")
+        var status: Bool?
+        do
+        {
+
+            let results = try context.fetch(fetchRequest)
+            for entity in results {
+
+                context.delete(entity as! NSManagedObject)
+                try context.save()
+                status = true
+            }
+        }
+        catch _ {
+            print("Could not delete")
+            status = false
+
+        }
+        
+        return status!
+    }
+    //=====function to delete row from coredata, ends=======
 };
 extension NSManagedObject {
   func toJSON() -> String? {
