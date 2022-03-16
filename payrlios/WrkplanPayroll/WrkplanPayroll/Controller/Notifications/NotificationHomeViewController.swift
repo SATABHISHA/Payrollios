@@ -10,6 +10,20 @@ import CoreData
 import Alamofire
 import SwiftyJSON
 
+
+struct NotificationDetails{
+    var employeeid: String!
+    var event_id: String!
+    var event_name: String!
+    var event_owner: String!
+    var event_owner_id: String!
+    var jsondata: String!
+    var message: String!
+    var notificationid: String!
+    var readyn: String!
+    var title: String!
+}
+
 class NotificationHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var NotificationHomeTableView: UITableView!
@@ -17,6 +31,8 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
     var jsondata: String = ""
     var arrayNotificationJsonData = [String]()
     var JsonDataNotificationString: String = ""
+    var tableNotificationData = [NotificationDetails]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
