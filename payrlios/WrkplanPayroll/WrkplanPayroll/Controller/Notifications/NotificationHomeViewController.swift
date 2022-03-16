@@ -192,9 +192,17 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
             var dict1 = tableNotificationData[indexPath.row]
             print("notificationis-=>", dict1.notificationid!)
             if deleteNotification(notificationid: dict1.notificationid!) == true {
-                NotificationHomeTableView.reloadData()
+//                NotificationHomeTableView.reloadData()
                 print("result-=>","success")
+                
+                //---code to get instatnt updates from row, starts---
+                NotificationHomeTableView.beginUpdates()
+                tableNotificationData.remove(at: indexPath.row)
+                NotificationHomeTableView.deleteRows(at: [indexPath], with: .none)
+                NotificationHomeTableView.endUpdates()
+                //---code to get instatnt updates from row, ends---
             }
+            
             
         }
     }
