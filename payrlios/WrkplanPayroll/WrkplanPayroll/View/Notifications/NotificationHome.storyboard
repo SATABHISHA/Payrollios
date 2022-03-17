@@ -161,11 +161,22 @@
                         <outlet property="NotificationHomeTableView" destination="vg9-XX-Gsm" id="ZSh-Ij-vmY"/>
                         <segue destination="cjt-TP-rbf" kind="presentation" identifier="dashboard" modalPresentationStyle="fullScreen" id="Ftz-ve-qKA"/>
                         <segue destination="NIu-df-gJi" kind="presentation" identifier="subleaveappltn" id="BWW-lI-Jsc"/>
+                        <segue destination="iQB-4h-XVw" kind="presentation" identifier="la" modalPresentationStyle="fullScreen" id="0uc-OY-rbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8q-nF-Raf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-540" y="-314.39280359820094"/>
+        </scene>
+        <!--subleaverqst-->
+        <scene sceneID="RZh-Ph-ehB">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subleaverqst" storyboardName="SubordinateLeaveRequest" referencedIdentifier="subleaverqst" id="iQB-4h-XVw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Rj3-ec-PMG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LK7-7k-x14" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="-640"/>
         </scene>
         <!--subleaveappltn-->
         <scene sceneID="1Fn-2h-n6b">
