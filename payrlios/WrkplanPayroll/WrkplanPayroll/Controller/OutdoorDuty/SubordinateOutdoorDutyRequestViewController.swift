@@ -42,7 +42,7 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
         txt_emp_name.isUserInteractionEnabled = false
         txt_view_reason.isUserInteractionEnabled = false
         txt_od_duty_type.isUserInteractionEnabled = false
-        txt_od_duty_type.text = "Work From Home"
+        txt_od_duty_type.text = ""
         
         txt_od_rqst_no.setLeftPaddingPoints(5)
         txt_emp_name.setLeftPaddingPoints(5)

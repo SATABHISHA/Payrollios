@@ -336,8 +336,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     }
     //--code to get day count ends
     
-    //---code for dropdown on button click, starts
-    @IBAction func btn_select_type(_ sender: UIButton) {
+    //---code for dropdown on button click, starts (commenting the following code on 17th March 2022 as per client requirements
+   /* @IBAction func btn_select_type(_ sender: UIButton) {
         dropDown.dataSource = type
         dropDown.anchorView = sender//5
         dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
@@ -349,7 +349,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             //            print("name-=>",SubordinateLogViewController.subordinate_details[index].slno!)
             
         }
-    }
+    }*/
     //---code for dropdown on button click, ends
     
     
