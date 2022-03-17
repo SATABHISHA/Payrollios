@@ -143,7 +143,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         
         if dict1.title == "Leave Application"{
             cell.LabelEventId.text = "LA"
-        }else if dict1.title == "OD Duty" {
+        }else if dict1.title == "OD Application" {
             cell.LabelEventId.text = "OD"
         }
         
@@ -176,8 +176,10 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
                 HomeViewController.NotificationYN = true
 //                self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
                 self.performSegue(withIdentifier: "la", sender: nil)
-            }else if row.title == "OD Duty" {
-                
+            }else if row.title == "OD Application" {
+                NotificationHomeViewController.event_id = row.event_id
+                HomeViewController.NotificationYN = true
+                self.performSegue(withIdentifier: "od", sender: nil)
             }
             
         }

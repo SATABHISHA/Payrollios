@@ -88,6 +88,7 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
     
     @IBAction func btn_back(_ sender: Any) {
         self.performSegue(withIdentifier: "subordinateoutdoordutylist", sender: nil)
+        HomeViewController.NotificationYN = false
     }
     
    
@@ -156,7 +157,15 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
     func loadData(){
            loaderStart()
         
-        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateOutdoorDutyRequestListViewController.od_request_id!)/2/"
+        var application_id: Int!
+        if HomeViewController.NotificationYN == true {
+            application_id = Int(NotificationHomeViewController.event_id!)
+        }else if HomeViewController.NotificationYN == false {
+            application_id = Int(SubordinateOutdoorDutyRequestListViewController.od_request_id)
+        }
+        
+//        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateOutdoorDutyRequestListViewController.od_request_id!)/2/"
+        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(application_id!)/2/"
         print("SubordinateOutDoorDutylisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
