@@ -30,6 +30,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
     var arrResNotification = [[String:Any]]()
     var jsondata: String = ""
     var tableNotificationData = [NotificationDetails]()
+    static var event_id: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,6 +172,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
             let row = tableNotificationData[indexPath.row]
            
             if row.title == "Leave Application"{
+                NotificationHomeViewController.event_id = row.event_id
                 self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
             }else if row.title == "OD Duty" {
                 
