@@ -162,6 +162,7 @@
                         <segue destination="cjt-TP-rbf" kind="presentation" identifier="dashboard" modalPresentationStyle="fullScreen" id="Ftz-ve-qKA"/>
                         <segue destination="NIu-df-gJi" kind="presentation" identifier="subleaveappltn" id="BWW-lI-Jsc"/>
                         <segue destination="iQB-4h-XVw" kind="presentation" identifier="la" modalPresentationStyle="fullScreen" id="0uc-OY-rbV"/>
+                        <segue destination="7Gy-iV-5Zh" kind="show" identifier="od" id="mli-8d-hE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8q-nF-Raf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -177,6 +178,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LK7-7k-x14" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-49" y="-640"/>
+        </scene>
+        <!--subordinateoutdoordutyrequest-->
+        <scene sceneID="RNP-JO-Zby">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinateoutdoordutyrequest" storyboardName="SubordinateOutdoorDutyRequest" referencedIdentifier="subordinateoutdoordutyrequest" id="7Gy-iV-5Zh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9kF-Ew-TfA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VWv-Ho-fzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="258" y="-566"/>
         </scene>
         <!--subleaveappltn-->
         <scene sceneID="1Fn-2h-n6b">
