@@ -45,7 +45,12 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        txt_employee_name.text = SubordinateLeaveApplicationViewController.employee_name!
         txt_view_details.isUserInteractionEnabled = false
+        
+        if HomeViewController.NotificationYN == false{
         txt_leave_type.text = SubordinateLeaveApplicationViewController.leave_name!
+        } else if HomeViewController.NotificationYN == true{
+            txt_leave_type.text = ""
+        }
         
         txt_employee_name.setLeftPaddingPoints(5)
         txt_leave_type.setLeftPaddingPoints(5)
@@ -95,6 +100,7 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
     }
     @IBAction func BtnBack(_ sender: Any) {
         self.performSegue(withIdentifier: "subleaveappltn", sender: self)
+        HomeViewController.NotificationYN = false
         print("tapped")
     }
     
@@ -120,8 +126,14 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
     //--------function to show leave application request details using Alamofire and Json Swifty------------
     func loadData(){
            loaderStart()
-        
-        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateLeaveApplicationViewController.appliction_id!)/2/"
+        var application_id: Int!
+        if HomeViewController.NotificationYN == true {
+            application_id = Int(NotificationHomeViewController.event_id!)
+        }else if HomeViewController.NotificationYN == false {
+            application_id = SubordinateLeaveApplicationViewController.appliction_id!
+        }
+//        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateLeaveApplicationViewController.appliction_id!)/2/"
+        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(application_id!)/2/"
         print("SubordinateOutDoorDutylisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()

@@ -173,6 +173,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
            
             if row.title == "Leave Application"{
                 NotificationHomeViewController.event_id = row.event_id
+                HomeViewController.NotificationYN = true
 //                self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
                 self.performSegue(withIdentifier: "la", sender: nil)
             }else if row.title == "OD Duty" {

@@ -109,6 +109,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var db: OpaquePointer? //---added on 09-Mar-2022
     var arrResNotification = [[String:Any]]()
     
+    static var NotificationYN: Bool = false //---added on 17-Mar-2022
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
