@@ -125,6 +125,7 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
     }
     //---------onClick tableview code ends----------
     
+    
     //--------function to show details using Alamofire and Json Swifty------------
     func loadData(){
         loaderStart()
