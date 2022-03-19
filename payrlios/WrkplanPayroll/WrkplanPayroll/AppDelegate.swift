@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     if self.arrResNotification.count > 0 {
                         //Storing core data
                         //----code to insert data, starts---
-                        self.resetAllRecords(in: "UserNotification")
+//                        self.resetAllRecords(in: "UserNotification") //---commented on 19th MArch 2022
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         let context = appDelegate.persistentContainer.viewContext
                         let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
