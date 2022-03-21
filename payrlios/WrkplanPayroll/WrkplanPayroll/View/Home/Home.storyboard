@@ -774,6 +774,7 @@
                         <outlet property="navigationDrawerLeadingConstraint" destination="FSy-D0-Gqe" id="Jax-la-1zG"/>
                         <outlet property="navigationDrawerTrailingConstant" destination="fzF-FR-m2y" id="10c-vN-yDM"/>
                         <outlet property="navigationEmployeeName" destination="OM6-e1-2oC" id="mae-jd-reV"/>
+                        <outlet property="navigationProfileImg" destination="8kD-3X-H59" id="pBL-Xh-zF8"/>
                         <outlet property="tableViewNavigation" destination="Yoo-0X-aeW" id="eVZ-xI-OpO"/>
                         <outlet property="tvCurrentPassword" destination="7Dg-0i-XMC" id="GS3-Mg-UfO"/>
                         <outlet property="tvNewPassword" destination="XJ4-KB-a0G" id="Mvt-0z-Obc"/>

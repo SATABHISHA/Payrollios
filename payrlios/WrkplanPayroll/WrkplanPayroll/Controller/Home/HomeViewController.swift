@@ -85,6 +85,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     //---------variables for navigation drawer starts-------
+    @IBOutlet weak var navigationProfileImg: UIImageView!
     @IBOutlet weak var navigationDrawer: UIView!
     @IBOutlet weak var navigationEmployeeName: UILabel!
     @IBOutlet weak var navigationCompanyName: UILabel!
@@ -718,6 +719,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //            let screenSize: CGRect = UIScreen.main.bounds
             //            self.navigationDrawerHeight.constant = screenSize.height
             //            navigationDrawerLeadingConstraint.constant = 0
+            if swiftyJsonvar1["employee"]["gender"].stringValue == "M"{
+                self.navigationProfileImg.image = UIImage(named: "woman")
+            }else if swiftyJsonvar1["employee"]["gender"].stringValue == "F"{
+                self.navigationProfileImg.image = UIImage(named: "woman")
+            }
             self.navigationEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
             self.navigationCompanyName.text = swiftyJsonvar1["company"]["company_name"].stringValue
             self.navigationDrawerLeadingConstraint.constant = 0
