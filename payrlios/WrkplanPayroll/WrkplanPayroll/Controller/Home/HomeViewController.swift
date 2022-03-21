@@ -720,7 +720,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //            self.navigationDrawerHeight.constant = screenSize.height
             //            navigationDrawerLeadingConstraint.constant = 0
             if swiftyJsonvar1["employee"]["gender"].stringValue == "M"{
-                self.navigationProfileImg.image = UIImage(named: "woman")
+                self.navigationProfileImg.image = UIImage(named: "employeemale")
             }else if swiftyJsonvar1["employee"]["gender"].stringValue == "F"{
                 self.navigationProfileImg.image = UIImage(named: "woman")
             }
@@ -1134,7 +1134,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cancelLogoutFormPopup()
         sharedpreferences.removeObject(forKey: "UserId")
         sharedpreferences.synchronize()
-        
+       
         self.performSegue(withIdentifier: "login", sender: self)
     }
     
