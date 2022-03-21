@@ -85,6 +85,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     //---------variables for navigation drawer starts-------
+    @IBOutlet weak var navigationDesignation: UILabel!
     @IBOutlet weak var navigationProfileImg: UIImageView!
     @IBOutlet weak var navigationDrawer: UIView!
     @IBOutlet weak var navigationEmployeeName: UILabel!
@@ -724,6 +725,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }else if swiftyJsonvar1["employee"]["gender"].stringValue == "F"{
                 self.navigationProfileImg.image = UIImage(named: "woman")
             }
+            self.navigationDesignation.text = swiftyJsonvar1["employee"]["designation_name"].stringValue
             self.navigationEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
             self.navigationCompanyName.text = swiftyJsonvar1["company"]["company_name"].stringValue
             self.navigationDrawerLeadingConstraint.constant = 0

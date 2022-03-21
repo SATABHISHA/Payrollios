@@ -626,7 +626,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.97431263581463512" green="0.97431263581463512" blue="0.97431263581463512" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.93974030978370726" green="0.93974030978370726" blue="0.93974030978370726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="234" id="Jt4-1k-fqW"/>
@@ -777,6 +777,7 @@
                         <outlet property="labelReports" destination="iOC-fc-vsn" id="EvZ-u4-daV"/>
                         <outlet property="labelTimesheet" destination="h3Y-NY-mGz" id="I10-I9-qQX"/>
                         <outlet property="navigationCompanyName" destination="uLX-6U-sMA" id="7yy-Gw-jms"/>
+                        <outlet property="navigationDesignation" destination="h5B-aA-lkR" id="QQn-lX-7kW"/>
                         <outlet property="navigationDrawer" destination="u9Z-Il-Kjs" id="4PD-O9-RFQ"/>
                         <outlet property="navigationDrawerLeadingConstraint" destination="FSy-D0-Gqe" id="Jax-la-1zG"/>
                         <outlet property="navigationDrawerTrailingConstant" destination="fzF-FR-m2y" id="10c-vN-yDM"/>
