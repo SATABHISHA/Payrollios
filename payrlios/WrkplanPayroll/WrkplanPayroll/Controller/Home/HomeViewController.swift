@@ -1137,6 +1137,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         sharedpreferences.removeObject(forKey: "UserId")
         sharedpreferences.synchronize()
        
+        self.resetAllRecords(in: "UserNotification")
         self.performSegue(withIdentifier: "login", sender: self)
     }
     
