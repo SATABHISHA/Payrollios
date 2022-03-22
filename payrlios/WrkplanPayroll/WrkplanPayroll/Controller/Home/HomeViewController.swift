@@ -716,27 +716,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else{
             blurEffect()
             self.view.addSubview(navigationDrawer)
-            //            let screenSize: CGRect = UIScreen.main.bounds
-            //            self.navigationDrawerHeight.constant = screenSize.height
-            //            navigationDrawerLeadingConstraint.constant = 0
-
-            //swiftyJsonvar1["employee"]["employee_image"].stringValue
+          
+            let url = swiftyJsonvar1["employee"]["employee_image"].stringValue
+            if url == "" {
+                if swiftyJsonvar1["employee"]["gender"].stringValue == "M"{
+                     self.navigationProfileImg.image = UIImage(named: "employeemale")
+                 }else if swiftyJsonvar1["employee"]["gender"].stringValue == "F"{
+                     self.navigationProfileImg.image = UIImage(named: "woman")
+                 }
+            }
+            if url != "" {
+            let encodedURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            let finalurl = URL(string: encodedURL)
             
-            AF.request("http://14.99.211.60:9001/Payroll/HrPayrollDocument/EMC_NEW4a9e50bd79ac4ab6a8fc162b58619858AMIT PATEL.jpg",method: .get).response{ response in
 
-               switch response.result {
-                case .success(let responseData):
-                    self.navigationProfileImg.image = UIImage(data: responseData!, scale:1)
-
-                case .failure(let error):
-                    print("error--->",error)
+                // Fetch Image Data
+                if let data = try? Data(contentsOf: finalurl!) {
+                    // Create Image and Update Image View
+                    self.navigationProfileImg.image = UIImage(data: data)
                 }
             }
-           /* if swiftyJsonvar1["employee"]["gender"].stringValue == "M"{
-                self.navigationProfileImg.image = UIImage(named: "employeemale")
-            }else if swiftyJsonvar1["employee"]["gender"].stringValue == "F"{
-                self.navigationProfileImg.image = UIImage(named: "woman")
-            }*/
+        
+           
             self.navigationDesignation.text = swiftyJsonvar1["employee"]["designation_name"].stringValue
             self.navigationEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
             self.navigationCompanyName.text = swiftyJsonvar1["company"]["company_name"].stringValue
