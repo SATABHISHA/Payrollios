@@ -19,8 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     var arrResNotification = [[String:Any]]()
     
+    static var NotificationYN: Bool = false
+    
     let userNotificationCenter = UNUserNotificationCenter.current() //---added on 10-Mar-2022
-    let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound) //---added on 10-Mar-2022
+    let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
+    lazy var swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)//---added on 10-Mar-2022
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -95,10 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code starts----
     func LoadNotificationData(){
-        
-        do{
-         let swiftyJsonvar1 = try JSON(UserSingletonModel.sharedInstance.employeeJson!)
-        
         let url = "\(BASE_URL)notification/custom/fetch/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/"
         print("NotificationUrl-=>",url)
         AF.request(url).responseJSON{ (responseData) -> Void in
@@ -107,7 +106,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 let swiftyJsonVar=JSON(responseData.value!)
                 print("Log Notification description: \(swiftyJsonVar)")
                 
-                
+                if !self.arrResNotification.isEmpty{
+                    self.arrResNotification.removeAll()
+                }
                 
                 if let resData = swiftyJsonVar["notifications"].arrayObject{
                     self.arrResNotification = resData as! [[String:AnyObject]]
@@ -117,15 +118,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     if self.arrResNotification.count > 0 {
                         //Storing core data
                         //----code to insert data, starts---
-//                        self.resetAllRecords(in: "UserNotification") //---commented on 19th MArch 2022
+//                        self.resetAllRecords(in: "UserNotification") //---commented on 11-Mar-2022
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         let context = appDelegate.persistentContainer.viewContext
                         let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
-                        UserNotification.setValue("\(swiftyJsonVar)", forKey: "jsondata")
-                        UserNotification.setValue("N", forKey: "readyn")
-                        do{
-                            try context.save()
-                            print("SAVED")
+                        for items in self.arrResNotification{
+                            UserNotification.setValue("\(self.swiftyJsonvar1["employee"]["employee_id"].stringValue)", forKey: "employeeid")
+                            UserNotification.setValue("\(items)", forKey: "jsondata")
+                            
+                            var title: String = items["title"] as! String
+                            
+                            let body : String = items["body"] as! String
+                            let fullbodyNotificationArr : [String] = body.components(separatedBy: "::")
+                            var notificationId : String = fullbodyNotificationArr[0]
+                            let fullbodyNotificationIdArray: [String] = notificationId.components(separatedBy: "=")
+                            var notification_id_output : String = fullbodyNotificationIdArray[1]
+                            
+                            var event_name : String = fullbodyNotificationArr[1]
+                            let fullbodyEventNameArray: [String] = event_name.components(separatedBy: "=")
+                            var event_name_output : String = fullbodyEventNameArray[1]
+                            
+                            var event_id : String = fullbodyNotificationArr[2]
+                            let fullbodyEventIdArray: [String] = event_id.components(separatedBy: "=")
+                            var event_id_output : String = fullbodyEventIdArray[1]
+                            
+                            var event_owner : String = fullbodyNotificationArr[3]
+                            let fullbodyEventOwnerArray: [String] = event_owner.components(separatedBy: "=")
+                            var event_owner_output : String = fullbodyEventOwnerArray[1]
+                            
+                            var event_owner_id : String = fullbodyNotificationArr[4]
+                            let fullbodyEventOwnerIdArray: [String] = event_owner_id.components(separatedBy: "=")
+                            var event_owner_id_output : String = fullbodyEventOwnerIdArray[1]
+                            
+                            var message : String = fullbodyNotificationArr[5]
+                            let fullbodyMessageArray: [String] = message.components(separatedBy: "=")
+                            var message_output : String = fullbodyMessageArray[1]
+                            
+                            UserNotification.setValue("\(event_id_output)", forKey: "event_id")
+                            UserNotification.setValue("\(event_name_output)", forKey: "event_name")
+                            UserNotification.setValue("\(event_owner_output)", forKey: "event_owner")
+                            UserNotification.setValue("\(event_owner_id_output)", forKey: "event_owner_id")
+                            UserNotification.setValue("\(message_output)", forKey: "message")
+                            UserNotification.setValue("\(title)", forKey: "title")
+                            UserNotification.setValue("\(notification_id_output)", forKey: "notificationid")
+                            UserNotification.setValue("N", forKey: "readyn")
+                            do{
+                               try context.save()
+                                print("Saved")
+                            }catch{
+                                print("Error in saving data")
+                            }
+                        }
+                       
                             
                             //---code to fetch data, starts
                             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
@@ -152,22 +196,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                                   let body : String = item["body"].stringValue
                                                   let fullbodyArr : [String] = body.components(separatedBy: "::")
                                                   
-                                                  var message : String = fullbodyArr[4]
+                                                  var message : String = fullbodyArr[5]
                                                   var fullMessageArr: [String] = message.components(separatedBy: "=")
                                                   var messageOutput : String = fullMessageArr[1]
+                                                  
+                                                  var event_id: String = fullbodyArr[0]
+                                                  let fullbodyEventIdArray: [String] = event_id.components(separatedBy: "=")
+                                                  var event_id_output : String = fullbodyEventIdArray[1]
                                                   print("Message-=>", messageOutput)
+                                                  print("EventId-=>", event_id_output)
                                                   
                                                   self.sendNotification(title: title, body: messageOutput)
+                                                  self.CustomNotificationUpdate(notificationId: Int(event_id_output)!)
                                               }
                                           }
+                                    
                                     self.update(readyn: "N")
                                      }
-                                     
-                                
-                            }
-                            catch{
-                                //Process Error
-                            }
+                                   
 //                            self.update(readyn: "N")
                             
                             
@@ -183,10 +229,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
         }
-        }catch{
-            print("Error")
-        }
     }
+    func CustomNotificationUpdate(notificationId: Int){
+        let url = "\(BASE_URL)notification/custom/update"
+        
+        let sentData: [String: Any] = [
+            "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
+            "notification_id": notificationId
+        ]
+        
+        print("SentData-=>",sentData)
+        
+        AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+            response in
+            switch response.result{
+                
+            case .success:
+                //                        self.loaderEnd()
+                let swiftyJsonVar = JSON(response.value!)
+                print("Return notifictaion response: ", swiftyJsonVar)
+                
+                
+                break
+                
+            case .failure(let error):
+                //                        self.loaderEnd()
+                print("Error: ", error)
+            }
+        }
+        
+    }
+    
     func resetAllRecords(in entity : String) // entity = Your_Entity_Name
     {
         
@@ -251,6 +324,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     //-----function to get notifications data from api using Alamofire and SwiftyJson,(added on 09-Mar-2020) code ends----
+    
     //---added on 10-Mar-2022, code ends---
     // MARK: UISceneSession Lifecycle
 

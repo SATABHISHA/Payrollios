@@ -31,6 +31,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
     var jsondata: String = ""
     var tableNotificationData = [NotificationDetails]()
     static var event_id: String!
+    let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,7 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
 //        let UserNotification = NSEntityDescription.insertNewObject(forEntityName: "UserNotification", into: context)
         //---code to fetch data, starts
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserNotification")
+        request.predicate = NSPredicate(format: "employeeid == %@", swiftyJsonvar1["employee"]["employee_id"].stringValue)
         request.returnsObjectsAsFaults = false
         
         do{

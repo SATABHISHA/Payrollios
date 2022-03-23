@@ -140,7 +140,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { (timer) in
                 // Do what you need to do repeatedly
             self.LoadNotificationData()
-            }
+            } //---commented on 23rd March 2022, as this process is handled by AppDelegate
         
         //---added on 09-Mar-2022, code ends----
         
@@ -446,9 +446,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         notificationContent.badge = NSNumber(value: 3)
         
         // Add an attachment to the notification content
-        if let url = Bundle.main.url(forResource: "dune",
+        if let url = Bundle.main.url(forResource: "done",
                                      withExtension: "png") {
-            if let attachment = try? UNNotificationAttachment(identifier: "dune",
+            if let attachment = try? UNNotificationAttachment(identifier: "done",
                                                               url: url,
                                                               options: nil) {
                 notificationContent.attachments = [attachment]
@@ -803,7 +803,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let swiftyJsonVar=JSON(responseData.value!)
                 print("Log Notification description: \(swiftyJsonVar)")
                 
-                
+                if !self.arrResNotification.isEmpty{
+                    self.arrResNotification.removeAll()
+                }
                 
                 if let resData = swiftyJsonVar["notifications"].arrayObject{
                     self.arrResNotification = resData as! [[String:AnyObject]]
