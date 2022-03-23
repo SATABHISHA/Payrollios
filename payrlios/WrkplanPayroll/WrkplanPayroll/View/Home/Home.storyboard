@@ -726,6 +726,7 @@
                             <color key="tintColor" systemColor="systemGray2Color"/>
                         </barButtonItem>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="AdvanceImage" destination="ntc-4e-4As" id="6S9-4T-2dK"/>
                         <outlet property="AdvanceView" destination="hyC-C4-4AH" id="Zbf-fC-u8M"/>
