@@ -734,6 +734,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if let data = try? Data(contentsOf: finalurl!) {
                     // Create Image and Update Image View
                     self.navigationProfileImg.image = UIImage(data: data)
+                    self.navigationProfileImg.layer.cornerRadius = self.navigationProfileImg.bounds.height/2
                 }
             }
         
