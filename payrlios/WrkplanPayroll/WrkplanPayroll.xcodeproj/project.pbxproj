@@ -140,6 +140,7 @@
 		197D6E0A27D72EF5005B8B78 /* NotificationHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0927D72EF5005B8B78 /* NotificationHomeViewController.swift */; };
 		197D6E0C27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */; };
 		198DA99227D8B2FB0045D9AE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 198DA99027D8B2FB0045D9AE /* DataModel.xcdatamodeld */; };
+		19B656E027EC4AD600C22F60 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */; };
 		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
 		BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
 		F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */; };
@@ -301,6 +302,7 @@
 		197D6E0927D72EF5005B8B78 /* NotificationHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHomeViewController.swift; sourceTree = "<group>"; };
 		197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHlomeTableViewCell.swift; sourceTree = "<group>"; };
 		198DA99127D8B2FB0045D9AE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
 		4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				17723CBA2563A688002754DB /* Home.storyboard */,
+				19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -983,6 +986,7 @@
 				17E57780257A148D00F10376 /* MyAttendance.storyboard in Resources */,
 				17739206261B12C600105BBC /* SubordinateOdDutyTimeLog.storyboard in Resources */,
 				17F5E99D267B629C0089C614 /* SubordinateAdvanceRequisitionList.storyboard in Resources */,
+				19B656E027EC4AD600C22F60 /* Dashboard.storyboard in Resources */,
 				172246F62567B250006EDF5B /* EmployeeInformation.storyboard in Resources */,
 				177597A7261332C600EAD8B4 /* OutdoorDutyLogList.storyboard in Resources */,
 				17BDC05426451820006EAFD0 /* Reports.storyboard in Resources */,
