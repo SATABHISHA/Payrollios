@@ -165,11 +165,22 @@
                         <outlet property="password" destination="kDr-B3-YIC" id="ehC-K9-V67"/>
                         <outlet property="userName" destination="M6i-LQ-VBy" id="5rr-X3-vht"/>
                         <segue destination="urF-8A-UJ7" kind="presentation" identifier="home" animates="NO" modalPresentationStyle="fullScreen" id="UMc-9n-G7A"/>
+                        <segue destination="LAQ-no-f2K" kind="presentation" identifier="dboard" modalPresentationStyle="fullScreen" id="2JP-dZ-eZA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-214.49275362318843" y="77.445652173913047"/>
+        </scene>
+        <!--dashboard-->
+        <scene sceneID="JNS-BB-pZp">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="LAQ-no-f2K" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9Er-Cq-8z8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9I-Cl-Yh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="382" y="-78"/>
         </scene>
         <!--home-->
         <scene sceneID="vP9-7e-pd9">

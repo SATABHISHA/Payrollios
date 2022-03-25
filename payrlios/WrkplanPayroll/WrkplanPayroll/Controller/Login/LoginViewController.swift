@@ -178,7 +178,8 @@ class LoginViewController: UIViewController{
                         style.messageColor = .white
                         self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
                         self.loaderEnd()
-                        self.performSegue(withIdentifier: "home", sender: nil)
+//                        self.performSegue(withIdentifier: "home", sender: nil) //---commented on 25th MArch
+                        self.performSegue(withIdentifier: "dboard", sender: nil) //---added on 25th MArch
                         LoginViewController.entry_user = self.userName.text! //--added on 1st April
                     }else{
                         var style = ToastStyle()

@@ -105,6 +105,7 @@
 		1791C080261765E300EE734A /* SubordinateOdDutyLogList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1791C07F261765E300EE734A /* SubordinateOdDutyLogList.storyboard */; };
 		1791C08526176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */; };
 		1791C08A26176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */; };
+		1797DD7627EDD590003E83AC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1797DD7527EDD590003E83AC /* DashboardViewController.swift */; };
 		17985E4625F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */; };
 		179E370326A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E370226A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift */; };
 		179E370526A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179E370426A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard */; };
@@ -267,6 +268,7 @@
 		1791C07F261765E300EE734A /* SubordinateOdDutyLogList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOdDutyLogList.storyboard; sourceTree = "<group>"; };
 		1791C08426176DFA00EE734A /* SubordinateOdDutyLogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListViewController.swift; sourceTree = "<group>"; };
 		1791C08926176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateOdDutyLogListTableViewCell.swift; sourceTree = "<group>"; };
+		1797DD7527EDD590003E83AC /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		17985E4525F6047B0002ABF8 /* SubordinateOutdoorDutyRequestList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubordinateOutdoorDutyRequestList.storyboard; sourceTree = "<group>"; };
 		179E370226A9DB31009A4506 /* LtaSupportingDocumentsPdfViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LtaSupportingDocumentsPdfViewerViewController.swift; sourceTree = "<group>"; };
 		179E370426A9DB51009A4506 /* LtaSupportingDocumentsPdfViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LtaSupportingDocumentsPdfViewer.storyboard; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 			children = (
 				17723CCB2563BCE1002754DB /* HomeViewController.swift */,
 				171239E4262423BD0024E96C /* HomeNavigationControllerTableViewCell.swift */,
+				1797DD7527EDD590003E83AC /* DashboardViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1205,6 +1208,7 @@
 				175AD4B9268B3EBD00C4F072 /* SubordinateMediclaimListTableViewCell.swift in Sources */,
 				17640A54269F05FB0058DE31 /* LtaRequestViewController.swift in Sources */,
 				178F85CE25EE6DA9007ABD62 /* OutDoorDutyRequestViewController.swift in Sources */,
+				1797DD7627EDD590003E83AC /* DashboardViewController.swift in Sources */,
 				17F5E9A1267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift in Sources */,
 				1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */,
 				17E36A8D26A86BAA00719AB5 /* SubordinateLtaViewController.swift in Sources */,
