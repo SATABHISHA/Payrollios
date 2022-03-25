@@ -641,6 +641,17 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="464" height="1480"/>
+                    <connections>
+                        <outlet property="LabelDepartment" destination="KLv-r1-z0Y" id="BUP-GI-zaT"/>
+                        <outlet property="LabelDesignation" destination="Tz0-vY-40h" id="Wdo-5t-Ecd"/>
+                        <outlet property="LabelEmpName" destination="cFa-7W-aX7" id="IIQ-p4-Ii2"/>
+                        <outlet property="LabelInTime" destination="o2K-sw-W0c" id="3tD-Gf-lo6"/>
+                        <outlet property="LabelOutTime" destination="RYU-qp-sN2" id="xq8-Eb-niM"/>
+                        <outlet property="LabelSupervisor1" destination="NeN-mx-6El" id="29H-b8-XHN"/>
+                        <outlet property="LabelSupervisor2" destination="Ia5-Ga-5fT" id="AEj-B0-jyp"/>
+                        <outlet property="TxtViewWFH" destination="kjL-e1-6LP" id="iDu-Eu-WUx"/>
+                        <outlet property="TxtViewWFHHeightConstraint" destination="8qb-x7-lgv" id="c3s-1W-HqD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
