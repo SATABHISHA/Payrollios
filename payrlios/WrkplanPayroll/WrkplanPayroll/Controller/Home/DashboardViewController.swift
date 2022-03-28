@@ -26,6 +26,9 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var TxtViewWFH: UITextView!
     @IBOutlet weak var TxtViewWFHHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnCheckBox: UIButton!
+    @IBOutlet weak var ViewBtnInOut: UIView!
+    @IBOutlet weak var LabelInOut: UILabel!
+    
     var checkBtnYN = 0
     var work_from_home_flag: Int!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)

@@ -509,14 +509,6 @@
             <point key="canvasLocation" x="709" y="171"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="TgU-4h-Uco">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="zDX-6k-bnG">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <image name="home_menu" width="32" height="32"/>
     </resources>
