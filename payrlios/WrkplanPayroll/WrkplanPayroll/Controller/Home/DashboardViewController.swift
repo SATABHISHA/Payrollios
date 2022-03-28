@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 import Toast_Swift
+import FSCalendar
 
 class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -58,20 +59,24 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     @IBOutlet weak var LabelCorpId: UILabel!
+    
+    //-------Calendar variable, starts----
     @IBOutlet weak var ViewCalendar: UIView!
-  
+    @IBOutlet weak var calendar: FSCalendar!
+    var arrResCaledar = [[String:AnyObject]]()
+    @IBOutlet weak var LabelCalendarDate: UILabel!
+    @IBOutlet weak var LabelCalendarDay: UILabel!
+    //-------Calendar variable, ends----
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
-        LoadEmployeeDetails()
-        LoadCalendarDetails()
         ChangeStatusBarColor()
-        
+        LoadEmployeeDetails()
         LoadAttendanceData()
+        LoadCalendarDetails()
         
     }
     func LoadEmployeeDetails(){
@@ -82,10 +87,6 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.LabelSupervisor1.text = swiftyJsonvar1["employee"]["supervisor_1_name"].stringValue
         self.LabelSupervisor2.text = swiftyJsonvar1["employee"]["supervisor_2_name"].stringValue
         self.LabelCorpId.text = swiftyJsonvar1["company"]["corporate_id"].stringValue
-    }
-    
-    func LoadCalendarDetails(){
-       
     }
     
     //===================Code for Attendance section, starts============
@@ -187,11 +188,6 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         }
         
     }
-    
-    
-    
-    
-    
     
     //========function to save data for IN/OUT, code starts=======
     func save_in_out_data(in_out: String, work_frm_home_flag: Int, work_from_home_detail: String, message_in_out: String, imageBase64: String){
@@ -551,7 +547,74 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
     }
     //------camera code, ends(added on 31st may)------
-    //===================Code for Attendance section, starts============
+    //===================Code for Attendance section, ends============
+    
+    
+    
+    
+    
+    //============Calender code starts===========
+    fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
+    fileprivate let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        //        formatter.dateFormat = "MM-dd-yyyy"
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter
+    }()
+    
+    //--------function to show holiday details using Alamofire and Json Swifty------------
+       func LoadCalendarDataFromApi(){
+//           loaderStart()
+        let url = "\(BASE_URL)holidays/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/1"
+//        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
+           AF.request(url).responseJSON{ (responseData) -> Void in
+//               self.loaderEnd()
+               if((responseData.value) != nil){
+                   let swiftyJsonVar=JSON(responseData.value!)
+                   print("Holiday description: \(swiftyJsonVar)")
+                   if let resData = swiftyJsonVar["holidays"].arrayObject{
+                       self.arrResCaledar = resData as! [[String:AnyObject]]
+                   }
+                if self.arrResCaledar.count>0{
+                    self.calendar.delegate = self
+                    self.calendar.dataSource = self
+                    self.calendar.reloadData()
+                }
+               }
+               
+           }
+       }
+       //--------function to show holiday details using Alamofire and Json Swifty code ends------------
+    
+    func LoadCalendarDetails(){
+        LoadCalendarDataFromApi()
+        LabelCalendarDate.text = ""
+        LabelCalendarDay.text = ""
+        
+        calendar.headerHeight = 45.0
+        calendar.weekdayHeight = 35.0
+        calendar.rowHeight = 25.0
+        calendar.appearance.titleFont = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        calendar.appearance.subtitleFont = UIFont.systemFont(ofSize: 0.0, weight: .regular)
+        calendar.appearance.weekdayFont = UIFont.boldSystemFont(ofSize: 18.0)
+        calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 22)
+        calendar.scrollDirection = .horizontal
+        calendar.appearance.todayColor = .purple
+        //        calender.calendarHeaderView.backgroundColor = UIColorRGB(r: 75, g: 153.0, b: 224.0)
+        calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "ffffff")
+        calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "ffffff")
+        calendar.appearance.headerTitleColor = .black
+        calendar.appearance.weekdayTextColor = UIColor(hexFromString: "898989")
+        calendar.appearance.titleTodayColor = .black
+        calendar.appearance.borderRadius = 0
+        calendar.appearance.headerMinimumDissolvedAlpha = 0
+//        calender.appearance.separators = .interRows
+    }
+    //===========Calender code ends============
+    
+    
+    
+    
     
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -600,4 +663,111 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.blurEffectView.removeFromSuperview();
     }
     // ====================== Blur Effect END ================= \\
+};
+
+extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let dateString = self.formatter.string(from: date)
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "dd/MM/yyyy"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+        
+        let SelectedDate = dateFormatterGet.date(from: dateString)
+        LabelCalendarDate.text = dateFormatterPrint.string(from: SelectedDate!)
+        
+        for i in  0..<arrResCaledar.count{
+            let dict = arrResCaledar[i]
+            
+            if dict["from_date"] as? String == dateString{
+//                label_date.isHidden = false
+//                label_holiday_name.isHidden = false
+                
+                let dateFormatterGet = DateFormatter()
+                dateFormatterGet.dateFormat = "dd/MM/yyyy"
+                
+                let dateFormatterPrint = DateFormatter()
+                dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+                
+                let date = dateFormatterGet.date(from: dict["from_date"] as! String)
+//                labelDate.text = eventData[i].date
+                LabelCalendarDate.text = dateFormatterPrint.string(from: date!)
+                LabelCalendarDay.text = dict["holiday_name"] as? String
+            }
+        }
+        
+        if monthPosition == .previous || monthPosition == .next {
+            calendar.setCurrentPage(date, animated: true)
+        }
+    }
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+//        label_date.isHidden = true
+//        label_holiday_name.isHidden = true
+    }
+    
+    /// Maximum Date
+    ///
+    /// - Parameter calendar: Calendar Properties
+    /// - Returns: Date
+    func maximumDate(for calendar: FSCalendar) -> Date {
+//        return self.formatter.date(from: "12-31-2021")!
+        return Calendar.current.date(byAdding: .year, value: 10, to: Date())!
+    }
+    
+    func minimumDate(for calendar: FSCalendar) -> Date {
+//        return self.formatter.date(from: "01-01-2018")!
+        return Calendar.current.date(byAdding: .year, value: -2, to: Date())!
+    }
+    
+    
+    
+    /// Fill Color of Selected Dates
+    ///
+    /// - Parameters:
+    ///   - calendar: Calendar Properties
+    ///   - appearance: Fill Color of Each Date
+    ///   - date: Date
+    /// - Returns: Color
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        let dateString = self.formatter.string(from: date)
+        var returnColor:UIColor = .clear
+        for i in  0..<arrResCaledar.count{
+            let dict = arrResCaledar[i]
+            
+            if dict["from_date"] as? String == dateString{
+                returnColor = UIColor(hexFromString: "#E4FCAD")
+                print("matched date",dict["from_date"] as! String)
+                break
+            }else{
+                print("not matched date")
+                returnColor = .clear
+            }
+            
+        }
+        return returnColor
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
+        let dateString = self.formatter.string(from: date)
+        var returnColor:UIColor = .clear
+        for i in  0..<arrResCaledar.count{
+            let dict = arrResCaledar[i]
+            
+            if dict["from_date"] as? String == dateString{
+                returnColor = UIColor(hexFromString: "#E4FCAD")
+                print("matched date",dict["from_date"] as! String)
+                break
+            }else{
+                returnColor = .clear
+                print("not matched")
+            }
+            
+        }
+        return returnColor
+        
+        
+    }
+    
 }

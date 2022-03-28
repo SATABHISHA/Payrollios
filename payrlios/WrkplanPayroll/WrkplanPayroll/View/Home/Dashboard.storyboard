@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -502,6 +501,7 @@
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="Hgm-OD-t0O" secondAttribute="trailing" id="Dqx-Nx-hft"/>
                                                                         <constraint firstItem="Hgm-OD-t0O" firstAttribute="leading" secondItem="DNe-mY-nES" secondAttribute="leading" id="J4n-t8-omU"/>
@@ -520,7 +520,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="347" id="3AM-nA-qbl"/>
                                                     <constraint firstAttribute="bottom" secondItem="j1o-GP-8XG" secondAttribute="bottom" id="3Lg-X9-rmn"/>
@@ -696,6 +696,8 @@
                     </view>
                     <size key="freeformSize" width="464" height="1480"/>
                     <connections>
+                        <outlet property="LabelCalendarDate" destination="qOC-KL-Ogw" id="Dyb-sj-Qtz"/>
+                        <outlet property="LabelCalendarDay" destination="tR6-v0-fBj" id="t39-N2-Yfm"/>
                         <outlet property="LabelCorpId" destination="BSF-j1-tbb" id="QMn-NO-2tU"/>
                         <outlet property="LabelDepartment" destination="KLv-r1-z0Y" id="BUP-GI-zaT"/>
                         <outlet property="LabelDesignation" destination="Tz0-vY-40h" id="Wdo-5t-Ecd"/>
@@ -715,6 +717,7 @@
                         <outlet property="btnCheckBox" destination="ueD-EK-fFj" id="sIM-Kt-KjF"/>
                         <outlet property="btnPopupNo" destination="OOk-iN-3Ah" id="HCA-eb-HGI"/>
                         <outlet property="btnPopupYes" destination="9uu-fI-ili" id="m1E-8n-R03"/>
+                        <outlet property="calendar" destination="jer-Lx-2GO" id="xhK-ho-cUI"/>
                         <outlet property="label_date_today" destination="JUa-1s-5dP" id="UFf-SK-7aV"/>
                         <outlet property="label_wrk_from_home" destination="lD9-m7-oaA" id="a9B-3P-VeN"/>
                         <outlet property="stackViewEnrollPopupButton" destination="QXa-pp-93r" id="q2T-Nv-23c"/>
@@ -819,8 +822,5 @@
         <image name="bell" width="128" height="119"/>
         <image name="logoutmenubarwhite" width="512" height="512"/>
         <image name="menuicon" width="32" height="32"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
