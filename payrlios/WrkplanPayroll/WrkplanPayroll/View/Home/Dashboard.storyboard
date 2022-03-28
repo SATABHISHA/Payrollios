@@ -217,7 +217,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="43" id="8qb-x7-lgv"/>
                                                         </constraints>
-                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <userDefinedRuntimeAttributes>
@@ -819,9 +819,6 @@
         <image name="bell" width="128" height="119"/>
         <image name="logoutmenubarwhite" width="512" height="512"/>
         <image name="menuicon" width="32" height="32"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
