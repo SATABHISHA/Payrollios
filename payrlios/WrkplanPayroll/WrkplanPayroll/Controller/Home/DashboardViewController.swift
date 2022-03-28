@@ -11,6 +11,7 @@ import SwiftyJSON
 import CoreLocation
 import Toast_Swift
 import FSCalendar
+import DropDown
 
 class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -69,6 +70,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-------Calendar variable, ends----
     
     
+    //------PaySlip variable, starts-----
+    let dropDown = DropDown()
+    var year_details = [YearDetails]()
+    
+    static var report_html: String!, year: String!, month_name: String!
+    //------Payslip variable, ends-----
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,6 +86,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LoadEmployeeDetails()
         LoadAttendanceData()
         LoadCalendarDetails()
+        LoadSalaryData()
         
     }
     func LoadEmployeeDetails(){
@@ -613,8 +623,151 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //===========Calender code ends============
     
     
+    //===============///////////PaySlip, code starts-////////==================
+    func LoadSalaryData(){
+       get_month_details()
+       get_Year_details()
+    }
+    //--------function to get year using Alamofire and Json Swifty------------
+    var year = [String]()
+        func get_Year_details(){
+//            loaderStart()
+            if year.count > 0{
+                year.removeAll()
+            }
+            if !year_details.isEmpty{
+                year_details.removeAll(keepingCapacity: true)
+            }
+            let url = "\(BASE_URL)finyear/list/reports/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/1"
+            AF.request(url).responseJSON{ (responseData) -> Void in
+//                self.loaderEnd()
+                if((responseData.value) != nil){
+                    let swiftyJsonVar=JSON(responseData.value!)
+//                    print("Calendar description: \(swiftyJsonVar)")
+                    
+                    for i in 0..<swiftyJsonVar["fin_years"].count{
+//                        self.year.append(swiftyJsonVar["fin_years"][i]["calender_year"].stringValue)
+//                        print("Calendar-=>",self.year)
+                        self.year.append(swiftyJsonVar["fin_years"][i]["financial_year_code"].stringValue)
+                        
+                    }
+
+                    for(key,value) in swiftyJsonVar["fin_years"]{
+                        var k = YearDetails()
+                        k.calender_year = value["financial_year_code"].stringValue
+                        k.financial_year_code = value["financial_year_id"].stringValue
+                        self.year_details.append(k)
+                    }
+                    
+                }
+                
+            }
+        }
+        //--------function to get year using Alamofire and Json Swifty code ends------------
+    var month = [String]()
+    func get_month_details(){
+        if self.month.isEmpty == false {
+            self.month.removeAll()
+        }
+        self.month.append("--Select Month--")
+        self.month.append("January")
+        self.month.append("February")
+        self.month.append("March")
+        self.month.append("April")
+        self.month.append("May")
+        self.month.append("June")
+        self.month.append("July")
+        self.month.append("August")
+        self.month.append("September")
+        self.month.append("October")
+        self.month.append("November")
+        self.month.append("December")
+    }
     
+    let dropDownSelectSalarySlipYear = DropDown()
+    @IBAction func btn_select_salary_slip_year(_ sender: UIButton) {
+        dropDownSelectSalarySlipYear.dataSource = year
+        dropDownSelectSalarySlipYear.anchorView = sender //5
+        dropDownSelectSalarySlipYear.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+        dropDownSelectSalarySlipYear.show() //7
+        dropDownSelectSalarySlipYear.selectionAction = { [weak self] (index: Int, item: String) in //8
+              guard let _ = self else { return }
+              sender.setTitle(item, for: .normal) //9
+                print("year-=>",item)
+            DashboardViewController.year = self!.year_details[index].financial_year_code
+//                self!.loadPopupLeaveData(year: self!.year_details[index].financial_year_code)
+            if index > 0{
+//                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = true
+//                self?.custom_btn_ok_salary_slip_popup.alpha = 1.0
+            }else if index == 0 {
+//                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = false
+//                self?.custom_btn_ok_salary_slip_popup.alpha = 0.6
+            }
+            }
+    }
     
+    let dropDownSalarySlipMonth = DropDown()
+    @IBAction func btn_select_salary_slip_month(_ sender: UIButton) {
+        dropDownSalarySlipMonth.dataSource = month
+        dropDownSalarySlipMonth.anchorView = sender //5
+        dropDownSalarySlipMonth.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+        dropDownSalarySlipMonth.show() //7
+        dropDownSalarySlipMonth.selectionAction = { [weak self] (index: Int, item: String) in //8
+              guard let _ = self else { return }
+              sender.setTitle(item, for: .normal) //9
+                print("month-=>",item)
+            DashboardViewController.month_name = item
+           /* ReportsViewController.year = self!.year_details[index].financial_year_code
+            if index > 0{
+                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = true
+                self?.custom_btn_ok_salary_slip_popup.alpha = 1.0
+            }else if index == 0 {
+                self?.custom_btn_ok_salary_slip_popup.isUserInteractionEnabled = false
+                self?.custom_btn_ok_salary_slip_popup.alpha = 0.6
+            }*/
+            }
+    }
+    
+    @IBAction func BtnViewSalarySlip(_ sender: Any) {
+        loadHtmlStringSalarySlipData(year: DashboardViewController.year, month_name: DashboardViewController.month_name)
+
+    }
+    
+    //--------function to load popup salary slip data using Alamofire and Json Swifty code starts(added on 13th Dec 2021)----------
+    func loadHtmlStringSalarySlipData(year:String?, month_name: String?){
+//        loaderStart()
+//        let url = "\(BASE_URL)reports/pf-deduction/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(year!)" //--commented on 18-Aug-2021
+      
+        let url = "\(BASE_URL)reports/pay-slip/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(month_name!)/\(year!)/\(swiftyJsonvar1["employee"]["branch_office_id"].intValue)/ALL"  //--added on 18-Aug-2021(added two parameters)
+        print("url-=>",url)
+        AF.request(url).responseJSON{ (responseData) -> Void in
+//                self.loaderEnd()
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                    print("Year description: \(swiftyJsonVar)")
+                if(swiftyJsonVar["response"]["status"].stringValue == "true"){
+                    DashboardViewController.report_html = swiftyJsonVar["report_html"].stringValue
+//                    self.performSegue(withIdentifier: "pdf", sender: nil)
+               
+                }else{
+                    var style = ToastStyle()
+                    
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    self.view.makeToast(swiftyJsonVar["response"]["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                   
+//                    self.loaderEnd()
+                }
+                    
+                }
+
+                
+            }
+       
+            
+        }
+    //--------function to load popup salary slip data using Alamofire and Json Swifty code ends(added on 13th Dec 2021)----------
+    //===============///////////PaySlip, code ends-////////==================
     
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
