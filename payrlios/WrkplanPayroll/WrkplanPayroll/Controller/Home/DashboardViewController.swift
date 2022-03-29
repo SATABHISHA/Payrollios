@@ -102,6 +102,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //===================Code for Attendance section, starts============
     
     func LoadAttendanceData(){
+//        self.ViewChildAttendance.roundCorners([.topLeft, .topRight], radius: 10)
+        self.ViewChildAttendance.clipsToBounds = true
+        self.ViewChildAttendance.layer.cornerRadius = 10
+        self.ViewChildAttendance.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        
         TxtViewWFH.backgroundColor = UIColor(hexFromString: "ffffff")
         btnCheckBox.setImage(UIImage(named:"check_box_empty"), for: .normal)
         btnCheckBox.setImage(UIImage(named:"check_box"), for: .selected)
@@ -925,4 +931,14 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
         
     }
     
+};
+extension UIView {
+
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+         let mask = CAShapeLayer()
+         mask.path = path.cgPath
+         self.layer.mask = mask
+    }
+
 }
