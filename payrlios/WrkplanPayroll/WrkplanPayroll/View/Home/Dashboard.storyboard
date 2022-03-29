@@ -343,9 +343,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5U-wc-PSP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="38"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave Application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="0Wk-ZZ-0HB">
-                                                                        <rect key="frame" x="16" y="12" width="142.66666666666666" height="14"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply For Leave" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="0Wk-ZZ-0HB">
+                                                                        <rect key="frame" x="16" y="10" width="142.66666666666666" height="18"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -354,8 +354,8 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="38" id="96N-Gf-Pz9"/>
                                                                     <constraint firstAttribute="trailing" secondItem="0Wk-ZZ-0HB" secondAttribute="trailing" constant="16" id="BD7-vc-Yhu"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="0Wk-ZZ-0HB" secondAttribute="bottom" constant="12" id="E01-ET-4Rv"/>
-                                                                    <constraint firstItem="0Wk-ZZ-0HB" firstAttribute="top" secondItem="N5U-wc-PSP" secondAttribute="top" constant="12" id="igo-aC-rUB"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="0Wk-ZZ-0HB" secondAttribute="bottom" constant="10" id="E01-ET-4Rv"/>
+                                                                    <constraint firstItem="0Wk-ZZ-0HB" firstAttribute="top" secondItem="N5U-wc-PSP" secondAttribute="top" constant="10" id="igo-aC-rUB"/>
                                                                     <constraint firstItem="0Wk-ZZ-0HB" firstAttribute="leading" secondItem="N5U-wc-PSP" secondAttribute="leading" constant="16" id="vbr-qh-dVH"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
@@ -368,8 +368,8 @@
                                                                 <rect key="frame" x="189.66666666666663" y="0.0" width="174.33333333333337" height="38"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OD Application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="fur-Xr-ebr">
-                                                                        <rect key="frame" x="16" y="12" width="142.33333333333334" height="14"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="16" y="10" width="142.33333333333334" height="18"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -377,9 +377,9 @@
                                                                 <color key="backgroundColor" red="0.14640685619999999" green="0.44143262799999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstItem="fur-Xr-ebr" firstAttribute="leading" secondItem="1tG-G4-218" secondAttribute="leading" constant="16" id="SqN-bB-WfY"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="fur-Xr-ebr" secondAttribute="bottom" constant="12" id="Ue2-UX-j2h"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="fur-Xr-ebr" secondAttribute="bottom" constant="10" id="Ue2-UX-j2h"/>
                                                                     <constraint firstAttribute="trailing" secondItem="fur-Xr-ebr" secondAttribute="trailing" constant="16" id="a6c-kS-Gs4"/>
-                                                                    <constraint firstItem="fur-Xr-ebr" firstAttribute="top" secondItem="1tG-G4-218" secondAttribute="top" constant="12" id="aOh-iX-f3d"/>
+                                                                    <constraint firstItem="fur-Xr-ebr" firstAttribute="top" secondItem="1tG-G4-218" secondAttribute="top" constant="10" id="aOh-iX-f3d"/>
                                                                     <constraint firstAttribute="height" constant="38" id="hI7-hj-uRV"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
@@ -737,6 +737,8 @@
                         <outlet property="ViewBtnInOut" destination="Tqh-PL-9im" id="tHD-0P-5Dn"/>
                         <outlet property="ViewCalendar" destination="W7A-eF-RNd" id="xAa-wf-feQ"/>
                         <outlet property="ViewChildAttendance" destination="TXS-8B-jTr" id="NlO-c9-k4f"/>
+                        <outlet property="ViewChildPaySlip" destination="moG-Uk-EVO" id="Z0n-Lp-JyX"/>
+                        <outlet property="ViewChildPendingItems" destination="t7o-av-OI6" id="OK4-Vm-hqu"/>
                         <outlet property="ViewEmpDetails" destination="csL-60-1Ra" id="bqi-wY-C5c"/>
                         <outlet property="btnCheckBox" destination="ueD-EK-fFj" id="sIM-Kt-KjF"/>
                         <outlet property="btnPopupNo" destination="OOk-iN-3Ah" id="HCA-eb-HGI"/>

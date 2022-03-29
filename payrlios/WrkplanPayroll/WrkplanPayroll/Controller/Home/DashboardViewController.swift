@@ -74,9 +74,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     let dropDown = DropDown()
     var year_details = [YearDetails]()
     
+    @IBOutlet weak var ViewChildPaySlip: UIView!
     static var report_html: String!, year: String!, month_name: String!
     //------Payslip variable, ends-----
     
+    //-----Pending Item(s) variable, starts-----
+    @IBOutlet weak var ViewChildPendingItems: UIView!
+    
+    //-----Pending Item(s) variable, ends-----
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +91,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LoadEmployeeDetails()
         LoadAttendanceData()
         LoadCalendarDetails()
+        LoadPendingItemDetails()
         LoadSalaryData()
         
     }
@@ -98,6 +104,15 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.LabelSupervisor2.text = swiftyJsonvar1["employee"]["supervisor_2_name"].stringValue
         self.LabelCorpId.text = swiftyJsonvar1["company"]["corporate_id"].stringValue
     }
+    
+    //=============Code for Pending Items section, starts========
+    func LoadPendingItemDetails(){
+        self.ViewChildPendingItems.clipsToBounds = true
+        self.ViewChildPendingItems.layer.cornerRadius = 10
+        self.ViewChildPendingItems.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    //=============Code for Pending Items section, ends========
+    
     
     //===================Code for Attendance section, starts============
     
@@ -633,6 +648,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     //===============///////////PaySlip, code starts-////////==================
     func LoadSalaryData(){
+        self.ViewChildPaySlip.clipsToBounds = true
+        self.ViewChildPaySlip.layer.cornerRadius = 10
+        self.ViewChildPaySlip.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
        get_month_details()
        get_Year_details()
     }
