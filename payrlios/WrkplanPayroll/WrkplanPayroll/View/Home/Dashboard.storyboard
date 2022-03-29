@@ -739,6 +739,8 @@
                         <outlet property="ViewChildAttendance" destination="TXS-8B-jTr" id="NlO-c9-k4f"/>
                         <outlet property="ViewChildPaySlip" destination="moG-Uk-EVO" id="Z0n-Lp-JyX"/>
                         <outlet property="ViewChildPendingItems" destination="t7o-av-OI6" id="OK4-Vm-hqu"/>
+                        <outlet property="ViewCustomBtnApplyForLeave" destination="N5U-wc-PSP" id="z5v-5B-7DG"/>
+                        <outlet property="ViewCustomBtnApplyForOD" destination="1tG-G4-218" id="ZiX-Aa-YHZ"/>
                         <outlet property="ViewEmpDetails" destination="csL-60-1Ra" id="bqi-wY-C5c"/>
                         <outlet property="btnCheckBox" destination="ueD-EK-fFj" id="sIM-Kt-KjF"/>
                         <outlet property="btnPopupNo" destination="OOk-iN-3Ah" id="HCA-eb-HGI"/>
@@ -749,6 +751,7 @@
                         <outlet property="stackViewEnrollPopupButton" destination="QXa-pp-93r" id="q2T-Nv-23c"/>
                         <outlet property="viewSelfie" destination="Y1q-NP-lsu" id="1hl-8V-zfJ"/>
                         <segue destination="6Uq-Fe-5UU" kind="presentation" identifier="salarypdf" modalPresentationStyle="fullScreen" id="Ajq-2n-NRL"/>
+                        <segue destination="2wK-kO-5fq" kind="presentation" identifier="LeaveRqst" modalPresentationStyle="fullScreen" id="d6C-HV-5hn"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="Y1q-NP-lsu">
@@ -843,6 +846,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.7971014492753632" y="123.09782608695653"/>
+        </scene>
+        <!--myleaverqst-->
+        <scene sceneID="UZA-cP-47r">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="myleaverqst" storyboardName="MyLeaveApplicationRequest" referencedIdentifier="myleaverqst" id="2wK-kO-5fq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Rfg-md-3oN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DkP-xT-CUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="-354"/>
         </scene>
         <!--SalaryPdf-->
         <scene sceneID="N51-DF-B6w">
