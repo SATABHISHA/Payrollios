@@ -656,6 +656,18 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         calendar.addBorderFSCCalendar(side: .bottom, color: UIColor(hexFromString: "BFBFBF"), width: 1)
         
 //        calender.appearance.separators = .interRows
+        
+        
+        
+        //MyAttendanceLog OnClick
+        let tapGestureRecognizerApplyForLeavebtn = UITapGestureRecognizer(target: self, action: #selector(ViewApplyForLeaveBtn(tapGestureRecognizer:)))
+        ViewCustomBtnApplyForLeave.isUserInteractionEnabled = true
+        ViewCustomBtnApplyForLeave.addGestureRecognizer(tapGestureRecognizerApplyForLeavebtn)
+    }
+    
+    //---ViewBtnApplyForLeave OnClick
+    @objc func ViewApplyForLeaveBtn(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "LeaveRqst", sender: nil)
     }
     //===========Calender code ends============
     
