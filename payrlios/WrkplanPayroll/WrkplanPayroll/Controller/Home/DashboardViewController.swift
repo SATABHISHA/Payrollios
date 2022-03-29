@@ -16,6 +16,7 @@ import DropDown
 class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var ViewEmpDetails: UIView!
+    @IBOutlet weak var ViewChild: UIView!
     @IBOutlet weak var LabelEmpName: UILabel!
     @IBOutlet weak var LabelDesignation: UILabel!
     @IBOutlet weak var LabelDepartment: UILabel!
@@ -98,6 +99,11 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
     }
     func LoadEmployeeDetails(){
+        self.ViewChild.clipsToBounds = true
+        self.ViewChild.layer.cornerRadius = 10
+        self.ViewChild.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         self.LabelEmpName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
         self.LabelDesignation.text = swiftyJsonvar1["employee"]["designation_name"].stringValue
