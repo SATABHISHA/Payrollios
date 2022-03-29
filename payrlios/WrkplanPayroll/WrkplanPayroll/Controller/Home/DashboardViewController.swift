@@ -634,13 +634,16 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         calendar.scrollDirection = .horizontal
         calendar.appearance.todayColor = .purple
         //        calender.calendarHeaderView.backgroundColor = UIColorRGB(r: 75, g: 153.0, b: 224.0)
-        calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "ffffff")
+        calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "BFBFBF")
         calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "ffffff")
         calendar.appearance.headerTitleColor = .black
         calendar.appearance.weekdayTextColor = UIColor(hexFromString: "898989")
         calendar.appearance.titleTodayColor = .black
         calendar.appearance.borderRadius = 0
         calendar.appearance.headerMinimumDissolvedAlpha = 0
+        calendar.clipsToBounds = true
+        calendar.layer.cornerRadius = 10
+        calendar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 //        calender.appearance.separators = .interRows
     }
     //===========Calender code ends============
@@ -666,6 +669,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 year_details.removeAll(keepingCapacity: true)
             }
             let url = "\(BASE_URL)finyear/list/reports/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/1"
+            print("urlYear-=>",url)
             AF.request(url).responseJSON{ (responseData) -> Void in
 //                self.loaderEnd()
                 if((responseData.value) != nil){
@@ -951,7 +955,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
     }
     
 };
-extension UIView {
+/*extension UIView {
 
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
          let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
@@ -960,4 +964,4 @@ extension UIView {
          self.layer.mask = mask
     }
 
-}
+}*/

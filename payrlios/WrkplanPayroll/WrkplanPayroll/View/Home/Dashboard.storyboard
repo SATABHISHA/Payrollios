@@ -182,7 +182,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="JUa-1s-5dP" secondAttribute="trailing" constant="8" id="A4G-kf-vQ5"/>
                                                             <constraint firstItem="JUa-1s-5dP" firstAttribute="top" secondItem="TXS-8B-jTr" secondAttribute="top" constant="10" id="DJ3-HD-4ta"/>
@@ -586,7 +586,7 @@
                                                             <constraint firstAttribute="width" constant="194" id="Ce8-dI-RVC"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="--Select Year--">
+                                                        <state key="normal" title="Year">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -608,7 +608,7 @@
                                                             <constraint firstAttribute="width" constant="114.33" id="wj4-KY-iYt"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="--Select Month--">
+                                                        <state key="normal" title="Month">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
