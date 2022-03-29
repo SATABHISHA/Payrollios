@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Salary Slip Pdf View Controller-->
+        <scene sceneID="O5u-if-hLX">
+            <objects>
+                <viewController storyboardIdentifier="SalaryPdf" id="ZYK-un-e3Z" customClass="SalarySlipPdfViewController" customModule="WrkplanPayroll" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T6Z-3j-WLC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6a-oR-h38">
+                                <rect key="frame" x="0.0" y="44" width="390" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pdf Viewer" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fy-dP-2yx">
+                                        <rect key="frame" x="50.000000000000007" y="2" width="86.666666666666686" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zft-g8-GsY">
+                                        <rect key="frame" x="0.0" y="7.6666666666666643" width="50" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="W41-qw-TRl"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="backarrownew"/>
+                                        <connections>
+                                            <action selector="BtnBack:" destination="ZYK-un-e3Z" eventType="touchUpInside" id="ejr-1w-Smh"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="printer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gBE-Hs-caL">
+                                        <rect key="frame" x="340" y="12.333333333333336" width="40" height="39.666666666666671"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="115-hj-bX2"/>
+                                            <constraint firstAttribute="height" constant="40" id="1fq-z0-wn3"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="H0D-BT-Oyg"/>
+                                <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="H0D-BT-Oyg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Fy-dP-2yx" secondAttribute="trailing" constant="20" id="EIy-Nm-Kaz"/>
+                                    <constraint firstItem="H0D-BT-Oyg" firstAttribute="bottom" secondItem="Zft-g8-GsY" secondAttribute="bottom" constant="7.5" id="Ttt-Md-r5m"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Fy-dP-2yx" secondAttribute="bottom" constant="2" id="XhG-yZ-acH"/>
+                                    <constraint firstItem="gBE-Hs-caL" firstAttribute="centerY" secondItem="H0D-BT-Oyg" secondAttribute="centerY" id="cHW-W8-iS8"/>
+                                    <constraint firstItem="Zft-g8-GsY" firstAttribute="top" secondItem="q6a-oR-h38" secondAttribute="top" constant="7.5" id="dgd-CS-NQc"/>
+                                    <constraint firstItem="Zft-g8-GsY" firstAttribute="leading" secondItem="H0D-BT-Oyg" secondAttribute="leading" id="lov-e3-4gc"/>
+                                    <constraint firstItem="H0D-BT-Oyg" firstAttribute="trailing" secondItem="gBE-Hs-caL" secondAttribute="trailing" constant="10" id="mEr-qa-KuV"/>
+                                    <constraint firstItem="2Fy-dP-2yx" firstAttribute="leading" secondItem="Zft-g8-GsY" secondAttribute="trailing" id="mFI-Jx-hXA"/>
+                                    <constraint firstAttribute="height" constant="64" id="qE3-px-K70">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                    </constraint>
+                                    <constraint firstItem="2Fy-dP-2yx" firstAttribute="top" secondItem="q6a-oR-h38" secondAttribute="top" constant="2" id="skb-iX-84P"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-hT-B9t">
+                                <rect key="frame" x="5" y="118" width="380" height="682"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mra-gW-PNV"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q6a-oR-h38" firstAttribute="top" secondItem="mra-gW-PNV" secondAttribute="top" id="967-AK-j3g"/>
+                            <constraint firstItem="mra-gW-PNV" firstAttribute="trailing" secondItem="bcB-hT-B9t" secondAttribute="trailing" constant="5" id="JPQ-J6-tCp"/>
+                            <constraint firstItem="q6a-oR-h38" firstAttribute="leading" secondItem="mra-gW-PNV" secondAttribute="leading" id="KXM-7z-aLk"/>
+                            <constraint firstItem="q6a-oR-h38" firstAttribute="trailing" secondItem="mra-gW-PNV" secondAttribute="trailing" id="OiT-54-UcZ"/>
+                            <constraint firstItem="bcB-hT-B9t" firstAttribute="top" secondItem="q6a-oR-h38" secondAttribute="bottom" constant="10" id="aBh-Mx-zMy"/>
+                            <constraint firstItem="bcB-hT-B9t" firstAttribute="leading" secondItem="mra-gW-PNV" secondAttribute="leading" constant="5" id="hhp-qr-9KD"/>
+                            <constraint firstItem="mra-gW-PNV" firstAttribute="bottom" secondItem="bcB-hT-B9t" secondAttribute="bottom" constant="10" id="lpx-Hq-taI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ImagePrintPdf" destination="gBE-Hs-caL" id="Dmn-H2-wlN"/>
+                        <outlet property="webView" destination="bcB-hT-B9t" id="iQK-gf-vsD"/>
+                        <segue destination="fve-mk-5C1" kind="presentation" identifier="dboard" modalPresentationStyle="fullScreen" id="aLr-UA-XKm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="290-Dw-WTy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365" y="3"/>
+        </scene>
+        <!--dashboard-->
+        <scene sceneID="3Ro-bZ-cph">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="fve-mk-5C1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="s7g-de-yJL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4cJ-mB-OFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873" y="-131"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backarrownew" width="200" height="200"/>
+        <image name="printer" catalog="system" width="128" height="111"/>
+    </resources>
+</document>

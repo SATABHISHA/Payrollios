@@ -778,7 +778,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     print("Year description: \(swiftyJsonVar)")
                 if(swiftyJsonVar["response"]["status"].stringValue == "true"){
                     DashboardViewController.report_html = swiftyJsonVar["report_html"].stringValue
-//                    self.performSegue(withIdentifier: "pdf", sender: nil)
+                    self.performSegue(withIdentifier: "salarypdf", sender: nil)
                
                 }else{
                     var style = ToastStyle()
