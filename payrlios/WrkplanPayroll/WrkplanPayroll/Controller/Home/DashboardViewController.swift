@@ -133,6 +133,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     }
     //---ViewBtnInOut OnClick
     @objc func ViewBtn(tapGestureRecognizer: UITapGestureRecognizer){
+        determineMyCurrentLocation(status: "Start") //---function to get lat/long
         if LabelInOut.text == "IN" {
             TimesheetMyAttendanceViewController.in_out = "IN"
             TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
@@ -259,6 +260,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     let swiftyJsonVar=JSON(response.value!)
                     print("Save description: \(swiftyJsonVar)")
                     if swiftyJsonVar["status"].stringValue == "true"{
+                        self.determineMyCurrentLocation(status: "Stop")
                         self.load_data_check_od_duty()
                     }
                 }
@@ -266,7 +268,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 break
                 
             case .failure(let error):
-                
+                self.determineMyCurrentLocation(status: "Stop")
                 print(error)
             }
             
