@@ -70,6 +70,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var LabelCalendarDay: UILabel!
     @IBOutlet weak var ViewCustomBtnApplyForLeave: UIView!
     @IBOutlet weak var ViewCustomBtnApplyForOD: UIView!
+    static var DashboardToMyLeaveApplicationRequestNewCreateYN: Bool = false
     //-------Calendar variable, ends----
     
     
@@ -667,6 +668,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     //---ViewBtnApplyForLeave OnClick
     @objc func ViewApplyForLeaveBtn(tapGestureRecognizer: UITapGestureRecognizer){
+        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = true
         self.performSegue(withIdentifier: "LeaveRqst", sender: nil)
     }
     //===========Calender code ends============

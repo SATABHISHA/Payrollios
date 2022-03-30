@@ -92,13 +92,17 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         view_custom_button_save.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         //-----code to add button border, ends------
         
+        if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == true{
+            btn_submit.isSelected = true
+        }else if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == false {
+        
         if MyLeaveApplicationViewController.new_create_yn == true{
 //            populate_value()
             btn_submit.isSelected = true
         }else if MyLeaveApplicationViewController.new_create_yn == false{
             loadData()
         }
-        
+        }
         //-----Save
         let tapGestureRecognizerSave = UITapGestureRecognizer(target: self, action: #selector(Save(tapGestureRecognizer:)))
         custom_btn_label_save.isUserInteractionEnabled = false
@@ -287,6 +291,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     
     //---Cancel
     @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
+        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
         self.performSegue(withIdentifier: "myleave", sender: self)
     }
     
@@ -296,6 +301,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @IBAction func btnBack(_ sender: Any) {
+        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
         self.performSegue(withIdentifier: "myleave", sender: self)
         print("tapped")
     }
@@ -525,7 +531,6 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     //--------function to show leave application request details using Alamofire and Json Swifty------------
     func loadData(){
            loaderStart()
-        
         let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(MyLeaveApplicationViewController.appliction_id!)/1/"
         print("MyLeaveAppltnRqsturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
