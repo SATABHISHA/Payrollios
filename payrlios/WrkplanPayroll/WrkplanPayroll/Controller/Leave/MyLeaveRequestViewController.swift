@@ -93,6 +93,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         //-----code to add button border, ends------
         
         if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == true{
+            txt_from_date.text = DashboardViewController.FirstDate
+            txt_to_date.text = DashboardViewController.LastDate
             btn_submit.isSelected = true
         }else if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == false {
         

@@ -82,6 +82,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         
         if  DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN == true{
             populate_value()
+            txt_from_date.text = DashboardViewController.FirstDate
+            txt_to_date.text = DashboardViewController.LastDate
             btn_submit.isSelected = true
         } else if DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN == false {
         if OutDoorDutyListViewController.new_create_yn == true{
