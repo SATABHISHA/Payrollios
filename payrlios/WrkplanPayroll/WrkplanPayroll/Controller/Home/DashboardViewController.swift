@@ -111,7 +111,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.LabelDepartment.text = swiftyJsonvar1["company"]["company_name"].stringValue
         self.LabelSupervisor1.text = swiftyJsonvar1["employee"]["supervisor_1_name"].stringValue
         self.LabelSupervisor2.text = swiftyJsonvar1["employee"]["supervisor_2_name"].stringValue
-        self.LabelCorpId.text = swiftyJsonvar1["company"]["corporate_id"].stringValue
+        self.LabelCorpId.text = swiftyJsonvar1["employee"]["employee_code"].stringValue
     }
     
     //=============Code for Pending Items section, starts========
@@ -237,7 +237,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             self.btn_in.alpha = CGFloat(0.6) */
             //            self.btn_in.backgroundColor = UIColor(hexFromString: "#EEEEEE")
             
-            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "FF0000")
+            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "fb4e4e")
             self.LabelInOut.text = "OUT"
             
         }else if message_in_out == "OUT" {
@@ -639,14 +639,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         calendar.appearance.titleFont = UIFont.systemFont(ofSize: 18.0, weight: .regular)
         calendar.appearance.subtitleFont = UIFont.systemFont(ofSize: 0.0, weight: .regular)
         calendar.appearance.weekdayFont = UIFont.boldSystemFont(ofSize: 18.0)
-        calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 22)
+        calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 17)
         calendar.scrollDirection = .horizontal
         calendar.appearance.todayColor = .purple
         //        calender.calendarHeaderView.backgroundColor = UIColorRGB(r: 75, g: 153.0, b: 224.0)
         calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "BFBFBF")
         calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "ffffff")
         calendar.appearance.headerTitleColor = .black
-        calendar.appearance.weekdayTextColor = UIColor(hexFromString: "898989")
+        calendar.appearance.weekdayTextColor = UIColor(hexFromString: "0260D2")
         calendar.appearance.titleTodayColor = .black
         calendar.appearance.borderRadius = 0
         calendar.appearance.headerMinimumDissolvedAlpha = 0
