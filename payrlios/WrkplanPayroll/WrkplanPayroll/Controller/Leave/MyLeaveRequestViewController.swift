@@ -665,6 +665,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
                             // Create OK button with action handler
                             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
 //                                print("Ok button tapped")
+                                DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
                                 self.performSegue(withIdentifier: "myleave", sender: nil)
                              })
                             

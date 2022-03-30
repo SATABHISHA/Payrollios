@@ -71,6 +71,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var ViewCustomBtnApplyForLeave: UIView!
     @IBOutlet weak var ViewCustomBtnApplyForOD: UIView!
     static var DashboardToMyLeaveApplicationRequestNewCreateYN: Bool = false
+    static var DashboardToMyODApplicationRequestNewCreateYN: Bool = false
     //-------Calendar variable, ends----
     
     
@@ -660,16 +661,27 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
         
         
-        //MyAttendanceLog OnClick
+        //ApplyForLeave OnClick
         let tapGestureRecognizerApplyForLeavebtn = UITapGestureRecognizer(target: self, action: #selector(ViewApplyForLeaveBtn(tapGestureRecognizer:)))
         ViewCustomBtnApplyForLeave.isUserInteractionEnabled = true
         ViewCustomBtnApplyForLeave.addGestureRecognizer(tapGestureRecognizerApplyForLeavebtn)
+        
+        //ApplyForODDuty OnClick
+        let tapGestureRecognizerApplyForODbtn = UITapGestureRecognizer(target: self, action: #selector(ViewApplyForODBtn(tapGestureRecognizer:)))
+        ViewCustomBtnApplyForOD.isUserInteractionEnabled = true
+        ViewCustomBtnApplyForOD.addGestureRecognizer(tapGestureRecognizerApplyForODbtn)
     }
     
     //---ViewBtnApplyForLeave OnClick
     @objc func ViewApplyForLeaveBtn(tapGestureRecognizer: UITapGestureRecognizer){
         DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = true
         self.performSegue(withIdentifier: "LeaveRqst", sender: nil)
+    }
+    
+    //---ViewBtnApplyForOD OnClick
+    @objc func ViewApplyForODBtn(tapGestureRecognizer: UITapGestureRecognizer){
+        DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = true
+        self.performSegue(withIdentifier: "odrqst", sender: nil)
     }
     //===========Calender code ends============
     

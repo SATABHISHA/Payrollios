@@ -80,6 +80,10 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         
         print("random-=>", Int.random(in: 0 ... 999999))
         
+        if  DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN == true{
+            populate_value()
+            btn_submit.isSelected = true
+        } else if DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN == false {
         if OutDoorDutyListViewController.new_create_yn == true{
             populate_value()
             btn_submit.isSelected = true
@@ -87,12 +91,14 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             txt_employee_name.text = "\(swiftyJsonvar1["employee"]["employee_fname"].stringValue) \(swiftyJsonvar1["employee"]["employee_lname"].stringValue)"
             loadData()
         }
+        }
         //        populate_value()
         //        print("od_rqst_is-=>",OutDoorDutyListViewController.supervisor_od_request_id!)
         print("jsonData-=>",swiftyJsonvar1)
     }
     
     @IBAction func btn_back(_ sender: Any) {
+        DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = false
         self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
     }
     func populate_value(){
@@ -123,6 +129,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
     
     //---Cancel
     @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
+        DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = false
         self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
     }
     
@@ -473,6 +480,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                     // Create OK button with action handler
                     let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                         //                                print("Ok button tapped")
+                        DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = false 
                         self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
                     })
                     

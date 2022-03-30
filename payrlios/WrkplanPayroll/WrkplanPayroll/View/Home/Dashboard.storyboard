@@ -774,6 +774,7 @@
                         <outlet property="viewSelfie" destination="Y1q-NP-lsu" id="1hl-8V-zfJ"/>
                         <segue destination="6Uq-Fe-5UU" kind="presentation" identifier="salarypdf" modalPresentationStyle="fullScreen" id="Ajq-2n-NRL"/>
                         <segue destination="2wK-kO-5fq" kind="presentation" identifier="LeaveRqst" modalPresentationStyle="fullScreen" id="d6C-HV-5hn"/>
+                        <segue destination="blz-2K-T8s" kind="presentation" identifier="odrqst" modalPresentationStyle="fullScreen" id="Xy8-H9-eD2"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="Y1q-NP-lsu">
@@ -868,6 +869,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.7971014492753632" y="123.09782608695653"/>
+        </scene>
+        <!--outdoordutyrequest-->
+        <scene sceneID="0rK-xp-q1I">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="outdoordutyrequest" storyboardName="OutdoorDutyRequest" referencedIdentifier="outdoordutyrequest" id="blz-2K-T8s" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BMS-Wc-n8d"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ce7-mh-OAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="-427"/>
         </scene>
         <!--myleaverqst-->
         <scene sceneID="UZA-cP-47r">
