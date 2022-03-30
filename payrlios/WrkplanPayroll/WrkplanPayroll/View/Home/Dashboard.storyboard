@@ -741,6 +741,7 @@
                     </view>
                     <size key="freeformSize" width="464" height="1524"/>
                     <connections>
+                        <outlet property="ImgLogoutMenuBar" destination="u5m-JS-i47" id="0sC-PY-j5v"/>
                         <outlet property="LabelCalendarDate" destination="qOC-KL-Ogw" id="Dyb-sj-Qtz"/>
                         <outlet property="LabelCalendarDay" destination="tR6-v0-fBj" id="t39-N2-Yfm"/>
                         <outlet property="LabelCorpId" destination="BSF-j1-tbb" id="QMn-NO-2tU"/>
@@ -771,12 +772,66 @@
                         <outlet property="label_date_today" destination="JUa-1s-5dP" id="UFf-SK-7aV"/>
                         <outlet property="label_wrk_from_home" destination="lD9-m7-oaA" id="a9B-3P-VeN"/>
                         <outlet property="stackViewEnrollPopupButton" destination="QXa-pp-93r" id="q2T-Nv-23c"/>
+                        <outlet property="viewFormLogoutPopup" destination="8Cs-k8-G9u" id="dnC-iW-aVc"/>
                         <outlet property="viewSelfie" destination="Y1q-NP-lsu" id="1hl-8V-zfJ"/>
                         <segue destination="6Uq-Fe-5UU" kind="presentation" identifier="salarypdf" modalPresentationStyle="fullScreen" id="Ajq-2n-NRL"/>
                         <segue destination="2wK-kO-5fq" kind="presentation" identifier="LeaveRqst" modalPresentationStyle="fullScreen" id="d6C-HV-5hn"/>
                         <segue destination="blz-2K-T8s" kind="presentation" identifier="odrqst" modalPresentationStyle="fullScreen" id="Xy8-H9-eD2"/>
+                        <segue destination="0E0-6V-qqi" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="6YE-8a-otH"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="8Cs-k8-G9u">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to exit? " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.44999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="QnK-Q0-9C3">
+                            <rect key="frame" x="16" y="15.999999999999998" width="259" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.10980392160000001" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D84-9n-mde">
+                            <rect key="frame" x="237" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="DD9-VB-GgX"/>
+                                <constraint firstAttribute="height" constant="24" id="Zhq-AB-aZY"/>
+                            </constraints>
+                            <state key="normal" title="YES">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnLogoutPopupYes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZSz-Ox-6ZF"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3i-XP-2oA">
+                            <rect key="frame" x="177" y="58" width="30" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="GCS-Ph-X8e"/>
+                                <constraint firstAttribute="width" constant="30" id="Ofi-v0-xjh"/>
+                            </constraints>
+                            <state key="normal" title="NO">
+                                <color key="titleColor" red="0.92686808109999996" green="0.36033892629999997" blue="0.97881788020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnLogoutPopupNo:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NpY-da-NLJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="06o-ca-YYI"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="QnK-Q0-9C3" firstAttribute="leading" secondItem="8Cs-k8-G9u" secondAttribute="leading" constant="16" id="GgK-Kf-H3a"/>
+                        <constraint firstAttribute="trailing" secondItem="QnK-Q0-9C3" secondAttribute="trailing" constant="16" id="Mze-9B-lFz"/>
+                        <constraint firstItem="QnK-Q0-9C3" firstAttribute="top" secondItem="8Cs-k8-G9u" secondAttribute="top" constant="16" id="Ziy-M1-3mX"/>
+                        <constraint firstItem="D84-9n-mde" firstAttribute="leading" secondItem="E3i-XP-2oA" secondAttribute="trailing" constant="30" id="bQs-Rd-Utm"/>
+                        <constraint firstItem="D84-9n-mde" firstAttribute="top" relation="lessThanOrEqual" secondItem="QnK-Q0-9C3" secondAttribute="bottom" constant="22" id="hkW-FV-UUr"/>
+                        <constraint firstItem="E3i-XP-2oA" firstAttribute="top" relation="lessThanOrEqual" secondItem="QnK-Q0-9C3" secondAttribute="bottom" constant="22" id="o1h-By-JVV"/>
+                        <constraint firstAttribute="bottom" secondItem="D84-9n-mde" secondAttribute="bottom" constant="10" id="opp-KW-uxH"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QnK-Q0-9C3" secondAttribute="bottom" constant="40" id="qWx-JB-NAV"/>
+                        <constraint firstAttribute="bottom" secondItem="E3i-XP-2oA" secondAttribute="bottom" constant="10" id="qpy-Bz-ym8"/>
+                        <constraint firstAttribute="trailing" secondItem="D84-9n-mde" secondAttribute="trailing" constant="24" id="zGr-nw-k4o"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" id="Y1q-NP-lsu">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="158"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -899,6 +954,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Et-1h-d4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="607" y="-287"/>
+        </scene>
+        <!--login-->
+        <scene sceneID="NgT-86-CWX">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="login" storyboardName="Main" referencedIdentifier="login" id="0E0-6V-qqi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SAb-lI-z3R"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2BM-ej-1qZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="787" y="-65"/>
         </scene>
     </scenes>
     <resources>

@@ -15,6 +15,13 @@ import DropDown
 
 class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    
+    //----Menubar variables, starts-----
+    @IBOutlet weak var ImgLogoutMenuBar: UIImageView!
+    let sharedpreferences = UserDefaults.standard
+    //----Menubar variables, ends-----
+    
+    //----EmployeeDetail variables, starts----
     @IBOutlet weak var ViewEmpDetails: UIView!
     @IBOutlet weak var ViewChild: UIView!
     @IBOutlet weak var LabelEmpName: UILabel!
@@ -22,6 +29,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var LabelDepartment: UILabel!
     @IBOutlet weak var LabelSupervisor1: UILabel!
     @IBOutlet weak var LabelSupervisor2: UILabel!
+    //----EmployeeDetail variables, ends----
     
     //---Attendance variables, starts----
     @IBOutlet weak var label_wrk_from_home: UILabel!
@@ -101,6 +109,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        LoadMenuBarNavigationDrawerData()
         ChangeStatusBarColor()
         LoadEmployeeDetails()
         LoadAttendanceData()
@@ -109,6 +118,66 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LoadSalaryData()
         
     }
+    
+    //--------MenuBar and Navigation Drawer, code starts------
+    func LoadMenuBarNavigationDrawerData(){
+        //LogoutMenuBar
+        let tapGestureRecognizerImgLogoutMenuBar = UITapGestureRecognizer(target: self, action: #selector(ImgLogoutMenu(tapGestureRecognizer:)))
+        ImgLogoutMenuBar.isUserInteractionEnabled = true
+        ImgLogoutMenuBar.addGestureRecognizer(tapGestureRecognizerImgLogoutMenuBar)
+    }
+    //---MenuBarLogout
+    @objc func ImgLogoutMenu(tapGestureRecognizer: UITapGestureRecognizer){
+//        self.performSegue(withIdentifier: "notification", sender: nil)
+        openLogoutFormPopup()
+    }
+    
+    //==============FormDialog Logout code starts================
+    @IBOutlet var viewFormLogoutPopup: UIView!
+    
+    func openLogoutFormPopup(){
+        blurEffect()
+        self.view.addSubview(viewFormLogoutPopup)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewFormLogoutPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewFormLogoutPopup.center = self.view.center
+        viewFormLogoutPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewFormLogoutPopup.alpha = 0
+        viewFormLogoutPopup.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewFormLogoutPopup.alpha = 1
+            self.viewFormLogoutPopup.transform = CGAffineTransform.identity
+        }
+    }
+    func cancelLogoutFormPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewFormLogoutPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewFormLogoutPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewFormLogoutPopup.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @IBAction func btnLogoutPopupYes(_ sender: Any) {
+        cancelLogoutFormPopup()
+        sharedpreferences.removeObject(forKey: "UserId")
+        sharedpreferences.synchronize()
+       
+//        self.resetAllRecords(in: "UserNotification")
+        self.performSegue(withIdentifier: "login", sender: self)
+    }
+    
+    @IBAction func btnLogoutPopupNo(_ sender: Any) {
+        cancelLogoutFormPopup()
+    }
+    //==============FormDialog Logout code ends================
+    //--------MenuBar and Navigation Drawer, code ends------
+    
     func LoadEmployeeDetails(){
         self.ViewChild.clipsToBounds = true
         self.ViewChild.layer.cornerRadius = 10
