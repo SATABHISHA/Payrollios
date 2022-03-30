@@ -72,6 +72,15 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var ViewCustomBtnApplyForOD: UIView!
     static var DashboardToMyLeaveApplicationRequestNewCreateYN: Bool = false
     static var DashboardToMyODApplicationRequestNewCreateYN: Bool = false
+    
+    // first date in the range
+    var firstDate: Date?
+    // last date in the range
+    var lastDate: Date?
+    
+    static var FirstDate: String!, LastDate: String!
+     var datesRange: [Date]?
+    
     //-------Calendar variable, ends----
     
     
@@ -634,6 +643,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LabelCalendarDate.text = ""
         LabelCalendarDay.text = ""
         
+        calendar.allowsMultipleSelection = true
         calendar.headerHeight = 45.0
         calendar.weekdayHeight = 35.0
         calendar.rowHeight = 25.0
@@ -888,6 +898,66 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 
 extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        //----code for date range select, starts-----
+        // nothing selected:
+           if firstDate == nil {
+               firstDate = date
+               datesRange = [firstDate!]
+
+               print("first date: \(getCustomDateFormat(date: firstDate!))")
+               print("datesRange contains: \(datesRange!)")
+               DashboardViewController.FirstDate = getCustomDateFormat(date: firstDate!)
+
+               return
+           }
+
+           // only first date is selected:
+           if firstDate != nil && lastDate == nil {
+               // handle the case of if the last date is less than the first date:
+               if date <= firstDate! {
+                   calendar.deselect(firstDate!)
+                   firstDate = date
+                   datesRange = [firstDate!]
+
+                   print("datesRange contains: \(datesRange!)")
+
+                   return
+               }
+
+               let range = datesRange(from: firstDate!, to: date)
+
+               lastDate = range.last
+
+               for d in range {
+                   calendar.select(d)
+               }
+
+               datesRange = range
+
+               print("last date: \(getCustomDateFormat(date: lastDate!))")
+               print("datesRange contains: \(datesRange!)")
+               
+               DashboardViewController.LastDate = getCustomDateFormat(date: lastDate!)
+
+               return
+           }
+
+           // both are selected:
+           if firstDate != nil && lastDate != nil {
+               for d in calendar.selectedDates {
+                   calendar.deselect(d)
+               }
+
+               lastDate = nil
+               firstDate = nil
+
+               datesRange = []
+
+               print("datesRange contains: \(datesRange!)")
+           }
+        //----code for date range select, ends-----
+        
         let dateString = self.formatter.string(from: date)
         
         let dateFormatterGet = DateFormatter()
@@ -923,6 +993,51 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
             calendar.setCurrentPage(date, animated: true)
         }
     }
+    
+    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        // both are selected:
+
+        // NOTE: the is a REDUANDENT CODE:
+        if firstDate != nil && lastDate != nil {
+            for d in calendar.selectedDates {
+                calendar.deselect(d)
+            }
+
+            lastDate = nil
+            firstDate = nil
+
+            datesRange = []
+            print("datesRange contains: \(datesRange!)")
+        }
+    }
+    func getCustomDateFormat(date: Date) -> String{
+        let dateString = self.formatter.string(from: date)
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "dd/MM/yyyy"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd-MMM-yyyy"
+        
+        let SelectedDate = dateFormatterGet.date(from: dateString)
+        return dateFormatterPrint.string(from: SelectedDate!)
+    }
+    func datesRange(from: Date, to: Date) -> [Date] {
+        // in case of the "from" date is more than "to" date,
+        // it should returns an empty array:
+        if from > to { return [Date]() }
+
+        var tempDate = from
+        var array = [tempDate]
+
+        while tempDate < to {
+            tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate)!
+            array.append(tempDate)
+        }
+
+        return array
+    }
+    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
 //        label_date.isHidden = true
 //        label_holiday_name.isHidden = true
