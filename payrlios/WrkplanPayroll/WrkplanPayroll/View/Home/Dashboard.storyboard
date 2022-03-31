@@ -912,6 +912,19 @@
                         <segue destination="2wK-kO-5fq" kind="presentation" identifier="LeaveRqst" modalPresentationStyle="fullScreen" id="d6C-HV-5hn"/>
                         <segue destination="blz-2K-T8s" kind="presentation" identifier="odrqst" modalPresentationStyle="fullScreen" id="Xy8-H9-eD2"/>
                         <segue destination="0E0-6V-qqi" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="6YE-8a-otH"/>
+                        <segue destination="LmV-bg-2Wl" kind="presentation" identifier="empinfo" modalPresentationStyle="fullScreen" id="5Wv-uR-WNC"/>
+                        <segue destination="QY7-kU-re4" kind="presentation" identifier="leave" modalPresentationStyle="fullScreen" id="VHY-fB-TgM"/>
+                        <segue destination="ns6-Lk-WrB" kind="presentation" identifier="companydoc" modalPresentationStyle="fullScreen" id="IFe-br-1FQ"/>
+                        <segue destination="agP-Fw-OiY" kind="presentation" identifier="empdoc" modalPresentationStyle="fullScreen" id="7cZ-EZ-TeR"/>
+                        <segue destination="nkX-MG-LR3" kind="presentation" identifier="insurance" modalPresentationStyle="fullScreen" id="mIZ-Kb-nCo"/>
+                        <segue destination="sTS-Mm-EYg" kind="presentation" identifier="holiday" modalPresentationStyle="fullScreen" id="bg3-3i-ypf"/>
+                        <segue destination="mrW-bj-mMn" kind="presentation" identifier="outdoordutylist" modalPresentationStyle="fullScreen" id="NfC-uU-WhG"/>
+                        <segue destination="3EC-q2-pci" kind="presentation" identifier="odloglist" modalPresentationStyle="fullScreen" id="Wn3-P2-7sE"/>
+                        <segue destination="8rP-md-9z0" kind="presentation" identifier="timesheet" modalPresentationStyle="fullScreen" id="zlr-H2-z08"/>
+                        <segue destination="jpN-2U-B4u" kind="presentation" identifier="advancerequisition" modalPresentationStyle="fullScreen" id="k9u-OK-gKh"/>
+                        <segue destination="xSS-42-8rN" kind="presentation" identifier="reports" modalPresentationStyle="fullScreen" id="0qg-kB-jDu"/>
+                        <segue destination="gqc-cO-y2j" kind="presentation" identifier="mediclaimlist" modalPresentationStyle="fullScreen" id="PNf-ki-EX5"/>
+                        <segue destination="ukS-RF-9hC" kind="presentation" identifier="lta" modalPresentationStyle="fullScreen" id="daL-CN-Kpv"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="8Cs-k8-G9u">
@@ -1059,6 +1072,36 @@
             </objects>
             <point key="canvasLocation" x="5.7971014492753632" y="123.09782608695653"/>
         </scene>
+        <!--leave-->
+        <scene sceneID="6AX-2E-JMU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="leave" storyboardName="Leave" referencedIdentifier="leave" id="QY7-kU-re4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1GD-zg-0hS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPj-t8-ZUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="-278"/>
+        </scene>
+        <!--odloglist-->
+        <scene sceneID="5Hx-La-yIM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="odloglist" storyboardName="OutdoorDutyLogList" referencedIdentifier="odloglist" id="3EC-q2-pci" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="NLP-x2-vQx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJS-Jd-Yef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="-584"/>
+        </scene>
+        <!--empinfo-->
+        <scene sceneID="PeT-hs-cSp">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="empinfo" storyboardName="EmployeeInformation" referencedIdentifier="empinfo" id="LmV-bg-2Wl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="F1i-zA-Cdf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JEo-wo-Xlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="-501"/>
+        </scene>
         <!--outdoordutyrequest-->
         <scene sceneID="0rK-xp-q1I">
             <objects>
@@ -1067,7 +1110,77 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ce7-mh-OAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-427"/>
+            <point key="canvasLocation" x="693" y="-429"/>
+        </scene>
+        <!--timesheet-->
+        <scene sceneID="A67-qu-UQ9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="timesheet" storyboardName="Timesheet" referencedIdentifier="timesheet" id="8rP-md-9z0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6aK-Re-qWz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xN9-Jb-OUt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566" y="-542"/>
+        </scene>
+        <!--lta-->
+        <scene sceneID="9bm-Rq-iid">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="lta" storyboardName="Lta" referencedIdentifier="lta" id="ukS-RF-9hC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2KV-IN-4b6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwL-1t-q9r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="1"/>
+        </scene>
+        <!--mediclaim-->
+        <scene sceneID="Uvx-C3-dMC">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="mediclaim" storyboardName="MediclaimList" referencedIdentifier="mediclaim" id="gqc-cO-y2j" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eKc-cq-1B6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Twx-Ag-Bzk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-35"/>
+        </scene>
+        <!--advance-->
+        <scene sceneID="RS6-v4-GbP">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="advance" storyboardName="AdvanceRequisitionList" referencedIdentifier="advance" id="jpN-2U-B4u" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YwW-MT-Vph"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="og1-TJ-gDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717" y="-93"/>
+        </scene>
+        <!--outdoordutylist-->
+        <scene sceneID="Foe-we-gob">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="outdoordutylist" storyboardName="OutdoorDutyList" referencedIdentifier="outdoordutylist" id="mrW-bj-mMn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8lZ-Jc-pf7"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5P9-wi-Qtr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-467"/>
+        </scene>
+        <!--Reports-->
+        <scene sceneID="7Ot-wS-WJI">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Reports" storyboardName="Reports" referencedIdentifier="Reports" id="xSS-42-8rN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Fzt-9R-it5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uc-nv-XDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="719" y="-63"/>
+        </scene>
+        <!--insurance-->
+        <scene sceneID="1uV-gt-eBK">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="insurance" storyboardName="InsuranceDetail" referencedIdentifier="insurance" id="nkX-MG-LR3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qcy-Qx-gBJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="430-kC-FWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="-389"/>
         </scene>
         <!--myleaverqst-->
         <scene sceneID="UZA-cP-47r">
@@ -1087,7 +1200,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Et-1h-d4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="-287"/>
+            <point key="canvasLocation" x="664" y="-320"/>
         </scene>
         <!--login-->
         <scene sceneID="NgT-86-CWX">
@@ -1097,7 +1210,37 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2BM-ej-1qZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="-65"/>
+            <point key="canvasLocation" x="667" y="-240"/>
+        </scene>
+        <!--companydoc-->
+        <scene sceneID="eZH-ab-3mN">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="companydoc" storyboardName="CompanyDocuments" referencedIdentifier="companydoc" id="ns6-Lk-WrB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="I5W-9A-faP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJe-xf-JDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693" y="-205"/>
+        </scene>
+        <!--facilities-->
+        <scene sceneID="1N8-O6-sxk">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="facilities" storyboardName="EmployeeFacilities" referencedIdentifier="facilities" id="agP-Fw-OiY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qIK-Zg-KgZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8p-19-LR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712" y="-160"/>
+        </scene>
+        <!--holiday-->
+        <scene sceneID="Zdp-fS-wZc">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="holiday" storyboardName="HolidayDetails" referencedIdentifier="holiday" id="sTS-Mm-EYg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XVI-pQ-xzG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09o-mT-ILF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717" y="-123"/>
         </scene>
     </scenes>
     <resources>

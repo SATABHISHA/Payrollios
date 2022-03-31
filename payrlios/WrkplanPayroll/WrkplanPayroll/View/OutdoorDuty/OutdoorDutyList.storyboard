@@ -255,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="749" y="-231"/>
         </scene>
-        <!--home-->
+        <!--dashboard-->
         <scene sceneID="nXn-LG-rCg">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="eBP-ro-AzL" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="eBP-ro-AzL" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1z7-WP-Pt1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49u-Qk-bi1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

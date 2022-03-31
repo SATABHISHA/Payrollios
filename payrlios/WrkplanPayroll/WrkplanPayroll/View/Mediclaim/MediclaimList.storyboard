@@ -331,10 +331,10 @@
             </objects>
             <point key="canvasLocation" x="674" y="27"/>
         </scene>
-        <!--home-->
+        <!--dashboard-->
         <scene sceneID="viU-xr-Kut">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="834-Y3-GvR" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="834-Y3-GvR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kia-Sz-D5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1158" y="-238"/>

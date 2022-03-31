@@ -490,10 +490,10 @@
             </objects>
             <point key="canvasLocation" x="692" y="-119"/>
         </scene>
-        <!--home-->
+        <!--dashboard-->
         <scene sceneID="DrN-76-cNf">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="Vlo-Zd-14X" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="Vlo-Zd-14X" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqz-rD-67r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672" y="-25"/>

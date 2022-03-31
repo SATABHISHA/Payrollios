@@ -160,10 +160,10 @@
             </objects>
             <point key="canvasLocation" x="-251" y="590"/>
         </scene>
-        <!--home-->
+        <!--dashboard-->
         <scene sceneID="kuf-6H-Wzl">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="home" id="CBM-N5-XdO" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="dashboard" id="CBM-N5-XdO" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="A2c-On-Yrj"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlN-Mt-00R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -325,10 +325,10 @@
             </objects>
             <point key="canvasLocation" x="-62.318840579710148" y="-106.79347826086958"/>
         </scene>
-        <!--home-->
+        <!--dashboard-->
         <scene sceneID="2Pg-s1-eY8">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="home" id="Ew0-1S-wVc" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="dashboard" id="Ew0-1S-wVc" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Zry-ZB-HvZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gw1-2o-sWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

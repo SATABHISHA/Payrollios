@@ -334,10 +334,10 @@
             </objects>
             <point key="canvasLocation" x="610" y="-432"/>
         </scene>
-        <!--home-->
+        <!--dashboard-->
         <scene sceneID="KgV-Qt-Jqg">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="Auv-CA-kOf" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="Auv-CA-kOf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bvy-B8-LKp"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLV-kc-s3o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

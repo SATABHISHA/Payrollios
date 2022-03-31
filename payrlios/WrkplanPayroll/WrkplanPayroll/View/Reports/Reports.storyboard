@@ -364,15 +364,15 @@
             </objects>
             <point key="canvasLocation" x="108.69565217391305" y="50.54347826086957"/>
         </scene>
-        <!--home-->
+        <!--dashboard-->
         <scene sceneID="g73-eN-vlX">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="home" storyboardName="Home" referencedIdentifier="home" id="83q-Vq-nQJ" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="83q-Vq-nQJ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="etO-D3-poA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Win-m3-K8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-238"/>
+            <point key="canvasLocation" x="666" y="-238"/>
         </scene>
         <!--Pdf-->
         <scene sceneID="Sej-Bq-3Yp">
