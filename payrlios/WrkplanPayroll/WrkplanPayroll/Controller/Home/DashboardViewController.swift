@@ -297,7 +297,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-----------function for navigation drawer code, starts-----------
     func menuShow(){
         if menuIsMenuShow{
-//            self.canelBlurEffect()
+            self.canelBlurEffect()
+            ScrollView.isScrollEnabled = true
             //            self.view.removeFromSuperview()
             self.navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
             self.navigationDrawerTrailingConstant.constant = view.frame.size.width
@@ -305,7 +306,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 self.view.layoutIfNeeded()
             })
         }else{
-//            blurEffect()
+            blurEffect()
+            ScrollView.isScrollEnabled = false
             self.view.addSubview(navigationDrawer)
           
             let url = swiftyJsonvar1["employee"]["employee_image"].stringValue
@@ -341,7 +343,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     }
     //-------menuClose function is for other sections(except menu bnutton), code starts------
     func menuClose(){
-//        self.canelBlurEffect()
+        self.canelBlurEffect()
+        ScrollView.isScrollEnabled = true
         //            self.view.removeFromSuperview()
         navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
         navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
@@ -1191,8 +1194,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.alpha = 0.9
-        view.addSubview(blurEffectView)
-//        ScrollView.addSubview(blurEffectView)
+//        view.addSubview(blurEffectView)
+        ScrollView.addSubview(blurEffectView)
         // screen roted and size resize automatic
         blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
         
