@@ -246,9 +246,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             }else if row.menuItm == "Leave"{
                 menuClose()
                 self.performSegue(withIdentifier: "leave", sender: nil)
+            }else if row.menuItm == "Employee Documents"{
+                menuClose()
+                self.performSegue(withIdentifier: "empdocs", sender: nil)
             }else if row.menuItm == "Employee Facilities"{
                 menuClose()
-                self.performSegue(withIdentifier: "empdoc", sender: nil)
+                self.performSegue(withIdentifier: "empfacilities", sender: nil)
             }else if row.menuItm == "Company Documents"{
                 menuClose()
                 self.performSegue(withIdentifier: "companydoc", sender: nil)
