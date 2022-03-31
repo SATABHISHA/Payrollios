@@ -13,8 +13,14 @@ import Toast_Swift
 import FSCalendar
 import DropDown
 
-class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+struct NavigationDashboardMenuData{
+    var imageData:UIImage!
+    var menuItm:String!
+}
+class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var ScrollViewContainer: UIView!
+    @IBOutlet weak var ScrollView: UIScrollView!
     
     //----Menubar variables, starts-----
     @IBOutlet weak var ImgLogoutMenuBar: UIImageView!
@@ -34,7 +40,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var navigationDrawerHeight: NSLayoutConstraint!
     
     var menuIsMenuShow = false
-    var navigationDrawerData = [NavigationMenuData]()
+    var navigationDrawerData = [NavigationDashboardMenuData]()
     
     
     //---------variables for navigation drawer ends-------
@@ -127,7 +133,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        LoadMenuBarNavigationDrawerData()
+        LoadNavigationBarData()
+        LoadNavigationDrawerData()
         ChangeStatusBarColor()
         LoadEmployeeDetails()
         LoadAttendanceData()
@@ -137,8 +144,220 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
     }
     
+    //-------///////--Navigation Drawer, code starts--///////-----
+    func LoadNavigationDrawerData(){
+        tableViewNavigation.dataSource = self
+        tableViewNavigation.delegate = self
+        tableViewNavigation.backgroundColor = UIColor.white
+        
+        let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
+        
+        navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
+        //        navigationDrawerLeadingConstraint.constant = 0
+        navigationDrawerTrailingConstant.constant = view.frame.size.width
+        print("navigationframe-=>",navigationDrawerLeadingConstraint.constant)
+        print("navigationTrailing-=>", navigationDrawerTrailingConstant.constant)
+        
+        var k = NavigationDashboardMenuData()
+        k.imageData = UIImage(named: "eminfo.png")
+        k.menuItm = "Employee Information"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "leave.png")
+        k.menuItm = "Leave"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "facilities.png")
+        k.menuItm = "Employee Facilities"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "employeedocs.png")
+        k.menuItm = "Employee Documents"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "organizationdocs.png")
+        k.menuItm = "Company Documents"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "insurance.png")
+        k.menuItm = "Insurance Detail"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "holiday.png")
+        k.menuItm = "Holiday Detail"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "od_request")
+        k.menuItm = "Outdoor Duty Request"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "od_duty")
+        k.menuItm = "Outdoor Duty"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "timesheet")
+        k.menuItm = "Attendance"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "advance")
+        k.menuItm = "Advance"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "mediclaim")
+        k.menuItm = "Medical Reimbursement"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "lta")
+        k.menuItm = "LTA"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "reports")
+        k.menuItm = "Reports"
+        navigationDrawerData.append(k)
+        
+        k.imageData = UIImage(named: "password.png")
+        k.menuItm = "Change Password"
+        navigationDrawerData.append(k)
+        k.imageData = UIImage(named: "logout.png")
+        k.menuItm = "Logout"
+        navigationDrawerData.append(k)
+    }
+    //--------tableview code starts--------
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        navigationDrawerData.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableViewNavigation.dequeueReusableCell(withIdentifier: "cell") as! HomeNavigationControllerTableViewCell
+        tableView.separatorColor = UIColor.white
+        
+        var dict = navigationDrawerData[indexPath.row]
+        if dict.menuItm! == "Reports"{
+            let bottomBorder = CALayer()
+            
+            bottomBorder.frame = CGRect(x: 0.0, y: 43.0, width: cell.contentView.frame.size.width, height: 1.0)
+            bottomBorder.backgroundColor = UIColor(hexFromString: "#c2c2c2").cgColor
+            cell.contentView.layer.addSublayer(bottomBorder)
+        }else{
+            let bottomBorder = CALayer()
+            
+            bottomBorder.frame = CGRect(x: 0.0, y: 43.0, width: cell.contentView.frame.size.width, height: 1.0)
+            bottomBorder.backgroundColor = UIColor(hexFromString: "#ffffff").cgColor
+            cell.contentView.layer.addSublayer(bottomBorder)
+        }
+        cell.imageViewMenu.image = dict.imageData
+        cell.labelMenuItem.text = dict.menuItm
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == tableViewNavigation{
+            var row = navigationDrawerData[indexPath.row]
+            if row.menuItm == "Employee Information"{
+                menuClose()
+                self.performSegue(withIdentifier: "empinfo", sender: nil)
+            }else if row.menuItm == "Leave"{
+                menuClose()
+                self.performSegue(withIdentifier: "leave", sender: nil)
+            }else if row.menuItm == "Employee Facilities"{
+                menuClose()
+                self.performSegue(withIdentifier: "empdoc", sender: nil)
+            }else if row.menuItm == "Company Documents"{
+                menuClose()
+                self.performSegue(withIdentifier: "companydoc", sender: nil)
+            }else if row.menuItm == "Insurance Detail"{
+                menuClose()
+                self.performSegue(withIdentifier: "insurance", sender: nil)
+            }else if row.menuItm == "Holiday Detail"{
+                menuClose()
+                self.performSegue(withIdentifier: "holiday", sender: self)
+            }
+            else if row.menuItm == "Outdoor Duty Request"{
+                menuClose()
+                self.performSegue(withIdentifier: "outdoordutylist", sender: self)
+            }
+            else if row.menuItm == "Outdoor Duty"{
+                menuClose()
+                self.performSegue(withIdentifier: "odloglist", sender: self)
+            }
+            else if row.menuItm == "Attendance"{
+                menuClose()
+                self.performSegue(withIdentifier: "timesheet", sender: self)
+                
+            }else if row.menuItm == "Advance"{
+                menuClose()
+                self.performSegue(withIdentifier: "advancerequisition", sender: nil)
+                
+            }else if row.menuItm == "Reports"{
+                menuClose()
+                self.performSegue(withIdentifier: "reports", sender: self)
+            }else if row.menuItm == "Medical Reimbursement"{
+                menuClose()
+                self.performSegue(withIdentifier: "mediclaimlist", sender: self)
+            }else if row.menuItm == "LTA"{
+                menuClose()
+                self.performSegue(withIdentifier: "lta", sender: self)
+            } else if row.menuItm == "Change Password"{
+                menuClose()
+//                openPasswordChangePopup()
+            }else if row.menuItm == "Logout"{
+                menuClose()
+                openLogoutFormPopup()
+            }
+        }
+    }
+    //--------tableview code ends--------
+    //-----------function for navigation drawer code, starts-----------
+    func menuShow(){
+        if menuIsMenuShow{
+//            self.canelBlurEffect()
+            //            self.view.removeFromSuperview()
+            self.navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
+            self.navigationDrawerTrailingConstant.constant = view.frame.size.width
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }else{
+//            blurEffect()
+            self.view.addSubview(navigationDrawer)
+          
+            let url = swiftyJsonvar1["employee"]["employee_image"].stringValue
+            if url == "" {
+                if swiftyJsonvar1["employee"]["gender"].stringValue == "M"{
+                     self.navigationProfileImg.image = UIImage(named: "employeemale")
+                 }else if swiftyJsonvar1["employee"]["gender"].stringValue == "F"{
+                     self.navigationProfileImg.image = UIImage(named: "woman")
+                 }
+            }
+            if url != "" {
+            let encodedURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            let finalurl = URL(string: encodedURL)
+            
+
+                // Fetch Image Data
+                if let data = try? Data(contentsOf: finalurl!) {
+                    // Create Image and Update Image View
+                    self.navigationProfileImg.image = UIImage(data: data)
+                    self.navigationProfileImg.layer.cornerRadius = self.navigationProfileImg.bounds.height/2
+                }
+            }
+        
+           
+            self.navigationDesignation.text = swiftyJsonvar1["employee"]["designation_name"].stringValue
+            self.navigationEmployeeName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
+            self.navigationCompanyName.text = swiftyJsonvar1["company"]["company_name"].stringValue
+            self.navigationDrawerLeadingConstraint.constant = 0
+            self.navigationDrawerTrailingConstant.constant = 60
+            UIView.animate(withDuration: 0.3, animations: {self.view.layoutIfNeeded()})
+        }
+        menuIsMenuShow = !menuIsMenuShow
+    }
+    //-------menuClose function is for other sections(except menu bnutton), code starts------
+    func menuClose(){
+//        self.canelBlurEffect()
+        //            self.view.removeFromSuperview()
+        navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
+        navigationDrawerTrailingConstant.constant = ScrollView.frame.size.width
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    //-------menuClose function is for other sections(except menu bnutton), code ends------
+    
+    @IBAction func menuBth(_ sender: Any) {
+        menuShow()
+    }
+    //-------/////--Navigation Drawer, code ends--//////-----
+    
     //--------MenuBar and Navigation Drawer, code starts------
-    func LoadMenuBarNavigationDrawerData(){
+    func LoadNavigationBarData(){
         //LogoutMenuBar
         let tapGestureRecognizerImgLogoutMenuBar = UITapGestureRecognizer(target: self, action: #selector(ImgLogoutMenu(tapGestureRecognizer:)))
         ImgLogoutMenuBar.isUserInteractionEnabled = true
@@ -973,6 +1192,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         blurEffectView.frame = view.bounds
         blurEffectView.alpha = 0.9
         view.addSubview(blurEffectView)
+//        ScrollView.addSubview(blurEffectView)
         // screen roted and size resize automatic
         blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
         
