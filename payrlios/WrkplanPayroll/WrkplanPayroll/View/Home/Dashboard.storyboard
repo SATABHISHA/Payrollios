@@ -891,7 +891,15 @@
                         <outlet property="calendar" destination="jer-Lx-2GO" id="xhK-ho-cUI"/>
                         <outlet property="label_date_today" destination="JUa-1s-5dP" id="UFf-SK-7aV"/>
                         <outlet property="label_wrk_from_home" destination="lD9-m7-oaA" id="a9B-3P-VeN"/>
+                        <outlet property="navigationCompanyName" destination="E1w-oq-bpJ" id="b5u-9W-HwS"/>
+                        <outlet property="navigationDesignation" destination="zxf-OQ-kzk" id="xcG-og-lGc"/>
+                        <outlet property="navigationDrawer" destination="ysU-RL-jW5" id="oq5-R8-cY2"/>
+                        <outlet property="navigationDrawerLeadingConstraint" destination="Oyb-UR-5ST" id="MCj-gG-fSR"/>
+                        <outlet property="navigationDrawerTrailingConstant" destination="p3m-JW-Gfi" id="bTM-u2-fgq"/>
+                        <outlet property="navigationEmployeeName" destination="GhA-R5-qh1" id="H9m-VQ-02J"/>
+                        <outlet property="navigationProfileImg" destination="bjl-IZ-Uvv" id="IIE-d5-wan"/>
                         <outlet property="stackViewEnrollPopupButton" destination="QXa-pp-93r" id="q2T-Nv-23c"/>
+                        <outlet property="tableViewNavigation" destination="UOq-Bc-h73" id="oBE-jV-sFu"/>
                         <outlet property="viewFormLogoutPopup" destination="8Cs-k8-G9u" id="dnC-iW-aVc"/>
                         <outlet property="viewSelfie" destination="Y1q-NP-lsu" id="1hl-8V-zfJ"/>
                         <segue destination="6Uq-Fe-5UU" kind="presentation" identifier="salarypdf" modalPresentationStyle="fullScreen" id="Ajq-2n-NRL"/>

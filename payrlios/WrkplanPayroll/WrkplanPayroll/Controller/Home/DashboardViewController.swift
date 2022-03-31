@@ -21,6 +21,24 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     let sharedpreferences = UserDefaults.standard
     //----Menubar variables, ends-----
     
+    
+    //---------variables for navigation drawer starts-------
+    @IBOutlet weak var navigationDesignation: UILabel!
+    @IBOutlet weak var navigationProfileImg: UIImageView!
+    @IBOutlet weak var navigationDrawer: UIView!
+    @IBOutlet weak var navigationEmployeeName: UILabel!
+    @IBOutlet weak var navigationCompanyName: UILabel!
+    @IBOutlet weak var tableViewNavigation: UITableView!
+    @IBOutlet weak var navigationDrawerTrailingConstant: NSLayoutConstraint!
+    @IBOutlet weak var navigationDrawerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navigationDrawerHeight: NSLayoutConstraint!
+    
+    var menuIsMenuShow = false
+    var navigationDrawerData = [NavigationMenuData]()
+    
+    
+    //---------variables for navigation drawer ends-------
+    
     //----EmployeeDetail variables, starts----
     @IBOutlet weak var ViewEmpDetails: UIView!
     @IBOutlet weak var ViewChild: UIView!
