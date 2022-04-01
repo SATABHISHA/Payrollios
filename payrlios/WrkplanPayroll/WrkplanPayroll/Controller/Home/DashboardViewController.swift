@@ -1612,7 +1612,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         if let year = DashboardViewController.year, let month_name = DashboardViewController.month_name {
         loadHtmlStringSalarySlipData(year: year, month_name: month_name)
         }else {
-            print("Please Select month or year")
+//            print("Please Select month or year")
+            var style = ToastStyle()
+            
+            // this is just one of many style options
+            style.messageColor = .white
+            self.view.makeToast("Please Select Month/Year", duration: 3.0, position: .bottom, style: style)
         }
 
     }
