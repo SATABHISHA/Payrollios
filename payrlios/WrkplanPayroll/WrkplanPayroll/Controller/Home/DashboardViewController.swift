@@ -871,6 +871,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     func openLogoutFormPopup(){
         blurEffect()
         self.view.addSubview(viewFormLogoutPopup)
+        ScrollView.isScrollEnabled = false
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.height
         viewFormLogoutPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
@@ -893,6 +894,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         }) { (success) in
             self.viewFormLogoutPopup.removeFromSuperview();
             self.canelBlurEffect()
+            self.ScrollView.isScrollEnabled = true
         }
     }
     
