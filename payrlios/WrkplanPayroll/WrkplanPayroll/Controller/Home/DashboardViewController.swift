@@ -1609,7 +1609,11 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     }
     
     @IBAction func BtnViewSalarySlip(_ sender: Any) {
-        loadHtmlStringSalarySlipData(year: DashboardViewController.year, month_name: DashboardViewController.month_name)
+        if let year = DashboardViewController.year, let month_name = DashboardViewController.month_name {
+        loadHtmlStringSalarySlipData(year: year, month_name: month_name)
+        }else {
+            print("Please Select month or year")
+        }
 
     }
     
