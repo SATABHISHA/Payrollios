@@ -156,6 +156,168 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LoadSalaryData()
         
     }
+    
+    //=============///---FormDialog Change Password code starts--/////===========
+    
+    @IBOutlet var viewFormDialogChangePassword: UIView!
+    
+    @IBOutlet weak var btnPasswordChangeSubmit: UIButton!
+    @IBOutlet weak var labelPasswordCheck: UILabel!
+    @IBOutlet weak var tvCurrentPassword: UITextField!
+    @IBOutlet weak var tvNewPassword: UITextField!
+    @IBAction func tvRetypeNewPassword(_ sender: Any) {
+        labelPasswordCheck.isHidden = false
+        if tvNewPassword.text! == ""{
+            labelPasswordCheck.text = "Please enter your new password first"
+            tvRetypeNewPassword.text = ""
+        }else if tvNewPassword.text! != ""{
+            if tvNewPassword.text! == tvRetypeNewPassword.text! {
+                labelPasswordCheck.text = "Correct Password"
+                btnPasswordChangeSubmit.alpha = 1
+                btnPasswordChangeSubmit.isEnabled = true
+                btnPasswordChangeSubmit.isUserInteractionEnabled = true
+            }else{
+                labelPasswordCheck.text = "Incorrect Password"
+                btnPasswordChangeSubmit.alpha = 0.3
+                btnPasswordChangeSubmit.isEnabled = false
+                btnPasswordChangeSubmit.isUserInteractionEnabled = false
+            }
+        }
+    }
+    @IBOutlet weak var tvRetypeNewPassword: UITextField!
+    @IBOutlet weak var tvPasswordHint: UITextField!
+    @IBAction func tvPasswordHint(_ sender: Any) {
+        if (tvCurrentPassword.text! != "" && tvRetypeNewPassword.text! != "" && tvPasswordHint.text! != ""){
+            btnPasswordChangeSubmit.alpha = 1
+            btnPasswordChangeSubmit.isEnabled = true
+            btnPasswordChangeSubmit.isUserInteractionEnabled = true
+        }else if(tvCurrentPassword.text! == "" || tvRetypeNewPassword.text! == "" || tvPasswordHint.text! == ""){
+            btnPasswordChangeSubmit.alpha = 0.3
+            btnPasswordChangeSubmit.isEnabled = false
+            btnPasswordChangeSubmit.isUserInteractionEnabled = false
+        }
+    }
+    
+    func openPasswordChangePopup(){
+        blurEffect()
+        self.view.addSubview(viewFormDialogChangePassword)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewFormDialogChangePassword.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewFormDialogChangePassword.center = self.view.center
+        viewFormDialogChangePassword.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewFormDialogChangePassword.alpha = 0
+        viewFormDialogChangePassword.sizeToFit()
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewFormDialogChangePassword.alpha = 1
+            self.viewFormDialogChangePassword.transform = CGAffineTransform.identity
+        }
+        labelPasswordCheck.isHidden = true
+        btnPasswordChangeSubmit.alpha = 0.3
+        btnPasswordChangeSubmit.isEnabled = false
+        btnPasswordChangeSubmit.isUserInteractionEnabled = false
+        tvCurrentPassword.resignFirstResponder()
+        tvNewPassword.resignFirstResponder()
+        tvRetypeNewPassword.resignFirstResponder()
+        //        tvPasswordHint.resignFirstResponder()
+    }
+    
+    func cancelPasswordChangePopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewFormDialogChangePassword.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewFormDialogChangePassword.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewFormDialogChangePassword.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @IBAction func btnPasswordChangeSubmit(_ sender: Any) {
+        print("tapped")
+        ChangePassword()
+    }
+    @IBAction func btnPasswordChangeCancel(_ sender: Any) {
+        cancelPasswordChangePopup()
+    }
+    
+    //-----function to chnage password data, code starts---
+    func ChangePassword(){
+        let url = "\(BASE_URL)user/change-password"
+        print("savelog_url-=>",url)
+        let sentData: [String: Any] = [
+            "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
+            "employee_id": swiftyJsonvar1["employee"]["employee_id"].intValue,
+            "old_pwd": tvCurrentPassword.text!,
+            "new_pwd": tvNewPassword.text!
+        ]
+        
+        print("SentData-=>",sentData)
+        
+        AF.request(url, method: .post, parameters: sentData, encoding: JSONEncoding.default, headers: nil).responseJSON{
+            response in
+            switch response.result{
+                
+            case .success:
+                //                        self.loaderEnd()
+                let swiftyJsonVar = JSON(response.value!)
+                print("Return saved data: ", swiftyJsonVar)
+                
+                if swiftyJsonVar["status"].stringValue == "true"{
+                    // Create new Alert
+                    self.cancelPasswordChangePopup()
+                    self.sharedpreferences.removeObject(forKey: "UserID")
+                    self.sharedpreferences.synchronize()
+                    self.performSegue(withIdentifier: "login", sender: self)
+                    
+                    let dialogMessage = UIAlertController(title: "", message: swiftyJsonVar["message"].stringValue, preferredStyle: .alert)
+                    
+                    // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .cancel, handler: { (action) -> Void in
+                        
+                    })
+                    
+                    //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                    
+                    // Present Alert to
+                    self.present(dialogMessage, animated: true, completion: nil)
+                }else{
+                    var style = ToastStyle()
+                    
+                    // this is just one of many style options
+                    style.messageColor = .white
+                    
+                    // present the toast with the new style
+                    self.view.makeToast(swiftyJsonVar["message"].stringValue, duration: 3.0, position: .bottom, style: style)
+                    
+                    print("Error-=>",swiftyJsonVar["message"].stringValue)
+                }
+                //                        if swiftyJsonVar["status"].stringValue == "success" {
+                //                            let data = swiftyJsonVar["message"].stringValue
+                //
+                //
+                //                        } else {
+                //                            let message = swiftyJsonVar["message"].stringValue
+                //
+                ////                            Toast(text: message, duration: Delay.short).show()
+                //                            print("Return edit data: ", swiftyJsonVar)
+                //                        }
+                break
+                
+            case .failure(let error):
+                //                        self.loaderEnd()
+                print("Error: ", error)
+            }
+        }
+    }
+    
+    //-----function to change password data, code ends---
+    //=============////----FormDialog Change Password code ends--/////===========
+    
+    
     //-------/////---Notification, code starts--////-----
     func LoadNotificationDetails(){
         NotificationImageView.isHidden = true
@@ -617,7 +779,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 self.performSegue(withIdentifier: "lta", sender: self)
             } else if row.menuItm == "Change Password"{
                 menuClose()
-//                openPasswordChangePopup()
+                openPasswordChangePopup()
             }else if row.menuItm == "Logout"{
                 menuClose()
                 openLogoutFormPopup()
@@ -703,7 +865,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         openLogoutFormPopup()
     }
     
-    //==============FormDialog Logout code starts================
+    //==============////--FormDialog Logout code starts--/////================
     @IBOutlet var viewFormLogoutPopup: UIView!
     
     func openLogoutFormPopup(){
@@ -746,7 +908,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBAction func btnLogoutPopupNo(_ sender: Any) {
         cancelLogoutFormPopup()
     }
-    //==============FormDialog Logout code ends================
+    //==============////--FormDialog Logout code ends--/////================
     //--------MenuBar and Navigation Drawer, code ends------
     
     func LoadEmployeeDetails(){
@@ -1164,7 +1326,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         }
     //-------Location code ends(added on 28th May)
     
-    //===============Selfie Confirmation Popup code starts(added on 31st may)===================
+    //===============Selfie Confirmation Popup code starts===================
     @IBOutlet weak var btnPopupYes: UIButton!
     @IBOutlet weak var btnPopupNo: UIButton!
     @IBAction func btnPopupYes(_ sender: Any) {
@@ -1217,7 +1379,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             self.canelBlurEffect()
         }
     }
-    //===============Selfie Confirmation Popup code ends(added on 31st may)===================
+    //===============Selfie Confirmation Popup code ends===================
     
     //------camera code, starts(added on 31st may)------
     public static var image_to_base64:String?
