@@ -1754,6 +1754,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
                
                DashboardViewController.LastDate = getCustomDateFormat(date: lastDate!)
 
+               LabelCalendarDate.text = "\(DashboardViewController.FirstDate!) to \(DashboardViewController.LastDate!)"
                return
            }
 
@@ -1770,6 +1771,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
 
                print("datesRange contains: \(datesRange!)")
            }
+        
         //----code for date range select, ends-----
         
         let dateString = self.formatter.string(from: date)
@@ -1781,6 +1783,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
         dateFormatterPrint.dateFormat = "MMM dd, yyyy"
         
         let SelectedDate = dateFormatterGet.date(from: dateString)
+        
         LabelCalendarDate.text = dateFormatterPrint.string(from: SelectedDate!)
         
         for i in  0..<arrResCaledar.count{
