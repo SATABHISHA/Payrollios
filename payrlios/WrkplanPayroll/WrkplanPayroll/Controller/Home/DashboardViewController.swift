@@ -904,6 +904,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         sharedpreferences.synchronize()
        
 //        self.resetAllRecords(in: "UserNotification")
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: nil)
+
         self.performSegue(withIdentifier: "login", sender: self)
     }
     
