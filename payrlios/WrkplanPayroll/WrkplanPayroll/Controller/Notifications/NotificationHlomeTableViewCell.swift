@@ -10,6 +10,7 @@ import UIKit
 class NotificationHlomeTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var ViewEventId: UIView!
     @IBOutlet weak var LabelTitle: UILabel!
     @IBOutlet weak var LabelEventId: UILabel!
     @IBOutlet weak var ViewContentChild: UIView!

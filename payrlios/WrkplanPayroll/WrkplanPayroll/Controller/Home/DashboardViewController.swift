@@ -138,6 +138,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     //-----Pending Item(s) variable, starts-----
     @IBOutlet weak var ViewChildPendingItems: UIView!
+    @IBOutlet weak var TableViewPendingItems: UITableView!
     
     //-----Pending Item(s) variable, ends-----
     
@@ -706,6 +707,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == tableViewNavigation {
         let cell = tableViewNavigation.dequeueReusableCell(withIdentifier: "cell") as! HomeNavigationControllerTableViewCell
         tableView.separatorColor = UIColor.white
         
@@ -726,6 +728,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         cell.imageViewMenu.image = dict.imageData
         cell.labelMenuItem.text = dict.menuItm
         return cell
+        }
+        return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == tableViewNavigation{
@@ -935,6 +939,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildPendingItems.clipsToBounds = true
         self.ViewChildPendingItems.layer.cornerRadius = 10
         self.ViewChildPendingItems.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        self.TableViewPendingItems.delegate = self
+        self.TableViewPendingItems.dataSource = self
+        self.TableViewPendingItems.backgroundColor = UIColor.white
     }
     //=============Code for Pending Items section, ends========
     

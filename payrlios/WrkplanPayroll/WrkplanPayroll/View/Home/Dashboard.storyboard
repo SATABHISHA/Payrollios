@@ -508,6 +508,7 @@
                                                                     <outlet property="LabelTitle" destination="mna-GV-RjF" id="Z0N-8U-VrS"/>
                                                                     <outlet property="ViewContentChild" destination="Hgm-OD-t0O" id="3v7-wo-w4q"/>
                                                                     <outlet property="ViewContentParent" destination="DNe-mY-nES" id="Em1-WZ-EV8"/>
+                                                                    <outlet property="ViewEventId" destination="WKG-5M-Jdu" id="nqw-o2-1no"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -884,6 +885,7 @@
                         <outlet property="NotificationImageView" destination="wzd-3o-qAA" id="0fz-3y-2WM"/>
                         <outlet property="ScrollView" destination="4RA-KT-IiN" id="AwE-bG-hIs"/>
                         <outlet property="ScrollViewContainer" destination="qnm-Er-O8q" id="dQw-0q-mQ5"/>
+                        <outlet property="TableViewPendingItems" destination="j1o-GP-8XG" id="kDy-WA-c3g"/>
                         <outlet property="TxtViewWFH" destination="kjL-e1-6LP" id="iDu-Eu-WUx"/>
                         <outlet property="TxtViewWFHHeightConstraint" destination="8qb-x7-lgv" id="c3s-1W-HqD"/>
                         <outlet property="ViewAttendance" destination="shX-bC-CmX" id="43O-1f-dg1"/>
