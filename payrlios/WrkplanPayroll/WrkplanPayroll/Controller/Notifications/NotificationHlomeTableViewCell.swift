@@ -10,11 +10,12 @@ import UIKit
 class NotificationHlomeTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var LabelMessage: UILabel!
     @IBOutlet weak var LabelTitle: UILabel!
     @IBOutlet weak var LabelEventId: UILabel!
     @IBOutlet weak var ViewContentChild: UIView!
     @IBOutlet weak var ViewContentParent: UIView!
+    @IBOutlet weak var LabelLeaveType: UILabel!
+    @IBOutlet weak var LabelName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
