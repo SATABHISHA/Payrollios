@@ -137,6 +137,7 @@
 		17F5E9A1267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F5E9A0267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift */; };
 		17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */; };
 		17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */; };
+		1952FD5127FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1952FD5027FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift */; };
 		197CA44B27F30BB700513DEE /* SalarySlipPdfViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197CA44A27F30BB700513DEE /* SalarySlipPdfViewer.storyboard */; };
 		197CA44D27F30C0C00513DEE /* SalarySlipPdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA44C27F30C0C00513DEE /* SalarySlipPdfViewController.swift */; };
 		197D6E0527D72E27005B8B78 /* NotificationHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */; };
@@ -302,6 +303,7 @@
 		17F5E9A0267B64430089C614 /* SubordinateAdvanceRequisitionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubordinateAdvanceRequisitionListTableViewCell.swift; sourceTree = "<group>"; };
 		17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListViewController.swift; sourceTree = "<group>"; };
 		17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListTableViewCell.swift; sourceTree = "<group>"; };
+		1952FD5027FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPendingItemsTableViewCell.swift; sourceTree = "<group>"; };
 		197CA44A27F30BB700513DEE /* SalarySlipPdfViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SalarySlipPdfViewer.storyboard; sourceTree = "<group>"; };
 		197CA44C27F30C0C00513DEE /* SalarySlipPdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalarySlipPdfViewController.swift; sourceTree = "<group>"; };
 		197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationHome.storyboard; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 				171239E4262423BD0024E96C /* HomeNavigationControllerTableViewCell.swift */,
 				1797DD7527EDD590003E83AC /* DashboardViewController.swift */,
 				197CA44C27F30C0C00513DEE /* SalarySlipPdfViewController.swift */,
+				1952FD5027FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1167,6 +1170,7 @@
 				17D94E4D256FC7A3001A28E3 /* EmployeeDocumentsViewController.swift in Sources */,
 				172D28D1257516AB00C6E2A6 /* HolidayDetailsTableViewCell.swift in Sources */,
 				175C6ADF268C897F004A987B /* SupportingDocumentsViewController.swift in Sources */,
+				1952FD5127FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift in Sources */,
 				17C1912F2689F4FB00E83C1F /* MediclaimListViewController.swift in Sources */,
 				1791C08A26176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift in Sources */,
 				178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */,

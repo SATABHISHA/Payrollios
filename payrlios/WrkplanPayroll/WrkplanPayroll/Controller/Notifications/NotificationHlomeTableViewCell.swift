@@ -15,8 +15,7 @@ class NotificationHlomeTableViewCell: UITableViewCell {
     @IBOutlet weak var LabelEventId: UILabel!
     @IBOutlet weak var ViewContentChild: UIView!
     @IBOutlet weak var ViewContentParent: UIView!
-    @IBOutlet weak var LabelLeaveType: UILabel!
-    @IBOutlet weak var LabelName: UILabel!
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -139,6 +139,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-----Pending Item(s) variable, starts-----
     @IBOutlet weak var ViewChildPendingItems: UIView!
     @IBOutlet weak var TableViewPendingItems: UITableView!
+    var arrResPendingItems = [[String:AnyObject]]()
     
     //-----Pending Item(s) variable, ends-----
     
@@ -702,7 +703,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     }
     //--------tableview code starts--------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        navigationDrawerData.count
+        var returnValue:Int!
+        if tableView == tableViewNavigation{
+            returnValue = navigationDrawerData.count
+        }else if tableView == TableViewPendingItems{
+            returnValue = arrResPendingItems.count
+        }
+        return returnValue
     }
     
     
@@ -711,7 +718,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         let cell = tableViewNavigation.dequeueReusableCell(withIdentifier: "cell") as! HomeNavigationControllerTableViewCell
         tableView.separatorColor = UIColor.white
         
-        var dict = navigationDrawerData[indexPath.row]
+            let dict = navigationDrawerData[indexPath.row]
         if dict.menuItm! == "Reports"{
             let bottomBorder = CALayer()
             
@@ -728,6 +735,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         cell.imageViewMenu.image = dict.imageData
         cell.labelMenuItem.text = dict.menuItm
         return cell
+        } else if tableView == TableViewPendingItems {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DashboardPendingItemsTableViewCell
+            let dictPendingItems = arrResPendingItems[indexPath.row]
+            cell.LabelEventStatus.text = dictPendingItems["event_name"] as? String
+            cell.LabelEventType.text = dictPendingItems["event_type"] as? String
+            cell.LabelEventOwnerName.text = dictPendingItems["event_owner_name"] as? String
+            return cell
         }
         return UITableViewCell()
     }
@@ -943,7 +957,48 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.TableViewPendingItems.delegate = self
         self.TableViewPendingItems.dataSource = self
         self.TableViewPendingItems.backgroundColor = UIColor.white
+        
+        LoadPendingData()
     }
+    
+    //--------function to show log details using Alamofire and Json Swifty------------
+    func LoadPendingData(){
+//        let url = "\(BASE_URL)timesheet/log/monthly/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)/\(month_number)/\(year)"
+        let url = "\(BASE_URL)pending_actions/fetch/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)"
+        print("PendingItemsDetails-=>",url)
+        
+        //        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
+        AF.request(url).responseJSON{ (responseData) -> Void in
+            if((responseData.value) != nil){
+                let swiftyJsonVar=JSON(responseData.value!)
+                print("Log description: \(swiftyJsonVar)")
+                
+                
+                
+                
+                if let resData = swiftyJsonVar["pending_actions"].arrayObject{
+                    self.arrResPendingItems = resData as! [[String:AnyObject]]
+                }
+                print("Count--=>", self.arrResPendingItems.count)
+                if self.arrResPendingItems.count>0 {
+                    self.TableViewPendingItems.reloadData()
+                }else{
+                    self.TableViewPendingItems.reloadData()
+                    //                    Toast(text: "No data", duration: Delay.short).show()
+                    let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewPendingItems.bounds.size.width, height: self.TableViewPendingItems.bounds.size.height))
+                    noDataLabel.text          = "No record found"
+                    noDataLabel.font = UIFont.systemFont(ofSize: 14)
+                    noDataLabel.textColor     = UIColor(hexFromString: "767575")
+                    noDataLabel.textAlignment = .center
+                    self.TableViewPendingItems.backgroundView  = noDataLabel
+                    self.TableViewPendingItems.separatorStyle  = .none
+                    
+                }
+            }
+            
+        }
+    }
+    //--------function to show log details using Alamofire and Json Swifty code ends------------
     //=============Code for Pending Items section, ends========
     
     
