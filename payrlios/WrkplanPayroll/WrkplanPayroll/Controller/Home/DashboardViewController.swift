@@ -740,7 +740,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         } else if tableView == TableViewPendingItems {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DashboardPendingItemsTableViewCell
             let dictPendingItems = arrResPendingItems[indexPath.row]
-            cell.LabelEventStatus.text = dictPendingItems["event_name"] as? String
+            cell.LabelEventStatus.text = dictPendingItems["event_status"] as? String
             cell.LabelEventType.text = dictPendingItems["event_type"] as? String
             cell.LabelEventOwnerName.text = dictPendingItems["event_owner_name"] as? String
             
