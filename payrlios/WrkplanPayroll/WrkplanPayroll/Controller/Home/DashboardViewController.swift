@@ -140,6 +140,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var ViewChildPendingItems: UIView!
     @IBOutlet weak var TableViewPendingItems: UITableView!
     var arrResPendingItems = [[String:AnyObject]]()
+    static var event_id: String!
+    static var NotificationPendingItemsYN: Bool = false
     
     //-----Pending Item(s) variable, ends-----
     
@@ -741,6 +743,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             cell.LabelEventStatus.text = dictPendingItems["event_name"] as? String
             cell.LabelEventType.text = dictPendingItems["event_type"] as? String
             cell.LabelEventOwnerName.text = dictPendingItems["event_owner_name"] as? String
+            
+            if dictPendingItems["event_name"] as! String == "Leave Application"{
+                cell.LabelEventNameAbbreviation.text = "LA"
+            }else if dictPendingItems["event_name"] as! String == "OD Application" {
+                cell.LabelEventNameAbbreviation.text = "OD"
+            }
             return cell
         }
         return UITableViewCell()
@@ -801,6 +809,20 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             }else if row.menuItm == "Logout"{
                 menuClose()
                 openLogoutFormPopup()
+            }
+        } else if tableView == TableViewPendingItems{
+            let dictPendingItems = arrResPendingItems[indexPath.row]
+            print("Selected-=>", dictPendingItems["event_name"] as! String)
+            if dictPendingItems["event_name"] as! String == "Leave Application"{
+                DashboardViewController.event_id = String(dictPendingItems["event_id"] as! Int)
+                DashboardViewController.NotificationPendingItemsYN = true
+//                self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
+                self.performSegue(withIdentifier: "la", sender: nil)
+            }else if dictPendingItems["event_name"] as! String == "OD Application" {
+                print("EventId-=>",dictPendingItems["event_id"] as? Int)
+                DashboardViewController.event_id = String(dictPendingItems["event_id"] as! Int)
+                DashboardViewController.NotificationPendingItemsYN = true
+                self.performSegue(withIdentifier: "od", sender: nil)
             }
         }
     }

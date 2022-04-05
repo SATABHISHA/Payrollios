@@ -46,9 +46,9 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
 //        txt_employee_name.text = SubordinateLeaveApplicationViewController.employee_name!
         txt_view_details.isUserInteractionEnabled = false
         
-        if HomeViewController.NotificationYN == false{
+        if DashboardViewController.NotificationPendingItemsYN == false{
         txt_leave_type.text = SubordinateLeaveApplicationViewController.leave_name!
-        } else if HomeViewController.NotificationYN == true{
+        } else if DashboardViewController.NotificationPendingItemsYN == true{
             txt_leave_type.text = ""
         }
         
@@ -100,7 +100,7 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
     }
     @IBAction func BtnBack(_ sender: Any) {
         self.performSegue(withIdentifier: "subleaveappltn", sender: self)
-        HomeViewController.NotificationYN = false
+        DashboardViewController.NotificationPendingItemsYN = false
         print("tapped")
     }
     
@@ -127,9 +127,9 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
     func loadData(){
            loaderStart()
         var application_id: Int!
-        if HomeViewController.NotificationYN == true {
-            application_id = Int(NotificationHomeViewController.event_id!)
-        }else if HomeViewController.NotificationYN == false {
+        if DashboardViewController.NotificationPendingItemsYN == true {
+            application_id = Int(DashboardViewController.event_id!)
+        }else if DashboardViewController.NotificationPendingItemsYN == false {
             application_id = SubordinateLeaveApplicationViewController.appliction_id!
         }
 //        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateLeaveApplicationViewController.appliction_id!)/2/"

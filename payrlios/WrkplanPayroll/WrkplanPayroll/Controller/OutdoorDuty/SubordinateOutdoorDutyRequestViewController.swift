@@ -88,7 +88,7 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
     
     @IBAction func btn_back(_ sender: Any) {
         self.performSegue(withIdentifier: "subordinateoutdoordutylist", sender: nil)
-        HomeViewController.NotificationYN = false
+        DashboardViewController.NotificationPendingItemsYN = false
     }
     
    
@@ -158,9 +158,9 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
            loaderStart()
         
         var application_id: Int!
-        if HomeViewController.NotificationYN == true {
-            application_id = Int(NotificationHomeViewController.event_id!)
-        }else if HomeViewController.NotificationYN == false {
+        if DashboardViewController.NotificationPendingItemsYN == true {
+            application_id = Int(DashboardViewController.event_id!)
+        }else if DashboardViewController.NotificationPendingItemsYN == false {
             application_id = Int(SubordinateOutdoorDutyRequestListViewController.od_request_id)
         }
         

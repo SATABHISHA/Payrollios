@@ -681,10 +681,10 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Cus-3q-pCm"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysU-RL-jW5">
-                                <rect key="frame" x="0.0" y="64" width="394" height="1460"/>
+                                <rect key="frame" x="0.0" y="64" width="394" height="230"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UOq-Bc-h73">
-                                        <rect key="frame" x="0.0" y="230" width="394" height="1230"/>
+                                        <rect key="frame" x="0.0" y="230" width="394" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -936,6 +936,8 @@
                         <segue destination="ukS-RF-9hC" kind="presentation" identifier="lta" modalPresentationStyle="fullScreen" id="daL-CN-Kpv"/>
                         <segue destination="gN5-PL-nhb" kind="presentation" identifier="empdocs" modalPresentationStyle="fullScreen" id="9jP-FR-chC"/>
                         <segue destination="7Mo-g5-TNn" kind="modal" identifier="notification" modalPresentationStyle="fullScreen" id="VI1-Kr-fLo"/>
+                        <segue destination="cHB-Ur-0IA" kind="modal" identifier="la" modalPresentationStyle="fullScreen" id="TCO-sO-ddz"/>
+                        <segue destination="aJS-oK-N3C" kind="modal" identifier="od" modalPresentationStyle="fullScreen" id="lct-VL-2Ag"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="8qF-TB-uX5">
@@ -1334,6 +1336,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="og1-TJ-gDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="717" y="-93"/>
+        </scene>
+        <!--subleaverqst-->
+        <scene sceneID="I7V-Xx-lnd">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subleaverqst" storyboardName="SubordinateLeaveRequest" referencedIdentifier="subleaverqst" id="cHB-Ur-0IA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="i3I-gY-1nn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGF-Np-yfG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="-501"/>
+        </scene>
+        <!--subordinateoutdoordutyrequest-->
+        <scene sceneID="7IE-Dr-4dS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="subordinateoutdoordutyrequest" storyboardName="SubordinateOutdoorDutyRequest" referencedIdentifier="subordinateoutdoordutyrequest" id="aJS-oK-N3C" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CIu-Pg-Ag0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luM-OM-Tvz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120" y="-411"/>
         </scene>
         <!--outdoordutylist-->
         <scene sceneID="Foe-we-gob">
