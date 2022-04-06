@@ -49,7 +49,7 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
         if DashboardViewController.NotificationPendingItemsYN == false{
         txt_leave_type.text = SubordinateLeaveApplicationViewController.leave_name!
         } else if DashboardViewController.NotificationPendingItemsYN == true{
-            txt_leave_type.text = ""
+            txt_leave_type.text = DashboardViewController.LeaveType
         }
         
         txt_employee_name.setLeftPaddingPoints(5)

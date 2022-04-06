@@ -142,6 +142,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     var arrResPendingItems = [[String:AnyObject]]()
     static var event_id: String!
     static var NotificationPendingItemsYN: Bool = false
+    static var LeaveType: String = ""
     
     //-----Pending Item(s) variable, ends-----
     
@@ -856,12 +857,15 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             if dictPendingItems["event_name"] as! String == "Leave Application"{
                 DashboardViewController.event_id = String(dictPendingItems["event_id"] as! Int)
                 DashboardViewController.NotificationPendingItemsYN = true
+                DashboardViewController.LeaveType = dictPendingItems["event_type"] as! String
 //                self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
                 self.performSegue(withIdentifier: "la", sender: nil)
             }else if dictPendingItems["event_name"] as! String == "OD Application" {
                 print("EventId-=>",dictPendingItems["event_id"] as? Int)
                 DashboardViewController.event_id = String(dictPendingItems["event_id"] as! Int)
                 DashboardViewController.NotificationPendingItemsYN = true
+                DashboardViewController.LeaveType = dictPendingItems["event_type"] as! String
+                
                 self.performSegue(withIdentifier: "od", sender: nil)
             }
         }
