@@ -953,7 +953,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet var viewFormLogoutPopup: UIView!
     
     func openLogoutFormPopup(){
-        blurEffect()
+//        blurEffect()
         self.view.addSubview(viewFormLogoutPopup)
         ScrollView.isScrollEnabled = false
         let screenSize = UIScreen.main.bounds
@@ -974,10 +974,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         UIView.animate(withDuration: 0.3, animations: {
             self.viewFormLogoutPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.viewFormLogoutPopup.alpha = 0
-            self.blurEffectView.alpha = 0.3
+//            self.blurEffectView.alpha = 0.3
         }) { (success) in
             self.viewFormLogoutPopup.removeFromSuperview();
-            self.canelBlurEffect()
+//            self.canelBlurEffect()
             self.ScrollView.isScrollEnabled = true
         }
     }
@@ -1590,6 +1590,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
         calendar.allowsMultipleSelection = true
         calendar.select(Date())
+        LabelCalendarDate.text = getCustomDateFormat(date: Date())
+        LabelCalendarDay.text = Date().dayNameOfWeek()
         calendar.headerHeight = 45.0
         calendar.weekdayHeight = 35.0
         calendar.rowHeight = 25.0
@@ -1639,6 +1641,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = true
         self.performSegue(withIdentifier: "odrqst", sender: nil)
     }
+    
+    
     //===========Calender code ends============
     
     
@@ -1856,6 +1860,8 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         //----code for date range select, starts-----
         // nothing selected:
+        LabelCalendarDate.text = getCustomDateFormat(date: date)
+        LabelCalendarDay.text = date.dayNameOfWeek()
            if firstDate == nil {
                firstDate = date
                datesRange = [firstDate!]
@@ -1896,6 +1902,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
                DashboardViewController.LastDate = getCustomDateFormat(date: lastDate!)
 
                LabelCalendarDate.text = "\(DashboardViewController.FirstDate!) to \(DashboardViewController.LastDate!)"
+               LabelCalendarDay.text = ""
                return
            }
 
@@ -1911,9 +1918,9 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
                datesRange = []
 
                print("datesRange contains: \(datesRange!)")
-           }else{
+           }/*else{
                LabelCalendarDate.text = getCustomDateFormat(date: date)
-           }
+           }*/
         
         //----code for date range select, ends-----
         
@@ -2101,7 +2108,13 @@ extension FSCalendar {
             }
         }
 }
-
+extension Date {
+    func dayNameOfWeek() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+}
 /*extension UIView {
 
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
