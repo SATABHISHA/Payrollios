@@ -744,10 +744,26 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             cell.LabelEventType.text = dictPendingItems["event_type"] as? String
             cell.LabelEventOwnerName.text = dictPendingItems["event_owner_name"] as? String
             
+            if dictPendingItems["event_status"] as! String == "Submitted"{
+                cell.LabelEventStatus.backgroundColor = UIColor(hexFromString: "aa1667")
+            }else if dictPendingItems["event_status"] as! String == "Returned"{
+                cell.LabelEventStatus.backgroundColor = UIColor(hexFromString: "fd3d3d")
+            }
+            
+            if dictPendingItems["event_type"] as! String == "Casual Leave"{
+                cell.LabelEventType.backgroundColor = UIColor(hexFromString: "362c86")
+            }else if dictPendingItems["event_type"] as! String == "Sick Leave"{
+                cell.LabelEventType.backgroundColor = UIColor(hexFromString: "4e4c4c")
+            }else{
+                cell.LabelEventType.backgroundColor = UIColor(hexFromString: "4e4c4c")
+            }
+            
             if dictPendingItems["event_name"] as! String == "Leave Application"{
                 cell.LabelEventNameAbbreviation.text = "LA"
+                cell.ViewEventNameAbbreviation.backgroundColor = UIColor(hexFromString: "9cc1e4")
             }else if dictPendingItems["event_name"] as! String == "OD Application" {
                 cell.LabelEventNameAbbreviation.text = "OD"
+                cell.ViewEventNameAbbreviation.backgroundColor = UIColor(hexFromString: "febf83")
             }
             return cell
         }
