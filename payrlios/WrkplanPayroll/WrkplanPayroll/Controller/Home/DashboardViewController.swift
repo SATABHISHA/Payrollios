@@ -149,6 +149,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        LoadSwipeGuesture()
         LoadNotificationDetails()
         LoadNavigationBarData()
         LoadNavigationDrawerData()
@@ -159,8 +160,31 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LoadPendingItemDetails()
         LoadSalaryData()
         
+       
+        
     }
-    
+    //===========///----Swipe Guesture, code starts----///========
+    func LoadSwipeGuesture(){
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+            let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+                
+            leftSwipe.direction = .left
+            rightSwipe.direction = .right
+
+            view.addGestureRecognizer(leftSwipe)
+            view.addGestureRecognizer(rightSwipe)
+    }
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+            
+        if (sender.direction == .left) {
+            menuShow()
+        }
+       /* if (sender.direction == .right) {
+            menuShow()
+        }*/
+    }
+    //===========///----Swipe Guesture, code ends----///========
+   
     //=============///---FormDialog Change Password code starts--/////===========
     
     @IBOutlet var viewFormDialogChangePassword: UIView!
@@ -745,17 +769,17 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             cell.LabelEventOwnerName.text = dictPendingItems["event_owner_name"] as? String
             
             if dictPendingItems["event_status"] as! String == "Submitted"{
-                cell.LabelEventStatus.backgroundColor = UIColor(hexFromString: "aa1667")
+                cell.LabelEventStatus.textColor = UIColor(hexFromString: "aa1667")
             }else if dictPendingItems["event_status"] as! String == "Returned"{
-                cell.LabelEventStatus.backgroundColor = UIColor(hexFromString: "fd3d3d")
+                cell.LabelEventStatus.textColor = UIColor(hexFromString: "fd3d3d")
             }
             
             if dictPendingItems["event_type"] as! String == "Casual Leave"{
-                cell.LabelEventType.backgroundColor = UIColor(hexFromString: "362c86")
+                cell.LabelEventType.textColor = UIColor(hexFromString: "362c86")
             }else if dictPendingItems["event_type"] as! String == "Sick Leave"{
-                cell.LabelEventType.backgroundColor = UIColor(hexFromString: "4e4c4c")
+                cell.LabelEventType.textColor = UIColor(hexFromString: "4e4c4c")
             }else{
-                cell.LabelEventType.backgroundColor = UIColor(hexFromString: "4e4c4c")
+                cell.LabelEventType.textColor = UIColor(hexFromString: "4e4c4c")
             }
             
             if dictPendingItems["event_name"] as! String == "Leave Application"{
