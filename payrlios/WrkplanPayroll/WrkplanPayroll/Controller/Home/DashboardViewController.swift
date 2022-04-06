@@ -1585,6 +1585,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LabelCalendarDay.text = ""
         
         calendar.allowsMultipleSelection = true
+        calendar.select(Date())
         calendar.headerHeight = 45.0
         calendar.weekdayHeight = 35.0
         calendar.rowHeight = 25.0
@@ -1593,7 +1594,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         calendar.appearance.weekdayFont = UIFont.boldSystemFont(ofSize: 18.0)
         calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 17)
         calendar.scrollDirection = .horizontal
-        calendar.appearance.todayColor = .purple
+//        calendar.appearance.todayColor = .purple
         //        calender.calendarHeaderView.backgroundColor = UIColorRGB(r: 75, g: 153.0, b: 224.0)
         calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "BFBFBF")
         calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "ffffff")
@@ -1849,7 +1850,6 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 
 extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
         //----code for date range select, starts-----
         // nothing selected:
            if firstDate == nil {
@@ -1907,6 +1907,8 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
                datesRange = []
 
                print("datesRange contains: \(datesRange!)")
+           }else{
+               LabelCalendarDate.text = getCustomDateFormat(date: date)
            }
         
         //----code for date range select, ends-----
@@ -1952,6 +1954,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
         // both are selected:
 
         // NOTE: the is a REDUANDENT CODE:
+        LabelCalendarDate.text = ""
         if firstDate != nil && lastDate != nil {
             for d in calendar.selectedDates {
                 calendar.deselect(d)
