@@ -774,13 +774,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 cell.LabelEventStatus.textColor = UIColor(hexFromString: "fd3d3d")
             }
             
-            if dictPendingItems["event_type"] as! String == "Casual Leave"{
+          /*  if dictPendingItems["event_type"] as! String == "Casual Leave"{
                 cell.LabelEventType.textColor = UIColor(hexFromString: "362c86")
             }else if dictPendingItems["event_type"] as! String == "Sick Leave"{
                 cell.LabelEventType.textColor = UIColor(hexFromString: "4e4c4c")
             }else{
                 cell.LabelEventType.textColor = UIColor(hexFromString: "4e4c4c")
-            }
+            }*/
             
             if dictPendingItems["event_name"] as! String == "Leave Application"{
                 cell.LabelEventNameAbbreviation.text = "LA"
@@ -1048,7 +1048,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     self.TableViewPendingItems.reloadData()
                     //                    Toast(text: "No data", duration: Delay.short).show()
                     let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewPendingItems.bounds.size.width, height: self.TableViewPendingItems.bounds.size.height))
-                    noDataLabel.text          = "No record found"
+                    noDataLabel.text          = "No Pending Actions"
                     noDataLabel.font = UIFont.systemFont(ofSize: 14)
                     noDataLabel.textColor     = UIColor(hexFromString: "767575")
                     noDataLabel.textAlignment = .center
@@ -1056,6 +1056,16 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     self.TableViewPendingItems.separatorStyle  = .none
                     
                 }
+            }else{
+                self.TableViewPendingItems.reloadData()
+                //                    Toast(text: "No data", duration: Delay.short).show()
+                let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.TableViewPendingItems.bounds.size.width, height: self.TableViewPendingItems.bounds.size.height))
+                noDataLabel.text          = "No Pending Actions"
+                noDataLabel.font = UIFont.systemFont(ofSize: 14)
+                noDataLabel.textColor     = UIColor(hexFromString: "767575")
+                noDataLabel.textAlignment = .center
+                self.TableViewPendingItems.backgroundView  = noDataLabel
+                self.TableViewPendingItems.separatorStyle  = .none
             }
             
         }
