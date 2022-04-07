@@ -90,6 +90,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                  
                  custom_btn_label_save.isUserInteractionEnabled = true
                  custom_btn_label_save.alpha = 1.0
+                
+                label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
              }else if txt_from_date.text!.isEmpty && txt_to_date.text!.isEmpty{
                  custom_btn_label_save.isUserInteractionEnabled = false
                  custom_btn_label_save.alpha = 0.6

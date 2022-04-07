@@ -96,6 +96,15 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             txt_from_date.text = DashboardViewController.FirstDate
             txt_to_date.text = DashboardViewController.LastDate
             btn_submit.isSelected = true
+            
+            if !txt_from_date.text!.isEmpty && !txt_to_date.text!.isEmpty{
+                label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            }else if txt_from_date.text!.isEmpty && txt_to_date.text!.isEmpty{
+                label_days_count.text = ""
+            }else if txt_from_date.text!.isEmpty || txt_to_date.text!.isEmpty{
+                label_days_count.text = ""
+            }
+            
         }else if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == false {
         
         if MyLeaveApplicationViewController.new_create_yn == true{
@@ -107,14 +116,6 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         }
         //-----Save
         let tapGestureRecognizerSave = UITapGestureRecognizer(target: self, action: #selector(Save(tapGestureRecognizer:)))
-       /* if !txt_from_date.text!.isEmpty && !txt_to_date.text!.isEmpty{
-            
-            custom_btn_label_save.isUserInteractionEnabled = true
-            custom_btn_label_save.alpha = 1.0
-        }else {
-        custom_btn_label_save.isUserInteractionEnabled = false
-        custom_btn_label_save.alpha = 0.6
-        }*/
         custom_btn_label_save.isUserInteractionEnabled = false
         custom_btn_label_save.alpha = 0.6
         custom_btn_label_save.addGestureRecognizer(tapGestureRecognizerSave)
@@ -503,6 +504,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
                     
                     self!.custom_btn_label_save.isUserInteractionEnabled = true
                     self!.custom_btn_label_save.alpha = 1.0
+                    
+                    self!.label_days_count.text = String(self!.daysBetween(start: self!.txt_from_date.text!, end: self!.txt_to_date.text!)+1)
                 }else if self!.txt_from_date.text!.isEmpty && self!.txt_to_date.text!.isEmpty{
                     self!.custom_btn_label_save.isUserInteractionEnabled = false
                     self!.custom_btn_label_save.alpha = 0.6
