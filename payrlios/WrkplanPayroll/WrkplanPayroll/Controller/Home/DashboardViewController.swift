@@ -874,7 +874,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-----------function for navigation drawer code, starts-----------
     func menuShow(){
         if menuIsMenuShow{
-            self.canelBlurEffect()
+//            self.canelBlurEffect()
             ScrollView.isScrollEnabled = true
             //            self.view.removeFromSuperview()
             self.navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
@@ -883,7 +883,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 self.view.layoutIfNeeded()
             })
         }else{
-            blurEffect()
+//            blurEffect()
             ScrollView.isScrollEnabled = false
             self.view.addSubview(navigationDrawer)
           
@@ -904,7 +904,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 if let data = try? Data(contentsOf: finalurl!) {
                     // Create Image and Update Image View
                     self.navigationProfileImg.image = UIImage(data: data)
-                    self.navigationProfileImg.layer.cornerRadius = self.navigationProfileImg.bounds.height/2
+//                    self.navigationProfileImg.layer.cornerRadius = self.navigationProfileImg.bounds.height/2
                 }
             }
         
@@ -953,7 +953,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet var viewFormLogoutPopup: UIView!
     
     func openLogoutFormPopup(){
-//        blurEffect()
+        blurEffect()
         self.view.addSubview(viewFormLogoutPopup)
         ScrollView.isScrollEnabled = false
         let screenSize = UIScreen.main.bounds
@@ -974,10 +974,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         UIView.animate(withDuration: 0.3, animations: {
             self.viewFormLogoutPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.viewFormLogoutPopup.alpha = 0
-//            self.blurEffectView.alpha = 0.3
+            self.blurEffectView.alpha = 0.3
         }) { (success) in
             self.viewFormLogoutPopup.removeFromSuperview();
-//            self.canelBlurEffect()
+            self.canelBlurEffect()
             self.ScrollView.isScrollEnabled = true
         }
     }
@@ -1844,8 +1844,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.alpha = 0.9
-//        view.addSubview(blurEffectView)
-        ScrollView.addSubview(blurEffectView)
+        view.addSubview(blurEffectView)
+//        ScrollView.addSubview(blurEffectView)
         // screen roted and size resize automatic
         blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
         
