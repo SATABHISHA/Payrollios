@@ -85,6 +85,18 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             txt_from_date.text = DashboardViewController.FirstDate
             txt_to_date.text = DashboardViewController.LastDate
             btn_submit.isSelected = true
+            
+            if !txt_from_date.text!.isEmpty && !txt_to_date.text!.isEmpty{
+                 
+                 custom_btn_label_save.isUserInteractionEnabled = true
+                 custom_btn_label_save.alpha = 1.0
+             }else if txt_from_date.text!.isEmpty && txt_to_date.text!.isEmpty{
+                 custom_btn_label_save.isUserInteractionEnabled = false
+                 custom_btn_label_save.alpha = 0.6
+             }else if txt_from_date.text!.isEmpty || txt_to_date.text!.isEmpty{
+                 custom_btn_label_save.isUserInteractionEnabled = false
+                 custom_btn_label_save.alpha = 0.6
+             }
         } else if DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN == false {
         if OutDoorDutyListViewController.new_create_yn == true{
             populate_value()
