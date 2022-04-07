@@ -140,6 +140,7 @@
                                             <outlet property="LabelTitle" destination="3Ix-SZ-Cai" id="AKq-Fw-mmn"/>
                                             <outlet property="ViewContentChild" destination="OTP-ZG-0pl" id="vCe-aS-1uS"/>
                                             <outlet property="ViewContentParent" destination="6gS-jN-TDV" id="zTV-y6-JfR"/>
+                                            <outlet property="ViewEventId" destination="EKG-Im-6nk" id="KFf-UR-U8a"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -143,12 +143,17 @@ class NotificationHomeViewController: UIViewController, UITableViewDelegate, UIT
         var dict1 = tableNotificationData[indexPath.row]
         cell.LabelTitle.text = dict1.message
         
+        
+     
+        
         if dict1.title == "Leave Application"{
             cell.LabelEventId.text = "LA"
+            cell.ViewEventId.backgroundColor = UIColor(hexFromString: "9cc1e4")
         }else if dict1.title == "OD Application" {
             cell.LabelEventId.text = "OD"
+            cell.ViewEventId.backgroundColor = UIColor(hexFromString: "febf83")
         }
-        
+        cell.ViewEventId.layer.cornerRadius = 3
        
         print("Messaage-=>", dict1.message)
         

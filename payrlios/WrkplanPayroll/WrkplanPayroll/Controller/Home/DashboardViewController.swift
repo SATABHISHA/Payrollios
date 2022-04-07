@@ -132,6 +132,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     let dropDown = DropDown()
     var year_details = [YearDetails]()
     
+    @IBOutlet weak var BtnMonth: UIButton!
     @IBOutlet weak var ViewChildPaySlip: UIView!
     static var report_html: String!, year: String!, month_name: String!
     //------Payslip variable, ends-----
@@ -1652,7 +1653,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildPaySlip.clipsToBounds = true
         self.ViewChildPaySlip.layer.cornerRadius = 10
         self.ViewChildPaySlip.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
+        self.BtnMonth.addBorder(side: .right, color: UIColor(hexFromString: "B08F1C"), width: 1.0)
        get_month_details()
        get_Year_details()
     }
