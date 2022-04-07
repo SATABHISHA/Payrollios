@@ -107,6 +107,14 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         }
         //-----Save
         let tapGestureRecognizerSave = UITapGestureRecognizer(target: self, action: #selector(Save(tapGestureRecognizer:)))
+       /* if !txt_from_date.text!.isEmpty && !txt_to_date.text!.isEmpty{
+            
+            custom_btn_label_save.isUserInteractionEnabled = true
+            custom_btn_label_save.alpha = 1.0
+        }else {
+        custom_btn_label_save.isUserInteractionEnabled = false
+        custom_btn_label_save.alpha = 0.6
+        }*/
         custom_btn_label_save.isUserInteractionEnabled = false
         custom_btn_label_save.alpha = 0.6
         custom_btn_label_save.addGestureRecognizer(tapGestureRecognizerSave)
@@ -491,6 +499,18 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             
             if MyLeaveRequestViewController.leave_id != 0 {
                 self!.txt_from_date.isUserInteractionEnabled = true
+                if !self!.txt_from_date.text!.isEmpty && !self!.txt_to_date.text!.isEmpty{
+                    
+                    self!.custom_btn_label_save.isUserInteractionEnabled = true
+                    self!.custom_btn_label_save.alpha = 1.0
+                }else if self!.txt_from_date.text!.isEmpty && self!.txt_to_date.text!.isEmpty{
+                    self!.custom_btn_label_save.isUserInteractionEnabled = false
+                    self!.custom_btn_label_save.alpha = 0.6
+                }else if self!.txt_from_date.text!.isEmpty || self!.txt_to_date.text!.isEmpty{
+                    self!.custom_btn_label_save.isUserInteractionEnabled = false
+                    self!.custom_btn_label_save.alpha = 0.6
+                }
+                
             }
 
     }
