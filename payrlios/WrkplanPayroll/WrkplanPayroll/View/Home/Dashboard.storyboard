@@ -225,7 +225,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqh-PL-9im">
-                                                        <rect key="frame" x="324" y="53" width="83" height="31"/>
+                                                        <rect key="frame" x="338" y="53" width="83" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfA-jP-Ss4">
                                                                 <rect key="frame" x="24" y="5" width="35" height="21"/>
@@ -260,7 +260,7 @@
                                                     <constraint firstItem="ueD-EK-fFj" firstAttribute="top" secondItem="TXS-8B-jTr" secondAttribute="bottom" constant="16" id="NVy-XV-7FO"/>
                                                     <constraint firstItem="o2K-sw-W0c" firstAttribute="centerX" secondItem="shX-bC-CmX" secondAttribute="centerX" constant="-119.5" id="Sfh-bt-ksf"/>
                                                     <constraint firstItem="lD9-m7-oaA" firstAttribute="leading" secondItem="ueD-EK-fFj" secondAttribute="trailing" constant="12" id="TMA-T7-1yO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Tqh-PL-9im" secondAttribute="trailing" constant="27" id="TrF-eZ-r8d"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Tqh-PL-9im" secondAttribute="trailing" constant="13" id="TrF-eZ-r8d"/>
                                                     <constraint firstItem="Tqh-PL-9im" firstAttribute="top" secondItem="TXS-8B-jTr" secondAttribute="bottom" constant="9" id="UoP-KJ-63t"/>
                                                     <constraint firstItem="ueD-EK-fFj" firstAttribute="leading" secondItem="shX-bC-CmX" secondAttribute="leading" constant="20" symbolic="YES" id="ZH1-ag-JnF"/>
                                                     <constraint firstItem="HnR-hg-Eho" firstAttribute="centerX" secondItem="shX-bC-CmX" secondAttribute="centerX" constant="113.5" id="fJK-cD-gz5"/>

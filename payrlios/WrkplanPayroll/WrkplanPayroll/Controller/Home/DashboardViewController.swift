@@ -782,7 +782,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             }else{
                 cell.LabelEventType.textColor = UIColor(hexFromString: "4e4c4c")
             }*/
-            
+            cell.ViewEventNameAbbreviation.layer.cornerRadius = 3.0
             if dictPendingItems["event_name"] as! String == "Leave Application"{
                 cell.LabelEventNameAbbreviation.text = "LA"
                 cell.ViewEventNameAbbreviation.backgroundColor = UIColor(hexFromString: "9cc1e4")
@@ -1590,6 +1590,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
         calendar.allowsMultipleSelection = true
         calendar.select(Date())
+        calendar.appearance.todaySelectionColor = UIColor(hexFromString: "ff9933")
         LabelCalendarDate.text = getCustomDateFormat(date: Date())
         LabelCalendarDay.text = Date().dayNameOfWeek()
         calendar.headerHeight = 45.0
@@ -1600,11 +1601,11 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         calendar.appearance.weekdayFont = UIFont.boldSystemFont(ofSize: 18.0)
         calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 17)
         calendar.scrollDirection = .horizontal
-//        calendar.appearance.todayColor = .purple
+//        calendar.appearance.todayColor = .red
         //        calender.calendarHeaderView.backgroundColor = UIColorRGB(r: 75, g: 153.0, b: 224.0)
         calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "BFBFBF")
         calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "ffffff")
-        calendar.appearance.headerTitleColor = .black
+        calendar.appearance.headerTitleColor = .white
         calendar.appearance.weekdayTextColor = UIColor(hexFromString: "0260D2")
         calendar.appearance.titleTodayColor = .black
         calendar.appearance.borderRadius = 0
