@@ -921,7 +921,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     }
     //-------menuClose function is for other sections(except menu bnutton), code starts------
     func menuClose(){
-        self.canelBlurEffect()
+//        self.canelBlurEffect()
         ScrollView.isScrollEnabled = true
         //            self.view.removeFromSuperview()
         navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
@@ -1193,7 +1193,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             self.btn_in.alpha = CGFloat(0.6) */
             //            self.btn_in.backgroundColor = UIColor(hexFromString: "#EEEEEE")
             
-            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "fb4e4e")
+//            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "fb4e4e")
+            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "FB4E4E")
             self.LabelInOut.text = "OUT"
             
         }else if message_in_out == "OUT" {
@@ -1344,7 +1345,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             self.btn_out.isHidden = false */
                             
                             self.ViewBtnInOut.isHidden = false
-                            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "FF0000")
+//                            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "FF0000")
+                            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "FB4E4E")
                             self.LabelInOut.text = "OUT"
                             
                         } else {
@@ -1471,6 +1473,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-------Location code ends(added on 28th May)
     
     //===============Selfie Confirmation Popup code starts===================
+    @IBOutlet weak var btnPopupCancel: UIButton!
     @IBOutlet weak var btnPopupYes: UIButton!
     @IBOutlet weak var btnPopupNo: UIButton!
     @IBAction func btnPopupYes(_ sender: Any) {
@@ -1480,6 +1483,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func btnPopupCancel(_ sender: Any) {
+        closeSelfieConfirmationPopup()
+    }
     @IBAction func btnPopupNo(_ sender: Any) {
         closeSelfieConfirmationPopup()
         self.save_in_out_data(in_out: TimesheetMyAttendanceViewController.in_out, work_frm_home_flag: TimesheetMyAttendanceViewController.work_frm_home_flag, work_from_home_detail: TimesheetMyAttendanceViewController.work_from_home_detail, message_in_out: TimesheetMyAttendanceViewController.message_in_out, imageBase64: "")
@@ -1501,7 +1507,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
         stackViewEnrollPopupButton.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
 //        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
+        btnPopupCancel.titleLabel?.textColor = .black
         btnPopupYes.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        btnPopupNo.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
         
         UIView.animate(withDuration: 0.3){
             self.viewSelfie.alpha = 1
@@ -1605,7 +1613,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 //        calendar.appearance.todayColor = .red
         //        calender.calendarHeaderView.backgroundColor = UIColorRGB(r: 75, g: 153.0, b: 224.0)
         calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "BFBFBF")
-        calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "ffffff")
+        calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "f2f2f2")
+        calendar.appearance.titleWeekendColor = UIColor(hexFromString: "FB4E4E")
         calendar.appearance.headerTitleColor = .white
         calendar.appearance.weekdayTextColor = UIColor(hexFromString: "0260D2")
         calendar.appearance.titleTodayColor = .black

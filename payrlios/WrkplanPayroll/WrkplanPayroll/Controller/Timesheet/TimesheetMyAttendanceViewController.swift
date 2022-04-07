@@ -508,6 +508,8 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     //-------Location code ends(added on 28th May)
     
     //===============Selfie Confirmation Popup code starts(added on 31st may)===================
+   
+    @IBOutlet weak var btnPopupCancel: UIButton!
     @IBOutlet weak var btnPopupYes: UIButton!
     @IBOutlet weak var btnPopupNo: UIButton!
     @IBAction func btnPopupYes(_ sender: Any) {
@@ -516,7 +518,9 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
 //        self.DeleteImage(stringCheck: "DeleteFacesResult")
         present(imagePicker, animated: true, completion: nil)
     }
-    
+    @IBAction func btnPopupCancel(_ sender: Any) {
+        closeSelfieConfirmationPopup()
+    }
     @IBAction func btnPopupNo(_ sender: Any) {
         closeSelfieConfirmationPopup()
         self.save_in_out_data(in_out: TimesheetMyAttendanceViewController.in_out, work_frm_home_flag: TimesheetMyAttendanceViewController.work_frm_home_flag, work_from_home_detail: TimesheetMyAttendanceViewController.work_from_home_detail, message_in_out: TimesheetMyAttendanceViewController.message_in_out, imageBase64: "")
@@ -536,9 +540,11 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         viewSelfie.alpha = 0
         viewSelfie.sizeToFit()
         
+        btnPopupCancel.titleLabel?.textColor = .black
         stackViewEnrollPopupButton.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
 //        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
         btnPopupYes.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        btnPopupNo.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
         
         UIView.animate(withDuration: 0.3){
             self.viewSelfie.alpha = 1

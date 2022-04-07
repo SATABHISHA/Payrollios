@@ -369,6 +369,7 @@
                     <connections>
                         <outlet property="StackViewButtons" destination="Rpn-GP-9pd" id="nFp-hx-IQF"/>
                         <outlet property="btnCheckBox" destination="qbq-j3-uOC" id="LmV-As-ahG"/>
+                        <outlet property="btnPopupCancel" destination="wqC-Ec-hLT" id="8HL-WR-Qb7"/>
                         <outlet property="btnPopupNo" destination="cBO-tk-9vh" id="9Nh-tn-jRy"/>
                         <outlet property="btnPopupYes" destination="Xde-qb-O0Y" id="UUZ-ek-fxK"/>
                         <outlet property="btn_in" destination="J8X-gO-M3P" id="wGE-bi-2xx"/>
@@ -413,8 +414,20 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rlX-6K-8cl">
                             <rect key="frame" x="0.0" y="118" width="240" height="40"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqC-Ec-hLT">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                        <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="btnPopupCancel:" destination="Xz3-LP-scn" eventType="touchUpInside" id="lQ6-h5-44L"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBO-tk-9vh">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                    <rect key="frame" x="80" y="0.0" width="80" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="No">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -432,7 +445,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xde-qb-O0Y">
-                                    <rect key="frame" x="120" y="0.0" width="120" height="40"/>
+                                    <rect key="frame" x="160" y="0.0" width="80" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Yes">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -509,6 +522,14 @@
             <point key="canvasLocation" x="709" y="171"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="TgU-4h-Uco">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="zDX-6k-bnG">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="home_menu" width="32" height="32"/>
     </resources>

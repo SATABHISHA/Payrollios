@@ -51,7 +51,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vg9-XX-Gsm">
-                                <rect key="frame" x="10" y="74" width="355" height="583"/>
+                                <rect key="frame" x="10" y="69" width="355" height="588"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,7 +152,7 @@
                             <constraint firstItem="kFd-eb-fTE" firstAttribute="top" secondItem="oUT-o1-yuB" secondAttribute="top" id="3sz-mX-JGZ"/>
                             <constraint firstItem="vg9-XX-Gsm" firstAttribute="leading" secondItem="oUT-o1-yuB" secondAttribute="leading" constant="10" id="OjF-rm-1Xm"/>
                             <constraint firstItem="kFd-eb-fTE" firstAttribute="trailing" secondItem="oUT-o1-yuB" secondAttribute="trailing" id="R5I-Sw-RJz"/>
-                            <constraint firstItem="vg9-XX-Gsm" firstAttribute="top" secondItem="kFd-eb-fTE" secondAttribute="bottom" constant="10" id="ZS4-An-Siy"/>
+                            <constraint firstItem="vg9-XX-Gsm" firstAttribute="top" secondItem="kFd-eb-fTE" secondAttribute="bottom" constant="5" id="ZS4-An-Siy"/>
                             <constraint firstItem="oUT-o1-yuB" firstAttribute="trailing" secondItem="vg9-XX-Gsm" secondAttribute="trailing" constant="10" id="cMX-rF-Yww"/>
                             <constraint firstItem="oUT-o1-yuB" firstAttribute="bottom" secondItem="vg9-XX-Gsm" secondAttribute="bottom" constant="10" id="d22-ZF-iNE"/>
                             <constraint firstItem="kFd-eb-fTE" firstAttribute="leading" secondItem="oUT-o1-yuB" secondAttribute="leading" id="qEz-yV-7uW"/>
