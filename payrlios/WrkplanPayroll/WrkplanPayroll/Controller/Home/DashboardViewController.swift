@@ -112,6 +112,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     var arrResCaledar = [[String:AnyObject]]()
     @IBOutlet weak var LabelCalendarDate: UILabel!
     @IBOutlet weak var LabelCalendarDay: UILabel!
+    @IBOutlet weak var LabelCalendarHoliday: UILabel!
     @IBOutlet weak var ViewCustomBtnApplyForLeave: UIView!
     @IBOutlet weak var ViewCustomBtnApplyForOD: UIView!
     static var DashboardToMyLeaveApplicationRequestNewCreateYN: Bool = false
@@ -1869,6 +1870,44 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 
 extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        //----code for holiday, starts-----
+        let dateString = self.formatter.string(from: date)
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "dd/MM/yyyy"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+        
+        let SelectedDate = dateFormatterGet.date(from: dateString)
+        
+        LabelCalendarDate.text = dateFormatterPrint.string(from: SelectedDate!)
+        
+        for i in  0..<arrResCaledar.count{
+            let dict = arrResCaledar[i]
+//                   LabelCalendarHoliday.text = dict["holiday_name"] as? String
+//                   print("HolidayName-=>", dict["holiday_name"] as! String)
+            if dict["from_date"] as? String == dateString{
+//                label_date.isHidden = false
+//                label_holiday_name.isHidden = false
+                
+                let dateFormatterGet = DateFormatter()
+                dateFormatterGet.dateFormat = "dd/MM/yyyy"
+                
+                let dateFormatterPrint = DateFormatter()
+                dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+                
+                let date = dateFormatterGet.date(from: dict["from_date"] as! String)
+//                labelDate.text = eventData[i].date
+                LabelCalendarDate.text = dateFormatterPrint.string(from: date!)
+                LabelCalendarHoliday.text = dict["holiday_name"] as? String
+                print("HolidayName-=>", dict["holiday_name"] as! String)
+            }
+        }
+        //----code for holiday, ends-----
+        
+        
         //----code for date range select, starts-----
         // nothing selected:
         LabelCalendarDate.text = getCustomDateFormat(date: date)
@@ -1914,6 +1953,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
 
                LabelCalendarDate.text = "\(DashboardViewController.FirstDate!) to \(DashboardViewController.LastDate!)"
                LabelCalendarDay.text = ""
+               LabelCalendarHoliday.text = ""
                return
            }
 
@@ -1935,37 +1975,7 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
         
         //----code for date range select, ends-----
         
-        let dateString = self.formatter.string(from: date)
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "dd/MM/yyyy"
-        
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "MMM dd, yyyy"
-        
-        let SelectedDate = dateFormatterGet.date(from: dateString)
-        
-        LabelCalendarDate.text = dateFormatterPrint.string(from: SelectedDate!)
-        
-        for i in  0..<arrResCaledar.count{
-            let dict = arrResCaledar[i]
-            
-            if dict["from_date"] as? String == dateString{
-//                label_date.isHidden = false
-//                label_holiday_name.isHidden = false
-                
-                let dateFormatterGet = DateFormatter()
-                dateFormatterGet.dateFormat = "dd/MM/yyyy"
-                
-                let dateFormatterPrint = DateFormatter()
-                dateFormatterPrint.dateFormat = "MMM dd, yyyy"
-                
-                let date = dateFormatterGet.date(from: dict["from_date"] as! String)
-//                labelDate.text = eventData[i].date
-                LabelCalendarDate.text = dateFormatterPrint.string(from: date!)
-                LabelCalendarDay.text = dict["holiday_name"] as? String
-            }
-        }
+       
         
         if monthPosition == .previous || monthPosition == .next {
             calendar.setCurrentPage(date, animated: true)
@@ -1977,6 +1987,8 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
 
         // NOTE: the is a REDUANDENT CODE:
         LabelCalendarDate.text = ""
+        LabelCalendarDay.text = ""
+        LabelCalendarHoliday.text = ""
         if firstDate != nil && lastDate != nil {
             for d in calendar.selectedDates {
                 calendar.deselect(d)

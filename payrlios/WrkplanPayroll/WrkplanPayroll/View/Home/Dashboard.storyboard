@@ -888,6 +888,7 @@
                         <outlet property="ImgLogoutMenuBar" destination="u5m-JS-i47" id="0sC-PY-j5v"/>
                         <outlet property="LabelCalendarDate" destination="qOC-KL-Ogw" id="Dyb-sj-Qtz"/>
                         <outlet property="LabelCalendarDay" destination="tR6-v0-fBj" id="t39-N2-Yfm"/>
+                        <outlet property="LabelCalendarHoliday" destination="CXe-LF-zpc" id="hRm-cR-Ztx"/>
                         <outlet property="LabelCorpId" destination="BSF-j1-tbb" id="QMn-NO-2tU"/>
                         <outlet property="LabelDepartment" destination="KLv-r1-z0Y" id="BUP-GI-zaT"/>
                         <outlet property="LabelDesignation" destination="Tz0-vY-40h" id="Wdo-5t-Ecd"/>
