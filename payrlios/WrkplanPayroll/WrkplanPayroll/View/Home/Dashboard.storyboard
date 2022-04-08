@@ -699,10 +699,10 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Cus-3q-pCm"/>
                             </scrollView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysU-RL-jW5">
-                                <rect key="frame" x="0.0" y="64" width="24" height="230"/>
+                                <rect key="frame" x="0.0" y="64" width="394" height="230"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UOq-Bc-h73">
-                                        <rect key="frame" x="0.0" y="230" width="24" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="230" width="394" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -710,14 +710,14 @@
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="50" id="Lok-cy-FFV" customClass="HomeNavigationControllerTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.666666030883789" width="24" height="50"/>
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="394" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lok-cy-FFV" id="aqO-Un-OeH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="iha-n0-dXc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="49.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="49.333333333333336"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aeM-Zr-T8s">
                                                                     <rect key="frame" x="8" y="3.9999999999999982" width="30" height="30.333333333333329"/>
@@ -762,35 +762,35 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6x-wk-myq">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="230"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="230"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="woman" translatesAutoresizingMaskIntoConstraints="NO" id="bjl-IZ-Uvv">
-                                                <rect key="frame" x="9" y="75" width="6" height="80"/>
+                                                <rect key="frame" x="148" y="75" width="98" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Snyder B, Oscar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="GhA-R5-qh1">
-                                                <rect key="frame" x="2" y="158" width="20" height="26"/>
+                                                <rect key="frame" x="33" y="158" width="328" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.092393018310000005" green="0.38451457020000002" blue="0.60826677080000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Global System Technologies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="E1w-oq-bpJ">
-                                                <rect key="frame" x="0.0" y="199" width="24" height="21"/>
+                                                <rect key="frame" x="0.0" y="199" width="394" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.12549019610000001" green="0.40784313729999999" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Designation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="zxf-OQ-kzk">
-                                                <rect key="frame" x="0.0" y="179" width="24" height="22"/>
+                                                <rect key="frame" x="0.0" y="179" width="394" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.071987741490000007" green="0.2471680134" blue="0.37951030930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="workplanlogo" translatesAutoresizingMaskIntoConstraints="NO" id="xxi-On-bN1">
-                                                <rect key="frame" x="3" y="10" width="18" height="49"/>
+                                                <rect key="frame" x="49" y="10" width="296" height="49"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -877,7 +877,7 @@
                             <constraint firstItem="4RA-KT-IiN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="dyP-Ih-lPJ"/>
                             <constraint firstItem="4RA-KT-IiN" firstAttribute="top" secondItem="yXn-Hg-VG8" secondAttribute="bottom" id="eKb-fn-zY0"/>
                             <constraint firstItem="k11-Pz-7eo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="mQ6-z7-gti"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ysU-RL-jW5" secondAttribute="trailing" constant="430" id="p3m-JW-Gfi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ysU-RL-jW5" secondAttribute="trailing" constant="60" id="p3m-JW-Gfi"/>
                             <constraint firstItem="4RA-KT-IiN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uaU-e8-Irj"/>
                             <constraint firstItem="yXn-Hg-VG8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="wZU-Ht-Y0m"/>
                         </constraints>
