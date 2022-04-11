@@ -1016,6 +1016,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.LabelSupervisor1.text = swiftyJsonvar1["employee"]["supervisor_1_name"].stringValue
         self.LabelSupervisor2.text = swiftyJsonvar1["employee"]["supervisor_2_name"].stringValue
         self.LabelCorpId.text = swiftyJsonvar1["employee"]["employee_code"].stringValue
+        self.LabelCorpId.layer.cornerRadius = 3
+        self.LabelCorpId.layer.masksToBounds = true
     }
     
     //=============Code for Pending Items section, starts========
