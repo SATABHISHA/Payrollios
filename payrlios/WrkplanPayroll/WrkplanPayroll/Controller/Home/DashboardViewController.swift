@@ -1106,6 +1106,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MMM-yyyy"
         label_date_today.text = formatter.string(from: date)
+        label_date_today.layer.cornerRadius = 3
+        label_date_today.layer.masksToBounds = true
         //-----code to get current date and show date in the label, starts-----
         
         //---camera
