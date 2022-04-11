@@ -124,16 +124,17 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
     }
     
     //--------function to show leave application request details using Alamofire and Json Swifty------------
+    static var application_id: Int!
     func loadData(){
            loaderStart()
-        var application_id: Int!
+//        var application_id: Int!
         if DashboardViewController.NotificationPendingItemsYN == true {
-            application_id = Int(DashboardViewController.event_id!)
+            SubordinateLeaveApplicationRequestViewController.application_id = Int(DashboardViewController.event_id!)
         }else if DashboardViewController.NotificationPendingItemsYN == false {
-            application_id = SubordinateLeaveApplicationViewController.appliction_id!
+            SubordinateLeaveApplicationRequestViewController.application_id = SubordinateLeaveApplicationViewController.appliction_id!
         }
 //        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateLeaveApplicationViewController.appliction_id!)/2/"
-        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(application_id!)/2/"
+        let url = "\(BASE_URL)leave/application/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateLeaveApplicationRequestViewController.application_id!)/2/"
         print("SubordinateOutDoorDutylisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
@@ -186,7 +187,7 @@ class SubordinateLeaveApplicationRequestViewController: UIViewController {
         
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
-            "appliction_id": SubordinateLeaveApplicationViewController.appliction_id!,
+            "appliction_id": SubordinateLeaveApplicationRequestViewController.application_id!,
             "leave_id": SubordinateLeaveApplicationRequestViewController.leave_id!,
             "employee_id": 0,
             "from_date": txt_from_date.text!,

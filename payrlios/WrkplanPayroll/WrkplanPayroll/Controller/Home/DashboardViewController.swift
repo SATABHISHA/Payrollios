@@ -142,7 +142,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var ViewChildPendingItems: UIView!
     @IBOutlet weak var TableViewPendingItems: UITableView!
     var arrResPendingItems = [[String:AnyObject]]()
-    static var event_id: String!
+    static var event_id: String!, event_owner_id: String!
     static var NotificationPendingItemsYN: Bool = false
     static var LeaveType: String = ""
     
@@ -858,6 +858,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             print("Selected-=>", dictPendingItems["event_name"] as! String)
             if dictPendingItems["event_name"] as! String == "Leave Application"{
                 DashboardViewController.event_id = String(dictPendingItems["event_id"] as! Int)
+                DashboardViewController.event_owner_id = String(dictPendingItems["event_owner_id"] as! Int)
                 DashboardViewController.NotificationPendingItemsYN = true
                 DashboardViewController.LeaveType = dictPendingItems["event_type"] as! String
 //                self.performSegue(withIdentifier: "subleaveappltn", sender: nil)
@@ -865,6 +866,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             }else if dictPendingItems["event_name"] as! String == "OD Application" {
                 print("EventId-=>",dictPendingItems["event_id"] as? Int)
                 DashboardViewController.event_id = String(dictPendingItems["event_id"] as! Int)
+                DashboardViewController.event_owner_id = String(dictPendingItems["event_owner_id"] as! Int)
                 DashboardViewController.NotificationPendingItemsYN = true
                 DashboardViewController.LeaveType = dictPendingItems["event_type"] as! String
                 

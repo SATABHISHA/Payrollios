@@ -154,18 +154,21 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
     //============keyboard will show/hide, code ends===========
     
     //--------function to show details using Alamofire and Json Swifty------------
+    static var od_request_id: Int!, employee_id: Int!
     func loadData(){
            loaderStart()
         
-        var application_id: Int!
+        
         if DashboardViewController.NotificationPendingItemsYN == true {
-            application_id = Int(DashboardViewController.event_id!)
+            SubordinateOutdoorDutyRequestViewController.od_request_id = Int(DashboardViewController.event_id!)
+            SubordinateOutdoorDutyRequestViewController.employee_id = Int(DashboardViewController.event_owner_id!)
         }else if DashboardViewController.NotificationPendingItemsYN == false {
-            application_id = Int(SubordinateOutdoorDutyRequestListViewController.od_request_id)
+            SubordinateOutdoorDutyRequestViewController.od_request_id = Int(SubordinateOutdoorDutyRequestListViewController.od_request_id)
+            SubordinateOutdoorDutyRequestViewController.employee_id = Int(SubordinateOutdoorDutyRequestListViewController.supervisor_employee_id!)
         }
         
 //        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateOutdoorDutyRequestListViewController.od_request_id!)/2/"
-        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(application_id!)/2/"
+        let url = "\(BASE_URL)od/request/detail/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(SubordinateOutdoorDutyRequestViewController.od_request_id!)/2/"
         print("SubordinateOutDoorDutylisturl-=>",url)
            AF.request(url).responseJSON{ (responseData) -> Void in
                self.loaderEnd()
@@ -209,9 +212,9 @@ class SubordinateOutdoorDutyRequestViewController: UIViewController, UITextField
         
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
-            "od_request_id": SubordinateOutdoorDutyRequestListViewController.od_request_id!,
+            "od_request_id": SubordinateOutdoorDutyRequestViewController.od_request_id!,
             "od_request_no": txt_od_rqst_no.text!,
-            "employee_id": SubordinateOutdoorDutyRequestListViewController.supervisor_employee_id,
+            "employee_id": SubordinateOutdoorDutyRequestViewController.employee_id!,
             "from_date": label_from_date.text!,
             "to_date": label_to_date.text!,
             "total_days": label_count.text!,
