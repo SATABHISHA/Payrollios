@@ -396,7 +396,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                     
                     self.txt_view_remarks.isUserInteractionEnabled = false
                     self.btn_select_type.isUserInteractionEnabled = false
-                    self.btn_select_type.setTitle("Work From Home", for: .normal)
+//                    self.btn_select_type.setTitle("Work From Home", for: .normal) //---commented on 11th April 2022
                     
                     self.custom_btn_label_save.isUserInteractionEnabled = true
                     //                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
@@ -407,7 +407,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                     
                     self.txt_view_remarks.isUserInteractionEnabled = false
                     self.btn_select_type.isUserInteractionEnabled = false
-                    self.btn_select_type.setTitle("Work From Home", for: .normal)
+//                    self.btn_select_type.setTitle("Work From Home", for: .normal)
                     
                     self.custom_btn_label_save.isUserInteractionEnabled = true
                     //                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
@@ -420,7 +420,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                     self.txt_view_reason.isUserInteractionEnabled = false
                     self.txt_view_remarks.isUserInteractionEnabled = false
                     self.btn_select_type.isUserInteractionEnabled = false
-                    self.btn_select_type.setTitle("Work From Home", for: .normal)
+//                    self.btn_select_type.setTitle("Work From Home", for: .normal)
                     
                     self.custom_btn_label_save.isUserInteractionEnabled = false
                     self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
