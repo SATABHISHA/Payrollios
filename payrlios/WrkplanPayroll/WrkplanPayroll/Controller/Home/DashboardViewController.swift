@@ -1329,7 +1329,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     if let TimeIn = dateFormatterGet.date(from: swiftyJsonVar["time_in"].stringValue){
 //                    print("Time-=>", dateFormatterPrint.string(from: date!))
                     
-                        self.LabelInTime.text = dateFormatterPrint.string(from: TimeIn)
+                        
+                        let TimeInAbbrFormattedText = dateFormatterPrint.string(from: TimeIn)
+                        var TimeInAbbrFormattedTextChars = Set([Character]("AMPM"))
+//                        self.LabelInTime.text = dateFormatterPrint.string(from: TimeIn)
+                        self.LabelInTime.text = String(dateFormatterPrint.string(from: TimeIn).dropLast(2))
+                        self.LabelInTimeAbbrebiation.text = self.removeCharactersNotInSetFromText(text: TimeInAbbrFormattedText, set: TimeInAbbrFormattedTextChars)
+                        
                     }
                     if let TimeOut = dateFormatterGet.date(from: swiftyJsonVar["time_out"].stringValue){
                         self.LabelOutTime.text = dateFormatterPrint.string(from: TimeOut)
@@ -1434,6 +1440,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             }
             
         }
+    }
+    
+    func removeCharactersNotInSetFromText(text: String, set: Set<Character>) -> String {
+      return String(text.filter { set.contains( $0) })
     }
     //===========Code for getting time_in and time_out, ends==========
     //-------Location, code starts(added on 28th May)
