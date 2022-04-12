@@ -1097,7 +1097,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         btnCheckBox.setImage(UIImage(named:"check_box_empty"), for: .normal)
         btnCheckBox.setImage(UIImage(named:"check_box"), for: .selected)
         
-        TxtViewWFHHeightConstraint.constant = 0
+//        TxtViewWFHHeightConstraint.constant = 0
+        TxtViewWFH.isUserInteractionEnabled = false
         self.TxtViewWFH.layer.borderColor = UIColor.lightGray.cgColor
         self.TxtViewWFH.layer.borderWidth = 1
         
@@ -1163,8 +1164,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             }
     //                        load_data_check_od_duty()
                             
-                            self.TxtViewWFHHeightConstraint.constant = 0
-                            self.btnCheckBox.isHidden = true
+//                            self.TxtViewWFHHeightConstraint.constant = 0
+                              self.TxtViewWFH.isUserInteractionEnabled = false
+//                            self.btnCheckBox.isHidden = true
+                              self.btnCheckBox.isUserInteractionEnabled = false
                           }
         }
     }
@@ -1177,14 +1180,16 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     sender.isSelected = true
                     sender.transform = .identity
                     self.checkBtnYN = 1
-                    self.TxtViewWFHHeightConstraint.constant = 44
+//                    self.TxtViewWFHHeightConstraint.constant = 44
+                    self.TxtViewWFH.isUserInteractionEnabled = true
                     print("checked", self.checkBtnYN)
                     self.work_from_home_flag = 1
                 }else{
                     sender.isSelected = false
                     sender.transform = .identity
                     self.checkBtnYN = 0
-                    self.TxtViewWFHHeightConstraint.constant = 0
+//                    self.TxtViewWFHHeightConstraint.constant = 0
+                    self.TxtViewWFH.isUserInteractionEnabled = false
                     print("Un checked")
                     self.work_from_home_flag = 0
                 }
@@ -1311,31 +1316,41 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                         if self.work_from_home_flag == 1 {
                             self.btnCheckBox.isHidden = false
                             self.label_wrk_from_home.isHidden = false
+                            self.btnCheckBox.isUserInteractionEnabled = true
                             self.btnCheckBox.isSelected = true
                             self.btnCheckBox.isEnabled = false
                             
-                            self.TxtViewWFHHeightConstraint.constant = 44
+//                            self.TxtViewWFHHeightConstraint.constant = 44
+                            self.TxtViewWFH.isUserInteractionEnabled = true
                             self.TxtViewWFH.text = self.work_from_home_detail
                             self.TxtViewWFH.isEditable = true
                             
                             
                         } else if self.work_from_home_flag == 0 {
-                            self.btnCheckBox.isHidden = true
-                            self.label_wrk_from_home.isHidden = true
-                            self.TxtViewWFHHeightConstraint.constant = 0
+                            self.btnCheckBox.isHidden = false
+                            self.label_wrk_from_home.isHidden = false
+                            
+                            self.btnCheckBox.isUserInteractionEnabled = false
+//                            self.TxtViewWFHHeightConstraint.constant = 0
+                            self.TxtViewWFH.isUserInteractionEnabled = false
                             
                         }else{
                             self.btnCheckBox.isHidden = false
                             self.label_wrk_from_home.isHidden = false
                             self.btnCheckBox.isEnabled = true
+                            self.btnCheckBox.isUserInteractionEnabled = true
                             
-                            self.TxtViewWFHHeightConstraint.constant = 44
+//                            self.TxtViewWFHHeightConstraint.constant = 44
+                            self.TxtViewWFH.isUserInteractionEnabled = true
                             
                         }
                     }
                     if(swiftyJsonVar["timesheet_in_out_action"].exists()) {
                         if swiftyJsonVar["timesheet_in_out_action"].stringValue == "IN" {
                             self.btnCheckBox.isHidden = false
+                            self.btnCheckBox.isUserInteractionEnabled = true
+                            
+                            self.TxtViewWFH.isUserInteractionEnabled = true //--added
                             
                           /*  self.btn_in.isHidden = false
                             self.btn_out.isHidden = true*/
@@ -1348,6 +1363,11 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             self.btnCheckBox.isHidden = false
                             self.label_wrk_from_home.isHidden = false
                             
+                            self.btnCheckBox.isUserInteractionEnabled = true
+                            
+                            self.TxtViewWFH.isUserInteractionEnabled = true //--added
+                            
+                            
                            /* self.btn_in.isHidden = true
                             self.btn_out.isHidden = false */
                             
@@ -1357,8 +1377,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             self.LabelInOut.text = "OUT"
                             
                         } else {
-                            self.btnCheckBox.isHidden = true
-                            self.label_wrk_from_home.isHidden = true
+                            self.btnCheckBox.isHidden = false
+                            self.label_wrk_from_home.isHidden = false
+                            
+                            self.btnCheckBox.isUserInteractionEnabled = false
+                            
+                            self.TxtViewWFH.isUserInteractionEnabled = false //--added
                             
                            /* self.btn_in.isHidden = true
                             self.btn_out.isHidden = true*/
@@ -1367,8 +1391,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             
                         }
                     }else {
-                        self.btnCheckBox.isHidden = true
-                        self.label_wrk_from_home.isHidden = true
+                        self.btnCheckBox.isHidden = false
+                        self.label_wrk_from_home.isHidden = false
+                        
+                        self.btnCheckBox.isUserInteractionEnabled = false
+                        
+                        self.TxtViewWFH.isUserInteractionEnabled = false //--added
                         
                        /* self.btn_in.isHidden = true
                         self.btn_out.isHidden = true */

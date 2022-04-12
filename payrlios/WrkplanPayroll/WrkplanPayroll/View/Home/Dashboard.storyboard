@@ -191,7 +191,7 @@
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kjL-e1-6LP">
                                                                 <rect key="frame" x="79" y="1" width="240" height="73"/>
-                                                                <color key="backgroundColor" red="0.01506554716058949" green="0.44243213383838387" blue="0.18712336355405082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="240" id="yUC-Ww-Puh"/>
                                                                 </constraints>
@@ -216,7 +216,6 @@
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueD-EK-fFj">
                                                                 <rect key="frame" x="31" y="8" width="17" height="17"/>
                                                                 <viewLayoutGuide key="safeArea" id="C9u-5X-nfp"/>
-                                                                <color key="backgroundColor" red="0.010682793669999999" green="0.31372316919999998" blue="0.13268686909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="17" id="SkV-y3-Q0P"/>
                                                                     <constraint firstAttribute="width" constant="17" id="gji-6l-pld"/>
@@ -226,7 +225,7 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" red="0.93325459960000001" green="0.9333854318" blue="0.93321341280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="kjL-e1-6LP" firstAttribute="leading" secondItem="lD9-m7-oaA" secondAttribute="trailing" constant="1" id="1KR-SC-FSH"/>
                                                             <constraint firstAttribute="height" constant="75" id="54U-6E-nGk"/>
@@ -1523,9 +1522,6 @@
         <image name="menuicon" width="32" height="32"/>
         <image name="woman" width="512" height="512"/>
         <image name="workplanlogo" width="333" height="92"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
