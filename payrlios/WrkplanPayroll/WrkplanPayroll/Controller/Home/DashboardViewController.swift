@@ -1338,7 +1338,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                         
                     }
                     if let TimeOut = dateFormatterGet.date(from: swiftyJsonVar["time_out"].stringValue){
-                        self.LabelOutTime.text = dateFormatterPrint.string(from: TimeOut)
+//                        self.LabelOutTime.text = dateFormatterPrint.string(from: TimeOut)
+                        
+                        let TimeOutAbbrFormattedText = dateFormatterPrint.string(from: TimeOut)
+                        var TimeOutAbbrFormattedTextChars = Set([Character]("AMPM"))
+//                        self.LabelInTime.text = dateFormatterPrint.string(from: TimeIn)
+                        self.LabelOutTime.text = String(dateFormatterPrint.string(from: TimeOut).dropLast(2))
+                        self.LabelOutTimeAbbrebiation.text = self.removeCharactersNotInSetFromText(text: TimeOutAbbrFormattedText, set: TimeOutAbbrFormattedTextChars)
                     }
                     
                     print("timesheet_id-=>",self.timesheet_id!)
