@@ -146,7 +146,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var label_comp_off: UILabel!
     @IBOutlet weak var label_maternal_leave: UILabel!
     @IBOutlet weak var label_paternal_leave: UILabel!
-   
+    
     @IBOutlet weak var btn_select_year: UIButton!
     @IBOutlet weak var custom_btn_ok_leave_popup: UIView!
     

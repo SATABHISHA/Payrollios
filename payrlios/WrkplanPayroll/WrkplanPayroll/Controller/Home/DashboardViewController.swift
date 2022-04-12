@@ -1103,13 +1103,19 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "000000"), width: 1)
         LabelOutTitle.roundCorners(corners: [.topRight], radius: 10)
         
+        
+        ViewInTime.clipsToBounds = true
         ViewInTime.roundCorners(corners: [.bottomLeft], radius: 10)
-//        ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "c2c2c2"), width: 1)
+        ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "c2c2c2"), width: 1)
+        ViewInTime.addBorder(side: .left, color: UIColor(hexFromString: "c2c2c2"), width: 1)
+        ViewInTime.addBorder(side: .bottom, color: UIColor(hexFromString: "c2c2c2"), width: 1)
         /*ViewInTime.clipsToBounds = true
         ViewInTime.layer.cornerRadius = 10
         ViewInTime.layer.maskedCorners = [.layerMinXMaxYCorner]*/
         
         ViewOutTime.roundCorners(corners: [.bottomRight], radius: 10)
+        ViewOutTime.addBorder(side: .right, color: UIColor(hexFromString: "c2c2c2"), width: 1)
+        ViewOutTime.addBorder(side: .bottom, color: UIColor(hexFromString: "c2c2c2"), width: 1)
         
         
         TxtViewWFH.backgroundColor = UIColor(hexFromString: "ffffff")
