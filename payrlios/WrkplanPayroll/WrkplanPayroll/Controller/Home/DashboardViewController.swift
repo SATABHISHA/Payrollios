@@ -86,6 +86,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var LabelInTitle: UILabel!
     @IBOutlet weak var LabelOutTitle: UILabel!
     
+    @IBOutlet weak var ViewWfh: UIView!
+    
     
     
     var checkBtnYN = 0
@@ -171,6 +173,15 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
        
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        TxtViewWFH.delegate = self    // Give TextViewMessage delegate Method
+        
+        TxtViewWFH.text = "Type Work From Home Reason"
+        TxtViewWFH.textColor = UIColor.lightGray
     }
     //===========///----Swipe Guesture, code starts----///========
     func LoadSwipeGuesture(){
@@ -1098,8 +1109,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildAttendance.layer.cornerRadius = 10
         self.ViewChildAttendance.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+        LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "A2A2A2"), width: 1)
+        ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "DADADA"), width: 1)
+        
+        ViewWfh.roundCorners(corners: [.topLeft, .bottomLeft], radius: 10)
+        TxtViewWFH.contentInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 0)
+        
 //        LabelInTitle.clipsToBounds = true
-        LabelInTitle.roundCorners(corners: [.topLeft], radius: 10)
+       /* LabelInTitle.roundCorners(corners: [.topLeft], radius: 10)
         LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "000000"), width: 1)
         LabelOutTitle.roundCorners(corners: [.topRight], radius: 10)
         
@@ -1108,14 +1125,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         ViewInTime.roundCorners(corners: [.bottomLeft], radius: 10)
         ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "c2c2c2"), width: 1)
         ViewInTime.addBorder(side: .left, color: UIColor(hexFromString: "c2c2c2"), width: 1)
-        ViewInTime.addBorder(side: .bottom, color: UIColor(hexFromString: "c2c2c2"), width: 1)
+        ViewInTime.addBorder(side: .bottom, color: UIColor(hexFromString: "c2c2c2"), width: 1)*/
         /*ViewInTime.clipsToBounds = true
         ViewInTime.layer.cornerRadius = 10
         ViewInTime.layer.maskedCorners = [.layerMinXMaxYCorner]*/
         
-        ViewOutTime.roundCorners(corners: [.bottomRight], radius: 10)
+       /*ViewOutTime.roundCorners(corners: [.bottomRight], radius: 10)
         ViewOutTime.addBorder(side: .right, color: UIColor(hexFromString: "c2c2c2"), width: 1)
-        ViewOutTime.addBorder(side: .bottom, color: UIColor(hexFromString: "c2c2c2"), width: 1)
+        ViewOutTime.addBorder(side: .bottom, color: UIColor(hexFromString: "c2c2c2"), width: 1)*/
         
         
         TxtViewWFH.backgroundColor = UIColor(hexFromString: "ffffff")
@@ -2219,6 +2236,26 @@ extension UIView {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         self.layer.mask = mask
+    }
+}
+
+// MARK: - UITextViewDelegate
+extension DashboardViewController: UITextViewDelegate {
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+
+        if !TxtViewWFH.text!.isEmpty && TxtViewWFH.text! == "Type Work From Home Reason" {
+            TxtViewWFH.text = ""
+            TxtViewWFH.textColor = UIColor.black
+        }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+    
+        if TxtViewWFH.text.isEmpty {
+            TxtViewWFH.text = "Type Work From Home Reason"
+            TxtViewWFH.textColor = UIColor.lightGray
+        }
     }
 }
 /*extension UIView {
