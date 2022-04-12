@@ -79,6 +79,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     @IBOutlet weak var ViewBtnInOut: UIView!
     @IBOutlet weak var LabelInOut: UILabel!
     @IBOutlet weak var label_date_today: UILabel!
+    @IBOutlet weak var ViewInTime: UIView!
+    @IBOutlet weak var ViewOutTime: UIView!
+    @IBOutlet weak var LabelInTimeAbbrebiation: UILabel!
+    @IBOutlet weak var LabelOutTimeAbbrebiation: UILabel!
+    @IBOutlet weak var LabelInTitle: UILabel!
+    @IBOutlet weak var LabelOutTitle: UILabel!
     
     
     
@@ -1092,6 +1098,19 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildAttendance.layer.cornerRadius = 10
         self.ViewChildAttendance.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+//        LabelInTitle.clipsToBounds = true
+        LabelInTitle.roundCorners(corners: [.topLeft], radius: 10)
+        LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "000000"), width: 1)
+        LabelOutTitle.roundCorners(corners: [.topRight], radius: 10)
+        
+        ViewInTime.roundCorners(corners: [.bottomLeft], radius: 10)
+//        ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "c2c2c2"), width: 1)
+        /*ViewInTime.clipsToBounds = true
+        ViewInTime.layer.cornerRadius = 10
+        ViewInTime.layer.maskedCorners = [.layerMinXMaxYCorner]*/
+        
+        ViewOutTime.roundCorners(corners: [.bottomRight], radius: 10)
+        
         
         TxtViewWFH.backgroundColor = UIColor(hexFromString: "ffffff")
         btnCheckBox.setImage(UIImage(named:"check_box_empty"), for: .normal)
@@ -1099,8 +1118,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
 //        TxtViewWFHHeightConstraint.constant = 0
         TxtViewWFH.isUserInteractionEnabled = false
-        self.TxtViewWFH.layer.borderColor = UIColor.lightGray.cgColor
-        self.TxtViewWFH.layer.borderWidth = 1
+//        self.TxtViewWFH.layer.borderColor = UIColor.lightGray.cgColor
+//        self.TxtViewWFH.layer.borderWidth = 1
         
         //-----code to get current date and show date in the label, starts-----
         let date = Date()
@@ -2170,6 +2189,14 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: self)
+    }
+};
+extension UIView {
+    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
 }
 /*extension UIView {
