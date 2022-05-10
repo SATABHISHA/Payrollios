@@ -1591,6 +1591,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.view.addSubview(viewSelfie)
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.height
+        viewSelfie.layer.masksToBounds = true
         viewSelfie.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
         viewSelfie.center = self.view.center
         viewSelfie.layer.cornerRadius = 10.0
