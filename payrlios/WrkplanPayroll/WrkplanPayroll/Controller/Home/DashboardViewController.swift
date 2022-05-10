@@ -251,6 +251,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.view.addSubview(viewFormDialogChangePassword)
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.height
+        viewFormDialogChangePassword.layer.masksToBounds = true
         viewFormDialogChangePassword.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
         viewFormDialogChangePassword.center = self.view.center
         viewFormDialogChangePassword.layer.cornerRadius = 10.0
