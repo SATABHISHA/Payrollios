@@ -305,8 +305,6 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         
         
         if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == true || MyLeaveApplicationViewController.new_create_yn == true{
-            MyLeaveApplicationViewController.new_create_yn = false
-            DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
             OpenAlertPopup()
         }else{
             MyLeaveApplicationViewController.new_create_yn = false
@@ -326,8 +324,6 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
 //        print("tapped")
         
         if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == true || MyLeaveApplicationViewController.new_create_yn == true{
-            MyLeaveApplicationViewController.new_create_yn = false
-            DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
             OpenAlertPopup()
         }else{
             MyLeaveApplicationViewController.new_create_yn = false
@@ -433,10 +429,14 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @objc func onClickYesList(tapGestureRecognizer: UITapGestureRecognizer){
+        MyLeaveApplicationViewController.new_create_yn = false
+        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
         self.performSegue(withIdentifier: "myleave", sender: self)
         CloseAlertPopup()
     }
     @objc func onClickYeshDashboard(tapGestureRecognizer: UITapGestureRecognizer){
+        MyLeaveApplicationViewController.new_create_yn = false
+        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
         CloseAlertPopup()
         self.performSegue(withIdentifier: "dboard", sender: self)
     }
