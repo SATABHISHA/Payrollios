@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -669,6 +668,10 @@
                     </view>
                     <connections>
                         <outlet property="StackViewButtons" destination="MIZ-V1-Bsh" id="Rxy-hS-BcP"/>
+                        <outlet property="ViewAlert" destination="Qg4-eT-d4U" id="kIV-KT-qNq"/>
+                        <outlet property="ViewBtnAlertPopupYesDashboard" destination="6nt-Kh-nba" id="1OK-sX-J1c"/>
+                        <outlet property="ViewBtnPopupNo" destination="hwq-ky-eUL" id="Gyt-ya-YHU"/>
+                        <outlet property="ViewBtnPopupYesList" destination="jVe-7l-0HS" id="zUt-lT-CqQ"/>
                         <outlet property="btn_save" destination="q2i-FI-sJ0" id="BA3-O3-FlX"/>
                         <outlet property="btn_select_type" destination="ehQ-Cm-Wmd" id="bB3-ZK-Yi2"/>
                         <outlet property="btn_select_year" destination="e7J-ak-XJF" id="MMi-gC-0gN"/>
@@ -688,6 +691,7 @@
                         <outlet property="label_paternal_leave" destination="1Ph-v2-PpO" id="Lgu-a1-52s"/>
                         <outlet property="label_sick_leave" destination="0cS-ug-PZw" id="XQt-1L-fOU"/>
                         <outlet property="label_supervisor_remark_name" destination="gdI-hu-dbv" id="qUd-JC-nTe"/>
+                        <outlet property="stackViewAlertPopupButton" destination="1ql-rR-445" id="iiu-TR-Sgs"/>
                         <outlet property="txt_employee_name" destination="Tlt-0Z-WhL" id="6xJ-5r-fmt"/>
                         <outlet property="txt_final_supervisor_remark_name" destination="SYZ-1u-gyI" id="jjm-gN-sze"/>
                         <outlet property="txt_from_date" destination="wo1-qN-XWT" id="34E-Io-NNe"/>
@@ -700,6 +704,7 @@
                         <outlet property="view_custom_btn_cancel" destination="MbB-db-cYG" id="1V7-4S-Jbn"/>
                         <outlet property="view_custom_button_save" destination="GtF-x1-xYV" id="35I-cp-PJc"/>
                         <segue destination="YyA-lm-EHl" kind="modal" identifier="myleave" modalPresentationStyle="fullScreen" id="NdR-zk-v2n"/>
+                        <segue destination="k8A-Gm-sin" kind="presentation" identifier="dboard" modalPresentationStyle="fullScreen" id="gRz-YZ-9ug"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="Qg4-eT-d4U">
@@ -748,7 +753,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="Ley-Z1-36P" firstAttribute="top" secondItem="mwj-Sm-3dd" secondAttribute="bottom" id="S5R-eD-YqE"/>
                                         <constraint firstAttribute="trailing" secondItem="mwj-Sm-3dd" secondAttribute="trailing" constant="28" id="TOh-B0-VVi"/>
@@ -779,7 +784,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemTealColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="LaZ-I5-WjE" firstAttribute="top" secondItem="jVe-7l-0HS" secondAttribute="top" constant="6" id="7kq-2v-G4n"/>
                                         <constraint firstItem="LaZ-I5-WjE" firstAttribute="leading" secondItem="jVe-7l-0HS" secondAttribute="leading" constant="28" id="SyH-zp-Qqj"/>
@@ -810,7 +815,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="J07-cy-aAX" firstAttribute="leading" secondItem="hwq-ky-eUL" secondAttribute="leading" constant="1" id="14I-6A-tSp"/>
                                         <constraint firstAttribute="trailing" secondItem="vNy-Iz-Sxj" secondAttribute="trailing" constant="28" id="Fa7-hg-dDS"/>
@@ -1080,7 +1085,17 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="403" y="66"/>
+            <point key="canvasLocation" x="520" y="64"/>
+        </scene>
+        <!--dashboard-->
+        <scene sceneID="uAC-5Z-W7X">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="dashboard" storyboardName="Dashboard" referencedIdentifier="dashboard" id="k8A-Gm-sin" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kM1-rg-q7m"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qsQ-dG-PLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989" y="-164"/>
         </scene>
         <!--myleaveappltn-->
         <scene sceneID="DQs-E0-L4L">
@@ -1105,14 +1120,5 @@
         <image name="backarrownew" width="200" height="200"/>
         <image name="calendar" width="25" height="35"/>
         <image name="leave_balance_inner" width="64" height="64"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

@@ -302,8 +302,17 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     
     //---Cancel
     @objc func Cancel(tapGestureRecognizer: UITapGestureRecognizer){
-        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
-        self.performSegue(withIdentifier: "myleave", sender: self)
+        
+        
+        if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == true || MyLeaveApplicationViewController.new_create_yn == true{
+            MyLeaveApplicationViewController.new_create_yn = false
+            DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
+            OpenAlertPopup()
+        }else{
+            MyLeaveApplicationViewController.new_create_yn = false
+            DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
+            self.performSegue(withIdentifier: "myleave", sender: self)
+        }
     }
     
     //---Leave Balance
@@ -312,9 +321,19 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     }
     
     @IBAction func btnBack(_ sender: Any) {
-        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
-        self.performSegue(withIdentifier: "myleave", sender: self)
-        print("tapped")
+//        DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
+//        self.performSegue(withIdentifier: "myleave", sender: self)
+//        print("tapped")
+        
+        if DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN == true || MyLeaveApplicationViewController.new_create_yn == true{
+            MyLeaveApplicationViewController.new_create_yn = false
+            DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
+            OpenAlertPopup()
+        }else{
+            MyLeaveApplicationViewController.new_create_yn = false
+            DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
+            self.performSegue(withIdentifier: "myleave", sender: self)
+        }
     }
     
     
@@ -351,7 +370,80 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             break
         }
     }
+   
+    //===============Alert(Cancel/Yes) Confirmation Popup code starts===================
+    @IBOutlet weak var ViewBtnAlertPopupYesDashboard: UIView!
+    @IBOutlet weak var ViewBtnPopupYesList: UIView!
+    @IBOutlet weak var ViewBtnPopupNo: UIView!
     
+    @IBOutlet weak var stackViewAlertPopupButton: UIStackView!
+    @IBOutlet var ViewAlert: UIView!
+    func OpenAlertPopup(){
+        blurEffect()
+        self.view.addSubview(ViewAlert)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        ViewAlert.layer.masksToBounds = true
+        ViewAlert.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        ViewAlert.center = self.view.center
+        ViewAlert.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        ViewAlert.alpha = 0
+        ViewAlert.sizeToFit()
+        
+        stackViewAlertPopupButton.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+//        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
+//        btnPopupCancel.titleLabel?.textColor = .black
+        ViewBtnPopupYesList.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        ViewBtnPopupNo.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        
+        UIView.animate(withDuration: 0.3){
+            self.ViewAlert.alpha = 1
+            self.ViewAlert.transform = CGAffineTransform.identity
+        }
+        
+        
+        //        self.confidencelabel.text = confidence!
+        //----onClick go to dashboard
+        let tapGestureRecognizerYesDashboard = UITapGestureRecognizer(target: self, action: #selector(onClickYeshDashboard(tapGestureRecognizer:)))
+        ViewBtnAlertPopupYesDashboard.isUserInteractionEnabled = true
+//        custom_btn_label_save.alpha = 0.6
+        ViewBtnAlertPopupYesDashboard.addGestureRecognizer(tapGestureRecognizerYesDashboard)
+        
+        //---onClick go to list
+        let tapGestureRecognizerYesList = UITapGestureRecognizer(target: self, action: #selector(onClickYesList(tapGestureRecognizer:)))
+        ViewBtnPopupYesList.isUserInteractionEnabled = true
+        ViewBtnPopupYesList.addGestureRecognizer(tapGestureRecognizerYesList)
+        
+        //---onClick stay on current page
+        let tapGestureRecognizerAlertNo = UITapGestureRecognizer(target: self, action: #selector(onClickAlertPopupNo(tapGestureRecognizer:)))
+        ViewBtnPopupNo.isUserInteractionEnabled = true
+        ViewBtnPopupNo.addGestureRecognizer(tapGestureRecognizerAlertNo)
+        
+    }
+    func CloseAlertPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.ViewAlert.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.ViewAlert.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.ViewAlert.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @objc func onClickYesList(tapGestureRecognizer: UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "myleave", sender: self)
+        CloseAlertPopup()
+    }
+    @objc func onClickYeshDashboard(tapGestureRecognizer: UITapGestureRecognizer){
+        CloseAlertPopup()
+        self.performSegue(withIdentifier: "dboard", sender: self)
+    }
+    @objc func onClickAlertPopupNo(tapGestureRecognizer: UITapGestureRecognizer){
+        CloseAlertPopup()
+    }
+    //===============Alert(Cancel/Yes) Confirmation Popup code ends===================
    
     //-----Date picker code starts
     func showDatePicker(txtfield: UITextField){
