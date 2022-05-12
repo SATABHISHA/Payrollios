@@ -204,13 +204,95 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     //---Back
     @objc func BackView(tapGestureRecognizer: UITapGestureRecognizer){
         if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
-            self.performSegue(withIdentifier: "advancehome", sender: nil)
+//            self.performSegue(withIdentifier: "advancehome", sender: nil)
+            if AdvanceRequisitionListViewController.new_create_yn == true {
+                OpenAlertPopup()
+            }else{
+                AdvanceRequisitionListViewController.new_create_yn = false
+                self.performSegue(withIdentifier: "advancehome", sender: self)
+            }
         }
         if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
             self.performSegue(withIdentifier: "subordinate", sender: nil)
         }
     }
     
+    
+    //===============Alert(Cancel/Yes) Confirmation Popup code starts===================
+    @IBOutlet weak var ViewBtnAlertPopupYesDashboard: UIView!
+    @IBOutlet weak var ViewBtnPopupYesList: UIView!
+    @IBOutlet weak var ViewBtnPopupNo: UIView!
+    
+    @IBOutlet weak var stackViewAlertPopupButton: UIStackView!
+    @IBOutlet var ViewAlert: UIView!
+    func OpenAlertPopup(){
+        blurEffect()
+        self.view.addSubview(ViewAlert)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        ViewAlert.layer.masksToBounds = true
+        ViewAlert.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        ViewAlert.center = self.view.center
+        ViewAlert.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        ViewAlert.alpha = 0
+        ViewAlert.sizeToFit()
+        
+        stackViewAlertPopupButton.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+//        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
+//        btnPopupCancel.titleLabel?.textColor = .black
+        ViewBtnPopupYesList.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        ViewBtnPopupNo.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        
+        UIView.animate(withDuration: 0.3){
+            self.ViewAlert.alpha = 1
+            self.ViewAlert.transform = CGAffineTransform.identity
+        }
+        
+        
+        //        self.confidencelabel.text = confidence!
+        //----onClick go to dashboard
+        let tapGestureRecognizerYesDashboard = UITapGestureRecognizer(target: self, action: #selector(onClickYeshDashboard(tapGestureRecognizer:)))
+        ViewBtnAlertPopupYesDashboard.isUserInteractionEnabled = true
+//        custom_btn_label_save.alpha = 0.6
+        ViewBtnAlertPopupYesDashboard.addGestureRecognizer(tapGestureRecognizerYesDashboard)
+        
+        //---onClick go to list
+        let tapGestureRecognizerYesList = UITapGestureRecognizer(target: self, action: #selector(onClickYesList(tapGestureRecognizer:)))
+        ViewBtnPopupYesList.isUserInteractionEnabled = true
+        ViewBtnPopupYesList.addGestureRecognizer(tapGestureRecognizerYesList)
+        
+        //---onClick stay on current page
+        let tapGestureRecognizerAlertNo = UITapGestureRecognizer(target: self, action: #selector(onClickAlertPopupNo(tapGestureRecognizer:)))
+        ViewBtnPopupNo.isUserInteractionEnabled = true
+        ViewBtnPopupNo.addGestureRecognizer(tapGestureRecognizerAlertNo)
+        
+    }
+    func CloseAlertPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.ViewAlert.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.ViewAlert.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.ViewAlert.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @objc func onClickYesList(tapGestureRecognizer: UITapGestureRecognizer){
+        AdvanceRequisitionListViewController.new_create_yn = false
+        self.performSegue(withIdentifier: "advancehome", sender: self)
+        CloseAlertPopup()
+    }
+    @objc func onClickYeshDashboard(tapGestureRecognizer: UITapGestureRecognizer){
+        AdvanceRequisitionListViewController.new_create_yn = false
+        CloseAlertPopup()
+        self.performSegue(withIdentifier: "dboard", sender: self)
+    }
+    @objc func onClickAlertPopupNo(tapGestureRecognizer: UITapGestureRecognizer){
+        CloseAlertPopup()
+    }
+    //===============Alert(Cancel/Yes) Confirmation Popup code ends===================
     //---Cancel
     @objc func CancelView(tapGestureRecognizer: UITapGestureRecognizer){
         let date = Date()
@@ -285,7 +367,13 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
     
     @IBAction func BtnBack(_ sender: Any) {
         if AdvanceRequisitionListViewController.EmployeeType == "Employee"{
-            self.performSegue(withIdentifier: "advancehome", sender: nil)
+//            self.performSegue(withIdentifier: "advancehome", sender: nil)
+            if AdvanceRequisitionListViewController.new_create_yn == true {
+                OpenAlertPopup()
+            }else{
+                AdvanceRequisitionListViewController.new_create_yn = false
+                self.performSegue(withIdentifier: "advancehome", sender: self)
+            }
         }
         if AdvanceRequisitionListViewController.EmployeeType == "Supervisor"{
             self.performSegue(withIdentifier: "subordinate", sender: nil)
@@ -678,6 +766,53 @@ class AdvanceRequisitionRequestViewController: UIViewController, UITextFieldDele
 
     //-----function to save data, code ends---
    
+    // ====================== Blur Effect Defiend START ================= \\
+        var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+        var blurEffectView: UIVisualEffectView!
+        var loader: UIVisualEffectView!
+        func loaderStart() {
+            // ====================== Blur Effect START ================= \\
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            loader = UIVisualEffectView(effect: blurEffect)
+            loader.frame = view.bounds
+            loader.alpha = 2
+            view.addSubview(loader)
+            
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+            let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+            activityIndicator.transform = transform
+            loadingIndicator.center = self.view.center;
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.white
+            loadingIndicator.startAnimating();
+            loader.contentView.addSubview(loadingIndicator)
+            
+            // screen roted and size resize automatic
+            loader.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+            
+            // ====================== Blur Effect END ================= \\
+        }
+        
+        func loaderEnd() {
+            self.loader.removeFromSuperview();
+        }
+        // ====================== Blur Effect Defiend END ================= \\
+        
+        // ====================== Blur Effect START ================= \\
+        func blurEffect() {
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = view.bounds
+            blurEffectView.alpha = 0.9
+            view.addSubview(blurEffectView)
+            // screen roted and size resize automatic
+            blurEffectView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleWidth];
+          
+        }
+        func canelBlurEffect() {
+            self.blurEffectView.removeFromSuperview();
+        }
+        // ====================== Blur Effect END ================= \\
     
 };
 
