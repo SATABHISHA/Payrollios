@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,21 +19,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Advance Requisition" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KII-pa-t8h">
-                                        <rect key="frame" x="50" y="2" width="254" height="60"/>
+                                        <rect key="frame" x="50" y="2" width="264" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TP-a6-zEa">
-                                        <rect key="frame" x="314" y="0.0" width="100" height="64"/>
-                                        <color key="backgroundColor" red="0.24313725489999999" green="0.47843137250000001" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="324" y="12" width="80" height="40"/>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.80000000000000004" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="HTT-3I-9A3"/>
+                                            <constraint firstAttribute="width" constant="80" id="HTT-3I-9A3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="New">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="BtnOnClick:" destination="Q4S-Qr-0lf" eventType="touchUpInside" id="FsT-Yu-hai"/>
                                         </connections>
@@ -55,12 +60,12 @@
                                     <constraint firstItem="U2w-aA-qn8" firstAttribute="bottom" secondItem="ec5-jn-bgO" secondAttribute="bottom" constant="7.5" id="9Wy-V5-dvI"/>
                                     <constraint firstItem="ec5-jn-bgO" firstAttribute="leading" secondItem="U2w-aA-qn8" secondAttribute="leading" id="HZn-7k-7H2"/>
                                     <constraint firstItem="9TP-a6-zEa" firstAttribute="leading" secondItem="KII-pa-t8h" secondAttribute="trailing" constant="10" id="Jzh-wT-2ln"/>
-                                    <constraint firstItem="9TP-a6-zEa" firstAttribute="top" secondItem="Q4W-DC-job" secondAttribute="top" id="MD2-Oa-YJJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="9TP-a6-zEa" secondAttribute="bottom" id="QE3-RD-kQf"/>
+                                    <constraint firstItem="9TP-a6-zEa" firstAttribute="top" secondItem="Q4W-DC-job" secondAttribute="top" constant="12" id="MD2-Oa-YJJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="9TP-a6-zEa" secondAttribute="bottom" constant="12" id="QE3-RD-kQf"/>
                                     <constraint firstItem="KII-pa-t8h" firstAttribute="leading" secondItem="ec5-jn-bgO" secondAttribute="trailing" id="RZL-L5-AhZ"/>
                                     <constraint firstItem="KII-pa-t8h" firstAttribute="top" secondItem="Q4W-DC-job" secondAttribute="top" constant="2" id="Vtv-44-EBl"/>
                                     <constraint firstAttribute="bottom" secondItem="KII-pa-t8h" secondAttribute="bottom" constant="2" id="Z5N-jH-USe"/>
-                                    <constraint firstAttribute="trailing" secondItem="9TP-a6-zEa" secondAttribute="trailing" id="j6X-vr-wtH"/>
+                                    <constraint firstAttribute="trailing" secondItem="9TP-a6-zEa" secondAttribute="trailing" constant="10" id="j6X-vr-wtH"/>
                                     <constraint firstItem="ec5-jn-bgO" firstAttribute="top" secondItem="Q4W-DC-job" secondAttribute="top" constant="7.5" id="rQp-eV-Y0J"/>
                                     <constraint firstAttribute="height" constant="64" id="uy2-AK-R3p">
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>

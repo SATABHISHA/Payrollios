@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,21 +19,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Medical Reimb List" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jl-aE-XTq">
-                                        <rect key="frame" x="50" y="2" width="254" height="60"/>
+                                        <rect key="frame" x="50" y="2" width="264" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcV-v2-CkX">
-                                        <rect key="frame" x="314" y="0.0" width="100" height="64"/>
-                                        <color key="backgroundColor" red="0.24313725489999999" green="0.47843137250000001" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="324" y="12" width="80" height="40"/>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.80000000000000004" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="APV-B1-CgU"/>
+                                            <constraint firstAttribute="width" constant="80" id="APV-B1-CgU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="New">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="BtnNewMediclaimRequest:" destination="Kge-xp-cmX" eventType="touchUpInside" id="dax-Xo-SfS"/>
                                         </connections>
@@ -53,11 +58,11 @@
                                 <color key="backgroundColor" red="0.28039836530000001" green="0.41623675249999997" blue="0.52942557290000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="5Jl-aE-XTq" secondAttribute="bottom" constant="2" id="0KD-IH-S8y"/>
-                                    <constraint firstItem="AcV-v2-CkX" firstAttribute="top" secondItem="lN2-DV-euE" secondAttribute="top" id="5MA-EO-Ni1"/>
+                                    <constraint firstItem="AcV-v2-CkX" firstAttribute="top" secondItem="lN2-DV-euE" secondAttribute="top" constant="12" id="5MA-EO-Ni1"/>
                                     <constraint firstItem="BgW-ml-iTS" firstAttribute="top" secondItem="lN2-DV-euE" secondAttribute="top" constant="7.5" id="5Mz-uV-clt"/>
-                                    <constraint firstAttribute="trailing" secondItem="AcV-v2-CkX" secondAttribute="trailing" id="IBa-QW-zlQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="AcV-v2-CkX" secondAttribute="trailing" constant="10" id="IBa-QW-zlQ"/>
                                     <constraint firstItem="AcV-v2-CkX" firstAttribute="leading" secondItem="5Jl-aE-XTq" secondAttribute="trailing" constant="10" id="XYI-qI-DiP"/>
-                                    <constraint firstAttribute="bottom" secondItem="AcV-v2-CkX" secondAttribute="bottom" id="bPn-PQ-5Ud"/>
+                                    <constraint firstAttribute="bottom" secondItem="AcV-v2-CkX" secondAttribute="bottom" constant="12" id="bPn-PQ-5Ud"/>
                                     <constraint firstItem="5Jl-aE-XTq" firstAttribute="top" secondItem="lN2-DV-euE" secondAttribute="top" constant="2" id="ce9-0I-sHK"/>
                                     <constraint firstItem="7Kn-Wr-OWA" firstAttribute="bottom" secondItem="BgW-ml-iTS" secondAttribute="bottom" constant="7.5" id="cgA-NQ-syy"/>
                                     <constraint firstItem="5Jl-aE-XTq" firstAttribute="leading" secondItem="BgW-ml-iTS" secondAttribute="trailing" id="i3O-Uj-0oK"/>

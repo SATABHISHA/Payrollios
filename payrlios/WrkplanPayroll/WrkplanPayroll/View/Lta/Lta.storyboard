@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,21 +19,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My LTA Requsition" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6r-np-miG">
-                                        <rect key="frame" x="50" y="2" width="254" height="60"/>
+                                        <rect key="frame" x="50" y="2" width="264" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1OY-Ox-jdd">
-                                        <rect key="frame" x="314" y="0.0" width="100" height="64"/>
-                                        <color key="backgroundColor" red="0.24313725489999999" green="0.47843137250000001" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="324" y="12" width="80" height="40"/>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.80000000000000004" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="rzQ-Bp-TBS"/>
+                                            <constraint firstAttribute="width" constant="80" id="rzQ-Bp-TBS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="New">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="BtnNew:" destination="PUI-ZG-FJB" eventType="touchUpInside" id="OhW-rd-V21"/>
                                         </connections>
@@ -61,10 +66,10 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                                     </constraint>
                                     <constraint firstItem="1Go-Ei-p7S" firstAttribute="top" secondItem="7YL-hq-v3u" secondAttribute="top" constant="7.5" id="k7U-eo-ag1"/>
-                                    <constraint firstAttribute="bottom" secondItem="1OY-Ox-jdd" secondAttribute="bottom" id="o6N-dR-vDF"/>
+                                    <constraint firstAttribute="bottom" secondItem="1OY-Ox-jdd" secondAttribute="bottom" constant="12" id="o6N-dR-vDF"/>
                                     <constraint firstItem="r6r-np-miG" firstAttribute="top" secondItem="7YL-hq-v3u" secondAttribute="top" constant="2" id="ouQ-UO-TPF"/>
-                                    <constraint firstItem="1OY-Ox-jdd" firstAttribute="top" secondItem="7YL-hq-v3u" secondAttribute="top" id="pO8-ZY-fRQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="1OY-Ox-jdd" secondAttribute="trailing" id="vnS-tH-L7H"/>
+                                    <constraint firstItem="1OY-Ox-jdd" firstAttribute="top" secondItem="7YL-hq-v3u" secondAttribute="top" constant="12" id="pO8-ZY-fRQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="1OY-Ox-jdd" secondAttribute="trailing" constant="10" id="vnS-tH-L7H"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A54-1n-STB" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">

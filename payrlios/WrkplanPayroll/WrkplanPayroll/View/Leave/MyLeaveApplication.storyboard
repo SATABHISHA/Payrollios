@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,21 +19,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="My Leave Application" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puT-pB-udM">
-                                        <rect key="frame" x="50" y="20" width="254" height="24"/>
+                                        <rect key="frame" x="50" y="20" width="264" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xZ-Hz-yhK">
-                                        <rect key="frame" x="314" y="0.0" width="100" height="64"/>
-                                        <color key="backgroundColor" red="0.24313725489999999" green="0.47843137250000001" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="324" y="12" width="80" height="40"/>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.80000000000000004" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="HhF-sb-i0m"/>
+                                            <constraint firstAttribute="width" constant="80" id="HhF-sb-i0m"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="New">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="BtnNew:" destination="uhY-8C-YyT" eventType="touchUpInside" id="Yoe-pc-75e"/>
                                         </connections>
@@ -56,11 +61,11 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                                     </constraint>
                                     <constraint firstItem="puT-pB-udM" firstAttribute="leading" secondItem="rVj-Zd-Vft" secondAttribute="trailing" id="Lu6-nc-WzL"/>
-                                    <constraint firstAttribute="bottom" secondItem="0xZ-Hz-yhK" secondAttribute="bottom" id="Oh3-Q8-Lzb"/>
+                                    <constraint firstAttribute="bottom" secondItem="0xZ-Hz-yhK" secondAttribute="bottom" constant="12" id="Oh3-Q8-Lzb"/>
                                     <constraint firstItem="0xZ-Hz-yhK" firstAttribute="leading" secondItem="puT-pB-udM" secondAttribute="trailing" constant="10" id="R7z-98-xOV"/>
-                                    <constraint firstAttribute="trailing" secondItem="0xZ-Hz-yhK" secondAttribute="trailing" id="YJx-Pz-Oiz"/>
+                                    <constraint firstAttribute="trailing" secondItem="0xZ-Hz-yhK" secondAttribute="trailing" constant="10" id="YJx-Pz-Oiz"/>
                                     <constraint firstItem="rVj-Zd-Vft" firstAttribute="top" secondItem="NlM-g3-kZW" secondAttribute="top" constant="7.5" id="bPF-mp-pJz"/>
-                                    <constraint firstItem="0xZ-Hz-yhK" firstAttribute="top" secondItem="NlM-g3-kZW" secondAttribute="top" id="i8f-Qe-F4j"/>
+                                    <constraint firstItem="0xZ-Hz-yhK" firstAttribute="top" secondItem="NlM-g3-kZW" secondAttribute="top" constant="12" id="i8f-Qe-F4j"/>
                                     <constraint firstItem="LNL-e1-wNx" firstAttribute="bottom" secondItem="rVj-Zd-Vft" secondAttribute="bottom" constant="7.5" id="n9V-tS-D1F"/>
                                     <constraint firstItem="rVj-Zd-Vft" firstAttribute="leading" secondItem="LNL-e1-wNx" secondAttribute="leading" id="pjr-2N-bb3"/>
                                     <constraint firstItem="puT-pB-udM" firstAttribute="centerY" secondItem="LNL-e1-wNx" secondAttribute="centerY" id="zUN-hD-3hf"/>
