@@ -410,7 +410,111 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
         
     }
     
+    //===============Alert(Cancel/Yes) Confirmation Popup code starts===================
+    @IBOutlet weak var ViewBtnAlertPopupYesDashboard: UIView!
+    @IBOutlet weak var ViewBtnPopupYesList: UIView!
+    @IBOutlet weak var ViewBtnPopupNo: UIView!
     
+    @IBOutlet weak var stackViewAlertPopupButton: UIStackView!
+    @IBOutlet var ViewAlert: UIView!
+    func OpenAlertPopup(){
+        blurEffect()
+        self.view.addSubview(ViewAlert)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        ViewAlert.layer.masksToBounds = true
+        ViewAlert.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        ViewAlert.center = self.view.center
+        ViewAlert.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        ViewAlert.alpha = 0
+        ViewAlert.sizeToFit()
+        
+        stackViewAlertPopupButton.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+//        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
+//        btnPopupCancel.titleLabel?.textColor = .black
+        ViewBtnPopupYesList.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        ViewBtnPopupNo.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        
+        UIView.animate(withDuration: 0.3){
+            self.ViewAlert.alpha = 1
+            self.ViewAlert.transform = CGAffineTransform.identity
+        }
+        
+        
+        //        self.confidencelabel.text = confidence!
+        //----onClick go to dashboard
+        let tapGestureRecognizerYesDashboard = UITapGestureRecognizer(target: self, action: #selector(onClickYeshDashboard(tapGestureRecognizer:)))
+        ViewBtnAlertPopupYesDashboard.isUserInteractionEnabled = true
+//        custom_btn_label_save.alpha = 0.6
+        ViewBtnAlertPopupYesDashboard.addGestureRecognizer(tapGestureRecognizerYesDashboard)
+        
+        //---onClick go to list
+        let tapGestureRecognizerYesList = UITapGestureRecognizer(target: self, action: #selector(onClickYesList(tapGestureRecognizer:)))
+        ViewBtnPopupYesList.isUserInteractionEnabled = true
+        ViewBtnPopupYesList.addGestureRecognizer(tapGestureRecognizerYesList)
+        
+        //---onClick stay on current page
+        let tapGestureRecognizerAlertNo = UITapGestureRecognizer(target: self, action: #selector(onClickAlertPopupNo(tapGestureRecognizer:)))
+        ViewBtnPopupNo.isUserInteractionEnabled = true
+        ViewBtnPopupNo.addGestureRecognizer(tapGestureRecognizerAlertNo)
+        
+    }
+    func CloseAlertPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.ViewAlert.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.ViewAlert.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.ViewAlert.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    
+    @objc func onClickYesList(tapGestureRecognizer: UITapGestureRecognizer){
+        LtaListViewController.new_create_yn = false
+//        self.performSegue(withIdentifier: "advancehome", sender: self)
+        CloseAlertPopup()
+        
+        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.tableChildData.removeAll()
+            collectUpdatedDetailsData.removeAll()
+        }
+        if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
+        if LtaListViewController.EmployeeType == "Supervisor" {
+            self.performSegue(withIdentifier: "subordinatelta", sender: nil)
+        }
+        if LtaListViewController.EmployeeType == "Employee" {
+            self.performSegue(withIdentifier: "LtaEmployee", sender: nil)
+        }
+    }
+    @objc func onClickYeshDashboard(tapGestureRecognizer: UITapGestureRecognizer){
+        LtaListViewController.new_create_yn = false
+        CloseAlertPopup()
+        if LtaSupportingDocumentsViewController.tableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.tableChildData.removeAll()
+            collectUpdatedDetailsData.removeAll()
+        }
+        if LtaSupportingDocumentsViewController.deletedTableChildData.count > 0 {
+            LtaSupportingDocumentsViewController.deletedTableChildData.removeAll()
+            self.collectUpdatedDetailDeletedData.removeAll()
+        }
+        if LtaListViewController.EmployeeType == "Supervisor" {
+//            self.performSegue(withIdentifier: "subordinatemediclaimlist", sender: nil)
+            self.performSegue(withIdentifier: "dboard", sender: self)
+        }
+        if LtaListViewController.EmployeeType == "Employee" {
+//            self.performSegue(withIdentifier: "mediclaimlist", sender: nil)
+            self.performSegue(withIdentifier: "dboard", sender: self)
+        }
+    }
+    @objc func onClickAlertPopupNo(tapGestureRecognizer: UITapGestureRecognizer){
+        CloseAlertPopup()
+    }
+    //===============Alert(Cancel/Yes) Confirmation Popup code ends===================
     //-----Code for calendarDate selection, starts-----
    
     
@@ -740,10 +844,12 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             //            btn_reason_select_type.alpha = 1.0
             if LtaListViewController.lta_status! == ""{
                 
-                openBackConfirmationPopup()
+//                openBackConfirmationPopup()
+                OpenAlertPopup()
             }
             if LtaListViewController.lta_status! == "Saved"{
-               openBackConfirmationPopup()
+//               openBackConfirmationPopup()
+                OpenAlertPopup()
             }
             if LtaListViewController.lta_status! == "Submitted" ||
                 LtaListViewController.lta_status! == "Approved" ||
@@ -766,7 +872,8 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
                 }
             }
             if LtaListViewController.lta_status! == "Returned"{
-                openBackConfirmationPopup()
+//                openBackConfirmationPopup()
+                OpenAlertPopup()
                 
             }
         }
@@ -775,7 +882,8 @@ class LtaRequestViewController: UIViewController, UITextFieldDelegate, UITextVie
             //            btn_reason_select_type.isUserInteractionEnabled = false
             //            btn_reason_select_type.alpha = 0.6
             if LtaListViewController.lta_status! == "Submitted"{
-                openBackConfirmationPopup()
+//                openBackConfirmationPopup()
+                OpenAlertPopup()
             }
             if LtaListViewController.lta_status! == "Returned" ||
                 LtaListViewController.lta_status! == "Approved" ||
