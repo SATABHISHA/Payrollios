@@ -310,6 +310,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             MyLeaveApplicationViewController.new_create_yn = false
             DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
             self.performSegue(withIdentifier: "myleave", sender: self)
+            DashboardViewController.FirstDate = ""
+            DashboardViewController.LastDate = ""
         }
     }
     
@@ -329,6 +331,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             MyLeaveApplicationViewController.new_create_yn = false
             DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
             self.performSegue(withIdentifier: "myleave", sender: self)
+            DashboardViewController.FirstDate = ""
+            DashboardViewController.LastDate = ""
         }
     }
     
@@ -433,12 +437,16 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
         self.performSegue(withIdentifier: "myleave", sender: self)
         CloseAlertPopup()
+        DashboardViewController.FirstDate = ""
+        DashboardViewController.LastDate = ""
     }
     @objc func onClickYeshDashboard(tapGestureRecognizer: UITapGestureRecognizer){
         MyLeaveApplicationViewController.new_create_yn = false
         DashboardViewController.DashboardToMyLeaveApplicationRequestNewCreateYN = false
         CloseAlertPopup()
         self.performSegue(withIdentifier: "dboard", sender: self)
+        DashboardViewController.FirstDate = ""
+        DashboardViewController.LastDate = ""
     }
     @objc func onClickAlertPopupNo(tapGestureRecognizer: UITapGestureRecognizer){
         CloseAlertPopup()

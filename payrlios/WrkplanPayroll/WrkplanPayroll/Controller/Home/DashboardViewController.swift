@@ -2061,6 +2061,9 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
                firstDate = nil
 
                datesRange = []
+               
+               DashboardViewController.FirstDate = ""
+               DashboardViewController.LastDate = ""
 
                print("datesRange contains: \(datesRange!)")
            }/*else{
@@ -2092,6 +2095,8 @@ extension DashboardViewController: FSCalendarDataSource, FSCalendarDelegate, FSC
             firstDate = nil
 
             datesRange = []
+            DashboardViewController.FirstDate = ""
+            DashboardViewController.LastDate = ""
             print("datesRange contains: \(datesRange!)")
         }
     }

@@ -123,6 +123,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             OutDoorDutyListViewController.new_create_yn = false
             DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = false
             self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+            DashboardViewController.FirstDate = ""
+            DashboardViewController.LastDate = ""
         }
     }
     func populate_value(){
@@ -163,6 +165,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             OutDoorDutyListViewController.new_create_yn = false
             DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = false
             self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
+            DashboardViewController.FirstDate = ""
+            DashboardViewController.LastDate = ""
         }
     }
     
@@ -232,12 +236,16 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = false
         self.performSegue(withIdentifier: "outdoordutylist", sender: nil)
         CloseAlertPopup()
+        DashboardViewController.FirstDate = ""
+        DashboardViewController.LastDate = ""
     }
     @objc func onClickYeshDashboard(tapGestureRecognizer: UITapGestureRecognizer){
         OutDoorDutyListViewController.new_create_yn = false
         DashboardViewController.DashboardToMyODApplicationRequestNewCreateYN = false
         CloseAlertPopup()
         self.performSegue(withIdentifier: "dboard", sender: self)
+        DashboardViewController.FirstDate = ""
+        DashboardViewController.LastDate = ""
     }
     @objc func onClickAlertPopupNo(tapGestureRecognizer: UITapGestureRecognizer){
         CloseAlertPopup()
