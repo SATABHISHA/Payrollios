@@ -41,6 +41,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-----Notification variable, ends-----
     
     //---------variables for navigation drawer starts-------
+    @IBOutlet weak var navigationLogoCompany: UIImageView!
     @IBOutlet weak var navigationDesignation: UILabel!
     @IBOutlet weak var navigationProfileImg: UIImageView!
     @IBOutlet weak var navigationDrawer: UIView!
@@ -685,6 +686,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     //-------///////--Navigation Drawer, code starts--///////-----
     func LoadNavigationDrawerData(){
+        navigationLogoCompany.isHidden = true
+        navigationProfileImg.isHidden = true
+        
         tableViewNavigation.dataSource = self
         tableViewNavigation.delegate = self
         tableViewNavigation.backgroundColor = UIColor.white
@@ -896,6 +900,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-----------function for navigation drawer code, starts-----------
     func menuShow(){
         if menuIsMenuShow{
+            navigationLogoCompany.isHidden = true
+            navigationProfileImg.isHidden = true
 //            self.canelBlurEffect()
             ScrollView.isScrollEnabled = true
             //            self.view.removeFromSuperview()
@@ -906,6 +912,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             })
         }else{
 //            blurEffect()
+            navigationLogoCompany.isHidden = false
+            navigationProfileImg.isHidden = false
             ScrollView.isScrollEnabled = false
             self.view.addSubview(navigationDrawer)
           
@@ -926,7 +934,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 if let data = try? Data(contentsOf: finalurl!) {
                     // Create Image and Update Image View
                     self.navigationProfileImg.image = UIImage(data: data)
-//                    self.navigationProfileImg.layer.cornerRadius = self.navigationProfileImg.bounds.height/2
+                    self.navigationProfileImg.layer.cornerRadius = self.navigationProfileImg.bounds.width/2
+//                    self.navigationProfileImg.clipsToBounds = true
+                    self.navigationProfileImg.layer.masksToBounds = true
                 }
             }
         
@@ -943,6 +953,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //-------menuClose function is for other sections(except menu bnutton), code starts------
     func menuClose(){
 //        self.canelBlurEffect()
+        navigationLogoCompany.isHidden = true
+        navigationProfileImg.isHidden = true
+        
         ScrollView.isScrollEnabled = true
         //            self.view.removeFromSuperview()
         navigationDrawerLeadingConstraint.constant = -(navigationDrawer.frame.size.width)
