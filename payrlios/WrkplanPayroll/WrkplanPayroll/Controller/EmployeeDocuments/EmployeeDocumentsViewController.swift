@@ -49,18 +49,25 @@ class EmployeeDocumentsViewController: UIViewController, UITableViewDataSource, 
          }*/
         
         print("url-=>",url1!)
-        if let url = URL(string: url1!){
+        var flag: Bool = false
+        if let url = URL(string: url1!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!){
             FileDownloader.loadFileAsync(url: url) { (path, error) in
              print("PDF File downloaded to : \(path!)")
-                var style = ToastStyle()
+                if !(path?.isEmpty)! {
+                    flag = true
+                }
                 
-                // this is just one of many style options
-                style.messageColor = .white
-                
-                
-                // present the toast with the new style
-                self.view.makeToast("File downloaded successfully", duration: 3.0, position: .bottom, style: style)
              }
+            var style = ToastStyle()
+            // this is just one of many style options
+            style.messageColor = .white
+            
+            if flag == true {
+            // present the toast with the new style
+            self.view.makeToast("File downloaded successfully", duration: 3.0, position: .bottom, style: style)
+            }else{
+                self.view.makeToast("Internal server error", duration: 3.0, position: .bottom, style: style)
+            }
         }else{
             print("Unable to download file")
             var style = ToastStyle()
