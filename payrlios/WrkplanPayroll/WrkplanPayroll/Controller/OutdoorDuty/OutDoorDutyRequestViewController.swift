@@ -64,6 +64,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         
         
         type.append("Work From Home")
+        type.append("Outdoor Duty")
         
         //        showDatePicker()
         
