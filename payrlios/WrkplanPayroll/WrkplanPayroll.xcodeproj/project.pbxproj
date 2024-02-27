@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1420,7 +1420,7 @@
 				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = 9M2U5RK3QT;
 				INFOPLIST_FILE = WrkplanPayroll/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1447,7 +1447,7 @@
 				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = 9M2U5RK3QT;
 				INFOPLIST_FILE = WrkplanPayroll/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
