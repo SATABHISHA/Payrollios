@@ -14,13 +14,30 @@ import FSCalendar
 import DropDown
 import UserNotifications
 import CoreData
+import AVFoundation
 
 struct NavigationDashboardMenuData{
     var imageData:UIImage!
     var menuItm:String!
 }
-class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, UNUserNotificationCenterDelegate {
 
+//---added on 27-Feb-2024, code starts
+// Define a structure to represent the data
+struct LocationData: Decodable {
+    let validFrom: String
+    let validUpto: String
+    let latitude: Double
+    let longitude: Double
+}
+//---added on 27-Feb-2024, code ends
+
+class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, UNUserNotificationCenterDelegate, AVCaptureMetadataOutputObjectsDelegate {
+
+    //---added on 27-Feb-2024, code starts
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    //---added on 27-Feb-2024, code ends
+    
     @IBOutlet weak var ScrollViewContainer: UIView!
     @IBOutlet weak var ScrollView: UIScrollView!
     
@@ -1181,10 +1198,155 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
         load_data_check_od_duty()
     }
+    
+    
+    //---added on 27-Feb-2024, code starts for qr attendance
+    // AVCaptureMetadataOutputObjectsDelegate method to handle captured metadata
+        func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+            // Check if metadataObjects array is not empty and if the first object is a QR code metadata
+            if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
+               metadataObject.type == .qr,
+               let stringValue = metadataObject.stringValue {
+                // Handle the QR code data, for example, print it out
+                print("QR Code Value: \(stringValue)")
+                
+                // You can do further processing with the QR code data here
+                
+                // After getting the QR code data, you might want to stop the capture session
+                previewLayer.removeFromSuperlayer()
+                captureSession.stopRunning()
+                
+                
+                let jsonString = """
+                \(stringValue)
+                """
+                
+                if let jsonData = jsonString.data(using: .utf8) {
+                    do {
+                        let locationData = try JSONDecoder().decode(LocationData.self, from: jsonData)
+                        
+                        // Convert string representations of dates into Date objects
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        
+                        guard let validFromDate = dateFormatter.date(from: locationData.validFrom),
+                              let validUptoDate = dateFormatter.date(from: locationData.validUpto) else {
+                            fatalError("Failed to convert date strings to Date objects")
+                        }
+                        
+                        // Get the current date and time
+                        let currentDate = Date()
+                        
+                        // Check if the current date and time fall within the valid range
+                        if currentDate >= validFromDate && currentDate <= validUptoDate {
+                            print("Current date and time are within the valid range.")
+                            
+                            // Get current location
+                            let currentLocation = CLLocation(latitude: TimesheetMyAttendanceViewController.currentlatitude, longitude: TimesheetMyAttendanceViewController.currentLongitude)
+                            
+                            // Check if current location is within 50 meters of the provided latitude and longitude
+                            let targetLocation = CLLocation(latitude: locationData.latitude, longitude: locationData.longitude)
+                            let distance = currentLocation.distance(from: targetLocation)
+                            
+                            if distance <= 50 {
+                                print("Current location is within 50 meters of the provided latitude and longitude.")
+                                if LabelInOut.text == "IN" {
+                                    TimesheetMyAttendanceViewController.in_out = "IN"
+                                    TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
+                                    TimesheetMyAttendanceViewController.work_from_home_detail = self.TxtViewWFH.text!
+                                    TimesheetMyAttendanceViewController.message_in_out = "Attendance IN time recorded"
+                                    
+                    
+                                    self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.TxtViewWFH.text!, message_in_out: "Attendance IN time recorded",imageBase64: "")
+                                }else if LabelInOut.text == "OUT"{
+                                    TimesheetMyAttendanceViewController.in_out = "OUT"
+                                    TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
+                                    TimesheetMyAttendanceViewController.work_from_home_detail = self.TxtViewWFH.text!
+                                    TimesheetMyAttendanceViewController.message_in_out = "Attendance OUT time recorded"
+                                    
+                                    self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.TxtViewWFH.text!, message_in_out: "Attendance OUT time recorded",imageBase64: "")
+                                    self.TxtViewWFH.isUserInteractionEnabled = false
+      //                            self.btnCheckBox.isHidden = true
+                                    self.btnCheckBox.isUserInteractionEnabled = false
+                                    
+                                }
+                            } else {
+//                                print("Current location is more than 50 meters away from the provided latitude and longitude.")
+                                var style = ToastStyle()
+                                
+                                // this is just one of many style options
+                                style.messageColor = .white
+                                
+                                self.view.makeToast("Sorry! You are not in range. Your location should be within 10m from office", duration: 3.0, position: .bottom, style: style)
+                            }
+                        } else {
+//                            print("Current date and time are outside the valid range.")
+                            var style = ToastStyle()
+                            
+                        
+                            // this is just one of many style options
+                            style.messageColor = .white
+                            
+                            self.view.makeToast("Sorry! Your current date and time are outside the valid range.", duration: 3.0, position: .bottom, style: style)
+                        }
+                    } catch {
+                        print("Error decoding JSON:", error)
+                    }
+                }
+                
+                
+            }
+        }
+        
+        // Optionally, you may override viewDidLayoutSubviews to update the previewLayer's frame
+        override func viewDidLayoutSubviews() {
+            super.viewDidLayoutSubviews()
+            previewLayer?.frame = view.layer.bounds
+        }
+    //---added on 27-Feb-2024, code ends for qr attendance
+    
     //---ViewBtnInOut OnClick
     @objc func ViewBtn(tapGestureRecognizer: UITapGestureRecognizer){
+        
+        //---added on 247-feb-2024, code starts
+        // Initialize capture session
+               captureSession = AVCaptureSession()
+               
+               // Get the default AVCaptureDevice for video
+               guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+               
+               do {
+                   // Create an input for the capture session using the video device
+                   let videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+                   
+                   // Add the input to the capture session
+                   captureSession.addInput(videoInput)
+               } catch {
+                   // If an error occurs, print it out and return
+                   print(error)
+                   return
+               }
+               
+               // Initialize a AVCaptureMetadataOutput object and add it as an output
+               let metadataOutput = AVCaptureMetadataOutput()
+               captureSession.addOutput(metadataOutput)
+               
+               // Set the delegate to self and specify the dispatch queue for metadata output handling
+               metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+               metadataOutput.metadataObjectTypes = [.qr]
+               
+               // Initialize a AVCaptureVideoPreviewLayer object and add it as a sublayer
+               previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+               previewLayer.frame = view.layer.bounds
+               previewLayer.videoGravity = .resizeAspectFill
+               view.layer.addSublayer(previewLayer)
+               
+               // Start the capture session
+               captureSession.startRunning()
+        //---added on 247-feb-2024, code ends
+        
         determineMyCurrentLocation(status: "Start") //---function to get lat/long
-        if LabelInOut.text == "IN" {
+       /* if LabelInOut.text == "IN" {
             TimesheetMyAttendanceViewController.in_out = "IN"
             TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
             TimesheetMyAttendanceViewController.work_from_home_detail = self.TxtViewWFH.text!
@@ -1192,9 +1354,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             
     //        self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance IN time recorded",imageBase64: "") //--previously work from home flag was 1, but it gives some problem //--commented on 31st may temp
             if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
-            openSelfieConfirmationPopup()
+//            openSelfieConfirmationPopup() //---commenetd on 27-Feb-2024
             }else{
-                self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.TxtViewWFH.text!, message_in_out: "Attendance IN time recorded",imageBase64: "")
+//                self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.TxtViewWFH.text!, message_in_out: "Attendance IN time recorded",imageBase64: "")
+                //---commented on 27-Feb-2024
             }
         }else if LabelInOut.text == "OUT"{
             if((work_from_home_flag == 1) && self.TxtViewWFH.text!.isEmpty){
@@ -1214,9 +1377,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             TimesheetMyAttendanceViewController.message_in_out = "Attendance OUT time recorded"
     //                        self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.tv_wrk_frm_home.text!, message_in_out: "Attendance OUT time recorded")  //---commented on 31st may temp
                             if swiftyJsonvar1["company"]["attendance_with_selfie_yn"].intValue == 1 {
-                            openSelfieConfirmationPopup()
+//                            openSelfieConfirmationPopup() //---commented on 27-Feb0-2024
                             }else{
-                                self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.TxtViewWFH.text!, message_in_out: "Attendance OUT time recorded",imageBase64: "")
+//                                self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.TxtViewWFH.text!, message_in_out: "Attendance OUT time recorded",imageBase64: "")
+                                //---commented on 27-Feb-2024
                             }
     //                        load_data_check_od_duty()
                             
@@ -1225,7 +1389,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 //                            self.btnCheckBox.isHidden = true
                               self.btnCheckBox.isUserInteractionEnabled = false
                           }
-        }
+        } */
     }
     @IBAction func checkMarkedTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveLinear, animations: {

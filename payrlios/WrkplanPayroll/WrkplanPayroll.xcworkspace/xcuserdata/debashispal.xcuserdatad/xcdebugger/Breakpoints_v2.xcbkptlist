@@ -46,8 +46,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1356"
-            endingLineNumber = "1356"
+            startingLineNumber = "1520"
+            endingLineNumber = "1520"
             landmarkName = "load_data_check_od_duty()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,9 +62,197 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D422FA7-FD0D-497B-97BB-B1D7F2100953"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1359"
+            endingLineNumber = "1359"
+            landmarkName = "ViewBtn(tapGestureRecognizer:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2D422FA7-FD0D-497B-97BB-B1D7F2100953 - 2b52026f424c004b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.ViewBtn(tapGestureRecognizer: __C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1269"
+                  endingLineNumber = "1269"
+                  offsetFromSymbolStart = "4372">
+               </Location>
+               <Location
+                  uuid = "2D422FA7-FD0D-497B-97BB-B1D7F2100953 - 2b52026f424c006c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.ViewBtn(tapGestureRecognizer: __C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1270"
+                  endingLineNumber = "1270"
+                  offsetFromSymbolStart = "4372">
+               </Location>
+               <Location
+                  uuid = "2D422FA7-FD0D-497B-97BB-B1D7F2100953 - 2b52026f424c018d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.ViewBtn(tapGestureRecognizer: __C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1271"
+                  endingLineNumber = "1271"
+                  offsetFromSymbolStart = "4372">
+               </Location>
+               <Location
+                  uuid = "2D422FA7-FD0D-497B-97BB-B1D7F2100953 - 2b52026f424c78e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.ViewBtn(tapGestureRecognizer: __C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1328"
+                  endingLineNumber = "1328"
+                  offsetFromSymbolStart = "4372">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44371D6D-4895-4A56-B550-770CA46DECBF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1457"
+            endingLineNumber = "1457"
+            landmarkName = "save_in_out_data(in_out:work_frm_home_flag:work_from_home_detail:message_in_out:imageBase64:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "44371D6D-4895-4A56-B550-770CA46DECBF - e8af81e832ba0788"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.save_in_out_data(in_out: Swift.String, work_frm_home_flag: Swift.Int, work_from_home_detail: Swift.String, message_in_out: Swift.String, imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1365"
+                  endingLineNumber = "1365"
+                  offsetFromSymbolStart = "3284">
+               </Location>
+               <Location
+                  uuid = "44371D6D-4895-4A56-B550-770CA46DECBF - e8af81e832ba07ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.save_in_out_data(in_out: Swift.String, work_frm_home_flag: Swift.Int, work_from_home_detail: Swift.String, message_in_out: Swift.String, imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1366"
+                  endingLineNumber = "1366"
+                  offsetFromSymbolStart = "3284">
+               </Location>
+               <Location
+                  uuid = "44371D6D-4895-4A56-B550-770CA46DECBF - e8af81e832ba07ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.save_in_out_data(in_out: Swift.String, work_frm_home_flag: Swift.Int, work_from_home_detail: Swift.String, message_in_out: Swift.String, imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1367"
+                  endingLineNumber = "1367"
+                  offsetFromSymbolStart = "3284">
+               </Location>
+               <Location
+                  uuid = "44371D6D-4895-4A56-B550-770CA46DECBF - e8af81e832ba1e65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.save_in_out_data(in_out: Swift.String, work_frm_home_flag: Swift.Int, work_from_home_detail: Swift.String, message_in_out: Swift.String, imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1424"
+                  endingLineNumber = "1424"
+                  offsetFromSymbolStart = "3284">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6F3B000-BA2F-42FD-AE3F-2687C4CCFBFA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1205"
+            endingLineNumber = "1205"
+            landmarkName = "metadataOutput(_:didOutput:from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57F47C97-DC23-47F0-877D-171E0EDF26D0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1348"
+            endingLineNumber = "1348"
+            landmarkName = "ViewBtn(tapGestureRecognizer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
