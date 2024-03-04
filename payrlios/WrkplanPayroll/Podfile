@@ -6,7 +6,7 @@ target 'WrkplanPayroll' do
   use_frameworks!
 
   # Pods for WrkplanPayroll
-  pod 'Alamofire'
+pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'KRProgressHUD'
 pod 'ReachabilitySwift'
