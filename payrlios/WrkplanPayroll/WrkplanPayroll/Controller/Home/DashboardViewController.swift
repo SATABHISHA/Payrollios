@@ -1238,7 +1238,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                         let currentDate = Date()
                         
                         // Check if the current date and time fall within the valid range
-                        if currentDate >= validFromDate && currentDate <= validUptoDate {
+//                        currentDate >= validFromDate &&  //---commented on 5th March 2024 due to time mismatch
+                        if currentDate <= validUptoDate {
                             print("Current date and time are within the valid range.")
                             
                             // Get current location
