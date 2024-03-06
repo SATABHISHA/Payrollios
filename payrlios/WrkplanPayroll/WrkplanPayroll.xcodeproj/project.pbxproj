@@ -145,6 +145,8 @@
 		197D6E0C27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */; };
 		198DA99227D8B2FB0045D9AE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 198DA99027D8B2FB0045D9AE /* DataModel.xcdatamodeld */; };
 		19B656E027EC4AD600C22F60 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */; };
+		19C703B02B9848D30044C47D /* RoundedBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */; };
+		19C703B22B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */; };
 		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
 		BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
 		F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */; };
@@ -311,6 +313,8 @@
 		197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHlomeTableViewCell.swift; sourceTree = "<group>"; };
 		198DA99127D8B2FB0045D9AE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderTextField.swift; sourceTree = "<group>"; };
+		19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderPasswordTextField.swift; sourceTree = "<group>"; };
 		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
 		4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -510,6 +514,8 @@
 			isa = PBXGroup;
 			children = (
 				173C0F1E25626FB9007AE8F6 /* LoginViewController.swift */,
+				19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */,
+				19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1175,6 +1181,7 @@
 				1791C08A26176E2800EE734A /* SubordinateOdDutyLogListTableViewCell.swift in Sources */,
 				178A108C25667A7A00569712 /* UserSingletonModel.swift in Sources */,
 				1762250C2571197E005F6C5B /* InsuranceDetailViewController.swift in Sources */,
+				19C703B22B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift in Sources */,
 				178E61E62678CA5E00BD0A4E /* AdvanceRequisitionListTableViewCell.swift in Sources */,
 				1759134B268AF64A00D24A78 /* MediclaimListTableViewCell.swift in Sources */,
 				1705789325F60B3F00F78865 /* SubordinateOutdoorDutyRequestListViewController.swift in Sources */,
@@ -1225,6 +1232,7 @@
 				1745A8D02577B69F005DE336 /* HolidayDetailsCalendarViewController.swift in Sources */,
 				17E36A8D26A86BAA00719AB5 /* SubordinateLtaViewController.swift in Sources */,
 				17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */,
+				19C703B02B9848D30044C47D /* RoundedBottomBorderTextField.swift in Sources */,
 				175C6ADB268C42C1004A987B /* MediclaimRequestViewController.swift in Sources */,
 				17513FF0257E175C0090EFD5 /* SubordinateLogViewController.swift in Sources */,
 				177E1C9E261D9EDE00C4CF84 /* MyLeaveApplicationTableViewCell.swift in Sources */,
