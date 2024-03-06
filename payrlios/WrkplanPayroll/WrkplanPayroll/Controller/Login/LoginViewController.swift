@@ -75,7 +75,7 @@ class LoginViewController: UIViewController{
             UserSingletonModel.sharedInstance.user_type = sharedpreferences.object(forKey: "UserType") as? String
             LoginViewController.entry_user = sharedpreferences.object(forKey: "UserName") as! String
             // self.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: "home", sender: nil)
+            self.performSegue(withIdentifier: "dboard", sender: nil)
             
             
         }
