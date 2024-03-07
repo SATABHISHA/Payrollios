@@ -1140,7 +1140,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildAttendance.layer.cornerRadius = 10
         self.ViewChildAttendance.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "A2A2A2"), width: 1)
+//        LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "A2A2A2"), width: 1) //---commented on 7th march 2024
         ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "DADADA"), width: 1)
         
         ViewWfh.roundCorners(corners: [.topLeft, .bottomLeft], radius: 10)
@@ -1529,8 +1529,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                         let TimeInAbbrFormattedText = dateFormatterPrint.string(from: TimeIn)
                         var TimeInAbbrFormattedTextChars = Set([Character]("AMPM"))
 //                        self.LabelInTime.text = dateFormatterPrint.string(from: TimeIn)
-                        self.LabelInTime.text = String(dateFormatterPrint.string(from: TimeIn).dropLast(2))
-                        self.LabelInTimeAbbrebiation.text = self.removeCharactersNotInSetFromText(text: TimeInAbbrFormattedText, set: TimeInAbbrFormattedTextChars)
+                        self.LabelInTime.text = "IN : \(String(dateFormatterPrint.string(from: TimeIn).dropLast(2)))"
+                        self.LabelInTimeAbbrebiation.text = self.removeCharactersNotInSetFromText(text: TimeInAbbrFormattedText, set: TimeInAbbrFormattedTextChars).lowercased()
                         
                     }
                     if let TimeOut = dateFormatterGet.date(from: swiftyJsonVar["time_out"].stringValue){
@@ -1540,7 +1540,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                         var TimeOutAbbrFormattedTextChars = Set([Character]("AMPM"))
 //                        self.LabelInTime.text = dateFormatterPrint.string(from: TimeIn)
                         self.LabelOutTime.text = String(dateFormatterPrint.string(from: TimeOut).dropLast(2))
-                        self.LabelOutTimeAbbrebiation.text = self.removeCharactersNotInSetFromText(text: TimeOutAbbrFormattedText, set: TimeOutAbbrFormattedTextChars)
+                        self.LabelOutTimeAbbrebiation.text = self.removeCharactersNotInSetFromText(text: TimeOutAbbrFormattedText, set: TimeOutAbbrFormattedTextChars).lowercased()
                     }
                     
                     print("timesheet_id-=>",self.timesheet_id!)
