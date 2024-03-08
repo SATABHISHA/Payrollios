@@ -178,6 +178,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ViewBtnInOut.setCornerRadius(cornerRadius: 10, topLeft: false, bottomLeft: false, topRight: true, bottomRight: true, leftBorder: false, rightBorder: true, topBorder: true, bottomBorder: true, borderColor: UIColor.gray)
+        
         LoadSwipeGuesture()
         LoadNotificationDetails()
         LoadNavigationBarData()
@@ -2453,3 +2455,62 @@ extension DashboardViewController: UITextViewDelegate {
     }
 
 }*/
+
+extension UIView{
+    func setCornerRadius(cornerRadius: CGFloat, topLeft: Bool, bottomLeft: Bool, topRight: Bool, bottomRight: Bool, leftBorder: Bool, rightBorder: Bool, topBorder: Bool, bottomBorder: Bool, borderColor: UIColor? = nil) {
+           var maskedCorners: CACornerMask = []
+           if topLeft {
+               maskedCorners.insert(.layerMinXMinYCorner)
+           }
+           if bottomLeft {
+               maskedCorners.insert(.layerMinXMaxYCorner)
+           }
+           if topRight {
+               maskedCorners.insert(.layerMaxXMinYCorner)
+           }
+           if bottomRight {
+               maskedCorners.insert(.layerMaxXMaxYCorner)
+           }
+
+        self.layer.layoutIfNeeded()
+           // Apply the corner radius
+          self.layer.cornerRadius = cornerRadius
+          self.layer.maskedCorners = maskedCorners
+          self.clipsToBounds = true // This ensures the corner radius is applied correctly
+        
+        if topBorder, let borderColor = borderColor{
+            let topBorder = CALayer()
+            topBorder.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: 1)
+            topBorder.backgroundColor = borderColor.cgColor
+            self.layer.addSublayer(topBorder)
+           
+        }
+        
+        if bottomBorder, let borderColor = borderColor{
+            let bottomBorder = CALayer()
+            bottomBorder.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
+            bottomBorder.backgroundColor = borderColor.cgColor
+            self.layer.addSublayer(bottomBorder)
+            
+        }
+        
+        if rightBorder, let borderColor = borderColor{
+            let rightBorder = CALayer()
+            rightBorder.frame = CGRect(x: self.frame.size.width - 1, y: 0, width: 1, height: self.frame.size.height)
+            rightBorder.backgroundColor = borderColor.cgColor
+            self.layer.addSublayer(rightBorder)
+            
+        }
+        
+        if leftBorder, let borderColor = borderColor{
+            let leftBorder = CALayer()
+            leftBorder.frame = CGRect(x: 0, y: 0, width: 1, height: self.frame.size.height)
+            leftBorder.backgroundColor = borderColor.cgColor
+            self.layer.addSublayer(leftBorder)
+        }
+        
+    
+        
+       }
+   }
+
