@@ -178,7 +178,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        ViewBtnInOut.setCornerRadius(cornerRadius: 10, topLeft: false, bottomLeft: false, topRight: true, bottomRight: true, leftBorder: false, rightBorder: true, topBorder: true, bottomBorder: true, borderColor: UIColor.gray)
+//        ViewBtnInOut.setCornerRadius(cornerRadius: 10, topLeft: false, bottomLeft: false, topRight: true, bottomRight: true, leftBorder: false, rightBorder: true, topBorder: true, bottomBorder: true, borderColor: UIColor.gray)
+//        ViewBtnInOut.roundCorners(corners: [.topRight, .bottomRight], radius: 10)
         
         LoadSwipeGuesture()
         LoadNotificationDetails()
@@ -1145,8 +1146,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 //        LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "A2A2A2"), width: 1) //---commented on 7th march 2024
         ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "DADADA"), width: 1)
         
-        ViewWfh.roundCorners(corners: [.topLeft, .bottomLeft], radius: 10)
+       
+        ViewWfh.clipsToBounds = true
+        ViewWfh.layer.masksToBounds = true
+//        ViewWfh.roundCorners(corners: [.topLeft, .bottomLeft], radius: 10)
+        ViewWfh.roundCornersNew2024(corners: [.topLeft, .bottomLeft], radius: 10, borderWidth: 1.5, borderColor: UIColor.gray)
+       
         TxtViewWFH.contentInset = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 0)
+        
         
 //        LabelInTitle.clipsToBounds = true
        /* LabelInTitle.roundCorners(corners: [.topLeft], radius: 10)
@@ -1195,6 +1202,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
         //MyAttendanceLog OnClick
         let tapGestureRecognizerInOutbtn = UITapGestureRecognizer(target: self, action: #selector(ViewBtn(tapGestureRecognizer:)))
+        
+        
+        ViewBtnInOut.roundCornersNew2024(corners: [.topRight, .bottomRight], radius: 10, borderWidth: 1.5, borderColor: UIColor.gray)
+        
         ViewBtnInOut.isUserInteractionEnabled = true
         ViewBtnInOut.addGestureRecognizer(tapGestureRecognizerInOutbtn)
         
@@ -1429,14 +1440,16 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             //            self.btn_in.backgroundColor = UIColor(hexFromString: "#EEEEEE")
             
 //            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "fb4e4e")
-            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "FB4E4E")
+//            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "FB4E4E")
+            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "254F95")
             self.LabelInOut.text = "OUT"
             
         }else if message_in_out == "OUT" {
             /*self.btn_out.isEnabled = false
             self.btn_out.alpha = CGFloat(0.6)*/
             
-            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "0276FD")
+//            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "0276FD")
+            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "EE0012")
             self.LabelInOut.text = "IN"
         }
         
@@ -1541,7 +1554,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                         let TimeOutAbbrFormattedText = dateFormatterPrint.string(from: TimeOut)
                         var TimeOutAbbrFormattedTextChars = Set([Character]("AMPM"))
 //                        self.LabelInTime.text = dateFormatterPrint.string(from: TimeIn)
-                        self.LabelOutTime.text = String(dateFormatterPrint.string(from: TimeOut).dropLast(2))
+                        self.LabelOutTime.text = "OUT : \(String(dateFormatterPrint.string(from: TimeOut).dropLast(2)))"
                         self.LabelOutTimeAbbrebiation.text = self.removeCharactersNotInSetFromText(text: TimeOutAbbrFormattedText, set: TimeOutAbbrFormattedTextChars).lowercased()
                     }
                     
@@ -1623,6 +1636,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             self.btn_out.isHidden = true*/
                             
                             self.ViewBtnInOut.isHidden = true
+//                            self.ViewBtnInOut.isUserInteractionEnabled = false
+                            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "8BC45B")
                             
                         }
                     }else {
@@ -1636,7 +1651,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                        /* self.btn_in.isHidden = true
                         self.btn_out.isHidden = true */
                         
-                        self.ViewBtnInOut.isHidden = true
+                        self.ViewBtnInOut.isHidden = false
+                        self.ViewBtnInOut.isUserInteractionEnabled = false
+                        self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "8BC45B")
                         
                     }
                     
@@ -2423,6 +2440,23 @@ extension UIView {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         self.layer.mask = mask
+    }
+    
+    
+    func roundCornersNew2024(corners: UIRectCorner, radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+        
+        // Create a shape layer for the border
+        let borderLayer = CAShapeLayer()
+        borderLayer.path = path.cgPath
+        borderLayer.lineWidth = borderWidth
+        borderLayer.strokeColor = borderColor.cgColor
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.frame = self.bounds
+        self.layer.addSublayer(borderLayer)
     }
 }
 
