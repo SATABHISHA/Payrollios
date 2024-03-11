@@ -106,6 +106,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     @IBOutlet weak var ViewWfh: UIView!
     
+    @IBOutlet weak var ImgViewAttendanceComplt: UIImageView!
+    
     
     
     var checkBtnYN = 0
@@ -1059,6 +1061,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChild.layer.cornerRadius = 10
         self.ViewChild.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+        //---added obn 11-March-2024, code starts
+        self.ViewEmpDetails.layer.shadowColor = UIColor.gray.cgColor
+        self.ViewEmpDetails.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.ViewEmpDetails.layer.shadowOpacity = 3
+        self.ViewEmpDetails.layer.shadowRadius = 3.0
+        //---added obn 11-March-2024, code ends
+        
         
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         self.LabelEmpName.text = swiftyJsonvar1["employee"]["full_employee_name"].stringValue
@@ -1201,10 +1210,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         
         
         //MyAttendanceLog OnClick
-        let tapGestureRecognizerInOutbtn = UITapGestureRecognizer(target: self, action: #selector(ViewBtn(tapGestureRecognizer:)))
         
-        
+        ViewBtnInOut.clipsToBounds = true
+        ViewBtnInOut.layer.masksToBounds = true
+//        ViewWfh.roundCorners(corners: [.topLeft, .bottomLeft], radius: 10)
         ViewBtnInOut.roundCornersNew2024(corners: [.topRight, .bottomRight], radius: 10, borderWidth: 1.5, borderColor: UIColor.gray)
+        
+        let tapGestureRecognizerInOutbtn = UITapGestureRecognizer(target: self, action: #selector(ViewBtn(tapGestureRecognizer:)))
         
         ViewBtnInOut.isUserInteractionEnabled = true
         ViewBtnInOut.addGestureRecognizer(tapGestureRecognizerInOutbtn)
@@ -1514,6 +1526,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     //===========Code for getting time_in and time_out, starts==========
     func load_data_check_od_duty(){
+        self.ImgViewAttendanceComplt.isHidden = true
         self.loaderStart()
         let url = "\(BASE_URL)timesheet/log/today/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)"
         //        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
@@ -1602,12 +1615,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             
                           /*  self.btn_in.isHidden = false
                             self.btn_out.isHidden = true*/
+                            self.ImgViewAttendanceComplt.isHidden = true
                             self.ViewBtnInOut.isHidden = false
                             self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "0276FD")
                             self.LabelInOut.text = "IN"
                             
                             
                         } else if swiftyJsonVar["timesheet_in_out_action"].stringValue == "OUT" {
+                            self.ImgViewAttendanceComplt.isHidden = true
                             self.btnCheckBox.isHidden = false
                             self.label_wrk_from_home.isHidden = false
                             
@@ -1635,9 +1650,10 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                            /* self.btn_in.isHidden = true
                             self.btn_out.isHidden = true*/
                             
+//                            self.ImgViewAttendanceComplt.isHidden = true
                             self.ViewBtnInOut.isHidden = true
 //                            self.ViewBtnInOut.isUserInteractionEnabled = false
-                            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "8BC45B")
+//                            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "8BC45B")
                             
                         }
                     }else {
@@ -1653,7 +1669,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                         
                         self.ViewBtnInOut.isHidden = false
                         self.ViewBtnInOut.isUserInteractionEnabled = false
-                        self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "8BC45B")
+                        self.ViewBtnInOut.backgroundColor = UIColor.clear
+                        self.ImgViewAttendanceComplt.isHidden = false
+                        self.LabelInOut.isHidden = true
                         
                     }
                     
