@@ -161,12 +161,15 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     let dropDown = DropDown()
     var year_details = [YearDetails]()
     
+    @IBOutlet weak var ViewPaySlip: UIView!
     @IBOutlet weak var BtnMonth: UIButton!
     @IBOutlet weak var ViewChildPaySlip: UIView!
     static var report_html: String!, year: String!, month_name: String!
     //------Payslip variable, ends-----
     
     //-----Pending Item(s) variable, starts-----
+    
+    @IBOutlet weak var ViewPendingItems: UIView!
     @IBOutlet weak var ViewChildPendingItems: UIView!
     @IBOutlet weak var TableViewPendingItems: UITableView!
     var arrResPendingItems = [[String:AnyObject]]()
@@ -1086,6 +1089,18 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildPendingItems.layer.cornerRadius = 10
         self.ViewChildPendingItems.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+        
+        //---added obn 12-March-2024, code starts
+        self.TableViewPendingItems.clipsToBounds = true
+        self.TableViewPendingItems.layer.cornerRadius = 10
+        self.TableViewPendingItems.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        self.ViewPendingItems.layer.shadowColor = UIColor.gray.cgColor
+        self.ViewPendingItems.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.ViewPendingItems.layer.shadowOpacity = 3
+        self.ViewPendingItems.layer.shadowRadius = 3.0
+        //---added obn 12-March-2024, code ends
+        
         self.TableViewPendingItems.delegate = self
         self.TableViewPendingItems.dataSource = self
         self.TableViewPendingItems.backgroundColor = UIColor.white
@@ -1151,6 +1166,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildAttendance.clipsToBounds = true
         self.ViewChildAttendance.layer.cornerRadius = 10
         self.ViewChildAttendance.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        
+        //---added obn 12-March-2024, code starts
+        self.ViewAttendance.layer.shadowColor = UIColor.gray.cgColor
+        self.ViewAttendance.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.ViewAttendance.layer.shadowOpacity = 3
+        self.ViewAttendance.layer.shadowRadius = 3.0
+        //---added obn 12-March-2024, code ends
         
 //        LabelInTitle.addBorder(side: .right, color: UIColor(hexFromString: "A2A2A2"), width: 1) //---commented on 7th march 2024
         ViewInTime.addBorder(side: .right, color: UIColor(hexFromString: "DADADA"), width: 1)
@@ -1903,6 +1926,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
        //--------function to show holiday details using Alamofire and Json Swifty code ends------------
     
     func LoadCalendarDetails(){
+        
+        //---added obn 12-March-2024, code starts
+        self.ViewCalendar.layer.shadowColor = UIColor.gray.cgColor
+        self.ViewCalendar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.ViewCalendar.layer.shadowOpacity = 3
+        self.ViewCalendar.layer.shadowRadius = 3.0
+        //---added obn 12-March-2024, code ends
+        
         LoadCalendarDataFromApi()
         LabelCalendarDate.text = ""
         LabelCalendarDay.text = ""
@@ -1933,9 +1964,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         calendar.clipsToBounds = true
         calendar.layer.cornerRadius = 10
         calendar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+
         
         calendar.addBorderFSCCalendar(side: .bottom, color: UIColor(hexFromString: "BFBFBF"), width: 1)
+
         
+        //---added on 12-March-2024, code starts
+       
+        //---added on 12-March-2024, code ends
 //        calender.appearance.separators = .interRows
         
         
@@ -1964,6 +2000,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     }
     
     
+    //---added on 12-Mar-2024, code starts
+    
+       
+    //---added on 12-Mar-2024, code ends
+    
+    
     //===========Calender code ends============
     
     
@@ -1972,6 +2014,16 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         self.ViewChildPaySlip.clipsToBounds = true
         self.ViewChildPaySlip.layer.cornerRadius = 10
         self.ViewChildPaySlip.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        //---added obn 12-March-2024, code starts
+        
+        self.ViewPaySlip.layer.shadowColor = UIColor.gray.cgColor
+        self.ViewPaySlip.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.ViewPaySlip.layer.shadowOpacity = 3
+        self.ViewPaySlip.layer.shadowRadius = 3.0
+        //---added obn 12-March-2024, code ends
+        
+        
         self.BtnMonth.addBorder(side: .right, color: UIColor(hexFromString: "B08F1C"), width: 1.0)
        get_month_details()
        get_Year_details()

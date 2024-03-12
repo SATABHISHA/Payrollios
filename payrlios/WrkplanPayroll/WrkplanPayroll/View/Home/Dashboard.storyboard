@@ -661,6 +661,9 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSD-Fh-JhC">
@@ -1052,6 +1055,8 @@
                         <outlet property="ViewEmpDetails" destination="csL-60-1Ra" id="bqi-wY-C5c"/>
                         <outlet property="ViewInTime" destination="Yml-lF-QhH" id="UKU-qB-Bfr"/>
                         <outlet property="ViewOutTime" destination="n5P-2J-AQS" id="aBu-Qe-Och"/>
+                        <outlet property="ViewPaySlip" destination="QSD-Fh-JhC" id="u5O-F8-CUn"/>
+                        <outlet property="ViewPendingItems" destination="Zks-5W-Ad3" id="5XU-Vu-23U"/>
                         <outlet property="ViewWfh" destination="0Rf-vR-0wb" id="add-4v-KeX"/>
                         <outlet property="btnCheckBox" destination="ueD-EK-fFj" id="sIM-Kt-KjF"/>
                         <outlet property="btnPasswordChangeSubmit" destination="FLT-BX-wTa" id="Y1H-zK-p7O"/>
