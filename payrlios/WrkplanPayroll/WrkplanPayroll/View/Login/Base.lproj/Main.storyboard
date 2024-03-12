@@ -73,12 +73,12 @@
                                 <rect key="frame" x="0.0" y="191" width="414" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Corporate ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nc7-m2-DFh" customClass="RoundedBottomBorderTextField" customModule="WrkplanPayroll" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Corporate ID" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Nc7-m2-DFh" customClass="RoundedBottomBorderTextField" customModule="WrkplanPayroll" customModuleProvider="target">
                                         <rect key="frame" x="35" y="38" width="342" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -104,15 +104,15 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6i-LQ-VBy" customClass="RoundedBottomBorderTextField" customModule="WrkplanPayroll" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="M6i-LQ-VBy" customClass="RoundedBottomBorderTextField" customModule="WrkplanPayroll" customModuleProvider="target">
                                         <rect key="frame" x="35" y="82" width="342" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDr-B3-YIC" customClass="RoundedBottomBorderPasswordTextField" customModule="WrkplanPayroll" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="kDr-B3-YIC" customClass="RoundedBottomBorderPasswordTextField" customModule="WrkplanPayroll" customModuleProvider="target">
                                         <rect key="frame" x="35" y="128" width="342" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -188,10 +188,10 @@
     </scenes>
     <designables>
         <designable name="M6i-LQ-VBy">
-            <size key="intrinsicContentSize" width="82.666666666666671" height="23.333333333333332"/>
+            <size key="intrinsicContentSize" width="57.666666666666664" height="16"/>
         </designable>
         <designable name="Nc7-m2-DFh">
-            <size key="intrinsicContentSize" width="103" height="23.333333333333332"/>
+            <size key="intrinsicContentSize" width="72.666666666666671" height="16"/>
         </designable>
         <designable name="kDr-B3-YIC">
             <size key="intrinsicContentSize" width="54.333333333333336" height="15"/>
@@ -200,7 +200,7 @@
     <resources>
         <image name="workplanlogo" width="333" height="92"/>
         <systemColor name="scrollViewTexturedBackgroundColor">
-            <color red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

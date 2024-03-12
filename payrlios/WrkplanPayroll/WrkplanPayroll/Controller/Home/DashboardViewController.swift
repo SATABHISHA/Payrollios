@@ -33,6 +33,10 @@ struct LocationData: Decodable {
 
 class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, UNUserNotificationCenterDelegate, AVCaptureMetadataOutputObjectsDelegate {
 
+    
+    
+    @IBOutlet weak var NavView: UIView! //---added on 12-Mar-2024
+    
     //---added on 27-Feb-2024, code starts
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
@@ -185,6 +189,13 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         // Do any additional setup after loading the view.
 //        ViewBtnInOut.setCornerRadius(cornerRadius: 10, topLeft: false, bottomLeft: false, topRight: true, bottomRight: true, leftBorder: false, rightBorder: true, topBorder: true, bottomBorder: true, borderColor: UIColor.gray)
 //        ViewBtnInOut.roundCorners(corners: [.topRight, .bottomRight], radius: 10)
+        NavView.clipsToBounds = true
+        NavView.layer.masksToBounds = true
+        NavView.applyGradient(
+            colors: [UIColor(hexFromString: "#084F95"), UIColor(hexFromString: "#64B5F6")],
+                    startPoint: CGPoint(x: 0, y: 0),
+                    endPoint: CGPoint(x: 1, y: 1)
+                )
         
         LoadSwipeGuesture()
         LoadNotificationDetails()
@@ -1498,6 +1509,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
             "work_from_home_detail": tv_wrk_frm_home.text!
         ] */
         
+        //---added on 12-Mar-2024, code starts
+        if TxtViewWFH.text == "Type Work From Home Reason"{
+            TxtViewWFH.text = ""
+        }
+        //---added on 12-Mar-2024, code ends
+        
         //--added on 28th May, starts
         let jsonObject: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
@@ -1949,14 +1966,15 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         calendar.appearance.titleFont = UIFont.systemFont(ofSize: 18.0, weight: .regular)
         calendar.appearance.subtitleFont = UIFont.systemFont(ofSize: 0.0, weight: .regular)
         calendar.appearance.weekdayFont = UIFont.boldSystemFont(ofSize: 18.0)
-        calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 17)
+//        calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 17)
         calendar.scrollDirection = .horizontal
 //        calendar.appearance.todayColor = .red
         //        calender.calendarHeaderView.backgroundColor = UIColorRGB(r: 75, g: 153.0, b: 224.0)
         calendar.calendarHeaderView.backgroundColor = UIColor(hexFromString: "BFBFBF")
         calendar.calendarWeekdayView.backgroundColor = UIColor(hexFromString: "f2f2f2")
         calendar.appearance.titleWeekendColor = UIColor(hexFromString: "FB4E4E")
-        calendar.appearance.headerTitleColor = .white
+//        calendar.appearance.headerTitleColor = .white
+        calendar.appearance.headerTitleColor = UIColor(hexFromString: "787878")
         calendar.appearance.weekdayTextColor = UIColor(hexFromString: "0260D2")
         calendar.appearance.titleTodayColor = .black
         calendar.appearance.borderRadius = 0
@@ -2561,6 +2579,20 @@ extension DashboardViewController: UITextViewDelegate {
 }*/
 
 extension UIView{
+    
+    func applyGradient(colors: [UIColor], startPoint: CGPoint, endPoint: CGPoint) {
+            // Create gradient layer
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame = bounds
+            gradientLayer.colors = colors.map { $0.cgColor }
+            gradientLayer.startPoint = startPoint
+            gradientLayer.endPoint = endPoint
+            
+            // Add gradient layer to the view's layer
+            layer.insertSublayer(gradientLayer, at: 0)
+        }
+    
+    
     func setCornerRadius(cornerRadius: CGFloat, topLeft: Bool, bottomLeft: Bool, topRight: Bool, bottomRight: Bool, leftBorder: Bool, rightBorder: Bool, topBorder: Bool, bottomBorder: Bool, borderColor: UIColor? = nil) {
            var maskedCorners: CACornerMask = []
            if topLeft {
