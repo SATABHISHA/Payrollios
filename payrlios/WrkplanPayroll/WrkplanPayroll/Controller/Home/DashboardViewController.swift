@@ -219,8 +219,6 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         LoadPendingItemDetails()
         LoadSalaryData()
         
-       
-        
     }
     
     
