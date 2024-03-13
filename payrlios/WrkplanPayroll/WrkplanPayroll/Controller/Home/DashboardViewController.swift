@@ -189,13 +189,17 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         // Do any additional setup after loading the view.
 //        ViewBtnInOut.setCornerRadius(cornerRadius: 10, topLeft: false, bottomLeft: false, topRight: true, bottomRight: true, leftBorder: false, rightBorder: true, topBorder: true, bottomBorder: true, borderColor: UIColor.gray)
 //        ViewBtnInOut.roundCorners(corners: [.topRight, .bottomRight], radius: 10)
-        NavView.clipsToBounds = true
-        NavView.layer.masksToBounds = true
-        NavView.applyGradient(
+        /*NavView.clipsToBounds = true
+        NavView.layer.masksToBounds = true*/
+//        NavView.backgroundColor = UIColor.red
+       
+    
+        /*NavView.layer.bounds.size.width = UIScreen.main.bounds.width
+        NavView.applyGradient(view: NavView,
             colors: [UIColor(hexFromString: "#084F95"), UIColor(hexFromString: "#64B5F6")],
                     startPoint: CGPoint(x: 0, y: 0),
                     endPoint: CGPoint(x: 1, y: 1)
-                )
+                )*/
         
         LoadSwipeGuesture()
         LoadNotificationDetails()
@@ -2578,9 +2582,10 @@ extension DashboardViewController: UITextViewDelegate {
 
 }*/
 
+
 extension UIView{
     
-    func applyGradient(colors: [UIColor], startPoint: CGPoint, endPoint: CGPoint) {
+    func applyGradient(view: UIView, colors: [UIColor], startPoint: CGPoint, endPoint: CGPoint) {
             // Create gradient layer
             let gradientLayer = CAGradientLayer()
             gradientLayer.frame = bounds
@@ -2589,7 +2594,8 @@ extension UIView{
             gradientLayer.endPoint = endPoint
             
             // Add gradient layer to the view's layer
-            layer.insertSublayer(gradientLayer, at: 0)
+//           layer.insertSublayer(gradientLayer, at: 0)
+           view.layer.insertSublayer(gradientLayer, at: 0)
         }
     
     

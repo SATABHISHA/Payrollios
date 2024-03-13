@@ -145,6 +145,7 @@
 		197D6E0C27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */; };
 		198DA99227D8B2FB0045D9AE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 198DA99027D8B2FB0045D9AE /* DataModel.xcdatamodeld */; };
 		19B656E027EC4AD600C22F60 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */; };
+		19B803C12BA17CAB00E481C0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B803C02BA17CAB00E481C0 /* GradientView.swift */; };
 		19C703B02B9848D30044C47D /* RoundedBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */; };
 		19C703B22B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */; };
 		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
@@ -313,6 +314,7 @@
 		197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHlomeTableViewCell.swift; sourceTree = "<group>"; };
 		198DA99127D8B2FB0045D9AE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		19B803C02BA17CAB00E481C0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderTextField.swift; sourceTree = "<group>"; };
 		19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderPasswordTextField.swift; sourceTree = "<group>"; };
 		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				172FBE222570345A00422A2D /* FileDownloader.swift */,
 				17B05E6D2579151600CBC3C9 /* CustomBorder.swift */,
 				198DA99027D8B2FB0045D9AE /* DataModel.xcdatamodeld */,
+				19B803C02BA17CAB00E481C0 /* GradientView.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1219,6 +1222,7 @@
 				1705789825F60BA800F78865 /* SubordinateOutdoorDutyRequestListTableViewCell.swift in Sources */,
 				17627D9A257F4F83004FABA1 /* TimesheetMyAttendanceTableViewCell.swift in Sources */,
 				17BDC05926451A2F006EAFD0 /* ReportsViewController.swift in Sources */,
+				19B803C12BA17CAB00E481C0 /* GradientView.swift in Sources */,
 				173C0F1D25626FB9007AE8F6 /* SceneDelegate.swift in Sources */,
 				197CA44D27F30C0C00513DEE /* SalarySlipPdfViewController.swift in Sources */,
 				17914B8026177C05000C63D4 /* SubordinateOdDtyLogEmployeeTaskTableViewCell.swift in Sources */,

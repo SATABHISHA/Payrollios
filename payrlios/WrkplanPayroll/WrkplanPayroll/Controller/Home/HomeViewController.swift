@@ -1325,7 +1325,8 @@ extension UIViewController {
             let statusBarHeight: CGFloat = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
             
             let statusbarView = UIView()
-            statusbarView.backgroundColor = UIColor(hexFromString: "3982cb")
+//            statusbarView.backgroundColor = UIColor(hexFromString: "3982cb")
+            statusbarView.backgroundColor = UIColor(hexFromString: "084F95")
             view.addSubview(statusbarView)
             
             statusbarView.translatesAutoresizingMaskIntoConstraints = false
@@ -1341,7 +1342,8 @@ extension UIViewController {
         } else {
             let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
             //            statusBar?.backgroundColor = UIColor(hexFromString: "2E5771")
-            statusBar?.backgroundColor = UIColor(hexFromString: "3982cb")
+//            statusBar?.backgroundColor = UIColor(hexFromString: "3982cb")
+            statusBar?.backgroundColor = UIColor(hexFromString: "084F95")
         }
     }
 }
