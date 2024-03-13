@@ -131,6 +131,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     
     //----added variables on 31st may for selfie
     static var in_out: String!, work_frm_home_flag: Int!, work_from_home_detail: String!, message_in_out: String!
+    var crossButton: UIButton!
     
     //---Attendance variables, ends----
     
@@ -1278,6 +1279,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                 // After getting the QR code data, you might want to stop the capture session
                 previewLayer.removeFromSuperlayer()
                 captureSession.stopRunning()
+                crossButton.removeFromSuperview() //---added on 13-Mar-2024
                 
                 
                 let jsonString = """
@@ -1409,6 +1411,17 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                captureSession.startRunning()
         //---added on 247-feb-2024, code ends
         
+        
+        //---cross btn, added on 13-Mar-2024, code starts
+        // Add cross button
+                crossButton = UIButton(type: .custom)
+                crossButton.setImage(UIImage(named: "cross"), for: .normal)
+                crossButton.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 10, width: 40, height: 40)
+                crossButton.addTarget(self, action: #selector(cancelSession), for: .touchUpInside)
+                view.addSubview(crossButton)
+                
+        //---cross btn, added on 13-Mar-2024, code ends
+        
         determineMyCurrentLocation(status: "Start") //---function to get lat/long
        /* if LabelInOut.text == "IN" {
             TimesheetMyAttendanceViewController.in_out = "IN"
@@ -1455,6 +1468,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                           }
         } */
     }
+    
+    //---added cross btn function on 13-Mar-2024, code starts
+    @objc func cancelSession() {
+            captureSession.stopRunning()
+            previewLayer.removeFromSuperlayer()
+            crossButton.removeFromSuperview()
+        }
+    //---added cross btn function on 13-Mar-2024, code ends
     @IBAction func checkMarkedTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveLinear, animations: {
             sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)

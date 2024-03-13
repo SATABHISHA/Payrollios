@@ -46,8 +46,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1593"
-            endingLineNumber = "1593"
+            startingLineNumber = "1614"
+            endingLineNumber = "1614"
             landmarkName = "load_data_check_od_duty()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1423"
-            endingLineNumber = "1423"
+            startingLineNumber = "1436"
+            endingLineNumber = "1436"
             landmarkName = "ViewBtn(tapGestureRecognizer:)"
             landmarkType = "7">
             <Locations>
@@ -143,6 +143,21 @@
                   endingLineNumber = "1328"
                   offsetFromSymbolStart = "4372">
                </Location>
+               <Location
+                  uuid = "2D422FA7-FD0D-497B-97BB-B1D7F2100953 - 2b52026f424c6a13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.ViewBtn(tapGestureRecognizer: __C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1469"
+                  endingLineNumber = "1469"
+                  offsetFromSymbolStart = "3504">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -156,8 +171,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1529"
-            endingLineNumber = "1529"
+            startingLineNumber = "1550"
+            endingLineNumber = "1550"
             landmarkName = "save_in_out_data(in_out:work_frm_home_flag:work_from_home_detail:message_in_out:imageBase64:)"
             landmarkType = "7">
             <Locations>
@@ -221,6 +236,21 @@
                   endingLineNumber = "1424"
                   offsetFromSymbolStart = "3284">
                </Location>
+               <Location
+                  uuid = "44371D6D-4895-4A56-B550-770CA46DECBF - e8af81e832ba2e40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WrkplanPayroll.DashboardViewController.save_in_out_data(in_out: Swift.String, work_frm_home_flag: Swift.Int, work_from_home_detail: Swift.String, message_in_out: Swift.String, imageBase64: Swift.String) -&gt; ()"
+                  moduleName = "WrkplanPayroll"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debashispal/Downloads/git/Payrollios/payrlios/WrkplanPayroll/WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1549"
+                  endingLineNumber = "1549"
+                  offsetFromSymbolStart = "4204">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -234,8 +264,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1268"
-            endingLineNumber = "1268"
+            startingLineNumber = "1269"
+            endingLineNumber = "1269"
             landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,8 +280,24 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1412"
-            endingLineNumber = "1412"
+            startingLineNumber = "1425"
+            endingLineNumber = "1425"
+            landmarkName = "ViewBtn(tapGestureRecognizer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98C69CF8-6F85-4393-BBE0-A9747D009DB2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1417"
+            endingLineNumber = "1417"
             landmarkName = "ViewBtn(tapGestureRecognizer:)"
             landmarkType = "7">
          </BreakpointContent>
