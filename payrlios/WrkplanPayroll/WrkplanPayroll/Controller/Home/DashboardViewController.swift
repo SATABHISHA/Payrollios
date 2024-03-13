@@ -201,6 +201,12 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     startPoint: CGPoint(x: 0, y: 0),
                     endPoint: CGPoint(x: 1, y: 1)
                 )*/
+        //---added on 13-Mar-2024, code starts
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppDidBecomeActiveNotification(notification:)),
+                                                  name: UIApplication.didBecomeActiveNotification,
+                                                  object: nil)
+        //---added on 13-Mar-2024, code ends
+        
         
         LoadSwipeGuesture()
         LoadNotificationDetails()
@@ -216,6 +222,18 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
        
         
     }
+    
+    
+    //---added on 13-Mar-2024, code starts
+    @objc func handleAppDidBecomeActiveNotification(notification: Notification) {
+        load_data_check_od_duty()
+    }
+    
+    deinit {
+       NotificationCenter.default.removeObserver(self)
+    }
+    //---added on 13-Mar-2024, code ends
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
