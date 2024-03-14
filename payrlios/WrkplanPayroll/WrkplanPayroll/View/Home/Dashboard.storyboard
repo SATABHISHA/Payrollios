@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1269,6 +1270,46 @@
                         <constraint firstItem="JUn-EF-kfb" firstAttribute="leading" secondItem="8qF-TB-uX5" secondAttribute="leading" constant="15" id="yp5-bQ-n0a"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" id="XSW-AF-9Dd">
+                    <rect key="frame" x="0.0" y="0.0" width="267" height="159"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taO-uK-Zfs" customClass="GradientBackgroundView" customModule="WrkplanPayroll" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="267" height="30"/>
+                            <color key="backgroundColor" red="0.3921568627" green="0.70980392160000005" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="JJ5-Nq-8M8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nb2-wE-MK1">
+                            <rect key="frame" x="0.0" y="124" width="267" height="35"/>
+                            <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="4Rp-PM-DIq"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOB-dl-xng" customClass="LottieAnimationView" customModule="Lottie">
+                            <rect key="frame" x="20" y="56.666666666666657" width="40" height="41"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="RIu-4V-LzD"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="af5-5B-x92"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Nb2-wE-MK1" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" id="8J7-Kw-GRl"/>
+                        <constraint firstItem="NOB-dl-xng" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" constant="20" id="CLW-iI-Wq6"/>
+                        <constraint firstItem="Nb2-wE-MK1" firstAttribute="bottom" secondItem="af5-5B-x92" secondAttribute="bottom" id="KaI-JK-Va4"/>
+                        <constraint firstItem="taO-uK-Zfs" firstAttribute="top" secondItem="XSW-AF-9Dd" secondAttribute="top" id="OZO-NY-vvF"/>
+                        <constraint firstItem="af5-5B-x92" firstAttribute="trailing" secondItem="Nb2-wE-MK1" secondAttribute="trailing" id="TZC-FY-jrK"/>
+                        <constraint firstItem="taO-uK-Zfs" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" id="Vhy-0F-KnX"/>
+                        <constraint firstItem="Nb2-wE-MK1" firstAttribute="top" secondItem="NOB-dl-xng" secondAttribute="bottom" constant="26.5" id="cII-gt-s9t"/>
+                        <constraint firstItem="NOB-dl-xng" firstAttribute="top" secondItem="taO-uK-Zfs" secondAttribute="bottom" constant="26.5" id="fAP-fM-yxZ"/>
+                        <constraint firstItem="taO-uK-Zfs" firstAttribute="trailing" secondItem="af5-5B-x92" secondAttribute="trailing" id="vAv-aw-9bs"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" id="8Cs-k8-G9u">
                     <rect key="frame" x="0.0" y="0.0" width="291" height="92"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1645,5 +1686,14 @@
         <image name="menuicon" width="32" height="32"/>
         <image name="woman" width="512" height="512"/>
         <image name="workplanlogo" width="333" height="92"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

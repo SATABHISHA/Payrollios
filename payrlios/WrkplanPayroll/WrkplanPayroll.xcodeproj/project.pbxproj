@@ -967,8 +967,8 @@
 			);
 			mainGroup = 173C0F0E25626FB9007AE8F6;
 			packageReferences = (
-				1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */,
+				1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar.git" */,
+				1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren.git" */,
 			);
 			productRefGroup = 173C0F1825626FB9007AE8F6 /* Products */;
 			projectDirPath = "";
@@ -1089,7 +1089,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		998F0219B0AA0E548DE81922 /* [CP] Embed Pods Frameworks */ = {
@@ -1437,7 +1437,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.32;
+				MARKETING_VERSION = 1.33;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1464,7 +1464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.32;
+				MARKETING_VERSION = 1.33;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Arb.WrkplanPayroll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1603,7 +1603,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */ = {
+		1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ArtSabintsev/Siren.git";
 			requirement = {
@@ -1611,7 +1611,7 @@
 				minimumVersion = 5.8.1;
 			};
 		};
-		1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+		1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
@@ -1624,12 +1624,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		1734953E26270D95005B1FD0 /* Siren */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */;
+			package = 1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren.git" */;
 			productName = Siren;
 		};
 		1745A8D52577B993005DE336 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			package = 1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar.git" */;
 			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */

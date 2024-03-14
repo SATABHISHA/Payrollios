@@ -15,6 +15,7 @@ import DropDown
 import UserNotifications
 import CoreData
 import AVFoundation
+import Lottie
 
 struct NavigationDashboardMenuData{
     var imageData:UIImage!
