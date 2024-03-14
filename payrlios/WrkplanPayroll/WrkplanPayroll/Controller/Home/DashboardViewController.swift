@@ -195,16 +195,14 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 //        NavView.backgroundColor = UIColor.red
        
     
-        /*NavView.layer.bounds.size.width = UIScreen.main.bounds.width
-        NavView.applyGradient(view: NavView,
+//        NavView.layer.bounds.size.width = UIScreen.main.bounds.width
+        /*NavView.applyGradient(view: NavView,
             colors: [UIColor(hexFromString: "#084F95"), UIColor(hexFromString: "#64B5F6")],
                     startPoint: CGPoint(x: 0, y: 0),
                     endPoint: CGPoint(x: 1, y: 1)
                 )*/
         //---added on 13-Mar-2024, code starts
-        NotificationCenter.default.addObserver(self, selector: #selector(handleAppDidBecomeActiveNotification(notification:)),
-                                                  name: UIApplication.didBecomeActiveNotification,
-                                                  object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppDidBecomeActiveNotification(notification:)),name: UIApplication.didBecomeActiveNotification,object: nil)
         //---added on 13-Mar-2024, code ends
         
         
@@ -241,6 +239,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         TxtViewWFH.text = "Type Work From Home Reason"
         TxtViewWFH.textColor = UIColor.lightGray
     }
+    
     //===========///----Swipe Guesture, code starts----///========
     func LoadSwipeGuesture(){
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -1608,11 +1607,11 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //===========Code for getting time_in and time_out, starts==========
     func load_data_check_od_duty(){
         self.ImgViewAttendanceComplt.isHidden = true
-        self.loaderStart()
+//        self.loaderStart() //---commented on 14-Mar-2024
         let url = "\(BASE_URL)timesheet/log/today/\(swiftyJsonvar1["company"]["corporate_id"].stringValue)/\(swiftyJsonvar1["employee"]["employee_id"].stringValue)"
         //        let url = "http://14.99.211.60:9018/api/employeedocs/list/EMC_NEW/39"
         AF.request(url).responseJSON{ (responseData) -> Void in
-            self.loaderEnd()
+//            self.loaderEnd() //---commented on 14-Mar-2024
             if((responseData.value) != nil){
                 let swiftyJsonVar=JSON(responseData.value!)
                 print("Log description: \(swiftyJsonVar)")
