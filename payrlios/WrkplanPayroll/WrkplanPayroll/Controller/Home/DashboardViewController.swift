@@ -1736,9 +1736,17 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             self.btn_out.isHidden = true*/
                             
 //                            self.ImgViewAttendanceComplt.isHidden = true
-                            self.ViewBtnInOut.isHidden = true
+//                            self.ViewBtnInOut.isHidden = true //---commented on 15-Mar-2024
 //                            self.ViewBtnInOut.isUserInteractionEnabled = false
 //                            self.ViewBtnInOut.backgroundColor = UIColor(hexFromString: "8BC45B")
+                            
+                            //---added on 15-Mar-2024, code starts
+                            self.ViewBtnInOut.isHidden = false
+                            self.ViewBtnInOut.isUserInteractionEnabled = false
+                            self.ViewBtnInOut.backgroundColor = UIColor.clear
+                            self.ImgViewAttendanceComplt.isHidden = false
+                            self.LabelInOut.isHidden = true
+                            //---added on 15-Mar-2024, code ends
                             
                         }
                     }else {
