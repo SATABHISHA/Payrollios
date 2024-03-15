@@ -1592,6 +1592,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     if swiftyJsonVar["status"].stringValue == "true"{
                         self.determineMyCurrentLocation(status: "Stop")
                         self.load_data_check_od_duty()
+                        
+                        self.openAttendanceConfirmationPopup(AttendanceConfirmationMsg: message_in_out) //---added on 15-Mar-2024
                     }
                 }
                 
@@ -1904,7 +1906,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
           
           // 3. Adjust animation speed
           
-        animationView.animationSpeed = 0.5
+        animationView.animationSpeed = 0.8
           
           // 4. Play animation
         animationView.play()
