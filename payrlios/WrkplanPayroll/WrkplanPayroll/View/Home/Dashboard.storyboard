@@ -1035,6 +1035,7 @@
                         <outlet property="BtnMonth" destination="kYb-V4-Ai6" id="Gm2-al-Mc1"/>
                         <outlet property="ImgLogoutMenuBar" destination="u5m-JS-i47" id="0sC-PY-j5v"/>
                         <outlet property="ImgViewAttendanceComplt" destination="vhh-Ue-cJ9" id="Rt4-Lr-5tH"/>
+                        <outlet property="LabelAttendanceConfirmationMsg" destination="Bog-Oy-Y1V" id="VUE-J6-WAw"/>
                         <outlet property="LabelCalendarDate" destination="qOC-KL-Ogw" id="Dyb-sj-Qtz"/>
                         <outlet property="LabelCalendarDay" destination="tR6-v0-fBj" id="t39-N2-Yfm"/>
                         <outlet property="LabelCalendarHoliday" destination="CXe-LF-zpc" id="hRm-cR-Ztx"/>
@@ -1070,6 +1071,8 @@
                         <outlet property="ViewPaySlip" destination="QSD-Fh-JhC" id="u5O-F8-CUn"/>
                         <outlet property="ViewPendingItems" destination="Zks-5W-Ad3" id="5XU-Vu-23U"/>
                         <outlet property="ViewWfh" destination="0Rf-vR-0wb" id="add-4v-KeX"/>
+                        <outlet property="animationView" destination="NOB-dl-xng" id="0RZ-kq-YeZ"/>
+                        <outlet property="btnAttendanceConfirmationOk" destination="l9C-t3-pMY" id="bbc-Qs-SxC"/>
                         <outlet property="btnCheckBox" destination="ueD-EK-fFj" id="sIM-Kt-KjF"/>
                         <outlet property="btnPasswordChangeSubmit" destination="FLT-BX-wTa" id="Y1H-zK-p7O"/>
                         <outlet property="btnPopupCancel" destination="kQk-n5-EoB" id="80N-jt-E3s"/>
@@ -1092,6 +1095,7 @@
                         <outlet property="tvCurrentPassword" destination="f3i-L4-w1o" id="DcN-o4-1B1"/>
                         <outlet property="tvNewPassword" destination="GD2-hA-jUk" id="OPY-Td-kNv"/>
                         <outlet property="tvRetypeNewPassword" destination="Stl-WF-kyF" id="b1B-Vi-PAa"/>
+                        <outlet property="viewAttendanceConfirmationPopup" destination="XSW-AF-9Dd" id="C98-I1-GeR"/>
                         <outlet property="viewFormDialogChangePassword" destination="8qF-TB-uX5" id="EW1-yQ-Jr8"/>
                         <outlet property="viewFormLogoutPopup" destination="8Cs-k8-G9u" id="dnC-iW-aVc"/>
                         <outlet property="viewSelfie" destination="Y1q-NP-lsu" id="1hl-8V-zfJ"/>
@@ -1276,37 +1280,77 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taO-uK-Zfs" customClass="GradientBackgroundView" customModule="WrkplanPayroll" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="267" height="30"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attendance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHj-Lq-U5m">
+                                    <rect key="frame" x="10" y="6" width="247" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" red="0.3921568627" green="0.70980392160000005" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="JJ5-Nq-8M8"/>
+                                <constraint firstItem="lHj-Lq-U5m" firstAttribute="top" secondItem="taO-uK-Zfs" secondAttribute="top" constant="6" id="N0j-Sh-shO"/>
+                                <constraint firstAttribute="trailing" secondItem="lHj-Lq-U5m" secondAttribute="trailing" constant="10" id="dNa-gF-cw8"/>
+                                <constraint firstItem="lHj-Lq-U5m" firstAttribute="leading" secondItem="taO-uK-Zfs" secondAttribute="leading" constant="10" id="qAf-Xi-Rrw"/>
+                                <constraint firstAttribute="bottom" secondItem="lHj-Lq-U5m" secondAttribute="bottom" constant="6" id="tnW-Go-Lr1"/>
                             </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nb2-wE-MK1">
-                            <rect key="frame" x="0.0" y="124" width="267" height="35"/>
-                            <color key="backgroundColor" systemColor="systemYellowColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="35" id="4Rp-PM-DIq"/>
-                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                    <color key="value" red="0.031372549019607843" green="0.30980392156862746" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                    <color key="value" red="0.39215686274509803" green="0.70980392156862748" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOB-dl-xng" customClass="LottieAnimationView" customModule="Lottie">
                             <rect key="frame" x="20" y="56.666666666666657" width="40" height="41"/>
-                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="RIu-4V-LzD"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="rightsymbol"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bog-Oy-Y1V">
+                            <rect key="frame" x="80" y="50" width="167" height="54"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.30588235294117649" green="0.30588235294117649" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9C-t3-pMY">
+                            <rect key="frame" x="0.0" y="124" width="267" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="2rC-o8-mXB"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="OK">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                <color key="baseForegroundColor" red="0.30588235294117649" green="0.30588235294117649" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="btnAttendanceConfirmationOk:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="DQz-NI-Cp6"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="af5-5B-x92"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="Nb2-wE-MK1" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" id="8J7-Kw-GRl"/>
+                        <constraint firstItem="l9C-t3-pMY" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" id="7t4-lC-yd0"/>
+                        <constraint firstItem="l9C-t3-pMY" firstAttribute="top" secondItem="NOB-dl-xng" secondAttribute="bottom" constant="26.329999999999998" id="C7A-zK-3sL"/>
                         <constraint firstItem="NOB-dl-xng" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" constant="20" id="CLW-iI-Wq6"/>
-                        <constraint firstItem="Nb2-wE-MK1" firstAttribute="bottom" secondItem="af5-5B-x92" secondAttribute="bottom" id="KaI-JK-Va4"/>
                         <constraint firstItem="taO-uK-Zfs" firstAttribute="top" secondItem="XSW-AF-9Dd" secondAttribute="top" id="OZO-NY-vvF"/>
-                        <constraint firstItem="af5-5B-x92" firstAttribute="trailing" secondItem="Nb2-wE-MK1" secondAttribute="trailing" id="TZC-FY-jrK"/>
+                        <constraint firstItem="af5-5B-x92" firstAttribute="trailing" secondItem="Bog-Oy-Y1V" secondAttribute="trailing" constant="20" id="Oo6-jy-KMT"/>
+                        <constraint firstItem="af5-5B-x92" firstAttribute="trailing" secondItem="l9C-t3-pMY" secondAttribute="trailing" id="P5u-aO-Xkj"/>
                         <constraint firstItem="taO-uK-Zfs" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" id="Vhy-0F-KnX"/>
-                        <constraint firstItem="Nb2-wE-MK1" firstAttribute="top" secondItem="NOB-dl-xng" secondAttribute="bottom" constant="26.5" id="cII-gt-s9t"/>
+                        <constraint firstItem="Bog-Oy-Y1V" firstAttribute="top" secondItem="taO-uK-Zfs" secondAttribute="bottom" constant="20" id="ZBk-lD-rY8"/>
+                        <constraint firstItem="l9C-t3-pMY" firstAttribute="top" secondItem="Bog-Oy-Y1V" secondAttribute="bottom" constant="20" id="agv-7Y-J1e"/>
                         <constraint firstItem="NOB-dl-xng" firstAttribute="top" secondItem="taO-uK-Zfs" secondAttribute="bottom" constant="26.5" id="fAP-fM-yxZ"/>
+                        <constraint firstItem="Bog-Oy-Y1V" firstAttribute="leading" secondItem="NOB-dl-xng" secondAttribute="trailing" constant="20" id="rnG-qk-8YM"/>
+                        <constraint firstItem="l9C-t3-pMY" firstAttribute="bottom" secondItem="af5-5B-x92" secondAttribute="bottom" id="ulW-bS-Cgr"/>
                         <constraint firstItem="taO-uK-Zfs" firstAttribute="trailing" secondItem="af5-5B-x92" secondAttribute="trailing" id="vAv-aw-9bs"/>
                     </constraints>
                 </view>
@@ -1688,12 +1732,6 @@
         <image name="workplanlogo" width="333" height="92"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

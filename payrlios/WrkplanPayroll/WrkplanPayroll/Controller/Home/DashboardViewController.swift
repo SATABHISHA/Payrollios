@@ -16,6 +16,7 @@ import UserNotifications
 import CoreData
 import AVFoundation
 import Lottie
+import SwiftUI
 
 struct NavigationDashboardMenuData{
     var imageData:UIImage!
@@ -188,6 +189,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        openAttendanceConfirmationPopup(AttendanceConfirmationMsg: "Attendance IN time recorded") //---added temporary
         // Do any additional setup after loading the view.
 //        ViewBtnInOut.setCornerRadius(cornerRadius: 10, topLeft: false, bottomLeft: false, topRight: true, bottomRight: true, leftBorder: false, rightBorder: true, topBorder: true, bottomBorder: true, borderColor: UIColor.gray)
 //        ViewBtnInOut.roundCorners(corners: [.topRight, .bottomRight], radius: 10)
@@ -1861,7 +1863,75 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
 
         }
     //-------Location code ends(added on 28th May)
+    //==========Attendance Confirmation Popup, code starts(added on 15-Mar-2024)
     
+    @IBOutlet weak var LabelAttendanceConfirmationMsg: UILabel!
+    @IBOutlet weak var btnAttendanceConfirmationOk: UIButton!
+    @IBAction func btnAttendanceConfirmationOk(_ sender: Any) {
+        closeAttendanceConfirmationPopup()
+    }
+    
+    @IBOutlet weak var animationView: LottieAnimationView!
+    @IBOutlet var viewAttendanceConfirmationPopup: UIView!
+    func openAttendanceConfirmationPopup(AttendanceConfirmationMsg : String){
+        blurEffect()
+        self.view.addSubview(viewAttendanceConfirmationPopup)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        viewAttendanceConfirmationPopup.layer.masksToBounds = true
+        viewAttendanceConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+        viewAttendanceConfirmationPopup.center = self.view.center
+        viewAttendanceConfirmationPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewAttendanceConfirmationPopup.alpha = 0
+        viewAttendanceConfirmationPopup.sizeToFit()
+        
+        btnAttendanceConfirmationOk.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+//        view_custom_btn_punchout.addBorder(side: .top, color: UIColor(hexFromString: "4f4f4f"), width: 1)
+//        btnPopupCancel.titleLabel?.textColor = .black
+//        btnPopupYes.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+//        btnPopupNo.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 1)
+        
+        // Load animation
+        // 1. Set animation content mode
+        
+          
+        animationView.contentMode = .scaleAspectFit
+          
+          // 2. Set animation loop mode
+          
+        animationView.loopMode = .loop
+          
+          // 3. Adjust animation speed
+          
+        animationView.animationSpeed = 0.5
+          
+          // 4. Play animation
+        animationView.play()
+        
+        LabelAttendanceConfirmationMsg.text = AttendanceConfirmationMsg
+        
+        UIView.animate(withDuration: 0.3){
+            self.viewAttendanceConfirmationPopup.alpha = 1
+            self.viewAttendanceConfirmationPopup.transform = CGAffineTransform.identity
+        }
+        
+        
+        //        self.confidencelabel.text = confidence!
+        
+        
+    }
+    func closeAttendanceConfirmationPopup(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.viewAttendanceConfirmationPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.viewAttendanceConfirmationPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewAttendanceConfirmationPopup.removeFromSuperview();
+            self.canelBlurEffect()
+        }
+    }
+    //==========Attendance Confirmation Popup, code ends(added on 15-Mar-2024)
     //===============Selfie Confirmation Popup code starts===================
     @IBOutlet weak var btnPopupCancel: UIButton!
     @IBOutlet weak var btnPopupYes: UIButton!

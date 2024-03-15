@@ -138,6 +138,7 @@
 		17FBACE825ECDA8C00D41AFD /* OutDoorDutyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */; };
 		17FBACED25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */; };
 		1952FD5127FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1952FD5027FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift */; };
+		196336FB2BA44F23000EB41F /* rightsymbol.json in Resources */ = {isa = PBXBuildFile; fileRef = 196336FA2BA44F22000EB41F /* rightsymbol.json */; };
 		197CA44B27F30BB700513DEE /* SalarySlipPdfViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197CA44A27F30BB700513DEE /* SalarySlipPdfViewer.storyboard */; };
 		197CA44D27F30C0C00513DEE /* SalarySlipPdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CA44C27F30C0C00513DEE /* SalarySlipPdfViewController.swift */; };
 		197D6E0527D72E27005B8B78 /* NotificationHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */; };
@@ -148,9 +149,9 @@
 		19B803C12BA17CAB00E481C0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B803C02BA17CAB00E481C0 /* GradientView.swift */; };
 		19C703B02B9848D30044C47D /* RoundedBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */; };
 		19C703B22B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */; };
-		7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */; };
-		BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
-		F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */; };
+		5F18E919322C94D022E17F34 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E425242A6F9F5770DDE122 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
+		AA735405CEAEF2C3AA4431DC /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9069D64F67186A8E84B4F0 /* Pods_WrkplanPayrollTests.framework */; };
+		CB0D9B1EB24D4D0854DDBCEB /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE95E522B96E2932F061D17F /* Pods_WrkplanPayroll.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,7 +172,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; sourceTree = "<group>"; };
+		11A3E4ACB30EB27FE095FDBB /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1702411125EFD33800F6D285 /* KGRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGRadioButton.swift; sourceTree = "<group>"; };
 		170292AF268DF7240019D274 /* SupportingDocumentsPdfViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SupportingDocumentsPdfViewer.storyboard; sourceTree = "<group>"; };
 		170292B1268DF7DF0019D274 /* SupportingDocumentsPdfViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingDocumentsPdfViewerViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +308,7 @@
 		17FBACE725ECDA8C00D41AFD /* OutDoorDutyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListViewController.swift; sourceTree = "<group>"; };
 		17FBACEC25ECDAB700D41AFD /* OutDoorDutyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorDutyListTableViewCell.swift; sourceTree = "<group>"; };
 		1952FD5027FC445600CFA327 /* DashboardPendingItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPendingItemsTableViewCell.swift; sourceTree = "<group>"; };
+		196336FA2BA44F22000EB41F /* rightsymbol.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rightsymbol.json; sourceTree = "<group>"; };
 		197CA44A27F30BB700513DEE /* SalarySlipPdfViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SalarySlipPdfViewer.storyboard; sourceTree = "<group>"; };
 		197CA44C27F30C0C00513DEE /* SalarySlipPdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalarySlipPdfViewController.swift; sourceTree = "<group>"; };
 		197D6E0427D72E27005B8B78 /* NotificationHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationHome.storyboard; sourceTree = "<group>"; };
@@ -317,14 +319,14 @@
 		19B803C02BA17CAB00E481C0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderTextField.swift; sourceTree = "<group>"; };
 		19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderPasswordTextField.swift; sourceTree = "<group>"; };
-		1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
-		4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8BEAE02B5909149437B1CFEB /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		A8E0DAEEA997D097B53FA350 /* Pods-WrkplanPayrollTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.release.xcconfig"; sourceTree = "<group>"; };
-		B1C2338ADEEB8558CF5957C9 /* Pods-WrkplanPayroll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.release.xcconfig"; sourceTree = "<group>"; };
-		C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayroll_WrkplanPayrollUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20E425242A6F9F5770DDE122 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayroll_WrkplanPayrollUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3386001186E235498F656BB6 /* Pods-WrkplanPayroll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.release.xcconfig"; sourceTree = "<group>"; };
+		3FA97167EC3959A1BE4021F9 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8C9069D64F67186A8E84B4F0 /* Pods_WrkplanPayrollTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayrollTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D136F8401D9A4BC229F8E4 /* Pods-WrkplanPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.debug.xcconfig"; sourceTree = "<group>"; };
+		BE95E522B96E2932F061D17F /* Pods_WrkplanPayroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1CE7E77120A00D409D82CF2 /* Pods-WrkplanPayrollTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayrollTests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayrollTests/Pods-WrkplanPayrollTests.release.xcconfig"; sourceTree = "<group>"; };
+		FFCEF174046777C4DCFE411C /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,8 +335,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1734953F26270D95005B1FD0 /* Siren in Frameworks */,
-				F941EA4708654E0C7200F9AE /* Pods_WrkplanPayroll.framework in Frameworks */,
 				1745A8D62577B993005DE336 /* FSCalendar in Frameworks */,
+				CB0D9B1EB24D4D0854DDBCEB /* Pods_WrkplanPayroll.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E0138D5F6EC92C7EE372259 /* Pods_WrkplanPayrollTests.framework in Frameworks */,
+				AA735405CEAEF2C3AA4431DC /* Pods_WrkplanPayrollTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +352,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF5715FFE89CF8DA889DE19 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */,
+				5F18E919322C94D022E17F34 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,12 +362,12 @@
 		13B7D9826D355203E0B44D74 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */,
-				B1C2338ADEEB8558CF5957C9 /* Pods-WrkplanPayroll.release.xcconfig */,
-				8BEAE02B5909149437B1CFEB /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */,
-				0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */,
-				7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */,
-				A8E0DAEEA997D097B53FA350 /* Pods-WrkplanPayrollTests.release.xcconfig */,
+				90D136F8401D9A4BC229F8E4 /* Pods-WrkplanPayroll.debug.xcconfig */,
+				3386001186E235498F656BB6 /* Pods-WrkplanPayroll.release.xcconfig */,
+				FFCEF174046777C4DCFE411C /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */,
+				3FA97167EC3959A1BE4021F9 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */,
+				11A3E4ACB30EB27FE095FDBB /* Pods-WrkplanPayrollTests.debug.xcconfig */,
+				E1CE7E77120A00D409D82CF2 /* Pods-WrkplanPayrollTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -439,7 +441,7 @@
 				173C0F3E25626FBF007AE8F6 /* WrkplanPayrollUITests */,
 				173C0F1825626FB9007AE8F6 /* Products */,
 				13B7D9826D355203E0B44D74 /* Pods */,
-				33AC7048929A23A2D82489A1 /* Frameworks */,
+				87A4A18ADE776AD509378E89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -658,6 +660,7 @@
 		17723CBF2563B1E0002754DB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				196336FA2BA44F22000EB41F /* rightsymbol.json */,
 				17723CCB2563BCE1002754DB /* HomeViewController.swift */,
 				171239E4262423BD0024E96C /* HomeNavigationControllerTableViewCell.swift */,
 				1797DD7527EDD590003E83AC /* DashboardViewController.swift */,
@@ -859,12 +862,12 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
-		33AC7048929A23A2D82489A1 /* Frameworks */ = {
+		87A4A18ADE776AD509378E89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C977BB1C5B84DD0781CCE85C /* Pods_WrkplanPayroll.framework */,
-				CD091191A4EACEA6E13145AB /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */,
-				4C9E10CD9F67E01CD0E59B20 /* Pods_WrkplanPayrollTests.framework */,
+				BE95E522B96E2932F061D17F /* Pods_WrkplanPayroll.framework */,
+				20E425242A6F9F5770DDE122 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */,
+				8C9069D64F67186A8E84B4F0 /* Pods_WrkplanPayrollTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -876,11 +879,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 173C0F4425626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayroll" */;
 			buildPhases = (
-				D54D8EAF42830137FFAEAE4F /* [CP] Check Pods Manifest.lock */,
+				A4665ADF925342810BDF805B /* [CP] Check Pods Manifest.lock */,
 				173C0F1325626FB9007AE8F6 /* Sources */,
 				173C0F1425626FB9007AE8F6 /* Frameworks */,
 				173C0F1525626FB9007AE8F6 /* Resources */,
-				657A8CD731797658709DB5FC /* [CP] Embed Pods Frameworks */,
+				CC2BD4E04EB5B4B473AFCD4F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -899,7 +902,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 173C0F4725626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayrollTests" */;
 			buildPhases = (
-				DEC4860BA7C1C2DF729D0AB9 /* [CP] Check Pods Manifest.lock */,
+				3773144674EB53B503FF9FA0 /* [CP] Check Pods Manifest.lock */,
 				173C0F2C25626FBF007AE8F6 /* Sources */,
 				173C0F2D25626FBF007AE8F6 /* Frameworks */,
 				173C0F2E25626FBF007AE8F6 /* Resources */,
@@ -918,11 +921,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 173C0F4A25626FBF007AE8F6 /* Build configuration list for PBXNativeTarget "WrkplanPayrollUITests" */;
 			buildPhases = (
-				6391CF0F57A3A92A75F80325 /* [CP] Check Pods Manifest.lock */,
+				70F8B4B3A5B18C35AC907D7E /* [CP] Check Pods Manifest.lock */,
 				173C0F3725626FBF007AE8F6 /* Sources */,
 				173C0F3825626FBF007AE8F6 /* Frameworks */,
 				173C0F3925626FBF007AE8F6 /* Resources */,
-				998F0219B0AA0E548DE81922 /* [CP] Embed Pods Frameworks */,
+				354437DAD5ECF3B781A14E58 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -967,8 +970,8 @@
 			);
 			mainGroup = 173C0F0E25626FB9007AE8F6;
 			packageReferences = (
-				1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar.git" */,
-				1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren.git" */,
+				1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */,
 			);
 			productRefGroup = 173C0F1825626FB9007AE8F6 /* Products */;
 			projectDirPath = "";
@@ -1014,6 +1017,7 @@
 				17BDC05426451820006EAFD0 /* Reports.storyboard in Resources */,
 				1722940D256E800C0008D808 /* Leave.storyboard in Resources */,
 				17914B6E261779A5000C63D4 /* SubordinateOdDutyLogEmployeeTask.storyboard in Resources */,
+				196336FB2BA44F23000EB41F /* rightsymbol.json in Resources */,
 				1759134D268AF6EF00D24A78 /* MediclaimList.storyboard in Resources */,
 				17513FEB257E172F0090EFD5 /* SubordinateLog.storyboard in Resources */,
 				17E36A8B26A86AF300719AB5 /* SubordinateLta.storyboard in Resources */,
@@ -1053,7 +1057,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6391CF0F57A3A92A75F80325 /* [CP] Check Pods Manifest.lock */ = {
+		354437DAD5ECF3B781A14E58 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3773144674EB53B503FF9FA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WrkplanPayrollTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70F8B4B3A5B18C35AC907D7E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1075,41 +1118,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		657A8CD731797658709DB5FC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		998F0219B0AA0E548DE81922 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D54D8EAF42830137FFAEAE4F /* [CP] Check Pods Manifest.lock */ = {
+		A4665ADF925342810BDF805B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1131,26 +1140,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DEC4860BA7C1C2DF729D0AB9 /* [CP] Check Pods Manifest.lock */ = {
+		CC2BD4E04EB5B4B473AFCD4F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WrkplanPayrollTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1422,7 +1426,7 @@
 		};
 		173C0F4525626FBF007AE8F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D5468218766845F3CA917B9 /* Pods-WrkplanPayroll.debug.xcconfig */;
+			baseConfigurationReference = 90D136F8401D9A4BC229F8E4 /* Pods-WrkplanPayroll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1449,7 +1453,7 @@
 		};
 		173C0F4625626FBF007AE8F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1C2338ADEEB8558CF5957C9 /* Pods-WrkplanPayroll.release.xcconfig */;
+			baseConfigurationReference = 3386001186E235498F656BB6 /* Pods-WrkplanPayroll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1475,7 +1479,7 @@
 		};
 		173C0F4825626FBF007AE8F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BF510997FF7FB217FDED11C /* Pods-WrkplanPayrollTests.debug.xcconfig */;
+			baseConfigurationReference = 11A3E4ACB30EB27FE095FDBB /* Pods-WrkplanPayrollTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1498,7 +1502,7 @@
 		};
 		173C0F4925626FBF007AE8F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8E0DAEEA997D097B53FA350 /* Pods-WrkplanPayrollTests.release.xcconfig */;
+			baseConfigurationReference = E1CE7E77120A00D409D82CF2 /* Pods-WrkplanPayrollTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1521,7 +1525,7 @@
 		};
 		173C0F4B25626FBF007AE8F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BEAE02B5909149437B1CFEB /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */;
+			baseConfigurationReference = FFCEF174046777C4DCFE411C /* Pods-WrkplanPayroll-WrkplanPayrollUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1542,7 +1546,7 @@
 		};
 		173C0F4C25626FBF007AE8F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AAE2A086CCF408F0B6C4BB4 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */;
+			baseConfigurationReference = 3FA97167EC3959A1BE4021F9 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1603,7 +1607,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren.git" */ = {
+		1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ArtSabintsev/Siren.git";
 			requirement = {
@@ -1611,7 +1615,7 @@
 				minimumVersion = 5.8.1;
 			};
 		};
-		1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar.git" */ = {
+		1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
@@ -1624,12 +1628,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		1734953E26270D95005B1FD0 /* Siren */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren.git" */;
+			package = 1734953D26270D95005B1FD0 /* XCRemoteSwiftPackageReference "Siren" */;
 			productName = Siren;
 		};
 		1745A8D52577B993005DE336 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar.git" */;
+			package = 1745A8D42577B993005DE336 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
 		};
 /* End XCSwiftPackageProductDependency section */
