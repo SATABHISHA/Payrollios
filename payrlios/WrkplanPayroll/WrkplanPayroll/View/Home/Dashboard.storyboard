@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1323,6 +1322,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9C-t3-pMY">
                             <rect key="frame" x="0.0" y="124" width="267" height="35"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="2rC-o8-mXB"/>
                             </constraints>
@@ -1337,7 +1337,7 @@
                         </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="af5-5B-x92"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="l9C-t3-pMY" firstAttribute="leading" secondItem="af5-5B-x92" secondAttribute="leading" id="7t4-lC-yd0"/>
                         <constraint firstItem="l9C-t3-pMY" firstAttribute="top" secondItem="NOB-dl-xng" secondAttribute="bottom" constant="26.329999999999998" id="C7A-zK-3sL"/>
@@ -1730,8 +1730,5 @@
         <image name="menuicon" width="32" height="32"/>
         <image name="woman" width="512" height="512"/>
         <image name="workplanlogo" width="333" height="92"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

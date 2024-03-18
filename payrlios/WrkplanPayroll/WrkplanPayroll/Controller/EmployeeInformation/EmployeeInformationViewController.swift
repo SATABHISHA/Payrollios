@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class EmployeeInformationViewController: UIViewController {
 
+    @IBOutlet weak var emp_info_view: UIView!
     @IBOutlet weak var label_emp_name: UILabel!
     @IBOutlet weak var label_emp_code: UILabel!
     @IBOutlet weak var label_esi_no: UILabel!
@@ -24,6 +25,8 @@ class EmployeeInformationViewController: UIViewController {
         ChangeStatusBarColor() //---to change background statusbar color
         
         // Do any additional setup after loading the view.
+        
+        
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
         
