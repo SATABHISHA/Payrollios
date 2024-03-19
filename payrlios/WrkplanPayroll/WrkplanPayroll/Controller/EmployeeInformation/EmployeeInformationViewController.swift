@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class EmployeeInformationViewController: UIViewController {
 
+    @IBOutlet weak var emp_stack_view: UIStackView!
     @IBOutlet weak var emp_info_view: UIView!
     @IBOutlet weak var label_emp_name: UILabel!
     @IBOutlet weak var label_emp_code: UILabel!
@@ -26,17 +27,30 @@ class EmployeeInformationViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        //---added obn 11-March-2024, code starts
+        /*self.emp_info_view.clipsToBounds = true
+        self.emp_info_view.cornerRadius = 10
+        self.emp_info_view.borderWidth = 1
+        
+        self.emp_stack_view.clipsToBounds = true
+        self.emp_stack_view.cornerRadius = 10*/
+        
+        self.emp_stack_view.layer.shadowColor = UIColor.gray.cgColor
+        self.emp_stack_view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.emp_stack_view.layer.shadowOpacity = 3
+        self.emp_stack_view.layer.shadowRadius = 5.0
+        //---added obn 11-March-2024, code ends
         
         let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
         print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
         
-        label_emp_name.text = "\(swiftyJsonvar1["employee"]["employee_fname"].stringValue) \(swiftyJsonvar1["employee"]["employee_lname"].stringValue)"
-        label_emp_code.text = swiftyJsonvar1["employee"]["employee_code"].stringValue
-        label_esi_no.text = swiftyJsonvar1["employee"]["esi_no"].stringValue
-        label_pf_no.text = swiftyJsonvar1["employee"]["pf_no"].stringValue
-        label_uan_no.text = swiftyJsonvar1["employee"]["uan_no"].stringValue
-        label_supervisor1.text = swiftyJsonvar1["employee"]["supervisor_1_name"].stringValue
-        label_supervisor2.text = swiftyJsonvar1["employee"]["supervisor_2_name"].stringValue
+        label_emp_name.text = "  \(swiftyJsonvar1["employee"]["employee_fname"].stringValue) \(swiftyJsonvar1["employee"]["employee_lname"].stringValue)"
+        label_emp_code.text = "  \(swiftyJsonvar1["employee"]["employee_code"].stringValue)"
+        label_esi_no.text = "  \(swiftyJsonvar1["employee"]["esi_no"].stringValue)"
+        label_pf_no.text = "  \(swiftyJsonvar1["employee"]["pf_no"].stringValue)"
+        label_uan_no.text = "  \(swiftyJsonvar1["employee"]["uan_no"].stringValue)"
+        label_supervisor1.text = "  \(swiftyJsonvar1["employee"]["supervisor_1_name"].stringValue)"
+        label_supervisor2.text = "  \(swiftyJsonvar1["employee"]["supervisor_2_name"].stringValue)"
     }
     
     @IBAction func btn_home(_ sender: Any) {
