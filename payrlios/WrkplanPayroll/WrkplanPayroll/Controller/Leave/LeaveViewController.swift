@@ -23,6 +23,7 @@ class LeaveViewController: UIViewController {
     var year_details = [YearDetails]()
     
     
+    @IBOutlet weak var label_casual_leave_hours: UILabel!
     @IBOutlet weak var label_casual_leave: UILabel!
     @IBOutlet weak var label_earned_leave: UILabel!
     @IBOutlet weak var label_sick_leave: UILabel!
@@ -126,12 +127,30 @@ class LeaveViewController: UIViewController {
             if((responseData.value) != nil){
                 let swiftyJsonVar=JSON(responseData.value!)
                     print("Year description: \(swiftyJsonVar)")
-                self.label_casual_leave.text = swiftyJsonVar["leave_balance"]["casual_leave"].stringValue
+            
+                self.label_casual_leave.text = "\(swiftyJsonVar["leave_balance"]["casual_leave"].stringValue) H"
+                self.label_casual_leave_hours.text = "  (0 Day(s))"
                 self.label_earned_leave.text = swiftyJsonVar["leave_balance"]["earn_leave"].stringValue
                 self.label_sick_leave.text = swiftyJsonVar["leave_balance"]["sick_leave"].stringValue
                 self.label_maternal_leave.text = swiftyJsonVar["leave_balance"]["maternal_leave"].stringValue
                 self.label_paternal_leave.text = swiftyJsonVar["leave_balance"]["paternal_leave"].stringValue
                 self.label_comp_off.text = swiftyJsonVar["leave_balance"]["comp_off"].stringValue
+                
+                
+                if let casualLeaveString = swiftyJsonVar["leave_balance"]["casual_leave"].string {
+                    if let casualLeaveDouble = Double(casualLeaveString) {
+                        let dividedResult = casualLeaveDouble / 8.0
+                        let resultString = String(format: "%.2f", dividedResult)
+                        self.label_casual_leave_hours.text = "  (\(resultString) Day(s))"
+                    } else {
+                        // Handle the case where the string couldn't be converted to a double
+                        print("Error: Unable to convert earn_leave string to double")
+                    }
+                } else {
+                    // Handle the case where earn_leave string is nil
+                    print("Error: earn_leave string is nil")
+                }
+                
                     
                 }
 

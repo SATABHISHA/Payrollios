@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="SSv-dv-uex">
-                                <rect key="frame" x="30" y="140" width="354" height="431"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="SSv-dv-uex">
+                                <rect key="frame" x="30" y="140" width="354" height="497"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="LEW-Lq-rhv">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="35"/>
@@ -51,7 +51,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="EIa-qJ-SwR">
-                                        <rect key="frame" x="0.0" y="66" width="354" height="35"/>
+                                        <rect key="frame" x="0.0" y="77" width="354" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Casual Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tJ-tp-fIe">
                                                 <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="35"/>
@@ -59,19 +59,30 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYb-cf-UTu">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sP1-A3-rgu">
                                                 <rect key="frame" x="177.66666666666663" y="0.0" width="176.33333333333337" height="35"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="0.98360993846362788" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYb-cf-UTu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" red="0.48755097390000002" green="0.75446265940000001" blue="0.96956223249999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="VI3-NP-gSv">
+                                                        <rect key="frame" x="88.000000000000028" y="0.0" width="88.333333333333343" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="0.98360993846362788" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Dqn-CE-g6y"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="hbA-sX-boY">
-                                        <rect key="frame" x="0.0" y="132" width="354" height="35"/>
+                                        <rect key="frame" x="0.0" y="154" width="354" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earn Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24c-py-X1k">
                                                 <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="35"/>
@@ -91,7 +102,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="asF-bT-xdL">
-                                        <rect key="frame" x="0.0" y="198" width="354" height="35"/>
+                                        <rect key="frame" x="0.0" y="231" width="354" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sick Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2M-AY-fT0">
                                                 <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="35"/>
@@ -111,7 +122,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="8tx-yF-gyo">
-                                        <rect key="frame" x="0.0" y="264" width="354" height="35"/>
+                                        <rect key="frame" x="0.0" y="308" width="354" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comp Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sW-8z-8s2">
                                                 <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="35"/>
@@ -131,7 +142,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="nWZ-T4-boe">
-                                        <rect key="frame" x="0.0" y="330" width="354" height="35"/>
+                                        <rect key="frame" x="0.0" y="385" width="354" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maternal Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gs1-qd-MuR">
                                                 <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="35"/>
@@ -151,7 +162,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mla-b8-nhU">
-                                        <rect key="frame" x="0.0" y="396" width="354" height="35"/>
+                                        <rect key="frame" x="0.0" y="462" width="354" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paternal Leave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmC-Ue-9sF">
                                                 <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="35"/>
@@ -214,7 +225,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vhZ-6a-54i">
-                                <rect key="frame" x="0.0" y="696" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLx-eP-uy1" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
@@ -282,7 +293,6 @@
                             <constraint firstItem="vhZ-6a-54i" firstAttribute="bottom" secondItem="449-Jd-mfA" secondAttribute="bottom" id="niW-x0-TiS"/>
                             <constraint firstItem="vhZ-6a-54i" firstAttribute="leading" secondItem="449-Jd-mfA" secondAttribute="leading" id="nxq-YR-Wgi"/>
                             <constraint firstItem="SSv-dv-uex" firstAttribute="leading" secondItem="449-Jd-mfA" secondAttribute="leading" constant="30" id="rkr-L7-9k3"/>
-                            <constraint firstItem="449-Jd-mfA" firstAttribute="bottom" secondItem="SSv-dv-uex" secondAttribute="bottom" constant="185" id="sWW-Jr-bRT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -290,6 +300,7 @@
                         <outlet property="designable_btn_leave_appltn" destination="yLx-eP-uy1" id="Za4-Vd-wp4"/>
                         <outlet property="designable_btn_subordinate_leave_appltn" destination="1JI-fZ-CTn" id="lxT-cT-6Rv"/>
                         <outlet property="label_casual_leave" destination="zYb-cf-UTu" id="hFa-Pi-xzX"/>
+                        <outlet property="label_casual_leave_hours" destination="VI3-NP-gSv" id="elb-dE-y81"/>
                         <outlet property="label_comp_off" destination="7S3-CL-ca8" id="LMv-Xz-6Wt"/>
                         <outlet property="label_earned_leave" destination="c0O-kw-IFU" id="u7q-ug-rrI"/>
                         <outlet property="label_maternal_leave" destination="lAY-7p-eiY" id="KVh-NG-Qx0"/>
@@ -334,6 +345,14 @@
             <point key="canvasLocation" x="408" y="-67"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="1JI-fZ-CTn">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="yLx-eP-uy1">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="home_menu" width="32" height="32"/>
     </resources>
