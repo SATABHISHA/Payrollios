@@ -139,104 +139,83 @@ class LeaveViewController: UIViewController {
                 let swiftyJsonVar=JSON(responseData.value!)
                     print("Year description: \(swiftyJsonVar)")
             
+                
+                var casual_leave = swiftyJsonVar["leave_balance"]["casual_leave"].stringValue
                 self.label_casual_leave.text = "\(swiftyJsonVar["leave_balance"]["casual_leave"].stringValue) H"
-//                self.label_casual_leave_hours.text = "  (0 Day(s))"
+            
+                var earned_leave = swiftyJsonVar["leave_balance"]["earn_leave"].stringValue
                 self.label_earned_leave.text = "\(swiftyJsonVar["leave_balance"]["earn_leave"].stringValue) H"
+                
+                var sick_leave = swiftyJsonVar["leave_balance"]["sick_leave"].stringValue
                 self.label_sick_leave.text = "\(swiftyJsonVar["leave_balance"]["sick_leave"].stringValue) H"
+                
+                var maternal_leave = swiftyJsonVar["leave_balance"]["maternal_leave"].stringValue
                 self.label_maternal_leave.text = "\(swiftyJsonVar["leave_balance"]["maternal_leave"].stringValue) H"
+                
+                var paternal_leave = swiftyJsonVar["leave_balance"]["paternal_leave"].stringValue
                 self.label_paternal_leave.text = "\(swiftyJsonVar["leave_balance"]["paternal_leave"].stringValue) H"
+                
+                var comp_off = swiftyJsonVar["leave_balance"]["comp_off"].stringValue
                 self.label_comp_off.text = "\(swiftyJsonVar["leave_balance"]["comp_off"].stringValue) H"
+//                self.label_casual_leave_hours.text = "  (0 Day(s))"
                 
+             
                 
-                if let casualLeaveString = swiftyJsonVar["leave_balance"]["casual_leave"].string {
-                    if let casualLeaveDouble = Double(casualLeaveString) {
-                        let dividedResult = casualLeaveDouble / 8.0
-                        let resultString = String(format: "%.2f", dividedResult)
-                        self.label_casual_leave_hours.text = "  (\(resultString) Day(s))"
-                    } else {
-                        // Handle the case where the string couldn't be converted to a double
-                        print("Error: Unable to convert earn_leave string to double")
-                    }
+                if let casualLeaveDouble = Double(String(describing: casual_leave)) {
+                    let dividedResult = casualLeaveDouble / 8.0
+                    let resultString = String(format: "%.2f", dividedResult)
+                    self.label_casual_leave_hours.text = "  (\(resultString) Day(s))"
                 } else {
-                    // Handle the case where earn_leave string is nil
-                    print("Error: earn_leave string is nil")
+                    // Handle the case where the string couldn't be converted to a double
+                    print("Error: Unable to convert earn_leave string to double")
+                }
+                
+                if let earnedLeaveDouble = Double(String(describing: earned_leave)) {
+                    let dividedResult = earnedLeaveDouble / 8.0
+                    let resultString = String(format: "%.2f", dividedResult)
+                    self.label_earned_leave_hours.text = "  (\(resultString) Day(s))"
+                } else {
+                    // Handle the case where the string couldn't be converted to a double
+                    print("Error: Unable to convert earn_leave string to double")
                 }
                 
                 
-                
-                if let earnedLeaveString = self.label_earned_leave.text {
-                    if let earnedLeaveDouble = Double(earnedLeaveString) {
-                        let dividedResult = earnedLeaveDouble / 8.0
-                        let resultString = String(format: "%.2f", dividedResult)
-                        self.label_earned_leave_hours.text = "  (\(resultString) Day(s))"
-                    } else {
-                        // Handle the case where the string couldn't be converted to a double
-                        print("Error: Unable to convert earn_leave string to double")
-                    }
+                if let sickLeaveDouble = Double(String(describing: sick_leave)) {
+                    let dividedResult = sickLeaveDouble / 8.0
+                    let resultString = String(format: "%.2f", dividedResult)
+                    self.label_sick_leave_hours.text = "  (\(resultString) Day(s))"
                 } else {
-                    // Handle the case where earn_leave string is nil
-                    print("Error: earn_leave string is nil")
+                    // Handle the case where the string couldn't be converted to a double
+                    print("Error: Unable to convert earn_leave string to double")
                 }
                 
-                
-                if let sickLeaveString = self.label_sick_leave.text {
-                    if let sickLeaveDouble = Double(sickLeaveString) {
-                        let dividedResult = sickLeaveDouble / 8.0
-                        let resultString = String(format: "%.2f", dividedResult)
-                        self.label_sick_leave_hours.text = "  (\(resultString) Day(s))"
-                    } else {
-                        // Handle the case where the string couldn't be converted to a double
-                        print("Error: Unable to convert earn_leave string to double")
-                    }
+                if let maternalLeaveDouble = Double(String(describing: maternal_leave)) {
+                    let dividedResult = maternalLeaveDouble / 8.0
+                    let resultString = String(format: "%.2f", dividedResult)
+                    self.label_maternal_leave_hours.text = "  (\(resultString) Day(s))"
                 } else {
-                    // Handle the case where earn_leave string is nil
-                    print("Error: earn_leave string is nil")
+                    // Handle the case where the string couldn't be converted to a double
+                    print("Error: Unable to convert earn_leave string to double")
                 }
                 
-                
-                if let maternalLeaveString = self.label_maternal_leave.text {
-                    if let maternalLeaveDouble = Double(maternalLeaveString) {
-                        let dividedResult = maternalLeaveDouble / 8.0
-                        let resultString = String(format: "%.2f", dividedResult)
-                        self.label_maternal_leave_hours.text = "  (\(resultString) Day(s))"
-                    } else {
-                        // Handle the case where the string couldn't be converted to a double
-                        print("Error: Unable to convert earn_leave string to double")
-                    }
+                if let paternalLeaveDouble = Double(String(describing: paternal_leave)) {
+                    let dividedResult = paternalLeaveDouble / 8.0
+                    let resultString = String(format: "%.2f", dividedResult)
+                    self.label_paternal_leave_hours.text = "  (\(resultString) Day(s))"
                 } else {
-                    // Handle the case where earn_leave string is nil
-                    print("Error: earn_leave string is nil")
+                    // Handle the case where the string couldn't be converted to a double
+                    print("Error: Unable to convert earn_leave string to double")
                 }
                 
-                
-                if let paternalLeaveString = self.label_paternal_leave.text {
-                    if let paternalLeaveDouble = Double(paternalLeaveString) {
-                        let dividedResult = paternalLeaveDouble / 8.0
-                        let resultString = String(format: "%.2f", dividedResult)
-                        self.label_paternal_leave_hours.text = "  (\(resultString) Day(s))"
-                    } else {
-                        // Handle the case where the string couldn't be converted to a double
-                        print("Error: Unable to convert earn_leave string to double")
-                    }
+                if let comp_offLeaveDouble = Double(String(describing: comp_off)) {
+                    let dividedResult = comp_offLeaveDouble / 8.0
+                    let resultString = String(format: "%.2f", dividedResult)
+                    self.label_comp_off_hours.text = "  (\(resultString) Day(s))"
                 } else {
-                    // Handle the case where earn_leave string is nil
-                    print("Error: earn_leave string is nil")
+                    // Handle the case where the string couldn't be converted to a double
+                    print("Error: Unable to convert earn_leave string to double")
                 }
                 
-                
-                if let comp_offLeaveString = self.label_comp_off.text {
-                    if let comp_offLeaveDouble = Double(comp_offLeaveString) {
-                        let dividedResult = comp_offLeaveDouble / 8.0
-                        let resultString = String(format: "%.2f", dividedResult)
-                        self.label_comp_off_hours.text = "  (\(resultString) Day(s))"
-                    } else {
-                        // Handle the case where the string couldn't be converted to a double
-                        print("Error: Unable to convert earn_leave string to double")
-                    }
-                } else {
-                    // Handle the case where earn_leave string is nil
-                    print("Error: earn_leave string is nil")
-                }
                 
                     
                 }
