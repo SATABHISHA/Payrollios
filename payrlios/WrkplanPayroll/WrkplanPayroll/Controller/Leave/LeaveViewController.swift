@@ -87,7 +87,6 @@ class LeaveViewController: UIViewController {
             dropDown.dataSource = year
             dropDown.anchorView = sender //5
             dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
-        // Set the default selection to the last index
             
             dropDown.show() //7
             dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
