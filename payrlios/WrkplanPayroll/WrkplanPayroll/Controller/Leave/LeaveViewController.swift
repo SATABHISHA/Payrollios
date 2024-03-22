@@ -23,6 +23,7 @@ class LeaveViewController: UIViewController {
     var year_details = [YearDetails]()
     
     
+    @IBOutlet weak var view_leave_balance: UIView!
     @IBOutlet weak var label_casual_leave_hours: UILabel!
     @IBOutlet weak var label_casual_leave: UILabel!
     
@@ -52,10 +53,18 @@ class LeaveViewController: UIViewController {
         ChangeStatusBarColor() //---to change background statusbar color
 
         // Do any additional setup after loading the view.
+        
+        self.view_leave_balance.layer.shadowColor = UIColor.gray.cgColor
+        self.view_leave_balance.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.view_leave_balance.layer.shadowOpacity = 3
+        self.view_leave_balance.layer.shadowRadius = 5.0
+        
+        
         //-----code to add button border, starts------
         StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         designable_btn_subordinate_leave_appltn.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         //-----code to add button border, ends------
+        
         
 //        print("hometesting-=>",swiftyJsonvar1["employee"]["father_husband_name"].stringValue)
         self.get_Year_details()
@@ -72,11 +81,14 @@ class LeaveViewController: UIViewController {
     @IBAction func btn_home(_ sender: Any) {
         self.performSegue(withIdentifier: "home", sender: self)
     }
+    
     @IBAction func btn_dropdown_year(_ sender: UIButton) {
 //        dropDown.dataSource = ["Tomato soup", "Mini burgers", "Onion rings", "Baked potato", "Salad"]//4
-        dropDown.dataSource = year
+            dropDown.dataSource = year
             dropDown.anchorView = sender //5
             dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
+        // Set the default selection to the last index
+            
             dropDown.show() //7
             dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
               guard let _ = self else { return }
