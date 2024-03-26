@@ -123,6 +123,11 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
             cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
             //            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
+        }else if dict["attendance_status"] as! String == "Holiday"{
+            cell.label_status.isHidden = false
+            cell.label_status.textColor = UIColor(hexFromString: "#ffffff")
+            //            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
+            cell.label_status.cornerRadius = 5
         }
         else{
             cell.label_status.isHidden = true
