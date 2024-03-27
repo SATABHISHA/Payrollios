@@ -9,6 +9,7 @@ import UIKit
 
 class MyAttendanceLogTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var label_day_name: UILabel!
     @IBOutlet weak var label_date: UILabel!
     @IBOutlet weak var label_timein: UILabel!
     @IBOutlet weak var label_timeout: UILabel!

@@ -231,6 +231,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="label_date" destination="6vc-Hf-udj" id="s4g-bs-zYl"/>
+                                            <outlet property="label_day_name" destination="fqe-gi-eJ7" id="Qe2-Wn-0oc"/>
                                             <outlet property="label_status" destination="okn-7H-Ysv" id="nnF-oc-AOA"/>
                                             <outlet property="label_timein" destination="39U-4H-IRp" id="X3z-jJ-6cr"/>
                                             <outlet property="label_timeout" destination="7Kg-6F-4lV" id="3Ee-f1-yvq"/>
