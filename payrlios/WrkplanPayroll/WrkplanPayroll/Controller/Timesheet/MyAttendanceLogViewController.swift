@@ -91,6 +91,23 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     @IBAction func btn_home(_ sender: Any) {
     }
     
+    
+    //---code added on 27-March-2024, starts
+    // Function to calculate total hours between time_in and time_out
+    func calculateTotalHours(timeIn: String, timeOut: String) -> Double? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mma"
+        guard let dateIn = dateFormatter.date(from: timeIn),
+              let dateOut = dateFormatter.date(from: timeOut) else {
+            return nil
+        }
+        let timeDifference = dateOut.timeIntervalSince(dateIn)
+        let totalHours = timeDifference / 3600 // 3600 seconds in an hour
+        return totalHours
+    }
+    //---code added on 27-March-2024, ends
+    
+    
     //----------tableview code starts------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrRes.count
@@ -172,6 +189,24 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                 
                 if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
                     self.arrRes = resData as! [[String:AnyObject]]
+                    
+                    //---added on 27-Mar-2024, code starts
+                    var totalHoursTillNow = 0.00
+                    for log in self.arrRes {
+                        if let timeIn = log["time_in"] as? String ?? nil,
+                           let timeOut = log["time_out"] as? String ?? nil{
+                            if let totalHours = self.calculateTotalHours(timeIn: timeIn, timeOut: timeOut) {
+                                totalHoursTillNow = totalHoursTillNow + totalHours
+                                print("Date: \(log["date"] as? String ?? ""), Total Hours: \(totalHours)")
+                            } else {
+                                print("Invalid time format for date: \(log["date"] as? String ?? "")")
+                            }
+                        }
+                        
+                    }
+                    let formattedTotalHoursUptpTwoDecimalNumber = String(format: "%.2f", totalHoursTillNow)
+                    print("Final Hours-=> \(formattedTotalHoursUptpTwoDecimalNumber)")
+                    //---added on 27-Mar-2024, code ends
                 }
                 if self.arrRes.count>0 {
                     self.tableviewMyAttendanceLog.reloadData()
