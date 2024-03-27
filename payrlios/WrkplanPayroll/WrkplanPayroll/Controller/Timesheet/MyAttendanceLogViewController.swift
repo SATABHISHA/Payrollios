@@ -111,7 +111,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         //                labelDate.text = eventData[i].date
         cell.label_date.text = dateFormatterPrint.string(from: date!)
         
-        cell.label_timein.text = dict["time_in"] as? String
+        cell.label_timein.text = "\((dict["time_in"] as? String ?? "")!)\nLate"
         cell.label_timeout.text = dict["time_out"] as? String
         cell.label_status.text = dict["attendance_status"] as? String
         cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)
