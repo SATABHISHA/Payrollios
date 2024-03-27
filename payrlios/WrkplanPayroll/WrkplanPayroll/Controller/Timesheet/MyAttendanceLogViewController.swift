@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var StackViewTableHeader: UIStackView!
     @IBOutlet weak var tableviewMyAttendanceLog: UITableView!
     @IBOutlet weak var label_date: UILabel!
     
@@ -24,9 +25,22 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
         
+        
+        self.StackViewTableHeader.clipsToBounds = true
+        self.StackViewTableHeader.layer.cornerRadius = 10
+        self.StackViewTableHeader.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.StackViewTableHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        self.StackViewTableHeader.layer.shadowColor = UIColor.gray.cgColor
+        self.StackViewTableHeader.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.StackViewTableHeader.layer.shadowOpacity = 3
+        self.StackViewTableHeader.layer.shadowRadius = 3.0
+        
         self.tableviewMyAttendanceLog.delegate = self
         self.tableviewMyAttendanceLog.dataSource = self
         tableviewMyAttendanceLog.backgroundColor = UIColor(hexFromString: "ffffff")
+        self.tableviewMyAttendanceLog.borderWidth = 0.8
+        self.tableviewMyAttendanceLog.borderColor = UIColor(hexFromString: "CBCBCB")
         
         month_number = Calendar.current.component(.month, from: Date())
         year = Calendar.current.component(.year, from: Date())
