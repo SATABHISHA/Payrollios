@@ -57,6 +57,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         SwipeUpAnimationView.contentMode = .scaleAspectFit
         SwipeUpAnimationView.loopMode = .loop
         SwipeUpAnimationView.animationSpeed = 0.8
+//        SwipeUpAnimationView.transform = CGAffineTransform(scaleX: 1, y: -1)
         SwipeUpAnimationView.play()
         
         //---TableHeader and TableFooter customization, code ends(added on 27-Mar-2024)
