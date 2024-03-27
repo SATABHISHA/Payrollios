@@ -50,7 +50,6 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.ViewTableCustomFooter.layer.shadowOpacity = 3
         self.ViewTableCustomFooter.layer.shadowRadius = 3.0
         
-        
         SwipeUpAnimationView.layer.cornerRadius = SwipeUpAnimationView.frame.width / 2
         SwipeUpAnimationView.layer.masksToBounds = true
         
