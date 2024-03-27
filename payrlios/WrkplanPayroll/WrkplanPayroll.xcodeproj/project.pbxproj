@@ -149,6 +149,7 @@
 		19B803C12BA17CAB00E481C0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B803C02BA17CAB00E481C0 /* GradientView.swift */; };
 		19C703B02B9848D30044C47D /* RoundedBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */; };
 		19C703B22B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */; };
+		19D172DC2BB43F6C00E0197F /* swipeup.json in Resources */ = {isa = PBXBuildFile; fileRef = 19D172DB2BB43F6C00E0197F /* swipeup.json */; };
 		5F18E919322C94D022E17F34 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E425242A6F9F5770DDE122 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */; };
 		AA735405CEAEF2C3AA4431DC /* Pods_WrkplanPayrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9069D64F67186A8E84B4F0 /* Pods_WrkplanPayrollTests.framework */; };
 		CB0D9B1EB24D4D0854DDBCEB /* Pods_WrkplanPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE95E522B96E2932F061D17F /* Pods_WrkplanPayroll.framework */; };
@@ -319,6 +320,7 @@
 		19B803C02BA17CAB00E481C0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderTextField.swift; sourceTree = "<group>"; };
 		19C703B12B984F380044C47D /* RoundedBottomBorderPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderPasswordTextField.swift; sourceTree = "<group>"; };
+		19D172DB2BB43F6C00E0197F /* swipeup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swipeup.json; sourceTree = "<group>"; };
 		20E425242A6F9F5770DDE122 /* Pods_WrkplanPayroll_WrkplanPayrollUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WrkplanPayroll_WrkplanPayrollUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3386001186E235498F656BB6 /* Pods-WrkplanPayroll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll/Pods-WrkplanPayroll.release.xcconfig"; sourceTree = "<group>"; };
 		3FA97167EC3959A1BE4021F9 /* Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; path = "Target Support Files/Pods-WrkplanPayroll-WrkplanPayrollUITests/Pods-WrkplanPayroll-WrkplanPayrollUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -770,6 +772,7 @@
 		17B05E4A2578C58B00CBC3C9 /* Timesheet */ = {
 			isa = PBXGroup;
 			children = (
+				19D172DB2BB43F6C00E0197F /* swipeup.json */,
 				17B05E542578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift */,
 				17E57787257A342100F10376 /* MyAttendanceLogViewController.swift */,
 				17E5778C257A344500F10376 /* MyAttendanceLogTableViewCell.swift */,
@@ -1002,6 +1005,7 @@
 				175C6ADD268C8917004A987B /* SupportingDocuments.storyboard in Resources */,
 				175C6AD9268C41A0004A987B /* MediclaimRequest.storyboard in Resources */,
 				17459653256F8CDE00DD6932 /* EmployeeFacilities.storyboard in Resources */,
+				19D172DC2BB43F6C00E0197F /* swipeup.json in Resources */,
 				17B05E4C2578C5A500CBC3C9 /* Timesheet.storyboard in Resources */,
 				17AF13932620335D00B3F5EE /* SubordinateLeaveApplication.storyboard in Resources */,
 				1762250725711849005F6C5B /* InsuranceDetail.storyboard in Resources */,

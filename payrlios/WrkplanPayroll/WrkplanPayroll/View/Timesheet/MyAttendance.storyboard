@@ -241,8 +241,32 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07h-JA-EfR">
                                 <rect key="frame" x="20" y="612" width="335" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTA-Bl-IkE">
+                                        <rect key="frame" x="8" y="10" width="31" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-Bd-rWf" customClass="LottieAnimationView" customModule="Lottie">
+                                        <rect key="frame" x="302" y="5" width="25" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="BYR-kn-x2T"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="swipeup"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.68235296010000002" green="0.68235296010000002" blue="0.68235296010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="c4m-Bd-rWf" firstAttribute="top" secondItem="07h-JA-EfR" secondAttribute="top" constant="5" id="9uu-Zh-nxJ"/>
+                                    <constraint firstItem="aTA-Bl-IkE" firstAttribute="leading" secondItem="07h-JA-EfR" secondAttribute="leading" constant="8" id="ZDj-5K-7bP"/>
+                                    <constraint firstAttribute="trailing" secondItem="c4m-Bd-rWf" secondAttribute="trailing" constant="8" id="Zow-Yq-RQt"/>
+                                    <constraint firstItem="aTA-Bl-IkE" firstAttribute="top" secondItem="07h-JA-EfR" secondAttribute="top" constant="10" id="dub-p0-n0j"/>
+                                    <constraint firstAttribute="bottom" secondItem="aTA-Bl-IkE" secondAttribute="bottom" constant="10" id="e2K-vZ-e21"/>
+                                    <constraint firstAttribute="bottom" secondItem="c4m-Bd-rWf" secondAttribute="bottom" constant="5" id="fuY-mp-qFt"/>
                                     <constraint firstAttribute="height" constant="35" id="vq8-Fv-ak3"/>
                                 </constraints>
                             </view>
@@ -274,6 +298,7 @@
                     </view>
                     <connections>
                         <outlet property="StackViewTableHeader" destination="l9r-WH-G5e" id="gnh-1d-wbe"/>
+                        <outlet property="SwipeUpAnimationView" destination="c4m-Bd-rWf" id="aH5-0M-62O"/>
                         <outlet property="ViewTableCustomFooter" destination="07h-JA-EfR" id="3hq-B2-HGn"/>
                         <outlet property="label_date" destination="shX-yI-Q7d" id="xT4-5h-0G5"/>
                         <outlet property="tableviewMyAttendanceLog" destination="nkh-Ca-P6r" id="Otj-vG-gAF"/>

@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Lottie
 
 class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableviewMyAttendanceLog: UITableView!
     @IBOutlet weak var label_date: UILabel!
     
+    @IBOutlet weak var SwipeUpAnimationView: LottieAnimationView!
     var month_number:Int?
     var year:Int?
     
@@ -27,7 +29,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
         
-        
+        //---TableHeader and TableFooter customization, code starts(added on 27-Mar-2024)
         self.StackViewTableHeader.clipsToBounds = true
         self.StackViewTableHeader.layer.cornerRadius = 10
         self.StackViewTableHeader.backgroundColor = UIColor(hexFromString: "CBCBCB")
@@ -47,6 +49,17 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.ViewTableCustomFooter.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.ViewTableCustomFooter.layer.shadowOpacity = 3
         self.ViewTableCustomFooter.layer.shadowRadius = 3.0
+        
+        
+        SwipeUpAnimationView.layer.cornerRadius = SwipeUpAnimationView.frame.width / 2
+        SwipeUpAnimationView.layer.masksToBounds = true
+        
+        SwipeUpAnimationView.contentMode = .scaleAspectFit
+        SwipeUpAnimationView.loopMode = .loop
+        SwipeUpAnimationView.animationSpeed = 0.8
+        SwipeUpAnimationView.play()
+        
+        //---TableHeader and TableFooter customization, code ends(added on 27-Mar-2024)
         
         self.tableviewMyAttendanceLog.delegate = self
         self.tableviewMyAttendanceLog.dataSource = self
