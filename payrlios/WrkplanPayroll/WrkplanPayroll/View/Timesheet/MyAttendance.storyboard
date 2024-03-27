@@ -85,7 +85,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="l9r-WH-G5e">
-                                <rect key="frame" x="20" y="192" width="335" height="35"/>
+                                <rect key="frame" x="20" y="162" width="335" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDE-uC-ITf">
                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="35"/>
@@ -122,14 +122,14 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwZ-Rl-Jiz">
-                                <rect key="frame" x="20" y="227" width="335" height="1"/>
+                                <rect key="frame" x="20" y="197" width="335" height="1"/>
                                 <color key="backgroundColor" red="0.79607844350000001" green="0.79607844350000001" blue="0.79607850309999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.80000000000000004" id="VLX-v8-aHo"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nkh-Ca-P6r">
-                                <rect key="frame" x="20" y="228" width="335" height="429"/>
+                                <rect key="frame" x="20" y="198" width="335" height="414"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="42" id="PYT-0X-ue9" customClass="MyAttendanceLogTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
@@ -239,29 +239,42 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07h-JA-EfR">
+                                <rect key="frame" x="20" y="612" width="335" height="35"/>
+                                <color key="backgroundColor" red="0.68235296010000002" green="0.68235296010000002" blue="0.68235296010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="vq8-Fv-ak3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d27-KR-muk"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Cc3-mi-9J4" firstAttribute="leading" secondItem="d27-KR-muk" secondAttribute="leading" id="066-At-2Hc"/>
                             <constraint firstItem="d27-KR-muk" firstAttribute="trailing" secondItem="nkh-Ca-P6r" secondAttribute="trailing" constant="20" id="0Sk-1B-9yX"/>
+                            <constraint firstItem="d27-KR-muk" firstAttribute="bottom" secondItem="07h-JA-EfR" secondAttribute="bottom" constant="20" id="2r2-LZ-PIh"/>
                             <constraint firstItem="jug-jw-fc9" firstAttribute="centerX" secondItem="d27-KR-muk" secondAttribute="centerX" id="4RQ-km-rM1"/>
                             <constraint firstItem="Cc3-mi-9J4" firstAttribute="top" secondItem="d27-KR-muk" secondAttribute="top" id="ALb-aw-qLO"/>
                             <constraint firstItem="l9r-WH-G5e" firstAttribute="leading" secondItem="d27-KR-muk" secondAttribute="leading" constant="20" id="H7u-ZY-ujk"/>
                             <constraint firstItem="nwZ-Rl-Jiz" firstAttribute="leading" secondItem="d27-KR-muk" secondAttribute="leading" constant="20" id="Ibe-mo-szS"/>
                             <constraint firstItem="d27-KR-muk" firstAttribute="trailing" secondItem="nwZ-Rl-Jiz" secondAttribute="trailing" constant="20" id="MBy-Pa-Wve"/>
                             <constraint firstItem="d27-KR-muk" firstAttribute="trailing" secondItem="l9r-WH-G5e" secondAttribute="trailing" constant="20" id="N0t-HH-Ozu"/>
-                            <constraint firstItem="d27-KR-muk" firstAttribute="bottom" secondItem="nkh-Ca-P6r" secondAttribute="bottom" constant="10" id="Usy-wF-qQh"/>
-                            <constraint firstItem="l9r-WH-G5e" firstAttribute="top" secondItem="jug-jw-fc9" secondAttribute="bottom" constant="50" id="Xoj-XO-Nsu"/>
+                            <constraint firstItem="07h-JA-EfR" firstAttribute="leading" secondItem="d27-KR-muk" secondAttribute="leading" constant="20" id="Rht-Rh-TsO"/>
+                            <constraint firstItem="07h-JA-EfR" firstAttribute="leading" secondItem="d27-KR-muk" secondAttribute="leading" constant="20" id="UgI-vX-mbG"/>
+                            <constraint firstItem="l9r-WH-G5e" firstAttribute="top" secondItem="jug-jw-fc9" secondAttribute="bottom" constant="20" id="Xoj-XO-Nsu"/>
+                            <constraint firstItem="07h-JA-EfR" firstAttribute="top" secondItem="nkh-Ca-P6r" secondAttribute="bottom" id="bI8-7f-uUI"/>
                             <constraint firstItem="nwZ-Rl-Jiz" firstAttribute="top" secondItem="l9r-WH-G5e" secondAttribute="bottom" id="d5L-nE-yIX"/>
                             <constraint firstItem="Cc3-mi-9J4" firstAttribute="trailing" secondItem="d27-KR-muk" secondAttribute="trailing" id="fFc-5Z-w9Q"/>
+                            <constraint firstItem="d27-KR-muk" firstAttribute="trailing" secondItem="07h-JA-EfR" secondAttribute="trailing" constant="20" id="gjz-U6-f2s"/>
                             <constraint firstItem="nkh-Ca-P6r" firstAttribute="leading" secondItem="d27-KR-muk" secondAttribute="leading" constant="20" id="glL-IB-uz5"/>
                             <constraint firstItem="jug-jw-fc9" firstAttribute="top" secondItem="Cc3-mi-9J4" secondAttribute="bottom" constant="20" id="jho-Nt-bse"/>
                             <constraint firstItem="nkh-Ca-P6r" firstAttribute="top" secondItem="nwZ-Rl-Jiz" secondAttribute="bottom" id="kHM-Qc-aBg"/>
+                            <constraint firstItem="d27-KR-muk" firstAttribute="trailing" secondItem="07h-JA-EfR" secondAttribute="trailing" constant="20" id="tha-ly-bIr"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="StackViewTableHeader" destination="l9r-WH-G5e" id="gnh-1d-wbe"/>
+                        <outlet property="ViewTableCustomFooter" destination="07h-JA-EfR" id="3hq-B2-HGn"/>
                         <outlet property="label_date" destination="shX-yI-Q7d" id="xT4-5h-0G5"/>
                         <outlet property="tableviewMyAttendanceLog" destination="nkh-Ca-P6r" id="Otj-vG-gAF"/>
                         <segue destination="hnY-Ov-OAT" kind="modal" identifier="timesheet" modalPresentationStyle="fullScreen" id="edG-NE-cpN"/>
@@ -269,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6o-jo-Sta" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89.855072463768124" y="77.008928571428569"/>
+            <point key="canvasLocation" x="88.799999999999997" y="76.911544227886068"/>
         </scene>
         <!--timesheet-->
         <scene sceneID="Xy9-52-D3C">

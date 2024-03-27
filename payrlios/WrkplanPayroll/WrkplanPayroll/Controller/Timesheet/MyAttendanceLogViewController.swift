@@ -13,6 +13,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var label_day_name: UILabel!
     @IBOutlet weak var StackViewTableHeader: UIStackView!
+    @IBOutlet weak var ViewTableCustomFooter: UIView!
     @IBOutlet weak var tableviewMyAttendanceLog: UITableView!
     @IBOutlet weak var label_date: UILabel!
     
@@ -36,6 +37,16 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.StackViewTableHeader.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.StackViewTableHeader.layer.shadowOpacity = 3
         self.StackViewTableHeader.layer.shadowRadius = 3.0
+        
+        self.ViewTableCustomFooter.clipsToBounds = true
+        self.ViewTableCustomFooter.layer.cornerRadius = 10
+        self.ViewTableCustomFooter.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.ViewTableCustomFooter.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        self.ViewTableCustomFooter.layer.shadowColor = UIColor.gray.cgColor
+        self.ViewTableCustomFooter.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.ViewTableCustomFooter.layer.shadowOpacity = 3
+        self.ViewTableCustomFooter.layer.shadowRadius = 3.0
         
         self.tableviewMyAttendanceLog.delegate = self
         self.tableviewMyAttendanceLog.dataSource = self
