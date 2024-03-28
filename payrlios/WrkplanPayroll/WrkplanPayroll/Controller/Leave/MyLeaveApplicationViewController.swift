@@ -26,10 +26,14 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
         ChangeStatusBarColor() //---to change background statusbar color
         
         // Do any additional setup after loading the view.
+        
         self.TableViewLeaveApplication.delegate = self
         self.TableViewLeaveApplication.dataSource = self
         TableViewLeaveApplication.backgroundColor = UIColor(hexFromString: "ffffff")
         
+        self.TableViewLeaveApplication.borderWidth = 0.8
+        self.TableViewLeaveApplication.borderColor = UIColor(hexFromString: "CBCBCB")
+        self.TableViewLeaveApplication.cornerRadius = 10
         loadData()
     }
     
