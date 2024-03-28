@@ -58,20 +58,39 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
         let dict = arrRes[indexPath.row]
         cell.LabelApplicationCode.text = dict["appliction_code"] as? String
         cell.LabelDate.text = "\(String(describing: dict["from_date"] as! String)) to \(String(describing: dict["to_date"] as! String))"
-        cell.LabelDayCount.text = String(dict["total_days"] as! Int)
+        cell.LabelHours.text = "\(String(dict["total_days"] as! Int)) Hour(s)"
+        
+        if let totalDays = dict["total_days"] as? Int {
+            let floatDays = Float(totalDays) / 8.0
+            let formattedDays: String
+            
+            if floatDays.truncatingRemainder(dividingBy: 1) == 0 {
+                formattedDays = String(format: "%.0f", floatDays) // No decimal if it's zero
+            } else {
+                formattedDays = String(format: "%.2f", floatDays)
+            }
+            
+            cell.LabelDayCount.text = "(\(formattedDays) Day(s))"
+        }
+//        cell.LabelDayCount.text = "(\(String((dict["total_days"] as! Int)/8)) Day(s))"
         cell.LabelLeaveType.text = dict["leave_name"] as? String
         cell.LabelStatus.text = dict["leave_status"] as? String
         
         if dict["leave_status"]as? String == "Canceled" {
-            cell.LabelStatus.textColor = UIColor(hexFromString: "ed1c24")
+//            cell.LabelStatus.textColor = UIColor(hexFromString: "ed1c24")
+            cell.LabelStatus.backgroundColor = UIColor(hexFromString: "ed1c24")
         }else if dict["leave_status"]as? String == "Return" {
-            cell.LabelStatus.textColor = UIColor(hexFromString: "b04d0b")
+//            cell.LabelStatus.textColor = UIColor(hexFromString: "b04d0b")
+            cell.LabelStatus.backgroundColor = UIColor(hexFromString: "b04d0b")
         }else if dict["leave_status"]as? String == "Save" {
-            cell.LabelStatus.textColor = UIColor(hexFromString: "2196ed")
+//            cell.LabelStatus.textColor = UIColor(hexFromString: "2196ed")
+            cell.LabelStatus.backgroundColor = UIColor(hexFromString: "2196ed")
         }else if dict["leave_status"]as? String == "Submit" {
-            cell.LabelStatus.textColor = UIColor(hexFromString: "fe52ce")
+//            cell.LabelStatus.textColor = UIColor(hexFromString: "fe52ce")
+            cell.LabelStatus.backgroundColor = UIColor(hexFromString: "fe52ce")
         }else if dict["leave_status"]as? String == "Approved" {
-            cell.LabelStatus.textColor = UIColor(hexFromString: "1e9547")
+//            cell.LabelStatus.textColor = UIColor(hexFromString: "1e9547")
+            cell.LabelStatus.backgroundColor = UIColor(hexFromString: "FDD835")
         }
         
         return cell

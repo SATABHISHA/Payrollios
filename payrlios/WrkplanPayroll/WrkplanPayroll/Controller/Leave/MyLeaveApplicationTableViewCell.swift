@@ -15,6 +15,7 @@ class MyLeaveApplicationTableViewCell: UITableViewCell {
     @IBOutlet weak var LabelDate: UILabel!
     @IBOutlet weak var LabelStatus: UILabel!
     @IBOutlet weak var LabelDayCount: UILabel!
+    @IBOutlet weak var LabelHours: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
