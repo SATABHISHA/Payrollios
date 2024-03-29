@@ -199,21 +199,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88P-22-Nu9" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="334" y="646" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ObN-xh-3cG"/>
+                                    <constraint firstAttribute="height" constant="50" id="cfP-gX-n5c"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="plusicon"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fb4-AG-oDI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fb4-AG-oDI" firstAttribute="bottom" secondItem="agu-zF-xnS" secondAttribute="bottom" constant="20" id="5bm-ST-LaB"/>
                             <constraint firstItem="NlM-g3-kZW" firstAttribute="trailing" secondItem="fb4-AG-oDI" secondAttribute="trailing" id="D6Y-Bc-Cu9"/>
+                            <constraint firstItem="fb4-AG-oDI" firstAttribute="trailing" secondItem="88P-22-Nu9" secondAttribute="trailing" constant="30" id="Fmx-sj-Rdg"/>
                             <constraint firstItem="fb4-AG-oDI" firstAttribute="trailing" secondItem="agu-zF-xnS" secondAttribute="trailing" constant="10" id="H8Q-n5-zUu"/>
                             <constraint firstItem="agu-zF-xnS" firstAttribute="top" secondItem="NlM-g3-kZW" secondAttribute="bottom" constant="20" id="OFH-WA-KPK"/>
                             <constraint firstItem="NlM-g3-kZW" firstAttribute="leading" secondItem="fb4-AG-oDI" secondAttribute="leading" id="Ryi-qs-XX0"/>
                             <constraint firstItem="NlM-g3-kZW" firstAttribute="top" secondItem="fb4-AG-oDI" secondAttribute="top" id="SZx-Tl-17T"/>
                             <constraint firstItem="agu-zF-xnS" firstAttribute="leading" secondItem="fb4-AG-oDI" secondAttribute="leading" constant="10" id="Yb5-Xb-r1C"/>
+                            <constraint firstItem="fb4-AG-oDI" firstAttribute="bottom" secondItem="88P-22-Nu9" secondAttribute="bottom" constant="40" id="oF6-f2-vpc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="TableViewLeaveApplication" destination="agu-zF-xnS" id="T7l-Yp-WHV"/>
+                        <outlet property="ViewAddBtn" destination="88P-22-Nu9" id="2eQ-Mh-Sxx"/>
                         <segue destination="ELa-WW-C1w" kind="modal" identifier="leave" modalPresentationStyle="fullScreen" id="fK7-QG-ON6"/>
                         <segue destination="PsI-5w-Xh0" kind="modal" identifier="myleaverqst" modalPresentationStyle="fullScreen" id="JcJ-83-Hw1"/>
                     </connections>
@@ -245,6 +259,9 @@
     </scenes>
     <resources>
         <image name="backarrownew" width="200" height="200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

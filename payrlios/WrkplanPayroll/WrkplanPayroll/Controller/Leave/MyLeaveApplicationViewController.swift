@@ -8,9 +8,11 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Lottie
 
 class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var ViewAddBtn: LottieAnimationView!
     @IBOutlet weak var TableViewLeaveApplication: UITableView!
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
@@ -26,6 +28,16 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
         ChangeStatusBarColor() //---to change background statusbar color
         
         // Do any additional setup after loading the view.
+        
+        ViewAddBtn.layer.cornerRadius = ViewAddBtn.frame.width / 2
+        ViewAddBtn.layer.masksToBounds = true
+        
+        ViewAddBtn.contentMode = .scaleAspectFit
+        ViewAddBtn.loopMode = .loop
+        ViewAddBtn.animationSpeed = 0.8
+//        SwipeUpAnimationView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        ViewAddBtn.play()
+        
         
         self.TableViewLeaveApplication.delegate = self
         self.TableViewLeaveApplication.dataSource = self
