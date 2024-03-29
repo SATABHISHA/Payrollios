@@ -226,6 +226,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="BtnNew" destination="0xZ-Hz-yhK" id="Whe-Fx-MSO"/>
                         <outlet property="TableViewLeaveApplication" destination="agu-zF-xnS" id="T7l-Yp-WHV"/>
                         <outlet property="ViewAddBtn" destination="88P-22-Nu9" id="2eQ-Mh-Sxx"/>
                         <segue destination="ELa-WW-C1w" kind="modal" identifier="leave" modalPresentationStyle="fullScreen" id="fK7-QG-ON6"/>

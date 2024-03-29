@@ -12,6 +12,7 @@ import Lottie
 
 class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var BtnNew: UIButton!
     @IBOutlet weak var ViewAddBtn: LottieAnimationView!
     @IBOutlet weak var TableViewLeaveApplication: UITableView!
     var arrRes = [[String:AnyObject]]()
@@ -29,6 +30,13 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
         
         // Do any additional setup after loading the view.
         
+        //----Animated AddBtnWithAnimation, code starts(added on 29-Mar-2024)
+        BtnNew.isHidden = true //---as per new modification, this button is made hidden
+        let tapGestureRecognizerAddNew = UITapGestureRecognizer(target: self, action: #selector(BtnCustomAnimationAddNew(tapGestureRecognizer: )))
+        ViewAddBtn.isUserInteractionEnabled = true
+        ViewAddBtn.addGestureRecognizer(tapGestureRecognizerAddNew)
+        
+        
         ViewAddBtn.layer.cornerRadius = ViewAddBtn.frame.width / 2
         ViewAddBtn.layer.masksToBounds = true
         
@@ -37,7 +45,7 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
         ViewAddBtn.animationSpeed = 0.8
 //        SwipeUpAnimationView.transform = CGAffineTransform(scaleX: 1, y: -1)
         ViewAddBtn.play()
-        
+        //----Animated AddBtnWithAnimation, code ends(added on 29-Mar-2024)
         
         self.TableViewLeaveApplication.delegate = self
         self.TableViewLeaveApplication.dataSource = self
@@ -49,6 +57,12 @@ class MyLeaveApplicationViewController: UIViewController, UITableViewDelegate, U
         loadData()
     }
     
+    //----Animated AddBtnWithAnimation function, code starts(added on 29-Mar-2024)
+    @objc func BtnCustomAnimationAddNew(tapGestureRecognizer: UITapGestureRecognizer){
+        MyLeaveApplicationViewController.new_create_yn = true
+        self.performSegue(withIdentifier: "myleaverqst", sender: self)
+    }
+    //----Animated AddBtnWithAnimation function, code ends(added on 29-Mar-2024)
     
     @IBAction func BtnNew(_ sender: Any) {
         MyLeaveApplicationViewController.new_create_yn = true
