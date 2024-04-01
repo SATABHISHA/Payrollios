@@ -277,7 +277,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
            viewAttendanceDetailsPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3).concatenating(CGAffineTransform(translationX: 0, y: initialYPosition))
 //        viewAttendanceDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
 //        viewAttendanceDetailsPopup.center = self.view.center
-        viewAttendanceDetailsPopup.center = CGPoint(x: self.view.center.x, y: self.view.bounds.height - viewAttendanceDetailsPopup.bounds.height / 2)
+        viewAttendanceDetailsPopup.center = CGPoint(x: self.view.center.x, y: self.view.bounds.height - ((viewAttendanceDetailsPopup.bounds.height / 2)+20))
         viewAttendanceDetailsPopup.layer.cornerRadius = 10.0
         //        addGoalChildFormView.layer.cornerRadius = 10.0
         viewAttendanceDetailsPopup.alpha = 0
