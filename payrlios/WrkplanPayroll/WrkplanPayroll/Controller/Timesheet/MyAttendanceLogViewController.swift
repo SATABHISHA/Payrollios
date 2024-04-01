@@ -59,6 +59,9 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
 //        SwipeUpAnimationView.transform = CGAffineTransform(scaleX: 1, y: -1)
         SwipeUpAnimationView.play()
         
+        let tapGestureRecognizerSwipeUpAttendanceDetails = UITapGestureRecognizer(target: self, action: #selector(swipe_up_attendance_details(tapGestureRecognizer: )))
+        SwipeUpAnimationView.isUserInteractionEnabled = true
+        SwipeUpAnimationView.addGestureRecognizer(tapGestureRecognizerSwipeUpAttendanceDetails)
         //---TableHeader and TableFooter customization, code ends(added on 27-Mar-2024)
         
         self.tableviewMyAttendanceLog.delegate = self
@@ -74,6 +77,10 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         print("Year-=>",year!)
         // Do any additional setup after loading the view.
         loadData(month_number: month_number!, year: year!)
+    }
+    
+    @objc func swipe_up_attendance_details(tapGestureRecognizer: UITapGestureRecognizer){
+       openAttendanceDetailsPopup()
     }
     
     @IBAction func btn_back(_ sender: Any) {
@@ -251,6 +258,85 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     //--------function to show log details using Alamofire and Json Swifty code ends------------
+    
+    //==============////--Attendance Details, code starts(added on 31-Mar-2024)--/////================
+    @IBOutlet var viewAttendanceDetailsPopup: UIView!
+    @IBOutlet var viewAttendanceDetailsChild: UIView!
+    
+    @IBOutlet weak var viewAttendanceDetailsClosePopup: LottieAnimationView!
+    
+    func openAttendanceDetailsPopup(){
+        blurEffect()
+        self.view.addSubview(viewAttendanceDetailsPopup)
+//        ScrollView.isScrollEnabled = false
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        let initialYPosition = self.view.bounds.height // Initial position below the screen
+           
+           // Set initial position and scale
+           viewAttendanceDetailsPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3).concatenating(CGAffineTransform(translationX: 0, y: initialYPosition))
+//        viewAttendanceDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+//        viewAttendanceDetailsPopup.center = self.view.center
+        viewAttendanceDetailsPopup.center = CGPoint(x: self.view.center.x, y: self.view.bounds.height - viewAttendanceDetailsPopup.bounds.height / 2)
+        viewAttendanceDetailsPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewAttendanceDetailsPopup.alpha = 0
+        viewAttendanceDetailsPopup.sizeToFit()
+       
+        
+//        viewAttendanceDetailsClosePopup.layer.cornerRadius = viewAttendanceDetailsClosePopup.frame.width / 2
+//        viewAttendanceDetailsClosePopup.layer.masksToBounds = true
+        
+        viewAttendanceDetailsClosePopup.contentMode = .scaleAspectFit
+        viewAttendanceDetailsClosePopup.loopMode = .loop
+        viewAttendanceDetailsClosePopup.animationSpeed = 0.8
+        viewAttendanceDetailsClosePopup.transform = CGAffineTransform(scaleX: 1, y: -1)
+        viewAttendanceDetailsClosePopup.play()
+        
+        let tapGestureRecognizerSwipeDown = UITapGestureRecognizer(target: self, action: #selector(swipeDown(tapGestureRecognizer: )))
+        viewAttendanceDetailsClosePopup.isUserInteractionEnabled = true
+        viewAttendanceDetailsClosePopup.addGestureRecognizer(tapGestureRecognizerSwipeDown)
+        
+        /*UIView.animate(withDuration: 0.3){
+            self.viewAttendanceDetailsPopup.alpha = 1
+            self.viewAttendanceDetailsPopup.transform = CGAffineTransform.identity
+        }*/
+        
+        //---set childview corner radius, code starts
+        self.viewAttendanceDetailsChild.clipsToBounds = true
+        self.viewAttendanceDetailsChild.layer.cornerRadius = 10
+//        self.viewAttendanceDetailsChild.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.viewAttendanceDetailsChild.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        //---set childview corner radius, code ends
+        
+        
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
+//            self.viewAttendanceDetailsPopup.transform = .identity
+            self.viewAttendanceDetailsPopup.alpha = 1
+            self.viewAttendanceDetailsPopup.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+    func cancelAttendanceDetailsPopup(){
+        let initialYPosition = self.view.bounds.height // Initial position below the screen
+           
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
+//            self.viewAttendanceDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            // Set initial position and scale
+            self.viewAttendanceDetailsPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3).concatenating(CGAffineTransform(translationX: 0, y: initialYPosition))
+            
+            self.viewAttendanceDetailsPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewAttendanceDetailsPopup.removeFromSuperview();
+            self.canelBlurEffect()
+//            self.ScrollView.isScrollEnabled = true
+        }
+    }
+    @objc func swipeDown(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelAttendanceDetailsPopup()
+    }
+    
+    //==============////--Attendance Details, code ends(added on 31-Mar-2024)--/////================
     
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
