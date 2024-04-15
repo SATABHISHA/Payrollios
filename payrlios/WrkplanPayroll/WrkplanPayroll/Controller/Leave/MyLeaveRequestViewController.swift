@@ -56,7 +56,6 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         ChangeStatusBarColor() //---to change background statusbar color
         
