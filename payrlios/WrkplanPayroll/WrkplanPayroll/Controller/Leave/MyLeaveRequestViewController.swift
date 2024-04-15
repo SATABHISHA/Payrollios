@@ -485,7 +485,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         if to_date == true{
             txt_to_date.text = formatter.string(from: datePicker.date)
             print("test-=>",daysBetween(start: txt_from_date.text!, end: txt_to_date.text!))
-            label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            label_days_count.text = "\(String((daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)*8)) Hour(s)"
             
             custom_btn_label_save.isEnabled = true
             custom_btn_label_save.isUserInteractionEnabled = true
@@ -515,7 +515,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         //--added on 18th Feb, code starts
         if from_date == true && txt_to_date.text != ""{
             txt_from_date.text = formatter.string(from: datePicker.date)
-            label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            label_days_count.text = "\(String((daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)*8)) Hour(s)"
             
             if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
                 
@@ -606,7 +606,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
                     self!.custom_btn_label_save.isUserInteractionEnabled = true
                     self!.custom_btn_label_save.alpha = 1.0
                     
-                    self!.label_days_count.text = String(self!.daysBetween(start: self!.txt_from_date.text!, end: self!.txt_to_date.text!)+1)
+                    self!.label_days_count.text = "\(String((self!.daysBetween(start: self!.txt_from_date.text!, end: self!.txt_to_date.text!)+1)*8)) Hour(s)"
                 }else if self!.txt_from_date.text!.isEmpty && self!.txt_to_date.text!.isEmpty{
                     self!.custom_btn_label_save.isUserInteractionEnabled = false
                     self!.custom_btn_label_save.alpha = 0.6
@@ -668,7 +668,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
                 self.txt_employee_name.text = swiftyJsonVar["fields"]["employee_name"].stringValue
                 self.txt_from_date.text = swiftyJsonVar["fields"]["from_date"].stringValue
                 self.txt_to_date.text = swiftyJsonVar["fields"]["to_date"].stringValue
-                self.label_days_count.text = swiftyJsonVar["fields"]["total_days"].stringValue
+                self.label_days_count.text = "\(swiftyJsonVar["fields"]["total_days"].stringValue) Hour(s)"
                 self.txt_view_details.text = swiftyJsonVar["fields"]["description"].stringValue
                 self.txt_request_status.text = swiftyJsonVar["fields"]["leave_status"].stringValue
                 MyLeaveRequestViewController.supervisor1_id = swiftyJsonVar["fields"]["supervisor1_id"].intValue
