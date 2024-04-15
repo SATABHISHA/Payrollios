@@ -765,6 +765,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         // Remove " Hour(s)" string
         total_no_of_days = total_no_of_days.replacingOccurrences(of: "Hour(s)", with: "")
 
+        
         // Assign the modified text back to the label
 //        label_days_count.text = text
         //---eliminating Hour(s) and space from the string value of total no of days(added on 15-04-2024), code ends
