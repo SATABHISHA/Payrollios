@@ -97,7 +97,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             btn_submit.isSelected = true
             
             if !txt_from_date.text!.isEmpty && !txt_to_date.text!.isEmpty{
-                label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+                label_days_count.text = "\(String((daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)*8)) Hour(s)"
             }else if txt_from_date.text!.isEmpty && txt_to_date.text!.isEmpty{
                 label_days_count.text = ""
             }else if txt_from_date.text!.isEmpty || txt_to_date.text!.isEmpty{
@@ -755,6 +755,19 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         }else if btn_submit.isSelected == true{
             leave_status = "Submit"
         }
+        
+        //---eliminating Hour(s) and space from the string value of total no of days(added on 15-04-2024), code starts
+        var total_no_of_days = label_days_count.text!
+
+        // Remove space
+        total_no_of_days = total_no_of_days.replacingOccurrences(of: " ", with: "")
+
+        // Remove " Hour(s)" string
+        total_no_of_days = total_no_of_days.replacingOccurrences(of: "Hour(s)", with: "")
+
+        // Assign the modified text back to the label
+//        label_days_count.text = text
+        //---eliminating Hour(s) and space from the string value of total no of days(added on 15-04-2024), code ends
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
             "appliction_id": 0,
@@ -762,7 +775,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             "employee_id": swiftyJsonvar1["employee"]["employee_id"].stringValue,
             "from_date": txt_from_date.text!,
             "to_date": txt_to_date.text!,
-            "total_days": label_days_count.text!,
+//            "total_days": label_days_count.text!,
+            "total_days": total_no_of_days,
             "description": txt_view_details.text!,
             "supervisor_remark": txt_view_supervisor_remark.text!,
             "leave_status": leave_status!,
