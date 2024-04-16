@@ -36,10 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         hyperCriticalRulesAppForceUpdate() //--aded on 2021-Aug-02
         
-        application.setMinimumBackgroundFetchInterval(10) //---added on 10-Mar-2022
+        /*application.setMinimumBackgroundFetchInterval(10) //---added on 10-Mar-2022
         self.userNotificationCenter.delegate = self
         
-        self.requestNotificationAuthorization()
+        self.requestNotificationAuthorization()*/ //---commented on 16-April-2024
         return true
     }
     
@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     //---added on 10-Mar-2022, code ends---
     //---added on 10-Mar-2022, code starts---
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        LoadNotificationData()
+//        LoadNotificationData() //---commented on 16-April-2024
         
     }
     

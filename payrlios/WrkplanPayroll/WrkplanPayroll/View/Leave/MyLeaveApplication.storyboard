@@ -258,6 +258,9 @@
             <point key="canvasLocation" x="490" y="48"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="88P-22-Nu9"/>
+    </designables>
     <resources>
         <image name="backarrownew" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">

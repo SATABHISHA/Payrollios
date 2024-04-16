@@ -54,6 +54,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
 //    static var leave_id: Int!
     static var supervisor1_id: Int!, supervisor2_id: Int!, leave_id: Int!
     
+    var application_id: Int = 0 //---added on 16-April-2024
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -111,6 +113,7 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
             btn_submit.isSelected = true
         }else if MyLeaveApplicationViewController.new_create_yn == false{
             loadData()
+            self.application_id = MyLeaveApplicationViewController.appliction_id!
         }
         }
         //-----Save
@@ -771,7 +774,8 @@ class MyLeaveRequestViewController: UIViewController, UITextFieldDelegate, UITex
         //---eliminating Hour(s) and space from the string value of total no of days(added on 15-04-2024), code ends
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
-            "appliction_id": 0,
+//            "appliction_id": 0,
+            "appliction_id": self.application_id,
             "leave_id": MyLeaveRequestViewController.leave_id!,
             "employee_id": swiftyJsonvar1["employee"]["employee_id"].stringValue,
             "from_date": txt_from_date.text!,
