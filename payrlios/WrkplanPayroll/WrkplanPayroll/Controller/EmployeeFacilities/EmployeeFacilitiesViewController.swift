@@ -75,7 +75,7 @@ class EmployeeFacilitiesViewController: UIViewController, UITableViewDelegate, U
 //        cell.delegate = self
         let dict = arrRes[indexPath.row]
         cell.label_employee_service_type.text = dict["service_type"] as? String
-        cell.label_employee_value.text = dict["value"]?.stringValue
+        cell.label_employee_value.text = "₹\(dict["value"]?.stringValue ?? "")"
         
         return cell
     }
