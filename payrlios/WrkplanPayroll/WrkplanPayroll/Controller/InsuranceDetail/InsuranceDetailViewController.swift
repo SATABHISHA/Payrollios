@@ -167,6 +167,7 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
                 print("test-=>",self.arrRes)
                 print("count-=>",self.data_count)
                 
+                
                 if self.arrRes.count>0 {
                     self.tableviewInsurance.reloadData()
                 }else{
