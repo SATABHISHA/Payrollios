@@ -171,15 +171,14 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
                     self.tableviewInsurance.reloadData()
                 }else{
                     self.tableviewInsurance.reloadData()
-                    //                    Toast(text: "No data", duration: Delay.short).show()
-                    let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableviewInsurance.bounds.size.width, height: self.tableviewInsurance.bounds.size.height))
+                    // Toast(text: "No data", duration: Delay.short).show()
+                    let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableviewInsurance.bounds.size.width, height: self.tableviewInsurance.bounds.size.height))
                     noDataLabel.text          = "No record found"
                     noDataLabel.font = UIFont.systemFont(ofSize: 14)
                     noDataLabel.textColor     = UIColor(hexFromString: "767575")
                     noDataLabel.textAlignment = .center
                     self.tableviewInsurance.backgroundView  = noDataLabel
                     self.tableviewInsurance.separatorStyle  = .none
-                    
                 }
             }
             
