@@ -39,15 +39,15 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
         // Do any additional setup after loading the view.
         btnPrevious.isEnabled = false
         btnPrevious.alpha = CGFloat(0.6)
-        btnPrevious.backgroundColor = UIColor(hexFromString: "#EEEEEE")
+        btnPrevious.backgroundColor = UIColor(hexFromString: "#909090")
         
         btnNext.isEnabled = true
         btnNext.alpha = CGFloat(1.0)
-        btnNext.backgroundColor = UIColor(hexFromString: "#ffffff")
+        btnNext.backgroundColor = UIColor(hexFromString: "#005292")
         
         btnClose.isEnabled = true
         btnClose.alpha = CGFloat(1.0)
-        btnClose.backgroundColor = UIColor(hexFromString: "#ffffff")
+        btnClose.backgroundColor = UIColor(hexFromString: "#EF2B2C")
         
         //-----code to add button border, starts------
         StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
@@ -76,21 +76,21 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
             if count == 0{
                 btnPrevious.isEnabled = false
                 btnPrevious.alpha = CGFloat(0.6)
-                btnPrevious.backgroundColor = UIColor(hexFromString: "#EEEEEE")
+                btnPrevious.backgroundColor = UIColor(hexFromString: "#909090")
                 
                 btnNext.isEnabled = true
                 btnNext.alpha = CGFloat(1.0)
-                btnNext.backgroundColor = UIColor(hexFromString: "#ffffff")
+                btnNext.backgroundColor = UIColor(hexFromString: "#005292")
                 
                 loadData(i: count)
             }else{
                 btnPrevious.isEnabled = true
                 btnPrevious.alpha = CGFloat(1.0)
-                btnPrevious.backgroundColor = UIColor(hexFromString: "#ffffff")
+                btnPrevious.backgroundColor = UIColor(hexFromString: "#909090")
                 
                 btnNext.isEnabled = true
                 btnNext.alpha = CGFloat(1.0)
-                btnNext.backgroundColor = UIColor(hexFromString: "#ffffff")
+                btnNext.backgroundColor = UIColor(hexFromString: "#005292")
                 
                 loadData(i: count)
             }
@@ -103,21 +103,21 @@ class InsuranceDetailViewController: UIViewController, UITableViewDelegate, UITa
             if count == data_count{
                 btnNext.isEnabled = false
                 btnNext.alpha = CGFloat(0.6)
-                btnNext.backgroundColor = UIColor(hexFromString: "#EEEEEE")
+                btnNext.backgroundColor = UIColor(hexFromString: "#005292")
                 
                 btnPrevious.isEnabled = true
                 btnPrevious.alpha = CGFloat(1.0)
-                btnPrevious.backgroundColor = UIColor(hexFromString: "#ffffff")
+                btnPrevious.backgroundColor = UIColor(hexFromString: "#909090")
                 
                 loadData(i: count)
             }else{
                 btnNext.isEnabled = true
                 btnNext.alpha = CGFloat(1.0)
-                btnNext.backgroundColor = UIColor(hexFromString: "#ffffff")
+                btnNext.backgroundColor = UIColor(hexFromString: "#005292")
                 
                 btnPrevious.isEnabled = true
                 btnPrevious.alpha = CGFloat(1.0)
-                btnPrevious.backgroundColor = UIColor(hexFromString: "#ffffff")
+                btnPrevious.backgroundColor = UIColor(hexFromString: "#909090")
                 
                 loadData(i: count)
             }

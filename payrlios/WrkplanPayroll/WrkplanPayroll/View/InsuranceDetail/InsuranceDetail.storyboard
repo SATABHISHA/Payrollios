@@ -59,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
                                         <color key="backgroundColor" red="0.70980392160000005" green="0.69803921570000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="PREVIOUS">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="btn_click:" destination="ubC-v0-grn" eventType="touchUpInside" id="JMY-Cg-g0k"/>
@@ -67,9 +67,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSm-Nm-WIJ">
                                         <rect key="frame" x="138" y="0.0" width="138" height="50"/>
-                                        <color key="backgroundColor" red="0.70980392160000005" green="0.69803921570000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.93725490196078431" green="0.16862745098039217" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="CLOSE">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="btn_click:" destination="ubC-v0-grn" eventType="touchUpInside" id="t7M-T0-5SX"/>
@@ -79,7 +79,7 @@
                                         <rect key="frame" x="276" y="0.0" width="138" height="50"/>
                                         <color key="backgroundColor" red="0.70980392160000005" green="0.69803921570000005" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="NEXT">
-                                            <color key="titleColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="btn_click:" destination="ubC-v0-grn" eventType="touchUpInside" id="YNg-fw-SNP"/>
