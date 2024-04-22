@@ -146,6 +146,7 @@
 		197D6E0C27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */; };
 		198DA99227D8B2FB0045D9AE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 198DA99027D8B2FB0045D9AE /* DataModel.xcdatamodeld */; };
 		1992AE7B2BB6A315004CD7CF /* plusicon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1992AE7A2BB6A315004CD7CF /* plusicon.json */; };
+		19ABDF592BD6872B00C568C5 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABDF582BD6872B00C568C5 /* CustomTableView.swift */; };
 		19B656E027EC4AD600C22F60 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */; };
 		19B803C12BA17CAB00E481C0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B803C02BA17CAB00E481C0 /* GradientView.swift */; };
 		19C703B02B9848D30044C47D /* RoundedBottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */; };
@@ -318,6 +319,7 @@
 		197D6E0B27D7307E005B8B78 /* NotificationHlomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHlomeTableViewCell.swift; sourceTree = "<group>"; };
 		198DA99127D8B2FB0045D9AE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		1992AE7A2BB6A315004CD7CF /* plusicon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = plusicon.json; sourceTree = "<group>"; };
+		19ABDF582BD6872B00C568C5 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		19B656DF27EC4AD600C22F60 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		19B803C02BA17CAB00E481C0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		19C703AF2B9848D30044C47D /* RoundedBottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBottomBorderTextField.swift; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 				17B05E6D2579151600CBC3C9 /* CustomBorder.swift */,
 				198DA99027D8B2FB0045D9AE /* DataModel.xcdatamodeld */,
 				19B803C02BA17CAB00E481C0 /* GradientView.swift */,
+				19ABDF582BD6872B00C568C5 /* CustomTableView.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1211,6 +1214,7 @@
 				1748A8692616CE3E00D51D13 /* OdDutyLogEmpTaskTableViewCell.swift in Sources */,
 				17723CCC2563BCE1002754DB /* HomeViewController.swift in Sources */,
 				17513FFF257E4A8E0090EFD5 /* SubordinateMyAttendanceLogViewController.swift in Sources */,
+				19ABDF592BD6872B00C568C5 /* CustomTableView.swift in Sources */,
 				172501622614D7D800DB133C /* OdDutyLogListTableViewCell.swift in Sources */,
 				17B05E552578D7C500CBC3C9 /* TimesheetMyAttendanceViewController.swift in Sources */,
 				17D94E59256FDCA7001A28E3 /* EmployeeDocumentsTableViewCell.swift in Sources */,

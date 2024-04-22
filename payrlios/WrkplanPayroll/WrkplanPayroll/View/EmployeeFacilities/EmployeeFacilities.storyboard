@@ -54,7 +54,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FFU-pt-wLh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FFU-pt-wLh" customClass="CustomTableView" customModule="WrkplanPayroll" customModuleProvider="target">
                                 <rect key="frame" x="12" y="92" width="390" height="624"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -136,6 +136,12 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.46274507050000002" green="0.46274507050000002" blue="0.46274507050000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="MSG-ZE-RdM" id="Irc-ZL-937"/>
@@ -151,7 +157,7 @@
                             <constraint firstItem="FFU-pt-wLh" firstAttribute="leading" secondItem="Tch-Rx-fZC" secondAttribute="leading" constant="12" id="6aW-Iq-0v1"/>
                             <constraint firstItem="RyF-1d-jJX" firstAttribute="trailing" secondItem="Tch-Rx-fZC" secondAttribute="trailing" id="NT6-jr-WfL"/>
                             <constraint firstItem="RyF-1d-jJX" firstAttribute="top" secondItem="Tch-Rx-fZC" secondAttribute="top" id="Ppb-Ok-dNA"/>
-                            <constraint firstItem="Tch-Rx-fZC" firstAttribute="bottom" secondItem="FFU-pt-wLh" secondAttribute="bottom" constant="20" id="hHX-Pj-Nsh"/>
+                            <constraint firstItem="Tch-Rx-fZC" firstAttribute="bottom" secondItem="FFU-pt-wLh" secondAttribute="bottom" constant="20" id="iJ9-7V-Zyf"/>
                             <constraint firstItem="RyF-1d-jJX" firstAttribute="leading" secondItem="Tch-Rx-fZC" secondAttribute="leading" id="uLJ-zM-5OU"/>
                         </constraints>
                     </view>

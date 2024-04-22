@@ -25,11 +25,20 @@ class EmployeeFacilitiesViewController: UIViewController, UITableViewDelegate, U
         self.tableViewEmployeeFacilities.dataSource = self
         
         tableViewEmployeeFacilities.backgroundColor = UIColor(hexFromString: "ffffff")
+        
+        /*tableViewEmployeeFacilities.estimatedRowHeight = tableViewEmployeeFacilities.rowHeight
+        tableViewEmployeeFacilities.rowHeight = UITableView.automaticDimension*/
 
         // Do any additional setup after loading the view.
         loadData()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableViewEmployeeFacilities.translatesAutoresizingMaskIntoConstraints = false
+
+        }
     
     @IBAction func btn_home(_ sender: Any) {
         self.performSegue(withIdentifier: "home", sender: nil)
