@@ -422,6 +422,9 @@
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="0.9836099385" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hXy-ib-IOT" secondAttribute="bottom" id="Vwg-AC-KnZ"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pcD-UM-R4i"/>
@@ -431,6 +434,7 @@
                             <constraint firstItem="pcD-UM-R4i" firstAttribute="trailing" secondItem="XLs-pT-58c" secondAttribute="trailing" id="6oR-Tc-kcl"/>
                             <constraint firstItem="pcD-UM-R4i" firstAttribute="trailing" secondItem="thE-fL-cc6" secondAttribute="trailing" constant="35" id="7Vf-ml-SGI"/>
                             <constraint firstItem="2O1-qc-gRG" firstAttribute="trailing" secondItem="pcD-UM-R4i" secondAttribute="trailing" id="83g-rx-u3K"/>
+                            <constraint firstItem="XLs-pT-58c" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FAL-zN-60s" secondAttribute="bottom" constant="20" id="CJL-bk-OFU"/>
                             <constraint firstItem="XLs-pT-58c" firstAttribute="leading" secondItem="pcD-UM-R4i" secondAttribute="leading" id="EDd-iK-bec"/>
                             <constraint firstItem="pcD-UM-R4i" firstAttribute="bottom" secondItem="XLs-pT-58c" secondAttribute="bottom" id="LJT-B3-5ih"/>
                             <constraint firstItem="2O1-qc-gRG" firstAttribute="leading" secondItem="pcD-UM-R4i" secondAttribute="leading" id="Lbb-rd-LMW"/>
