@@ -18,6 +18,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableviewMyAttendanceLog: UITableView!
     @IBOutlet weak var label_date: UILabel!
     
+    @IBOutlet weak var label_total_hours: UILabel!
+    @IBOutlet weak var label_total_present_count: UILabel!
     @IBOutlet weak var SwipeUpAnimationView: LottieAnimationView!
     var month_number:Int?
     var year:Int?
@@ -218,6 +220,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                 self.label_date.text = "\(swiftyJsonVar["month_name"].stringValue), \(swiftyJsonVar["year"].stringValue)"
                 let totalPresentCount = swiftyJsonVar["day_wise_logs"].array?.filter{$0["attendance_status"].stringValue == "Present"}.count //---added on 23-April-2024
                 print("Total Present-=> \(String(describing: totalPresentCount))")
+                self.label_total_present_count.text = "Total Present: \(totalPresentCount!)"
                 
                 if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
                     self.arrRes = resData as! [[String:AnyObject]]
@@ -237,6 +240,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                         
                     }
                     let formattedTotalHoursUptpTwoDecimalNumber = String(format: "%.2f", totalHoursTillNow)
+                    self.label_total_hours.text = "Total Hours: \(formattedTotalHoursUptpTwoDecimalNumber)"
                     print("Final Hours-=> \(formattedTotalHoursUptpTwoDecimalNumber)")
                     //---added on 27-Mar-2024, code ends
                 }

@@ -242,8 +242,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07h-JA-EfR">
                                 <rect key="frame" x="20" y="612" width="335" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTA-Bl-IkE">
-                                        <rect key="frame" x="8" y="10" width="31" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Present: N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTA-Bl-IkE">
+                                        <rect key="frame" x="8" y="10.5" width="135" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -258,15 +258,24 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="swipeup"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Hours: N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI4-n2-ESl">
+                                        <rect key="frame" x="163" y="10.5" width="119" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.68235296010000002" green="0.68235296010000002" blue="0.68235296010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="uI4-n2-ESl" firstAttribute="centerY" secondItem="07h-JA-EfR" secondAttribute="centerY" id="60p-Hr-OXk"/>
                                     <constraint firstItem="c4m-Bd-rWf" firstAttribute="top" secondItem="07h-JA-EfR" secondAttribute="top" constant="5" id="9uu-Zh-nxJ"/>
+                                    <constraint firstItem="uI4-n2-ESl" firstAttribute="leading" secondItem="aTA-Bl-IkE" secondAttribute="trailing" constant="20" id="A5O-ok-TOX"/>
+                                    <constraint firstItem="c4m-Bd-rWf" firstAttribute="leading" secondItem="uI4-n2-ESl" secondAttribute="trailing" constant="20" id="VgM-U2-Uoe"/>
                                     <constraint firstItem="aTA-Bl-IkE" firstAttribute="leading" secondItem="07h-JA-EfR" secondAttribute="leading" constant="8" id="ZDj-5K-7bP"/>
                                     <constraint firstAttribute="trailing" secondItem="c4m-Bd-rWf" secondAttribute="trailing" constant="8" id="Zow-Yq-RQt"/>
-                                    <constraint firstItem="aTA-Bl-IkE" firstAttribute="top" secondItem="07h-JA-EfR" secondAttribute="top" constant="10" id="dub-p0-n0j"/>
-                                    <constraint firstAttribute="bottom" secondItem="aTA-Bl-IkE" secondAttribute="bottom" constant="10" id="e2K-vZ-e21"/>
                                     <constraint firstAttribute="bottom" secondItem="c4m-Bd-rWf" secondAttribute="bottom" constant="5" id="fuY-mp-qFt"/>
+                                    <constraint firstItem="aTA-Bl-IkE" firstAttribute="centerY" secondItem="07h-JA-EfR" secondAttribute="centerY" id="jTA-HZ-HhR"/>
+                                    <constraint firstItem="uI4-n2-ESl" firstAttribute="centerX" secondItem="07h-JA-EfR" secondAttribute="centerX" constant="55" id="rGp-1U-qU4"/>
                                     <constraint firstAttribute="height" constant="35" id="vq8-Fv-ak3"/>
                                 </constraints>
                             </view>
@@ -301,6 +310,8 @@
                         <outlet property="SwipeUpAnimationView" destination="c4m-Bd-rWf" id="aH5-0M-62O"/>
                         <outlet property="ViewTableCustomFooter" destination="07h-JA-EfR" id="3hq-B2-HGn"/>
                         <outlet property="label_date" destination="shX-yI-Q7d" id="xT4-5h-0G5"/>
+                        <outlet property="label_total_hours" destination="uI4-n2-ESl" id="JOW-xP-7gl"/>
+                        <outlet property="label_total_present_count" destination="aTA-Bl-IkE" id="kRs-Y1-nnq"/>
                         <outlet property="tableviewMyAttendanceLog" destination="nkh-Ca-P6r" id="Otj-vG-gAF"/>
                         <outlet property="viewAttendanceDetailsChild" destination="1EJ-8u-89U" id="fVJ-AZ-ohK"/>
                         <outlet property="viewAttendanceDetailsClosePopup" destination="Rel-Va-au2" id="qn6-h7-Fdh"/>
