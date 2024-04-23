@@ -216,7 +216,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                 print("Log description: \(swiftyJsonVar)")
                 
                 self.label_date.text = "\(swiftyJsonVar["month_name"].stringValue), \(swiftyJsonVar["year"].stringValue)"
-                
+                let totalPresentCount = swiftyJsonVar["day_wise_logs"].array?.filter{$0["attendance_status"].stringValue == "Present"}.count //---added on 23-April-2024
+                print("Total Present-=> \(String(describing: totalPresentCount))")
                 
                 if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
                     self.arrRes = resData as! [[String:AnyObject]]
