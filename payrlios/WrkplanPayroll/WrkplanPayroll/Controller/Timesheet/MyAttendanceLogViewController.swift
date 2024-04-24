@@ -219,6 +219,34 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                 print("Log description: \(swiftyJsonVar)")
                 
                 self.label_date.text = "\(swiftyJsonVar["month_name"].stringValue), \(swiftyJsonVar["year"].stringValue)"
+                
+                //---added on 24-April-2024, code starts
+                if let dayWiseLogs = swiftyJsonVar["day_wise_logs"].array {
+                     // Filter logs up to the current date
+                     let filteredLogs = dayWiseLogs.prefix(while: { log in
+                         if let dateString = log["date"].string {
+                             let dateFormatter = DateFormatter()
+                             dateFormatter.dateFormat = "dd-MMM-yyyy"
+                             if let logDate = dateFormatter.date(from: dateString), logDate <= Date() {
+                                 return true
+                             }
+                         }
+                         return false
+                     })
+
+                     // Count occurrences of "Holiday" and "Week Off"
+                     let holidayCount = filteredLogs.filter { $0["attendance_status"].stringValue == "Holiday" }.count
+                     let weekOffCount = filteredLogs.filter { $0["attendance_status"].stringValue == "Week Off" }.count
+
+                     print("Holiday count: \(holidayCount)")
+                     print("Week Off count: \(weekOffCount)")
+                    
+                    // Total count of days up to current date
+                     let totalDaysCount = filteredLogs.count
+                     print("Total days count: \(totalDaysCount)")
+                 }
+                //---added on 24-April-2024, code ends
+                
                 let totalPresentCount = swiftyJsonVar["day_wise_logs"].array?.filter{$0["attendance_status"].stringValue == "Present"}.count //---added on 23-April-2024
                 print("Total Present-=> \(String(describing: totalPresentCount))")
                 self.label_total_present_count.text = "Total Present: \(totalPresentCount!)"
