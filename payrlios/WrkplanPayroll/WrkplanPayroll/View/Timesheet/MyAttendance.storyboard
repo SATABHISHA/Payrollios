@@ -406,7 +406,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVs-2M-fJm">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVs-2M-fJm">
                                     <rect key="frame" x="123.5" y="46" width="72" height="65"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LnH-Tf-yXh">
@@ -417,7 +417,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.55026697619999998" green="0.48176226729999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="LnH-Tf-yXh" secondAttribute="trailing" id="IMD-Mx-SCX"/>
                                         <constraint firstAttribute="height" constant="65" id="gbP-QA-4QK"/>
@@ -425,6 +425,17 @@
                                         <constraint firstItem="LnH-Tf-yXh" firstAttribute="leading" secondItem="OVs-2M-fJm" secondAttribute="leading" id="iyf-UQ-75p"/>
                                         <constraint firstItem="LnH-Tf-yXh" firstAttribute="top" secondItem="OVs-2M-fJm" secondAttribute="top" id="j7Z-lc-aQW"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.69999999999999996"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.55504518749999998" green="0.77614426609999998" blue="0.29599469900000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qnq-vt-PKK">
                                     <rect key="frame" x="227" y="46" width="72" height="65"/>
@@ -437,7 +448,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.55026697619999998" green="0.48176226729999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="SxQ-ml-ETC" secondAttribute="trailing" id="9Rj-lN-7Na"/>
                                         <constraint firstAttribute="height" constant="65" id="GFp-YY-LEL"/>
@@ -445,8 +456,19 @@
                                         <constraint firstAttribute="width" constant="72" id="ZHe-GK-Y0P"/>
                                         <constraint firstItem="SxQ-ml-ETC" firstAttribute="leading" secondItem="Qnq-vt-PKK" secondAttribute="leading" id="nCi-qQ-XAH"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.69999999999999996"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.84705882352941175" green="0.070588235294117646" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lF-0j-KyR">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lF-0j-KyR">
                                     <rect key="frame" x="20" y="121" width="72" height="65"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gI4-PQ-Uyj">
@@ -457,7 +479,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.55026697619999998" green="0.48176226729999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="gI4-PQ-Uyj" firstAttribute="leading" secondItem="6lF-0j-KyR" secondAttribute="leading" id="Avh-2O-jBk"/>
                                         <constraint firstAttribute="height" constant="65" id="OLI-jb-Phc"/>
@@ -465,8 +487,19 @@
                                         <constraint firstAttribute="trailing" secondItem="gI4-PQ-Uyj" secondAttribute="trailing" id="klI-gg-30N"/>
                                         <constraint firstAttribute="width" constant="72" id="okE-ur-FlF"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.69999999999999996"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.92589223379999996" green="0.16592091319999999" blue="0.16675737500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcO-Ef-1JN">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcO-Ef-1JN">
                                     <rect key="frame" x="123.5" y="121" width="72" height="65"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iea-R9-ReM">
@@ -477,7 +510,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.55026697619999998" green="0.48176226729999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="iea-R9-ReM" secondAttribute="trailing" id="DMU-x6-ShB"/>
                                         <constraint firstItem="iea-R9-ReM" firstAttribute="leading" secondItem="kcO-Ef-1JN" secondAttribute="leading" id="O6R-f8-PWy"/>
@@ -485,19 +518,30 @@
                                         <constraint firstAttribute="height" constant="65" id="TnA-6V-uvj"/>
                                         <constraint firstItem="iea-R9-ReM" firstAttribute="top" secondItem="kcO-Ef-1JN" secondAttribute="top" id="gIu-6t-0pC"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.69999999999999996"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.2514085472" green="0.57561254500000003" blue="0.90721648929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3K-h2-zve">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3K-h2-zve">
                                     <rect key="frame" x="227" y="121" width="72" height="65"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDD-fL-CN5">
                                             <rect key="frame" x="0.0" y="0.0" width="72" height="20"/>
-                                            <color key="backgroundColor" red="0.81821143630000004" green="0.4522607327" blue="0.026044948030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.9054742455" green="0.50068277120000004" blue="0.02438510768" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="k5F-rt-EkE"/>
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.55026697619999998" green="0.48176226729999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="72" id="BGL-pm-YiW"/>
                                         <constraint firstAttribute="trailing" secondItem="MDD-fL-CN5" secondAttribute="trailing" id="D3H-gs-hd3"/>
@@ -505,6 +549,17 @@
                                         <constraint firstAttribute="height" constant="65" id="daG-hS-7Y0"/>
                                         <constraint firstItem="MDD-fL-CN5" firstAttribute="leading" secondItem="x3K-h2-zve" secondAttribute="leading" id="gBX-g1-M3s"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="0.69999999999999996"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.81821143630000004" green="0.4522607327" blue="0.026044948030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
