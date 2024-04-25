@@ -207,6 +207,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     }
     //----------tableview code ends------------
     
+    
     //--------function to show log details using Alamofire and Json Swifty------------
     func loadData(month_number:Int, year:Int){
         loaderStart()
