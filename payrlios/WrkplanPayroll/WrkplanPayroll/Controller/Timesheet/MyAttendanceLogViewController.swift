@@ -24,6 +24,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     var month_number:Int?
     var year:Int?
     
+    var TotalOfficeWorkingDaysTillDate : Int?
     
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
@@ -245,6 +246,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                     // Total count of days up to current date
                      let totalDaysCount = filteredLogs.count
                      print("Total days count: \(totalDaysCount)")
+                    self.TotalOfficeWorkingDaysTillDate = (totalDaysCount - (holidayCount+weekOffCount))
                  }
                 //---added on 24-April-2024, code ends
                 
@@ -301,6 +303,14 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var viewAttendanceDetailsClosePopup: LottieAnimationView!
     
+    @IBOutlet weak var viewAttendanceDetailsLabelTotalPresent: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLabelLate: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLabelAbsent: UILabel!
+    @IBOutlet weak var viewAttendanceDetailLabelHoliday: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLeave: UILabel!
+    
+    
     func openAttendanceDetailsPopup(){
         blurEffect()
         self.view.addSubview(viewAttendanceDetailsPopup)
@@ -345,6 +355,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.viewAttendanceDetailsChild.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         //---set childview corner radius, code ends
         
+        
+        self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = String(describing: TotalOfficeWorkingDaysTillDate!)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
 //            self.viewAttendanceDetailsPopup.transform = .identity

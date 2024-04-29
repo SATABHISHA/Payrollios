@@ -313,8 +313,14 @@
                         <outlet property="label_total_hours" destination="uI4-n2-ESl" id="JOW-xP-7gl"/>
                         <outlet property="label_total_present_count" destination="aTA-Bl-IkE" id="kRs-Y1-nnq"/>
                         <outlet property="tableviewMyAttendanceLog" destination="nkh-Ca-P6r" id="Otj-vG-gAF"/>
+                        <outlet property="viewAttendanceDetailLabelHoliday" destination="kAf-E3-SXW" id="zKC-BX-QUq"/>
                         <outlet property="viewAttendanceDetailsChild" destination="1EJ-8u-89U" id="fVJ-AZ-ohK"/>
                         <outlet property="viewAttendanceDetailsClosePopup" destination="Rel-Va-au2" id="qn6-h7-Fdh"/>
+                        <outlet property="viewAttendanceDetailsLabelAbsent" destination="lY4-Mb-QFP" id="K3x-wW-YI1"/>
+                        <outlet property="viewAttendanceDetailsLabelLate" destination="2Va-as-Aqq" id="lZ6-nh-ujy"/>
+                        <outlet property="viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate" destination="jpa-M7-mwJ" id="Lb9-dM-sCf"/>
+                        <outlet property="viewAttendanceDetailsLabelTotalPresent" destination="1oT-HR-Zk2" id="jWY-6L-ldG"/>
+                        <outlet property="viewAttendanceDetailsLeave" destination="b3N-SP-0OW" id="Xn4-5m-4Ye"/>
                         <outlet property="viewAttendanceDetailsPopup" destination="8i0-Hr-ndQ" id="eDf-HM-uHW"/>
                         <segue destination="hnY-Ov-OAT" kind="modal" identifier="timesheet" modalPresentationStyle="fullScreen" id="edG-NE-cpN"/>
                     </connections>
