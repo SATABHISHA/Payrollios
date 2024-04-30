@@ -27,6 +27,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     var TotalOfficeWorkingDaysTillDate : Int?
     var TotalOfficePresent : Int?
     var TotalAbsent : Int?
+    var TotalLate : Int?
     
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
@@ -249,6 +250,19 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                      let totalDaysCount = filteredLogs.count
                      print("Total days count: \(totalDaysCount)")
                     self.TotalOfficeWorkingDaysTillDate = (totalDaysCount - (holidayCount+weekOffCount))
+                    
+                    
+                    // Count occurrences of time_in greater than 10:00AM
+                    let lateTimeInCount = filteredLogs.filter {
+                        let timeIn = $0["time_in"].stringValue
+                        let timeFormatter = DateFormatter()
+                        timeFormatter.dateFormat = "h:mma"
+                        if let date = timeFormatter.date(from: timeIn), date > timeFormatter.date(from: "10:00AM")! {
+                            return true
+                        }
+                        return false
+                    }.count
+                    self.TotalLate = lateTimeInCount
                  }
                 //---added on 24-April-2024, code ends
                 
@@ -368,6 +382,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = String(describing: TotalOfficeWorkingDaysTillDate!)
         self.viewAttendanceDetailsLabelTotalPresent.text = String(describing: TotalOfficePresent!)
         self.viewAttendanceDetailsLabelAbsent.text = String(describing: TotalAbsent!)
+        self.viewAttendanceDetailsLabelLate.text = String(describing: TotalLate!)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
 //            self.viewAttendanceDetailsPopup.transform = .identity
