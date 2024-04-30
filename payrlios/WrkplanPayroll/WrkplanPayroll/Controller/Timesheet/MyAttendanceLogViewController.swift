@@ -25,6 +25,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     var year:Int?
     
     var TotalOfficeWorkingDaysTillDate : Int?
+    var TotalOfficePresent : Int?
+    var TotalAbsent : Int?
     
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
@@ -254,6 +256,13 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                 let totalPresentCount = swiftyJsonVar["day_wise_logs"].array?.filter{$0["attendance_status"].stringValue == "Present"}.count //---added on 23-April-2024
                 print("Total Present-=> \(String(describing: totalPresentCount))")
                 self.label_total_present_count.text = "Total Present: \(totalPresentCount!)"
+                self.TotalOfficePresent = totalPresentCount!
+                
+                guard let totalAbsentCount = swiftyJsonVar["day_wise_logs"].array?.filter({$0["attendance_status"].stringValue == "Absent"}).count else{
+                    self.TotalAbsent = 0
+                    return
+                }
+                self.TotalAbsent = totalAbsentCount
                 
                 if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
                     self.arrRes = resData as! [[String:AnyObject]]
@@ -357,6 +366,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         
         
         self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = String(describing: TotalOfficeWorkingDaysTillDate!)
+        self.viewAttendanceDetailsLabelTotalPresent.text = String(describing: TotalOfficePresent!)
+        self.viewAttendanceDetailsLabelAbsent.text = String(describing: TotalAbsent!)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
 //            self.viewAttendanceDetailsPopup.transform = .identity
