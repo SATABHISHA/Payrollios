@@ -28,6 +28,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     var TotalOfficePresent : Int?
     var TotalAbsent : Int?
     var TotalLate : Int?
+    var TotalHoliday : Int?
+    var TotalLeave : Int?
     
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
@@ -240,8 +242,14 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                      })
 
                      // Count occurrences of "Holiday" and "Week Off"
-                     let holidayCount = filteredLogs.filter { $0["attendance_status"].stringValue == "Holiday" }.count
+                    let holidayCount = filteredLogs.filter { 
+                        $0["attendance_status"].stringValue == "Holiday"
+                    }.count
                      let weekOffCount = filteredLogs.filter { $0["attendance_status"].stringValue == "Week Off" }.count
+                     let leaveCount = filteredLogs.filter { $0["attendance_status"].stringValue == "Leave" }.count
+                    
+                     self.TotalHoliday = holidayCount
+                     self.TotalLeave = leaveCount
 
                      print("Holiday count: \(holidayCount)")
                      print("Week Off count: \(weekOffCount)")
@@ -383,6 +391,8 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.viewAttendanceDetailsLabelTotalPresent.text = String(describing: TotalOfficePresent!)
         self.viewAttendanceDetailsLabelAbsent.text = String(describing: TotalAbsent!)
         self.viewAttendanceDetailsLabelLate.text = String(describing: TotalLate!)
+        self.viewAttendanceDetailLabelHoliday.text = String(describing: TotalHoliday!)
+        self.viewAttendanceDetailsLeave.text = String(describing: TotalLeave!)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
 //            self.viewAttendanceDetailsPopup.transform = .identity
