@@ -73,6 +73,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         self.tv_wrk_frm_home.layer.borderColor = UIColor.lightGray.cgColor
         self.tv_wrk_frm_home.layer.borderWidth = 1
         
+        
         //-----code to add button border, starts------
         StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         designablebtn_subordinate_attendance_log.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
@@ -96,6 +97,8 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         
         load_data_check_od_duty()
     }
+    
+   
     @IBAction func btn_in(_ sender: Any) {
         TimesheetMyAttendanceViewController.in_out = "IN"
         TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
@@ -408,6 +411,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
             }
             
         }
+        
     }
     //===========Code for getting time_in and time_out, ends==========
     
