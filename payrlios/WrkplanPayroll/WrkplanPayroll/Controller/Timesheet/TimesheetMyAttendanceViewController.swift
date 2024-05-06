@@ -115,6 +115,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         imagePicker.allowsEditing = false
         
         load_data_check_od_duty()
+        
     }
     
    
