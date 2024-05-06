@@ -326,6 +326,10 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
                 let swiftyJsonVar=JSON(responseData.value!)
                 print("Log description: \(swiftyJsonVar)")
                 
+                //---added on 06-May-2024, code starts
+                self.btnCheckBox.isHidden = true
+                self.label_wrk_from_home.isHidden = true
+                //---added on 06-May-2024, code ends
                 
                 if swiftyJsonVar["response"]["status"].stringValue == "true"{
                     self.timesheet_id = swiftyJsonVar["timesheet_id"].intValue
@@ -334,7 +338,9 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
                     
                     print("timesheet_id-=>",self.timesheet_id!)
                     print("work_from_home_flag-=>",self.work_from_home_flag!)
-                    if self.timesheet_id! != 0 {
+                    
+                    //---commented on 06-May-2024 (as per discussion, wfh is no more required)
+                   /* if self.timesheet_id! != 0 {
                         if self.work_from_home_flag == 1 {
                             self.btnCheckBox.isHidden = false
                             self.label_wrk_from_home.isHidden = false
@@ -359,32 +365,34 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
                             self.tv_wrkfrmhome_constraint_height.constant = 60
                             
                         }
-                    }
+                    }*/
+                    //---commented on 06-May-2024 (as per discussion, wfh is no more required)
+                    
                     if(swiftyJsonVar["timesheet_in_out_action"].exists()) {
                         if swiftyJsonVar["timesheet_in_out_action"].stringValue == "IN" {
-                            self.btnCheckBox.isHidden = false
+//                            self.btnCheckBox.isHidden = false  //---commented on 06-May-2024
                             
                             self.btn_in.isHidden = false
                             self.btn_out.isHidden = true
                             
                         } else if swiftyJsonVar["timesheet_in_out_action"].stringValue == "OUT" {
-                            self.btnCheckBox.isHidden = false
-                            self.label_wrk_from_home.isHidden = false
+                            /*self.btnCheckBox.isHidden = false
+                            self.label_wrk_from_home.isHidden = false*/ //---commented on 06-May-2024
                             
                             self.btn_in.isHidden = true
                             self.btn_out.isHidden = false
                             
                         } else {
-                            self.btnCheckBox.isHidden = true
-                            self.label_wrk_from_home.isHidden = true
+                           /* self.btnCheckBox.isHidden = true
+                            self.label_wrk_from_home.isHidden = true*/ //---commented on 06-May-2024
                             
                             self.btn_in.isHidden = true
                             self.btn_out.isHidden = true
                             
                         }
                     }else {
-                        self.btnCheckBox.isHidden = true
-                        self.label_wrk_from_home.isHidden = true
+                       /* self.btnCheckBox.isHidden = true
+                        self.label_wrk_from_home.isHidden = true */ //---commented on 06-May-2024
                         
                         self.btn_in.isHidden = true
                         self.btn_out.isHidden = true
