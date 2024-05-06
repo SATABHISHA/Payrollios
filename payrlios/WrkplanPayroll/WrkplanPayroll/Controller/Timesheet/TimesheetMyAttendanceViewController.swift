@@ -36,6 +36,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     static var currentLongitude:Double = 0.0
     static var currentAddress:String = ""
     
+    @IBOutlet weak var view_table_header: UIView!
     @IBOutlet weak var label_date_today: UILabel!
     
     //-----camera variables
@@ -88,6 +89,24 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         let tapGestureRecognizerSubordinateAttendanceLogDesignablebtn = UITapGestureRecognizer(target: self, action: #selector(DesignablebtnSubordinateAttendanceLog(tapGestureRecognizer:)))
         designablebtn_subordinate_attendance_log.isUserInteractionEnabled = true
         designablebtn_subordinate_attendance_log.addGestureRecognizer(tapGestureRecognizerSubordinateAttendanceLogDesignablebtn)
+        
+        //---making tableview header and footer rounded corners
+        self.view_table_header.clipsToBounds = true
+        self.view_table_header.layer.cornerRadius = 10
+        self.view_table_header.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.view_table_header.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        self.tableviewMyAttendence.clipsToBounds = true
+        self.tableviewMyAttendence.layer.cornerRadius = 10
+//        self.tableviewMyAttendence.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.tableviewMyAttendence.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        self.tableviewMyAttendence.borderWidth = 0.8
+        self.tableviewMyAttendence.borderColor = UIColor(hexFromString: "CBCBCB")
+        
+        /*self.tableviewMyAttendence.layer.shadowColor = UIColor.gray.cgColor
+        self.tableviewMyAttendence.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.tableviewMyAttendence.layer.shadowOpacity = 0.5
+        self.tableviewMyAttendence.layer.shadowRadius = 3.0*/
         
         //---camera
         imagePicker.delegate = self
