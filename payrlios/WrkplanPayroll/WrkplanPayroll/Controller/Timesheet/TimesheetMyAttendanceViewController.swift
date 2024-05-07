@@ -15,6 +15,10 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
     
     @IBOutlet weak var label_wrk_from_home: UILabel!
     @IBOutlet weak var designablebtn_myattendance_log: DesignableButton!
+    
+    @IBOutlet weak var label_my_attendance_log: UILabel!
+    
+    @IBOutlet weak var label_subordinate_attendance_log: UILabel!
     @IBOutlet weak var designablebtn_subordinate_attendance_log: DesignableButton!
     @IBOutlet weak var StackViewButtons: UIStackView!
     @IBOutlet weak var tv_wrk_frm_home: UITextView!
@@ -74,11 +78,29 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         self.tv_wrk_frm_home.layer.borderColor = UIColor.lightGray.cgColor
         self.tv_wrk_frm_home.layer.borderWidth = 1
         
-        
         //-----code to add button border, starts------
         StackViewButtons.addBorder(side: .top, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
-        designablebtn_subordinate_attendance_log.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+//        designablebtn_subordinate_attendance_log.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         //-----code to add button border, ends------
+        
+        //----code for button visibility/invisibility, code starts
+        if swiftyJsonvar1["user"]["user_type"].stringValue == "Employee"{
+            designablebtn_subordinate_attendance_log.isHidden = true
+            label_subordinate_attendance_log.isHidden = true
+            
+            designablebtn_myattendance_log.isHidden = false
+            label_my_attendance_log.isHidden = false
+        }else if swiftyJsonvar1["user"]["user_type"].stringValue == "Supervisor"{
+            designablebtn_subordinate_attendance_log.isHidden = false
+            label_subordinate_attendance_log.isHidden = false
+            
+            designablebtn_myattendance_log.isHidden = false
+            label_my_attendance_log.isHidden = false
+            designablebtn_subordinate_attendance_log.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+        }
+        //----code for button visibility/invisibility, code ends
+        
+       
         
         //MyAttendanceLog OnClick
         let tapGestureRecognizerMyAttendanceLogDesignablebtn = UITapGestureRecognizer(target: self, action: #selector(DesignablebtnMyAttendanceLog(tapGestureRecognizer:)))

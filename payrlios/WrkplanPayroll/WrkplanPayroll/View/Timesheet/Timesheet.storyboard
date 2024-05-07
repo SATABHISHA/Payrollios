@@ -158,12 +158,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Monthly Attendance Log" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRh-Xt-BqL">
                                                 <rect key="frame" x="8" y="8" width="186" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.26488354800000002" green="0.57666027549999999" blue="0.96015578509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.1803921568627451" green="0.3411764705882353" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.81568627450980391" green="0.81568627450980391" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -384,6 +385,8 @@
                         <outlet property="designablebtn_myattendance_log" destination="zDX-6k-bnG" id="z21-fz-c6i"/>
                         <outlet property="designablebtn_subordinate_attendance_log" destination="TgU-4h-Uco" id="cSB-sr-eHt"/>
                         <outlet property="label_date_today" destination="Xrq-Xn-esx" id="6mo-CQ-VuE"/>
+                        <outlet property="label_my_attendance_log" destination="kRh-Xt-BqL" id="mWh-r9-2HQ"/>
+                        <outlet property="label_subordinate_attendance_log" destination="6hF-tz-LqJ" id="Bww-eE-Vl9"/>
                         <outlet property="label_wrk_from_home" destination="Y4S-V4-pkL" id="2ui-TL-c0t"/>
                         <outlet property="stackViewEnrollPopupButton" destination="rlX-6K-8cl" id="dh8-Yz-WSj"/>
                         <outlet property="tableviewMyAttendence" destination="ffn-kx-egJ" id="WEM-9a-7Oh"/>
@@ -530,6 +533,14 @@
             <point key="canvasLocation" x="709" y="171"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="TgU-4h-Uco">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="zDX-6k-bnG">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="home_menu" width="32" height="32"/>
     </resources>
