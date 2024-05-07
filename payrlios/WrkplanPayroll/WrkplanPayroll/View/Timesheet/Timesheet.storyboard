@@ -172,7 +172,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgS-Kl-Neg">
-                                <rect key="frame" x="20" y="245" width="372" height="35"/>
+                                <rect key="frame" x="20" y="235" width="372" height="35"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KiC-R4-I8m">
                                         <rect key="frame" x="0.0" y="9" width="372" height="17"/>
@@ -221,7 +221,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ffn-kx-egJ">
-                                <rect key="frame" x="20" y="280" width="372" height="386"/>
+                                <rect key="frame" x="20" y="270" width="372" height="396"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="z9G-i9-C4H" customClass="TimesheetMyAttendanceTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
@@ -236,7 +236,7 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMM-52-1aG" userLabel="ViewBorderLine">
                                                             <rect key="frame" x="0.0" y="40.333333333333336" width="372" height="0.3333333333333357"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" white="0.55963010204081631" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="0.5" id="bTr-XP-b4g"/>
                                                             </constraints>
@@ -268,7 +268,7 @@
                                                                 <constraint firstAttribute="width" constant="76" id="Kp2-Fo-dYp"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" red="0.46268862190891458" green="0.64639892542121213" blue="0.36405352995940155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.098039215686274508" green="0.6470588235294118" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -314,7 +314,7 @@
                         <viewLayoutGuide key="safeArea" id="gx8-VE-U4H"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WgS-Kl-Neg" firstAttribute="top" secondItem="ygU-LF-GDc" secondAttribute="bottom" constant="35" id="0s2-Bk-KEZ"/>
+                            <constraint firstItem="WgS-Kl-Neg" firstAttribute="top" secondItem="ygU-LF-GDc" secondAttribute="bottom" constant="25" id="0s2-Bk-KEZ"/>
                             <constraint firstItem="gx8-VE-U4H" firstAttribute="trailing" secondItem="r4V-5S-dGv" secondAttribute="trailing" constant="20" id="3lh-CM-w3m"/>
                             <constraint firstItem="qbq-j3-uOC" firstAttribute="leading" secondItem="gx8-VE-U4H" secondAttribute="leading" constant="132" id="4NQ-mi-Zl2"/>
                             <constraint firstItem="Rpn-GP-9pd" firstAttribute="bottom" secondItem="gx8-VE-U4H" secondAttribute="bottom" id="7V1-GV-uAr"/>

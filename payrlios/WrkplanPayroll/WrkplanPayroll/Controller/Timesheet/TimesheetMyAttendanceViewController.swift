@@ -239,6 +239,7 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         self.performSegue(withIdentifier: "home", sender: nil)
         determineMyCurrentLocation(status: "Stop")
         print("tapped")
+        
     }
     
     @IBAction func checkMarkedTapped(_ sender: UIButton) {
@@ -289,6 +290,12 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         cell.label_date.text = dict["date"] as? String
         cell.label_time.text = dict["time"] as? String
         cell.label_in_out_status.text = dict["status"] as? String
+        if dict["status"]?.stringValue == "IN"{
+            cell.label_in_out_status.textColor = UIColor(hexFromString: "19A50C")
+        }
+        if dict["status"]?.stringValue == "OUT"{
+            cell.label_in_out_status.textColor = UIColor(hexFromString: "B51219")
+        }
        
         return cell
     }
