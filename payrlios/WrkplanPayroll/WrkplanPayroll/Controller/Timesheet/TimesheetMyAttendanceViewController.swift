@@ -85,18 +85,24 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         
         //----code for button visibility/invisibility, code starts
         if swiftyJsonvar1["user"]["user_type"].stringValue == "Employee"{
-            designablebtn_subordinate_attendance_log.isHidden = true
             label_subordinate_attendance_log.isHidden = true
+//            label_subordinate_attendance_log.isHidden = true
             
-            designablebtn_myattendance_log.isHidden = false
             label_my_attendance_log.isHidden = false
+            label_my_attendance_log.text = "My Monthly Attendance Log"
+//            label_my_attendance_log.isHidden = false
         }else if swiftyJsonvar1["user"]["user_type"].stringValue == "Supervisor"{
-            designablebtn_subordinate_attendance_log.isHidden = false
             label_subordinate_attendance_log.isHidden = false
+            label_subordinate_attendance_log.numberOfLines = 0
+            label_subordinate_attendance_log.text = "Subordinate\nAttendance Log"
+            label_subordinate_attendance_log.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+//            label_subordinate_attendance_log.isHidden = false
             
-            designablebtn_myattendance_log.isHidden = false
             label_my_attendance_log.isHidden = false
-            designablebtn_subordinate_attendance_log.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
+            label_my_attendance_log.numberOfLines = 0
+            label_my_attendance_log.text = "My Monthly\nAttendance Log"
+//            label_my_attendance_log.isHidden = false
+            
         }
         //----code for button visibility/invisibility, code ends
         
@@ -104,13 +110,13 @@ class TimesheetMyAttendanceViewController: UIViewController, UITableViewDataSour
         
         //MyAttendanceLog OnClick
         let tapGestureRecognizerMyAttendanceLogDesignablebtn = UITapGestureRecognizer(target: self, action: #selector(DesignablebtnMyAttendanceLog(tapGestureRecognizer:)))
-        designablebtn_myattendance_log.isUserInteractionEnabled = true
-        designablebtn_myattendance_log.addGestureRecognizer(tapGestureRecognizerMyAttendanceLogDesignablebtn)
+        label_my_attendance_log.isUserInteractionEnabled = true
+        label_my_attendance_log.addGestureRecognizer(tapGestureRecognizerMyAttendanceLogDesignablebtn)
         
         //SubordinateAttendance OnClick
         let tapGestureRecognizerSubordinateAttendanceLogDesignablebtn = UITapGestureRecognizer(target: self, action: #selector(DesignablebtnSubordinateAttendanceLog(tapGestureRecognizer:)))
-        designablebtn_subordinate_attendance_log.isUserInteractionEnabled = true
-        designablebtn_subordinate_attendance_log.addGestureRecognizer(tapGestureRecognizerSubordinateAttendanceLogDesignablebtn)
+        label_subordinate_attendance_log.isUserInteractionEnabled = true
+        label_subordinate_attendance_log.addGestureRecognizer(tapGestureRecognizerSubordinateAttendanceLogDesignablebtn)
         
         //---making tableview header and footer rounded corners
         self.view_table_header.clipsToBounds = true

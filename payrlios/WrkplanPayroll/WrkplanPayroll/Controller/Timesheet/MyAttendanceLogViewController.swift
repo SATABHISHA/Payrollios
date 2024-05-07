@@ -274,11 +274,16 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
                  }
                 //---added on 24-April-2024, code ends
                 
+                var totalPresent = 0
+                if let totalPresentCount = swiftyJsonVar["day_wise_logs"].array?.filter({$0["attendance_status"].stringValue == "Present"}).count{
+                    totalPresent = totalPresentCount
+                }else{
+                    totalPresent = 0
+                }
                 
-                let totalPresentCount = swiftyJsonVar["day_wise_logs"].array?.filter{$0["attendance_status"].stringValue == "Present"}.count //---added on 23-April-2024
-                print("Total Present-=> \(String(describing: totalPresentCount))")
-                self.label_total_present_count.text = "Total Present: \(totalPresentCount!)"
-                self.TotalOfficePresent = totalPresentCount!
+                print("Total Present-=> \(String(describing: totalPresent))")
+                self.label_total_present_count.text = "Total Present: \(totalPresent)"
+                self.TotalOfficePresent = totalPresent
                 
                 guard let totalAbsentCount = swiftyJsonVar["day_wise_logs"].array?.filter({$0["attendance_status"].stringValue == "Absent"}).count else{
                     self.TotalAbsent = 0
