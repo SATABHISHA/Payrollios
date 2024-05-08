@@ -24,12 +24,12 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
     var month_number:Int?
     var year:Int?
     
-    var TotalOfficeWorkingDaysTillDate : Int?
-    var TotalOfficePresent : Int?
-    var TotalAbsent : Int?
-    var TotalLate : Int?
-    var TotalHoliday : Int?
-    var TotalLeave : Int?
+    lazy var TotalOfficeWorkingDaysTillDate = 0
+    lazy var TotalOfficePresent : Int = 0
+    lazy var TotalAbsent : Int = 0
+    lazy var TotalLate : Int = 0
+    lazy var TotalHoliday : Int = 0
+    lazy var TotalLeave : Int = 0
     
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
@@ -391,13 +391,16 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
         self.viewAttendanceDetailsChild.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         //---set childview corner radius, code ends
         
-        
-        self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = String(describing: TotalOfficeWorkingDaysTillDate!)
-        self.viewAttendanceDetailsLabelTotalPresent.text = String(describing: TotalOfficePresent!)
-        self.viewAttendanceDetailsLabelAbsent.text = String(describing: TotalAbsent!)
-        self.viewAttendanceDetailsLabelLate.text = String(describing: TotalLate!)
-        self.viewAttendanceDetailLabelHoliday.text = String(describing: TotalHoliday!)
-        self.viewAttendanceDetailsLeave.text = String(describing: TotalLeave!)
+        /*guard let TotalOfficeWorkingDaysTillDate = TotalOfficeWorkingDaysTillDate?.hashValue else{
+            self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = "0"
+            return
+        }*/
+        self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = String(describing: TotalOfficeWorkingDaysTillDate)
+        self.viewAttendanceDetailsLabelTotalPresent.text = String(describing: TotalOfficePresent)
+        self.viewAttendanceDetailsLabelAbsent.text = String(describing: TotalAbsent)
+        self.viewAttendanceDetailsLabelLate.text = String(describing: TotalLate)
+        self.viewAttendanceDetailLabelHoliday.text = String(describing: TotalHoliday)
+        self.viewAttendanceDetailsLeave.text = String(describing: TotalLeave)
         
         UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
 //            self.viewAttendanceDetailsPopup.transform = .identity
