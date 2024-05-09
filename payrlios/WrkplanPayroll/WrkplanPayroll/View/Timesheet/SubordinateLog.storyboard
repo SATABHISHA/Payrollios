@@ -151,15 +151,8 @@
                                     <constraint firstAttribute="height" constant="35" id="inj-Pw-Agm"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEo-PJ-gOQ">
-                                <rect key="frame" x="20" y="250" width="315" height="0.5"/>
-                                <color key="backgroundColor" red="0.27058823529999998" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="0.69999999999999996" id="ghI-MG-jTQ"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fAd-iZ-tas">
-                                <rect key="frame" x="20" y="260.5" width="335" height="336.5"/>
+                                <rect key="frame" x="20" y="245" width="335" height="352"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="42" id="nux-t5-lj1" customClass="SubordinateLogTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
@@ -282,20 +275,17 @@
                             <constraint firstItem="9mV-Rh-B7v" firstAttribute="top" secondItem="hvQ-iL-qdF" secondAttribute="bottom" constant="50" id="Ef9-fZ-g2U"/>
                             <constraint firstItem="zC8-8o-krX" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" id="Eoe-Jd-c2f"/>
                             <constraint firstItem="zQI-na-i4c" firstAttribute="trailing" secondItem="hvQ-iL-qdF" secondAttribute="trailing" constant="20" id="HFO-YI-tZv"/>
-                            <constraint firstItem="QEo-PJ-gOQ" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="J75-cP-GnE"/>
                             <constraint firstItem="fAd-iZ-tas" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="OPM-zq-140"/>
                             <constraint firstItem="qjy-JN-pNi" firstAttribute="top" secondItem="oXB-Oc-KOV" secondAttribute="bottom" constant="20" id="WOj-4g-QcI"/>
-                            <constraint firstItem="QEo-PJ-gOQ" firstAttribute="top" secondItem="9mV-Rh-B7v" secondAttribute="bottom" constant="5" id="WUH-83-QqT"/>
                             <constraint firstItem="zC8-8o-krX" firstAttribute="bottom" secondItem="zQI-na-i4c" secondAttribute="bottom" id="WtP-aF-pZH"/>
                             <constraint firstItem="zQI-na-i4c" firstAttribute="trailing" secondItem="fAd-iZ-tas" secondAttribute="trailing" constant="20" id="XP5-t1-BKi"/>
                             <constraint firstItem="oXB-Oc-KOV" firstAttribute="top" secondItem="zQI-na-i4c" secondAttribute="top" id="Ydb-aU-u8m"/>
                             <constraint firstItem="oXB-Oc-KOV" firstAttribute="trailing" secondItem="zQI-na-i4c" secondAttribute="trailing" id="cfV-RF-08Q"/>
                             <constraint firstItem="qjy-JN-pNi" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="eUR-0D-c6v"/>
+                            <constraint firstItem="fAd-iZ-tas" firstAttribute="top" secondItem="9mV-Rh-B7v" secondAttribute="bottom" id="eg7-rR-ECh"/>
                             <constraint firstItem="9mV-Rh-B7v" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="kdw-j9-TAo"/>
                             <constraint firstItem="zC8-8o-krX" firstAttribute="trailing" secondItem="zQI-na-i4c" secondAttribute="trailing" id="oTC-KU-s9g"/>
                             <constraint firstItem="hvQ-iL-qdF" firstAttribute="top" secondItem="qjy-JN-pNi" secondAttribute="bottom" constant="5" id="oZf-su-Bmb"/>
-                            <constraint firstItem="zQI-na-i4c" firstAttribute="trailing" secondItem="QEo-PJ-gOQ" secondAttribute="trailing" constant="40" id="plK-DF-5ZK"/>
-                            <constraint firstItem="fAd-iZ-tas" firstAttribute="top" secondItem="QEo-PJ-gOQ" secondAttribute="bottom" constant="10" id="rpQ-qC-TdW"/>
                             <constraint firstItem="zQI-na-i4c" firstAttribute="trailing" secondItem="9mV-Rh-B7v" secondAttribute="trailing" constant="20" id="s31-uU-1xR"/>
                             <constraint firstItem="oXB-Oc-KOV" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" id="vM3-fx-KCz"/>
                             <constraint firstItem="hvQ-iL-qdF" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="vuv-IA-yDv"/>
@@ -324,6 +314,7 @@
                         <outlet property="designablebtn_label_subordinate_monthly_attendance_log" destination="RZD-cL-zpC" id="SZg-jt-CaE"/>
                         <outlet property="designablebtn_subordinate_monthly_attendance_log" destination="zC8-8o-krX" id="VHN-Bj-E5n"/>
                         <outlet property="label_date" destination="hvQ-iL-qdF" id="k4O-Qu-lA9"/>
+                        <outlet property="stackViewTableHeader" destination="9mV-Rh-B7v" id="79Q-AP-J4q"/>
                         <outlet property="tableviewSubordinateLog" destination="fAd-iZ-tas" id="5dS-TD-N6D"/>
                         <outlet property="viewLatLongDetailsPopup" destination="uXc-HW-6zF" id="ocG-FI-8dj"/>
                         <segue destination="NrF-4t-6de" kind="modal" identifier="submyattendance" modalPresentationStyle="fullScreen" id="6DD-si-Vai"/>
@@ -651,6 +642,11 @@
             <point key="canvasLocation" x="-149.27536231884059" y="30.978260869565219"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="zC8-8o-krX">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrowrightsublog" width="64" height="64"/>
         <image name="backarrownew" width="200" height="200"/>

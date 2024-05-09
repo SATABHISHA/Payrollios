@@ -19,7 +19,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var designablebtn_label_subordinate_monthly_attendance_log: UILabel!
     @IBOutlet weak var tableviewSubordinateLog: UITableView!
     @IBOutlet weak var label_date: UILabel!
-    
+    @IBOutlet weak var stackViewTableHeader: UIStackView!
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     static var subordinate_details = [SubordinateDetails]()
