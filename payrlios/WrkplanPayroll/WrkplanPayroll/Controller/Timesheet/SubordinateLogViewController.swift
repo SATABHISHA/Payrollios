@@ -32,6 +32,18 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         
         ChangeStatusBarColor() //---to change background statusbar color
         
+        //---TableView header/footer customization, code starts
+        self.stackViewTableHeader.clipsToBounds = true
+        self.stackViewTableHeader.layer.cornerRadius = 10
+        self.stackViewTableHeader.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.stackViewTableHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        self.stackViewTableHeader.layer.shadowColor = UIColor.gray.cgColor
+        self.stackViewTableHeader.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.stackViewTableHeader.layer.shadowOpacity = 3
+        self.stackViewTableHeader.layer.shadowRadius = 3.0
+        //---TableView header/footer customization, code ends
+        
         //-----code to get current date and show date in the label, starts-----
         let date = Date()
         let formatter = DateFormatter()

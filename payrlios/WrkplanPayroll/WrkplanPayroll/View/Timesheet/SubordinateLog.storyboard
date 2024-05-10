@@ -115,7 +115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9mV-Rh-B7v">
-                                <rect key="frame" x="20" y="210" width="335" height="35"/>
+                                <rect key="frame" x="20" y="180" width="335" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaG-i5-2aD">
                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="35"/>
@@ -152,7 +152,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fAd-iZ-tas">
-                                <rect key="frame" x="20" y="245" width="335" height="352"/>
+                                <rect key="frame" x="20" y="215" width="335" height="382"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="42" id="nux-t5-lj1" customClass="SubordinateLogTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
@@ -272,7 +272,7 @@
                         <constraints>
                             <constraint firstItem="zC8-8o-krX" firstAttribute="top" secondItem="fAd-iZ-tas" secondAttribute="bottom" constant="10" id="47a-qo-m5x"/>
                             <constraint firstItem="zQI-na-i4c" firstAttribute="trailing" secondItem="qjy-JN-pNi" secondAttribute="trailing" constant="20" id="9Sp-iQ-mUh"/>
-                            <constraint firstItem="9mV-Rh-B7v" firstAttribute="top" secondItem="hvQ-iL-qdF" secondAttribute="bottom" constant="50" id="Ef9-fZ-g2U"/>
+                            <constraint firstItem="9mV-Rh-B7v" firstAttribute="top" secondItem="hvQ-iL-qdF" secondAttribute="bottom" constant="20" id="Ef9-fZ-g2U"/>
                             <constraint firstItem="zC8-8o-krX" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" id="Eoe-Jd-c2f"/>
                             <constraint firstItem="zQI-na-i4c" firstAttribute="trailing" secondItem="hvQ-iL-qdF" secondAttribute="trailing" constant="20" id="HFO-YI-tZv"/>
                             <constraint firstItem="fAd-iZ-tas" firstAttribute="leading" secondItem="zQI-na-i4c" secondAttribute="leading" constant="20" id="OPM-zq-140"/>
@@ -642,11 +642,6 @@
             <point key="canvasLocation" x="-149.27536231884059" y="30.978260869565219"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="zC8-8o-krX">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <image name="arrowrightsublog" width="64" height="64"/>
         <image name="backarrownew" width="200" height="200"/>
