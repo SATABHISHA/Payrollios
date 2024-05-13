@@ -151,7 +151,7 @@
                                     <constraint firstAttribute="height" constant="35" id="inj-Pw-Agm"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1KU-qJ-CSw">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1KU-qJ-CSw">
                                 <rect key="frame" x="20" y="215" width="335" height="372"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fAd-iZ-tas">
@@ -329,6 +329,7 @@
                         <outlet property="stackViewTableHeader" destination="9mV-Rh-B7v" id="79Q-AP-J4q"/>
                         <outlet property="tableviewSubordinateLog" destination="fAd-iZ-tas" id="5dS-TD-N6D"/>
                         <outlet property="viewLatLongDetailsPopup" destination="uXc-HW-6zF" id="ocG-FI-8dj"/>
+                        <outlet property="viewSubordinateTableView" destination="1KU-qJ-CSw" id="9sl-nv-Nkr"/>
                         <segue destination="NrF-4t-6de" kind="modal" identifier="submyattendance" modalPresentationStyle="fullScreen" id="6DD-si-Vai"/>
                         <segue destination="hyb-sh-Fho" kind="modal" identifier="timesheet" modalPresentationStyle="fullScreen" id="BAQ-MR-NtJ"/>
                     </connections>

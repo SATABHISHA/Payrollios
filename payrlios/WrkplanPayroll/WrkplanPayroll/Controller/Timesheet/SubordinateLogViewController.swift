@@ -24,6 +24,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     static var subordinate_details = [SubordinateDetails]()
     
+    @IBOutlet weak var viewSubordinateTableView: UIView!
     //--variables for tableview-=>popup, added on 07-Jun-2021
     static var Log_employee_id: Int!
     
@@ -32,17 +33,7 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         
         ChangeStatusBarColor() //---to change background statusbar color
         
-        //---TableView header/footer customization, code starts
-        self.stackViewTableHeader.clipsToBounds = true
-        self.stackViewTableHeader.layer.cornerRadius = 10
-        self.stackViewTableHeader.backgroundColor = UIColor(hexFromString: "CBCBCB")
-        self.stackViewTableHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
-        self.stackViewTableHeader.layer.shadowColor = UIColor.gray.cgColor
-        self.stackViewTableHeader.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.stackViewTableHeader.layer.shadowOpacity = 3
-        self.stackViewTableHeader.layer.shadowRadius = 3.0
-        //---TableView header/footer customization, code ends
+
         
         //-----code to get current date and show date in the label, starts-----
         let date = Date()
@@ -71,6 +62,35 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
         let tapGestureRecognizerLocationDetailsOk = UITapGestureRecognizer(target: self, action: #selector(LocationDetailsPopupOk(tapGestureRecognizer:)))
         custom_btn_ok_location_details_popup.isUserInteractionEnabled = true
         custom_btn_ok_location_details_popup.addGestureRecognizer(tapGestureRecognizerLocationDetailsOk)
+        
+        
+        //---TableView header/footer customization, code starts
+        self.stackViewTableHeader.clipsToBounds = true
+        self.stackViewTableHeader.layer.cornerRadius = 10
+        self.stackViewTableHeader.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.stackViewTableHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        self.stackViewTableHeader.layer.shadowColor = UIColor.gray.cgColor
+        self.stackViewTableHeader.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.stackViewTableHeader.layer.shadowOpacity = 3
+        self.stackViewTableHeader.layer.shadowRadius = 3.0
+        
+        
+//        viewSubordinateTableView.add
+//        viewSubordinateTableView.addBorderSides(sides: [.left, .right, .bottom], color: UIColor(hexFromString: "CBCBCB"), width: 0.6)
+//        viewSubordinateTableView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
+        viewSubordinateTableView.layer.masksToBounds = true // Ensure clipping
+        viewSubordinateTableView.clipsToBounds = true
+        tableviewSubordinateLog.layer.cornerRadius = 10
+        tableviewSubordinateLog.layer.masksToBounds = true
+        tableviewSubordinateLog.clipsToBounds = true
+        viewSubordinateTableView.addBordersAndRoundedCorners(bottomLeftRadius: 10, bottomRightRadius: 10, borderColor: UIColor(hexFromString: "CBCBCB"), borderWidth: 0.7)
+        
+//        tableviewSubordinateLog.backgroundColor = UIColor.white
+//        self.viewSubordinateTableView.backgroundColor = UIColor(hexFromString: "CBCBCB")
+//        self.viewSubordinateTableView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        //---TableView header/footer customization, code ends
         
     }
     
@@ -420,5 +440,36 @@ class SubordinateLogViewController: UIViewController, UITableViewDataSource, UIT
     }
     // ====================== Blur Effect END ================= \\
     
-    
+}
+
+extension UIView {
+    func addBordersAndRoundedCorners(bottomLeftRadius: CGFloat, bottomRightRadius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
+        // Set up the bottom border
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x: 0, y: self.frame.size.height - borderWidth, width: self.frame.size.width, height: borderWidth)
+        bottomBorder.backgroundColor = borderColor.cgColor
+        self.layer.addSublayer(bottomBorder)
+
+        // Set up the left border
+        let leftBorder = CALayer()
+        leftBorder.frame = CGRect(x: 0, y: 0, width: borderWidth, height: self.frame.size.height)
+        leftBorder.backgroundColor = borderColor.cgColor
+        self.layer.addSublayer(leftBorder)
+
+        // Set up the right border
+        let rightBorder = CALayer()
+        rightBorder.frame = CGRect(x: self.frame.size.width - borderWidth, y: 0, width: borderWidth, height: self.frame.size.height)
+        rightBorder.backgroundColor = borderColor.cgColor
+        self.layer.addSublayer(rightBorder)
+
+        // Set up the rounded corners
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = UIBezierPath(roundedRect: self.bounds,
+                                       byRoundingCorners: [.bottomLeft, .bottomRight],
+                                       cornerRadii: CGSize(width: bottomLeftRadius, height: bottomRightRadius)).cgPath
+        self.layer.mask = shapeLayer
+        
+    }
 }
