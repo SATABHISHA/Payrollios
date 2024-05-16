@@ -105,8 +105,8 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31-Aug-2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999403953552" translatesAutoresizingMaskIntoConstraints="NO" id="EZ3-b2-7hv">
-                                                            <rect key="frame" x="0.0" y="4.9999999999999982" width="99" height="31.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <rect key="frame" x="8" y="4.9999999999999991" width="76" height="14.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.33725490200000002" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -129,7 +129,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Present" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999403953552" translatesAutoresizingMaskIntoConstraints="NO" id="Lnh-an-ayl">
-                                                            <rect key="frame" x="304" y="4.9999999999999982" width="70" height="31.333333333333329"/>
+                                                            <rect key="frame" x="296" y="4.9999999999999982" width="70" height="31.333333333333329"/>
                                                             <color key="backgroundColor" red="0.76078431369999999" green="0.76078431369999999" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="QGb-Fd-tRF"/>
@@ -143,19 +143,19 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="xv4-yH-amy" firstAttribute="top" secondItem="kGo-Ch-N9t" secondAttribute="top" constant="5" id="1Nk-m4-VgI"/>
-                                                        <constraint firstItem="EZ3-b2-7hv" firstAttribute="leading" secondItem="kGo-Ch-N9t" secondAttribute="leading" id="1r4-vl-0vN"/>
+                                                        <constraint firstItem="EZ3-b2-7hv" firstAttribute="leading" secondItem="kGo-Ch-N9t" secondAttribute="leading" constant="8" id="1r4-vl-0vN"/>
                                                         <constraint firstItem="OtB-Z8-LpE" firstAttribute="top" secondItem="434-2q-kUP" secondAttribute="bottom" constant="5.3300000000000001" id="EgY-Ed-Gpf"/>
                                                         <constraint firstItem="434-2q-kUP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xv4-yH-amy" secondAttribute="trailing" constant="8" id="GVe-Vc-d3h"/>
-                                                        <constraint firstItem="xv4-yH-amy" firstAttribute="leading" secondItem="EZ3-b2-7hv" secondAttribute="trailing" constant="8" id="QUV-zK-1mU"/>
+                                                        <constraint firstItem="xv4-yH-amy" firstAttribute="leading" secondItem="EZ3-b2-7hv" secondAttribute="trailing" constant="23" id="QUV-zK-1mU"/>
                                                         <constraint firstItem="EZ3-b2-7hv" firstAttribute="top" secondItem="kGo-Ch-N9t" secondAttribute="top" constant="5" id="UrY-fF-MYf"/>
                                                         <constraint firstItem="OtB-Z8-LpE" firstAttribute="top" secondItem="Lnh-an-ayl" secondAttribute="bottom" constant="5.3300000000000001" id="Vpc-X1-WgI"/>
                                                         <constraint firstItem="434-2q-kUP" firstAttribute="leading" secondItem="xv4-yH-amy" secondAttribute="trailing" constant="8" symbolic="YES" id="Wgx-du-ZVj"/>
                                                         <constraint firstAttribute="bottom" secondItem="OtB-Z8-LpE" secondAttribute="bottom" id="e3g-9p-sqy"/>
                                                         <constraint firstItem="OtB-Z8-LpE" firstAttribute="top" secondItem="xv4-yH-amy" secondAttribute="bottom" constant="5.3300000000000001" id="elr-Ua-Ned"/>
                                                         <constraint firstItem="434-2q-kUP" firstAttribute="top" secondItem="kGo-Ch-N9t" secondAttribute="top" constant="5" id="ic2-tS-pcu"/>
-                                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="EZ3-b2-7hv" secondAttribute="trailing" constant="275" id="jBA-y7-wnN"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Lnh-an-ayl" secondAttribute="trailing" id="rVj-pr-kCd"/>
-                                                        <constraint firstItem="OtB-Z8-LpE" firstAttribute="top" secondItem="EZ3-b2-7hv" secondAttribute="bottom" constant="5.3300000000000001" id="t5e-as-Qv3"/>
+                                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="EZ3-b2-7hv" secondAttribute="trailing" constant="298" id="jBA-y7-wnN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Lnh-an-ayl" secondAttribute="trailing" constant="8" id="rVj-pr-kCd"/>
+                                                        <constraint firstItem="OtB-Z8-LpE" firstAttribute="top" secondItem="EZ3-b2-7hv" secondAttribute="bottom" constant="22" id="t5e-as-Qv3"/>
                                                         <constraint firstItem="Lnh-an-ayl" firstAttribute="top" secondItem="kGo-Ch-N9t" secondAttribute="top" constant="5" id="u4f-zz-Z9E"/>
                                                         <constraint firstItem="OtB-Z8-LpE" firstAttribute="leading" secondItem="kGo-Ch-N9t" secondAttribute="leading" id="vAh-fP-ONb"/>
                                                         <constraint firstAttribute="trailing" secondItem="OtB-Z8-LpE" secondAttribute="trailing" id="yez-bd-d7O"/>
