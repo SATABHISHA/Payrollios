@@ -77,6 +77,12 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
         /*let tapGestureRecognizerSwipeUpAttendanceDetails = UITapGestureRecognizer(target: self, action: #selector(swipe_up_attendance_details(tapGestureRecognizer: )))
         SwipeUpAnimationView.isUserInteractionEnabled = true
         SwipeUpAnimationView.addGestureRecognizer(tapGestureRecognizerSwipeUpAttendanceDetails)*/
+        self.tableviewSubordinateMyAttendanceLog.delegate = self
+        self.tableviewSubordinateMyAttendanceLog.dataSource = self
+        tableviewSubordinateMyAttendanceLog.backgroundColor = UIColor(hexFromString: "ffffff")
+        self.tableviewSubordinateMyAttendanceLog.borderWidth = 0.8
+        self.tableviewSubordinateMyAttendanceLog.borderColor = UIColor(hexFromString: "CBCBCB")
+        
         //---TableHeader and TableFooter customization, code ends(added on 27-Mar-2024)
         
         
@@ -128,7 +134,7 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
             self!.label_date.isHidden = false
             
             self!.loadData(month_number: self!.month_number!, year: self!.year!)
-            sender.setTitleColor(UIColor(hexFromString: "000000"), for: .normal)
+            sender.setTitleColor(UIColor(hexFromString: "565555"), for: .normal)
             
             //--adeded on 24th feb, ends
         }
