@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import DropDown
+import Lottie
 
 class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,12 +17,24 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     @IBOutlet weak var label_date: UILabel!
     @IBOutlet weak var btn_next: UIButton!
     @IBOutlet weak var btn_prev: UIButton!
+    @IBOutlet weak var StackViewTableHeader: UIStackView!
+    @IBOutlet weak var ViewTableCustomFooter: UIView!
     
+    @IBOutlet weak var label_total_hours: UILabel!
+    @IBOutlet weak var label_total_present_count: UILabel!
+    @IBOutlet weak var SwipeUpAnimationView: LottieAnimationView!
+    var month_number:Int?
+    var year:Int?
+    
+    lazy var TotalOfficeWorkingDaysTillDate = 0
+    lazy var TotalOfficePresent : Int = 0
+    lazy var TotalAbsent : Int = 0
+    lazy var TotalLate : Int = 0
+    lazy var TotalHoliday : Int = 0
+    lazy var TotalLeave : Int = 0
     var arrRes = [[String:AnyObject]]()
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
-    var month_number:Int?
-    var year:Int?
     
     let dropDown = DropDown()
     var name = [String]()
@@ -29,6 +42,43 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         ChangeStatusBarColor() //---to change background statusbar color
+        
+        //---TableHeader and TableFooter customization, code starts(added on 27-Mar-2024)
+        self.StackViewTableHeader.clipsToBounds = true
+        self.StackViewTableHeader.layer.cornerRadius = 10
+        self.StackViewTableHeader.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.StackViewTableHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        self.StackViewTableHeader.layer.shadowColor = UIColor.gray.cgColor
+        self.StackViewTableHeader.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.StackViewTableHeader.layer.shadowOpacity = 3
+        self.StackViewTableHeader.layer.shadowRadius = 3.0
+        
+        self.ViewTableCustomFooter.clipsToBounds = true
+        self.ViewTableCustomFooter.layer.cornerRadius = 10
+        self.ViewTableCustomFooter.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.ViewTableCustomFooter.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        self.ViewTableCustomFooter.layer.shadowColor = UIColor.gray.cgColor
+        self.ViewTableCustomFooter.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.ViewTableCustomFooter.layer.shadowOpacity = 3
+        self.ViewTableCustomFooter.layer.shadowRadius = 3.0
+        
+        
+        SwipeUpAnimationView.layer.cornerRadius = SwipeUpAnimationView.frame.width / 2
+        SwipeUpAnimationView.layer.masksToBounds = true
+        
+        SwipeUpAnimationView.contentMode = .scaleAspectFit
+        SwipeUpAnimationView.loopMode = .loop
+        SwipeUpAnimationView.animationSpeed = 0.8
+//        SwipeUpAnimationView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        SwipeUpAnimationView.play()
+        
+        /*let tapGestureRecognizerSwipeUpAttendanceDetails = UITapGestureRecognizer(target: self, action: #selector(swipe_up_attendance_details(tapGestureRecognizer: )))
+        SwipeUpAnimationView.isUserInteractionEnabled = true
+        SwipeUpAnimationView.addGestureRecognizer(tapGestureRecognizerSwipeUpAttendanceDetails)*/
+        //---TableHeader and TableFooter customization, code ends(added on 27-Mar-2024)
+        
         
         self.tableviewSubordinateMyAttendanceLog.delegate = self
         self.tableviewSubordinateMyAttendanceLog.dataSource = self

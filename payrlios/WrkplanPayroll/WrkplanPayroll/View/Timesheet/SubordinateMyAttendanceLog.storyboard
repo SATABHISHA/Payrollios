@@ -316,9 +316,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="StackViewTableHeader" destination="v1T-Ou-wMa" id="oW2-uJ-juh"/>
+                        <outlet property="SwipeUpAnimationView" destination="eWL-cV-q7n" id="aO1-20-jLY"/>
+                        <outlet property="ViewTableCustomFooter" destination="Ahd-ba-B5A" id="qqE-Y6-lov"/>
                         <outlet property="btn_next" destination="vUb-7M-TRl" id="gue-fZ-Jo6"/>
                         <outlet property="btn_prev" destination="DmE-7K-Xjf" id="TT9-1F-phd"/>
                         <outlet property="label_date" destination="ekX-eD-tdz" id="aBH-H7-9yr"/>
+                        <outlet property="label_total_hours" destination="vIn-1O-ANr" id="KV8-pZ-7ej"/>
+                        <outlet property="label_total_present_count" destination="vM1-Dt-ufM" id="za2-mM-AZL"/>
                         <outlet property="tableviewSubordinateMyAttendanceLog" destination="fYn-v0-YtM" id="kYb-zK-YMO"/>
                         <segue destination="rxp-6K-rdd" kind="modal" identifier="subordinatelog" modalPresentationStyle="fullScreen" id="K79-c9-3TR"/>
                     </connections>
