@@ -203,6 +203,7 @@ class MyAttendanceLogViewController: UIViewController, UITableViewDelegate, UITa
             //            cell.label_status.backgroundColor = UIColor(hexFromString: "#00FF00")
             cell.label_status.cornerRadius = 5
         }
+        
         else{
             cell.label_status.isHidden = true
             cell.label_status.backgroundColor = UIColor(hexFromString: "#ffffff")
