@@ -284,6 +284,9 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     }
     //--------function to show log details using Alamofire and Json Swifty code ends------------
     
+    
+   
+    
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var blurEffectView: UIVisualEffectView!
