@@ -74,9 +74,9 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
 //        SwipeUpAnimationView.transform = CGAffineTransform(scaleX: 1, y: -1)
         SwipeUpAnimationView.play()
         
-        /*let tapGestureRecognizerSwipeUpAttendanceDetails = UITapGestureRecognizer(target: self, action: #selector(swipe_up_attendance_details(tapGestureRecognizer: )))
+        let tapGestureRecognizerSwipeUpAttendanceDetails = UITapGestureRecognizer(target: self, action: #selector(swipe_up_attendance_details(tapGestureRecognizer: )))
         SwipeUpAnimationView.isUserInteractionEnabled = true
-        SwipeUpAnimationView.addGestureRecognizer(tapGestureRecognizerSwipeUpAttendanceDetails)*/
+        SwipeUpAnimationView.addGestureRecognizer(tapGestureRecognizerSwipeUpAttendanceDetails)
         self.tableviewSubordinateMyAttendanceLog.delegate = self
         self.tableviewSubordinateMyAttendanceLog.dataSource = self
         tableviewSubordinateMyAttendanceLog.backgroundColor = UIColor(hexFromString: "ffffff")
@@ -105,6 +105,10 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
         
         getEmpName()
         print("name-=>",name)
+    }
+    
+    @objc func swipe_up_attendance_details(tapGestureRecognizer: UITapGestureRecognizer){
+       openAttendanceDetailsPopup()
     }
     
     @IBAction func btn_back(_ sender: Any) {
@@ -243,7 +247,20 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
         
     }
     //----------tableview code ends------------
-    
+    //---code added on 20-May-2024, starts
+    // Function to calculate total hours between time_in and time_out
+    func calculateTotalHours(timeIn: String, timeOut: String) -> Double? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mma"
+        guard let dateIn = dateFormatter.date(from: timeIn),
+              let dateOut = dateFormatter.date(from: timeOut) else {
+            return nil
+        }
+        let timeDifference = dateOut.timeIntervalSince(dateIn)
+        let totalHours = timeDifference / 3600 // 3600 seconds in an hour
+        return totalHours
+    }
+    //---code added on 20-May-2024, ends
     //--------function to show log details using Alamofire and Json Swifty------------
     func loadData(month_number:Int, year:Int){
         loaderStart()
@@ -261,9 +278,97 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
                 self.label_date.text = "\(swiftyJsonVar["month_name"].stringValue), \(swiftyJsonVar["year"].stringValue)"
                 
                 
+                /*if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
+                    self.arrRes = resData as! [[String:AnyObject]]
+                }*/
+                //---added on 20-May-2024, code starts
+                //---added on 24-April-2024, code starts
+                if let dayWiseLogs = swiftyJsonVar["day_wise_logs"].array {
+                     // Filter logs up to the current date
+                     let filteredLogs = dayWiseLogs.prefix(while: { log in
+                         if let dateString = log["date"].string {
+                             let dateFormatter = DateFormatter()
+                             dateFormatter.dateFormat = "dd-MMM-yyyy"
+                             if let logDate = dateFormatter.date(from: dateString), logDate <= Date() {
+                                 return true
+                             }
+                         }
+                         return false
+                     })
+
+                     // Count occurrences of "Holiday" and "Week Off"
+                    let holidayCount = filteredLogs.filter {
+                        $0["attendance_status"].stringValue == "Holiday"
+                    }.count
+                     let weekOffCount = filteredLogs.filter { $0["attendance_status"].stringValue == "Week Off" }.count
+                     let leaveCount = filteredLogs.filter { $0["attendance_status"].stringValue == "Leave" }.count
+                    
+                     self.TotalHoliday = holidayCount
+                     self.TotalLeave = leaveCount
+
+                     print("Holiday count: \(holidayCount)")
+                     print("Week Off count: \(weekOffCount)")
+                    
+                    // Total count of days up to current date
+                     let totalDaysCount = filteredLogs.count
+                     print("Total days count: \(totalDaysCount)")
+                    self.TotalOfficeWorkingDaysTillDate = (totalDaysCount - (holidayCount+weekOffCount))
+                    
+                    
+                    // Count occurrences of time_in greater than 10:00AM
+                    let lateTimeInCount = filteredLogs.filter {
+                        let timeIn = $0["time_in"].stringValue
+                        let timeFormatter = DateFormatter()
+                        timeFormatter.dateFormat = "h:mma"
+                        if let date = timeFormatter.date(from: timeIn), date > timeFormatter.date(from: "10:00AM")! {
+                            return true
+                        }
+                        return false
+                    }.count
+                    self.TotalLate = lateTimeInCount
+                 }
+                //---added on 24-April-2024, code ends
+                
+                var totalPresent = 0
+                if let totalPresentCount = swiftyJsonVar["day_wise_logs"].array?.filter({$0["attendance_status"].stringValue == "Present"}).count{
+                    totalPresent = totalPresentCount
+                }else{
+                    totalPresent = 0
+                }
+                
+                print("Total Present-=> \(String(describing: totalPresent))")
+                self.label_total_present_count.text = "Total Present: \(totalPresent)"
+                self.TotalOfficePresent = totalPresent
+                
+                guard let totalAbsentCount = swiftyJsonVar["day_wise_logs"].array?.filter({$0["attendance_status"].stringValue == "Absent"}).count else{
+                    self.TotalAbsent = 0
+                    return
+                }
+                self.TotalAbsent = totalAbsentCount
+                
                 if let resData = swiftyJsonVar["day_wise_logs"].arrayObject{
                     self.arrRes = resData as! [[String:AnyObject]]
+                    
+                    //---added on 27-Mar-2024, code starts
+                    var totalHoursTillNow = 0.00
+                    for log in self.arrRes {
+                        if let timeIn = log["time_in"] as? String ?? nil,
+                           let timeOut = log["time_out"] as? String ?? nil{
+                            if let totalHours = self.calculateTotalHours(timeIn: timeIn, timeOut: timeOut) {
+                                totalHoursTillNow = totalHoursTillNow + totalHours
+                                print("Date: \(log["date"] as? String ?? ""), Total Hours: \(totalHours)")
+                            } else {
+                                print("Invalid time format for date: \(log["date"] as? String ?? "")")
+                            }
+                        }
+                        
+                    }
+                    let formattedTotalHoursUptpTwoDecimalNumber = String(format: "%.2f", totalHoursTillNow)
+                    self.label_total_hours.text = "Total Hours: \(formattedTotalHoursUptpTwoDecimalNumber)"
+                    print("Final Hours-=> \(formattedTotalHoursUptpTwoDecimalNumber)")
+                    //---added on 27-Mar-2024, code ends
                 }
+                //---added on 20-May-2024, code ends
                 if self.arrRes.count>0 {
                     self.tableviewSubordinateMyAttendanceLog.reloadData()
                 }else{
@@ -285,7 +390,102 @@ class SubordinateMyAttendanceLogViewController: UIViewController, UITableViewDel
     //--------function to show log details using Alamofire and Json Swifty code ends------------
     
     
-   
+    //==============////--Attendance Details, code starts(added on 31-Mar-2024)--/////================
+    @IBOutlet var viewAttendanceDetailsPopup: UIView!
+    @IBOutlet var viewAttendanceDetailsChild: UIView!
+    
+    @IBOutlet weak var viewAttendanceDetailsClosePopup: LottieAnimationView!
+    
+    @IBOutlet weak var viewAttendanceDetailsLabelTotalPresent: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLabelLate: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLabelAbsent: UILabel!
+    @IBOutlet weak var viewAttendanceDetailLabelHoliday: UILabel!
+    @IBOutlet weak var viewAttendanceDetailsLeave: UILabel!
+    
+    
+    func openAttendanceDetailsPopup(){
+        blurEffect()
+        self.view.addSubview(viewAttendanceDetailsPopup)
+//        ScrollView.isScrollEnabled = false
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.height
+        let initialYPosition = self.view.bounds.height // Initial position below the screen
+           
+           // Set initial position and scale
+           viewAttendanceDetailsPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3).concatenating(CGAffineTransform(translationX: 0, y: initialYPosition))
+//        viewAttendanceDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3,y :1.3)
+//        viewAttendanceDetailsPopup.center = self.view.center
+        viewAttendanceDetailsPopup.center = CGPoint(x: self.view.center.x, y: self.view.bounds.height - ((viewAttendanceDetailsPopup.bounds.height / 2)+20))
+        viewAttendanceDetailsPopup.layer.cornerRadius = 10.0
+        //        addGoalChildFormView.layer.cornerRadius = 10.0
+        viewAttendanceDetailsPopup.alpha = 0
+        viewAttendanceDetailsPopup.sizeToFit()
+       
+        
+//        viewAttendanceDetailsClosePopup.layer.cornerRadius = viewAttendanceDetailsClosePopup.frame.width / 2
+//        viewAttendanceDetailsClosePopup.layer.masksToBounds = true
+        
+        viewAttendanceDetailsClosePopup.contentMode = .scaleAspectFit
+        viewAttendanceDetailsClosePopup.loopMode = .loop
+        viewAttendanceDetailsClosePopup.animationSpeed = 0.8
+        viewAttendanceDetailsClosePopup.transform = CGAffineTransform(scaleX: 1, y: -1)
+        viewAttendanceDetailsClosePopup.play()
+        
+        let tapGestureRecognizerSwipeDown = UITapGestureRecognizer(target: self, action: #selector(swipeDown(tapGestureRecognizer: )))
+        viewAttendanceDetailsClosePopup.isUserInteractionEnabled = true
+        viewAttendanceDetailsClosePopup.addGestureRecognizer(tapGestureRecognizerSwipeDown)
+        
+        /*UIView.animate(withDuration: 0.3){
+            self.viewAttendanceDetailsPopup.alpha = 1
+            self.viewAttendanceDetailsPopup.transform = CGAffineTransform.identity
+        }*/
+        
+        //---set childview corner radius, code starts
+        self.viewAttendanceDetailsChild.clipsToBounds = true
+        self.viewAttendanceDetailsChild.layer.cornerRadius = 10
+//        self.viewAttendanceDetailsChild.backgroundColor = UIColor(hexFromString: "CBCBCB")
+        self.viewAttendanceDetailsChild.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        //---set childview corner radius, code ends
+        
+        /*guard let TotalOfficeWorkingDaysTillDate = TotalOfficeWorkingDaysTillDate?.hashValue else{
+            self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = "0"
+            return
+        }*/
+        self.viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate.text = String(describing: TotalOfficeWorkingDaysTillDate)
+        self.viewAttendanceDetailsLabelTotalPresent.text = String(describing: TotalOfficePresent)
+        self.viewAttendanceDetailsLabelAbsent.text = String(describing: TotalAbsent)
+        self.viewAttendanceDetailsLabelLate.text = String(describing: TotalLate)
+        self.viewAttendanceDetailLabelHoliday.text = String(describing: TotalHoliday)
+        self.viewAttendanceDetailsLeave.text = String(describing: TotalLeave)
+        
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
+//            self.viewAttendanceDetailsPopup.transform = .identity
+            self.viewAttendanceDetailsPopup.alpha = 1
+            self.viewAttendanceDetailsPopup.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+    func cancelAttendanceDetailsPopup(){
+        let initialYPosition = self.view.bounds.height // Initial position below the screen
+           
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: [.curveEaseInOut], animations: {
+//            self.viewAttendanceDetailsPopup.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            // Set initial position and scale
+            self.viewAttendanceDetailsPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3).concatenating(CGAffineTransform(translationX: 0, y: initialYPosition))
+            
+            self.viewAttendanceDetailsPopup.alpha = 0
+            self.blurEffectView.alpha = 0.3
+        }) { (success) in
+            self.viewAttendanceDetailsPopup.removeFromSuperview();
+            self.canelBlurEffect()
+//            self.ScrollView.isScrollEnabled = true
+        }
+    }
+    @objc func swipeDown(tapGestureRecognizer: UITapGestureRecognizer){
+        cancelAttendanceDetailsPopup()
+    }
+    
+    //==============////--Attendance Details, code ends(added on 31-Mar-2024)--/////================
     
     // ====================== Blur Effect Defiend START ================= \\
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()

@@ -336,6 +336,15 @@
                         <outlet property="label_total_hours" destination="vIn-1O-ANr" id="KV8-pZ-7ej"/>
                         <outlet property="label_total_present_count" destination="vM1-Dt-ufM" id="za2-mM-AZL"/>
                         <outlet property="tableviewSubordinateMyAttendanceLog" destination="fYn-v0-YtM" id="kYb-zK-YMO"/>
+                        <outlet property="viewAttendanceDetailLabelHoliday" destination="Gc9-yt-pZE" id="e0y-q7-Ude"/>
+                        <outlet property="viewAttendanceDetailsChild" destination="8vw-qb-R4R" id="dTs-9K-VHF"/>
+                        <outlet property="viewAttendanceDetailsClosePopup" destination="eXl-Tz-Cr2" id="cW2-fQ-bFH"/>
+                        <outlet property="viewAttendanceDetailsLabelAbsent" destination="Qfh-UR-b0e" id="pgC-Fc-Ww6"/>
+                        <outlet property="viewAttendanceDetailsLabelLate" destination="iie-Zi-uTr" id="GKo-hh-c4v"/>
+                        <outlet property="viewAttendanceDetailsLabelTotalOfficeWorkingDaysTillDate" destination="TDC-6h-eMH" id="cfn-Ym-Unm"/>
+                        <outlet property="viewAttendanceDetailsLabelTotalPresent" destination="gSM-Mq-WiY" id="ctr-IY-b4s"/>
+                        <outlet property="viewAttendanceDetailsLeave" destination="qxZ-Ls-G9e" id="MJB-6x-ZSl"/>
+                        <outlet property="viewAttendanceDetailsPopup" destination="04c-73-ixq" id="Ex6-ck-GmT"/>
                         <segue destination="rxp-6K-rdd" kind="modal" identifier="subordinatelog" modalPresentationStyle="fullScreen" id="K79-c9-3TR"/>
                     </connections>
                 </viewController>
