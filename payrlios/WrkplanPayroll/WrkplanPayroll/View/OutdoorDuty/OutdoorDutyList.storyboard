@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -114,9 +113,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="65"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OD/2019/534267" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGI-hv-w3h">
-                                                            <rect key="frame" x="5" y="5" width="116.33333333333333" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                            <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <rect key="frame" x="5" y="5" width="109" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-06-21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmx-lw-D0a">
@@ -125,13 +124,13 @@
                                                             <color key="textColor" red="0.65490196078431373" green="0.65490196078431373" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-29-5kJ">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-29-5kJ">
                                                             <rect key="frame" x="5" y="38" width="65" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="65" id="Ttj-tL-bwI"/>
                                                                 <constraint firstAttribute="height" constant="20" id="hMT-xT-nMv"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
@@ -152,19 +151,41 @@
                                                             <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="delete_record_od_request" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-AT-7Rh">
-                                                            <rect key="frame" x="84" y="39" width="23" height="22"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbC-Lb-Qod">
+                                                            <rect key="frame" x="87" y="37" width="65" height="20"/>
+                                                            <color key="backgroundColor" red="0.88235294117647056" green="0.27058823529411763" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="22" id="4GK-ar-Rkk"/>
-                                                                <constraint firstAttribute="width" constant="23" id="v8o-VA-3Uo"/>
+                                                                <constraint firstAttribute="width" constant="65" id="UG5-te-CSz"/>
+                                                                <constraint firstAttribute="height" constant="20" id="kWh-gD-E7G"/>
                                                             </constraints>
-                                                        </imageView>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.88425618409999995" green="0.27128829640000002" blue="0.23057859659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="0.69999999999999996"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TO-DM-l76">
+                                                            <rect key="frame" x="78" y="40" width="1" height="15"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="1" id="0Iq-KZ-wGG"/>
+                                                                <constraint firstAttribute="height" constant="15" id="UIL-da-60Z"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="TIq-29-5kJ" secondAttribute="bottom" constant="7" id="0mu-U4-mGh"/>
-                                                        <constraint firstAttribute="bottom" secondItem="SP4-AT-7Rh" secondAttribute="bottom" constant="4" id="HIn-bb-UvA"/>
-                                                        <constraint firstAttribute="bottom" secondItem="SP4-AT-7Rh" secondAttribute="bottom" constant="4" id="JHo-kT-Bcp"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7TO-DM-l76" secondAttribute="bottom" constant="7" id="A5y-tv-z8u"/>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="top" secondItem="UBE-rV-9hf" secondAttribute="top" constant="5" id="PxU-yN-RPp"/>
                                                         <constraint firstAttribute="trailing" secondItem="X21-9t-147" secondAttribute="trailing" constant="20" id="Xzr-rQ-i6E"/>
                                                         <constraint firstItem="X21-9t-147" firstAttribute="centerY" secondItem="UBE-rV-9hf" secondAttribute="centerY" id="b7v-Ki-Tl4"/>
@@ -172,13 +193,16 @@
                                                         <constraint firstItem="Xmx-lw-D0a" firstAttribute="top" secondItem="jGI-hv-w3h" secondAttribute="bottom" id="d78-uz-Gii"/>
                                                         <constraint firstItem="Xmx-lw-D0a" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="dPg-XK-1gd"/>
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="gGZ-kR-eZ6"/>
+                                                        <constraint firstItem="7TO-DM-l76" firstAttribute="leading" secondItem="TIq-29-5kJ" secondAttribute="trailing" constant="8" id="hjb-IR-ocf"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jGI-hv-w3h" secondAttribute="bottom" constant="44" id="kRF-N2-TbP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GbC-Lb-Qod" secondAttribute="bottom" constant="8" id="qKw-VM-gdO"/>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="qix-Gv-Da8"/>
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="top" secondItem="Xmx-lw-D0a" secondAttribute="bottom" id="rWP-nZ-9ho"/>
+                                                        <constraint firstItem="GbC-Lb-Qod" firstAttribute="leading" secondItem="7TO-DM-l76" secondAttribute="trailing" constant="8" id="y1b-sn-BTE"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemMintColor"/>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="UBE-rV-9hf" secondAttribute="trailing" id="B4F-Tf-MvP"/>
                                                 <constraint firstItem="UBE-rV-9hf" firstAttribute="leading" secondItem="yqm-cf-5cL" secondAttribute="leading" id="CJM-Rk-NSt"/>
@@ -187,7 +211,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="custom_img_btn_delete" destination="SP4-AT-7Rh" id="xF9-5r-UBd"/>
+                                            <outlet property="custom_delimeter_for_delete" destination="7TO-DM-l76" id="J7C-Qq-eje"/>
+                                            <outlet property="custom_label_btn_delete" destination="GbC-Lb-Qod" id="lN4-Hg-yt0"/>
                                             <outlet property="label_day_count" destination="X21-9t-147" id="aeg-ZH-HEJ"/>
                                             <outlet property="label_od_date" destination="Xmx-lw-D0a" id="FIv-lK-iXd"/>
                                             <outlet property="label_od_no" destination="jGI-hv-w3h" id="Pw2-ql-XFK"/>
@@ -196,6 +221,26 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.72991635101010099" green="0.72991635101010099" blue="0.72991635101010099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.72991635101010099" green="0.72991635101010099" blue="0.72991635101010099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NCf-G8-CEk"/>
@@ -259,9 +304,5 @@
     </scenes>
     <resources>
         <image name="backarrownew" width="200" height="200"/>
-        <image name="delete_record_od_request" width="256" height="256"/>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

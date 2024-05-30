@@ -31,6 +31,20 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
         self.TableViewOutdoorList.delegate = self
         self.TableViewOutdoorList.dataSource = self
         
+        //---added on 30-May-2024, code starts
+        self.TableViewOutdoorList.clipsToBounds = true
+        self.TableViewOutdoorList.layer.cornerRadius = 10
+
+        self.TableViewOutdoorList.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMinYCorner]
+        self.TableViewOutdoorList.borderWidth = 1
+        self.TableViewOutdoorList.borderColor = UIColor(hexFromString: "CBCBCB")
+        
+        self.TableViewOutdoorList.layer.shadowColor = UIColor.gray.cgColor
+        self.TableViewOutdoorList.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.TableViewOutdoorList.layer.shadowOpacity = 5
+        self.TableViewOutdoorList.layer.shadowRadius = 8.0
+        //---added on 30-May-2024, code ends
+        
         
         //EmployeeInformation
         let tapGestureRecognizer_view_new_od_duty_request = UITapGestureRecognizer(target: self, action: #selector(view_new_od_duty_request(tapGestureRecognizer:)))
@@ -99,9 +113,15 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
          cell.label_status.text = dict["attendance_status"] as? String
          cell.label_status.backgroundColor = UIColor(hexFromString: (dict["attendance_color"] as? String)!)*/
         if dict["od_status"] as? String == "Save"{
-            cell.custom_img_btn_delete.isHidden = false
+//            cell.custom_img_btn_delete.isHidden = false
+            cell.custom_label_btn_delete.isHidden = false
+            cell.custom_delimeter_for_delete.isHidden = false
+            cell.custom_label_btn_delete.clipsToBounds = true
+            cell.custom_label_btn_delete.cornerRadius = 5
         }else{
-            cell.custom_img_btn_delete.isHidden = true
+//            cell.custom_img_btn_delete.isHidden = true
+            cell.custom_label_btn_delete.isHidden = true
+            cell.custom_delimeter_for_delete.isHidden = true
         }
         
         if dict["od_status"] as? String == "Approved"{
