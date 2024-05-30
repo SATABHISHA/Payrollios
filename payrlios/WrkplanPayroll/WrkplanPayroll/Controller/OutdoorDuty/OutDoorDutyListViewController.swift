@@ -93,7 +93,7 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
             cell.label_od_date.text = dict["from_date"] as? String
         }
         
-        cell.label_day_count.text = String(describing:dict["total_days"] as! Int)
+        cell.label_day_count.text = "\(String(describing:dict["total_days"] as! Int)) Day(s)"
         cell.label_od_status.text = dict["od_status"] as? String
         /*cell.label_timeout.text = dict["time_out"] as? String
          cell.label_status.text = dict["attendance_status"] as? String
