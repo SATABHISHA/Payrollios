@@ -152,7 +152,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbC-Lb-Qod">
-                                                            <rect key="frame" x="87" y="37" width="65" height="20"/>
+                                                            <rect key="frame" x="87" y="38" width="65" height="20"/>
                                                             <color key="backgroundColor" red="0.88235294117647056" green="0.27058823529411763" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="65" id="UG5-te-CSz"/>
@@ -178,14 +178,14 @@
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="1" id="0Iq-KZ-wGG"/>
-                                                                <constraint firstAttribute="height" constant="15" id="UIL-da-60Z"/>
+                                                                <constraint firstAttribute="height" constant="14" id="UIL-da-60Z"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="TIq-29-5kJ" secondAttribute="bottom" constant="7" id="0mu-U4-mGh"/>
-                                                        <constraint firstAttribute="bottom" secondItem="7TO-DM-l76" secondAttribute="bottom" constant="7" id="A5y-tv-z8u"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7TO-DM-l76" secondAttribute="bottom" constant="9" id="A5y-tv-z8u"/>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="top" secondItem="UBE-rV-9hf" secondAttribute="top" constant="5" id="PxU-yN-RPp"/>
                                                         <constraint firstAttribute="trailing" secondItem="X21-9t-147" secondAttribute="trailing" constant="20" id="Xzr-rQ-i6E"/>
                                                         <constraint firstItem="X21-9t-147" firstAttribute="centerY" secondItem="UBE-rV-9hf" secondAttribute="centerY" id="b7v-Ki-Tl4"/>
@@ -195,7 +195,7 @@
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="gGZ-kR-eZ6"/>
                                                         <constraint firstItem="7TO-DM-l76" firstAttribute="leading" secondItem="TIq-29-5kJ" secondAttribute="trailing" constant="8" id="hjb-IR-ocf"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jGI-hv-w3h" secondAttribute="bottom" constant="44" id="kRF-N2-TbP"/>
-                                                        <constraint firstAttribute="bottom" secondItem="GbC-Lb-Qod" secondAttribute="bottom" constant="8" id="qKw-VM-gdO"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GbC-Lb-Qod" secondAttribute="bottom" constant="7" id="qKw-VM-gdO"/>
                                                         <constraint firstItem="jGI-hv-w3h" firstAttribute="leading" secondItem="UBE-rV-9hf" secondAttribute="leading" constant="5" id="qix-Gv-Da8"/>
                                                         <constraint firstItem="TIq-29-5kJ" firstAttribute="top" secondItem="Xmx-lw-D0a" secondAttribute="bottom" id="rWP-nZ-9ho"/>
                                                         <constraint firstItem="GbC-Lb-Qod" firstAttribute="leading" secondItem="7TO-DM-l76" secondAttribute="trailing" constant="8" id="y1b-sn-BTE"/>

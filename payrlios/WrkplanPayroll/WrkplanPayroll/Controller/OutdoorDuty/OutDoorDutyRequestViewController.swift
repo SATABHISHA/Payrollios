@@ -44,6 +44,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         super.viewDidLoad()
         
         ChangeStatusBarColor() //---to change background statusbar color
+        label_days_count.layer.masksToBounds = true
+        label_days_count.layer.cornerRadius = 5
         
         txt_from_date.delegate = self
         txt_to_date.delegate = self
@@ -92,7 +94,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                  custom_btn_label_save.isUserInteractionEnabled = true
                  custom_btn_label_save.alpha = 1.0
                 
-                label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+                label_days_count.text = "\(String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1))Day(s)"
              }else if txt_from_date.text!.isEmpty && txt_to_date.text!.isEmpty{
                  custom_btn_label_save.isUserInteractionEnabled = false
                  custom_btn_label_save.alpha = 0.6
@@ -383,7 +385,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         if to_date == true{
             txt_to_date.text = formatter.string(from: datePicker.date)
             print("test-=>",daysBetween(start: txt_from_date.text!, end: txt_to_date.text!))
-            label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            label_days_count.text = "\(String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1))Day(s)"
             
             if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
                 var style = ToastStyle()
@@ -407,7 +409,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         //--added on 18th Feb, code starts
         if from_date == true && txt_to_date.text != ""{
             txt_from_date.text = formatter.string(from: datePicker.date)
-            label_days_count.text = String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1)
+            label_days_count.text = "\(String(daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1))Day(s)"
             
             if (daysBetween(start: txt_from_date.text!, end: txt_to_date.text!)+1) <= 0 {
                 
@@ -502,6 +504,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
 //                    self.btn_select_type.setTitle("Work From Home", for: .normal) //---commented on 11th April 2022
                     
                     self.custom_btn_label_save.isUserInteractionEnabled = true
+                    self.custom_btn_label_save.layer.opacity = 1.0
                     //                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
                     
                     self.btn_save.isSelected = true
@@ -526,7 +529,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
 //                    self.btn_select_type.setTitle("Work From Home", for: .normal)
                     
                     self.custom_btn_label_save.isUserInteractionEnabled = false
-                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1")
+                    self.custom_btn_label_save.layer.opacity = 0.5
+//                    self.custom_btn_label_save.backgroundColor = UIColor(hexFromString: "F4F4F1") //---commented on 03-June-2024
                     
                     self.btn_submit.isSelected = true
                     self.btn_submit.isUserInteractionEnabled = false
@@ -542,7 +546,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
                 self.txt_requisition_no.text = swiftyJsonVar["fields"]["od_request_no"].stringValue
                 self.txt_from_date.text = swiftyJsonVar["fields"]["from_date"].stringValue
                 self.txt_to_date.text = swiftyJsonVar["fields"]["to_date"].stringValue
-                self.label_days_count.text = swiftyJsonVar["fields"]["total_days"].stringValue
+                self.label_days_count.text = "\(swiftyJsonVar["fields"]["total_days"].stringValue)Day(s)"
                 self.txt_view_reason.text = swiftyJsonVar["fields"]["description"].stringValue
                 self.txt_view_remarks.text = swiftyJsonVar["fields"]["supervisor_remark"].stringValue
                 self.txt_request_status.text = swiftyJsonVar["fields"]["od_status"].stringValue
@@ -566,6 +570,7 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
         }else if btn_submit.isSelected == true{
             od_status = "Submit"
         }
+//        var total_days_count = label_days_count.text!
         let sentData: [String: Any] = [
             "corp_id": swiftyJsonvar1["company"]["corporate_id"].stringValue,
             "od_request_id": od_request_id,
@@ -573,7 +578,8 @@ class OutDoorDutyRequestViewController: UIViewController, UITextFieldDelegate, U
             "employee_id": swiftyJsonvar1["employee"]["employee_id"].stringValue,
             "from_date": txt_from_date.text!,
             "to_date": txt_to_date.text!,
-            "total_days": label_days_count.text!,
+//            "total_days": label_days_count.text!,
+            "total_days": String(label_days_count.text!.compactMap { $0.isNumber ? $0 : nil }),
             "description": txt_view_reason.text!,
             "supervisor_remark": txt_view_remarks.text!,
             "od_status": od_status!,
