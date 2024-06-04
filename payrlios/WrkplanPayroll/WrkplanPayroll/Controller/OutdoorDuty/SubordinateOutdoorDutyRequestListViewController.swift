@@ -61,6 +61,16 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
         self.tableviewSubordinateDutyRequestList.reloadData()
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+
+        filteredTableData = arrRes
+
+        searchBar.endEditing(true)
+
+        self.tableviewSubordinateDutyRequestList.reloadData()
+    }
+    
     //---added on 14th April, code ends
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredTableData.count
@@ -89,7 +99,7 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
             cell.label_od_date.text = dict["from_date"] as? String
         }
         
-        cell.label_day_count.text = String(describing:dict["total_days"] as! Int)
+        cell.label_day_count.text = "\(String(describing:dict["total_days"] as! Int))Day(s)"
         cell.label_od_status.text = dict["od_status"] as? String
         cell.label_subordinate_name.text = dict["employee_name"] as? String
         /*cell.label_timeout.text = dict["time_out"] as? String
