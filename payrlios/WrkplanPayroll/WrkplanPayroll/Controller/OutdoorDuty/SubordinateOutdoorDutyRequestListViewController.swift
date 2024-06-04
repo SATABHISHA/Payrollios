@@ -14,6 +14,8 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
     var arrRes = [[String:AnyObject]]()
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableviewSubordinateDutyRequestList: UITableView!
+    @IBOutlet weak var customViewTableView: UIView!
+    @IBOutlet weak var customViewSearchBar: UIView!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     public static var od_request_id: String!, supervisor_employee_id: String!
     //---added on 14th April
@@ -29,6 +31,10 @@ class SubordinateOutdoorDutyRequestListViewController: UIViewController, UITable
         self.searchBar.delegate = self
         
         tableviewSubordinateDutyRequestList.backgroundColor = UIColor(hexFromString: "ffffff")
+        /*self.customViewTableView.cornerRadius = 8
+        self.customViewTableView.borderColor = UIColor(hexFromString: "DCDCDC")
+        self.customViewTableView.borderWidth = 1.0*/
+        
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.backgroundColor = UIColor.white
         searchBar.searchTextField.textColor = UIColor.black
