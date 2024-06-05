@@ -19,6 +19,7 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var view_new_od_duty_request: UIButton!
     
+    @IBOutlet weak var custom_subordibnate_btn_height_constraint: NSLayoutConstraint!
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     static var new_create_yn: Bool = false
@@ -57,6 +58,15 @@ class OutDoorDutyListViewController: UIViewController, UITableViewDelegate, UITa
         label_custom_btn_subordinate_duty_rqst_list.addGestureRecognizer(tapGestureRecognizer_subordinate_duty_rqst_list)
         
         // Do any additional setup after loading the view.
+        //---added on 05-06-2024, code starts
+        if swiftyJsonvar1["user"]["user_type"].stringValue == "Employee"{
+            self.custom_subordibnate_btn_height_constraint.constant = 0
+        }else if swiftyJsonvar1["user"]["user_type"].stringValue == "Supervisor"{
+            self.custom_subordibnate_btn_height_constraint.constant = 50
+        }
+        //---added on 05-06-2024, code ends
+        
+        
         loadData()
     }
     //OdDutyRequest

@@ -71,10 +71,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejb-6J-fB2" customClass="DesignableButton" customModule="WrkplanPayroll" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subordinate OD Duty Request" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBz-wj-xI4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.18039215689999999" green="0.3411764706" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -83,10 +83,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="JBz-wj-xI4" firstAttribute="top" secondItem="ejb-6J-fB2" secondAttribute="top" id="FLc-rh-xdA"/>
-                                    <constraint firstAttribute="height" constant="60" id="FMg-6O-gB6"/>
+                                    <constraint firstAttribute="height" constant="50" id="FMg-6O-gB6"/>
                                     <constraint firstAttribute="trailing" secondItem="JBz-wj-xI4" secondAttribute="trailing" id="afQ-z9-n4h"/>
                                     <constraint firstItem="JBz-wj-xI4" firstAttribute="leading" secondItem="ejb-6J-fB2" secondAttribute="leading" id="nYr-VP-0wE"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="oRK-9Y-8Hy"/>
                                     <constraint firstAttribute="bottom" secondItem="JBz-wj-xI4" secondAttribute="bottom" id="ptF-JX-zOE"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -99,7 +98,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EM3-sA-HzV">
-                                <rect key="frame" x="20" y="104" width="374" height="552"/>
+                                <rect key="frame" x="20" y="104" width="374" height="562"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="66" id="7Mr-YX-8uf" customClass="OutDoorDutyListTableViewCell" customModule="WrkplanPayroll" customModuleProvider="target">
@@ -260,6 +259,7 @@
                     </view>
                     <connections>
                         <outlet property="TableViewOutdoorList" destination="EM3-sA-HzV" id="ohU-Rq-xsc"/>
+                        <outlet property="custom_subordibnate_btn_height_constraint" destination="FMg-6O-gB6" id="c5P-Jf-RWE"/>
                         <outlet property="label_custom_btn_subordinate_duty_rqst_list" destination="ejb-6J-fB2" id="Jbv-Sg-uys"/>
                         <outlet property="view_new_od_duty_request" destination="mqD-XD-Qnu" id="UA3-7h-q3S"/>
                         <segue destination="eBP-ro-AzL" kind="modal" identifier="home" modalPresentationStyle="fullScreen" id="ien-bZ-2rw"/>
