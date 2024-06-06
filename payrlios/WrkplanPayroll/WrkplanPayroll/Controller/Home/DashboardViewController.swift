@@ -223,6 +223,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     }
     
     
+    
     //---added on 13-Mar-2024, code starts
     @objc func handleAppDidBecomeActiveNotification(notification: Notification) {
         load_data_check_od_duty()
@@ -1392,55 +1393,96 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
     //---ViewBtnInOut OnClick
     @objc func ViewBtn(tapGestureRecognizer: UITapGestureRecognizer){
         
-        //---added on 247-feb-2024, code starts
-        // Initialize capture session
-               captureSession = AVCaptureSession()
-               
-               // Get the default AVCaptureDevice for video
-               guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
-               
-               do {
-                   // Create an input for the capture session using the video device
-                   let videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-                   
-                   // Add the input to the capture session
-                   captureSession.addInput(videoInput)
-               } catch {
-                   // If an error occurs, print it out and return
-                   print(error)
-                   return
-               }
-               
-               // Initialize a AVCaptureMetadataOutput object and add it as an output
-               let metadataOutput = AVCaptureMetadataOutput()
-               captureSession.addOutput(metadataOutput)
-               
-               // Set the delegate to self and specify the dispatch queue for metadata output handling
-               metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-               metadataOutput.metadataObjectTypes = [.qr]
-               
-               // Initialize a AVCaptureVideoPreviewLayer object and add it as a sublayer
-               previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-               previewLayer.frame = view.layer.bounds
-               previewLayer.videoGravity = .resizeAspectFill
-               view.layer.addSublayer(previewLayer)
-               
-               // Start the capture session
-               captureSession.startRunning()
-        //---added on 247-feb-2024, code ends
-        
-        
-        //---cross btn, added on 13-Mar-2024, code starts
-        // Add cross button
-                crossButton = UIButton(type: .custom)
-                crossButton.setImage(UIImage(named: "cross"), for: .normal)
-                crossButton.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 10, width: 40, height: 40)
-                crossButton.addTarget(self, action: #selector(cancelSession), for: .touchUpInside)
-                view.addSubview(crossButton)
-                
-        //---cross btn, added on 13-Mar-2024, code ends
-        
         determineMyCurrentLocation(status: "Start") //---function to get lat/long
+        
+        //----06-June-2024, code starts
+        if work_from_home_flag == 1 {
+            if LabelInOut.text == "IN" {
+                 TimesheetMyAttendanceViewController.in_out = "IN"
+                 TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
+                 TimesheetMyAttendanceViewController.work_from_home_detail = self.TxtViewWFH.text!
+                 TimesheetMyAttendanceViewController.message_in_out = "Attendance IN time recorded"
+                 
+                 self.save_in_out_data(in_out: "IN", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.self.TxtViewWFH.text!, message_in_out: "Attendance IN time recorded",imageBase64: "") //--previously work from home flag was 1, but it gives some problem //--commented on 31st may temp
+   
+             }else if LabelInOut.text == "OUT"{
+                 if((work_from_home_flag == 1) && self.TxtViewWFH.text!.isEmpty){
+
+                     var style = ToastStyle()
+                     
+                     // this is just one of many style options
+                     style.messageColor = .white
+                     
+                     self.view.makeToast("Cannot save without work from home details", duration: 3.0, position: .bottom, style: style)
+
+                               }else{
+                                 
+                                 TimesheetMyAttendanceViewController.in_out = "OUT"
+                                 TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
+                                 TimesheetMyAttendanceViewController.work_from_home_detail = self.TxtViewWFH.text!
+                                 TimesheetMyAttendanceViewController.message_in_out = "Attendance OUT time recorded"
+                                   self.save_in_out_data(in_out: "OUT", work_frm_home_flag: work_from_home_flag, work_from_home_detail: self.TxtViewWFH.text!, message_in_out: "Attendance OUT time recorded", imageBase64: "")  //---commented on 31st may temp
+                                
+                                 load_data_check_od_duty() //---uncommented on 06-Jun-2024
+                                 
+     //                            self.TxtViewWFHHeightConstraint.constant = 0
+                                   self.TxtViewWFH.isUserInteractionEnabled = false
+     //                            self.btnCheckBox.isHidden = true
+                                   self.btnCheckBox.isUserInteractionEnabled = false
+                               }
+             }
+        }else if work_from_home_flag == 0{
+            
+            //---added on 247-feb-2024, code starts
+            // Initialize capture session
+                   captureSession = AVCaptureSession()
+                   
+                   // Get the default AVCaptureDevice for video
+                   guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+                   
+                   do {
+                       // Create an input for the capture session using the video device
+                       let videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+                       
+                       // Add the input to the capture session
+                       captureSession.addInput(videoInput)
+                   } catch {
+                       // If an error occurs, print it out and return
+                       print(error)
+                       return
+                   }
+                   
+                   // Initialize a AVCaptureMetadataOutput object and add it as an output
+                   let metadataOutput = AVCaptureMetadataOutput()
+                   captureSession.addOutput(metadataOutput)
+                   
+                   // Set the delegate to self and specify the dispatch queue for metadata output handling
+                   metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+                   metadataOutput.metadataObjectTypes = [.qr]
+                   
+                   // Initialize a AVCaptureVideoPreviewLayer object and add it as a sublayer
+                   previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                   previewLayer.frame = view.layer.bounds
+                   previewLayer.videoGravity = .resizeAspectFill
+                   view.layer.addSublayer(previewLayer)
+                   
+                   // Start the capture session
+                   captureSession.startRunning()
+            //---added on 247-feb-2024, code ends
+            
+            
+            //---cross btn, added on 13-Mar-2024, code starts
+            // Add cross button
+                    crossButton = UIButton(type: .custom)
+                    crossButton.setImage(UIImage(named: "cross"), for: .normal)
+                    crossButton.frame = CGRect(x: UIScreen.main.bounds.width-50, y: 10, width: 40, height: 40)
+                    crossButton.addTarget(self, action: #selector(cancelSession), for: .touchUpInside)
+                    view.addSubview(crossButton)
+                    
+            //---cross btn, added on 13-Mar-2024, code ends
+            
+        }
+        //----06-June-2024, code ends
        /* if LabelInOut.text == "IN" {
             TimesheetMyAttendanceViewController.in_out = "IN"
             TimesheetMyAttendanceViewController.work_frm_home_flag = work_from_home_flag
@@ -1658,7 +1700,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                     
                     print("timesheet_id-=>",self.timesheet_id!)
                     print("work_from_home_flag-=>",self.work_from_home_flag!)
-                    if self.timesheet_id! != 0 {
+//                    if self.timesheet_id! != 0 {  //---commented on 06-Jun-2024, as timesheet_id is always returning 0
                         if self.work_from_home_flag == 1 {
                             self.btnCheckBox.isHidden = false
                             self.label_wrk_from_home.isHidden = false
@@ -1690,7 +1732,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
                             self.TxtViewWFH.isUserInteractionEnabled = true
                             
                         }
-                    }
+//                    }  //---commented on 06-Jun-2024, as timesheet_id is always returning 0
                     if(swiftyJsonVar["timesheet_in_out_action"].exists()) {
                         if swiftyJsonVar["timesheet_in_out_action"].stringValue == "IN" {
                             self.btnCheckBox.isHidden = false

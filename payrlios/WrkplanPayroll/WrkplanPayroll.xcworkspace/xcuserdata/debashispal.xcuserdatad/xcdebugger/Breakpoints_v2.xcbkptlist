@@ -46,8 +46,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1634"
-            endingLineNumber = "1634"
+            startingLineNumber = "1676"
+            endingLineNumber = "1676"
             landmarkName = "load_data_check_od_duty()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1454"
-            endingLineNumber = "1454"
+            startingLineNumber = "1496"
+            endingLineNumber = "1496"
             landmarkName = "ViewBtn(tapGestureRecognizer:)"
             landmarkType = "7">
             <Locations>
@@ -171,8 +171,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1568"
-            endingLineNumber = "1568"
+            startingLineNumber = "1610"
+            endingLineNumber = "1610"
             landmarkName = "save_in_out_data(in_out:work_frm_home_flag:work_from_home_detail:message_in_out:imageBase64:)"
             landmarkType = "7">
             <Locations>
@@ -264,8 +264,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1287"
-            endingLineNumber = "1287"
+            startingLineNumber = "1288"
+            endingLineNumber = "1288"
             landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -280,24 +280,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1443"
-            endingLineNumber = "1443"
-            landmarkName = "ViewBtn(tapGestureRecognizer:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "98C69CF8-6F85-4393-BBE0-A9747D009DB2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1435"
-            endingLineNumber = "1435"
+            startingLineNumber = "1396"
+            endingLineNumber = "1396"
             landmarkName = "ViewBtn(tapGestureRecognizer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -312,8 +296,8 @@
             filePath = "WrkplanPayroll/Controller/Home/DashboardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1344"
-            endingLineNumber = "1344"
+            startingLineNumber = "1345"
+            endingLineNumber = "1345"
             landmarkName = "metadataOutput(_:didOutput:from:)"
             landmarkType = "7">
          </BreakpointContent>
