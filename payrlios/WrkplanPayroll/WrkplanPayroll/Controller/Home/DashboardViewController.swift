@@ -307,6 +307,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate, UIIm
         }
     }
     
+    
     func openPasswordChangePopup(){
         blurEffect()
         self.view.addSubview(viewFormDialogChangePassword)
