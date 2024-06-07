@@ -28,12 +28,12 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
     @IBOutlet weak var label_todays_od_duty_top_constraint: NSLayoutConstraint!
     @IBOutlet weak var label_date: UILabel!
     
-    @IBOutlet weak var view_border_line: UIView!
-    @IBOutlet weak var view_border_line_top_constraint: NSLayoutConstraint!
+//    @IBOutlet weak var view_border_line: UIView! //---commented on 07-June-2024, as it is deleted
+//    @IBOutlet weak var view_border_line_top_constraint: NSLayoutConstraint! //---commented on 07-June-2024, as it is deleted
     var locationManager:CLLocationManager!
     
     @IBOutlet weak var tableviewOdDutyLog: UITableView!
-    @IBOutlet weak var tableviewOdDutyLog_top_constraint: NSLayoutConstraint!
+//    @IBOutlet weak var tableviewOdDutyLog_top_constraint: NSLayoutConstraint! //---commented on 07-June-2024, as it is deleted
     let swiftyJsonvar1 = JSON(UserSingletonModel.sharedInstance.employeeJson!)
     
     var arrRes = [[String:AnyObject]]()
@@ -360,7 +360,7 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
                         self.view_start_stop.isHidden = true
                         self.label_date.isHidden = true
                         self.label_todays_od_duty.isHidden = true
-                        self.view_border_line.isHidden = true
+//                        self.view_border_line.isHidden = true //---commented on 07-June-2024, as it is deleted
                         
                         self.view_start_stop_top_constraint.constant = 0
                         self.view_start_stop_height_constraint.constant = 0
@@ -369,9 +369,9 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
                         self.view_pause_height_constraint.constant = 0
                         
                         self.label_todays_od_duty_top_constraint.constant = 0
-                        self.view_border_line_top_constraint.constant = 0
+//                        self.view_border_line_top_constraint.constant = 0 //---commented on 07-June-2024, as it is deleted
                         
-                        self.tableviewOdDutyLog_top_constraint.constant = 0
+//                        self.tableviewOdDutyLog_top_constraint.constant = 0 //---commented on 07-June-2024, as it is deleted
                     }
                 }else if swiftyJsonVar["status"] == "false"{
                     OutdoorDutyLogListViewController.od_status = "NA"
@@ -379,7 +379,7 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
                     self.view_start_stop.isHidden = true
                     self.label_date.isHidden = true
                     self.label_todays_od_duty.isHidden = true
-                    self.view_border_line.isHidden = true
+//                    self.view_border_line.isHidden = true //---commented on 07-June-2024, as it is deleted
                     
                     self.view_start_stop_top_constraint.constant = 0
                     self.view_start_stop_height_constraint.constant = 0
@@ -388,9 +388,9 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
                     self.view_pause_height_constraint.constant = 0
                     
                     self.label_todays_od_duty_top_constraint.constant = 0
-                    self.view_border_line_top_constraint.constant = 0
+//                    self.view_border_line_top_constraint.constant = 0 //---commented on 07-June-2024, as it is deleted
                     
-                    self.tableviewOdDutyLog_top_constraint.constant = 0
+//                    self.tableviewOdDutyLog_top_constraint.constant = 0 //---commented on 07-June-2024, as it is deleted
                 }
                 
             }
