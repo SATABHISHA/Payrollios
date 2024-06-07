@@ -172,7 +172,7 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
         //        cell.label_date.text = dateFormatterPrint.string(from: date!)
         
         cell.label_date.text = dict["od_duty_log_date"] as? String
-        cell.label_time_log.text = "View \n Time Log"
+        cell.label_time_log.text = "Time Log"
         
         
         return cell
@@ -331,7 +331,8 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
                     //                    self.info_img.isHidden = false
                     if swiftyJsonVar["next_action"] == "START"{
                         OutdoorDutyLogListViewController.od_status = "START"
-                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#dce9ab")
+//                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#dce9ab")
+                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#4597F7")
                         self.view_start_stop.isUserInteractionEnabled = true
                         self.img_start_stop.image = UIImage(named: "od_start")
                         self.view_pause.isHidden = true
@@ -339,14 +340,16 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
                         //                        self.img_start_stop.image =
                     }else if swiftyJsonVar["next_action"] == "PAUSE"{
                         OutdoorDutyLogListViewController.od_status = "PAUSE"
-                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#febbaf")
+//                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#febbaf")
+                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#DA3732")
                         self.view_start_stop.isUserInteractionEnabled = true
                         self.img_start_stop.image = UIImage(named: "od_stop")
                         self.label_start_stop.text = "STOP"
                         self.view_pause.isHidden = false
                     }else if swiftyJsonVar["next_action"] == "STOP"{
                         OutdoorDutyLogListViewController.od_status = "STOP"
-                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#febbaf")
+//                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#febbaf")
+                        self.view_start_stop.backgroundColor = UIColor(hexFromString: "#DA3732")
                         self.view_start_stop.isUserInteractionEnabled = true
                         self.img_start_stop.image = UIImage(named: "od_stop")
                         self.label_start_stop.text = "STOP"
