@@ -28,6 +28,8 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
     @IBOutlet weak var label_todays_od_duty_top_constraint: NSLayoutConstraint!
     @IBOutlet weak var label_date: UILabel!
     
+    @IBOutlet weak var custom_subordibnate_btn_height_constraint: NSLayoutConstraint! //---added on 07-June-2024
+    
 //    @IBOutlet weak var view_border_line: UIView! //---commented on 07-June-2024, as it is deleted
 //    @IBOutlet weak var view_border_line_top_constraint: NSLayoutConstraint! //---commented on 07-June-2024, as it is deleted
     var locationManager:CLLocationManager!
@@ -68,6 +70,14 @@ class OutdoorDutyLogListViewController: UIViewController, CLLocationManagerDeleg
         check_od_duty_log_status()
         
         loadData()
+        
+        //---added on 07-06-2024, code starts
+        if swiftyJsonvar1["user"]["user_type"].stringValue == "Employee"{
+            self.custom_subordibnate_btn_height_constraint.constant = 0
+        }else if swiftyJsonvar1["user"]["user_type"].stringValue == "Supervisor"{
+            self.custom_subordibnate_btn_height_constraint.constant = 50
+        }
+        //---added on 07-06-2024, code ends
         
         //Start/Stop
         let tapGestureRecognizerStartStopView = UITapGestureRecognizer(target: self, action: #selector(StartStopView(tapGestureRecognizer:)))
