@@ -670,7 +670,7 @@ class OdDutyLogEmployeeTaskViewController: UIViewController,UITableViewDelegate,
        
         if  OdDutyLogEmployeeTaskViewController.task_status == "Returned"{
             cell.imgviewDeleteRecord.isHidden = true
-            cell.imgViewEditRecordTrailingConstraint.constant = -40
+            cell.imgViewEditRecordTrailingConstraint.constant = -30
         }
         if  OdDutyLogEmployeeTaskViewController.task_status == "Submitted"{
             cell.imgviewDeleteRecord.isHidden = true
