@@ -267,7 +267,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
             break
             
         case self.TxtApprovedAmount:
-            if Double(TxtApprovedAmount.text!)! > 0 {
+            if Double(TxtApprovedAmount.text!) ?? 0 > 0 {
                 if Double(TxtApprovedAmount.text!)! > Double(TxtMediclaimAmount.text!)! {
                     ViewBtnApprove.isUserInteractionEnabled = false
                     ViewBtnApprove.alpha = 0.6
