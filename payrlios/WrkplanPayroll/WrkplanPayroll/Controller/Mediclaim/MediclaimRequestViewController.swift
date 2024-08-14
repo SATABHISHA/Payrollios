@@ -67,7 +67,7 @@ class MediclaimRequestViewController: UIViewController, UITextFieldDelegate, UIT
         ViewBtnApprove.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewBtnSubmit.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
         ViewBtnSave.addBorder(side: .left, color: UIColor(hexFromString: "7F7F7F"), width: 0.6)
-        ViewCustomBtnViewDocuments.addBorder(side: .left, color: UIColor(hexFromString: "000000"), width: 0.6)
+//        ViewCustomBtnViewDocuments.addBorder(side: .left, color: UIColor(hexFromString: "000000"), width: 0.6) //---commented on 14-Aug-2024
         //-----code to add button border, ends------
         
         if MediclaimListViewController.new_create_yn == true {
